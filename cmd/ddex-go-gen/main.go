@@ -160,6 +160,18 @@ func downloadFile(url, path string) error {
 	return err
 }
 
+func cleanupTempFiles(spec struct{ name, version, mainFile string }) error {
+	repoRoot := repoRootDir()
+	schemasDir := filepath.Join(repoRoot, "tmp", spec.name+"v"+spec.version)
+	
+	if err := os.RemoveAll(schemasDir); err != nil {
+		return fmt.Errorf("failed to cleanup temp directory %s: %v", schemasDir, err)
+	}
+	
+	log.Printf("Cleaned up temp directory: %s", schemasDir)
+	return nil
+}
+
 func generatePackage(spec struct{ name, version, mainFile string }) error {
 	repoRoot := repoRootDir()
 	schemasDir := filepath.Join(repoRoot, "tmp", spec.name+"v"+spec.version)
@@ -207,6 +219,10 @@ func main() {
 		
 		if err := generatePackage(spec); err != nil {
 			log.Fatalf("Failed to generate %s v%s: %v", spec.name, spec.version, err)
+		}
+		
+		if err := cleanupTempFiles(spec); err != nil {
+			log.Printf("Warning: failed to cleanup temp files for %s v%s: %v", spec.name, spec.version, err)
 		}
 	}
 }
