@@ -170,7 +170,7 @@ func generatePackage(spec struct{ name, version, mainFile string }) error {
 	os.RemoveAll(outDir)
 	os.MkdirAll(outDir, 0755)
 	
-	// Generate with xgen
+	// Generate with xgen using directory input
 	cmd := exec.Command("xgen", "-i", schemasDir, "-o", outDir, "-l", "Go", "-p", packageName)
 	cmd.Dir = repoRoot
 	output, err := cmd.CombinedOutput()
@@ -179,11 +179,11 @@ func generatePackage(spec struct{ name, version, mainFile string }) error {
 		return fmt.Errorf("xgen failed: %v", err)
 	}
 	
-	// Keep only schema files, remove xgen artifacts
-	entries, _ := os.ReadDir(outDir)
-	for _, entry := range entries {
+	// Keep only schema files, remove xgen artifacts and allowed_value_sets
+	outEntries, _ := os.ReadDir(outDir)
+	for _, entry := range outEntries {
 		name := entry.Name()
-		if !strings.HasSuffix(name, ".xsd.go") {
+		if !strings.HasSuffix(name, ".xsd.go") || name == "allowed_value_sets.xsd.go" {
 			os.RemoveAll(filepath.Join(outDir, name))
 		}
 	}
