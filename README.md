@@ -17,7 +17,7 @@ This library provides Go structs and unmarshaling support for:
 ## Installation
 
 ```bash
-go get github.com/alecsavvy/ddex-go
+go get github.com/alecsavvy/ddex-go@latest
 ```
 
 ## Quick Start

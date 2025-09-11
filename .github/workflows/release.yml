@@ -45,8 +45,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ inputs.version }}
-          name: Release ${{ inputs.version }}
+          name: ${{ inputs.version }}
           body: ${{ inputs.release_notes }}
           draft: false
-          prerelease: ${{ startsWith(inputs.version, 'v0.') }}
+          prerelease: false
           generate_release_notes: true
