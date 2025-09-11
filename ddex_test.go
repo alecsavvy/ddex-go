@@ -7,6 +7,8 @@ import (
 	"testing"
 
 	"github.com/alecsavvy/ddex-go/ernv432"
+	"github.com/alecsavvy/ddex-go/meadv11"
+	"github.com/alecsavvy/ddex-go/piev10"
 )
 
 func TestERNUnmarshaling(t *testing.T) {
@@ -118,4 +120,120 @@ func TestXMLRoundTrip(t *testing.T) {
 	}
 
 	t.Logf("Round trip successful for %s", xmlPath)
+}
+
+func TestPIEUnmarshaling(t *testing.T) {
+	testFiles := []struct {
+		filename    string
+		description string
+	}{
+		{"pie_award_example.xml", "PIE Award Example"},
+	}
+
+	for _, testFile := range testFiles {
+		t.Run(testFile.description, func(t *testing.T) {
+			// Read the sample XML file
+			xmlPath := filepath.Join("testdata", "piev10", testFile.filename)
+			xmlData, err := os.ReadFile(xmlPath)
+			if err != nil {
+				t.Fatalf("Failed to read %s: %v", xmlPath, err)
+			}
+
+			// Test PieMessage unmarshaling
+			var pieMessage piev10.PieMessage
+			err = xml.Unmarshal(xmlData, &pieMessage)
+			if err != nil {
+				t.Fatalf("Failed to unmarshal %s as PieMessage: %v", testFile.filename, err)
+			}
+
+			// Basic validation
+			if pieMessage.MessageHeader == nil {
+				t.Errorf("MessageHeader is nil in %s", testFile.filename)
+			}
+
+			if pieMessage.PartyList == nil {
+				t.Errorf("PartyList is nil in %s", testFile.filename)
+				return
+			}
+
+			// Count parties
+			partyCount := len(pieMessage.PartyList.Party)
+			if partyCount == 0 {
+				t.Errorf("No parties found in %s", testFile.filename)
+			}
+
+			// Check for awards
+			hasAwards := false
+			for _, party := range pieMessage.PartyList.Party {
+				if len(party.Award) > 0 {
+					hasAwards = true
+					break
+				}
+			}
+
+			if !hasAwards {
+				t.Errorf("No awards found in %s", testFile.filename)
+			}
+
+			t.Logf("Successfully parsed %s: %d partie(s)", testFile.filename, partyCount)
+		})
+	}
+}
+
+func TestMEADUnmarshaling(t *testing.T) {
+	testFiles := []struct {
+		filename    string
+		description string
+	}{
+		{"mead_award_example.xml", "MEAD Award Example"},
+	}
+
+	for _, testFile := range testFiles {
+		t.Run(testFile.description, func(t *testing.T) {
+			// Read the sample XML file
+			xmlPath := filepath.Join("testdata", "meadv11", testFile.filename)
+			xmlData, err := os.ReadFile(xmlPath)
+			if err != nil {
+				t.Fatalf("Failed to read %s: %v", xmlPath, err)
+			}
+
+			// Test MeadMessage unmarshaling
+			var meadMessage meadv11.MeadMessage
+			err = xml.Unmarshal(xmlData, &meadMessage)
+			if err != nil {
+				t.Fatalf("Failed to unmarshal %s as MeadMessage: %v", testFile.filename, err)
+			}
+
+			// Basic validation
+			if meadMessage.MessageHeader == nil {
+				t.Errorf("MessageHeader is nil in %s", testFile.filename)
+			}
+
+			if meadMessage.ReleaseInformationList == nil {
+				t.Errorf("ReleaseInformationList is nil in %s", testFile.filename)
+				return
+			}
+
+			// Count releases
+			releaseCount := len(meadMessage.ReleaseInformationList.ReleaseInformation)
+			if releaseCount == 0 {
+				t.Errorf("No release information found in %s", testFile.filename)
+			}
+
+			// Check for basic release data
+			hasReleaseData := false
+			for _, releaseInfo := range meadMessage.ReleaseInformationList.ReleaseInformation {
+				if releaseInfo.ReleaseSummary != nil && releaseInfo.ReleaseSummary.ReleaseId != nil {
+					hasReleaseData = true
+					break
+				}
+			}
+
+			if !hasReleaseData {
+				t.Errorf("No valid release data found in %s", testFile.filename)
+			}
+
+			t.Logf("Successfully parsed %s: %d release(s)", testFile.filename, releaseCount)
+		})
+	}
 }
