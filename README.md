@@ -80,6 +80,27 @@ type MeadMessageV11 = meadv11.MeadMessage
 type PieMessageV10 = piev10.PieMessage
 ```
 
+## Examples
+
+### Manual Testing with Real DDEX Files
+
+The `examples/` directory contains a simple tool for testing DDEX file parsing:
+
+```bash
+# Parse any DDEX file and dump the parsed structure
+go run examples/main.go -file path/to/your/ddex-file.xml
+```
+
+For safely storing real DDEX files for testing, create a `test-files/` or `ddex-samples/` directory (already gitignored):
+
+```bash
+mkdir test-files
+# Copy your DDEX files here
+go run examples/main.go -file test-files/sample.xml
+```
+
+The example will automatically detect the message type (ERN, MEAD, or PIE) and output the parsed structure.
+
 ## Development
 
 ### Running Tests

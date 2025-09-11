@@ -1,1 +1,6 @@
 /tmp
+
+# Test DDEX files (for manual testing)
+/test-files/
+/ddex-samples/
+*.ddex.xml
