@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
-	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -26,166 +24,45 @@ func main() {
 	for _, spec := range specs {
 		log.Printf("Processing %s v%s...", spec.name, spec.version)
 		
-		if err := downloadSchemas(spec); err != nil {
-			log.Fatalf("Failed to download %s v%s: %v", spec.name, spec.version, err)
+		if err := validateSchemas(spec); err != nil {
+			log.Fatalf("Schema validation failed for %s v%s: %v", spec.name, spec.version, err)
 		}
 		
 		if err := generatePackage(spec); err != nil {
 			log.Fatalf("Failed to generate %s v%s: %v", spec.name, spec.version, err)
 		}
-		
-		if err := cleanupTempFiles(spec); err != nil {
-			log.Printf("Warning: failed to cleanup temp files for %s v%s: %v", spec.name, spec.version, err)
-		}
 	}
 }
 
-func downloadSchemas(spec struct{ name, version, mainFile string }) error {
-	schemasDir := filepath.Join("tmp", spec.name+"v"+spec.version)
-	os.MkdirAll(schemasDir, 0755)
+func validateSchemas(spec struct{ name, version, mainFile string }) error {
+	schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
 	
-	// Track what we've downloaded to avoid duplicates
-	seen := make(map[string]bool)
-	
-	// Start with the main schema
-	mainURL := fmt.Sprintf("https://service.ddex.net/xml/%s/%s/%s", spec.name, spec.version, spec.mainFile)
-	return downloadRecursive(mainURL, schemasDir, seen)
-}
-
-func downloadRecursive(urlStr, schemasDir string, seen map[string]bool) error {
-	if seen[urlStr] {
-		return nil
-	}
-	seen[urlStr] = true
-	
-	// Download this file
-	filename := filepath.Base(urlStr)
-	filename = strings.ReplaceAll(filename, "-", "_") // Convert to Go-friendly names
-	localPath := filepath.Join(schemasDir, filename)
-	
-	if err := downloadFile(urlStr, localPath); err != nil {
-		return err
+	// Check if schema directory exists
+	if _, err := os.Stat(schemasDir); os.IsNotExist(err) {
+		return fmt.Errorf("schema directory %s does not exist - please ensure XSD files are placed in xsd/ directory", schemasDir)
 	}
 	
-	// Read and parse for dependencies
-	content, err := os.ReadFile(localPath)
-	if err != nil {
-		return err
-	}
-	
-	// Extract schema locations from imports/includes
-	imports := extractSchemaLocations(string(content))
-	
-	// Download dependencies recursively
-	baseURL := urlStr[:strings.LastIndex(urlStr, "/")]
-	for _, schemaLoc := range imports {
-		var depURL string
-		if strings.HasPrefix(schemaLoc, "http") {
-			// Absolute URL
-			depURL = schemaLoc
-		} else {
-			// Relative URL - resolve against base
-			depURL = resolveURL(baseURL, schemaLoc)
-		}
-		
-		if err := downloadRecursive(depURL, schemasDir, seen); err != nil {
-			log.Printf("Warning: failed to download dependency %s: %v", depURL, err)
+	// Check if main schema file exists (try both original name and underscore version)
+	mainSchemaPath := filepath.Join(schemasDir, spec.mainFile)
+	if _, err := os.Stat(mainSchemaPath); os.IsNotExist(err) {
+		// Try with underscores
+		mainSchemaPath = filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_"))
+		if _, err := os.Stat(mainSchemaPath); os.IsNotExist(err) {
+			return fmt.Errorf("main schema file not found (tried %s and %s)", 
+				filepath.Join(schemasDir, spec.mainFile),
+				filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_")))
 		}
 	}
 	
-	// Fix schema locations in this file to point to local files
-	fixedContent := fixSchemaLocations(string(content))
-	return os.WriteFile(localPath, []byte(fixedContent), 0644)
-}
-
-func extractSchemaLocations(content string) []string {
-	var locations []string
-	
-	// Simple regex-like extraction of schemaLocation attributes
-	lines := strings.Split(content, "\n")
-	for _, line := range lines {
-		if strings.Contains(line, "schemaLocation=") {
-			start := strings.Index(line, `schemaLocation="`)
-			if start == -1 {
-				continue
-			}
-			start += len(`schemaLocation="`)
-			end := strings.Index(line[start:], `"`)
-			if end == -1 {
-				continue
-			}
-			schemaLoc := line[start : start+end]
-			if schemaLoc != "" {
-				locations = append(locations, schemaLoc)
-			}
-		}
-	}
-	
-	return locations
-}
-
-func resolveURL(baseURL, relativePath string) string {
-	// Handle relative paths like ../../../../ddex.net/xml/...
-	if strings.HasPrefix(relativePath, "../") {
-		// For now, just handle the common ddex.net case
-		if strings.Contains(relativePath, "ddex.net") {
-			return "http://" + relativePath[strings.Index(relativePath, "ddex.net"):]
-		}
-	}
-	return baseURL + "/" + relativePath
-}
-
-func fixSchemaLocations(content string) string {
-	// Replace remote schema locations with local filenames
-	fixed := content
-	
-	// Extract all schemaLocation values and replace with just the filename
-	locations := extractSchemaLocations(content)
-	for _, loc := range locations {
-		if strings.Contains(loc, "/") {
-			// Get just the filename from the path
-			filename := filepath.Base(loc)
-			filename = strings.ReplaceAll(filename, "-", "_") // Convert to Go-friendly names
-			fixed = strings.ReplaceAll(fixed, `"`+loc+`"`, `"`+filename+`"`)
-		}
-	}
-	
-	return fixed
-}
-
-func downloadFile(url, path string) error {
-	resp, err := http.Get(url)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
-	
-	file, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-	
-	_, err = io.Copy(file, resp.Body)
-	log.Printf("Downloaded %s", filepath.Base(path))
-	return err
-}
-
-func cleanupTempFiles(spec struct{ name, version, mainFile string }) error {
-	schemasDir := filepath.Join("tmp", spec.name+"v"+spec.version)
-	
-	if err := os.RemoveAll(schemasDir); err != nil {
-		return fmt.Errorf("failed to cleanup temp directory %s: %v", schemasDir, err)
-	}
-	
-	log.Printf("Cleaned up temp directory: %s", schemasDir)
+	log.Printf("Found schemas in %s", schemasDir)
 	return nil
 }
 
+
 func generatePackage(spec struct{ name, version, mainFile string }) error {
-	schemasDir := filepath.Join("tmp", spec.name+"v"+spec.version)
+	schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
 	packageName := spec.name + "v" + spec.version
-	outDir := filepath.Join("ddex", packageName)  // Changed to output to ddex/ directory
+	outDir := filepath.Join("ddex", packageName)
 	
 	// Clean and create output directory
 	os.RemoveAll(outDir)
