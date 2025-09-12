@@ -1,6 +1,6 @@
 # DDEX Go Library Makefile
 
-.PHONY: test testdata clean generate-go generate-proto generate-all help
+.PHONY: test testdata clean generate-go generate-proto generate-all buf-lint buf-generate buf-all help
 
 # Default target
 help:
@@ -10,6 +10,9 @@ help:
 	@echo "  generate-go    - Generate pure Go structs from XSD (ddex/ directory)"
 	@echo "  generate-proto - Generate .proto files from XSD (proto/ directory)"  
 	@echo "  generate-all   - Generate both Go and proto files"
+	@echo "  buf-lint      - Lint protobuf files with buf"
+	@echo "  buf-generate  - Generate Go code from .proto files with buf"
+	@echo "  buf-all       - Generate protos from XSD, then Go code from protos"
 	@echo ""
 	@echo "Testing:"
 	@echo "  test          - Run all tests (downloads testdata if needed)"
@@ -33,6 +36,20 @@ generate-proto:
 # Generate everything
 generate-all: generate-go generate-proto
 	@echo "All generation complete!"
+
+# Lint protobuf files with buf
+buf-lint:
+	@echo "Linting protobuf files..."
+	buf lint
+
+# Generate Go code from protobuf files
+buf-generate: 
+	@echo "Generating Go code from protobuf files..."
+	buf generate
+
+# Complete protobuf workflow: XSD -> proto -> Go
+buf-all: generate-proto buf-lint buf-generate
+	@echo "Complete protobuf generation workflow complete!"
 
 # Run tests, ensuring testdata exists
 test:

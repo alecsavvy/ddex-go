@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package tagger;
+
+option go_package = "github.com/alecsavvy/ddex-go/gen/tagger";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  string tags = 67890;
+}
