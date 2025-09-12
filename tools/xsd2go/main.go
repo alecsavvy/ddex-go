@@ -8,7 +8,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"strings"
 )
 
@@ -23,14 +22,26 @@ var specs = []struct {
 	{"pie", "10", "party-identification-and-enrichment.xsd"},
 }
 
-func repoRootDir() string {
-	_, file, _, _ := runtime.Caller(0)
-	return filepath.Dir(file)
+func main() {
+	for _, spec := range specs {
+		log.Printf("Processing %s v%s...", spec.name, spec.version)
+		
+		if err := downloadSchemas(spec); err != nil {
+			log.Fatalf("Failed to download %s v%s: %v", spec.name, spec.version, err)
+		}
+		
+		if err := generatePackage(spec); err != nil {
+			log.Fatalf("Failed to generate %s v%s: %v", spec.name, spec.version, err)
+		}
+		
+		if err := cleanupTempFiles(spec); err != nil {
+			log.Printf("Warning: failed to cleanup temp files for %s v%s: %v", spec.name, spec.version, err)
+		}
+	}
 }
 
 func downloadSchemas(spec struct{ name, version, mainFile string }) error {
-	repoRoot := repoRootDir()
-	schemasDir := filepath.Join(repoRoot, "tmp", spec.name+"v"+spec.version)
+	schemasDir := filepath.Join("tmp", spec.name+"v"+spec.version)
 	os.MkdirAll(schemasDir, 0755)
 	
 	// Track what we've downloaded to avoid duplicates
@@ -161,8 +172,7 @@ func downloadFile(url, path string) error {
 }
 
 func cleanupTempFiles(spec struct{ name, version, mainFile string }) error {
-	repoRoot := repoRootDir()
-	schemasDir := filepath.Join(repoRoot, "tmp", spec.name+"v"+spec.version)
+	schemasDir := filepath.Join("tmp", spec.name+"v"+spec.version)
 	
 	if err := os.RemoveAll(schemasDir); err != nil {
 		return fmt.Errorf("failed to cleanup temp directory %s: %v", schemasDir, err)
@@ -173,10 +183,9 @@ func cleanupTempFiles(spec struct{ name, version, mainFile string }) error {
 }
 
 func generatePackage(spec struct{ name, version, mainFile string }) error {
-	repoRoot := repoRootDir()
-	schemasDir := filepath.Join(repoRoot, "tmp", spec.name+"v"+spec.version)
+	schemasDir := filepath.Join("tmp", spec.name+"v"+spec.version)
 	packageName := spec.name + "v" + spec.version
-	outDir := filepath.Join(repoRoot, packageName)
+	outDir := filepath.Join("ddex", packageName)  // Changed to output to ddex/ directory
 	
 	// Clean and create output directory
 	os.RemoveAll(outDir)
@@ -184,7 +193,6 @@ func generatePackage(spec struct{ name, version, mainFile string }) error {
 	
 	// Generate with xgen using directory input
 	cmd := exec.Command("xgen", "-i", schemasDir, "-o", outDir, "-l", "Go", "-p", packageName)
-	cmd.Dir = repoRoot
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		log.Printf("xgen output: %s", string(output))
@@ -200,29 +208,11 @@ func generatePackage(spec struct{ name, version, mainFile string }) error {
 		}
 	}
 	
-	fmt.Printf("Generated %s package:\n", packageName)
+	fmt.Printf("Generated %s package in ddex/%s:\n", packageName, packageName)
 	files, _ := os.ReadDir(outDir)
 	for _, file := range files {
-		fmt.Printf("  %s/%s\n", packageName, file.Name())
+		fmt.Printf("  %s\n", file.Name())
 	}
 	
 	return nil
-}
-
-func main() {
-	for _, spec := range specs {
-		log.Printf("Processing %s v%s...", spec.name, spec.version)
-		
-		if err := downloadSchemas(spec); err != nil {
-			log.Fatalf("Failed to download %s v%s: %v", spec.name, spec.version, err)
-		}
-		
-		if err := generatePackage(spec); err != nil {
-			log.Fatalf("Failed to generate %s v%s: %v", spec.name, spec.version, err)
-		}
-		
-		if err := cleanupTempFiles(spec); err != nil {
-			log.Printf("Warning: failed to cleanup temp files for %s v%s: %v", spec.name, spec.version, err)
-		}
-	}
 }
