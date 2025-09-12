@@ -1,6 +1,6 @@
 # DDEX Go
 
-A Go library for parsing and working with DDEX (Digital Data Exchange) XML messages, providing type-safe access to music industry standard data formats.
+A comprehensive Go implementation of DDEX (Digital Data Exchange) standards with support for both pure XML and Protocol Buffer serialization.
 
 ## What is DDEX?
 
@@ -136,12 +136,48 @@ go test -v ./...
 make clean
 ```
 
-## Architecture
+## Repository Structure
 
-- **Generated packages** (`ernv432/`, `meadv11/`, `piev10/`) contain auto-generated Go structs from XSD schemas
-- **Main package** (`ddex.go`) provides versioned type aliases for discoverability
-- **Generator** (`cmd/ddex-go-gen/`) downloads schemas and generates Go code
-- **Tests** validate unmarshaling against official DDEX sample files
+```
+ddex-go/
+├── ddex/                    # Pure Go DDEX structs (generated from XSD)
+│   ├── ernv432/            # ERN v4.3.2 - Electronic Release Notification
+│   ├── meadv11/            # MEAD v1.1 - Media Enrichment and Description
+│   └── piev10/             # PIE v1.0 - Party Identification and Enrichment
+│
+├── proto/                   # Protocol Buffer definitions with XML tags
+│   ├── ernv432/            # ERN v4.3.2 .proto files
+│   ├── meadv11/            # MEAD v1.1 .proto files
+│   └── piev10/             # PIE v1.0 .proto files
+│
+├── gen/                     # Generated Go code from proto files
+│   ├── ernv432/            # Go code with protobuf + XML support
+│   ├── meadv11/            # Go code with protobuf + XML support
+│   └── piev10/             # Go code with protobuf + XML support
+│
+├── tools/                   # Generation and conversion tools
+│   ├── xsd2go/             # XSD to Go generator (using xgen)
+│   └── xsd2proto/          # XSD to Proto converter with XML tags
+│
+├── test/                    # Validation and compatibility tests
+│   └── roundtrip/          # Compare XML output between ddex/ and gen/
+│
+└── example/                 # Usage examples and documentation
+```
+
+## Two Approaches
+
+### 1. Pure XML Package (`ddex/`)
+- Generated directly from DDEX XSD schemas using xgen
+- Native Go XML marshaling/unmarshaling
+- Full DDEX XSD compliance
+- Lightweight, no external dependencies
+
+### 2. Protocol Buffer Package (`gen/`)
+- Generated from `.proto` files with XML tag annotations
+- Supports both binary Protocol Buffer and XML serialization
+- Compatible with gRPC and ConnectRPC
+- Enables efficient binary serialization while maintaining XML compatibility
 
 ## License
 

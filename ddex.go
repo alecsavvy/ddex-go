@@ -1,12 +1,12 @@
 package ddex
 
 import (
-	"github.com/alecsavvy/ddex-go/ernv432"
-	"github.com/alecsavvy/ddex-go/meadv11"
-	"github.com/alecsavvy/ddex-go/piev10"
+	"github.com/alecsavvy/ddex-go/ddex/ernv432"
+	"github.com/alecsavvy/ddex-go/ddex/meadv11"
+	"github.com/alecsavvy/ddex-go/ddex/piev10"
 )
 
-// Versioned type aliases for discoverability
+// Versioned type aliases for discoverability of pure XML types
 type (
 	// ERN v4.3.2 types
 	NewReleaseMessageV432   = ernv432.NewReleaseMessage
