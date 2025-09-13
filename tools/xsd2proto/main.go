@@ -245,7 +245,6 @@ func generateProtoFromXSD(schema *XSDSchema, spec struct{ name, version, mainFil
 `)
 	builder.WriteString(fmt.Sprintf("package ddex.%s.v%s;\n\n", spec.name, spec.version))
 	builder.WriteString(fmt.Sprintf("option go_package = \"github.com/alecsavvy/ddex-go/gen/%sv%s\";\n\n", spec.name, spec.version))
-	builder.WriteString("import \"tagger/tagger.proto\";\n\n")
 
 	builder.WriteString(fmt.Sprintf("// Generated from %s\n", spec.mainFile))
 	builder.WriteString(fmt.Sprintf("// Target namespace: %s\n\n", schema.TargetNamespace))
@@ -320,7 +319,7 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 			if err != nil {
 				return "", fmt.Errorf("failed to generate field for element %s: %v", element.Name, err)
 			}
-			builder.WriteString("  " + field + "\n")
+			builder.WriteString(field + "\n")
 			fieldNum++
 		}
 	}
@@ -333,7 +332,7 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 			if err != nil {
 				return "", fmt.Errorf("failed to generate choice field for element %s: %v", element.Name, err)
 			}
-			builder.WriteString("    " + field + "\n")
+			builder.WriteString(field + "\n")
 			fieldNum++
 		}
 		builder.WriteString("  }\n")
@@ -342,14 +341,15 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 	// Handle simple content with extension (attributes + value)
 	if complexType.SimpleContent != nil && complexType.SimpleContent.Extension != nil {
 		// Add value field for the simple content
-		xmlTag := generateXMLTag("", false, true) // chardata
-		builder.WriteString(fmt.Sprintf("  string value = %d %s;\n", fieldNum, xmlTag))
+		// Generate gotags comment for chardata
+		injectComment := "  // @gotags: xml:\",chardata\""
+		builder.WriteString(fmt.Sprintf("%s\n  string value = %d;\n", injectComment, fieldNum))
 		fieldNum++
 
 		// Add attribute fields
 		for _, attr := range complexType.SimpleContent.Extension.Attributes {
 			field := generateAttributeField(attr, fieldNum)
-			builder.WriteString("  " + field + "\n")
+			builder.WriteString(field + "\n")
 			fieldNum++
 		}
 	}
@@ -357,7 +357,7 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 	// Handle attributes
 	for _, attr := range complexType.Attributes {
 		field := generateAttributeField(attr, fieldNum)
-		builder.WriteString("  " + field + "\n")
+		builder.WriteString(field + "\n")
 		fieldNum++
 	}
 
@@ -380,10 +380,11 @@ func generateField(element XSDElement, fieldNum int) (string, error) {
 		repeated = "repeated "
 	}
 
-	// Generate XML tag
-	xmlTag := generateXMLTag(element.Name, false, false)
+	// Generate gotags comment for protoc-go-inject-tag
+	// This will add xml tags to the generated Go struct
+	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s\"", element.Name)
 
-	return fmt.Sprintf("%s%s %s = %d %s;", repeated, fieldType, fieldName, fieldNum, xmlTag), nil
+	return fmt.Sprintf("%s\n  %s%s %s = %d;", injectComment, repeated, fieldType, fieldName, fieldNum), nil
 }
 
 func generateChoiceField(element XSDElement, fieldNum int) (string, error) {
@@ -398,10 +399,10 @@ func generateChoiceField(element XSDElement, fieldNum int) (string, error) {
 	// NOTE: No repeated allowed in oneof - ignore MaxOccurs for choice fields
 	// This is a protobuf limitation - oneof fields cannot be repeated
 
-	// Generate XML tag
-	xmlTag := generateXMLTag(element.Name, false, false)
+	// Generate gotags comment for protoc-go-inject-tag
+	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s\"", element.Name)
 
-	return fmt.Sprintf("%s %s = %d %s;", fieldType, fieldName, fieldNum, xmlTag), nil
+	return fmt.Sprintf("%s\n    %s %s = %d;", injectComment, fieldType, fieldName, fieldNum), nil
 }
 
 func generateAttributeField(attr XSDAttribute, fieldNum int) string {
@@ -413,20 +414,12 @@ func generateAttributeField(attr XSDAttribute, fieldNum int) string {
 		fieldType = xsdTypeToProto(attr.Type)
 	}
 
-	xmlTag := generateXMLTag(attr.Name, true, false) // is attribute
+	// Generate gotags comment for protoc-go-inject-tag
+	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", attr.Name)
 
-	return fmt.Sprintf("%s %s = %d %s;", fieldType, fieldName, fieldNum, xmlTag)
+	return fmt.Sprintf("%s\n  %s %s = %d;", injectComment, fieldType, fieldName, fieldNum)
 }
 
-func generateXMLTag(name string, isAttr, isCharData bool) string {
-	if isCharData {
-		return `[(tagger.tags) = "xml:\",chardata\""]`
-	}
-	if isAttr {
-		return fmt.Sprintf(`[(tagger.tags) = "xml:\"%s,attr\""]`, name)
-	}
-	return fmt.Sprintf(`[(tagger.tags) = "xml:\"%s\""]`, name)
-}
 
 func generateEnum(simpleType XSDSimpleType) string {
 	var builder strings.Builder

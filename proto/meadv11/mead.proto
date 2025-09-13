@@ -4,996 +4,1666 @@ package ddex.mead.v11;
 
 option go_package = "github.com/alecsavvy/ddex-go/gen/meadv11";
 
-import "tagger/tagger.proto";
-
 // Generated from media-enrichment-and-description.xsd
 // Target namespace: http://ddex.net/xml/mead/11
 
 message MeadMessage {
-  MessageHeader message_header = 1 [(tagger.tags) = "xml:\"MessageHeader\""];
-  string subscription_id = 2 [(tagger.tags) = "xml:\"SubscriptionId\""];
-  MetadataSourceList metadata_source_list = 3 [(tagger.tags) = "xml:\"MetadataSourceList\""];
-  WorkInformationList work_information_list = 4 [(tagger.tags) = "xml:\"WorkInformationList\""];
-  ResourceInformationList resource_information_list = 5 [(tagger.tags) = "xml:\"ResourceInformationList\""];
-  ReleaseInformationList release_information_list = 6 [(tagger.tags) = "xml:\"ReleaseInformationList\""];
-  string avs_version_id = 7 [(tagger.tags) = "xml:\"AvsVersionId,attr\""];
-  string language_and_script_code = 8 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:"MessageHeader"
+  MessageHeader message_header = 1;
+  // @gotags: xml:"SubscriptionId"
+  string subscription_id = 2;
+  // @gotags: xml:"MetadataSourceList"
+  MetadataSourceList metadata_source_list = 3;
+  // @gotags: xml:"WorkInformationList"
+  WorkInformationList work_information_list = 4;
+  // @gotags: xml:"ResourceInformationList"
+  ResourceInformationList resource_information_list = 5;
+  // @gotags: xml:"ReleaseInformationList"
+  ReleaseInformationList release_information_list = 6;
+  // @gotags: xml:"AvsVersionId,attr"
+  string avs_version_id = 7;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 8;
 }
 message Feed {
   oneof choice {
-    Person author = 1 [(tagger.tags) = "xml:\"author\""];
-    Category category = 2 [(tagger.tags) = "xml:\"category\""];
-    Person contributor = 3 [(tagger.tags) = "xml:\"contributor\""];
-    Generator generator = 4 [(tagger.tags) = "xml:\"generator\""];
-    Icon icon = 5 [(tagger.tags) = "xml:\"icon\""];
-    Id id = 6 [(tagger.tags) = "xml:\"id\""];
-    Link link = 7 [(tagger.tags) = "xml:\"link\""];
-    Logo logo = 8 [(tagger.tags) = "xml:\"logo\""];
-    Text rights = 9 [(tagger.tags) = "xml:\"rights\""];
-    Text subtitle = 10 [(tagger.tags) = "xml:\"subtitle\""];
-    Text title = 11 [(tagger.tags) = "xml:\"title\""];
-    DateTime updated = 12 [(tagger.tags) = "xml:\"updated\""];
-    Entry entry = 13 [(tagger.tags) = "xml:\"entry\""];
+  // @gotags: xml:"author"
+    Person author = 1;
+  // @gotags: xml:"category"
+    Category category = 2;
+  // @gotags: xml:"contributor"
+    Person contributor = 3;
+  // @gotags: xml:"generator"
+    Generator generator = 4;
+  // @gotags: xml:"icon"
+    Icon icon = 5;
+  // @gotags: xml:"id"
+    Id id = 6;
+  // @gotags: xml:"link"
+    Link link = 7;
+  // @gotags: xml:"logo"
+    Logo logo = 8;
+  // @gotags: xml:"rights"
+    Text rights = 9;
+  // @gotags: xml:"subtitle"
+    Text subtitle = 10;
+  // @gotags: xml:"title"
+    Text title = 11;
+  // @gotags: xml:"updated"
+    DateTime updated = 12;
+  // @gotags: xml:"entry"
+    Entry entry = 13;
   }
 }
 message AbsolutePitch {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  string value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated Modulation modulation = 3 [(tagger.tags) = "xml:\"Modulation\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  string value = 2;
+  // @gotags: xml:"Modulation"
+  repeated Modulation modulation = 3;
 }
 message Activity {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  ActivityValue value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated TextWithoutTerritory description = 3 [(tagger.tags) = "xml:\"Description\""];
-  repeated string language_and_script_of_activity = 4 [(tagger.tags) = "xml:\"LanguageAndScriptOfActivity\""];
-  repeated CurrentTerritoryCode territory_of_activity_description = 5 [(tagger.tags) = "xml:\"TerritoryOfActivityDescription\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ActivityValue value = 2;
+  // @gotags: xml:"Description"
+  repeated TextWithoutTerritory description = 3;
+  // @gotags: xml:"LanguageAndScriptOfActivity"
+  repeated string language_and_script_of_activity = 4;
+  // @gotags: xml:"TerritoryOfActivityDescription"
+  repeated CurrentTerritoryCode territory_of_activity_description = 5;
 }
 message ActivityValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message AlternativeTitle {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  TitleText title_text = 2 [(tagger.tags) = "xml:\"TitleText\""];
-  TitleText sub_title = 3 [(tagger.tags) = "xml:\"SubTitle\""];
-  repeated string language_and_script_of_title = 4 [(tagger.tags) = "xml:\"LanguageAndScriptOfTitle\""];
-  TitleType title_type = 5 [(tagger.tags) = "xml:\"TitleType,attr\""];
-  string namespace = 6 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 7 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"TitleText"
+  TitleText title_text = 2;
+  // @gotags: xml:"SubTitle"
+  TitleText sub_title = 3;
+  // @gotags: xml:"LanguageAndScriptOfTitle"
+  repeated string language_and_script_of_title = 4;
+  // @gotags: xml:"TitleType,attr"
+  TitleType title_type = 5;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 6;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 7;
 }
 message Annotation {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  TextWithFormat text = 2 [(tagger.tags) = "xml:\"Text\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Text"
+  TextWithFormat text = 2;
 }
 message ArtisticStyle {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  ArtistTypeValue value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated CurrentTerritoryCode territory_of_artistic_style_description = 3 [(tagger.tags) = "xml:\"TerritoryOfArtisticStyleDescription\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ArtistTypeValue value = 2;
+  // @gotags: xml:"TerritoryOfArtisticStyleDescription"
+  repeated CurrentTerritoryCode territory_of_artistic_style_description = 3;
 }
 message BeatsPerMinute {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  string value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated Modulation modulation = 3 [(tagger.tags) = "xml:\"Modulation\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  string value = 2;
+  // @gotags: xml:"Modulation"
+  repeated Modulation modulation = 3;
 }
 message ChildWorkHierarchy {
-  bool is_described_element = 1 [(tagger.tags) = "xml:\"IsDescribedElement\""];
-  bool is_complete = 2 [(tagger.tags) = "xml:\"IsComplete\""];
-  int32 sequence_number = 3 [(tagger.tags) = "xml:\"SequenceNumber\""];
-  MusicalWorkIdWithoutFlag work_id = 4 [(tagger.tags) = "xml:\"WorkId\""];
-  repeated WorkTitle work_title = 5 [(tagger.tags) = "xml:\"WorkTitle\""];
-  repeated ChildWorkHierarchy child = 6 [(tagger.tags) = "xml:\"Child\""];
-  Form form = 7 [(tagger.tags) = "xml:\"Form\""];
+  // @gotags: xml:"IsDescribedElement"
+  bool is_described_element = 1;
+  // @gotags: xml:"IsComplete"
+  bool is_complete = 2;
+  // @gotags: xml:"SequenceNumber"
+  int32 sequence_number = 3;
+  // @gotags: xml:"WorkId"
+  MusicalWorkIdWithoutFlag work_id = 4;
+  // @gotags: xml:"WorkTitle"
+  repeated WorkTitle work_title = 5;
+  // @gotags: xml:"Child"
+  repeated ChildWorkHierarchy child = 6;
+  // @gotags: xml:"Form"
+  Form form = 7;
 }
 message Contributor {
-  DetailedPartyId identifier = 1 [(tagger.tags) = "xml:\"Identifier\""];
-  PartyNameWithPronunciation name = 2 [(tagger.tags) = "xml:\"Name\""];
-  repeated ResourceContributorRole role = 3 [(tagger.tags) = "xml:\"Role\""];
+  // @gotags: xml:"Identifier"
+  DetailedPartyId identifier = 1;
+  // @gotags: xml:"Name"
+  PartyNameWithPronunciation name = 2;
+  // @gotags: xml:"Role"
+  repeated ResourceContributorRole role = 3;
 }
 message DanceStyle {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  DanceStyleValue value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated TextWithoutTerritory description = 3 [(tagger.tags) = "xml:\"Description\""];
-  repeated string language_and_script_of_dance_style = 4 [(tagger.tags) = "xml:\"LanguageAndScriptOfDanceStyle\""];
-  repeated CurrentTerritoryCode territory_of_dance_style_description = 5 [(tagger.tags) = "xml:\"TerritoryOfDanceStyleDescription\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  DanceStyleValue value = 2;
+  // @gotags: xml:"Description"
+  repeated TextWithoutTerritory description = 3;
+  // @gotags: xml:"LanguageAndScriptOfDanceStyle"
+  repeated string language_and_script_of_dance_style = 4;
+  // @gotags: xml:"TerritoryOfDanceStyleDescription"
+  repeated CurrentTerritoryCode territory_of_dance_style_description = 5;
 }
 message DanceStyleValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message DerivedRecording {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  ResourceIdWithoutFlag resource_id = 2 [(tagger.tags) = "xml:\"ResourceId\""];
-  RelatedResourceType related_resource_type = 3 [(tagger.tags) = "xml:\"RelatedResourceType\""];
-  repeated TitleWithPronunciation title = 4 [(tagger.tags) = "xml:\"Title\""];
-  DisplayArtistNameWithPronunciation display_artist_name = 5 [(tagger.tags) = "xml:\"DisplayArtistName\""];
-  repeated PartyDescriptorWithPronunciation display_artist = 6 [(tagger.tags) = "xml:\"DisplayArtist\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"ResourceId"
+  ResourceIdWithoutFlag resource_id = 2;
+  // @gotags: xml:"RelatedResourceType"
+  RelatedResourceType related_resource_type = 3;
+  // @gotags: xml:"Title"
+  repeated TitleWithPronunciation title = 4;
+  // @gotags: xml:"DisplayArtistName"
+  DisplayArtistNameWithPronunciation display_artist_name = 5;
+  // @gotags: xml:"DisplayArtist"
+  repeated PartyDescriptorWithPronunciation display_artist = 6;
 }
 message DisplaySubTitle {
-  string title = 1 [(tagger.tags) = "xml:\"Title\""];
-  repeated Pronunciation pronunciation = 2 [(tagger.tags) = "xml:\"Pronunciation\""];
-  int32 sequence_number = 3 [(tagger.tags) = "xml:\"SequenceNumber,attr\""];
-  bool is_displayed_in_title = 4 [(tagger.tags) = "xml:\"IsDisplayedInTitle,attr\""];
-  string namespace = 5 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 6 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
-  string sub_title_type = 7 [(tagger.tags) = "xml:\"SubTitleType,attr\""];
+  // @gotags: xml:"Title"
+  string title = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated Pronunciation pronunciation = 2;
+  // @gotags: xml:"SequenceNumber,attr"
+  int32 sequence_number = 3;
+  // @gotags: xml:"IsDisplayedInTitle,attr"
+  bool is_displayed_in_title = 4;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 5;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 6;
+  // @gotags: xml:"SubTitleType,attr"
+  string sub_title_type = 7;
 }
 message DisplayTitle {
-  TitleText title_text = 1 [(tagger.tags) = "xml:\"TitleText\""];
-  repeated DisplaySubTitle sub_title = 2 [(tagger.tags) = "xml:\"SubTitle\""];
-  string language_and_script_code = 3 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
-  CurrentTerritoryCode applicable_territory_code = 4 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
-  bool is_default = 5 [(tagger.tags) = "xml:\"IsDefault,attr\""];
+  // @gotags: xml:"TitleText"
+  TitleText title_text = 1;
+  // @gotags: xml:"SubTitle"
+  repeated DisplaySubTitle sub_title = 2;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 3;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  CurrentTerritoryCode applicable_territory_code = 4;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 5;
 }
 message Entry {
   oneof choice {
-    Person author = 1 [(tagger.tags) = "xml:\"author\""];
-    Category category = 2 [(tagger.tags) = "xml:\"category\""];
-    Content content = 3 [(tagger.tags) = "xml:\"content\""];
-    Person contributor = 4 [(tagger.tags) = "xml:\"contributor\""];
-    Id id = 5 [(tagger.tags) = "xml:\"id\""];
-    Link link = 6 [(tagger.tags) = "xml:\"link\""];
-    DateTime published = 7 [(tagger.tags) = "xml:\"published\""];
-    Text rights = 8 [(tagger.tags) = "xml:\"rights\""];
-    Source source = 9 [(tagger.tags) = "xml:\"source\""];
-    Text summary = 10 [(tagger.tags) = "xml:\"summary\""];
-    Text title = 11 [(tagger.tags) = "xml:\"title\""];
-    DateTime updated = 12 [(tagger.tags) = "xml:\"updated\""];
-    string subscription_id = 13 [(tagger.tags) = "xml:\"SubscriptionId\""];
+  // @gotags: xml:"author"
+    Person author = 1;
+  // @gotags: xml:"category"
+    Category category = 2;
+  // @gotags: xml:"content"
+    Content content = 3;
+  // @gotags: xml:"contributor"
+    Person contributor = 4;
+  // @gotags: xml:"id"
+    Id id = 5;
+  // @gotags: xml:"link"
+    Link link = 6;
+  // @gotags: xml:"published"
+    DateTime published = 7;
+  // @gotags: xml:"rights"
+    Text rights = 8;
+  // @gotags: xml:"source"
+    Source source = 9;
+  // @gotags: xml:"summary"
+    Text summary = 10;
+  // @gotags: xml:"title"
+    Text title = 11;
+  // @gotags: xml:"updated"
+    DateTime updated = 12;
+  // @gotags: xml:"SubscriptionId"
+    string subscription_id = 13;
   }
-  string avs_version_id = 14 [(tagger.tags) = "xml:\"AvsVersionId,attr\""];
+  // @gotags: xml:"AvsVersionId,attr"
+  string avs_version_id = 14;
 }
 message Flag {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  bool value = 2 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  bool value = 2;
 }
 message Form {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  FormValue value = 2 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  FormValue value = 2;
 }
 message FormValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message GenreCategory {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated CurrentTerritoryCode territory_of_genre_category_description = 2 [(tagger.tags) = "xml:\"TerritoryOfGenreCategoryDescription\""];
-  GenreCategoryValue value = 3 [(tagger.tags) = "xml:\"Value\""];
-  repeated TextWithoutTerritory description = 4 [(tagger.tags) = "xml:\"Description\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"TerritoryOfGenreCategoryDescription"
+  repeated CurrentTerritoryCode territory_of_genre_category_description = 2;
+  // @gotags: xml:"Value"
+  GenreCategoryValue value = 3;
+  // @gotags: xml:"Description"
+  repeated TextWithoutTerritory description = 4;
 }
 message Harmony {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  RootChordNote root_chord_note = 2 [(tagger.tags) = "xml:\"RootChordNote\""];
-  RootChordQuality root_chord_quality = 3 [(tagger.tags) = "xml:\"RootChordQuality\""];
-  Mode mode = 4 [(tagger.tags) = "xml:\"Mode\""];
-  repeated HarmonyModulation modulation = 5 [(tagger.tags) = "xml:\"Modulation\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"RootChordNote"
+  RootChordNote root_chord_note = 2;
+  // @gotags: xml:"RootChordQuality"
+  RootChordQuality root_chord_quality = 3;
+  // @gotags: xml:"Mode"
+  Mode mode = 4;
+  // @gotags: xml:"Modulation"
+  repeated HarmonyModulation modulation = 5;
 }
 message HarmonyModulation {
-  RootChordNote root_chord_note = 1 [(tagger.tags) = "xml:\"RootChordNote\""];
-  RootChordQuality root_chord_quality = 2 [(tagger.tags) = "xml:\"RootChordQuality\""];
-  Mode mode = 3 [(tagger.tags) = "xml:\"Mode\""];
+  // @gotags: xml:"RootChordNote"
+  RootChordNote root_chord_note = 1;
+  // @gotags: xml:"RootChordQuality"
+  RootChordQuality root_chord_quality = 2;
+  // @gotags: xml:"Mode"
+  Mode mode = 3;
 }
 message ImpactDate {
-  string date = 1 [(tagger.tags) = "xml:\"Date\""];
-  repeated CurrentTerritoryCode territory_code = 2 [(tagger.tags) = "xml:\"TerritoryCode\""];
+  // @gotags: xml:"Date"
+  string date = 1;
+  // @gotags: xml:"TerritoryCode"
+  repeated CurrentTerritoryCode territory_code = 2;
 }
 message Instrument {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  InstrumentValue value = 2 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  InstrumentValue value = 2;
 }
 message InstrumentUsed {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  InstrumentValue value = 2 [(tagger.tags) = "xml:\"Value\""];
-  bool is_featured = 3 [(tagger.tags) = "xml:\"IsFeatured,attr\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  InstrumentValue value = 2;
+  // @gotags: xml:"IsFeatured,attr"
+  bool is_featured = 3;
 }
 message InstrumentValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message Intensity {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  IntensityValue value = 2 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  IntensityValue value = 2;
 }
 message IntensityValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message LocationAndDateOfSession {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated SessionType session_type = 2 [(tagger.tags) = "xml:\"SessionType\""];
-  Period period = 3 [(tagger.tags) = "xml:\"Period\""];
-  repeated Venue venue = 4 [(tagger.tags) = "xml:\"Venue\""];
-  TextWithFormat comment = 5 [(tagger.tags) = "xml:\"Comment\""];
-  repeated Contributor contributor = 6 [(tagger.tags) = "xml:\"Contributor\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"SessionType"
+  repeated SessionType session_type = 2;
+  // @gotags: xml:"Period"
+  Period period = 3;
+  // @gotags: xml:"Venue"
+  repeated Venue venue = 4;
+  // @gotags: xml:"Comment"
+  TextWithFormat comment = 5;
+  // @gotags: xml:"Contributor"
+  repeated Contributor contributor = 6;
 }
 message Lyrics {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  LyricsText text = 2 [(tagger.tags) = "xml:\"Text\""];
-  repeated string language_and_script_of_lyrics = 3 [(tagger.tags) = "xml:\"LanguageAndScriptOfLyrics\""];
-  repeated CurrentTerritoryCode territory_of_lyrics_description = 4 [(tagger.tags) = "xml:\"TerritoryOfLyricsDescription\""];
-  repeated Pronunciation pronunciation = 5 [(tagger.tags) = "xml:\"Pronunciation\""];
-  int32 sequence_number = 6 [(tagger.tags) = "xml:\"SequenceNumber,attr\""];
-  LyricsType lyrics_type = 7 [(tagger.tags) = "xml:\"LyricsType,attr\""];
-  string lyrics_type_namespace = 8 [(tagger.tags) = "xml:\"LyricsTypeNamespace,attr\""];
-  string lyrics_type_user_defined_value = 9 [(tagger.tags) = "xml:\"LyricsTypeUserDefinedValue,attr\""];
-  bool is_misquoted = 10 [(tagger.tags) = "xml:\"IsMisquoted,attr\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Text"
+  LyricsText text = 2;
+  // @gotags: xml:"LanguageAndScriptOfLyrics"
+  repeated string language_and_script_of_lyrics = 3;
+  // @gotags: xml:"TerritoryOfLyricsDescription"
+  repeated CurrentTerritoryCode territory_of_lyrics_description = 4;
+  // @gotags: xml:"Pronunciation"
+  repeated Pronunciation pronunciation = 5;
+  // @gotags: xml:"SequenceNumber,attr"
+  int32 sequence_number = 6;
+  // @gotags: xml:"LyricsType,attr"
+  LyricsType lyrics_type = 7;
+  // @gotags: xml:"LyricsTypeNamespace,attr"
+  string lyrics_type_namespace = 8;
+  // @gotags: xml:"LyricsTypeUserDefinedValue,attr"
+  string lyrics_type_user_defined_value = 9;
+  // @gotags: xml:"IsMisquoted,attr"
+  bool is_misquoted = 10;
 }
 message LyricsText {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  TextCodecType format = 2 [(tagger.tags) = "xml:\"Format,attr\""];
-  string format_namespace = 3 [(tagger.tags) = "xml:\"FormatNamespace,attr\""];
-  string format_user_defined_value = 4 [(tagger.tags) = "xml:\"FormatUserDefinedValue,attr\""];
-  bool is_complete = 5 [(tagger.tags) = "xml:\"IsComplete,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Format,attr"
+  TextCodecType format = 2;
+  // @gotags: xml:"FormatNamespace,attr"
+  string format_namespace = 3;
+  // @gotags: xml:"FormatUserDefinedValue,attr"
+  string format_user_defined_value = 4;
+  // @gotags: xml:"IsComplete,attr"
+  bool is_complete = 5;
 }
 message Meter {
-  int32 number_of_beats_in_bar = 1 [(tagger.tags) = "xml:\"NumberOfBeatsInBar\""];
-  int32 note_equivalent_to_beat = 2 [(tagger.tags) = "xml:\"NoteEquivalentToBeat\""];
+  // @gotags: xml:"NumberOfBeatsInBar"
+  int32 number_of_beats_in_bar = 1;
+  // @gotags: xml:"NoteEquivalentToBeat"
+  int32 note_equivalent_to_beat = 2;
 }
 message Mode {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message Modulation {
-  string value = 1 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"Value"
+  string value = 1;
 }
 message Mood {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  MoodValue value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated TextWithoutTerritory description = 3 [(tagger.tags) = "xml:\"Description\""];
-  repeated string language_and_script_of_mood = 4 [(tagger.tags) = "xml:\"LanguageAndScriptOfMood\""];
-  repeated CurrentTerritoryCode territory_of_mood_description = 5 [(tagger.tags) = "xml:\"TerritoryOfMoodDescription\""];
-  MoodOrThemeType mood_type = 6 [(tagger.tags) = "xml:\"MoodType,attr\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  MoodValue value = 2;
+  // @gotags: xml:"Description"
+  repeated TextWithoutTerritory description = 3;
+  // @gotags: xml:"LanguageAndScriptOfMood"
+  repeated string language_and_script_of_mood = 4;
+  // @gotags: xml:"TerritoryOfMoodDescription"
+  repeated CurrentTerritoryCode territory_of_mood_description = 5;
+  // @gotags: xml:"MoodType,attr"
+  MoodOrThemeType mood_type = 6;
 }
 message MoodValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
-  bool applies_to_composition = 4 [(tagger.tags) = "xml:\"AppliesToComposition,attr\""];
-  bool applies_to_lyrics = 5 [(tagger.tags) = "xml:\"AppliesToLyrics,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+  // @gotags: xml:"AppliesToComposition,attr"
+  bool applies_to_composition = 4;
+  // @gotags: xml:"AppliesToLyrics,attr"
+  bool applies_to_lyrics = 5;
 }
 message Party {
-  string i_s_n_i = 1 [(tagger.tags) = "xml:\"ISNI\""];
-  string d_p_i_d = 2 [(tagger.tags) = "xml:\"DPID\""];
-  string ipi_name_number = 3 [(tagger.tags) = "xml:\"IpiNameNumber\""];
-  string i_p_n = 4 [(tagger.tags) = "xml:\"IPN\""];
-  repeated ProprietaryId proprietary_id = 5 [(tagger.tags) = "xml:\"ProprietaryId\""];
-  string party_name = 6 [(tagger.tags) = "xml:\"PartyName\""];
+  // @gotags: xml:"ISNI"
+  string i_s_n_i = 1;
+  // @gotags: xml:"DPID"
+  string d_p_i_d = 2;
+  // @gotags: xml:"IpiNameNumber"
+  string ipi_name_number = 3;
+  // @gotags: xml:"IPN"
+  string i_p_n = 4;
+  // @gotags: xml:"ProprietaryId"
+  repeated ProprietaryId proprietary_id = 5;
+  // @gotags: xml:"PartyName"
+  string party_name = 6;
 }
 message RecordingPart {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  UnitOfCuePoints unit = 2 [(tagger.tags) = "xml:\"Unit\""];
-  string start_point = 3 [(tagger.tags) = "xml:\"StartPoint\""];
-  string end_point = 4 [(tagger.tags) = "xml:\"EndPoint\""];
-  RecordingPartType recording_part_type = 5 [(tagger.tags) = "xml:\"RecordingPartType\""];
-  repeated Annotation comment = 6 [(tagger.tags) = "xml:\"Comment\""];
-  repeated TextWithFormat usage_information = 7 [(tagger.tags) = "xml:\"UsageInformation\""];
-  int32 sequence_number = 8 [(tagger.tags) = "xml:\"SequenceNumber,attr\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Unit"
+  UnitOfCuePoints unit = 2;
+  // @gotags: xml:"StartPoint"
+  string start_point = 3;
+  // @gotags: xml:"EndPoint"
+  string end_point = 4;
+  // @gotags: xml:"RecordingPartType"
+  RecordingPartType recording_part_type = 5;
+  // @gotags: xml:"Comment"
+  repeated Annotation comment = 6;
+  // @gotags: xml:"UsageInformation"
+  repeated TextWithFormat usage_information = 7;
+  // @gotags: xml:"SequenceNumber,attr"
+  int32 sequence_number = 8;
 }
 message RelatedWork {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  MusicalWorkIdWithoutFlag work_id = 2 [(tagger.tags) = "xml:\"WorkId\""];
-  repeated WorkTitle work_title = 3 [(tagger.tags) = "xml:\"WorkTitle\""];
-  WorkRelationshipType work_relationship_type = 4 [(tagger.tags) = "xml:\"WorkRelationshipType\""];
-  repeated PartyDescriptorWithPronunciation writer = 5 [(tagger.tags) = "xml:\"Writer\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"WorkId"
+  MusicalWorkIdWithoutFlag work_id = 2;
+  // @gotags: xml:"WorkTitle"
+  repeated WorkTitle work_title = 3;
+  // @gotags: xml:"WorkRelationshipType"
+  WorkRelationshipType work_relationship_type = 4;
+  // @gotags: xml:"Writer"
+  repeated PartyDescriptorWithPronunciation writer = 5;
 }
 message ReleaseInformation {
-  ReleaseSummary release_summary = 1 [(tagger.tags) = "xml:\"ReleaseSummary\""];
-  repeated GenreCategory genre_category = 2 [(tagger.tags) = "xml:\"GenreCategory\""];
-  repeated SubGenreCategory sub_genre_category = 3 [(tagger.tags) = "xml:\"SubGenreCategory\""];
-  repeated Focus focus = 4 [(tagger.tags) = "xml:\"Focus\""];
-  repeated Mood mood = 5 [(tagger.tags) = "xml:\"Mood\""];
-  repeated ArtisticStyle artistic_style = 6 [(tagger.tags) = "xml:\"ArtisticStyle\""];
-  repeated Theme theme = 7 [(tagger.tags) = "xml:\"Theme\""];
-  repeated Activity activity = 8 [(tagger.tags) = "xml:\"Activity\""];
-  repeated CommentaryNote commentary_note = 9 [(tagger.tags) = "xml:\"CommentaryNote\""];
-  repeated Epoch epoch = 10 [(tagger.tags) = "xml:\"Epoch\""];
-  repeated ArtisticInfluence artistic_influence = 11 [(tagger.tags) = "xml:\"ArtisticInfluence\""];
-  repeated SimilarRelease is_similar = 12 [(tagger.tags) = "xml:\"IsSimilar\""];
-  repeated HistoricChartingInformation historic_charting_information = 13 [(tagger.tags) = "xml:\"HistoricChartingInformation\""];
-  repeated Award award = 14 [(tagger.tags) = "xml:\"Award\""];
-  repeated AlternativeTitle alternative_title = 15 [(tagger.tags) = "xml:\"AlternativeTitle\""];
-  repeated Image image = 16 [(tagger.tags) = "xml:\"Image\""];
-  string priority_period_start_date = 17 [(tagger.tags) = "xml:\"PriorityPeriodStartDate,attr\""];
-  string priority_period_end_date = 18 [(tagger.tags) = "xml:\"PriorityPeriodEndDate,attr\""];
-  CurrentTerritoryCode applicable_territory_code = 19 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
+  // @gotags: xml:"ReleaseSummary"
+  ReleaseSummary release_summary = 1;
+  // @gotags: xml:"GenreCategory"
+  repeated GenreCategory genre_category = 2;
+  // @gotags: xml:"SubGenreCategory"
+  repeated SubGenreCategory sub_genre_category = 3;
+  // @gotags: xml:"Focus"
+  repeated Focus focus = 4;
+  // @gotags: xml:"Mood"
+  repeated Mood mood = 5;
+  // @gotags: xml:"ArtisticStyle"
+  repeated ArtisticStyle artistic_style = 6;
+  // @gotags: xml:"Theme"
+  repeated Theme theme = 7;
+  // @gotags: xml:"Activity"
+  repeated Activity activity = 8;
+  // @gotags: xml:"CommentaryNote"
+  repeated CommentaryNote commentary_note = 9;
+  // @gotags: xml:"Epoch"
+  repeated Epoch epoch = 10;
+  // @gotags: xml:"ArtisticInfluence"
+  repeated ArtisticInfluence artistic_influence = 11;
+  // @gotags: xml:"IsSimilar"
+  repeated SimilarRelease is_similar = 12;
+  // @gotags: xml:"HistoricChartingInformation"
+  repeated HistoricChartingInformation historic_charting_information = 13;
+  // @gotags: xml:"Award"
+  repeated Award award = 14;
+  // @gotags: xml:"AlternativeTitle"
+  repeated AlternativeTitle alternative_title = 15;
+  // @gotags: xml:"Image"
+  repeated Image image = 16;
+  // @gotags: xml:"PriorityPeriodStartDate,attr"
+  string priority_period_start_date = 17;
+  // @gotags: xml:"PriorityPeriodEndDate,attr"
+  string priority_period_end_date = 18;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  CurrentTerritoryCode applicable_territory_code = 19;
 }
 message ReleaseInformationList {
-  repeated ReleaseInformation release_information = 1 [(tagger.tags) = "xml:\"ReleaseInformation\""];
+  // @gotags: xml:"ReleaseInformation"
+  repeated ReleaseInformation release_information = 1;
 }
 message ReleaseSummary {
-  ReleaseId release_id = 1 [(tagger.tags) = "xml:\"ReleaseId\""];
-  repeated DisplayTitle display_title = 2 [(tagger.tags) = "xml:\"DisplayTitle\""];
-  repeated DisplayArtistNameWithPronunciation display_artist_name = 3 [(tagger.tags) = "xml:\"DisplayArtistName\""];
-  repeated PartyDescriptorWithPronunciation display_artist = 4 [(tagger.tags) = "xml:\"DisplayArtist\""];
+  // @gotags: xml:"ReleaseId"
+  ReleaseId release_id = 1;
+  // @gotags: xml:"DisplayTitle"
+  repeated DisplayTitle display_title = 2;
+  // @gotags: xml:"DisplayArtistName"
+  repeated DisplayArtistNameWithPronunciation display_artist_name = 3;
+  // @gotags: xml:"DisplayArtist"
+  repeated PartyDescriptorWithPronunciation display_artist = 4;
 }
 message RelevantResource {
-  ResourceIdWithoutFlag resource_id = 1 [(tagger.tags) = "xml:\"ResourceId\""];
-  ResourceRelationshipType resource_relationship_type = 2 [(tagger.tags) = "xml:\"ResourceRelationshipType\""];
+  // @gotags: xml:"ResourceId"
+  ResourceIdWithoutFlag resource_id = 1;
+  // @gotags: xml:"ResourceRelationshipType"
+  ResourceRelationshipType resource_relationship_type = 2;
 }
 message ResourceInformation {
-  ResourceSummary resource_summary = 1 [(tagger.tags) = "xml:\"ResourceSummary\""];
-  repeated GenreCategory genre_category = 2 [(tagger.tags) = "xml:\"GenreCategory\""];
-  repeated SubGenreCategory sub_genre_category = 3 [(tagger.tags) = "xml:\"SubGenreCategory\""];
-  Form form = 4 [(tagger.tags) = "xml:\"Form\""];
-  repeated VocalRegister vocal_register = 5 [(tagger.tags) = "xml:\"VocalRegister\""];
-  repeated Focus focus = 6 [(tagger.tags) = "xml:\"Focus\""];
-  repeated AbsolutePitch absolute_pitch = 7 [(tagger.tags) = "xml:\"AbsolutePitch\""];
-  repeated TimeSignature time_signature = 8 [(tagger.tags) = "xml:\"TimeSignature\""];
-  repeated TempoValue tempo = 9 [(tagger.tags) = "xml:\"Tempo\""];
-  repeated BeatsPerMinute beats_per_minute = 10 [(tagger.tags) = "xml:\"BeatsPerMinute\""];
-  repeated Intensity intensity = 11 [(tagger.tags) = "xml:\"Intensity\""];
-  repeated InstrumentUsed instrument_used = 12 [(tagger.tags) = "xml:\"InstrumentUsed\""];
-  repeated Harmony harmony = 13 [(tagger.tags) = "xml:\"Harmony\""];
-  repeated Mood mood = 14 [(tagger.tags) = "xml:\"Mood\""];
-  repeated DanceStyle dance_style = 15 [(tagger.tags) = "xml:\"DanceStyle\""];
-  repeated RhythmStyle rhythm_style = 16 [(tagger.tags) = "xml:\"RhythmStyle\""];
-  repeated ArtisticStyle artistic_style = 17 [(tagger.tags) = "xml:\"ArtisticStyle\""];
-  repeated Theme theme = 18 [(tagger.tags) = "xml:\"Theme\""];
-  repeated Activity activity = 19 [(tagger.tags) = "xml:\"Activity\""];
-  repeated UsedMusicalWork used_musical_work = 20 [(tagger.tags) = "xml:\"UsedMusicalWork\""];
-  repeated ResourceRelationship related_resource = 21 [(tagger.tags) = "xml:\"RelatedResource\""];
-  repeated Lyrics lyrics = 22 [(tagger.tags) = "xml:\"Lyrics\""];
-  repeated CommentaryNote commentary_note = 23 [(tagger.tags) = "xml:\"CommentaryNote\""];
-  repeated Sample sample = 24 [(tagger.tags) = "xml:\"Sample\""];
-  repeated RecordingPart recording_part = 25 [(tagger.tags) = "xml:\"RecordingPart\""];
-  repeated Usage usage = 26 [(tagger.tags) = "xml:\"Usage\""];
-  repeated ImpactDate impact_date = 27 [(tagger.tags) = "xml:\"ImpactDate\""];
-  ClassicalPeriod classical_period = 28 [(tagger.tags) = "xml:\"ClassicalPeriod\""];
-  repeated Epoch epoch = 29 [(tagger.tags) = "xml:\"Epoch\""];
-  repeated ArtisticInfluence artistic_influence = 30 [(tagger.tags) = "xml:\"ArtisticInfluence\""];
-  repeated SimilarResource is_similar = 31 [(tagger.tags) = "xml:\"IsSimilar\""];
-  repeated HistoricChartingInformation historic_charting_information = 32 [(tagger.tags) = "xml:\"HistoricChartingInformation\""];
-  repeated Award award = 33 [(tagger.tags) = "xml:\"Award\""];
-  repeated LocationAndDateOfSession location_and_date_of_session = 34 [(tagger.tags) = "xml:\"LocationAndDateOfSession\""];
-  repeated AlternativeTitle alternative_title = 35 [(tagger.tags) = "xml:\"AlternativeTitle\""];
-  repeated Image image = 36 [(tagger.tags) = "xml:\"Image\""];
-  string priority_period_start_date = 37 [(tagger.tags) = "xml:\"PriorityPeriodStartDate,attr\""];
-  string priority_period_end_date = 38 [(tagger.tags) = "xml:\"PriorityPeriodEndDate,attr\""];
-  CurrentTerritoryCode applicable_territory_code = 39 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
+  // @gotags: xml:"ResourceSummary"
+  ResourceSummary resource_summary = 1;
+  // @gotags: xml:"GenreCategory"
+  repeated GenreCategory genre_category = 2;
+  // @gotags: xml:"SubGenreCategory"
+  repeated SubGenreCategory sub_genre_category = 3;
+  // @gotags: xml:"Form"
+  Form form = 4;
+  // @gotags: xml:"VocalRegister"
+  repeated VocalRegister vocal_register = 5;
+  // @gotags: xml:"Focus"
+  repeated Focus focus = 6;
+  // @gotags: xml:"AbsolutePitch"
+  repeated AbsolutePitch absolute_pitch = 7;
+  // @gotags: xml:"TimeSignature"
+  repeated TimeSignature time_signature = 8;
+  // @gotags: xml:"Tempo"
+  repeated TempoValue tempo = 9;
+  // @gotags: xml:"BeatsPerMinute"
+  repeated BeatsPerMinute beats_per_minute = 10;
+  // @gotags: xml:"Intensity"
+  repeated Intensity intensity = 11;
+  // @gotags: xml:"InstrumentUsed"
+  repeated InstrumentUsed instrument_used = 12;
+  // @gotags: xml:"Harmony"
+  repeated Harmony harmony = 13;
+  // @gotags: xml:"Mood"
+  repeated Mood mood = 14;
+  // @gotags: xml:"DanceStyle"
+  repeated DanceStyle dance_style = 15;
+  // @gotags: xml:"RhythmStyle"
+  repeated RhythmStyle rhythm_style = 16;
+  // @gotags: xml:"ArtisticStyle"
+  repeated ArtisticStyle artistic_style = 17;
+  // @gotags: xml:"Theme"
+  repeated Theme theme = 18;
+  // @gotags: xml:"Activity"
+  repeated Activity activity = 19;
+  // @gotags: xml:"UsedMusicalWork"
+  repeated UsedMusicalWork used_musical_work = 20;
+  // @gotags: xml:"RelatedResource"
+  repeated ResourceRelationship related_resource = 21;
+  // @gotags: xml:"Lyrics"
+  repeated Lyrics lyrics = 22;
+  // @gotags: xml:"CommentaryNote"
+  repeated CommentaryNote commentary_note = 23;
+  // @gotags: xml:"Sample"
+  repeated Sample sample = 24;
+  // @gotags: xml:"RecordingPart"
+  repeated RecordingPart recording_part = 25;
+  // @gotags: xml:"Usage"
+  repeated Usage usage = 26;
+  // @gotags: xml:"ImpactDate"
+  repeated ImpactDate impact_date = 27;
+  // @gotags: xml:"ClassicalPeriod"
+  ClassicalPeriod classical_period = 28;
+  // @gotags: xml:"Epoch"
+  repeated Epoch epoch = 29;
+  // @gotags: xml:"ArtisticInfluence"
+  repeated ArtisticInfluence artistic_influence = 30;
+  // @gotags: xml:"IsSimilar"
+  repeated SimilarResource is_similar = 31;
+  // @gotags: xml:"HistoricChartingInformation"
+  repeated HistoricChartingInformation historic_charting_information = 32;
+  // @gotags: xml:"Award"
+  repeated Award award = 33;
+  // @gotags: xml:"LocationAndDateOfSession"
+  repeated LocationAndDateOfSession location_and_date_of_session = 34;
+  // @gotags: xml:"AlternativeTitle"
+  repeated AlternativeTitle alternative_title = 35;
+  // @gotags: xml:"Image"
+  repeated Image image = 36;
+  // @gotags: xml:"PriorityPeriodStartDate,attr"
+  string priority_period_start_date = 37;
+  // @gotags: xml:"PriorityPeriodEndDate,attr"
+  string priority_period_end_date = 38;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  CurrentTerritoryCode applicable_territory_code = 39;
 }
 message ResourceInformationList {
-  repeated ResourceInformation resource_information = 1 [(tagger.tags) = "xml:\"ResourceInformation\""];
+  // @gotags: xml:"ResourceInformation"
+  repeated ResourceInformation resource_information = 1;
 }
 message ResourceRelationship {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  ResourceIdWithoutFlag resource_id = 2 [(tagger.tags) = "xml:\"ResourceId\""];
-  RelatedResourceType related_resource_type = 3 [(tagger.tags) = "xml:\"RelatedResourceType\""];
-  repeated TitleWithPronunciation title = 4 [(tagger.tags) = "xml:\"Title\""];
-  DisplayArtistNameWithPronunciation display_artist_name = 5 [(tagger.tags) = "xml:\"DisplayArtistName\""];
-  repeated PartyDescriptorWithPronunciation display_artist = 6 [(tagger.tags) = "xml:\"DisplayArtist\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"ResourceId"
+  ResourceIdWithoutFlag resource_id = 2;
+  // @gotags: xml:"RelatedResourceType"
+  RelatedResourceType related_resource_type = 3;
+  // @gotags: xml:"Title"
+  repeated TitleWithPronunciation title = 4;
+  // @gotags: xml:"DisplayArtistName"
+  DisplayArtistNameWithPronunciation display_artist_name = 5;
+  // @gotags: xml:"DisplayArtist"
+  repeated PartyDescriptorWithPronunciation display_artist = 6;
 }
 message ResourceSummary {
-  ResourceIdWithoutFlag resource_id = 1 [(tagger.tags) = "xml:\"ResourceId\""];
-  repeated DisplayTitle display_title = 2 [(tagger.tags) = "xml:\"DisplayTitle\""];
-  repeated DisplayArtistNameWithPronunciation display_artist_name = 3 [(tagger.tags) = "xml:\"DisplayArtistName\""];
-  repeated PartyDescriptorWithPronunciation display_artist = 4 [(tagger.tags) = "xml:\"DisplayArtist\""];
+  // @gotags: xml:"ResourceId"
+  ResourceIdWithoutFlag resource_id = 1;
+  // @gotags: xml:"DisplayTitle"
+  repeated DisplayTitle display_title = 2;
+  // @gotags: xml:"DisplayArtistName"
+  repeated DisplayArtistNameWithPronunciation display_artist_name = 3;
+  // @gotags: xml:"DisplayArtist"
+  repeated PartyDescriptorWithPronunciation display_artist = 4;
 }
 message RhythmStyle {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  RhythmStyleValue value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated TextWithoutTerritory description = 3 [(tagger.tags) = "xml:\"Description\""];
-  repeated string language_and_script_of_rhythm_style = 4 [(tagger.tags) = "xml:\"LanguageAndScriptOfRhythmStyle\""];
-  repeated CurrentTerritoryCode territory_of_rhythm_style_description = 5 [(tagger.tags) = "xml:\"TerritoryOfRhythmStyleDescription\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  RhythmStyleValue value = 2;
+  // @gotags: xml:"Description"
+  repeated TextWithoutTerritory description = 3;
+  // @gotags: xml:"LanguageAndScriptOfRhythmStyle"
+  repeated string language_and_script_of_rhythm_style = 4;
+  // @gotags: xml:"TerritoryOfRhythmStyleDescription"
+  repeated CurrentTerritoryCode territory_of_rhythm_style_description = 5;
 }
 message RhythmStyleValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message RootChordNote {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message RootChordQuality {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message Sample {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  ResourceSummary related_resource = 2 [(tagger.tags) = "xml:\"RelatedResource\""];
-  repeated SampleFeature sample_feature = 3 [(tagger.tags) = "xml:\"SampleFeature\""];
-  repeated TextWithFormat description = 4 [(tagger.tags) = "xml:\"Description\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"RelatedResource"
+  ResourceSummary related_resource = 2;
+  // @gotags: xml:"SampleFeature"
+  repeated SampleFeature sample_feature = 3;
+  // @gotags: xml:"Description"
+  repeated TextWithFormat description = 4;
 }
 message SampleFeature {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
 }
 message SimilarRelease {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  Release release = 2 [(tagger.tags) = "xml:\"Release\""];
-  repeated Annotation description = 3 [(tagger.tags) = "xml:\"Description\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Release"
+  Release release = 2;
+  // @gotags: xml:"Description"
+  repeated Annotation description = 3;
 }
 message SimilarResource {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  Resource resource = 2 [(tagger.tags) = "xml:\"Resource\""];
-  repeated Annotation description = 3 [(tagger.tags) = "xml:\"Description\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Resource"
+  Resource resource = 2;
+  // @gotags: xml:"Description"
+  repeated Annotation description = 3;
 }
 message SimilarWork {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  Work work = 2 [(tagger.tags) = "xml:\"Work\""];
-  repeated Annotation description = 3 [(tagger.tags) = "xml:\"Description\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Work"
+  Work work = 2;
+  // @gotags: xml:"Description"
+  repeated Annotation description = 3;
 }
 message SubGenreCategory {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated SubGenreCategoryValue value = 2 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  repeated SubGenreCategoryValue value = 2;
 }
 message TempoValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message Theme {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  ThemeValue value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated TextWithoutTerritory description = 3 [(tagger.tags) = "xml:\"Description\""];
-  repeated string language_and_script_of_theme = 4 [(tagger.tags) = "xml:\"LanguageAndScriptOfTheme\""];
-  repeated CurrentTerritoryCode territory_of_theme_description = 5 [(tagger.tags) = "xml:\"TerritoryOfThemeDescription\""];
-  MoodOrThemeType theme_type = 6 [(tagger.tags) = "xml:\"ThemeType,attr\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ThemeValue value = 2;
+  // @gotags: xml:"Description"
+  repeated TextWithoutTerritory description = 3;
+  // @gotags: xml:"LanguageAndScriptOfTheme"
+  repeated string language_and_script_of_theme = 4;
+  // @gotags: xml:"TerritoryOfThemeDescription"
+  repeated CurrentTerritoryCode territory_of_theme_description = 5;
+  // @gotags: xml:"ThemeType,attr"
+  MoodOrThemeType theme_type = 6;
 }
 message ThemeValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message TimeSignature {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated TimeSignatureModulation modulation = 2 [(tagger.tags) = "xml:\"Modulation\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Modulation"
+  repeated TimeSignatureModulation modulation = 2;
 }
 message TimeSignatureModulation {
-  string value = 1 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"Value"
+  string value = 1;
 }
 message Usage {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated TextWithFormat description = 2 [(tagger.tags) = "xml:\"Description\""];
-  repeated CurrentTerritoryCode territory_of_usage_description = 3 [(tagger.tags) = "xml:\"TerritoryOfUsageDescription\""];
-  int32 sequence_number = 4 [(tagger.tags) = "xml:\"SequenceNumber\""];
-  repeated RelevantResource relevant_resource = 5 [(tagger.tags) = "xml:\"RelevantResource\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Description"
+  repeated TextWithFormat description = 2;
+  // @gotags: xml:"TerritoryOfUsageDescription"
+  repeated CurrentTerritoryCode territory_of_usage_description = 3;
+  // @gotags: xml:"SequenceNumber"
+  int32 sequence_number = 4;
+  // @gotags: xml:"RelevantResource"
+  repeated RelevantResource relevant_resource = 5;
 }
 message UsagePeriod {
-  EventDateWithoutFlags start_date = 1 [(tagger.tags) = "xml:\"StartDate\""];
-  EventDateWithoutFlags end_date = 2 [(tagger.tags) = "xml:\"EndDate\""];
+  // @gotags: xml:"StartDate"
+  EventDateWithoutFlags start_date = 1;
+  // @gotags: xml:"EndDate"
+  EventDateWithoutFlags end_date = 2;
 }
 message UsedMusicalWork {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated string resource_musical_work_reference = 2 [(tagger.tags) = "xml:\"ResourceMusicalWorkReference\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"ResourceMusicalWorkReference"
+  repeated string resource_musical_work_reference = 2;
 }
 message WorkHierarchy {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  bool is_described_element = 2 [(tagger.tags) = "xml:\"IsDescribedElement\""];
-  bool is_complete = 3 [(tagger.tags) = "xml:\"IsComplete\""];
-  int32 sequence_number = 4 [(tagger.tags) = "xml:\"SequenceNumber\""];
-  MusicalWorkIdWithoutFlag work_id = 5 [(tagger.tags) = "xml:\"WorkId\""];
-  repeated WorkTitle work_title = 6 [(tagger.tags) = "xml:\"WorkTitle\""];
-  repeated ChildWorkHierarchy child = 7 [(tagger.tags) = "xml:\"Child\""];
-  Form form = 8 [(tagger.tags) = "xml:\"Form\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"IsDescribedElement"
+  bool is_described_element = 2;
+  // @gotags: xml:"IsComplete"
+  bool is_complete = 3;
+  // @gotags: xml:"SequenceNumber"
+  int32 sequence_number = 4;
+  // @gotags: xml:"WorkId"
+  MusicalWorkIdWithoutFlag work_id = 5;
+  // @gotags: xml:"WorkTitle"
+  repeated WorkTitle work_title = 6;
+  // @gotags: xml:"Child"
+  repeated ChildWorkHierarchy child = 7;
+  // @gotags: xml:"Form"
+  Form form = 8;
 }
 message WorkInformation {
-  string musical_work_reference = 1 [(tagger.tags) = "xml:\"MusicalWorkReference\""];
-  WorkSummary work_summary = 2 [(tagger.tags) = "xml:\"WorkSummary\""];
-  repeated GenreCategory genre_category = 3 [(tagger.tags) = "xml:\"GenreCategory\""];
-  repeated SubGenreCategory sub_genre_category = 4 [(tagger.tags) = "xml:\"SubGenreCategory\""];
-  Form form = 5 [(tagger.tags) = "xml:\"Form\""];
-  repeated VocalRegister vocal_register = 6 [(tagger.tags) = "xml:\"VocalRegister\""];
-  repeated Focus focus = 7 [(tagger.tags) = "xml:\"Focus\""];
-  repeated TimeSignature time_signature = 8 [(tagger.tags) = "xml:\"TimeSignature\""];
-  repeated TempoValue tempo = 9 [(tagger.tags) = "xml:\"Tempo\""];
-  repeated Instrument target_instrument = 10 [(tagger.tags) = "xml:\"TargetInstrument\""];
-  repeated Harmony harmony = 11 [(tagger.tags) = "xml:\"Harmony\""];
-  repeated Mood mood = 12 [(tagger.tags) = "xml:\"Mood\""];
-  repeated DanceStyle dance_style = 13 [(tagger.tags) = "xml:\"DanceStyle\""];
-  repeated RhythmStyle rhythm_style = 14 [(tagger.tags) = "xml:\"RhythmStyle\""];
-  repeated Theme theme = 15 [(tagger.tags) = "xml:\"Theme\""];
-  repeated Activity activity = 16 [(tagger.tags) = "xml:\"Activity\""];
-  repeated WorkHierarchy work_hierarchy = 17 [(tagger.tags) = "xml:\"WorkHierarchy\""];
-  repeated RelatedWork related_work = 18 [(tagger.tags) = "xml:\"RelatedWork\""];
-  repeated DerivedRecording derived_recording = 19 [(tagger.tags) = "xml:\"DerivedRecording\""];
-  repeated Lyrics lyrics = 20 [(tagger.tags) = "xml:\"Lyrics\""];
-  repeated CommentaryNote commentary_note = 21 [(tagger.tags) = "xml:\"CommentaryNote\""];
-  ClassicalPeriod classical_period = 22 [(tagger.tags) = "xml:\"ClassicalPeriod\""];
-  repeated Epoch epoch = 23 [(tagger.tags) = "xml:\"Epoch\""];
-  repeated ArtisticInfluence artistic_influence = 24 [(tagger.tags) = "xml:\"ArtisticInfluence\""];
-  repeated SimilarWork is_similar = 25 [(tagger.tags) = "xml:\"IsSimilar\""];
-  repeated Award award = 26 [(tagger.tags) = "xml:\"Award\""];
-  repeated AlternativeTitle alternative_title = 27 [(tagger.tags) = "xml:\"AlternativeTitle\""];
+  // @gotags: xml:"MusicalWorkReference"
+  string musical_work_reference = 1;
+  // @gotags: xml:"WorkSummary"
+  WorkSummary work_summary = 2;
+  // @gotags: xml:"GenreCategory"
+  repeated GenreCategory genre_category = 3;
+  // @gotags: xml:"SubGenreCategory"
+  repeated SubGenreCategory sub_genre_category = 4;
+  // @gotags: xml:"Form"
+  Form form = 5;
+  // @gotags: xml:"VocalRegister"
+  repeated VocalRegister vocal_register = 6;
+  // @gotags: xml:"Focus"
+  repeated Focus focus = 7;
+  // @gotags: xml:"TimeSignature"
+  repeated TimeSignature time_signature = 8;
+  // @gotags: xml:"Tempo"
+  repeated TempoValue tempo = 9;
+  // @gotags: xml:"TargetInstrument"
+  repeated Instrument target_instrument = 10;
+  // @gotags: xml:"Harmony"
+  repeated Harmony harmony = 11;
+  // @gotags: xml:"Mood"
+  repeated Mood mood = 12;
+  // @gotags: xml:"DanceStyle"
+  repeated DanceStyle dance_style = 13;
+  // @gotags: xml:"RhythmStyle"
+  repeated RhythmStyle rhythm_style = 14;
+  // @gotags: xml:"Theme"
+  repeated Theme theme = 15;
+  // @gotags: xml:"Activity"
+  repeated Activity activity = 16;
+  // @gotags: xml:"WorkHierarchy"
+  repeated WorkHierarchy work_hierarchy = 17;
+  // @gotags: xml:"RelatedWork"
+  repeated RelatedWork related_work = 18;
+  // @gotags: xml:"DerivedRecording"
+  repeated DerivedRecording derived_recording = 19;
+  // @gotags: xml:"Lyrics"
+  repeated Lyrics lyrics = 20;
+  // @gotags: xml:"CommentaryNote"
+  repeated CommentaryNote commentary_note = 21;
+  // @gotags: xml:"ClassicalPeriod"
+  ClassicalPeriod classical_period = 22;
+  // @gotags: xml:"Epoch"
+  repeated Epoch epoch = 23;
+  // @gotags: xml:"ArtisticInfluence"
+  repeated ArtisticInfluence artistic_influence = 24;
+  // @gotags: xml:"IsSimilar"
+  repeated SimilarWork is_similar = 25;
+  // @gotags: xml:"Award"
+  repeated Award award = 26;
+  // @gotags: xml:"AlternativeTitle"
+  repeated AlternativeTitle alternative_title = 27;
 }
 message WorkInformationList {
-  repeated WorkInformation work_information = 1 [(tagger.tags) = "xml:\"WorkInformation\""];
+  // @gotags: xml:"WorkInformation"
+  repeated WorkInformation work_information = 1;
 }
 message WorkSummary {
-  MusicalWorkIdWithoutFlag musical_work_id = 1 [(tagger.tags) = "xml:\"MusicalWorkId\""];
-  repeated TitleWithPronunciation work_title = 2 [(tagger.tags) = "xml:\"WorkTitle\""];
-  repeated PartyDescriptorWithPronunciation writer = 3 [(tagger.tags) = "xml:\"Writer\""];
+  // @gotags: xml:"MusicalWorkId"
+  MusicalWorkIdWithoutFlag musical_work_id = 1;
+  // @gotags: xml:"WorkTitle"
+  repeated TitleWithPronunciation work_title = 2;
+  // @gotags: xml:"Writer"
+  repeated PartyDescriptorWithPronunciation writer = 3;
 }
 message Category {
-  string term = 1 [(tagger.tags) = "xml:\"term,attr\""];
-  string scheme = 2 [(tagger.tags) = "xml:\"scheme,attr\""];
-  string label = 3 [(tagger.tags) = "xml:\"label,attr\""];
+  // @gotags: xml:"term,attr"
+  string term = 1;
+  // @gotags: xml:"scheme,attr"
+  string scheme = 2;
+  // @gotags: xml:"label,attr"
+  string label = 3;
 }
 message Content {
-  string type = 1 [(tagger.tags) = "xml:\"type,attr\""];
-  string src = 2 [(tagger.tags) = "xml:\"src,attr\""];
+  // @gotags: xml:"type,attr"
+  string type = 1;
+  // @gotags: xml:"src,attr"
+  string src = 2;
 }
 message DateTime {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
 }
 message Generator {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string uri = 2 [(tagger.tags) = "xml:\"uri,attr\""];
-  string version = 3 [(tagger.tags) = "xml:\"version,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"uri,attr"
+  string uri = 2;
+  // @gotags: xml:"version,attr"
+  string version = 3;
 }
 message Icon {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
 }
 message Id {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
 }
 message Link {
-  string href = 1 [(tagger.tags) = "xml:\"href,attr\""];
-  string rel = 2 [(tagger.tags) = "xml:\"rel,attr\""];
-  string type = 3 [(tagger.tags) = "xml:\"type,attr\""];
-  string hreflang = 4 [(tagger.tags) = "xml:\"hreflang,attr\""];
-  string title = 5 [(tagger.tags) = "xml:\"title,attr\""];
-  int32 length = 6 [(tagger.tags) = "xml:\"length,attr\""];
+  // @gotags: xml:"href,attr"
+  string href = 1;
+  // @gotags: xml:"rel,attr"
+  string rel = 2;
+  // @gotags: xml:"type,attr"
+  string type = 3;
+  // @gotags: xml:"hreflang,attr"
+  string hreflang = 4;
+  // @gotags: xml:"title,attr"
+  string title = 5;
+  // @gotags: xml:"length,attr"
+  int32 length = 6;
 }
 message Logo {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
 }
 message Person {
   oneof choice {
-    string name = 1 [(tagger.tags) = "xml:\"name\""];
-    URI uri = 2 [(tagger.tags) = "xml:\"uri\""];
-    string email = 3 [(tagger.tags) = "xml:\"email\""];
+  // @gotags: xml:"name"
+    string name = 1;
+  // @gotags: xml:"uri"
+    URI uri = 2;
+  // @gotags: xml:"email"
+    string email = 3;
   }
 }
 message Source {
   oneof choice {
-    Person author = 1 [(tagger.tags) = "xml:\"author\""];
-    Category category = 2 [(tagger.tags) = "xml:\"category\""];
-    Person contributor = 3 [(tagger.tags) = "xml:\"contributor\""];
-    Generator generator = 4 [(tagger.tags) = "xml:\"generator\""];
-    Icon icon = 5 [(tagger.tags) = "xml:\"icon\""];
-    Id id = 6 [(tagger.tags) = "xml:\"id\""];
-    Link link = 7 [(tagger.tags) = "xml:\"link\""];
-    Logo logo = 8 [(tagger.tags) = "xml:\"logo\""];
-    Text rights = 9 [(tagger.tags) = "xml:\"rights\""];
-    Text subtitle = 10 [(tagger.tags) = "xml:\"subtitle\""];
-    Text title = 11 [(tagger.tags) = "xml:\"title\""];
-    DateTime updated = 12 [(tagger.tags) = "xml:\"updated\""];
+  // @gotags: xml:"author"
+    Person author = 1;
+  // @gotags: xml:"category"
+    Category category = 2;
+  // @gotags: xml:"contributor"
+    Person contributor = 3;
+  // @gotags: xml:"generator"
+    Generator generator = 4;
+  // @gotags: xml:"icon"
+    Icon icon = 5;
+  // @gotags: xml:"id"
+    Id id = 6;
+  // @gotags: xml:"link"
+    Link link = 7;
+  // @gotags: xml:"logo"
+    Logo logo = 8;
+  // @gotags: xml:"rights"
+    Text rights = 9;
+  // @gotags: xml:"subtitle"
+    Text subtitle = 10;
+  // @gotags: xml:"title"
+    Text title = 11;
+  // @gotags: xml:"updated"
+    DateTime updated = 12;
   }
 }
 message Text {
-  TextTypeATOM type = 1 [(tagger.tags) = "xml:\"type,attr\""];
+  // @gotags: xml:"type,attr"
+  TextTypeATOM type = 1;
 }
 message URI {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
 }
 message AllTerritoryCode {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  TerritoryCodeTypeIncludingDeprecatedCodes identifier_type = 2 [(tagger.tags) = "xml:\"IdentifierType,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IdentifierType,attr"
+  TerritoryCodeTypeIncludingDeprecatedCodes identifier_type = 2;
 }
 message ArtistTypeValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message ArtisticInfluence {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated PartyDescriptorWithPronunciation party = 2 [(tagger.tags) = "xml:\"Party\""];
-  repeated Work work = 3 [(tagger.tags) = "xml:\"Work\""];
-  repeated Resource resource = 4 [(tagger.tags) = "xml:\"Resource\""];
-  repeated Release release = 5 [(tagger.tags) = "xml:\"Release\""];
-  repeated TextWithFormat description = 6 [(tagger.tags) = "xml:\"Description\""];
-  bool is_influenced = 7 [(tagger.tags) = "xml:\"IsInfluenced\""];
-  bool is_influencer = 8 [(tagger.tags) = "xml:\"IsInfluencer\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Party"
+  repeated PartyDescriptorWithPronunciation party = 2;
+  // @gotags: xml:"Work"
+  repeated Work work = 3;
+  // @gotags: xml:"Resource"
+  repeated Resource resource = 4;
+  // @gotags: xml:"Release"
+  repeated Release release = 5;
+  // @gotags: xml:"Description"
+  repeated TextWithFormat description = 6;
+  // @gotags: xml:"IsInfluenced"
+  bool is_influenced = 7;
+  // @gotags: xml:"IsInfluencer"
+  bool is_influencer = 8;
 }
 message Award {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  PartyDescriptorWithPronunciation awarding_body = 2 [(tagger.tags) = "xml:\"AwardingBody\""];
-  PartyDescriptorWithPronunciation awarded_party = 3 [(tagger.tags) = "xml:\"AwardedParty\""];
-  NameWithPronunciationAndScriptCode award_name = 4 [(tagger.tags) = "xml:\"AwardName\""];
-  EventDate date = 5 [(tagger.tags) = "xml:\"Date\""];
-  bool is_winner = 6 [(tagger.tags) = "xml:\"IsWinner\""];
-  repeated TextWithFormat comment = 7 [(tagger.tags) = "xml:\"Comment\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"AwardingBody"
+  PartyDescriptorWithPronunciation awarding_body = 2;
+  // @gotags: xml:"AwardedParty"
+  PartyDescriptorWithPronunciation awarded_party = 3;
+  // @gotags: xml:"AwardName"
+  NameWithPronunciationAndScriptCode award_name = 4;
+  // @gotags: xml:"Date"
+  EventDate date = 5;
+  // @gotags: xml:"IsWinner"
+  bool is_winner = 6;
+  // @gotags: xml:"Comment"
+  repeated TextWithFormat comment = 7;
 }
 message CatalogNumber {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
 }
 message ChartEntry {
-  int32 position = 1 [(tagger.tags) = "xml:\"Position\""];
-  string date = 2 [(tagger.tags) = "xml:\"Date\""];
-  Duration duration = 3 [(tagger.tags) = "xml:\"Duration\""];
-  repeated TextWithFormat comment = 4 [(tagger.tags) = "xml:\"Comment\""];
+  // @gotags: xml:"Position"
+  int32 position = 1;
+  // @gotags: xml:"Date"
+  string date = 2;
+  // @gotags: xml:"Duration"
+  Duration duration = 3;
+  // @gotags: xml:"Comment"
+  repeated TextWithFormat comment = 4;
 }
 message ClassicalPeriod {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  PeriodValue name = 2 [(tagger.tags) = "xml:\"Name\""];
-  repeated string language_and_script_of_classical_period = 3 [(tagger.tags) = "xml:\"LanguageAndScriptOfClassicalPeriod\""];
-  repeated CurrentTerritoryCode territory_of_classical_period_description = 4 [(tagger.tags) = "xml:\"TerritoryOfClassicalPeriodDescription\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Name"
+  PeriodValue name = 2;
+  // @gotags: xml:"LanguageAndScriptOfClassicalPeriod"
+  repeated string language_and_script_of_classical_period = 3;
+  // @gotags: xml:"TerritoryOfClassicalPeriodDescription"
+  repeated CurrentTerritoryCode territory_of_classical_period_description = 4;
 }
 message CommentaryNote {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated TextWithoutTerritory text = 2 [(tagger.tags) = "xml:\"Text\""];
-  repeated CommentaryNoteType commentary_note_type = 3 [(tagger.tags) = "xml:\"CommentaryNoteType\""];
-  repeated string language_and_script_of_commentary_note = 4 [(tagger.tags) = "xml:\"LanguageAndScriptOfCommentaryNote\""];
-  repeated CurrentTerritoryCode territory_of_commentary_note_description = 5 [(tagger.tags) = "xml:\"TerritoryOfCommentaryNoteDescription\""];
-  repeated PartyDescriptorWithPronunciation author = 6 [(tagger.tags) = "xml:\"Author\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Text"
+  repeated TextWithoutTerritory text = 2;
+  // @gotags: xml:"CommentaryNoteType"
+  repeated CommentaryNoteType commentary_note_type = 3;
+  // @gotags: xml:"LanguageAndScriptOfCommentaryNote"
+  repeated string language_and_script_of_commentary_note = 4;
+  // @gotags: xml:"TerritoryOfCommentaryNoteDescription"
+  repeated CurrentTerritoryCode territory_of_commentary_note_description = 5;
+  // @gotags: xml:"Author"
+  repeated PartyDescriptorWithPronunciation author = 6;
 }
 message CommentaryNoteType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message CurrentTerritoryCode {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  TerritoryCodeType identifier_type = 2 [(tagger.tags) = "xml:\"IdentifierType,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IdentifierType,attr"
+  TerritoryCodeType identifier_type = 2;
 }
 message Date {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  bool is_approximate = 2 [(tagger.tags) = "xml:\"IsApproximate,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsApproximate,attr"
+  bool is_approximate = 2;
 }
 message DetailedHashSum {
-  HashSumAlgorithmType algorithm = 1 [(tagger.tags) = "xml:\"Algorithm\""];
-  string version = 2 [(tagger.tags) = "xml:\"Version\""];
-  string parameter = 3 [(tagger.tags) = "xml:\"Parameter\""];
-  BinaryDataType data_type = 4 [(tagger.tags) = "xml:\"DataType\""];
-  string hash_sum_value = 5 [(tagger.tags) = "xml:\"HashSumValue\""];
+  // @gotags: xml:"Algorithm"
+  HashSumAlgorithmType algorithm = 1;
+  // @gotags: xml:"Version"
+  string version = 2;
+  // @gotags: xml:"Parameter"
+  string parameter = 3;
+  // @gotags: xml:"DataType"
+  BinaryDataType data_type = 4;
+  // @gotags: xml:"HashSumValue"
+  string hash_sum_value = 5;
 }
 message DetailedPartyId {
-  string i_s_n_i = 1 [(tagger.tags) = "xml:\"ISNI\""];
-  string d_p_i_d = 2 [(tagger.tags) = "xml:\"DPID\""];
-  string ipi_name_number = 3 [(tagger.tags) = "xml:\"IpiNameNumber\""];
-  string i_p_n = 4 [(tagger.tags) = "xml:\"IPN\""];
-  string cisac_society_id = 5 [(tagger.tags) = "xml:\"CisacSocietyId\""];
-  repeated ProprietaryId proprietary_id = 6 [(tagger.tags) = "xml:\"ProprietaryId\""];
+  // @gotags: xml:"ISNI"
+  string i_s_n_i = 1;
+  // @gotags: xml:"DPID"
+  string d_p_i_d = 2;
+  // @gotags: xml:"IpiNameNumber"
+  string ipi_name_number = 3;
+  // @gotags: xml:"IPN"
+  string i_p_n = 4;
+  // @gotags: xml:"CisacSocietyId"
+  string cisac_society_id = 5;
+  // @gotags: xml:"ProprietaryId"
+  repeated ProprietaryId proprietary_id = 6;
 }
 message DisplayArtistNameWithDefault {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
-  CurrentTerritoryCode applicable_territory_code = 3 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
-  bool is_default = 4 [(tagger.tags) = "xml:\"IsDefault,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  CurrentTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 4;
 }
 message DisplayArtistNameWithPronunciation {
-  DisplayArtistNameWithDefault name = 1 [(tagger.tags) = "xml:\"Name\""];
-  repeated Pronunciation pronunciation = 2 [(tagger.tags) = "xml:\"Pronunciation\""];
+  // @gotags: xml:"Name"
+  DisplayArtistNameWithDefault name = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated Pronunciation pronunciation = 2;
 }
 message Duration {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  UnitOfDuration unit_of_duration = 2 [(tagger.tags) = "xml:\"UnitOfDuration,attr\""];
-  string namespace = 3 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 4 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"UnitOfDuration,attr"
+  UnitOfDuration unit_of_duration = 2;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 3;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 4;
 }
 message Epoch {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated Name value = 2 [(tagger.tags) = "xml:\"Value\""];
-  repeated PartyDescriptorWithPronunciation related_artist = 3 [(tagger.tags) = "xml:\"RelatedArtist\""];
-  repeated RelatedCreation related_creation = 4 [(tagger.tags) = "xml:\"RelatedCreation\""];
-  Date start_date = 5 [(tagger.tags) = "xml:\"StartDate\""];
-  Date end_date = 6 [(tagger.tags) = "xml:\"EndDate\""];
-  repeated string language_and_script_of_epoch = 7 [(tagger.tags) = "xml:\"LanguageAndScriptOfEpoch\""];
-  repeated CurrentTerritoryCode territory_of_epoch_description = 8 [(tagger.tags) = "xml:\"TerritoryOfEpochDescription\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  repeated Name value = 2;
+  // @gotags: xml:"RelatedArtist"
+  repeated PartyDescriptorWithPronunciation related_artist = 3;
+  // @gotags: xml:"RelatedCreation"
+  repeated RelatedCreation related_creation = 4;
+  // @gotags: xml:"StartDate"
+  Date start_date = 5;
+  // @gotags: xml:"EndDate"
+  Date end_date = 6;
+  // @gotags: xml:"LanguageAndScriptOfEpoch"
+  repeated string language_and_script_of_epoch = 7;
+  // @gotags: xml:"TerritoryOfEpochDescription"
+  repeated CurrentTerritoryCode territory_of_epoch_description = 8;
 }
 message EventDate {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  bool is_approximate = 2 [(tagger.tags) = "xml:\"IsApproximate,attr\""];
-  bool is_before = 3 [(tagger.tags) = "xml:\"IsBefore,attr\""];
-  bool is_after = 4 [(tagger.tags) = "xml:\"IsAfter,attr\""];
-  AllTerritoryCode applicable_territory_code = 5 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
-  string location_description = 6 [(tagger.tags) = "xml:\"LocationDescription,attr\""];
-  string language_and_script_code = 7 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsApproximate,attr"
+  bool is_approximate = 2;
+  // @gotags: xml:"IsBefore,attr"
+  bool is_before = 3;
+  // @gotags: xml:"IsAfter,attr"
+  bool is_after = 4;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  AllTerritoryCode applicable_territory_code = 5;
+  // @gotags: xml:"LocationDescription,attr"
+  string location_description = 6;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 7;
 }
 message EventDateTime {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  bool is_approximate = 2 [(tagger.tags) = "xml:\"IsApproximate,attr\""];
-  bool is_before = 3 [(tagger.tags) = "xml:\"IsBefore,attr\""];
-  bool is_after = 4 [(tagger.tags) = "xml:\"IsAfter,attr\""];
-  AllTerritoryCode territory_code = 5 [(tagger.tags) = "xml:\"TerritoryCode,attr\""];
-  string location_description = 6 [(tagger.tags) = "xml:\"LocationDescription,attr\""];
-  string language_and_script_code = 7 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsApproximate,attr"
+  bool is_approximate = 2;
+  // @gotags: xml:"IsBefore,attr"
+  bool is_before = 3;
+  // @gotags: xml:"IsAfter,attr"
+  bool is_after = 4;
+  // @gotags: xml:"TerritoryCode,attr"
+  AllTerritoryCode territory_code = 5;
+  // @gotags: xml:"LocationDescription,attr"
+  string location_description = 6;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 7;
 }
 message File {
-  string u_r_i = 1 [(tagger.tags) = "xml:\"URI\""];
-  DetailedHashSum hash_sum = 2 [(tagger.tags) = "xml:\"HashSum\""];
-  string file_size = 3 [(tagger.tags) = "xml:\"FileSize\""];
+  // @gotags: xml:"URI"
+  string u_r_i = 1;
+  // @gotags: xml:"HashSum"
+  DetailedHashSum hash_sum = 2;
+  // @gotags: xml:"FileSize"
+  string file_size = 3;
 }
 message Focus {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  repeated PartyDescriptorWithPronunciation party = 2 [(tagger.tags) = "xml:\"Party\""];
-  repeated DisplayArtistNameWithPronunciation display_artist_name = 3 [(tagger.tags) = "xml:\"DisplayArtistName\""];
-  repeated PartyDescriptorWithPronunciation display_artist = 4 [(tagger.tags) = "xml:\"DisplayArtist\""];
-  repeated PartyDescriptorWithPronunciation writer = 5 [(tagger.tags) = "xml:\"Writer\""];
-  int32 sequence_number = 6 [(tagger.tags) = "xml:\"SequenceNumber\""];
-  repeated PeriodWithTime period_of_being_focus = 7 [(tagger.tags) = "xml:\"PeriodOfBeingFocus\""];
-  repeated CurrentTerritoryCode territory_of_being_focus_track_description = 8 [(tagger.tags) = "xml:\"TerritoryOfBeingFocusTrackDescription\""];
-  repeated TextWithoutTerritory comment = 9 [(tagger.tags) = "xml:\"Comment\""];
-  bool is_default = 10 [(tagger.tags) = "xml:\"IsDefault,attr\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Party"
+  repeated PartyDescriptorWithPronunciation party = 2;
+  // @gotags: xml:"DisplayArtistName"
+  repeated DisplayArtistNameWithPronunciation display_artist_name = 3;
+  // @gotags: xml:"DisplayArtist"
+  repeated PartyDescriptorWithPronunciation display_artist = 4;
+  // @gotags: xml:"Writer"
+  repeated PartyDescriptorWithPronunciation writer = 5;
+  // @gotags: xml:"SequenceNumber"
+  int32 sequence_number = 6;
+  // @gotags: xml:"PeriodOfBeingFocus"
+  repeated PeriodWithTime period_of_being_focus = 7;
+  // @gotags: xml:"TerritoryOfBeingFocusTrackDescription"
+  repeated CurrentTerritoryCode territory_of_being_focus_track_description = 8;
+  // @gotags: xml:"Comment"
+  repeated TextWithoutTerritory comment = 9;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 10;
 }
 message GenreCategoryValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
-  string namespace = 3 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 4 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 3;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 4;
 }
 message HashSumAlgorithmType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message HistoricChartingInformation {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  CurrentTerritoryCode territory_code = 2 [(tagger.tags) = "xml:\"TerritoryCode\""];
-  repeated NameWithPronunciationAndScriptCode chart_name = 3 [(tagger.tags) = "xml:\"ChartName\""];
-  Duration duration_in_charts = 4 [(tagger.tags) = "xml:\"DurationInCharts\""];
-  int32 top_position = 5 [(tagger.tags) = "xml:\"TopPosition\""];
-  repeated ChartEntry chart_entry = 6 [(tagger.tags) = "xml:\"ChartEntry\""];
-  repeated TextWithFormat comment = 7 [(tagger.tags) = "xml:\"Comment\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"TerritoryCode"
+  CurrentTerritoryCode territory_code = 2;
+  // @gotags: xml:"ChartName"
+  repeated NameWithPronunciationAndScriptCode chart_name = 3;
+  // @gotags: xml:"DurationInCharts"
+  Duration duration_in_charts = 4;
+  // @gotags: xml:"TopPosition"
+  int32 top_position = 5;
+  // @gotags: xml:"ChartEntry"
+  repeated ChartEntry chart_entry = 6;
+  // @gotags: xml:"Comment"
+  repeated TextWithFormat comment = 7;
 }
 message Image {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  File file = 2 [(tagger.tags) = "xml:\"File\""];
-  repeated ImageType image_type = 3 [(tagger.tags) = "xml:\"ImageType\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"File"
+  File file = 2;
+  // @gotags: xml:"ImageType"
+  repeated ImageType image_type = 3;
 }
 message ImageType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message MessageAuditTrail {
-  repeated MessageAuditTrailEvent message_audit_trail_event = 1 [(tagger.tags) = "xml:\"MessageAuditTrailEvent\""];
+  // @gotags: xml:"MessageAuditTrailEvent"
+  repeated MessageAuditTrailEvent message_audit_trail_event = 1;
 }
 message MessageAuditTrailEvent {
-  MessagingPartyWithoutCode messaging_party_descriptor = 1 [(tagger.tags) = "xml:\"MessagingPartyDescriptor\""];
-  string date_time = 2 [(tagger.tags) = "xml:\"DateTime\""];
+  // @gotags: xml:"MessagingPartyDescriptor"
+  MessagingPartyWithoutCode messaging_party_descriptor = 1;
+  // @gotags: xml:"DateTime"
+  string date_time = 2;
 }
 message MessageHeader {
-  string message_thread_id = 1 [(tagger.tags) = "xml:\"MessageThreadId\""];
-  string message_id = 2 [(tagger.tags) = "xml:\"MessageId\""];
-  string message_file_name = 3 [(tagger.tags) = "xml:\"MessageFileName\""];
-  MessagingPartyWithoutCode message_sender = 4 [(tagger.tags) = "xml:\"MessageSender\""];
-  MessagingPartyWithoutCode sent_on_behalf_of = 5 [(tagger.tags) = "xml:\"SentOnBehalfOf\""];
-  repeated MessagingPartyWithoutCode message_recipient = 6 [(tagger.tags) = "xml:\"MessageRecipient\""];
-  string message_created_date_time = 7 [(tagger.tags) = "xml:\"MessageCreatedDateTime\""];
-  MessageAuditTrail message_audit_trail = 8 [(tagger.tags) = "xml:\"MessageAuditTrail\""];
-  MessageControlType message_control_type = 9 [(tagger.tags) = "xml:\"MessageControlType\""];
+  // @gotags: xml:"MessageThreadId"
+  string message_thread_id = 1;
+  // @gotags: xml:"MessageId"
+  string message_id = 2;
+  // @gotags: xml:"MessageFileName"
+  string message_file_name = 3;
+  // @gotags: xml:"MessageSender"
+  MessagingPartyWithoutCode message_sender = 4;
+  // @gotags: xml:"SentOnBehalfOf"
+  MessagingPartyWithoutCode sent_on_behalf_of = 5;
+  // @gotags: xml:"MessageRecipient"
+  repeated MessagingPartyWithoutCode message_recipient = 6;
+  // @gotags: xml:"MessageCreatedDateTime"
+  string message_created_date_time = 7;
+  // @gotags: xml:"MessageAuditTrail"
+  MessageAuditTrail message_audit_trail = 8;
+  // @gotags: xml:"MessageControlType"
+  MessageControlType message_control_type = 9;
 }
 message MessagingPartyWithoutCode {
-  string party_id = 1 [(tagger.tags) = "xml:\"PartyId\""];
-  PartyNameWithoutCode party_name = 2 [(tagger.tags) = "xml:\"PartyName\""];
-  string trading_name = 3 [(tagger.tags) = "xml:\"TradingName\""];
+  // @gotags: xml:"PartyId"
+  string party_id = 1;
+  // @gotags: xml:"PartyName"
+  PartyNameWithoutCode party_name = 2;
+  // @gotags: xml:"TradingName"
+  string trading_name = 3;
 }
 message MetadataSource {
-  string source_reference = 1 [(tagger.tags) = "xml:\"SourceReference\""];
-  MetadataSourceType metadata_source_type = 2 [(tagger.tags) = "xml:\"MetadataSourceType\""];
+  // @gotags: xml:"SourceReference"
+  string source_reference = 1;
+  // @gotags: xml:"MetadataSourceType"
+  MetadataSourceType metadata_source_type = 2;
 }
 message MetadataSourceList {
-  repeated MetadataSource metadata_source = 1 [(tagger.tags) = "xml:\"MetadataSource\""];
+  // @gotags: xml:"MetadataSource"
+  repeated MetadataSource metadata_source = 1;
 }
 message MetadataSourceReference {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string assertion_date_time = 2 [(tagger.tags) = "xml:\"AssertionDateTime,attr\""];
-  AssertionStatus status = 3 [(tagger.tags) = "xml:\"Status,attr\""];
-  string weight = 4 [(tagger.tags) = "xml:\"Weight,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"AssertionDateTime,attr"
+  string assertion_date_time = 2;
+  // @gotags: xml:"Status,attr"
+  AssertionStatus status = 3;
+  // @gotags: xml:"Weight,attr"
+  string weight = 4;
 }
 message MetadataSourceType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message MusicalWorkIdWithoutFlag {
-  string i_s_w_c = 1 [(tagger.tags) = "xml:\"ISWC\""];
-  string opus_number = 2 [(tagger.tags) = "xml:\"OpusNumber\""];
-  repeated string composer_catalog_number = 3 [(tagger.tags) = "xml:\"ComposerCatalogNumber\""];
-  repeated ProprietaryId proprietary_id = 4 [(tagger.tags) = "xml:\"ProprietaryId\""];
+  // @gotags: xml:"ISWC"
+  string i_s_w_c = 1;
+  // @gotags: xml:"OpusNumber"
+  string opus_number = 2;
+  // @gotags: xml:"ComposerCatalogNumber"
+  repeated string composer_catalog_number = 3;
+  // @gotags: xml:"ProprietaryId"
+  repeated ProprietaryId proprietary_id = 4;
 }
 message Name {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
 }
 message NameWithPronunciationAndScriptCode {
-  Name name = 1 [(tagger.tags) = "xml:\"Name\""];
-  repeated Pronunciation pronunciation = 2 [(tagger.tags) = "xml:\"Pronunciation\""];
+  // @gotags: xml:"Name"
+  Name name = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated Pronunciation pronunciation = 2;
 }
 message PartyDescriptorWithPronunciation {
   oneof choice {
-    DetailedPartyId party_id = 1 [(tagger.tags) = "xml:\"PartyId\""];
+  // @gotags: xml:"PartyId"
+    DetailedPartyId party_id = 1;
   }
 }
 message PartyNameWithPronunciation {
-  NameWithPronunciationAndScriptCode full_name = 1 [(tagger.tags) = "xml:\"FullName\""];
-  NameWithPronunciationAndScriptCode full_name_ascii_transcribed = 2 [(tagger.tags) = "xml:\"FullNameAsciiTranscribed\""];
-  NameWithPronunciationAndScriptCode full_name_indexed = 3 [(tagger.tags) = "xml:\"FullNameIndexed\""];
-  NameWithPronunciationAndScriptCode names_before_key_name = 4 [(tagger.tags) = "xml:\"NamesBeforeKeyName\""];
-  NameWithPronunciationAndScriptCode key_name = 5 [(tagger.tags) = "xml:\"KeyName\""];
-  NameWithPronunciationAndScriptCode names_after_key_name = 6 [(tagger.tags) = "xml:\"NamesAfterKeyName\""];
-  NameWithPronunciationAndScriptCode abbreviated_name = 7 [(tagger.tags) = "xml:\"AbbreviatedName\""];
-  string language_and_script_code = 8 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
-  CurrentTerritoryCode applicable_territory_code = 9 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
+  // @gotags: xml:"FullName"
+  NameWithPronunciationAndScriptCode full_name = 1;
+  // @gotags: xml:"FullNameAsciiTranscribed"
+  NameWithPronunciationAndScriptCode full_name_ascii_transcribed = 2;
+  // @gotags: xml:"FullNameIndexed"
+  NameWithPronunciationAndScriptCode full_name_indexed = 3;
+  // @gotags: xml:"NamesBeforeKeyName"
+  NameWithPronunciationAndScriptCode names_before_key_name = 4;
+  // @gotags: xml:"KeyName"
+  NameWithPronunciationAndScriptCode key_name = 5;
+  // @gotags: xml:"NamesAfterKeyName"
+  NameWithPronunciationAndScriptCode names_after_key_name = 6;
+  // @gotags: xml:"AbbreviatedName"
+  NameWithPronunciationAndScriptCode abbreviated_name = 7;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 8;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  CurrentTerritoryCode applicable_territory_code = 9;
 }
 message PartyNameWithoutCode {
-  string full_name = 1 [(tagger.tags) = "xml:\"FullName\""];
-  string full_name_ascii_transcribed = 2 [(tagger.tags) = "xml:\"FullNameAsciiTranscribed\""];
-  string full_name_indexed = 3 [(tagger.tags) = "xml:\"FullNameIndexed\""];
-  string names_before_key_name = 4 [(tagger.tags) = "xml:\"NamesBeforeKeyName\""];
-  string key_name = 5 [(tagger.tags) = "xml:\"KeyName\""];
-  string names_after_key_name = 6 [(tagger.tags) = "xml:\"NamesAfterKeyName\""];
-  string abbreviated_name = 7 [(tagger.tags) = "xml:\"AbbreviatedName\""];
+  // @gotags: xml:"FullName"
+  string full_name = 1;
+  // @gotags: xml:"FullNameAsciiTranscribed"
+  string full_name_ascii_transcribed = 2;
+  // @gotags: xml:"FullNameIndexed"
+  string full_name_indexed = 3;
+  // @gotags: xml:"NamesBeforeKeyName"
+  string names_before_key_name = 4;
+  // @gotags: xml:"KeyName"
+  string key_name = 5;
+  // @gotags: xml:"NamesAfterKeyName"
+  string names_after_key_name = 6;
+  // @gotags: xml:"AbbreviatedName"
+  string abbreviated_name = 7;
 }
 message Period {
 }
 message PeriodValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message PeriodWithTime {
-  string start_date_time = 1 [(tagger.tags) = "xml:\"StartDateTime\""];
-  string end_date_time = 2 [(tagger.tags) = "xml:\"EndDateTime\""];
+  // @gotags: xml:"StartDateTime"
+  string start_date_time = 1;
+  // @gotags: xml:"EndDateTime"
+  string end_date_time = 2;
 }
 message Pronunciation {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  bool is_canonical = 2 [(tagger.tags) = "xml:\"IsCanonical,attr\""];
-  string language_code = 3 [(tagger.tags) = "xml:\"LanguageCode,attr\""];
-  EncodingType encoding_type = 4 [(tagger.tags) = "xml:\"EncodingType,attr\""];
-  string encoding_namespace = 5 [(tagger.tags) = "xml:\"EncodingNamespace,attr\""];
-  string encoding_user_defined_value = 6 [(tagger.tags) = "xml:\"EncodingUserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsCanonical,attr"
+  bool is_canonical = 2;
+  // @gotags: xml:"LanguageCode,attr"
+  string language_code = 3;
+  // @gotags: xml:"EncodingType,attr"
+  EncodingType encoding_type = 4;
+  // @gotags: xml:"EncodingNamespace,attr"
+  string encoding_namespace = 5;
+  // @gotags: xml:"EncodingUserDefinedValue,attr"
+  string encoding_user_defined_value = 6;
 }
 message ProprietaryId {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
 }
 message RecordingPartType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message RelatedCreation {
-  TitleWithPronunciation title = 1 [(tagger.tags) = "xml:\"Title\""];
+  // @gotags: xml:"Title"
+  TitleWithPronunciation title = 1;
 }
 message RelatedResourceType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message Release {
-  string g_rid = 1 [(tagger.tags) = "xml:\"GRid\""];
-  string i_c_p_n = 2 [(tagger.tags) = "xml:\"ICPN\""];
-  string proprietary_release_id = 3 [(tagger.tags) = "xml:\"ProprietaryReleaseId\""];
-  repeated ReleaseTitle release_title = 4 [(tagger.tags) = "xml:\"ReleaseTitle\""];
-  repeated DisplayArtistNameWithPronunciation display_artist_name = 5 [(tagger.tags) = "xml:\"DisplayArtistName\""];
-  repeated PartyDescriptorWithPronunciation display_artist = 6 [(tagger.tags) = "xml:\"DisplayArtist\""];
+  // @gotags: xml:"GRid"
+  string g_rid = 1;
+  // @gotags: xml:"ICPN"
+  string i_c_p_n = 2;
+  // @gotags: xml:"ProprietaryReleaseId"
+  string proprietary_release_id = 3;
+  // @gotags: xml:"ReleaseTitle"
+  repeated ReleaseTitle release_title = 4;
+  // @gotags: xml:"DisplayArtistName"
+  repeated DisplayArtistNameWithPronunciation display_artist_name = 5;
+  // @gotags: xml:"DisplayArtist"
+  repeated PartyDescriptorWithPronunciation display_artist = 6;
 }
 message ReleaseId {
-  string g_rid = 1 [(tagger.tags) = "xml:\"GRid\""];
-  string i_s_r_c = 2 [(tagger.tags) = "xml:\"ISRC\""];
-  string i_c_p_n = 3 [(tagger.tags) = "xml:\"ICPN\""];
-  CatalogNumber catalog_number = 4 [(tagger.tags) = "xml:\"CatalogNumber\""];
-  repeated ProprietaryId proprietary_id = 5 [(tagger.tags) = "xml:\"ProprietaryId\""];
+  // @gotags: xml:"GRid"
+  string g_rid = 1;
+  // @gotags: xml:"ISRC"
+  string i_s_r_c = 2;
+  // @gotags: xml:"ICPN"
+  string i_c_p_n = 3;
+  // @gotags: xml:"CatalogNumber"
+  CatalogNumber catalog_number = 4;
+  // @gotags: xml:"ProprietaryId"
+  repeated ProprietaryId proprietary_id = 5;
 }
 message ReleaseTitle {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
 }
 message Resource {
-  string i_s_r_c = 1 [(tagger.tags) = "xml:\"ISRC\""];
-  string catalog_number = 2 [(tagger.tags) = "xml:\"CatalogNumber\""];
-  string proprietary_resource_id = 3 [(tagger.tags) = "xml:\"ProprietaryResourceId\""];
-  repeated ResourceTitle resource_title = 4 [(tagger.tags) = "xml:\"ResourceTitle\""];
-  repeated DisplayArtistNameWithPronunciation display_artist_name = 5 [(tagger.tags) = "xml:\"DisplayArtistName\""];
-  repeated PartyDescriptorWithPronunciation display_artist = 6 [(tagger.tags) = "xml:\"DisplayArtist\""];
+  // @gotags: xml:"ISRC"
+  string i_s_r_c = 1;
+  // @gotags: xml:"CatalogNumber"
+  string catalog_number = 2;
+  // @gotags: xml:"ProprietaryResourceId"
+  string proprietary_resource_id = 3;
+  // @gotags: xml:"ResourceTitle"
+  repeated ResourceTitle resource_title = 4;
+  // @gotags: xml:"DisplayArtistName"
+  repeated DisplayArtistNameWithPronunciation display_artist_name = 5;
+  // @gotags: xml:"DisplayArtist"
+  repeated PartyDescriptorWithPronunciation display_artist = 6;
 }
 message ResourceContributorRole {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message ResourceIdWithoutFlag {
-  string i_s_r_c = 1 [(tagger.tags) = "xml:\"ISRC\""];
-  string i_s_m_n = 2 [(tagger.tags) = "xml:\"ISMN\""];
-  string i_s_a_n = 3 [(tagger.tags) = "xml:\"ISAN\""];
-  string v_i_s_a_n = 4 [(tagger.tags) = "xml:\"VISAN\""];
-  string i_s_b_n = 5 [(tagger.tags) = "xml:\"ISBN\""];
-  string i_s_s_n = 6 [(tagger.tags) = "xml:\"ISSN\""];
-  string s_i_c_i = 7 [(tagger.tags) = "xml:\"SICI\""];
-  CatalogNumber catalog_number = 8 [(tagger.tags) = "xml:\"CatalogNumber\""];
-  repeated ProprietaryId proprietary_id = 9 [(tagger.tags) = "xml:\"ProprietaryId\""];
+  // @gotags: xml:"ISRC"
+  string i_s_r_c = 1;
+  // @gotags: xml:"ISMN"
+  string i_s_m_n = 2;
+  // @gotags: xml:"ISAN"
+  string i_s_a_n = 3;
+  // @gotags: xml:"VISAN"
+  string v_i_s_a_n = 4;
+  // @gotags: xml:"ISBN"
+  string i_s_b_n = 5;
+  // @gotags: xml:"ISSN"
+  string i_s_s_n = 6;
+  // @gotags: xml:"SICI"
+  string s_i_c_i = 7;
+  // @gotags: xml:"CatalogNumber"
+  CatalogNumber catalog_number = 8;
+  // @gotags: xml:"ProprietaryId"
+  repeated ProprietaryId proprietary_id = 9;
 }
 message ResourceRelationshipType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message ResourceTitle {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
 }
 message SessionType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message SubGenreCategoryValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message TextWithFormat {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
-  CurrentTerritoryCode applicable_territory_code = 3 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
-  bool is_default = 4 [(tagger.tags) = "xml:\"IsDefault,attr\""];
-  TextCodecType format = 5 [(tagger.tags) = "xml:\"Format,attr\""];
-  string namespace = 6 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 7 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  CurrentTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 4;
+  // @gotags: xml:"Format,attr"
+  TextCodecType format = 5;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 6;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 7;
 }
 message TextWithoutTerritory {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
-  CurrentTerritoryCode applicable_territory_code = 3 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
-  bool is_default = 4 [(tagger.tags) = "xml:\"IsDefault,attr\""];
-  TextCodecType format = 5 [(tagger.tags) = "xml:\"Format,attr\""];
-  string namespace = 6 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 7 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  CurrentTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 4;
+  // @gotags: xml:"Format,attr"
+  TextCodecType format = 5;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 6;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 7;
 }
 message TitleText {
-  string title = 1 [(tagger.tags) = "xml:\"Title\""];
-  repeated Pronunciation pronunciation = 2 [(tagger.tags) = "xml:\"Pronunciation\""];
+  // @gotags: xml:"Title"
+  string title = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated Pronunciation pronunciation = 2;
 }
 message TitleWithPronunciation {
-  TitleText title_text = 1 [(tagger.tags) = "xml:\"TitleText\""];
-  TitleText sub_title = 2 [(tagger.tags) = "xml:\"SubTitle\""];
-  string language_and_script_code = 3 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
-  TitleType title_type = 4 [(tagger.tags) = "xml:\"TitleType,attr\""];
-  string namespace = 5 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 6 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:"TitleText"
+  TitleText title_text = 1;
+  // @gotags: xml:"SubTitle"
+  TitleText sub_title = 2;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 3;
+  // @gotags: xml:"TitleType,attr"
+  TitleType title_type = 4;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 5;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 6;
 }
 message Venue {
-  string venue_name = 1 [(tagger.tags) = "xml:\"VenueName\""];
-  string venue_address = 2 [(tagger.tags) = "xml:\"VenueAddress\""];
-  AllTerritoryCode territory_code = 3 [(tagger.tags) = "xml:\"TerritoryCode\""];
-  string location_code = 4 [(tagger.tags) = "xml:\"LocationCode\""];
-  string venue_room = 5 [(tagger.tags) = "xml:\"VenueRoom\""];
+  // @gotags: xml:"VenueName"
+  string venue_name = 1;
+  // @gotags: xml:"VenueAddress"
+  string venue_address = 2;
+  // @gotags: xml:"TerritoryCode"
+  AllTerritoryCode territory_code = 3;
+  // @gotags: xml:"LocationCode"
+  string location_code = 4;
+  // @gotags: xml:"VenueRoom"
+  string venue_room = 5;
 }
 message VocalRegister {
-  repeated MetadataSourceReference metadata_source_reference = 1 [(tagger.tags) = "xml:\"MetadataSourceReference\""];
-  VocalRegisterValue value = 2 [(tagger.tags) = "xml:\"Value\""];
+  // @gotags: xml:"MetadataSourceReference"
+  repeated MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  VocalRegisterValue value = 2;
 }
 message VocalRegisterValue {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message Work {
-  string i_s_w_c = 1 [(tagger.tags) = "xml:\"ISWC\""];
-  string proprietary_work_id = 2 [(tagger.tags) = "xml:\"ProprietaryWorkId\""];
-  repeated WorkTitle work_title = 3 [(tagger.tags) = "xml:\"WorkTitle\""];
-  repeated PartyDescriptorWithPronunciation writer = 4 [(tagger.tags) = "xml:\"Writer\""];
+  // @gotags: xml:"ISWC"
+  string i_s_w_c = 1;
+  // @gotags: xml:"ProprietaryWorkId"
+  string proprietary_work_id = 2;
+  // @gotags: xml:"WorkTitle"
+  repeated WorkTitle work_title = 3;
+  // @gotags: xml:"Writer"
+  repeated PartyDescriptorWithPronunciation writer = 4;
 }
 message WorkRelationshipType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string namespace = 2 [(tagger.tags) = "xml:\"Namespace,attr\""];
-  string user_defined_value = 3 [(tagger.tags) = "xml:\"UserDefinedValue,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
 }
 message WorkTitle {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  string language_and_script_code = 2 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
 }
 message EventDateWithoutFlags {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  bool is_approximate = 2 [(tagger.tags) = "xml:\"IsApproximate,attr\""];
-  AllTerritoryCode applicable_territory_code = 3 [(tagger.tags) = "xml:\"ApplicableTerritoryCode,attr\""];
-  string location_description = 4 [(tagger.tags) = "xml:\"LocationDescription,attr\""];
-  string language_and_script_code = 5 [(tagger.tags) = "xml:\"LanguageAndScriptCode,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsApproximate,attr"
+  bool is_approximate = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  AllTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"LocationDescription,attr"
+  string location_description = 4;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 5;
 }
 message Timing {
-  string start_point = 1 [(tagger.tags) = "xml:\"StartPoint\""];
-  string duration_used = 2 [(tagger.tags) = "xml:\"DurationUsed\""];
+  // @gotags: xml:"StartPoint"
+  string start_point = 1;
+  // @gotags: xml:"DurationUsed"
+  string duration_used = 2;
 }
 enum AdditionalContributorRole {
   ADDITIONAL_CONTRIBUTOR_ROLE_UNSPECIFIED = 0;

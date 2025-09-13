@@ -12,7 +12,7 @@ plugins:
     out: gen  
     opt:
       - paths=source_relative
-  # Add XML tags using protoc-gen-gotag (disabled temporarily)
+  # Add XML tags using protoc-gen-gotag (run separately)
   # - local: protoc-gen-gotag
   #   out: gen
   #   opt:

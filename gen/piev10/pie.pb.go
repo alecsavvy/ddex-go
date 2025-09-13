@@ -7,7 +7,6 @@
 package piev10
 
 import (
-	_ "github.com/alecsavvy/ddex-go/gen/tagger"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -42789,12 +42788,17 @@ func (WorkType) EnumDescriptor() ([]byte, []int) {
 }
 
 type PieMessage struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	MessageHeader         *MessageHeader         `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty"`
-	MetadataSourceList    *MetadataSourceList    `protobuf:"bytes,2,opt,name=metadata_source_list,json=metadataSourceList,proto3" json:"metadata_source_list,omitempty"`
-	PartyList             *PartyList             `protobuf:"bytes,3,opt,name=party_list,json=partyList,proto3" json:"party_list,omitempty"`
-	AvsVersionId          string                 `protobuf:"bytes,4,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageHeader"
+	MessageHeader *MessageHeader `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty" xml:"MessageHeader"`
+	// @gotags: xml:"MetadataSourceList"
+	MetadataSourceList *MetadataSourceList `protobuf:"bytes,2,opt,name=metadata_source_list,json=metadataSourceList,proto3" json:"metadata_source_list,omitempty" xml:"MetadataSourceList"`
+	// @gotags: xml:"PartyList"
+	PartyList *PartyList `protobuf:"bytes,3,opt,name=party_list,json=partyList,proto3" json:"party_list,omitempty" xml:"PartyList"`
+	// @gotags: xml:"AvsVersionId,attr"
+	AvsVersionId string `protobuf:"bytes,4,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -42865,11 +42869,15 @@ func (x *PieMessage) GetLanguageAndScriptCode() string {
 }
 
 type PieRequestMessage struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	MessageHeader         *MessageHeader         `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty"`
-	RequestedParty        []*RequestedParty      `protobuf:"bytes,2,rep,name=requested_party,json=requestedParty,proto3" json:"requested_party,omitempty"`
-	AvsVersionId          string                 `protobuf:"bytes,3,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageHeader"
+	MessageHeader *MessageHeader `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty" xml:"MessageHeader"`
+	// @gotags: xml:"RequestedParty"
+	RequestedParty []*RequestedParty `protobuf:"bytes,2,rep,name=requested_party,json=requestedParty,proto3" json:"requested_party,omitempty" xml:"RequestedParty"`
+	// @gotags: xml:"AvsVersionId,attr"
+	AvsVersionId string `protobuf:"bytes,3,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -43113,55 +43121,68 @@ type isFeed_Choice interface {
 }
 
 type Feed_Author struct {
-	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof"`
+	// @gotags: xml:"author"
+	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof" xml:"author"`
 }
 
 type Feed_Category struct {
-	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof"`
+	// @gotags: xml:"category"
+	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof" xml:"category"`
 }
 
 type Feed_Contributor struct {
-	Contributor *Person `protobuf:"bytes,3,opt,name=contributor,proto3,oneof"`
+	// @gotags: xml:"contributor"
+	Contributor *Person `protobuf:"bytes,3,opt,name=contributor,proto3,oneof" xml:"contributor"`
 }
 
 type Feed_Generator struct {
-	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof"`
+	// @gotags: xml:"generator"
+	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof" xml:"generator"`
 }
 
 type Feed_Icon struct {
-	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof"`
+	// @gotags: xml:"icon"
+	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof" xml:"icon"`
 }
 
 type Feed_Id struct {
-	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof"`
+	// @gotags: xml:"id"
+	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof" xml:"id"`
 }
 
 type Feed_Link struct {
-	Link *Link `protobuf:"bytes,7,opt,name=link,proto3,oneof"`
+	// @gotags: xml:"link"
+	Link *Link `protobuf:"bytes,7,opt,name=link,proto3,oneof" xml:"link"`
 }
 
 type Feed_Logo struct {
-	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof"`
+	// @gotags: xml:"logo"
+	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof" xml:"logo"`
 }
 
 type Feed_Rights struct {
-	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof"`
+	// @gotags: xml:"rights"
+	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof" xml:"rights"`
 }
 
 type Feed_Subtitle struct {
-	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof"`
+	// @gotags: xml:"subtitle"
+	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof" xml:"subtitle"`
 }
 
 type Feed_Title struct {
-	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof"`
+	// @gotags: xml:"title"
+	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
 }
 
 type Feed_Updated struct {
-	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof"`
+	// @gotags: xml:"updated"
+	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
 }
 
 type Feed_Entry struct {
-	Entry *Entry `protobuf:"bytes,13,opt,name=entry,proto3,oneof"`
+	// @gotags: xml:"entry"
+	Entry *Entry `protobuf:"bytes,13,opt,name=entry,proto3,oneof" xml:"entry"`
 }
 
 func (*Feed_Author) isFeed_Choice() {}
@@ -43191,14 +43212,19 @@ func (*Feed_Updated) isFeed_Choice() {}
 func (*Feed_Entry) isFeed_Choice() {}
 
 type Contribution struct {
-	state                         protoimpl.MessageState `protogen:"open.v1"`
-	Role                          []*ContributorRole     `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty"`
-	IsPrimaryRole                 bool                   `protobuf:"varint,2,opt,name=is_primary_role,json=isPrimaryRole,proto3" json:"is_primary_role,omitempty"`
-	HasMadeFeaturedContribution   bool                   `protobuf:"varint,3,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty"`
-	HasMadeContractedContribution bool                   `protobuf:"varint,4,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty"`
-	Event                         *EventDate             `protobuf:"bytes,5,opt,name=event,proto3" json:"event,omitempty"`
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Role"
+	Role []*ContributorRole `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty" xml:"Role"`
+	// @gotags: xml:"IsPrimaryRole"
+	IsPrimaryRole bool `protobuf:"varint,2,opt,name=is_primary_role,json=isPrimaryRole,proto3" json:"is_primary_role,omitempty" xml:"IsPrimaryRole"`
+	// @gotags: xml:"HasMadeFeaturedContribution"
+	HasMadeFeaturedContribution bool `protobuf:"varint,3,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty" xml:"HasMadeFeaturedContribution"`
+	// @gotags: xml:"HasMadeContractedContribution"
+	HasMadeContractedContribution bool `protobuf:"varint,4,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty" xml:"HasMadeContractedContribution"`
+	// @gotags: xml:"Event"
+	Event         *EventDate `protobuf:"bytes,5,opt,name=event,proto3" json:"event,omitempty" xml:"Event"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Contribution) Reset() {
@@ -43267,12 +43293,15 @@ func (x *Contribution) GetEvent() *EventDate {
 }
 
 type CreationDescription struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	Title             []*TitleWithUDV        `protobuf:"bytes,1,rep,name=title,proto3" json:"title,omitempty"`
-	DisplayArtistName *DisplayArtistName     `protobuf:"bytes,2,opt,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	PublicationDate   *EventDate             `protobuf:"bytes,3,opt,name=publication_date,json=publicationDate,proto3" json:"publication_date,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Title"
+	Title []*TitleWithUDV `protobuf:"bytes,1,rep,name=title,proto3" json:"title,omitempty" xml:"Title"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName *DisplayArtistName `protobuf:"bytes,2,opt,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"PublicationDate"
+	PublicationDate *EventDate `protobuf:"bytes,3,opt,name=publication_date,json=publicationDate,proto3" json:"publication_date,omitempty" xml:"PublicationDate"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CreationDescription) Reset() {
@@ -43327,16 +43356,23 @@ func (x *CreationDescription) GetPublicationDate() *EventDate {
 }
 
 type DetailedPartyIdForParty struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	ISNI           string                 `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty"`
-	DPID           string                 `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty"`
-	IpiNameNumber  string                 `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty"`
-	IPN            string                 `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty"`
-	CisacSocietyId string                 `protobuf:"bytes,5,opt,name=cisac_society_id,json=cisacSocietyId,proto3" json:"cisac_society_id,omitempty"`
-	ProprietaryId  []*ProprietaryId       `protobuf:"bytes,6,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsDeprecated   bool                   `protobuf:"varint,7,opt,name=is_deprecated,json=isDeprecated,proto3" json:"is_deprecated,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISNI"
+	ISNI string `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty" xml:"ISNI"`
+	// @gotags: xml:"DPID"
+	DPID string `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty" xml:"DPID"`
+	// @gotags: xml:"IpiNameNumber"
+	IpiNameNumber string `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty" xml:"IpiNameNumber"`
+	// @gotags: xml:"IPN"
+	IPN string `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty" xml:"IPN"`
+	// @gotags: xml:"CisacSocietyId"
+	CisacSocietyId string `protobuf:"bytes,5,opt,name=cisac_society_id,json=cisacSocietyId,proto3" json:"cisac_society_id,omitempty" xml:"CisacSocietyId"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,6,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsDeprecated,attr"
+	IsDeprecated  bool `protobuf:"varint,7,opt,name=is_deprecated,json=isDeprecated,proto3" json:"is_deprecated,omitempty" xml:"IsDeprecated,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DetailedPartyIdForParty) Reset() {
@@ -43436,8 +43472,9 @@ type Entry struct {
 	//	*Entry_Updated
 	//	*Entry_SubscriptionId
 	//	*Entry_Party
-	Choice        isEntry_Choice `protobuf_oneof:"choice"`
-	AvsVersionId  string         `protobuf:"bytes,15,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty"`
+	Choice isEntry_Choice `protobuf_oneof:"choice"`
+	// @gotags: xml:"AvsVersionId,attr"
+	AvsVersionId  string `protobuf:"bytes,15,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -43617,59 +43654,73 @@ type isEntry_Choice interface {
 }
 
 type Entry_Author struct {
-	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof"`
+	// @gotags: xml:"author"
+	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof" xml:"author"`
 }
 
 type Entry_Category struct {
-	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof"`
+	// @gotags: xml:"category"
+	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof" xml:"category"`
 }
 
 type Entry_Content struct {
-	Content *Content `protobuf:"bytes,3,opt,name=content,proto3,oneof"`
+	// @gotags: xml:"content"
+	Content *Content `protobuf:"bytes,3,opt,name=content,proto3,oneof" xml:"content"`
 }
 
 type Entry_Contributor struct {
-	Contributor *Person `protobuf:"bytes,4,opt,name=contributor,proto3,oneof"`
+	// @gotags: xml:"contributor"
+	Contributor *Person `protobuf:"bytes,4,opt,name=contributor,proto3,oneof" xml:"contributor"`
 }
 
 type Entry_Id struct {
-	Id *Id `protobuf:"bytes,5,opt,name=id,proto3,oneof"`
+	// @gotags: xml:"id"
+	Id *Id `protobuf:"bytes,5,opt,name=id,proto3,oneof" xml:"id"`
 }
 
 type Entry_Link struct {
-	Link *Link `protobuf:"bytes,6,opt,name=link,proto3,oneof"`
+	// @gotags: xml:"link"
+	Link *Link `protobuf:"bytes,6,opt,name=link,proto3,oneof" xml:"link"`
 }
 
 type Entry_Published struct {
-	Published *DateTime `protobuf:"bytes,7,opt,name=published,proto3,oneof"`
+	// @gotags: xml:"published"
+	Published *DateTime `protobuf:"bytes,7,opt,name=published,proto3,oneof" xml:"published"`
 }
 
 type Entry_Rights struct {
-	Rights *Text `protobuf:"bytes,8,opt,name=rights,proto3,oneof"`
+	// @gotags: xml:"rights"
+	Rights *Text `protobuf:"bytes,8,opt,name=rights,proto3,oneof" xml:"rights"`
 }
 
 type Entry_Source struct {
-	Source *Source `protobuf:"bytes,9,opt,name=source,proto3,oneof"`
+	// @gotags: xml:"source"
+	Source *Source `protobuf:"bytes,9,opt,name=source,proto3,oneof" xml:"source"`
 }
 
 type Entry_Summary struct {
-	Summary *Text `protobuf:"bytes,10,opt,name=summary,proto3,oneof"`
+	// @gotags: xml:"summary"
+	Summary *Text `protobuf:"bytes,10,opt,name=summary,proto3,oneof" xml:"summary"`
 }
 
 type Entry_Title struct {
-	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof"`
+	// @gotags: xml:"title"
+	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
 }
 
 type Entry_Updated struct {
-	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof"`
+	// @gotags: xml:"updated"
+	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
 }
 
 type Entry_SubscriptionId struct {
-	SubscriptionId string `protobuf:"bytes,13,opt,name=subscription_id,json=subscriptionId,proto3,oneof"`
+	// @gotags: xml:"SubscriptionId"
+	SubscriptionId string `protobuf:"bytes,13,opt,name=subscription_id,json=subscriptionId,proto3,oneof" xml:"SubscriptionId"`
 }
 
 type Entry_Party struct {
-	Party *PartyDescriptorForEntry `protobuf:"bytes,14,opt,name=party,proto3,oneof"`
+	// @gotags: xml:"Party"
+	Party *PartyDescriptorForEntry `protobuf:"bytes,14,opt,name=party,proto3,oneof" xml:"Party"`
 }
 
 func (*Entry_Author) isEntry_Choice() {}
@@ -43701,12 +43752,15 @@ func (*Entry_SubscriptionId) isEntry_Choice() {}
 func (*Entry_Party) isEntry_Choice() {}
 
 type Event struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	EventType               *EventType                 `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
-	EventDescription        []*Description             `protobuf:"bytes,3,rep,name=event_description,json=eventDescription,proto3" json:"event_description,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"EventType"
+	EventType *EventType `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty" xml:"EventType"`
+	// @gotags: xml:"EventDescription"
+	EventDescription []*Description `protobuf:"bytes,3,rep,name=event_description,json=eventDescription,proto3" json:"event_description,omitempty" xml:"EventDescription"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *Event) Reset() {
@@ -43761,10 +43815,13 @@ func (x *Event) GetEventDescription() []*Description {
 }
 
 type EventType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -43821,21 +43878,33 @@ func (x *EventType) GetUserDefinedValue() string {
 }
 
 type Focus struct {
-	state                                 protoimpl.MessageState                `protogen:"open.v1"`
-	MetadataSourceReference               []*MetadataSourceReference            `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	FocusTrack                            *ResourceSummary                      `protobuf:"bytes,2,opt,name=focus_track,json=focusTrack,proto3" json:"focus_track,omitempty"`
-	FocusRelease                          *ReleaseSummary                       `protobuf:"bytes,3,opt,name=focus_release,json=focusRelease,proto3" json:"focus_release,omitempty"`
-	FocusWork                             *WorkSummary                          `protobuf:"bytes,4,opt,name=focus_work,json=focusWork,proto3" json:"focus_work,omitempty"`
-	DisplayArtistName                     []*DisplayArtistNameWithPronunciation `protobuf:"bytes,5,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist                         []*PartyDescriptorWithPronunciation   `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	Writer                                []*PartyDescriptorWithPronunciation   `protobuf:"bytes,7,rep,name=writer,proto3" json:"writer,omitempty"`
-	SequenceNumber                        int32                                 `protobuf:"varint,8,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	PeriodOfBeingFocus                    []*PeriodWithTime                     `protobuf:"bytes,9,rep,name=period_of_being_focus,json=periodOfBeingFocus,proto3" json:"period_of_being_focus,omitempty"`
-	TerritoryOfBeingFocusTrackDescription []CurrentTerritoryCode                `protobuf:"varint,10,rep,packed,name=territory_of_being_focus_track_description,json=territoryOfBeingFocusTrackDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_being_focus_track_description,omitempty"`
-	Comment                               []*TextWithoutTerritory               `protobuf:"bytes,11,rep,name=comment,proto3" json:"comment,omitempty"`
-	IsDefault                             bool                                  `protobuf:"varint,12,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields                         protoimpl.UnknownFields
-	sizeCache                             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"FocusTrack"
+	FocusTrack *ResourceSummary `protobuf:"bytes,2,opt,name=focus_track,json=focusTrack,proto3" json:"focus_track,omitempty" xml:"FocusTrack"`
+	// @gotags: xml:"FocusRelease"
+	FocusRelease *ReleaseSummary `protobuf:"bytes,3,opt,name=focus_release,json=focusRelease,proto3" json:"focus_release,omitempty" xml:"FocusRelease"`
+	// @gotags: xml:"FocusWork"
+	FocusWork *WorkSummary `protobuf:"bytes,4,opt,name=focus_work,json=focusWork,proto3" json:"focus_work,omitempty" xml:"FocusWork"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithPronunciation `protobuf:"bytes,5,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*PartyDescriptorWithPronunciation `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"Writer"
+	Writer []*PartyDescriptorWithPronunciation `protobuf:"bytes,7,rep,name=writer,proto3" json:"writer,omitempty" xml:"Writer"`
+	// @gotags: xml:"SequenceNumber"
+	SequenceNumber int32 `protobuf:"varint,8,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber"`
+	// @gotags: xml:"PeriodOfBeingFocus"
+	PeriodOfBeingFocus []*PeriodWithTime `protobuf:"bytes,9,rep,name=period_of_being_focus,json=periodOfBeingFocus,proto3" json:"period_of_being_focus,omitempty" xml:"PeriodOfBeingFocus"`
+	// @gotags: xml:"TerritoryOfBeingFocusTrackDescription"
+	TerritoryOfBeingFocusTrackDescription []CurrentTerritoryCode `protobuf:"varint,10,rep,packed,name=territory_of_being_focus_track_description,json=territoryOfBeingFocusTrackDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_being_focus_track_description,omitempty" xml:"TerritoryOfBeingFocusTrackDescription"`
+	// @gotags: xml:"Comment"
+	Comment []*TextWithoutTerritory `protobuf:"bytes,11,rep,name=comment,proto3" json:"comment,omitempty" xml:"Comment"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,12,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Focus) Reset() {
@@ -43953,12 +44022,15 @@ func (x *Focus) GetIsDefault() bool {
 }
 
 type Gender struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Value                   *GenderValue               `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	DoNotDisplay            bool                       `protobuf:"varint,3,opt,name=do_not_display,json=doNotDisplay,proto3" json:"do_not_display,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Value"
+	Value *GenderValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	// @gotags: xml:"DoNotDisplay,attr"
+	DoNotDisplay  bool `protobuf:"varint,3,opt,name=do_not_display,json=doNotDisplay,proto3" json:"do_not_display,omitempty" xml:"DoNotDisplay,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Gender) Reset() {
@@ -44013,10 +44085,13 @@ func (x *Gender) GetDoNotDisplay() bool {
 }
 
 type GenderValue struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -44073,9 +44148,11 @@ func (x *GenderValue) GetUserDefinedValue() string {
 }
 
 type NameWithPronunciation struct {
-	state         protoimpl.MessageState   `protogen:"open.v1"`
-	Name          string                   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Pronunciation []*PronunciationForParty `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Name"
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" xml:"Name"`
+	// @gotags: xml:"Pronunciation"
+	Pronunciation []*PronunciationForParty `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty" xml:"Pronunciation"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -44125,9 +44202,11 @@ func (x *NameWithPronunciation) GetPronunciation() []*PronunciationForParty {
 }
 
 type NameWithScriptCode struct {
-	state         protoimpl.MessageState   `protogen:"open.v1"`
-	Name          *Name                    `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Pronunciation []*PronunciationForParty `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Name"
+	Name *Name `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" xml:"Name"`
+	// @gotags: xml:"Pronunciation"
+	Pronunciation []*PronunciationForParty `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty" xml:"Pronunciation"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -44177,11 +44256,13 @@ func (x *NameWithScriptCode) GetPronunciation() []*PronunciationForParty {
 }
 
 type Nationality struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Value                   *AllTerritoryCode          `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Value"
+	Value         *AllTerritoryCode `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Nationality) Reset() {
@@ -44229,29 +44310,51 @@ func (x *Nationality) GetValue() *AllTerritoryCode {
 }
 
 type Party struct {
-	state                 protoimpl.MessageState     `protogen:"open.v1"`
-	PartyReference        string                     `protobuf:"bytes,1,opt,name=party_reference,json=partyReference,proto3" json:"party_reference,omitempty"`
-	PartyId               []*DetailedPartyIdForParty `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty"`
-	PartyName             []*PartyName               `protobuf:"bytes,3,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty"`
-	PartyType             *PartyType                 `protobuf:"bytes,4,opt,name=party_type,json=partyType,proto3" json:"party_type,omitempty"`
-	Event                 []*Event                   `protobuf:"bytes,5,rep,name=event,proto3" json:"event,omitempty"`
-	RelatedParty          []*RelatedParty            `protobuf:"bytes,6,rep,name=related_party,json=relatedParty,proto3" json:"related_party,omitempty"`
-	RelatedCreation       []*RelatedCreationForParty `protobuf:"bytes,7,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty"`
-	Gender                *Gender                    `protobuf:"bytes,8,opt,name=gender,proto3" json:"gender,omitempty"`
-	Nationality           []*Nationality             `protobuf:"bytes,9,rep,name=nationality,proto3" json:"nationality,omitempty"`
-	PrimaryRole           *PrimaryRole               `protobuf:"bytes,10,opt,name=primary_role,json=primaryRole,proto3" json:"primary_role,omitempty"`
-	VocalRegister         *VocalRegister             `protobuf:"bytes,11,opt,name=vocal_register,json=vocalRegister,proto3" json:"vocal_register,omitempty"`
-	Focus                 []*Focus                   `protobuf:"bytes,12,rep,name=focus,proto3" json:"focus,omitempty"`
-	ArtistType            []*ArtistType              `protobuf:"bytes,13,rep,name=artist_type,json=artistType,proto3" json:"artist_type,omitempty"`
-	ClassicalPeriod       *ClassicalPeriod           `protobuf:"bytes,14,opt,name=classical_period,json=classicalPeriod,proto3" json:"classical_period,omitempty"`
-	Epoch                 []*Epoch                   `protobuf:"bytes,15,rep,name=epoch,proto3" json:"epoch,omitempty"`
-	ArtisticInfluence     []*ArtisticInfluence       `protobuf:"bytes,16,rep,name=artistic_influence,json=artisticInfluence,proto3" json:"artistic_influence,omitempty"`
-	Award                 []*Award                   `protobuf:"bytes,17,rep,name=award,proto3" json:"award,omitempty"`
-	Biography             []*Biography               `protobuf:"bytes,18,rep,name=biography,proto3" json:"biography,omitempty"`
-	Image                 []*Image                   `protobuf:"bytes,19,rep,name=image,proto3" json:"image,omitempty"`
-	SocialMediaURL        *SocialMediaURL            `protobuf:"bytes,20,opt,name=social_media_u_r_l,json=socialMediaURL,proto3" json:"social_media_u_r_l,omitempty"`
-	CommentaryNote        []*CommentaryNote          `protobuf:"bytes,21,rep,name=commentary_note,json=commentaryNote,proto3" json:"commentary_note,omitempty"`
-	LanguageAndScriptCode string                     `protobuf:"bytes,22,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyReference"
+	PartyReference string `protobuf:"bytes,1,opt,name=party_reference,json=partyReference,proto3" json:"party_reference,omitempty" xml:"PartyReference"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyIdForParty `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName []*PartyName `protobuf:"bytes,3,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
+	// @gotags: xml:"PartyType"
+	PartyType *PartyType `protobuf:"bytes,4,opt,name=party_type,json=partyType,proto3" json:"party_type,omitempty" xml:"PartyType"`
+	// @gotags: xml:"Event"
+	Event []*Event `protobuf:"bytes,5,rep,name=event,proto3" json:"event,omitempty" xml:"Event"`
+	// @gotags: xml:"RelatedParty"
+	RelatedParty []*RelatedParty `protobuf:"bytes,6,rep,name=related_party,json=relatedParty,proto3" json:"related_party,omitempty" xml:"RelatedParty"`
+	// @gotags: xml:"RelatedCreation"
+	RelatedCreation []*RelatedCreationForParty `protobuf:"bytes,7,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty" xml:"RelatedCreation"`
+	// @gotags: xml:"Gender"
+	Gender *Gender `protobuf:"bytes,8,opt,name=gender,proto3" json:"gender,omitempty" xml:"Gender"`
+	// @gotags: xml:"Nationality"
+	Nationality []*Nationality `protobuf:"bytes,9,rep,name=nationality,proto3" json:"nationality,omitempty" xml:"Nationality"`
+	// @gotags: xml:"PrimaryRole"
+	PrimaryRole *PrimaryRole `protobuf:"bytes,10,opt,name=primary_role,json=primaryRole,proto3" json:"primary_role,omitempty" xml:"PrimaryRole"`
+	// @gotags: xml:"VocalRegister"
+	VocalRegister *VocalRegister `protobuf:"bytes,11,opt,name=vocal_register,json=vocalRegister,proto3" json:"vocal_register,omitempty" xml:"VocalRegister"`
+	// @gotags: xml:"Focus"
+	Focus []*Focus `protobuf:"bytes,12,rep,name=focus,proto3" json:"focus,omitempty" xml:"Focus"`
+	// @gotags: xml:"ArtistType"
+	ArtistType []*ArtistType `protobuf:"bytes,13,rep,name=artist_type,json=artistType,proto3" json:"artist_type,omitempty" xml:"ArtistType"`
+	// @gotags: xml:"ClassicalPeriod"
+	ClassicalPeriod *ClassicalPeriod `protobuf:"bytes,14,opt,name=classical_period,json=classicalPeriod,proto3" json:"classical_period,omitempty" xml:"ClassicalPeriod"`
+	// @gotags: xml:"Epoch"
+	Epoch []*Epoch `protobuf:"bytes,15,rep,name=epoch,proto3" json:"epoch,omitempty" xml:"Epoch"`
+	// @gotags: xml:"ArtisticInfluence"
+	ArtisticInfluence []*ArtisticInfluence `protobuf:"bytes,16,rep,name=artistic_influence,json=artisticInfluence,proto3" json:"artistic_influence,omitempty" xml:"ArtisticInfluence"`
+	// @gotags: xml:"Award"
+	Award []*Award `protobuf:"bytes,17,rep,name=award,proto3" json:"award,omitempty" xml:"Award"`
+	// @gotags: xml:"Biography"
+	Biography []*Biography `protobuf:"bytes,18,rep,name=biography,proto3" json:"biography,omitempty" xml:"Biography"`
+	// @gotags: xml:"Image"
+	Image []*Image `protobuf:"bytes,19,rep,name=image,proto3" json:"image,omitempty" xml:"Image"`
+	// @gotags: xml:"SocialMediaURL"
+	SocialMediaURL *SocialMediaURL `protobuf:"bytes,20,opt,name=social_media_u_r_l,json=socialMediaURL,proto3" json:"social_media_u_r_l,omitempty" xml:"SocialMediaURL"`
+	// @gotags: xml:"CommentaryNote"
+	CommentaryNote []*CommentaryNote `protobuf:"bytes,21,rep,name=commentary_note,json=commentaryNote,proto3" json:"commentary_note,omitempty" xml:"CommentaryNote"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,22,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -44441,9 +44544,11 @@ func (x *Party) GetLanguageAndScriptCode() string {
 }
 
 type PartyDescriptorForEntry struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PartyId       *DetailedPartyId       `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3" json:"party_id,omitempty"`
-	PartyName     string                 `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyId"
+	PartyId *DetailedPartyId `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName     string `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -44493,8 +44598,9 @@ func (x *PartyDescriptorForEntry) GetPartyName() string {
 }
 
 type PartyList struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Party         []*Party               `protobuf:"bytes,1,rep,name=party,proto3" json:"party,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Party"
+	Party         []*Party `protobuf:"bytes,1,rep,name=party,proto3" json:"party,omitempty" xml:"Party"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -44537,31 +44643,53 @@ func (x *PartyList) GetParty() []*Party {
 }
 
 type PartyName struct {
-	state                    protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference  []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	NameId                   []*NameId                  `protobuf:"bytes,2,rep,name=name_id,json=nameId,proto3" json:"name_id,omitempty"`
-	PartyNameType            []*PartyNameType           `protobuf:"bytes,3,rep,name=party_name_type,json=partyNameType,proto3" json:"party_name_type,omitempty"`
-	ReasonForNameChange      *ReasonForNameChange       `protobuf:"bytes,4,opt,name=reason_for_name_change,json=reasonForNameChange,proto3" json:"reason_for_name_change,omitempty"`
-	PartyNamePurpose         []*PartyNamePurpose        `protobuf:"bytes,5,rep,name=party_name_purpose,json=partyNamePurpose,proto3" json:"party_name_purpose,omitempty"`
-	PartyNameFormat          []*PartyNameFormat         `protobuf:"bytes,6,rep,name=party_name_format,json=partyNameFormat,proto3" json:"party_name_format,omitempty"`
-	FullName                 *NameWithScriptCode        `protobuf:"bytes,7,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	FullNameAsciiTranscribed *NameWithPronunciation     `protobuf:"bytes,8,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty"`
-	FullNameIndexed          *NameWithScriptCode        `protobuf:"bytes,9,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty"`
-	TitlesBeforeNames        string                     `protobuf:"bytes,10,opt,name=titles_before_names,json=titlesBeforeNames,proto3" json:"titles_before_names,omitempty"`
-	NamesBeforeKeyName       *NameWithScriptCode        `protobuf:"bytes,11,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty"`
-	KeyName                  *NameWithScriptCode        `protobuf:"bytes,12,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty"`
-	NamesAfterKeyName        *NameWithScriptCode        `protobuf:"bytes,13,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty"`
-	TitlesAfterNames         string                     `protobuf:"bytes,14,opt,name=titles_after_names,json=titlesAfterNames,proto3" json:"titles_after_names,omitempty"`
-	ShortName                []*NameWithScriptCode      `protobuf:"bytes,15,rep,name=short_name,json=shortName,proto3" json:"short_name,omitempty"`
-	AbbreviatedName          []*NameWithScriptCode      `protobuf:"bytes,16,rep,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty"`
-	ValidityPeriod           []*ValidityPeriod          `protobuf:"bytes,17,rep,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty"`
-	RelatedCreation          []*RelatedCreationForParty `protobuf:"bytes,18,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty"`
-	LanguageAndScriptCode    string                     `protobuf:"bytes,19,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode  CurrentTerritoryCode       `protobuf:"varint,20,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
-	IsDefault                bool                       `protobuf:"varint,21,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	IsCanonical              bool                       `protobuf:"varint,22,opt,name=is_canonical,json=isCanonical,proto3" json:"is_canonical,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"NameId"
+	NameId []*NameId `protobuf:"bytes,2,rep,name=name_id,json=nameId,proto3" json:"name_id,omitempty" xml:"NameId"`
+	// @gotags: xml:"PartyNameType"
+	PartyNameType []*PartyNameType `protobuf:"bytes,3,rep,name=party_name_type,json=partyNameType,proto3" json:"party_name_type,omitempty" xml:"PartyNameType"`
+	// @gotags: xml:"ReasonForNameChange"
+	ReasonForNameChange *ReasonForNameChange `protobuf:"bytes,4,opt,name=reason_for_name_change,json=reasonForNameChange,proto3" json:"reason_for_name_change,omitempty" xml:"ReasonForNameChange"`
+	// @gotags: xml:"PartyNamePurpose"
+	PartyNamePurpose []*PartyNamePurpose `protobuf:"bytes,5,rep,name=party_name_purpose,json=partyNamePurpose,proto3" json:"party_name_purpose,omitempty" xml:"PartyNamePurpose"`
+	// @gotags: xml:"PartyNameFormat"
+	PartyNameFormat []*PartyNameFormat `protobuf:"bytes,6,rep,name=party_name_format,json=partyNameFormat,proto3" json:"party_name_format,omitempty" xml:"PartyNameFormat"`
+	// @gotags: xml:"FullName"
+	FullName *NameWithScriptCode `protobuf:"bytes,7,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty" xml:"FullName"`
+	// @gotags: xml:"FullNameAsciiTranscribed"
+	FullNameAsciiTranscribed *NameWithPronunciation `protobuf:"bytes,8,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty" xml:"FullNameAsciiTranscribed"`
+	// @gotags: xml:"FullNameIndexed"
+	FullNameIndexed *NameWithScriptCode `protobuf:"bytes,9,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty" xml:"FullNameIndexed"`
+	// @gotags: xml:"TitlesBeforeNames"
+	TitlesBeforeNames string `protobuf:"bytes,10,opt,name=titles_before_names,json=titlesBeforeNames,proto3" json:"titles_before_names,omitempty" xml:"TitlesBeforeNames"`
+	// @gotags: xml:"NamesBeforeKeyName"
+	NamesBeforeKeyName *NameWithScriptCode `protobuf:"bytes,11,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty" xml:"NamesBeforeKeyName"`
+	// @gotags: xml:"KeyName"
+	KeyName *NameWithScriptCode `protobuf:"bytes,12,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty" xml:"KeyName"`
+	// @gotags: xml:"NamesAfterKeyName"
+	NamesAfterKeyName *NameWithScriptCode `protobuf:"bytes,13,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty" xml:"NamesAfterKeyName"`
+	// @gotags: xml:"TitlesAfterNames"
+	TitlesAfterNames string `protobuf:"bytes,14,opt,name=titles_after_names,json=titlesAfterNames,proto3" json:"titles_after_names,omitempty" xml:"TitlesAfterNames"`
+	// @gotags: xml:"ShortName"
+	ShortName []*NameWithScriptCode `protobuf:"bytes,15,rep,name=short_name,json=shortName,proto3" json:"short_name,omitempty" xml:"ShortName"`
+	// @gotags: xml:"AbbreviatedName"
+	AbbreviatedName []*NameWithScriptCode `protobuf:"bytes,16,rep,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty" xml:"AbbreviatedName"`
+	// @gotags: xml:"ValidityPeriod"
+	ValidityPeriod []*ValidityPeriod `protobuf:"bytes,17,rep,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty" xml:"ValidityPeriod"`
+	// @gotags: xml:"RelatedCreation"
+	RelatedCreation []*RelatedCreationForParty `protobuf:"bytes,18,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty" xml:"RelatedCreation"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,19,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,20,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,21,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"IsCanonical,attr"
+	IsCanonical   bool `protobuf:"varint,22,opt,name=is_canonical,json=isCanonical,proto3" json:"is_canonical,omitempty" xml:"IsCanonical,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PartyName) Reset() {
@@ -44749,17 +44877,25 @@ func (x *PartyName) GetIsCanonical() bool {
 }
 
 type PartyNameForRequest struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	FullName                 *Name                  `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	FullNameAsciiTranscribed string                 `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty"`
-	FullNameIndexed          *Name                  `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty"`
-	NamesBeforeKeyName       *Name                  `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty"`
-	KeyName                  *Name                  `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty"`
-	NamesAfterKeyName        *Name                  `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty"`
-	AbbreviatedName          *Name                  `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty"`
-	LanguageAndScriptCode    string                 `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"FullName"
+	FullName *Name `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty" xml:"FullName"`
+	// @gotags: xml:"FullNameAsciiTranscribed"
+	FullNameAsciiTranscribed string `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty" xml:"FullNameAsciiTranscribed"`
+	// @gotags: xml:"FullNameIndexed"
+	FullNameIndexed *Name `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty" xml:"FullNameIndexed"`
+	// @gotags: xml:"NamesBeforeKeyName"
+	NamesBeforeKeyName *Name `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty" xml:"NamesBeforeKeyName"`
+	// @gotags: xml:"KeyName"
+	KeyName *Name `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty" xml:"KeyName"`
+	// @gotags: xml:"NamesAfterKeyName"
+	NamesAfterKeyName *Name `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty" xml:"NamesAfterKeyName"`
+	// @gotags: xml:"AbbreviatedName"
+	AbbreviatedName *Name `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty" xml:"AbbreviatedName"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *PartyNameForRequest) Reset() {
@@ -44849,10 +44985,13 @@ func (x *PartyNameForRequest) GetLanguageAndScriptCode() string {
 }
 
 type PartyNameFormat struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -44909,10 +45048,13 @@ func (x *PartyNameFormat) GetUserDefinedValue() string {
 }
 
 type PartyNamePurpose struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -44969,10 +45111,13 @@ func (x *PartyNamePurpose) GetUserDefinedValue() string {
 }
 
 type PartyNameType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45029,10 +45174,13 @@ func (x *PartyNameType) GetUserDefinedValue() string {
 }
 
 type PartyRelationshipType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45089,11 +45237,13 @@ func (x *PartyRelationshipType) GetUserDefinedValue() string {
 }
 
 type PartyType struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Value                   *PartyTypeValue            `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Value"
+	Value         *PartyTypeValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PartyType) Reset() {
@@ -45141,10 +45291,13 @@ func (x *PartyType) GetValue() *PartyTypeValue {
 }
 
 type PartyTypeValue struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45201,11 +45354,13 @@ func (x *PartyTypeValue) GetUserDefinedValue() string {
 }
 
 type PrimaryRole struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Value                   *ContributorRole           `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Value"
+	Value         *ContributorRole `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PrimaryRole) Reset() {
@@ -45253,14 +45408,21 @@ func (x *PrimaryRole) GetValue() *ContributorRole {
 }
 
 type PronunciationForParty struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	Value                    string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsCanonical              bool                   `protobuf:"varint,2,opt,name=is_canonical,json=isCanonical,proto3" json:"is_canonical,omitempty"`
-	IsMispronounced          bool                   `protobuf:"varint,3,opt,name=is_mispronounced,json=isMispronounced,proto3" json:"is_mispronounced,omitempty"`
-	LanguageCode             string                 `protobuf:"bytes,4,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
-	EncodingType             EncodingType           `protobuf:"varint,5,opt,name=encoding_type,json=encodingType,proto3,enum=ddex.pie.v10.EncodingType" json:"encoding_type,omitempty"`
-	EncodingNamespace        string                 `protobuf:"bytes,6,opt,name=encoding_namespace,json=encodingNamespace,proto3" json:"encoding_namespace,omitempty"`
-	EncodingUserDefinedValue string                 `protobuf:"bytes,7,opt,name=encoding_user_defined_value,json=encodingUserDefinedValue,proto3" json:"encoding_user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsCanonical,attr"
+	IsCanonical bool `protobuf:"varint,2,opt,name=is_canonical,json=isCanonical,proto3" json:"is_canonical,omitempty" xml:"IsCanonical,attr"`
+	// @gotags: xml:"IsMispronounced,attr"
+	IsMispronounced bool `protobuf:"varint,3,opt,name=is_mispronounced,json=isMispronounced,proto3" json:"is_mispronounced,omitempty" xml:"IsMispronounced,attr"`
+	// @gotags: xml:"LanguageCode,attr"
+	LanguageCode string `protobuf:"bytes,4,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty" xml:"LanguageCode,attr"`
+	// @gotags: xml:"EncodingType,attr"
+	EncodingType EncodingType `protobuf:"varint,5,opt,name=encoding_type,json=encodingType,proto3,enum=ddex.pie.v10.EncodingType" json:"encoding_type,omitempty" xml:"EncodingType,attr"`
+	// @gotags: xml:"EncodingNamespace,attr"
+	EncodingNamespace string `protobuf:"bytes,6,opt,name=encoding_namespace,json=encodingNamespace,proto3" json:"encoding_namespace,omitempty" xml:"EncodingNamespace,attr"`
+	// @gotags: xml:"EncodingUserDefinedValue,attr"
+	EncodingUserDefinedValue string `protobuf:"bytes,7,opt,name=encoding_user_defined_value,json=encodingUserDefinedValue,proto3" json:"encoding_user_defined_value,omitempty" xml:"EncodingUserDefinedValue,attr"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -45345,10 +45507,13 @@ func (x *PronunciationForParty) GetEncodingUserDefinedValue() string {
 }
 
 type ReasonForNameChange struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45405,18 +45570,27 @@ func (x *ReasonForNameChange) GetUserDefinedValue() string {
 }
 
 type RelatedCreationForParty struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	CreationType            CreationType               `protobuf:"varint,2,opt,name=creation_type,json=creationType,proto3,enum=ddex.pie.v10.CreationType" json:"creation_type,omitempty"`
-	Contribution            *Contribution              `protobuf:"bytes,3,opt,name=contribution,proto3" json:"contribution,omitempty"`
-	RelationshipDescription []*Description             `protobuf:"bytes,4,rep,name=relationship_description,json=relationshipDescription,proto3" json:"relationship_description,omitempty"`
-	Contract                string                     `protobuf:"bytes,5,opt,name=contract,proto3" json:"contract,omitempty"`
-	IsFalse                 bool                       `protobuf:"varint,6,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty"`
-	IsConfidential          bool                       `protobuf:"varint,7,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty"`
-	IsFirstCreation         bool                       `protobuf:"varint,8,opt,name=is_first_creation,json=isFirstCreation,proto3" json:"is_first_creation,omitempty"`
-	IsLastCreation          bool                       `protobuf:"varint,9,opt,name=is_last_creation,json=isLastCreation,proto3" json:"is_last_creation,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"CreationType"
+	CreationType CreationType `protobuf:"varint,2,opt,name=creation_type,json=creationType,proto3,enum=ddex.pie.v10.CreationType" json:"creation_type,omitempty" xml:"CreationType"`
+	// @gotags: xml:"Contribution"
+	Contribution *Contribution `protobuf:"bytes,3,opt,name=contribution,proto3" json:"contribution,omitempty" xml:"Contribution"`
+	// @gotags: xml:"RelationshipDescription"
+	RelationshipDescription []*Description `protobuf:"bytes,4,rep,name=relationship_description,json=relationshipDescription,proto3" json:"relationship_description,omitempty" xml:"RelationshipDescription"`
+	// @gotags: xml:"Contract"
+	Contract string `protobuf:"bytes,5,opt,name=contract,proto3" json:"contract,omitempty" xml:"Contract"`
+	// @gotags: xml:"IsFalse,attr"
+	IsFalse bool `protobuf:"varint,6,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty" xml:"IsFalse,attr"`
+	// @gotags: xml:"IsConfidential,attr"
+	IsConfidential bool `protobuf:"varint,7,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty" xml:"IsConfidential,attr"`
+	// @gotags: xml:"IsFirstCreation,attr"
+	IsFirstCreation bool `protobuf:"varint,8,opt,name=is_first_creation,json=isFirstCreation,proto3" json:"is_first_creation,omitempty" xml:"IsFirstCreation,attr"`
+	// @gotags: xml:"IsLastCreation,attr"
+	IsLastCreation bool `protobuf:"varint,9,opt,name=is_last_creation,json=isLastCreation,proto3" json:"is_last_creation,omitempty" xml:"IsLastCreation,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *RelatedCreationForParty) Reset() {
@@ -45513,18 +45687,27 @@ func (x *RelatedCreationForParty) GetIsLastCreation() bool {
 }
 
 type RelatedParty struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	PartyRelationshipType   *PartyRelationshipType     `protobuf:"bytes,2,opt,name=party_relationship_type,json=partyRelationshipType,proto3" json:"party_relationship_type,omitempty"`
-	BusinessPurpose         string                     `protobuf:"bytes,3,opt,name=business_purpose,json=businessPurpose,proto3" json:"business_purpose,omitempty"`
-	Description             []*Description             `protobuf:"bytes,4,rep,name=description,proto3" json:"description,omitempty"`
-	Contract                string                     `protobuf:"bytes,5,opt,name=contract,proto3" json:"contract,omitempty"`
-	ValidityPeriod          []*ValidityPeriod          `protobuf:"bytes,6,rep,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty"`
-	RelatedCreation         []*RelatedCreationForParty `protobuf:"bytes,7,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty"`
-	IsFalse                 bool                       `protobuf:"varint,8,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty"`
-	IsConfidential          bool                       `protobuf:"varint,9,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"PartyRelationshipType"
+	PartyRelationshipType *PartyRelationshipType `protobuf:"bytes,2,opt,name=party_relationship_type,json=partyRelationshipType,proto3" json:"party_relationship_type,omitempty" xml:"PartyRelationshipType"`
+	// @gotags: xml:"BusinessPurpose"
+	BusinessPurpose string `protobuf:"bytes,3,opt,name=business_purpose,json=businessPurpose,proto3" json:"business_purpose,omitempty" xml:"BusinessPurpose"`
+	// @gotags: xml:"Description"
+	Description []*Description `protobuf:"bytes,4,rep,name=description,proto3" json:"description,omitempty" xml:"Description"`
+	// @gotags: xml:"Contract"
+	Contract string `protobuf:"bytes,5,opt,name=contract,proto3" json:"contract,omitempty" xml:"Contract"`
+	// @gotags: xml:"ValidityPeriod"
+	ValidityPeriod []*ValidityPeriod `protobuf:"bytes,6,rep,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty" xml:"ValidityPeriod"`
+	// @gotags: xml:"RelatedCreation"
+	RelatedCreation []*RelatedCreationForParty `protobuf:"bytes,7,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty" xml:"RelatedCreation"`
+	// @gotags: xml:"IsFalse,attr"
+	IsFalse bool `protobuf:"varint,8,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty" xml:"IsFalse,attr"`
+	// @gotags: xml:"IsConfidential,attr"
+	IsConfidential bool `protobuf:"varint,9,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty" xml:"IsConfidential,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *RelatedParty) Reset() {
@@ -45621,9 +45804,11 @@ func (x *RelatedParty) GetIsConfidential() bool {
 }
 
 type ReleaseForRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ReleaseId     *ReleaseId             `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty"`
-	ReleaseTitle  *ReleaseTitle          `protobuf:"bytes,2,opt,name=release_title,json=releaseTitle,proto3" json:"release_title,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"ReleaseTitle"
+	ReleaseTitle  *ReleaseTitle `protobuf:"bytes,2,opt,name=release_title,json=releaseTitle,proto3" json:"release_title,omitempty" xml:"ReleaseTitle"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45673,11 +45858,15 @@ func (x *ReleaseForRequest) GetReleaseTitle() *ReleaseTitle {
 }
 
 type RequestedParty struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Role          []*ContributorRole     `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty"`
-	Release       []*ReleaseForRequest   `protobuf:"bytes,2,rep,name=release,proto3" json:"release,omitempty"`
-	Resource      []*ResourceForRequest  `protobuf:"bytes,3,rep,name=resource,proto3" json:"resource,omitempty"`
-	Work          []*WorkForRequest      `protobuf:"bytes,4,rep,name=work,proto3" json:"work,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Role"
+	Role []*ContributorRole `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty" xml:"Role"`
+	// @gotags: xml:"Release"
+	Release []*ReleaseForRequest `protobuf:"bytes,2,rep,name=release,proto3" json:"release,omitempty" xml:"Release"`
+	// @gotags: xml:"Resource"
+	Resource []*ResourceForRequest `protobuf:"bytes,3,rep,name=resource,proto3" json:"resource,omitempty" xml:"Resource"`
+	// @gotags: xml:"Work"
+	Work          []*WorkForRequest `protobuf:"bytes,4,rep,name=work,proto3" json:"work,omitempty" xml:"Work"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45741,10 +45930,13 @@ func (x *RequestedParty) GetWork() []*WorkForRequest {
 }
 
 type ResourceForRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ResourceId    *ResourceIdWithoutFlag `protobuf:"bytes,1,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	ResourceTitle *ResourceTitle         `protobuf:"bytes,2,opt,name=resource_title,json=resourceTitle,proto3" json:"resource_title,omitempty"`
-	ResourceType  ResourceType           `protobuf:"varint,3,opt,name=resource_type,json=resourceType,proto3,enum=ddex.pie.v10.ResourceType" json:"resource_type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceId"
+	ResourceId *ResourceIdWithoutFlag `protobuf:"bytes,1,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"ResourceTitle"
+	ResourceTitle *ResourceTitle `protobuf:"bytes,2,opt,name=resource_title,json=resourceTitle,proto3" json:"resource_title,omitempty" xml:"ResourceTitle"`
+	// @gotags: xml:"ResourceType"
+	ResourceType  ResourceType `protobuf:"varint,3,opt,name=resource_type,json=resourceType,proto3,enum=ddex.pie.v10.ResourceType" json:"resource_type,omitempty" xml:"ResourceType"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45801,10 +45993,13 @@ func (x *ResourceForRequest) GetResourceType() ResourceType {
 }
 
 type SocialMediaURL struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageCode            string                 `protobuf:"bytes,2,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
-	ApplicableTerritoryCode CurrentTerritoryCode   `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageCode,attr"
+	LanguageCode string `protobuf:"bytes,2,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty" xml:"LanguageCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -45861,9 +46056,11 @@ func (x *SocialMediaURL) GetApplicableTerritoryCode() CurrentTerritoryCode {
 }
 
 type WorkForRequest struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	WorkId        *MusicalWorkIdWithoutFlag `protobuf:"bytes,1,opt,name=work_id,json=workId,proto3" json:"work_id,omitempty"`
-	WorkTitle     *WorkTitle                `protobuf:"bytes,2,opt,name=work_title,json=workTitle,proto3" json:"work_title,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"WorkId"
+	WorkId *MusicalWorkIdWithoutFlag `protobuf:"bytes,1,opt,name=work_id,json=workId,proto3" json:"work_id,omitempty" xml:"WorkId"`
+	// @gotags: xml:"WorkTitle"
+	WorkTitle     *WorkTitle `protobuf:"bytes,2,opt,name=work_title,json=workTitle,proto3" json:"work_title,omitempty" xml:"WorkTitle"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45913,10 +46110,13 @@ func (x *WorkForRequest) GetWorkTitle() *WorkTitle {
 }
 
 type Category struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Term          string                 `protobuf:"bytes,1,opt,name=term,proto3" json:"term,omitempty"`
-	Scheme        string                 `protobuf:"bytes,2,opt,name=scheme,proto3" json:"scheme,omitempty"`
-	Label         string                 `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"term,attr"
+	Term string `protobuf:"bytes,1,opt,name=term,proto3" json:"term,omitempty" xml:"term,attr"`
+	// @gotags: xml:"scheme,attr"
+	Scheme string `protobuf:"bytes,2,opt,name=scheme,proto3" json:"scheme,omitempty" xml:"scheme,attr"`
+	// @gotags: xml:"label,attr"
+	Label         string `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty" xml:"label,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45973,9 +46173,11 @@ func (x *Category) GetLabel() string {
 }
 
 type Content struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Type          string                 `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
-	Src           string                 `protobuf:"bytes,2,opt,name=src,proto3" json:"src,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"type,attr"
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" xml:"type,attr"`
+	// @gotags: xml:"src,attr"
+	Src           string `protobuf:"bytes,2,opt,name=src,proto3" json:"src,omitempty" xml:"src,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46025,8 +46227,9 @@ func (x *Content) GetSrc() string {
 }
 
 type DateTime struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value         string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46069,10 +46272,13 @@ func (x *DateTime) GetValue() string {
 }
 
 type Generator struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Uri           string                 `protobuf:"bytes,2,opt,name=uri,proto3" json:"uri,omitempty"`
-	Version       string                 `protobuf:"bytes,3,opt,name=version,proto3" json:"version,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"uri,attr"
+	Uri string `protobuf:"bytes,2,opt,name=uri,proto3" json:"uri,omitempty" xml:"uri,attr"`
+	// @gotags: xml:"version,attr"
+	Version       string `protobuf:"bytes,3,opt,name=version,proto3" json:"version,omitempty" xml:"version,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46129,8 +46335,9 @@ func (x *Generator) GetVersion() string {
 }
 
 type Icon struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value         string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46173,8 +46380,9 @@ func (x *Icon) GetValue() string {
 }
 
 type Id struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value         string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46217,13 +46425,19 @@ func (x *Id) GetValue() string {
 }
 
 type Link struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Href          string                 `protobuf:"bytes,1,opt,name=href,proto3" json:"href,omitempty"`
-	Rel           string                 `protobuf:"bytes,2,opt,name=rel,proto3" json:"rel,omitempty"`
-	Type          string                 `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
-	Hreflang      string                 `protobuf:"bytes,4,opt,name=hreflang,proto3" json:"hreflang,omitempty"`
-	Title         string                 `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
-	Length        int32                  `protobuf:"varint,6,opt,name=length,proto3" json:"length,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"href,attr"
+	Href string `protobuf:"bytes,1,opt,name=href,proto3" json:"href,omitempty" xml:"href,attr"`
+	// @gotags: xml:"rel,attr"
+	Rel string `protobuf:"bytes,2,opt,name=rel,proto3" json:"rel,omitempty" xml:"rel,attr"`
+	// @gotags: xml:"type,attr"
+	Type string `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty" xml:"type,attr"`
+	// @gotags: xml:"hreflang,attr"
+	Hreflang string `protobuf:"bytes,4,opt,name=hreflang,proto3" json:"hreflang,omitempty" xml:"hreflang,attr"`
+	// @gotags: xml:"title,attr"
+	Title string `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty" xml:"title,attr"`
+	// @gotags: xml:"length,attr"
+	Length        int32 `protobuf:"varint,6,opt,name=length,proto3" json:"length,omitempty" xml:"length,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46301,8 +46515,9 @@ func (x *Link) GetLength() int32 {
 }
 
 type Logo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value         string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46425,15 +46640,18 @@ type isPerson_Choice interface {
 }
 
 type Person_Name struct {
-	Name string `protobuf:"bytes,1,opt,name=name,proto3,oneof"`
+	// @gotags: xml:"name"
+	Name string `protobuf:"bytes,1,opt,name=name,proto3,oneof" xml:"name"`
 }
 
 type Person_Uri struct {
-	Uri *URI `protobuf:"bytes,2,opt,name=uri,proto3,oneof"`
+	// @gotags: xml:"uri"
+	Uri *URI `protobuf:"bytes,2,opt,name=uri,proto3,oneof" xml:"uri"`
 }
 
 type Person_Email struct {
-	Email string `protobuf:"bytes,3,opt,name=email,proto3,oneof"`
+	// @gotags: xml:"email"
+	Email string `protobuf:"bytes,3,opt,name=email,proto3,oneof" xml:"email"`
 }
 
 func (*Person_Name) isPerson_Choice() {}
@@ -46613,51 +46831,63 @@ type isSource_Choice interface {
 }
 
 type Source_Author struct {
-	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof"`
+	// @gotags: xml:"author"
+	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof" xml:"author"`
 }
 
 type Source_Category struct {
-	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof"`
+	// @gotags: xml:"category"
+	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof" xml:"category"`
 }
 
 type Source_Contributor struct {
-	Contributor *Person `protobuf:"bytes,3,opt,name=contributor,proto3,oneof"`
+	// @gotags: xml:"contributor"
+	Contributor *Person `protobuf:"bytes,3,opt,name=contributor,proto3,oneof" xml:"contributor"`
 }
 
 type Source_Generator struct {
-	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof"`
+	// @gotags: xml:"generator"
+	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof" xml:"generator"`
 }
 
 type Source_Icon struct {
-	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof"`
+	// @gotags: xml:"icon"
+	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof" xml:"icon"`
 }
 
 type Source_Id struct {
-	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof"`
+	// @gotags: xml:"id"
+	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof" xml:"id"`
 }
 
 type Source_Link struct {
-	Link *Link `protobuf:"bytes,7,opt,name=link,proto3,oneof"`
+	// @gotags: xml:"link"
+	Link *Link `protobuf:"bytes,7,opt,name=link,proto3,oneof" xml:"link"`
 }
 
 type Source_Logo struct {
-	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof"`
+	// @gotags: xml:"logo"
+	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof" xml:"logo"`
 }
 
 type Source_Rights struct {
-	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof"`
+	// @gotags: xml:"rights"
+	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof" xml:"rights"`
 }
 
 type Source_Subtitle struct {
-	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof"`
+	// @gotags: xml:"subtitle"
+	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof" xml:"subtitle"`
 }
 
 type Source_Title struct {
-	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof"`
+	// @gotags: xml:"title"
+	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
 }
 
 type Source_Updated struct {
-	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof"`
+	// @gotags: xml:"updated"
+	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
 }
 
 func (*Source_Author) isSource_Choice() {}
@@ -46685,8 +46915,9 @@ func (*Source_Title) isSource_Choice() {}
 func (*Source_Updated) isSource_Choice() {}
 
 type Text struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Type          TextTypeATOM           `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.pie.v10.TextTypeATOM" json:"type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"type,attr"
+	Type          TextTypeATOM `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.pie.v10.TextTypeATOM" json:"type,omitempty" xml:"type,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46729,8 +46960,9 @@ func (x *Text) GetType() TextTypeATOM {
 }
 
 type URI struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value         string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46773,9 +47005,11 @@ func (x *URI) GetValue() string {
 }
 
 type AllTerritoryCode struct {
-	state          protoimpl.MessageState                    `protogen:"open.v1"`
-	Value          string                                    `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IdentifierType TerritoryCodeTypeIncludingDeprecatedCodes `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.pie.v10.TerritoryCodeTypeIncludingDeprecatedCodes" json:"identifier_type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IdentifierType,attr"
+	IdentifierType TerritoryCodeTypeIncludingDeprecatedCodes `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.pie.v10.TerritoryCodeTypeIncludingDeprecatedCodes" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -46825,10 +47059,13 @@ func (x *AllTerritoryCode) GetIdentifierType() TerritoryCodeTypeIncludingDepreca
 }
 
 type ArtistType struct {
-	state                            protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference          []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Value                            *ArtistTypeValue           `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	TerritoryOfArtistTypeDescription []CurrentTerritoryCode     `protobuf:"varint,3,rep,packed,name=territory_of_artist_type_description,json=territoryOfArtistTypeDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_artist_type_description,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Value"
+	Value *ArtistTypeValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	// @gotags: xml:"TerritoryOfArtistTypeDescription"
+	TerritoryOfArtistTypeDescription []CurrentTerritoryCode `protobuf:"varint,3,rep,packed,name=territory_of_artist_type_description,json=territoryOfArtistTypeDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_artist_type_description,omitempty" xml:"TerritoryOfArtistTypeDescription"`
 	unknownFields                    protoimpl.UnknownFields
 	sizeCache                        protoimpl.SizeCache
 }
@@ -46885,10 +47122,13 @@ func (x *ArtistType) GetTerritoryOfArtistTypeDescription() []CurrentTerritoryCod
 }
 
 type ArtistTypeValue struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -46945,17 +47185,25 @@ func (x *ArtistTypeValue) GetUserDefinedValue() string {
 }
 
 type ArtisticInfluence struct {
-	state                   protoimpl.MessageState              `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference          `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Party                   []*PartyDescriptorWithPronunciation `protobuf:"bytes,2,rep,name=party,proto3" json:"party,omitempty"`
-	Work                    []*Work                             `protobuf:"bytes,3,rep,name=work,proto3" json:"work,omitempty"`
-	Resource                []*Resource                         `protobuf:"bytes,4,rep,name=resource,proto3" json:"resource,omitempty"`
-	Release                 []*Release                          `protobuf:"bytes,5,rep,name=release,proto3" json:"release,omitempty"`
-	Description             []*TextWithFormat                   `protobuf:"bytes,6,rep,name=description,proto3" json:"description,omitempty"`
-	IsInfluenced            bool                                `protobuf:"varint,7,opt,name=is_influenced,json=isInfluenced,proto3" json:"is_influenced,omitempty"`
-	IsInfluencer            bool                                `protobuf:"varint,8,opt,name=is_influencer,json=isInfluencer,proto3" json:"is_influencer,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Party"
+	Party []*PartyDescriptorWithPronunciation `protobuf:"bytes,2,rep,name=party,proto3" json:"party,omitempty" xml:"Party"`
+	// @gotags: xml:"Work"
+	Work []*Work `protobuf:"bytes,3,rep,name=work,proto3" json:"work,omitempty" xml:"Work"`
+	// @gotags: xml:"Resource"
+	Resource []*Resource `protobuf:"bytes,4,rep,name=resource,proto3" json:"resource,omitempty" xml:"Resource"`
+	// @gotags: xml:"Release"
+	Release []*Release `protobuf:"bytes,5,rep,name=release,proto3" json:"release,omitempty" xml:"Release"`
+	// @gotags: xml:"Description"
+	Description []*TextWithFormat `protobuf:"bytes,6,rep,name=description,proto3" json:"description,omitempty" xml:"Description"`
+	// @gotags: xml:"IsInfluenced"
+	IsInfluenced bool `protobuf:"varint,7,opt,name=is_influenced,json=isInfluenced,proto3" json:"is_influenced,omitempty" xml:"IsInfluenced"`
+	// @gotags: xml:"IsInfluencer"
+	IsInfluencer  bool `protobuf:"varint,8,opt,name=is_influencer,json=isInfluencer,proto3" json:"is_influencer,omitempty" xml:"IsInfluencer"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ArtisticInfluence) Reset() {
@@ -47045,16 +47293,23 @@ func (x *ArtisticInfluence) GetIsInfluencer() bool {
 }
 
 type Award struct {
-	state                   protoimpl.MessageState              `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference          `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	AwardingBody            *PartyDescriptorWithPronunciation   `protobuf:"bytes,2,opt,name=awarding_body,json=awardingBody,proto3" json:"awarding_body,omitempty"`
-	AwardedParty            *PartyDescriptorWithPronunciation   `protobuf:"bytes,3,opt,name=awarded_party,json=awardedParty,proto3" json:"awarded_party,omitempty"`
-	AwardName               *NameWithPronunciationAndScriptCode `protobuf:"bytes,4,opt,name=award_name,json=awardName,proto3" json:"award_name,omitempty"`
-	Date                    *EventDate                          `protobuf:"bytes,5,opt,name=date,proto3" json:"date,omitempty"`
-	IsWinner                bool                                `protobuf:"varint,6,opt,name=is_winner,json=isWinner,proto3" json:"is_winner,omitempty"`
-	Comment                 []*TextWithFormat                   `protobuf:"bytes,7,rep,name=comment,proto3" json:"comment,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"AwardingBody"
+	AwardingBody *PartyDescriptorWithPronunciation `protobuf:"bytes,2,opt,name=awarding_body,json=awardingBody,proto3" json:"awarding_body,omitempty" xml:"AwardingBody"`
+	// @gotags: xml:"AwardedParty"
+	AwardedParty *PartyDescriptorWithPronunciation `protobuf:"bytes,3,opt,name=awarded_party,json=awardedParty,proto3" json:"awarded_party,omitempty" xml:"AwardedParty"`
+	// @gotags: xml:"AwardName"
+	AwardName *NameWithPronunciationAndScriptCode `protobuf:"bytes,4,opt,name=award_name,json=awardName,proto3" json:"award_name,omitempty" xml:"AwardName"`
+	// @gotags: xml:"Date"
+	Date *EventDate `protobuf:"bytes,5,opt,name=date,proto3" json:"date,omitempty" xml:"Date"`
+	// @gotags: xml:"IsWinner"
+	IsWinner bool `protobuf:"varint,6,opt,name=is_winner,json=isWinner,proto3" json:"is_winner,omitempty" xml:"IsWinner"`
+	// @gotags: xml:"Comment"
+	Comment       []*TextWithFormat `protobuf:"bytes,7,rep,name=comment,proto3" json:"comment,omitempty" xml:"Comment"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Award) Reset() {
@@ -47137,12 +47392,15 @@ func (x *Award) GetComment() []*TextWithFormat {
 }
 
 type Biography struct {
-	state                   protoimpl.MessageState              `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference          `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Text                    []*BiographyText                    `protobuf:"bytes,2,rep,name=text,proto3" json:"text,omitempty"`
-	Author                  []*PartyDescriptorWithPronunciation `protobuf:"bytes,3,rep,name=author,proto3" json:"author,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Text"
+	Text []*BiographyText `protobuf:"bytes,2,rep,name=text,proto3" json:"text,omitempty" xml:"Text"`
+	// @gotags: xml:"Author"
+	Author        []*PartyDescriptorWithPronunciation `protobuf:"bytes,3,rep,name=author,proto3" json:"author,omitempty" xml:"Author"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Biography) Reset() {
@@ -47197,15 +47455,21 @@ func (x *Biography) GetAuthor() []*PartyDescriptorWithPronunciation {
 }
 
 type BiographyText struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode CurrentTerritoryCode   `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
-	Format                  TextCodecType          `protobuf:"varint,4,opt,name=format,proto3,enum=ddex.pie.v10.TextCodecType" json:"format,omitempty"`
-	Namespace               string                 `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue        string                 `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"Format,attr"
+	Format TextCodecType `protobuf:"varint,4,opt,name=format,proto3,enum=ddex.pie.v10.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *BiographyText) Reset() {
@@ -47281,9 +47545,11 @@ func (x *BiographyText) GetUserDefinedValue() string {
 }
 
 type CatalogNumber struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace     string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace     string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -47333,11 +47599,15 @@ func (x *CatalogNumber) GetNamespace() string {
 }
 
 type ClassicalPeriod struct {
-	state                                 protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference               []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Name                                  *PeriodValue               `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	LanguageAndScriptOfClassicalPeriod    []string                   `protobuf:"bytes,3,rep,name=language_and_script_of_classical_period,json=languageAndScriptOfClassicalPeriod,proto3" json:"language_and_script_of_classical_period,omitempty"`
-	TerritoryOfClassicalPeriodDescription []CurrentTerritoryCode     `protobuf:"varint,4,rep,packed,name=territory_of_classical_period_description,json=territoryOfClassicalPeriodDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_classical_period_description,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Name"
+	Name *PeriodValue `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty" xml:"Name"`
+	// @gotags: xml:"LanguageAndScriptOfClassicalPeriod"
+	LanguageAndScriptOfClassicalPeriod []string `protobuf:"bytes,3,rep,name=language_and_script_of_classical_period,json=languageAndScriptOfClassicalPeriod,proto3" json:"language_and_script_of_classical_period,omitempty" xml:"LanguageAndScriptOfClassicalPeriod"`
+	// @gotags: xml:"TerritoryOfClassicalPeriodDescription"
+	TerritoryOfClassicalPeriodDescription []CurrentTerritoryCode `protobuf:"varint,4,rep,packed,name=territory_of_classical_period_description,json=territoryOfClassicalPeriodDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_classical_period_description,omitempty" xml:"TerritoryOfClassicalPeriodDescription"`
 	unknownFields                         protoimpl.UnknownFields
 	sizeCache                             protoimpl.SizeCache
 }
@@ -47401,15 +47671,21 @@ func (x *ClassicalPeriod) GetTerritoryOfClassicalPeriodDescription() []CurrentTe
 }
 
 type CommentaryNote struct {
-	state                                protoimpl.MessageState              `protogen:"open.v1"`
-	MetadataSourceReference              []*MetadataSourceReference          `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Text                                 []*TextWithoutTerritory             `protobuf:"bytes,2,rep,name=text,proto3" json:"text,omitempty"`
-	CommentaryNoteType                   []*CommentaryNoteType               `protobuf:"bytes,3,rep,name=commentary_note_type,json=commentaryNoteType,proto3" json:"commentary_note_type,omitempty"`
-	LanguageAndScriptOfCommentaryNote    []string                            `protobuf:"bytes,4,rep,name=language_and_script_of_commentary_note,json=languageAndScriptOfCommentaryNote,proto3" json:"language_and_script_of_commentary_note,omitempty"`
-	TerritoryOfCommentaryNoteDescription []CurrentTerritoryCode              `protobuf:"varint,5,rep,packed,name=territory_of_commentary_note_description,json=territoryOfCommentaryNoteDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_commentary_note_description,omitempty"`
-	Author                               []*PartyDescriptorWithPronunciation `protobuf:"bytes,6,rep,name=author,proto3" json:"author,omitempty"`
-	unknownFields                        protoimpl.UnknownFields
-	sizeCache                            protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Text"
+	Text []*TextWithoutTerritory `protobuf:"bytes,2,rep,name=text,proto3" json:"text,omitempty" xml:"Text"`
+	// @gotags: xml:"CommentaryNoteType"
+	CommentaryNoteType []*CommentaryNoteType `protobuf:"bytes,3,rep,name=commentary_note_type,json=commentaryNoteType,proto3" json:"commentary_note_type,omitempty" xml:"CommentaryNoteType"`
+	// @gotags: xml:"LanguageAndScriptOfCommentaryNote"
+	LanguageAndScriptOfCommentaryNote []string `protobuf:"bytes,4,rep,name=language_and_script_of_commentary_note,json=languageAndScriptOfCommentaryNote,proto3" json:"language_and_script_of_commentary_note,omitempty" xml:"LanguageAndScriptOfCommentaryNote"`
+	// @gotags: xml:"TerritoryOfCommentaryNoteDescription"
+	TerritoryOfCommentaryNoteDescription []CurrentTerritoryCode `protobuf:"varint,5,rep,packed,name=territory_of_commentary_note_description,json=territoryOfCommentaryNoteDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_commentary_note_description,omitempty" xml:"TerritoryOfCommentaryNoteDescription"`
+	// @gotags: xml:"Author"
+	Author        []*PartyDescriptorWithPronunciation `protobuf:"bytes,6,rep,name=author,proto3" json:"author,omitempty" xml:"Author"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CommentaryNote) Reset() {
@@ -47485,10 +47761,13 @@ func (x *CommentaryNote) GetAuthor() []*PartyDescriptorWithPronunciation {
 }
 
 type CommentaryNoteType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47545,10 +47824,13 @@ func (x *CommentaryNoteType) GetUserDefinedValue() string {
 }
 
 type ContributorRole struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47605,9 +47887,11 @@ func (x *ContributorRole) GetUserDefinedValue() string {
 }
 
 type Date struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -47657,9 +47941,11 @@ func (x *Date) GetIsApproximate() bool {
 }
 
 type Description struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -47709,12 +47995,17 @@ func (x *Description) GetLanguageAndScriptCode() string {
 }
 
 type DetailedHashSum struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Algorithm     *HashSumAlgorithmType  `protobuf:"bytes,1,opt,name=algorithm,proto3" json:"algorithm,omitempty"`
-	Version       string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Parameter     string                 `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty"`
-	DataType      BinaryDataType         `protobuf:"varint,4,opt,name=data_type,json=dataType,proto3,enum=ddex.pie.v10.BinaryDataType" json:"data_type,omitempty"`
-	HashSumValue  string                 `protobuf:"bytes,5,opt,name=hash_sum_value,json=hashSumValue,proto3" json:"hash_sum_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Algorithm"
+	Algorithm *HashSumAlgorithmType `protobuf:"bytes,1,opt,name=algorithm,proto3" json:"algorithm,omitempty" xml:"Algorithm"`
+	// @gotags: xml:"Version"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version"`
+	// @gotags: xml:"Parameter"
+	Parameter string `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty" xml:"Parameter"`
+	// @gotags: xml:"DataType"
+	DataType BinaryDataType `protobuf:"varint,4,opt,name=data_type,json=dataType,proto3,enum=ddex.pie.v10.BinaryDataType" json:"data_type,omitempty" xml:"DataType"`
+	// @gotags: xml:"HashSumValue"
+	HashSumValue  string `protobuf:"bytes,5,opt,name=hash_sum_value,json=hashSumValue,proto3" json:"hash_sum_value,omitempty" xml:"HashSumValue"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -47785,15 +48076,21 @@ func (x *DetailedHashSum) GetHashSumValue() string {
 }
 
 type DetailedPartyId struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	ISNI           string                 `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty"`
-	DPID           string                 `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty"`
-	IpiNameNumber  string                 `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty"`
-	IPN            string                 `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty"`
-	CisacSocietyId string                 `protobuf:"bytes,5,opt,name=cisac_society_id,json=cisacSocietyId,proto3" json:"cisac_society_id,omitempty"`
-	ProprietaryId  []*ProprietaryId       `protobuf:"bytes,6,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISNI"
+	ISNI string `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty" xml:"ISNI"`
+	// @gotags: xml:"DPID"
+	DPID string `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty" xml:"DPID"`
+	// @gotags: xml:"IpiNameNumber"
+	IpiNameNumber string `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty" xml:"IpiNameNumber"`
+	// @gotags: xml:"IPN"
+	IPN string `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty" xml:"IPN"`
+	// @gotags: xml:"CisacSocietyId"
+	CisacSocietyId string `protobuf:"bytes,5,opt,name=cisac_society_id,json=cisacSocietyId,proto3" json:"cisac_society_id,omitempty" xml:"CisacSocietyId"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,6,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DetailedPartyId) Reset() {
@@ -47869,10 +48166,13 @@ func (x *DetailedPartyId) GetProprietaryId() []*ProprietaryId {
 }
 
 type DisplayArtistName struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode CurrentTerritoryCode   `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -47929,13 +48229,17 @@ func (x *DisplayArtistName) GetApplicableTerritoryCode() CurrentTerritoryCode {
 }
 
 type DisplayArtistNameWithDefault struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode CurrentTerritoryCode   `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DisplayArtistNameWithDefault) Reset() {
@@ -47997,9 +48301,11 @@ func (x *DisplayArtistNameWithDefault) GetIsDefault() bool {
 }
 
 type DisplayArtistNameWithPronunciation struct {
-	state         protoimpl.MessageState        `protogen:"open.v1"`
-	Name          *DisplayArtistNameWithDefault `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Pronunciation []*Pronunciation              `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Name"
+	Name *DisplayArtistNameWithDefault `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" xml:"Name"`
+	// @gotags: xml:"Pronunciation"
+	Pronunciation []*Pronunciation `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty" xml:"Pronunciation"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -48049,16 +48355,23 @@ func (x *DisplayArtistNameWithPronunciation) GetPronunciation() []*Pronunciation
 }
 
 type DisplaySubTitle struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	Title              string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	Pronunciation      []*Pronunciation       `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty"`
-	SequenceNumber     int32                  `protobuf:"varint,3,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	IsDisplayedInTitle bool                   `protobuf:"varint,4,opt,name=is_displayed_in_title,json=isDisplayedInTitle,proto3" json:"is_displayed_in_title,omitempty"`
-	Namespace          string                 `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue   string                 `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	SubTitleType       string                 `protobuf:"bytes,7,opt,name=sub_title_type,json=subTitleType,proto3" json:"sub_title_type,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Title"
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" xml:"Title"`
+	// @gotags: xml:"Pronunciation"
+	Pronunciation []*Pronunciation `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty" xml:"Pronunciation"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,3,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	// @gotags: xml:"IsDisplayedInTitle,attr"
+	IsDisplayedInTitle bool `protobuf:"varint,4,opt,name=is_displayed_in_title,json=isDisplayedInTitle,proto3" json:"is_displayed_in_title,omitempty" xml:"IsDisplayedInTitle,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	// @gotags: xml:"SubTitleType,attr"
+	SubTitleType  string `protobuf:"bytes,7,opt,name=sub_title_type,json=subTitleType,proto3" json:"sub_title_type,omitempty" xml:"SubTitleType,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DisplaySubTitle) Reset() {
@@ -48141,14 +48454,19 @@ func (x *DisplaySubTitle) GetSubTitleType() string {
 }
 
 type DisplayTitle struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	TitleText               *TitleText             `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty"`
-	SubTitle                []*DisplaySubTitle     `protobuf:"bytes,2,rep,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode CurrentTerritoryCode   `protobuf:"varint,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TitleText"
+	TitleText *TitleText `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty" xml:"TitleText"`
+	// @gotags: xml:"SubTitle"
+	SubTitle []*DisplaySubTitle `protobuf:"bytes,2,rep,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty" xml:"SubTitle"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DisplayTitle) Reset() {
@@ -48217,15 +48535,23 @@ func (x *DisplayTitle) GetIsDefault() bool {
 }
 
 type Epoch struct {
-	state                       protoimpl.MessageState              `protogen:"open.v1"`
-	MetadataSourceReference     []*MetadataSourceReference          `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Value                       []*Name                             `protobuf:"bytes,2,rep,name=value,proto3" json:"value,omitempty"`
-	RelatedArtist               []*PartyDescriptorWithPronunciation `protobuf:"bytes,3,rep,name=related_artist,json=relatedArtist,proto3" json:"related_artist,omitempty"`
-	RelatedCreation             []*RelatedCreation                  `protobuf:"bytes,4,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty"`
-	StartDate                   *Date                               `protobuf:"bytes,5,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
-	EndDate                     *Date                               `protobuf:"bytes,6,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
-	LanguageAndScriptOfEpoch    []string                            `protobuf:"bytes,7,rep,name=language_and_script_of_epoch,json=languageAndScriptOfEpoch,proto3" json:"language_and_script_of_epoch,omitempty"`
-	TerritoryOfEpochDescription []CurrentTerritoryCode              `protobuf:"varint,8,rep,packed,name=territory_of_epoch_description,json=territoryOfEpochDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_epoch_description,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Value"
+	Value []*Name `protobuf:"bytes,2,rep,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	// @gotags: xml:"RelatedArtist"
+	RelatedArtist []*PartyDescriptorWithPronunciation `protobuf:"bytes,3,rep,name=related_artist,json=relatedArtist,proto3" json:"related_artist,omitempty" xml:"RelatedArtist"`
+	// @gotags: xml:"RelatedCreation"
+	RelatedCreation []*RelatedCreation `protobuf:"bytes,4,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty" xml:"RelatedCreation"`
+	// @gotags: xml:"StartDate"
+	StartDate *Date `protobuf:"bytes,5,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate *Date `protobuf:"bytes,6,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
+	// @gotags: xml:"LanguageAndScriptOfEpoch"
+	LanguageAndScriptOfEpoch []string `protobuf:"bytes,7,rep,name=language_and_script_of_epoch,json=languageAndScriptOfEpoch,proto3" json:"language_and_script_of_epoch,omitempty" xml:"LanguageAndScriptOfEpoch"`
+	// @gotags: xml:"TerritoryOfEpochDescription"
+	TerritoryOfEpochDescription []CurrentTerritoryCode `protobuf:"varint,8,rep,packed,name=territory_of_epoch_description,json=territoryOfEpochDescription,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"territory_of_epoch_description,omitempty" xml:"TerritoryOfEpochDescription"`
 	unknownFields               protoimpl.UnknownFields
 	sizeCache                   protoimpl.SizeCache
 }
@@ -48317,16 +48643,23 @@ func (x *Epoch) GetTerritoryOfEpochDescription() []CurrentTerritoryCode {
 }
 
 type EventDate struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate           bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
-	IsBefore                bool                   `protobuf:"varint,3,opt,name=is_before,json=isBefore,proto3" json:"is_before,omitempty"`
-	IsAfter                 bool                   `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty"`
-	ApplicableTerritoryCode *AllTerritoryCode      `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	LocationDescription     string                 `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,7,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
+	// @gotags: xml:"IsBefore,attr"
+	IsBefore bool `protobuf:"varint,3,opt,name=is_before,json=isBefore,proto3" json:"is_before,omitempty" xml:"IsBefore,attr"`
+	// @gotags: xml:"IsAfter,attr"
+	IsAfter bool `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty" xml:"IsAfter,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *AllTerritoryCode `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"LocationDescription,attr"
+	LocationDescription string `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,7,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *EventDate) Reset() {
@@ -48409,10 +48742,13 @@ func (x *EventDate) GetLanguageAndScriptCode() string {
 }
 
 type File struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	URI           string                 `protobuf:"bytes,1,opt,name=u_r_i,json=uRI,proto3" json:"u_r_i,omitempty"`
-	HashSum       *DetailedHashSum       `protobuf:"bytes,2,opt,name=hash_sum,json=hashSum,proto3" json:"hash_sum,omitempty"`
-	FileSize      string                 `protobuf:"bytes,3,opt,name=file_size,json=fileSize,proto3" json:"file_size,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"URI"
+	URI string `protobuf:"bytes,1,opt,name=u_r_i,json=uRI,proto3" json:"u_r_i,omitempty" xml:"URI"`
+	// @gotags: xml:"HashSum"
+	HashSum *DetailedHashSum `protobuf:"bytes,2,opt,name=hash_sum,json=hashSum,proto3" json:"hash_sum,omitempty" xml:"HashSum"`
+	// @gotags: xml:"FileSize"
+	FileSize      string `protobuf:"bytes,3,opt,name=file_size,json=fileSize,proto3" json:"file_size,omitempty" xml:"FileSize"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -48469,10 +48805,13 @@ func (x *File) GetFileSize() string {
 }
 
 type HashSumAlgorithmType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -48529,12 +48868,15 @@ func (x *HashSumAlgorithmType) GetUserDefinedValue() string {
 }
 
 type Image struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	File                    *File                      `protobuf:"bytes,2,opt,name=file,proto3" json:"file,omitempty"`
-	ImageType               []*ImageType               `protobuf:"bytes,3,rep,name=image_type,json=imageType,proto3" json:"image_type,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,2,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"ImageType"
+	ImageType     []*ImageType `protobuf:"bytes,3,rep,name=image_type,json=imageType,proto3" json:"image_type,omitempty" xml:"ImageType"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Image) Reset() {
@@ -48589,10 +48931,13 @@ func (x *Image) GetImageType() []*ImageType {
 }
 
 type ImageType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -48649,8 +48994,9 @@ func (x *ImageType) GetUserDefinedValue() string {
 }
 
 type MessageAuditTrail struct {
-	state                  protoimpl.MessageState    `protogen:"open.v1"`
-	MessageAuditTrailEvent []*MessageAuditTrailEvent `protobuf:"bytes,1,rep,name=message_audit_trail_event,json=messageAuditTrailEvent,proto3" json:"message_audit_trail_event,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageAuditTrailEvent"
+	MessageAuditTrailEvent []*MessageAuditTrailEvent `protobuf:"bytes,1,rep,name=message_audit_trail_event,json=messageAuditTrailEvent,proto3" json:"message_audit_trail_event,omitempty" xml:"MessageAuditTrailEvent"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -48693,11 +49039,13 @@ func (x *MessageAuditTrail) GetMessageAuditTrailEvent() []*MessageAuditTrailEven
 }
 
 type MessageAuditTrailEvent struct {
-	state                    protoimpl.MessageState     `protogen:"open.v1"`
-	MessagingPartyDescriptor *MessagingPartyWithoutCode `protobuf:"bytes,1,opt,name=messaging_party_descriptor,json=messagingPartyDescriptor,proto3" json:"messaging_party_descriptor,omitempty"`
-	DateTime                 string                     `protobuf:"bytes,2,opt,name=date_time,json=dateTime,proto3" json:"date_time,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessagingPartyDescriptor"
+	MessagingPartyDescriptor *MessagingPartyWithoutCode `protobuf:"bytes,1,opt,name=messaging_party_descriptor,json=messagingPartyDescriptor,proto3" json:"messaging_party_descriptor,omitempty" xml:"MessagingPartyDescriptor"`
+	// @gotags: xml:"DateTime"
+	DateTime      string `protobuf:"bytes,2,opt,name=date_time,json=dateTime,proto3" json:"date_time,omitempty" xml:"DateTime"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MessageAuditTrailEvent) Reset() {
@@ -48745,18 +49093,27 @@ func (x *MessageAuditTrailEvent) GetDateTime() string {
 }
 
 type MessageHeader struct {
-	state                  protoimpl.MessageState       `protogen:"open.v1"`
-	MessageThreadId        string                       `protobuf:"bytes,1,opt,name=message_thread_id,json=messageThreadId,proto3" json:"message_thread_id,omitempty"`
-	MessageId              string                       `protobuf:"bytes,2,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
-	MessageFileName        string                       `protobuf:"bytes,3,opt,name=message_file_name,json=messageFileName,proto3" json:"message_file_name,omitempty"`
-	MessageSender          *MessagingPartyWithoutCode   `protobuf:"bytes,4,opt,name=message_sender,json=messageSender,proto3" json:"message_sender,omitempty"`
-	SentOnBehalfOf         *MessagingPartyWithoutCode   `protobuf:"bytes,5,opt,name=sent_on_behalf_of,json=sentOnBehalfOf,proto3" json:"sent_on_behalf_of,omitempty"`
-	MessageRecipient       []*MessagingPartyWithoutCode `protobuf:"bytes,6,rep,name=message_recipient,json=messageRecipient,proto3" json:"message_recipient,omitempty"`
-	MessageCreatedDateTime string                       `protobuf:"bytes,7,opt,name=message_created_date_time,json=messageCreatedDateTime,proto3" json:"message_created_date_time,omitempty"`
-	MessageAuditTrail      *MessageAuditTrail           `protobuf:"bytes,8,opt,name=message_audit_trail,json=messageAuditTrail,proto3" json:"message_audit_trail,omitempty"`
-	MessageControlType     MessageControlType           `protobuf:"varint,9,opt,name=message_control_type,json=messageControlType,proto3,enum=ddex.pie.v10.MessageControlType" json:"message_control_type,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageThreadId"
+	MessageThreadId string `protobuf:"bytes,1,opt,name=message_thread_id,json=messageThreadId,proto3" json:"message_thread_id,omitempty" xml:"MessageThreadId"`
+	// @gotags: xml:"MessageId"
+	MessageId string `protobuf:"bytes,2,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty" xml:"MessageId"`
+	// @gotags: xml:"MessageFileName"
+	MessageFileName string `protobuf:"bytes,3,opt,name=message_file_name,json=messageFileName,proto3" json:"message_file_name,omitempty" xml:"MessageFileName"`
+	// @gotags: xml:"MessageSender"
+	MessageSender *MessagingPartyWithoutCode `protobuf:"bytes,4,opt,name=message_sender,json=messageSender,proto3" json:"message_sender,omitempty" xml:"MessageSender"`
+	// @gotags: xml:"SentOnBehalfOf"
+	SentOnBehalfOf *MessagingPartyWithoutCode `protobuf:"bytes,5,opt,name=sent_on_behalf_of,json=sentOnBehalfOf,proto3" json:"sent_on_behalf_of,omitempty" xml:"SentOnBehalfOf"`
+	// @gotags: xml:"MessageRecipient"
+	MessageRecipient []*MessagingPartyWithoutCode `protobuf:"bytes,6,rep,name=message_recipient,json=messageRecipient,proto3" json:"message_recipient,omitempty" xml:"MessageRecipient"`
+	// @gotags: xml:"MessageCreatedDateTime"
+	MessageCreatedDateTime string `protobuf:"bytes,7,opt,name=message_created_date_time,json=messageCreatedDateTime,proto3" json:"message_created_date_time,omitempty" xml:"MessageCreatedDateTime"`
+	// @gotags: xml:"MessageAuditTrail"
+	MessageAuditTrail *MessageAuditTrail `protobuf:"bytes,8,opt,name=message_audit_trail,json=messageAuditTrail,proto3" json:"message_audit_trail,omitempty" xml:"MessageAuditTrail"`
+	// @gotags: xml:"MessageControlType"
+	MessageControlType MessageControlType `protobuf:"varint,9,opt,name=message_control_type,json=messageControlType,proto3,enum=ddex.pie.v10.MessageControlType" json:"message_control_type,omitempty" xml:"MessageControlType"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *MessageHeader) Reset() {
@@ -48853,10 +49210,13 @@ func (x *MessageHeader) GetMessageControlType() MessageControlType {
 }
 
 type MessagingPartyWithoutCode struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PartyId       string                 `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3" json:"party_id,omitempty"`
-	PartyName     *PartyNameWithoutCode  `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty"`
-	TradingName   string                 `protobuf:"bytes,3,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyId"
+	PartyId string `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName *PartyNameWithoutCode `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
+	// @gotags: xml:"TradingName"
+	TradingName   string `protobuf:"bytes,3,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty" xml:"TradingName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -48913,9 +49273,11 @@ func (x *MessagingPartyWithoutCode) GetTradingName() string {
 }
 
 type MetadataSource struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	SourceReference    string                 `protobuf:"bytes,1,opt,name=source_reference,json=sourceReference,proto3" json:"source_reference,omitempty"`
-	MetadataSourceType *MetadataSourceType    `protobuf:"bytes,2,opt,name=metadata_source_type,json=metadataSourceType,proto3" json:"metadata_source_type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"SourceReference"
+	SourceReference string `protobuf:"bytes,1,opt,name=source_reference,json=sourceReference,proto3" json:"source_reference,omitempty" xml:"SourceReference"`
+	// @gotags: xml:"MetadataSourceType"
+	MetadataSourceType *MetadataSourceType `protobuf:"bytes,2,opt,name=metadata_source_type,json=metadataSourceType,proto3" json:"metadata_source_type,omitempty" xml:"MetadataSourceType"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -48965,8 +49327,9 @@ func (x *MetadataSource) GetMetadataSourceType() *MetadataSourceType {
 }
 
 type MetadataSourceList struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	MetadataSource []*MetadataSource      `protobuf:"bytes,1,rep,name=metadata_source,json=metadataSource,proto3" json:"metadata_source,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSource"
+	MetadataSource []*MetadataSource `protobuf:"bytes,1,rep,name=metadata_source,json=metadataSource,proto3" json:"metadata_source,omitempty" xml:"MetadataSource"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -49009,13 +49372,17 @@ func (x *MetadataSourceList) GetMetadataSource() []*MetadataSource {
 }
 
 type MetadataSourceReference struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	Value             string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	AssertionDateTime string                 `protobuf:"bytes,2,opt,name=assertion_date_time,json=assertionDateTime,proto3" json:"assertion_date_time,omitempty"`
-	Status            AssertionStatus        `protobuf:"varint,3,opt,name=status,proto3,enum=ddex.pie.v10.AssertionStatus" json:"status,omitempty"`
-	Weight            string                 `protobuf:"bytes,4,opt,name=weight,proto3" json:"weight,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"AssertionDateTime,attr"
+	AssertionDateTime string `protobuf:"bytes,2,opt,name=assertion_date_time,json=assertionDateTime,proto3" json:"assertion_date_time,omitempty" xml:"AssertionDateTime,attr"`
+	// @gotags: xml:"Status,attr"
+	Status AssertionStatus `protobuf:"varint,3,opt,name=status,proto3,enum=ddex.pie.v10.AssertionStatus" json:"status,omitempty" xml:"Status,attr"`
+	// @gotags: xml:"Weight,attr"
+	Weight        string `protobuf:"bytes,4,opt,name=weight,proto3" json:"weight,omitempty" xml:"Weight,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MetadataSourceReference) Reset() {
@@ -49077,10 +49444,13 @@ func (x *MetadataSourceReference) GetWeight() string {
 }
 
 type MetadataSourceType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49137,13 +49507,17 @@ func (x *MetadataSourceType) GetUserDefinedValue() string {
 }
 
 type MusicalWorkIdWithoutFlag struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	ISWC                  string                 `protobuf:"bytes,1,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty"`
-	OpusNumber            string                 `protobuf:"bytes,2,opt,name=opus_number,json=opusNumber,proto3" json:"opus_number,omitempty"`
-	ComposerCatalogNumber []string               `protobuf:"bytes,3,rep,name=composer_catalog_number,json=composerCatalogNumber,proto3" json:"composer_catalog_number,omitempty"`
-	ProprietaryId         []*ProprietaryId       `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISWC"
+	ISWC string `protobuf:"bytes,1,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty" xml:"ISWC"`
+	// @gotags: xml:"OpusNumber"
+	OpusNumber string `protobuf:"bytes,2,opt,name=opus_number,json=opusNumber,proto3" json:"opus_number,omitempty" xml:"OpusNumber"`
+	// @gotags: xml:"ComposerCatalogNumber"
+	ComposerCatalogNumber []string `protobuf:"bytes,3,rep,name=composer_catalog_number,json=composerCatalogNumber,proto3" json:"composer_catalog_number,omitempty" xml:"ComposerCatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MusicalWorkIdWithoutFlag) Reset() {
@@ -49205,9 +49579,11 @@ func (x *MusicalWorkIdWithoutFlag) GetProprietaryId() []*ProprietaryId {
 }
 
 type Name struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -49257,12 +49633,17 @@ func (x *Name) GetLanguageAndScriptCode() string {
 }
 
 type NameId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISNI          string                 `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty"`
-	IpiNameNumber string                 `protobuf:"bytes,2,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty"`
-	IPN           string                 `protobuf:"bytes,3,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsDeprecated  bool                   `protobuf:"varint,5,opt,name=is_deprecated,json=isDeprecated,proto3" json:"is_deprecated,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISNI"
+	ISNI string `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty" xml:"ISNI"`
+	// @gotags: xml:"IpiNameNumber"
+	IpiNameNumber string `protobuf:"bytes,2,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty" xml:"IpiNameNumber"`
+	// @gotags: xml:"IPN"
+	IPN string `protobuf:"bytes,3,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty" xml:"IPN"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsDeprecated,attr"
+	IsDeprecated  bool `protobuf:"varint,5,opt,name=is_deprecated,json=isDeprecated,proto3" json:"is_deprecated,omitempty" xml:"IsDeprecated,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49333,9 +49714,11 @@ func (x *NameId) GetIsDeprecated() bool {
 }
 
 type NameWithPronunciationAndScriptCode struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          *Name                  `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Pronunciation []*Pronunciation       `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Name"
+	Name *Name `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" xml:"Name"`
+	// @gotags: xml:"Pronunciation"
+	Pronunciation []*Pronunciation `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty" xml:"Pronunciation"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49445,24 +49828,34 @@ type isPartyDescriptorWithPronunciation_Choice interface {
 }
 
 type PartyDescriptorWithPronunciation_PartyId struct {
-	PartyId *DetailedPartyId `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3,oneof"`
+	// @gotags: xml:"PartyId"
+	PartyId *DetailedPartyId `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3,oneof" xml:"PartyId"`
 }
 
 func (*PartyDescriptorWithPronunciation_PartyId) isPartyDescriptorWithPronunciation_Choice() {}
 
 type PartyNameWithPronunciation struct {
-	state                    protoimpl.MessageState              `protogen:"open.v1"`
-	FullName                 *NameWithPronunciationAndScriptCode `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	FullNameAsciiTranscribed *NameWithPronunciationAndScriptCode `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty"`
-	FullNameIndexed          *NameWithPronunciationAndScriptCode `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty"`
-	NamesBeforeKeyName       *NameWithPronunciationAndScriptCode `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty"`
-	KeyName                  *NameWithPronunciationAndScriptCode `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty"`
-	NamesAfterKeyName        *NameWithPronunciationAndScriptCode `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty"`
-	AbbreviatedName          *NameWithPronunciationAndScriptCode `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty"`
-	LanguageAndScriptCode    string                              `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode  CurrentTerritoryCode                `protobuf:"varint,9,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"FullName"
+	FullName *NameWithPronunciationAndScriptCode `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty" xml:"FullName"`
+	// @gotags: xml:"FullNameAsciiTranscribed"
+	FullNameAsciiTranscribed *NameWithPronunciationAndScriptCode `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty" xml:"FullNameAsciiTranscribed"`
+	// @gotags: xml:"FullNameIndexed"
+	FullNameIndexed *NameWithPronunciationAndScriptCode `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty" xml:"FullNameIndexed"`
+	// @gotags: xml:"NamesBeforeKeyName"
+	NamesBeforeKeyName *NameWithPronunciationAndScriptCode `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty" xml:"NamesBeforeKeyName"`
+	// @gotags: xml:"KeyName"
+	KeyName *NameWithPronunciationAndScriptCode `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty" xml:"KeyName"`
+	// @gotags: xml:"NamesAfterKeyName"
+	NamesAfterKeyName *NameWithPronunciationAndScriptCode `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty" xml:"NamesAfterKeyName"`
+	// @gotags: xml:"AbbreviatedName"
+	AbbreviatedName *NameWithPronunciationAndScriptCode `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty" xml:"AbbreviatedName"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,9,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *PartyNameWithPronunciation) Reset() {
@@ -49559,16 +49952,23 @@ func (x *PartyNameWithPronunciation) GetApplicableTerritoryCode() CurrentTerrito
 }
 
 type PartyNameWithoutCode struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	FullName                 string                 `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	FullNameAsciiTranscribed string                 `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty"`
-	FullNameIndexed          string                 `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty"`
-	NamesBeforeKeyName       string                 `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty"`
-	KeyName                  string                 `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty"`
-	NamesAfterKeyName        string                 `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty"`
-	AbbreviatedName          string                 `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"FullName"
+	FullName string `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty" xml:"FullName"`
+	// @gotags: xml:"FullNameAsciiTranscribed"
+	FullNameAsciiTranscribed string `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty" xml:"FullNameAsciiTranscribed"`
+	// @gotags: xml:"FullNameIndexed"
+	FullNameIndexed string `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty" xml:"FullNameIndexed"`
+	// @gotags: xml:"NamesBeforeKeyName"
+	NamesBeforeKeyName string `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty" xml:"NamesBeforeKeyName"`
+	// @gotags: xml:"KeyName"
+	KeyName string `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty" xml:"KeyName"`
+	// @gotags: xml:"NamesAfterKeyName"
+	NamesAfterKeyName string `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty" xml:"NamesAfterKeyName"`
+	// @gotags: xml:"AbbreviatedName"
+	AbbreviatedName string `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty" xml:"AbbreviatedName"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *PartyNameWithoutCode) Reset() {
@@ -49651,10 +50051,13 @@ func (x *PartyNameWithoutCode) GetAbbreviatedName() string {
 }
 
 type PeriodValue struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49711,9 +50114,11 @@ func (x *PeriodValue) GetUserDefinedValue() string {
 }
 
 type PeriodWithTime struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StartDateTime string                 `protobuf:"bytes,1,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty"`
-	EndDateTime   string                 `protobuf:"bytes,2,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"StartDateTime"
+	StartDateTime string `protobuf:"bytes,1,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
+	// @gotags: xml:"EndDateTime"
+	EndDateTime   string `protobuf:"bytes,2,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49763,13 +50168,19 @@ func (x *PeriodWithTime) GetEndDateTime() string {
 }
 
 type Pronunciation struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	Value                    string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsCanonical              bool                   `protobuf:"varint,2,opt,name=is_canonical,json=isCanonical,proto3" json:"is_canonical,omitempty"`
-	LanguageCode             string                 `protobuf:"bytes,3,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
-	EncodingType             EncodingType           `protobuf:"varint,4,opt,name=encoding_type,json=encodingType,proto3,enum=ddex.pie.v10.EncodingType" json:"encoding_type,omitempty"`
-	EncodingNamespace        string                 `protobuf:"bytes,5,opt,name=encoding_namespace,json=encodingNamespace,proto3" json:"encoding_namespace,omitempty"`
-	EncodingUserDefinedValue string                 `protobuf:"bytes,6,opt,name=encoding_user_defined_value,json=encodingUserDefinedValue,proto3" json:"encoding_user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsCanonical,attr"
+	IsCanonical bool `protobuf:"varint,2,opt,name=is_canonical,json=isCanonical,proto3" json:"is_canonical,omitempty" xml:"IsCanonical,attr"`
+	// @gotags: xml:"LanguageCode,attr"
+	LanguageCode string `protobuf:"bytes,3,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty" xml:"LanguageCode,attr"`
+	// @gotags: xml:"EncodingType,attr"
+	EncodingType EncodingType `protobuf:"varint,4,opt,name=encoding_type,json=encodingType,proto3,enum=ddex.pie.v10.EncodingType" json:"encoding_type,omitempty" xml:"EncodingType,attr"`
+	// @gotags: xml:"EncodingNamespace,attr"
+	EncodingNamespace string `protobuf:"bytes,5,opt,name=encoding_namespace,json=encodingNamespace,proto3" json:"encoding_namespace,omitempty" xml:"EncodingNamespace,attr"`
+	// @gotags: xml:"EncodingUserDefinedValue,attr"
+	EncodingUserDefinedValue string `protobuf:"bytes,6,opt,name=encoding_user_defined_value,json=encodingUserDefinedValue,proto3" json:"encoding_user_defined_value,omitempty" xml:"EncodingUserDefinedValue,attr"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -49847,9 +50258,11 @@ func (x *Pronunciation) GetEncodingUserDefinedValue() string {
 }
 
 type ProprietaryId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace     string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace     string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49899,8 +50312,9 @@ func (x *ProprietaryId) GetNamespace() string {
 }
 
 type RelatedCreation struct {
-	state         protoimpl.MessageState  `protogen:"open.v1"`
-	Title         *TitleWithPronunciation `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Title"
+	Title         *TitleWithPronunciation `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" xml:"Title"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49943,15 +50357,21 @@ func (x *RelatedCreation) GetTitle() *TitleWithPronunciation {
 }
 
 type Release struct {
-	state                protoimpl.MessageState                `protogen:"open.v1"`
-	GRid                 string                                `protobuf:"bytes,1,opt,name=g_rid,json=gRid,proto3" json:"g_rid,omitempty"`
-	ICPN                 string                                `protobuf:"bytes,2,opt,name=i_c_p_n,json=iCPN,proto3" json:"i_c_p_n,omitempty"`
-	ProprietaryReleaseId string                                `protobuf:"bytes,3,opt,name=proprietary_release_id,json=proprietaryReleaseId,proto3" json:"proprietary_release_id,omitempty"`
-	ReleaseTitle         []*ReleaseTitle                       `protobuf:"bytes,4,rep,name=release_title,json=releaseTitle,proto3" json:"release_title,omitempty"`
-	DisplayArtistName    []*DisplayArtistNameWithPronunciation `protobuf:"bytes,5,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist        []*PartyDescriptorWithPronunciation   `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"GRid"
+	GRid string `protobuf:"bytes,1,opt,name=g_rid,json=gRid,proto3" json:"g_rid,omitempty" xml:"GRid"`
+	// @gotags: xml:"ICPN"
+	ICPN string `protobuf:"bytes,2,opt,name=i_c_p_n,json=iCPN,proto3" json:"i_c_p_n,omitempty" xml:"ICPN"`
+	// @gotags: xml:"ProprietaryReleaseId"
+	ProprietaryReleaseId string `protobuf:"bytes,3,opt,name=proprietary_release_id,json=proprietaryReleaseId,proto3" json:"proprietary_release_id,omitempty" xml:"ProprietaryReleaseId"`
+	// @gotags: xml:"ReleaseTitle"
+	ReleaseTitle []*ReleaseTitle `protobuf:"bytes,4,rep,name=release_title,json=releaseTitle,proto3" json:"release_title,omitempty" xml:"ReleaseTitle"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithPronunciation `protobuf:"bytes,5,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*PartyDescriptorWithPronunciation `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Release) Reset() {
@@ -50027,12 +50447,17 @@ func (x *Release) GetDisplayArtist() []*PartyDescriptorWithPronunciation {
 }
 
 type ReleaseId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	GRid          string                 `protobuf:"bytes,1,opt,name=g_rid,json=gRid,proto3" json:"g_rid,omitempty"`
-	ISRC          string                 `protobuf:"bytes,2,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty"`
-	ICPN          string                 `protobuf:"bytes,3,opt,name=i_c_p_n,json=iCPN,proto3" json:"i_c_p_n,omitempty"`
-	CatalogNumber *CatalogNumber         `protobuf:"bytes,4,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,5,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"GRid"
+	GRid string `protobuf:"bytes,1,opt,name=g_rid,json=gRid,proto3" json:"g_rid,omitempty" xml:"GRid"`
+	// @gotags: xml:"ISRC"
+	ISRC string `protobuf:"bytes,2,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty" xml:"ISRC"`
+	// @gotags: xml:"ICPN"
+	ICPN string `protobuf:"bytes,3,opt,name=i_c_p_n,json=iCPN,proto3" json:"i_c_p_n,omitempty" xml:"ICPN"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber *CatalogNumber `protobuf:"bytes,4,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,5,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50103,13 +50528,17 @@ func (x *ReleaseId) GetProprietaryId() []*ProprietaryId {
 }
 
 type ReleaseSummary struct {
-	state             protoimpl.MessageState                `protogen:"open.v1"`
-	ReleaseId         *ReleaseId                            `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty"`
-	DisplayTitle      []*DisplayTitle                       `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	DisplayArtistName []*DisplayArtistNameWithPronunciation `protobuf:"bytes,3,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist     []*PartyDescriptorWithPronunciation   `protobuf:"bytes,4,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithPronunciation `protobuf:"bytes,3,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*PartyDescriptorWithPronunciation `protobuf:"bytes,4,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ReleaseSummary) Reset() {
@@ -50171,9 +50600,11 @@ func (x *ReleaseSummary) GetDisplayArtist() []*PartyDescriptorWithPronunciation 
 }
 
 type ReleaseTitle struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -50223,15 +50654,21 @@ func (x *ReleaseTitle) GetLanguageAndScriptCode() string {
 }
 
 type Resource struct {
-	state                 protoimpl.MessageState                `protogen:"open.v1"`
-	ISRC                  string                                `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty"`
-	CatalogNumber         string                                `protobuf:"bytes,2,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryResourceId string                                `protobuf:"bytes,3,opt,name=proprietary_resource_id,json=proprietaryResourceId,proto3" json:"proprietary_resource_id,omitempty"`
-	ResourceTitle         []*ResourceTitle                      `protobuf:"bytes,4,rep,name=resource_title,json=resourceTitle,proto3" json:"resource_title,omitempty"`
-	DisplayArtistName     []*DisplayArtistNameWithPronunciation `protobuf:"bytes,5,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist         []*PartyDescriptorWithPronunciation   `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISRC"
+	ISRC string `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty" xml:"ISRC"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber string `protobuf:"bytes,2,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryResourceId"
+	ProprietaryResourceId string `protobuf:"bytes,3,opt,name=proprietary_resource_id,json=proprietaryResourceId,proto3" json:"proprietary_resource_id,omitempty" xml:"ProprietaryResourceId"`
+	// @gotags: xml:"ResourceTitle"
+	ResourceTitle []*ResourceTitle `protobuf:"bytes,4,rep,name=resource_title,json=resourceTitle,proto3" json:"resource_title,omitempty" xml:"ResourceTitle"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithPronunciation `protobuf:"bytes,5,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*PartyDescriptorWithPronunciation `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Resource) Reset() {
@@ -50307,16 +50744,25 @@ func (x *Resource) GetDisplayArtist() []*PartyDescriptorWithPronunciation {
 }
 
 type ResourceIdWithoutFlag struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISRC          string                 `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty"`
-	ISMN          string                 `protobuf:"bytes,2,opt,name=i_s_m_n,json=iSMN,proto3" json:"i_s_m_n,omitempty"`
-	ISAN          string                 `protobuf:"bytes,3,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty"`
-	VISAN         string                 `protobuf:"bytes,4,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty"`
-	ISBN          string                 `protobuf:"bytes,5,opt,name=i_s_b_n,json=iSBN,proto3" json:"i_s_b_n,omitempty"`
-	ISSN          string                 `protobuf:"bytes,6,opt,name=i_s_s_n,json=iSSN,proto3" json:"i_s_s_n,omitempty"`
-	SICI          string                 `protobuf:"bytes,7,opt,name=s_i_c_i,json=sICI,proto3" json:"s_i_c_i,omitempty"`
-	CatalogNumber *CatalogNumber         `protobuf:"bytes,8,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,9,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISRC"
+	ISRC string `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty" xml:"ISRC"`
+	// @gotags: xml:"ISMN"
+	ISMN string `protobuf:"bytes,2,opt,name=i_s_m_n,json=iSMN,proto3" json:"i_s_m_n,omitempty" xml:"ISMN"`
+	// @gotags: xml:"ISAN"
+	ISAN string `protobuf:"bytes,3,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty" xml:"ISAN"`
+	// @gotags: xml:"VISAN"
+	VISAN string `protobuf:"bytes,4,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty" xml:"VISAN"`
+	// @gotags: xml:"ISBN"
+	ISBN string `protobuf:"bytes,5,opt,name=i_s_b_n,json=iSBN,proto3" json:"i_s_b_n,omitempty" xml:"ISBN"`
+	// @gotags: xml:"ISSN"
+	ISSN string `protobuf:"bytes,6,opt,name=i_s_s_n,json=iSSN,proto3" json:"i_s_s_n,omitempty" xml:"ISSN"`
+	// @gotags: xml:"SICI"
+	SICI string `protobuf:"bytes,7,opt,name=s_i_c_i,json=sICI,proto3" json:"s_i_c_i,omitempty" xml:"SICI"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber *CatalogNumber `protobuf:"bytes,8,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,9,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50415,13 +50861,17 @@ func (x *ResourceIdWithoutFlag) GetProprietaryId() []*ProprietaryId {
 }
 
 type ResourceSummary struct {
-	state             protoimpl.MessageState                `protogen:"open.v1"`
-	ResourceId        *ResourceIdWithoutFlag                `protobuf:"bytes,1,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	DisplayTitle      []*DisplayTitle                       `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	DisplayArtistName []*DisplayArtistNameWithPronunciation `protobuf:"bytes,3,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist     []*PartyDescriptorWithPronunciation   `protobuf:"bytes,4,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceId"
+	ResourceId *ResourceIdWithoutFlag `protobuf:"bytes,1,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithPronunciation `protobuf:"bytes,3,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*PartyDescriptorWithPronunciation `protobuf:"bytes,4,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ResourceSummary) Reset() {
@@ -50483,9 +50933,11 @@ func (x *ResourceSummary) GetDisplayArtist() []*PartyDescriptorWithPronunciation
 }
 
 type ResourceTitle struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -50535,9 +50987,11 @@ func (x *ResourceTitle) GetLanguageAndScriptCode() string {
 }
 
 type SubTitle struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	SubTitleType  string                 `protobuf:"bytes,2,opt,name=sub_title_type,json=subTitleType,proto3" json:"sub_title_type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"SubTitleType,attr"
+	SubTitleType  string `protobuf:"bytes,2,opt,name=sub_title_type,json=subTitleType,proto3" json:"sub_title_type,omitempty" xml:"SubTitleType,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50587,16 +51041,23 @@ func (x *SubTitle) GetSubTitleType() string {
 }
 
 type TextWithFormat struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode CurrentTerritoryCode   `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	Format                  TextCodecType          `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.pie.v10.TextCodecType" json:"format,omitempty"`
-	Namespace               string                 `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue        string                 `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"Format,attr"
+	Format TextCodecType `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.pie.v10.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TextWithFormat) Reset() {
@@ -50679,16 +51140,23 @@ func (x *TextWithFormat) GetUserDefinedValue() string {
 }
 
 type TextWithoutTerritory struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode CurrentTerritoryCode   `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	Format                  TextCodecType          `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.pie.v10.TextCodecType" json:"format,omitempty"`
-	Namespace               string                 `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue        string                 `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.pie.v10.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"Format,attr"
+	Format TextCodecType `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.pie.v10.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TextWithoutTerritory) Reset() {
@@ -50771,9 +51239,11 @@ func (x *TextWithoutTerritory) GetUserDefinedValue() string {
 }
 
 type TitleText struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	Pronunciation []*Pronunciation       `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Title"
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" xml:"Title"`
+	// @gotags: xml:"Pronunciation"
+	Pronunciation []*Pronunciation `protobuf:"bytes,2,rep,name=pronunciation,proto3" json:"pronunciation,omitempty" xml:"Pronunciation"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50823,15 +51293,21 @@ func (x *TitleText) GetPronunciation() []*Pronunciation {
 }
 
 type TitleWithPronunciation struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	TitleText             *TitleText             `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty"`
-	SubTitle              *TitleText             `protobuf:"bytes,2,opt,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	TitleType             TitleType              `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.pie.v10.TitleType" json:"title_type,omitempty"`
-	Namespace             string                 `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue      string                 `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TitleText"
+	TitleText *TitleText `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty" xml:"TitleText"`
+	// @gotags: xml:"SubTitle"
+	SubTitle *TitleText `protobuf:"bytes,2,opt,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty" xml:"SubTitle"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"TitleType,attr"
+	TitleType TitleType `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.pie.v10.TitleType" json:"title_type,omitempty" xml:"TitleType,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TitleWithPronunciation) Reset() {
@@ -50907,15 +51383,21 @@ func (x *TitleWithPronunciation) GetUserDefinedValue() string {
 }
 
 type TitleWithUDV struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	TitleText             string                 `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty"`
-	SubTitle              []*SubTitle            `protobuf:"bytes,2,rep,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	TitleType             TitleType              `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.pie.v10.TitleType" json:"title_type,omitempty"`
-	Namespace             string                 `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue      string                 `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TitleText"
+	TitleText string `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty" xml:"TitleText"`
+	// @gotags: xml:"SubTitle"
+	SubTitle []*SubTitle `protobuf:"bytes,2,rep,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty" xml:"SubTitle"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"TitleType,attr"
+	TitleType TitleType `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.pie.v10.TitleType" json:"title_type,omitempty" xml:"TitleType,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TitleWithUDV) Reset() {
@@ -50991,9 +51473,11 @@ func (x *TitleWithUDV) GetUserDefinedValue() string {
 }
 
 type ValidityPeriod struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StartDate     *EventDate             `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
-	EndDate       *EventDate             `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"StartDate"
+	StartDate *EventDate `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate       *EventDate `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -51043,11 +51527,13 @@ func (x *ValidityPeriod) GetEndDate() *EventDate {
 }
 
 type VocalRegister struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty"`
-	Value                   *VocalRegisterValue        `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MetadataSourceReference"
+	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
+	// @gotags: xml:"Value"
+	Value         *VocalRegisterValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *VocalRegister) Reset() {
@@ -51095,10 +51581,13 @@ func (x *VocalRegister) GetValue() *VocalRegisterValue {
 }
 
 type VocalRegisterValue struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -51155,13 +51644,17 @@ func (x *VocalRegisterValue) GetUserDefinedValue() string {
 }
 
 type Work struct {
-	state             protoimpl.MessageState              `protogen:"open.v1"`
-	ISWC              string                              `protobuf:"bytes,1,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty"`
-	ProprietaryWorkId string                              `protobuf:"bytes,2,opt,name=proprietary_work_id,json=proprietaryWorkId,proto3" json:"proprietary_work_id,omitempty"`
-	WorkTitle         []*WorkTitle                        `protobuf:"bytes,3,rep,name=work_title,json=workTitle,proto3" json:"work_title,omitempty"`
-	Writer            []*PartyDescriptorWithPronunciation `protobuf:"bytes,4,rep,name=writer,proto3" json:"writer,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISWC"
+	ISWC string `protobuf:"bytes,1,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty" xml:"ISWC"`
+	// @gotags: xml:"ProprietaryWorkId"
+	ProprietaryWorkId string `protobuf:"bytes,2,opt,name=proprietary_work_id,json=proprietaryWorkId,proto3" json:"proprietary_work_id,omitempty" xml:"ProprietaryWorkId"`
+	// @gotags: xml:"WorkTitle"
+	WorkTitle []*WorkTitle `protobuf:"bytes,3,rep,name=work_title,json=workTitle,proto3" json:"work_title,omitempty" xml:"WorkTitle"`
+	// @gotags: xml:"Writer"
+	Writer        []*PartyDescriptorWithPronunciation `protobuf:"bytes,4,rep,name=writer,proto3" json:"writer,omitempty" xml:"Writer"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Work) Reset() {
@@ -51223,10 +51716,13 @@ func (x *Work) GetWriter() []*PartyDescriptorWithPronunciation {
 }
 
 type WorkSummary struct {
-	state         protoimpl.MessageState              `protogen:"open.v1"`
-	MusicalWorkId *MusicalWorkIdWithoutFlag           `protobuf:"bytes,1,opt,name=musical_work_id,json=musicalWorkId,proto3" json:"musical_work_id,omitempty"`
-	WorkTitle     []*TitleWithPronunciation           `protobuf:"bytes,2,rep,name=work_title,json=workTitle,proto3" json:"work_title,omitempty"`
-	Writer        []*PartyDescriptorWithPronunciation `protobuf:"bytes,3,rep,name=writer,proto3" json:"writer,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MusicalWorkId"
+	MusicalWorkId *MusicalWorkIdWithoutFlag `protobuf:"bytes,1,opt,name=musical_work_id,json=musicalWorkId,proto3" json:"musical_work_id,omitempty" xml:"MusicalWorkId"`
+	// @gotags: xml:"WorkTitle"
+	WorkTitle []*TitleWithPronunciation `protobuf:"bytes,2,rep,name=work_title,json=workTitle,proto3" json:"work_title,omitempty" xml:"WorkTitle"`
+	// @gotags: xml:"Writer"
+	Writer        []*PartyDescriptorWithPronunciation `protobuf:"bytes,3,rep,name=writer,proto3" json:"writer,omitempty" xml:"Writer"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -51283,9 +51779,11 @@ func (x *WorkSummary) GetWriter() []*PartyDescriptorWithPronunciation {
 }
 
 type WorkTitle struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -51338,708 +51836,669 @@ var File_piev10_pie_proto protoreflect.FileDescriptor
 
 const file_piev10_pie_proto_rawDesc = "" +
 	"\n" +
-	"\x10piev10/pie.proto\x12\fddex.pie.v10\x1a\x13tagger/tagger.proto\"\xca\x03\n" +
+	"\x10piev10/pie.proto\x12\fddex.pie.v10\"\xbb\x02\n" +
 	"\n" +
-	"PieMessage\x12[\n" +
-	"\x0emessage_header\x18\x01 \x01(\v2\x1b.ddex.pie.v10.MessageHeaderB\x17\x92\x93!\x13xml:\"MessageHeader\"R\rmessageHeader\x12p\n" +
-	"\x14metadata_source_list\x18\x02 \x01(\v2 .ddex.pie.v10.MetadataSourceListB\x1c\x92\x93!\x18xml:\"MetadataSourceList\"R\x12metadataSourceList\x12K\n" +
+	"PieMessage\x12B\n" +
+	"\x0emessage_header\x18\x01 \x01(\v2\x1b.ddex.pie.v10.MessageHeaderR\rmessageHeader\x12R\n" +
+	"\x14metadata_source_list\x18\x02 \x01(\v2 .ddex.pie.v10.MetadataSourceListR\x12metadataSourceList\x126\n" +
 	"\n" +
-	"party_list\x18\x03 \x01(\v2\x17.ddex.pie.v10.PartyListB\x13\x92\x93!\x0fxml:\"PartyList\"R\tpartyList\x12A\n" +
-	"\x0eavs_version_id\x18\x04 \x01(\tB\x1b\x92\x93!\x17xml:\"AvsVersionId,attr\"R\favsVersionId\x12]\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xf3\x02\n" +
-	"\x11PieRequestMessage\x12[\n" +
-	"\x0emessage_header\x18\x01 \x01(\v2\x1b.ddex.pie.v10.MessageHeaderB\x17\x92\x93!\x13xml:\"MessageHeader\"R\rmessageHeader\x12_\n" +
-	"\x0frequested_party\x18\x02 \x03(\v2\x1c.ddex.pie.v10.RequestedPartyB\x18\x92\x93!\x14xml:\"RequestedParty\"R\x0erequestedParty\x12A\n" +
-	"\x0eavs_version_id\x18\x03 \x01(\tB\x1b\x92\x93!\x17xml:\"AvsVersionId,attr\"R\favsVersionId\x12]\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xe3\x06\n" +
-	"\x04Feed\x12@\n" +
-	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonB\x10\x92\x93!\fxml:\"author\"H\x00R\x06author\x12H\n" +
-	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryB\x12\x92\x93!\x0exml:\"category\"H\x00R\bcategory\x12O\n" +
-	"\vcontributor\x18\x03 \x01(\v2\x14.ddex.pie.v10.PersonB\x15\x92\x93!\x11xml:\"contributor\"H\x00R\vcontributor\x12L\n" +
-	"\tgenerator\x18\x04 \x01(\v2\x17.ddex.pie.v10.GeneratorB\x13\x92\x93!\x0fxml:\"generator\"H\x00R\tgenerator\x128\n" +
-	"\x04icon\x18\x05 \x01(\v2\x12.ddex.pie.v10.IconB\x0e\x92\x93!\n" +
-	"xml:\"icon\"H\x00R\x04icon\x120\n" +
-	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdB\f\x92\x93!\bxml:\"id\"H\x00R\x02id\x128\n" +
-	"\x04link\x18\a \x01(\v2\x12.ddex.pie.v10.LinkB\x0e\x92\x93!\n" +
-	"xml:\"link\"H\x00R\x04link\x128\n" +
-	"\x04logo\x18\b \x01(\v2\x12.ddex.pie.v10.LogoB\x0e\x92\x93!\n" +
-	"xml:\"logo\"H\x00R\x04logo\x12>\n" +
-	"\x06rights\x18\t \x01(\v2\x12.ddex.pie.v10.TextB\x10\x92\x93!\fxml:\"rights\"H\x00R\x06rights\x12D\n" +
+	"party_list\x18\x03 \x01(\v2\x17.ddex.pie.v10.PartyListR\tpartyList\x12$\n" +
+	"\x0eavs_version_id\x18\x04 \x01(\tR\favsVersionId\x127\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xfd\x01\n" +
+	"\x11PieRequestMessage\x12B\n" +
+	"\x0emessage_header\x18\x01 \x01(\v2\x1b.ddex.pie.v10.MessageHeaderR\rmessageHeader\x12E\n" +
+	"\x0frequested_party\x18\x02 \x03(\v2\x1c.ddex.pie.v10.RequestedPartyR\x0erequestedParty\x12$\n" +
+	"\x0eavs_version_id\x18\x03 \x01(\tR\favsVersionId\x127\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\"\xf8\x04\n" +
+	"\x04Feed\x12.\n" +
+	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\x06author\x124\n" +
+	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryH\x00R\bcategory\x128\n" +
+	"\vcontributor\x18\x03 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\vcontributor\x127\n" +
+	"\tgenerator\x18\x04 \x01(\v2\x17.ddex.pie.v10.GeneratorH\x00R\tgenerator\x12(\n" +
+	"\x04icon\x18\x05 \x01(\v2\x12.ddex.pie.v10.IconH\x00R\x04icon\x12\"\n" +
+	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12(\n" +
+	"\x04link\x18\a \x01(\v2\x12.ddex.pie.v10.LinkH\x00R\x04link\x12(\n" +
+	"\x04logo\x18\b \x01(\v2\x12.ddex.pie.v10.LogoH\x00R\x04logo\x12,\n" +
+	"\x06rights\x18\t \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x06rights\x120\n" +
 	"\bsubtitle\x18\n" +
-	" \x01(\v2\x12.ddex.pie.v10.TextB\x12\x92\x93!\x0exml:\"subtitle\"H\x00R\bsubtitle\x12;\n" +
-	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextB\x0f\x92\x93!\vxml:\"title\"H\x00R\x05title\x12E\n" +
-	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeB\x11\x92\x93!\rxml:\"updated\"H\x00R\aupdated\x12<\n" +
-	"\x05entry\x18\r \x01(\v2\x13.ddex.pie.v10.EntryB\x0f\x92\x93!\vxml:\"entry\"H\x00R\x05entryB\b\n" +
-	"\x06choice\"\xb0\x03\n" +
-	"\fContribution\x12A\n" +
-	"\x04role\x18\x01 \x03(\v2\x1d.ddex.pie.v10.ContributorRoleB\x0e\x92\x93!\n" +
-	"xml:\"Role\"R\x04role\x12?\n" +
-	"\x0fis_primary_role\x18\x02 \x01(\bB\x17\x92\x93!\x13xml:\"IsPrimaryRole\"R\risPrimaryRole\x12j\n" +
-	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bB%\x92\x93!!xml:\"HasMadeFeaturedContribution\"R\x1bhasMadeFeaturedContribution\x12p\n" +
-	" has_made_contracted_contribution\x18\x04 \x01(\bB'\x92\x93!#xml:\"HasMadeContractedContribution\"R\x1dhasMadeContractedContribution\x12>\n" +
-	"\x05event\x18\x05 \x01(\v2\x17.ddex.pie.v10.EventDateB\x0f\x92\x93!\vxml:\"Event\"R\x05event\"\xa5\x02\n" +
-	"\x13CreationDescription\x12A\n" +
-	"\x05title\x18\x01 \x03(\v2\x1a.ddex.pie.v10.TitleWithUDVB\x0f\x92\x93!\vxml:\"Title\"R\x05title\x12l\n" +
-	"\x13display_artist_name\x18\x02 \x01(\v2\x1f.ddex.pie.v10.DisplayArtistNameB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12]\n" +
-	"\x10publication_date\x18\x03 \x01(\v2\x17.ddex.pie.v10.EventDateB\x19\x92\x93!\x15xml:\"PublicationDate\"R\x0fpublicationDate\"\xae\x03\n" +
-	"\x17DetailedPartyIdForParty\x12%\n" +
-	"\ai_s_n_i\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISNI\"R\x04iSNI\x12%\n" +
-	"\ad_p_i_d\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"DPID\"R\x04dPID\x12?\n" +
-	"\x0fipi_name_number\x18\x03 \x01(\tB\x17\x92\x93!\x13xml:\"IpiNameNumber\"R\ripiNameNumber\x12!\n" +
-	"\x05i_p_n\x18\x04 \x01(\tB\r\x92\x93!\txml:\"IPN\"R\x03iPN\x12B\n" +
-	"\x10cisac_society_id\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"CisacSocietyId\"R\x0ecisacSocietyId\x12[\n" +
-	"\x0eproprietary_id\x18\x06 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12@\n" +
-	"\ris_deprecated\x18\a \x01(\bB\x1b\x92\x93!\x17xml:\"IsDeprecated,attr\"R\fisDeprecated\"\x8e\b\n" +
-	"\x05Entry\x12@\n" +
-	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonB\x10\x92\x93!\fxml:\"author\"H\x00R\x06author\x12H\n" +
-	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryB\x12\x92\x93!\x0exml:\"category\"H\x00R\bcategory\x12D\n" +
-	"\acontent\x18\x03 \x01(\v2\x15.ddex.pie.v10.ContentB\x11\x92\x93!\rxml:\"content\"H\x00R\acontent\x12O\n" +
-	"\vcontributor\x18\x04 \x01(\v2\x14.ddex.pie.v10.PersonB\x15\x92\x93!\x11xml:\"contributor\"H\x00R\vcontributor\x120\n" +
-	"\x02id\x18\x05 \x01(\v2\x10.ddex.pie.v10.IdB\f\x92\x93!\bxml:\"id\"H\x00R\x02id\x128\n" +
-	"\x04link\x18\x06 \x01(\v2\x12.ddex.pie.v10.LinkB\x0e\x92\x93!\n" +
-	"xml:\"link\"H\x00R\x04link\x12K\n" +
-	"\tpublished\x18\a \x01(\v2\x16.ddex.pie.v10.DateTimeB\x13\x92\x93!\x0fxml:\"published\"H\x00R\tpublished\x12>\n" +
-	"\x06rights\x18\b \x01(\v2\x12.ddex.pie.v10.TextB\x10\x92\x93!\fxml:\"rights\"H\x00R\x06rights\x12@\n" +
-	"\x06source\x18\t \x01(\v2\x14.ddex.pie.v10.SourceB\x10\x92\x93!\fxml:\"source\"H\x00R\x06source\x12A\n" +
+	" \x01(\v2\x12.ddex.pie.v10.TextH\x00R\bsubtitle\x12*\n" +
+	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x05title\x122\n" +
+	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdated\x12+\n" +
+	"\x05entry\x18\r \x01(\v2\x13.ddex.pie.v10.EntryH\x00R\x05entryB\b\n" +
+	"\x06choice\"\xa6\x02\n" +
+	"\fContribution\x121\n" +
+	"\x04role\x18\x01 \x03(\v2\x1d.ddex.pie.v10.ContributorRoleR\x04role\x12&\n" +
+	"\x0fis_primary_role\x18\x02 \x01(\bR\risPrimaryRole\x12C\n" +
+	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bR\x1bhasMadeFeaturedContribution\x12G\n" +
+	" has_made_contracted_contribution\x18\x04 \x01(\bR\x1dhasMadeContractedContribution\x12-\n" +
+	"\x05event\x18\x05 \x01(\v2\x17.ddex.pie.v10.EventDateR\x05event\"\xdc\x01\n" +
+	"\x13CreationDescription\x120\n" +
+	"\x05title\x18\x01 \x03(\v2\x1a.ddex.pie.v10.TitleWithUDVR\x05title\x12O\n" +
+	"\x13display_artist_name\x18\x02 \x01(\v2\x1f.ddex.pie.v10.DisplayArtistNameR\x11displayArtistName\x12B\n" +
+	"\x10publication_date\x18\x03 \x01(\v2\x17.ddex.pie.v10.EventDateR\x0fpublicationDate\"\x96\x02\n" +
+	"\x17DetailedPartyIdForParty\x12\x15\n" +
+	"\ai_s_n_i\x18\x01 \x01(\tR\x04iSNI\x12\x15\n" +
+	"\ad_p_i_d\x18\x02 \x01(\tR\x04dPID\x12&\n" +
+	"\x0fipi_name_number\x18\x03 \x01(\tR\ripiNameNumber\x12\x12\n" +
+	"\x05i_p_n\x18\x04 \x01(\tR\x03iPN\x12(\n" +
+	"\x10cisac_society_id\x18\x05 \x01(\tR\x0ecisacSocietyId\x12B\n" +
+	"\x0eproprietary_id\x18\x06 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\x12#\n" +
+	"\ris_deprecated\x18\a \x01(\bR\fisDeprecated\"\xe8\x05\n" +
+	"\x05Entry\x12.\n" +
+	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\x06author\x124\n" +
+	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryH\x00R\bcategory\x121\n" +
+	"\acontent\x18\x03 \x01(\v2\x15.ddex.pie.v10.ContentH\x00R\acontent\x128\n" +
+	"\vcontributor\x18\x04 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\vcontributor\x12\"\n" +
+	"\x02id\x18\x05 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12(\n" +
+	"\x04link\x18\x06 \x01(\v2\x12.ddex.pie.v10.LinkH\x00R\x04link\x126\n" +
+	"\tpublished\x18\a \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\tpublished\x12,\n" +
+	"\x06rights\x18\b \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x06rights\x12.\n" +
+	"\x06source\x18\t \x01(\v2\x14.ddex.pie.v10.SourceH\x00R\x06source\x12.\n" +
 	"\asummary\x18\n" +
-	" \x01(\v2\x12.ddex.pie.v10.TextB\x11\x92\x93!\rxml:\"summary\"H\x00R\asummary\x12;\n" +
-	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextB\x0f\x92\x93!\vxml:\"title\"H\x00R\x05title\x12E\n" +
-	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeB\x11\x92\x93!\rxml:\"updated\"H\x00R\aupdated\x12C\n" +
-	"\x0fsubscription_id\x18\r \x01(\tB\x18\x92\x93!\x14xml:\"SubscriptionId\"H\x00R\x0esubscriptionId\x12N\n" +
-	"\x05party\x18\x0e \x01(\v2%.ddex.pie.v10.PartyDescriptorForEntryB\x0f\x92\x93!\vxml:\"Party\"H\x00R\x05party\x12A\n" +
-	"\x0eavs_version_id\x18\x0f \x01(\tB\x1b\x92\x93!\x17xml:\"AvsVersionId,attr\"R\favsVersionIdB\b\n" +
-	"\x06choice\"\xbf\x02\n" +
-	"\x05Event\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12K\n" +
+	" \x01(\v2\x12.ddex.pie.v10.TextH\x00R\asummary\x12*\n" +
+	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x05title\x122\n" +
+	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdated\x12)\n" +
+	"\x0fsubscription_id\x18\r \x01(\tH\x00R\x0esubscriptionId\x12=\n" +
+	"\x05party\x18\x0e \x01(\v2%.ddex.pie.v10.PartyDescriptorForEntryH\x00R\x05party\x12$\n" +
+	"\x0eavs_version_id\x18\x0f \x01(\tR\favsVersionIdB\b\n" +
+	"\x06choice\"\xea\x01\n" +
+	"\x05Event\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x126\n" +
 	"\n" +
-	"event_type\x18\x02 \x01(\v2\x17.ddex.pie.v10.EventTypeB\x13\x92\x93!\x0fxml:\"EventType\"R\teventType\x12b\n" +
-	"\x11event_description\x18\x03 \x03(\v2\x19.ddex.pie.v10.DescriptionB\x1a\x92\x93!\x16xml:\"EventDescription\"R\x10eventDescription\"\xbd\x01\n" +
-	"\tEventType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc4\t\n" +
-	"\x05Focus\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12T\n" +
-	"\vfocus_track\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ResourceSummaryB\x14\x92\x93!\x10xml:\"FocusTrack\"R\n" +
-	"focusTrack\x12Y\n" +
-	"\rfocus_release\x18\x03 \x01(\v2\x1c.ddex.pie.v10.ReleaseSummaryB\x16\x92\x93!\x12xml:\"FocusRelease\"R\ffocusRelease\x12M\n" +
+	"event_type\x18\x02 \x01(\v2\x17.ddex.pie.v10.EventTypeR\teventType\x12F\n" +
+	"\x11event_description\x18\x03 \x03(\v2\x19.ddex.pie.v10.DescriptionR\x10eventDescription\"m\n" +
+	"\tEventType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xfe\x06\n" +
+	"\x05Focus\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12>\n" +
+	"\vfocus_track\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ResourceSummaryR\n" +
+	"focusTrack\x12A\n" +
+	"\rfocus_release\x18\x03 \x01(\v2\x1c.ddex.pie.v10.ReleaseSummaryR\ffocusRelease\x128\n" +
 	"\n" +
-	"focus_work\x18\x04 \x01(\v2\x19.ddex.pie.v10.WorkSummaryB\x13\x92\x93!\x0fxml:\"FocusWork\"R\tfocusWork\x12}\n" +
-	"\x13display_artist_name\x18\x05 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12n\n" +
-	"\x0edisplay_artist\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12X\n" +
-	"\x06writer\x18\a \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x10\x92\x93!\fxml:\"Writer\"R\x06writer\x12A\n" +
-	"\x0fsequence_number\x18\b \x01(\x05B\x18\x92\x93!\x14xml:\"SequenceNumber\"R\x0esequenceNumber\x12m\n" +
-	"\x15period_of_being_focus\x18\t \x03(\v2\x1c.ddex.pie.v10.PeriodWithTimeB\x1c\x92\x93!\x18xml:\"PeriodOfBeingFocus\"R\x12periodOfBeingFocus\x12\xae\x01\n" +
+	"focus_work\x18\x04 \x01(\v2\x19.ddex.pie.v10.WorkSummaryR\tfocusWork\x12`\n" +
+	"\x13display_artist_name\x18\x05 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationR\x11displayArtistName\x12U\n" +
+	"\x0edisplay_artist\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\rdisplayArtist\x12F\n" +
+	"\x06writer\x18\a \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06writer\x12'\n" +
+	"\x0fsequence_number\x18\b \x01(\x05R\x0esequenceNumber\x12O\n" +
+	"\x15period_of_being_focus\x18\t \x03(\v2\x1c.ddex.pie.v10.PeriodWithTimeR\x12periodOfBeingFocus\x12}\n" +
 	"*territory_of_being_focus_track_description\x18\n" +
-	" \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB/\x92\x93!+xml:\"TerritoryOfBeingFocusTrackDescription\"R%territoryOfBeingFocusTrackDescription\x12O\n" +
-	"\acomment\x18\v \x03(\v2\".ddex.pie.v10.TextWithoutTerritoryB\x11\x92\x93!\rxml:\"Comment\"R\acomment\x127\n" +
+	" \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR%territoryOfBeingFocusTrackDescription\x12<\n" +
+	"\acomment\x18\v \x03(\v2\".ddex.pie.v10.TextWithoutTerritoryR\acomment\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\f \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\x94\x02\n" +
-	"\x06Gender\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12@\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.ddex.pie.v10.GenderValueB\x0f\x92\x93!\vxml:\"Value\"R\x05value\x12A\n" +
-	"\x0edo_not_display\x18\x03 \x01(\bB\x1b\x92\x93!\x17xml:\"DoNotDisplay,attr\"R\fdoNotDisplay\"\xbf\x01\n" +
-	"\vGenderValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x9f\x01\n" +
-	"\x15NameWithPronunciation\x12\"\n" +
-	"\x04name\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"Name\"R\x04name\x12b\n" +
-	"\rpronunciation\x18\x02 \x03(\v2#.ddex.pie.v10.PronunciationForPartyB\x17\x92\x93!\x13xml:\"Pronunciation\"R\rpronunciation\"\xb0\x01\n" +
-	"\x12NameWithScriptCode\x126\n" +
-	"\x04name\x18\x01 \x01(\v2\x12.ddex.pie.v10.NameB\x0e\x92\x93!\n" +
-	"xml:\"Name\"R\x04name\x12b\n" +
-	"\rpronunciation\x18\x02 \x03(\v2#.ddex.pie.v10.PronunciationForPartyB\x17\x92\x93!\x13xml:\"Pronunciation\"R\rpronunciation\"\xdb\x01\n" +
-	"\vNationality\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12E\n" +
-	"\x05value\x18\x02 \x01(\v2\x1e.ddex.pie.v10.AllTerritoryCodeB\x0f\x92\x93!\vxml:\"Value\"R\x05value\"\x84\x0e\n" +
-	"\x05Party\x12A\n" +
-	"\x0fparty_reference\x18\x01 \x01(\tB\x18\x92\x93!\x14xml:\"PartyReference\"R\x0epartyReference\x12S\n" +
-	"\bparty_id\x18\x02 \x03(\v2%.ddex.pie.v10.DetailedPartyIdForPartyB\x11\x92\x93!\rxml:\"PartyId\"R\apartyId\x12K\n" +
+	"is_default\x18\f \x01(\bR\tisDefault\"\xc2\x01\n" +
+	"\x06Gender\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12/\n" +
+	"\x05value\x18\x02 \x01(\v2\x19.ddex.pie.v10.GenderValueR\x05value\x12$\n" +
+	"\x0edo_not_display\x18\x03 \x01(\bR\fdoNotDisplay\"o\n" +
+	"\vGenderValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"v\n" +
+	"\x15NameWithPronunciation\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12I\n" +
+	"\rpronunciation\x18\x02 \x03(\v2#.ddex.pie.v10.PronunciationForPartyR\rpronunciation\"\x87\x01\n" +
+	"\x12NameWithScriptCode\x12&\n" +
+	"\x04name\x18\x01 \x01(\v2\x12.ddex.pie.v10.NameR\x04name\x12I\n" +
+	"\rpronunciation\x18\x02 \x03(\v2#.ddex.pie.v10.PronunciationForPartyR\rpronunciation\"\xa6\x01\n" +
+	"\vNationality\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x124\n" +
+	"\x05value\x18\x02 \x01(\v2\x1e.ddex.pie.v10.AllTerritoryCodeR\x05value\"\x8f\n" +
 	"\n" +
-	"party_name\x18\x03 \x03(\v2\x17.ddex.pie.v10.PartyNameB\x13\x92\x93!\x0fxml:\"PartyName\"R\tpartyName\x12K\n" +
+	"\x05Party\x12'\n" +
+	"\x0fparty_reference\x18\x01 \x01(\tR\x0epartyReference\x12@\n" +
+	"\bparty_id\x18\x02 \x03(\v2%.ddex.pie.v10.DetailedPartyIdForPartyR\apartyId\x126\n" +
 	"\n" +
-	"party_type\x18\x04 \x01(\v2\x17.ddex.pie.v10.PartyTypeB\x13\x92\x93!\x0fxml:\"PartyType\"R\tpartyType\x12:\n" +
-	"\x05event\x18\x05 \x03(\v2\x13.ddex.pie.v10.EventB\x0f\x92\x93!\vxml:\"Event\"R\x05event\x12W\n" +
-	"\rrelated_party\x18\x06 \x03(\v2\x1a.ddex.pie.v10.RelatedPartyB\x16\x92\x93!\x12xml:\"RelatedParty\"R\frelatedParty\x12k\n" +
-	"\x10related_creation\x18\a \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyB\x19\x92\x93!\x15xml:\"RelatedCreation\"R\x0frelatedCreation\x12>\n" +
-	"\x06gender\x18\b \x01(\v2\x14.ddex.pie.v10.GenderB\x10\x92\x93!\fxml:\"Gender\"R\x06gender\x12R\n" +
-	"\vnationality\x18\t \x03(\v2\x19.ddex.pie.v10.NationalityB\x15\x92\x93!\x11xml:\"Nationality\"R\vnationality\x12S\n" +
+	"party_name\x18\x03 \x03(\v2\x17.ddex.pie.v10.PartyNameR\tpartyName\x126\n" +
+	"\n" +
+	"party_type\x18\x04 \x01(\v2\x17.ddex.pie.v10.PartyTypeR\tpartyType\x12)\n" +
+	"\x05event\x18\x05 \x03(\v2\x13.ddex.pie.v10.EventR\x05event\x12?\n" +
+	"\rrelated_party\x18\x06 \x03(\v2\x1a.ddex.pie.v10.RelatedPartyR\frelatedParty\x12P\n" +
+	"\x10related_creation\x18\a \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyR\x0frelatedCreation\x12,\n" +
+	"\x06gender\x18\b \x01(\v2\x14.ddex.pie.v10.GenderR\x06gender\x12;\n" +
+	"\vnationality\x18\t \x03(\v2\x19.ddex.pie.v10.NationalityR\vnationality\x12<\n" +
 	"\fprimary_role\x18\n" +
-	" \x01(\v2\x19.ddex.pie.v10.PrimaryRoleB\x15\x92\x93!\x11xml:\"PrimaryRole\"R\vprimaryRole\x12[\n" +
-	"\x0evocal_register\x18\v \x01(\v2\x1b.ddex.pie.v10.VocalRegisterB\x17\x92\x93!\x13xml:\"VocalRegister\"R\rvocalRegister\x12:\n" +
-	"\x05focus\x18\f \x03(\v2\x13.ddex.pie.v10.FocusB\x0f\x92\x93!\vxml:\"Focus\"R\x05focus\x12O\n" +
-	"\vartist_type\x18\r \x03(\v2\x18.ddex.pie.v10.ArtistTypeB\x14\x92\x93!\x10xml:\"ArtistType\"R\n" +
-	"artistType\x12c\n" +
-	"\x10classical_period\x18\x0e \x01(\v2\x1d.ddex.pie.v10.ClassicalPeriodB\x19\x92\x93!\x15xml:\"ClassicalPeriod\"R\x0fclassicalPeriod\x12:\n" +
-	"\x05epoch\x18\x0f \x03(\v2\x13.ddex.pie.v10.EpochB\x0f\x92\x93!\vxml:\"Epoch\"R\x05epoch\x12k\n" +
-	"\x12artistic_influence\x18\x10 \x03(\v2\x1f.ddex.pie.v10.ArtisticInfluenceB\x1b\x92\x93!\x17xml:\"ArtisticInfluence\"R\x11artisticInfluence\x12:\n" +
-	"\x05award\x18\x11 \x03(\v2\x13.ddex.pie.v10.AwardB\x0f\x92\x93!\vxml:\"Award\"R\x05award\x12J\n" +
-	"\tbiography\x18\x12 \x03(\v2\x17.ddex.pie.v10.BiographyB\x13\x92\x93!\x0fxml:\"Biography\"R\tbiography\x12:\n" +
-	"\x05image\x18\x13 \x03(\v2\x13.ddex.pie.v10.ImageB\x0f\x92\x93!\vxml:\"Image\"R\x05image\x12b\n" +
-	"\x12social_media_u_r_l\x18\x14 \x01(\v2\x1c.ddex.pie.v10.SocialMediaURLB\x18\x92\x93!\x14xml:\"SocialMediaURL\"R\x0esocialMediaURL\x12_\n" +
-	"\x0fcommentary_note\x18\x15 \x03(\v2\x1c.ddex.pie.v10.CommentaryNoteB\x18\x92\x93!\x14xml:\"CommentaryNote\"R\x0ecommentaryNote\x12]\n" +
-	"\x18language_and_script_code\x18\x16 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\x9a\x01\n" +
-	"\x17PartyDescriptorForEntry\x12K\n" +
-	"\bparty_id\x18\x01 \x01(\v2\x1d.ddex.pie.v10.DetailedPartyIdB\x11\x92\x93!\rxml:\"PartyId\"R\apartyId\x122\n" +
+	" \x01(\v2\x19.ddex.pie.v10.PrimaryRoleR\vprimaryRole\x12B\n" +
+	"\x0evocal_register\x18\v \x01(\v2\x1b.ddex.pie.v10.VocalRegisterR\rvocalRegister\x12)\n" +
+	"\x05focus\x18\f \x03(\v2\x13.ddex.pie.v10.FocusR\x05focus\x129\n" +
+	"\vartist_type\x18\r \x03(\v2\x18.ddex.pie.v10.ArtistTypeR\n" +
+	"artistType\x12H\n" +
+	"\x10classical_period\x18\x0e \x01(\v2\x1d.ddex.pie.v10.ClassicalPeriodR\x0fclassicalPeriod\x12)\n" +
+	"\x05epoch\x18\x0f \x03(\v2\x13.ddex.pie.v10.EpochR\x05epoch\x12N\n" +
+	"\x12artistic_influence\x18\x10 \x03(\v2\x1f.ddex.pie.v10.ArtisticInfluenceR\x11artisticInfluence\x12)\n" +
+	"\x05award\x18\x11 \x03(\v2\x13.ddex.pie.v10.AwardR\x05award\x125\n" +
+	"\tbiography\x18\x12 \x03(\v2\x17.ddex.pie.v10.BiographyR\tbiography\x12)\n" +
+	"\x05image\x18\x13 \x03(\v2\x13.ddex.pie.v10.ImageR\x05image\x12H\n" +
+	"\x12social_media_u_r_l\x18\x14 \x01(\v2\x1c.ddex.pie.v10.SocialMediaURLR\x0esocialMediaURL\x12E\n" +
+	"\x0fcommentary_note\x18\x15 \x03(\v2\x1c.ddex.pie.v10.CommentaryNoteR\x0ecommentaryNote\x127\n" +
+	"\x18language_and_script_code\x18\x16 \x01(\tR\x15languageAndScriptCode\"r\n" +
+	"\x17PartyDescriptorForEntry\x128\n" +
+	"\bparty_id\x18\x01 \x01(\v2\x1d.ddex.pie.v10.DetailedPartyIdR\apartyId\x12\x1d\n" +
 	"\n" +
-	"party_name\x18\x02 \x01(\tB\x13\x92\x93!\x0fxml:\"PartyName\"R\tpartyName\"G\n" +
-	"\tPartyList\x12:\n" +
-	"\x05party\x18\x01 \x03(\v2\x13.ddex.pie.v10.PartyB\x0f\x92\x93!\vxml:\"Party\"R\x05party\"\xf3\x10\n" +
-	"\tPartyName\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12?\n" +
-	"\aname_id\x18\x02 \x03(\v2\x14.ddex.pie.v10.NameIdB\x10\x92\x93!\fxml:\"NameId\"R\x06nameId\x12\\\n" +
-	"\x0fparty_name_type\x18\x03 \x03(\v2\x1b.ddex.pie.v10.PartyNameTypeB\x17\x92\x93!\x13xml:\"PartyNameType\"R\rpartyNameType\x12u\n" +
-	"\x16reason_for_name_change\x18\x04 \x01(\v2!.ddex.pie.v10.ReasonForNameChangeB\x1d\x92\x93!\x19xml:\"ReasonForNameChange\"R\x13reasonForNameChange\x12h\n" +
-	"\x12party_name_purpose\x18\x05 \x03(\v2\x1e.ddex.pie.v10.PartyNamePurposeB\x1a\x92\x93!\x16xml:\"PartyNamePurpose\"R\x10partyNamePurpose\x12d\n" +
-	"\x11party_name_format\x18\x06 \x03(\v2\x1d.ddex.pie.v10.PartyNameFormatB\x19\x92\x93!\x15xml:\"PartyNameFormat\"R\x0fpartyNameFormat\x12Q\n" +
-	"\tfull_name\x18\a \x01(\v2 .ddex.pie.v10.NameWithScriptCodeB\x12\x92\x93!\x0exml:\"FullName\"R\bfullName\x12\x86\x01\n" +
-	"\x1bfull_name_ascii_transcribed\x18\b \x01(\v2#.ddex.pie.v10.NameWithPronunciationB\"\x92\x93!\x1exml:\"FullNameAsciiTranscribed\"R\x18fullNameAsciiTranscribed\x12g\n" +
-	"\x11full_name_indexed\x18\t \x01(\v2 .ddex.pie.v10.NameWithScriptCodeB\x19\x92\x93!\x15xml:\"FullNameIndexed\"R\x0ffullNameIndexed\x12K\n" +
+	"party_name\x18\x02 \x01(\tR\tpartyName\"6\n" +
+	"\tPartyList\x12)\n" +
+	"\x05party\x18\x01 \x03(\v2\x13.ddex.pie.v10.PartyR\x05party\"\x89\f\n" +
+	"\tPartyName\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12-\n" +
+	"\aname_id\x18\x02 \x03(\v2\x14.ddex.pie.v10.NameIdR\x06nameId\x12C\n" +
+	"\x0fparty_name_type\x18\x03 \x03(\v2\x1b.ddex.pie.v10.PartyNameTypeR\rpartyNameType\x12V\n" +
+	"\x16reason_for_name_change\x18\x04 \x01(\v2!.ddex.pie.v10.ReasonForNameChangeR\x13reasonForNameChange\x12L\n" +
+	"\x12party_name_purpose\x18\x05 \x03(\v2\x1e.ddex.pie.v10.PartyNamePurposeR\x10partyNamePurpose\x12I\n" +
+	"\x11party_name_format\x18\x06 \x03(\v2\x1d.ddex.pie.v10.PartyNameFormatR\x0fpartyNameFormat\x12=\n" +
+	"\tfull_name\x18\a \x01(\v2 .ddex.pie.v10.NameWithScriptCodeR\bfullName\x12b\n" +
+	"\x1bfull_name_ascii_transcribed\x18\b \x01(\v2#.ddex.pie.v10.NameWithPronunciationR\x18fullNameAsciiTranscribed\x12L\n" +
+	"\x11full_name_indexed\x18\t \x01(\v2 .ddex.pie.v10.NameWithScriptCodeR\x0ffullNameIndexed\x12.\n" +
 	"\x13titles_before_names\x18\n" +
-	" \x01(\tB\x1b\x92\x93!\x17xml:\"TitlesBeforeNames\"R\x11titlesBeforeNames\x12q\n" +
-	"\x15names_before_key_name\x18\v \x01(\v2 .ddex.pie.v10.NameWithScriptCodeB\x1c\x92\x93!\x18xml:\"NamesBeforeKeyName\"R\x12namesBeforeKeyName\x12N\n" +
-	"\bkey_name\x18\f \x01(\v2 .ddex.pie.v10.NameWithScriptCodeB\x11\x92\x93!\rxml:\"KeyName\"R\akeyName\x12n\n" +
-	"\x14names_after_key_name\x18\r \x01(\v2 .ddex.pie.v10.NameWithScriptCodeB\x1b\x92\x93!\x17xml:\"NamesAfterKeyName\"R\x11namesAfterKeyName\x12H\n" +
-	"\x12titles_after_names\x18\x0e \x01(\tB\x1a\x92\x93!\x16xml:\"TitlesAfterNames\"R\x10titlesAfterNames\x12T\n" +
+	" \x01(\tR\x11titlesBeforeNames\x12S\n" +
+	"\x15names_before_key_name\x18\v \x01(\v2 .ddex.pie.v10.NameWithScriptCodeR\x12namesBeforeKeyName\x12;\n" +
+	"\bkey_name\x18\f \x01(\v2 .ddex.pie.v10.NameWithScriptCodeR\akeyName\x12Q\n" +
+	"\x14names_after_key_name\x18\r \x01(\v2 .ddex.pie.v10.NameWithScriptCodeR\x11namesAfterKeyName\x12,\n" +
+	"\x12titles_after_names\x18\x0e \x01(\tR\x10titlesAfterNames\x12?\n" +
 	"\n" +
-	"short_name\x18\x0f \x03(\v2 .ddex.pie.v10.NameWithScriptCodeB\x13\x92\x93!\x0fxml:\"ShortName\"R\tshortName\x12f\n" +
-	"\x10abbreviated_name\x18\x10 \x03(\v2 .ddex.pie.v10.NameWithScriptCodeB\x19\x92\x93!\x15xml:\"AbbreviatedName\"R\x0fabbreviatedName\x12_\n" +
-	"\x0fvalidity_period\x18\x11 \x03(\v2\x1c.ddex.pie.v10.ValidityPeriodB\x18\x92\x93!\x14xml:\"ValidityPeriod\"R\x0evalidityPeriod\x12k\n" +
-	"\x10related_creation\x18\x12 \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyB\x19\x92\x93!\x15xml:\"RelatedCreation\"R\x0frelatedCreation\x12]\n" +
-	"\x18language_and_script_code\x18\x13 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x14 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"short_name\x18\x0f \x03(\v2 .ddex.pie.v10.NameWithScriptCodeR\tshortName\x12K\n" +
+	"\x10abbreviated_name\x18\x10 \x03(\v2 .ddex.pie.v10.NameWithScriptCodeR\x0fabbreviatedName\x12E\n" +
+	"\x0fvalidity_period\x18\x11 \x03(\v2\x1c.ddex.pie.v10.ValidityPeriodR\x0evalidityPeriod\x12P\n" +
+	"\x10related_creation\x18\x12 \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyR\x0frelatedCreation\x127\n" +
+	"\x18language_and_script_code\x18\x13 \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x14 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x15 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12=\n" +
-	"\fis_canonical\x18\x16 \x01(\bB\x1a\x92\x93!\x16xml:\"IsCanonical,attr\"R\visCanonical\"\xda\x05\n" +
-	"\x13PartyNameForRequest\x12C\n" +
-	"\tfull_name\x18\x01 \x01(\v2\x12.ddex.pie.v10.NameB\x12\x92\x93!\x0exml:\"FullName\"R\bfullName\x12a\n" +
-	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tB\"\x92\x93!\x1exml:\"FullNameAsciiTranscribed\"R\x18fullNameAsciiTranscribed\x12Y\n" +
-	"\x11full_name_indexed\x18\x03 \x01(\v2\x12.ddex.pie.v10.NameB\x19\x92\x93!\x15xml:\"FullNameIndexed\"R\x0ffullNameIndexed\x12c\n" +
-	"\x15names_before_key_name\x18\x04 \x01(\v2\x12.ddex.pie.v10.NameB\x1c\x92\x93!\x18xml:\"NamesBeforeKeyName\"R\x12namesBeforeKeyName\x12@\n" +
-	"\bkey_name\x18\x05 \x01(\v2\x12.ddex.pie.v10.NameB\x11\x92\x93!\rxml:\"KeyName\"R\akeyName\x12`\n" +
-	"\x14names_after_key_name\x18\x06 \x01(\v2\x12.ddex.pie.v10.NameB\x1b\x92\x93!\x17xml:\"NamesAfterKeyName\"R\x11namesAfterKeyName\x12X\n" +
-	"\x10abbreviated_name\x18\a \x01(\v2\x12.ddex.pie.v10.NameB\x19\x92\x93!\x15xml:\"AbbreviatedName\"R\x0fabbreviatedName\x12]\n" +
-	"\x18language_and_script_code\x18\b \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xc3\x01\n" +
-	"\x0fPartyNameFormat\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc4\x01\n" +
-	"\x10PartyNamePurpose\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc1\x01\n" +
-	"\rPartyNameType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc9\x01\n" +
-	"\x15PartyRelationshipType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xd7\x01\n" +
-	"\tPartyType\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12C\n" +
-	"\x05value\x18\x02 \x01(\v2\x1c.ddex.pie.v10.PartyTypeValueB\x0f\x92\x93!\vxml:\"Value\"R\x05value\"\xc2\x01\n" +
-	"\x0ePartyTypeValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xda\x01\n" +
-	"\vPrimaryRole\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12D\n" +
-	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ContributorRoleB\x0f\x92\x93!\vxml:\"Value\"R\x05value\"\xa5\x04\n" +
-	"\x15PronunciationForParty\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12=\n" +
-	"\fis_canonical\x18\x02 \x01(\bB\x1a\x92\x93!\x16xml:\"IsCanonical,attr\"R\visCanonical\x12I\n" +
-	"\x10is_mispronounced\x18\x03 \x01(\bB\x1e\x92\x93!\x1axml:\"IsMispronounced,attr\"R\x0fisMispronounced\x12@\n" +
-	"\rlanguage_code\x18\x04 \x01(\tB\x1b\x92\x93!\x17xml:\"LanguageCode,attr\"R\flanguageCode\x12\\\n" +
-	"\rencoding_type\x18\x05 \x01(\x0e2\x1a.ddex.pie.v10.EncodingTypeB\x1b\x92\x93!\x17xml:\"EncodingType,attr\"R\fencodingType\x12O\n" +
-	"\x12encoding_namespace\x18\x06 \x01(\tB \x92\x93!\x1cxml:\"EncodingNamespace,attr\"R\x11encodingNamespace\x12f\n" +
-	"\x1bencoding_user_defined_value\x18\a \x01(\tB'\x92\x93!#xml:\"EncodingUserDefinedValue,attr\"R\x18encodingUserDefinedValue\"\xc7\x01\n" +
-	"\x13ReasonForNameChange\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x8a\x06\n" +
-	"\x17RelatedCreationForParty\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12W\n" +
-	"\rcreation_type\x18\x02 \x01(\x0e2\x1a.ddex.pie.v10.CreationTypeB\x16\x92\x93!\x12xml:\"CreationType\"R\fcreationType\x12V\n" +
-	"\fcontribution\x18\x03 \x01(\v2\x1a.ddex.pie.v10.ContributionB\x16\x92\x93!\x12xml:\"Contribution\"R\fcontribution\x12w\n" +
-	"\x18relationship_description\x18\x04 \x03(\v2\x19.ddex.pie.v10.DescriptionB!\x92\x93!\x1dxml:\"RelationshipDescription\"R\x17relationshipDescription\x12.\n" +
-	"\bcontract\x18\x05 \x01(\tB\x12\x92\x93!\x0exml:\"Contract\"R\bcontract\x121\n" +
-	"\bis_false\x18\x06 \x01(\bB\x16\x92\x93!\x12xml:\"IsFalse,attr\"R\aisFalse\x12F\n" +
-	"\x0fis_confidential\x18\a \x01(\bB\x1d\x92\x93!\x19xml:\"IsConfidential,attr\"R\x0eisConfidential\x12J\n" +
-	"\x11is_first_creation\x18\b \x01(\bB\x1e\x92\x93!\x1axml:\"IsFirstCreation,attr\"R\x0fisFirstCreation\x12G\n" +
-	"\x10is_last_creation\x18\t \x01(\bB\x1d\x92\x93!\x19xml:\"IsLastCreation,attr\"R\x0eisLastCreation\"\xa6\x06\n" +
-	"\fRelatedParty\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12|\n" +
-	"\x17party_relationship_type\x18\x02 \x01(\v2#.ddex.pie.v10.PartyRelationshipTypeB\x1f\x92\x93!\x1bxml:\"PartyRelationshipType\"R\x15partyRelationshipType\x12D\n" +
-	"\x10business_purpose\x18\x03 \x01(\tB\x19\x92\x93!\x15xml:\"BusinessPurpose\"R\x0fbusinessPurpose\x12R\n" +
-	"\vdescription\x18\x04 \x03(\v2\x19.ddex.pie.v10.DescriptionB\x15\x92\x93!\x11xml:\"Description\"R\vdescription\x12.\n" +
-	"\bcontract\x18\x05 \x01(\tB\x12\x92\x93!\x0exml:\"Contract\"R\bcontract\x12_\n" +
-	"\x0fvalidity_period\x18\x06 \x03(\v2\x1c.ddex.pie.v10.ValidityPeriodB\x18\x92\x93!\x14xml:\"ValidityPeriod\"R\x0evalidityPeriod\x12k\n" +
-	"\x10related_creation\x18\a \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyB\x19\x92\x93!\x15xml:\"RelatedCreation\"R\x0frelatedCreation\x121\n" +
-	"\bis_false\x18\b \x01(\bB\x16\x92\x93!\x12xml:\"IsFalse,attr\"R\aisFalse\x12F\n" +
-	"\x0fis_confidential\x18\t \x01(\bB\x1d\x92\x93!\x19xml:\"IsConfidential,attr\"R\x0eisConfidential\"\xb9\x01\n" +
-	"\x11ReleaseForRequest\x12K\n" +
+	"is_default\x18\x15 \x01(\bR\tisDefault\x12!\n" +
+	"\fis_canonical\x18\x16 \x01(\bR\visCanonical\"\xf8\x03\n" +
+	"\x13PartyNameForRequest\x12/\n" +
+	"\tfull_name\x18\x01 \x01(\v2\x12.ddex.pie.v10.NameR\bfullName\x12=\n" +
+	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tR\x18fullNameAsciiTranscribed\x12>\n" +
+	"\x11full_name_indexed\x18\x03 \x01(\v2\x12.ddex.pie.v10.NameR\x0ffullNameIndexed\x12E\n" +
+	"\x15names_before_key_name\x18\x04 \x01(\v2\x12.ddex.pie.v10.NameR\x12namesBeforeKeyName\x12-\n" +
+	"\bkey_name\x18\x05 \x01(\v2\x12.ddex.pie.v10.NameR\akeyName\x12C\n" +
+	"\x14names_after_key_name\x18\x06 \x01(\v2\x12.ddex.pie.v10.NameR\x11namesAfterKeyName\x12=\n" +
+	"\x10abbreviated_name\x18\a \x01(\v2\x12.ddex.pie.v10.NameR\x0fabbreviatedName\x127\n" +
+	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\"s\n" +
+	"\x0fPartyNameFormat\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"t\n" +
+	"\x10PartyNamePurpose\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"q\n" +
+	"\rPartyNameType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"y\n" +
+	"\x15PartyRelationshipType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xa2\x01\n" +
+	"\tPartyType\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x122\n" +
+	"\x05value\x18\x02 \x01(\v2\x1c.ddex.pie.v10.PartyTypeValueR\x05value\"r\n" +
+	"\x0ePartyTypeValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xa5\x01\n" +
+	"\vPrimaryRole\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x123\n" +
+	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ContributorRoleR\x05value\"\xcf\x02\n" +
+	"\x15PronunciationForParty\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12!\n" +
+	"\fis_canonical\x18\x02 \x01(\bR\visCanonical\x12)\n" +
+	"\x10is_mispronounced\x18\x03 \x01(\bR\x0fisMispronounced\x12#\n" +
+	"\rlanguage_code\x18\x04 \x01(\tR\flanguageCode\x12?\n" +
+	"\rencoding_type\x18\x05 \x01(\x0e2\x1a.ddex.pie.v10.EncodingTypeR\fencodingType\x12-\n" +
+	"\x12encoding_namespace\x18\x06 \x01(\tR\x11encodingNamespace\x12=\n" +
+	"\x1bencoding_user_defined_value\x18\a \x01(\tR\x18encodingUserDefinedValue\"w\n" +
+	"\x13ReasonForNameChange\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x89\x04\n" +
+	"\x17RelatedCreationForParty\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12?\n" +
+	"\rcreation_type\x18\x02 \x01(\x0e2\x1a.ddex.pie.v10.CreationTypeR\fcreationType\x12>\n" +
+	"\fcontribution\x18\x03 \x01(\v2\x1a.ddex.pie.v10.ContributionR\fcontribution\x12T\n" +
+	"\x18relationship_description\x18\x04 \x03(\v2\x19.ddex.pie.v10.DescriptionR\x17relationshipDescription\x12\x1a\n" +
+	"\bcontract\x18\x05 \x01(\tR\bcontract\x12\x19\n" +
+	"\bis_false\x18\x06 \x01(\bR\aisFalse\x12'\n" +
+	"\x0fis_confidential\x18\a \x01(\bR\x0eisConfidential\x12*\n" +
+	"\x11is_first_creation\x18\b \x01(\bR\x0fisFirstCreation\x12(\n" +
+	"\x10is_last_creation\x18\t \x01(\bR\x0eisLastCreation\"\xaf\x04\n" +
+	"\fRelatedParty\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12[\n" +
+	"\x17party_relationship_type\x18\x02 \x01(\v2#.ddex.pie.v10.PartyRelationshipTypeR\x15partyRelationshipType\x12)\n" +
+	"\x10business_purpose\x18\x03 \x01(\tR\x0fbusinessPurpose\x12;\n" +
+	"\vdescription\x18\x04 \x03(\v2\x19.ddex.pie.v10.DescriptionR\vdescription\x12\x1a\n" +
+	"\bcontract\x18\x05 \x01(\tR\bcontract\x12E\n" +
+	"\x0fvalidity_period\x18\x06 \x03(\v2\x1c.ddex.pie.v10.ValidityPeriodR\x0evalidityPeriod\x12P\n" +
+	"\x10related_creation\x18\a \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyR\x0frelatedCreation\x12\x19\n" +
+	"\bis_false\x18\b \x01(\bR\aisFalse\x12'\n" +
+	"\x0fis_confidential\x18\t \x01(\bR\x0eisConfidential\"\x8c\x01\n" +
+	"\x11ReleaseForRequest\x126\n" +
 	"\n" +
-	"release_id\x18\x01 \x01(\v2\x17.ddex.pie.v10.ReleaseIdB\x13\x92\x93!\x0fxml:\"ReleaseId\"R\treleaseId\x12W\n" +
-	"\rrelease_title\x18\x02 \x01(\v2\x1a.ddex.pie.v10.ReleaseTitleB\x16\x92\x93!\x12xml:\"ReleaseTitle\"R\freleaseTitle\"\xb5\x02\n" +
-	"\x0eRequestedParty\x12A\n" +
-	"\x04role\x18\x01 \x03(\v2\x1d.ddex.pie.v10.ContributorRoleB\x0e\x92\x93!\n" +
-	"xml:\"Role\"R\x04role\x12L\n" +
-	"\arelease\x18\x02 \x03(\v2\x1f.ddex.pie.v10.ReleaseForRequestB\x11\x92\x93!\rxml:\"Release\"R\arelease\x12P\n" +
-	"\bresource\x18\x03 \x03(\v2 .ddex.pie.v10.ResourceForRequestB\x12\x92\x93!\x0exml:\"Resource\"R\bresource\x12@\n" +
-	"\x04work\x18\x04 \x03(\v2\x1c.ddex.pie.v10.WorkForRequestB\x0e\x92\x93!\n" +
-	"xml:\"Work\"R\x04work\"\xa6\x02\n" +
-	"\x12ResourceForRequest\x12Z\n" +
-	"\vresource_id\x18\x01 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12[\n" +
-	"\x0eresource_title\x18\x02 \x01(\v2\x1b.ddex.pie.v10.ResourceTitleB\x17\x92\x93!\x13xml:\"ResourceTitle\"R\rresourceTitle\x12W\n" +
-	"\rresource_type\x18\x03 \x01(\x0e2\x1a.ddex.pie.v10.ResourceTypeB\x16\x92\x93!\x12xml:\"ResourceType\"R\fresourceType\"\x86\x02\n" +
-	"\x0eSocialMediaURL\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12@\n" +
-	"\rlanguage_code\x18\x02 \x01(\tB\x1b\x92\x93!\x17xml:\"LanguageCode,attr\"R\flanguageCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\"\xb0\x01\n" +
-	"\x0eWorkForRequest\x12Q\n" +
-	"\awork_id\x18\x01 \x01(\v2&.ddex.pie.v10.MusicalWorkIdWithoutFlagB\x10\x92\x93!\fxml:\"WorkId\"R\x06workId\x12K\n" +
+	"release_id\x18\x01 \x01(\v2\x17.ddex.pie.v10.ReleaseIdR\treleaseId\x12?\n" +
+	"\rrelease_title\x18\x02 \x01(\v2\x1a.ddex.pie.v10.ReleaseTitleR\freleaseTitle\"\xee\x01\n" +
+	"\x0eRequestedParty\x121\n" +
+	"\x04role\x18\x01 \x03(\v2\x1d.ddex.pie.v10.ContributorRoleR\x04role\x129\n" +
+	"\arelease\x18\x02 \x03(\v2\x1f.ddex.pie.v10.ReleaseForRequestR\arelease\x12<\n" +
+	"\bresource\x18\x03 \x03(\v2 .ddex.pie.v10.ResourceForRequestR\bresource\x120\n" +
+	"\x04work\x18\x04 \x03(\v2\x1c.ddex.pie.v10.WorkForRequestR\x04work\"\xdf\x01\n" +
+	"\x12ResourceForRequest\x12D\n" +
+	"\vresource_id\x18\x01 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagR\n" +
+	"resourceId\x12B\n" +
+	"\x0eresource_title\x18\x02 \x01(\v2\x1b.ddex.pie.v10.ResourceTitleR\rresourceTitle\x12?\n" +
+	"\rresource_type\x18\x03 \x01(\x0e2\x1a.ddex.pie.v10.ResourceTypeR\fresourceType\"\xab\x01\n" +
+	"\x0eSocialMediaURL\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12#\n" +
+	"\rlanguage_code\x18\x02 \x01(\tR\flanguageCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\x89\x01\n" +
+	"\x0eWorkForRequest\x12?\n" +
+	"\awork_id\x18\x01 \x01(\v2&.ddex.pie.v10.MusicalWorkIdWithoutFlagR\x06workId\x126\n" +
 	"\n" +
-	"work_title\x18\x02 \x01(\v2\x17.ddex.pie.v10.WorkTitleB\x13\x92\x93!\x0fxml:\"WorkTitle\"R\tworkTitle\"\x8e\x01\n" +
-	"\bCategory\x12'\n" +
-	"\x04term\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"term,attr\"R\x04term\x12-\n" +
-	"\x06scheme\x18\x02 \x01(\tB\x15\x92\x93!\x11xml:\"scheme,attr\"R\x06scheme\x12*\n" +
-	"\x05label\x18\x03 \x01(\tB\x14\x92\x93!\x10xml:\"label,attr\"R\x05label\"X\n" +
-	"\aContent\x12'\n" +
-	"\x04type\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"type,attr\"R\x04type\x12$\n" +
-	"\x03src\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"src,attr\"R\x03src\"5\n" +
-	"\bDateTime\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\"\x8e\x01\n" +
-	"\tGenerator\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12$\n" +
-	"\x03uri\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"uri,attr\"R\x03uri\x120\n" +
-	"\aversion\x18\x03 \x01(\tB\x16\x92\x93!\x12xml:\"version,attr\"R\aversion\"1\n" +
-	"\x04Icon\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\"/\n" +
-	"\x02Id\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\"\x8e\x02\n" +
-	"\x04Link\x12'\n" +
-	"\x04href\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"href,attr\"R\x04href\x12$\n" +
-	"\x03rel\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"rel,attr\"R\x03rel\x12'\n" +
-	"\x04type\x18\x03 \x01(\tB\x13\x92\x93!\x0fxml:\"type,attr\"R\x04type\x123\n" +
-	"\bhreflang\x18\x04 \x01(\tB\x17\x92\x93!\x13xml:\"hreflang,attr\"R\bhreflang\x12*\n" +
-	"\x05title\x18\x05 \x01(\tB\x14\x92\x93!\x10xml:\"title,attr\"R\x05title\x12-\n" +
-	"\x06length\x18\x06 \x01(\x05B\x15\x92\x93!\x11xml:\"length,attr\"R\x06length\"1\n" +
-	"\x04Logo\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\"\x97\x01\n" +
-	"\x06Person\x12$\n" +
-	"\x04name\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"name\"H\x00R\x04name\x124\n" +
-	"\x03uri\x18\x02 \x01(\v2\x11.ddex.pie.v10.URIB\r\x92\x93!\txml:\"uri\"H\x00R\x03uri\x12'\n" +
-	"\x05email\x18\x03 \x01(\tB\x0f\x92\x93!\vxml:\"email\"H\x00R\x05emailB\b\n" +
-	"\x06choice\"\xa7\x06\n" +
-	"\x06Source\x12@\n" +
-	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonB\x10\x92\x93!\fxml:\"author\"H\x00R\x06author\x12H\n" +
-	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryB\x12\x92\x93!\x0exml:\"category\"H\x00R\bcategory\x12O\n" +
-	"\vcontributor\x18\x03 \x01(\v2\x14.ddex.pie.v10.PersonB\x15\x92\x93!\x11xml:\"contributor\"H\x00R\vcontributor\x12L\n" +
-	"\tgenerator\x18\x04 \x01(\v2\x17.ddex.pie.v10.GeneratorB\x13\x92\x93!\x0fxml:\"generator\"H\x00R\tgenerator\x128\n" +
-	"\x04icon\x18\x05 \x01(\v2\x12.ddex.pie.v10.IconB\x0e\x92\x93!\n" +
-	"xml:\"icon\"H\x00R\x04icon\x120\n" +
-	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdB\f\x92\x93!\bxml:\"id\"H\x00R\x02id\x128\n" +
-	"\x04link\x18\a \x01(\v2\x12.ddex.pie.v10.LinkB\x0e\x92\x93!\n" +
-	"xml:\"link\"H\x00R\x04link\x128\n" +
-	"\x04logo\x18\b \x01(\v2\x12.ddex.pie.v10.LogoB\x0e\x92\x93!\n" +
-	"xml:\"logo\"H\x00R\x04logo\x12>\n" +
-	"\x06rights\x18\t \x01(\v2\x12.ddex.pie.v10.TextB\x10\x92\x93!\fxml:\"rights\"H\x00R\x06rights\x12D\n" +
+	"work_title\x18\x02 \x01(\v2\x17.ddex.pie.v10.WorkTitleR\tworkTitle\"L\n" +
+	"\bCategory\x12\x12\n" +
+	"\x04term\x18\x01 \x01(\tR\x04term\x12\x16\n" +
+	"\x06scheme\x18\x02 \x01(\tR\x06scheme\x12\x14\n" +
+	"\x05label\x18\x03 \x01(\tR\x05label\"/\n" +
+	"\aContent\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\tR\x04type\x12\x10\n" +
+	"\x03src\x18\x02 \x01(\tR\x03src\" \n" +
+	"\bDateTime\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"M\n" +
+	"\tGenerator\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x10\n" +
+	"\x03uri\x18\x02 \x01(\tR\x03uri\x12\x18\n" +
+	"\aversion\x18\x03 \x01(\tR\aversion\"\x1c\n" +
+	"\x04Icon\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"\x1a\n" +
+	"\x02Id\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"\x8a\x01\n" +
+	"\x04Link\x12\x12\n" +
+	"\x04href\x18\x01 \x01(\tR\x04href\x12\x10\n" +
+	"\x03rel\x18\x02 \x01(\tR\x03rel\x12\x12\n" +
+	"\x04type\x18\x03 \x01(\tR\x04type\x12\x1a\n" +
+	"\bhreflang\x18\x04 \x01(\tR\bhreflang\x12\x14\n" +
+	"\x05title\x18\x05 \x01(\tR\x05title\x12\x16\n" +
+	"\x06length\x18\x06 \x01(\x05R\x06length\"\x1c\n" +
+	"\x04Logo\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"g\n" +
+	"\x06Person\x12\x14\n" +
+	"\x04name\x18\x01 \x01(\tH\x00R\x04name\x12%\n" +
+	"\x03uri\x18\x02 \x01(\v2\x11.ddex.pie.v10.URIH\x00R\x03uri\x12\x16\n" +
+	"\x05email\x18\x03 \x01(\tH\x00R\x05emailB\b\n" +
+	"\x06choice\"\xcd\x04\n" +
+	"\x06Source\x12.\n" +
+	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\x06author\x124\n" +
+	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryH\x00R\bcategory\x128\n" +
+	"\vcontributor\x18\x03 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\vcontributor\x127\n" +
+	"\tgenerator\x18\x04 \x01(\v2\x17.ddex.pie.v10.GeneratorH\x00R\tgenerator\x12(\n" +
+	"\x04icon\x18\x05 \x01(\v2\x12.ddex.pie.v10.IconH\x00R\x04icon\x12\"\n" +
+	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12(\n" +
+	"\x04link\x18\a \x01(\v2\x12.ddex.pie.v10.LinkH\x00R\x04link\x12(\n" +
+	"\x04logo\x18\b \x01(\v2\x12.ddex.pie.v10.LogoH\x00R\x04logo\x12,\n" +
+	"\x06rights\x18\t \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x06rights\x120\n" +
 	"\bsubtitle\x18\n" +
-	" \x01(\v2\x12.ddex.pie.v10.TextB\x12\x92\x93!\x0exml:\"subtitle\"H\x00R\bsubtitle\x12;\n" +
-	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextB\x0f\x92\x93!\vxml:\"title\"H\x00R\x05title\x12E\n" +
-	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeB\x11\x92\x93!\rxml:\"updated\"H\x00R\aupdatedB\b\n" +
-	"\x06choice\"K\n" +
-	"\x04Text\x12C\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1a.ddex.pie.v10.TextTypeATOMB\x13\x92\x93!\x0fxml:\"type,attr\"R\x04type\"0\n" +
-	"\x03URI\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\"\xbe\x01\n" +
-	"\x10AllTerritoryCode\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12\x7f\n" +
-	"\x0fidentifier_type\x18\x02 \x01(\x0e27.ddex.pie.v10.TerritoryCodeTypeIncludingDeprecatedCodesB\x1d\x92\x93!\x19xml:\"IdentifierType,attr\"R\x0eidentifierType\"\xfa\x02\n" +
+	" \x01(\v2\x12.ddex.pie.v10.TextH\x00R\bsubtitle\x12*\n" +
+	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x05title\x122\n" +
+	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdatedB\b\n" +
+	"\x06choice\"6\n" +
+	"\x04Text\x12.\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1a.ddex.pie.v10.TextTypeATOMR\x04type\"\x1b\n" +
+	"\x03URI\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"\x8a\x01\n" +
+	"\x10AllTerritoryCode\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12`\n" +
+	"\x0fidentifier_type\x18\x02 \x01(\x0e27.ddex.pie.v10.TerritoryCodeTypeIncludingDeprecatedCodesR\x0eidentifierType\"\x98\x02\n" +
 	"\n" +
-	"ArtistType\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12D\n" +
-	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ArtistTypeValueB\x0f\x92\x93!\vxml:\"Value\"R\x05value\x12\x9e\x01\n" +
-	"$territory_of_artist_type_description\x18\x03 \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB*\x92\x93!&xml:\"TerritoryOfArtistTypeDescription\"R territoryOfArtistTypeDescription\"\xc3\x01\n" +
-	"\x0fArtistTypeValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x86\x05\n" +
-	"\x11ArtisticInfluence\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12U\n" +
-	"\x05party\x18\x02 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x0f\x92\x93!\vxml:\"Party\"R\x05party\x126\n" +
-	"\x04work\x18\x03 \x03(\v2\x12.ddex.pie.v10.WorkB\x0e\x92\x93!\n" +
-	"xml:\"Work\"R\x04work\x12F\n" +
-	"\bresource\x18\x04 \x03(\v2\x16.ddex.pie.v10.ResourceB\x12\x92\x93!\x0exml:\"Resource\"R\bresource\x12B\n" +
-	"\arelease\x18\x05 \x03(\v2\x15.ddex.pie.v10.ReleaseB\x11\x92\x93!\rxml:\"Release\"R\arelease\x12U\n" +
-	"\vdescription\x18\x06 \x03(\v2\x1c.ddex.pie.v10.TextWithFormatB\x15\x92\x93!\x11xml:\"Description\"R\vdescription\x12;\n" +
-	"\ris_influenced\x18\a \x01(\bB\x16\x92\x93!\x12xml:\"IsInfluenced\"R\fisInfluenced\x12;\n" +
-	"\ris_influencer\x18\b \x01(\bB\x16\x92\x93!\x12xml:\"IsInfluencer\"R\fisInfluencer\"\x87\x05\n" +
-	"\x05Award\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12k\n" +
-	"\rawarding_body\x18\x02 \x01(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x16\x92\x93!\x12xml:\"AwardingBody\"R\fawardingBody\x12k\n" +
-	"\rawarded_party\x18\x03 \x01(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x16\x92\x93!\x12xml:\"AwardedParty\"R\fawardedParty\x12d\n" +
+	"ArtistType\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x123\n" +
+	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ArtistTypeValueR\x05value\x12r\n" +
+	"$territory_of_artist_type_description\x18\x03 \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR territoryOfArtistTypeDescription\"s\n" +
+	"\x0fArtistTypeValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xd3\x03\n" +
+	"\x11ArtisticInfluence\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12D\n" +
+	"\x05party\x18\x02 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x05party\x12&\n" +
+	"\x04work\x18\x03 \x03(\v2\x12.ddex.pie.v10.WorkR\x04work\x122\n" +
+	"\bresource\x18\x04 \x03(\v2\x16.ddex.pie.v10.ResourceR\bresource\x12/\n" +
+	"\arelease\x18\x05 \x03(\v2\x15.ddex.pie.v10.ReleaseR\arelease\x12>\n" +
+	"\vdescription\x18\x06 \x03(\v2\x1c.ddex.pie.v10.TextWithFormatR\vdescription\x12#\n" +
+	"\ris_influenced\x18\a \x01(\bR\fisInfluenced\x12#\n" +
+	"\ris_influencer\x18\b \x01(\bR\fisInfluencer\"\xe7\x03\n" +
+	"\x05Award\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12S\n" +
+	"\rawarding_body\x18\x02 \x01(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\fawardingBody\x12S\n" +
+	"\rawarded_party\x18\x03 \x01(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\fawardedParty\x12O\n" +
 	"\n" +
-	"award_name\x18\x04 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\x13\x92\x93!\x0fxml:\"AwardName\"R\tawardName\x12;\n" +
-	"\x04date\x18\x05 \x01(\v2\x17.ddex.pie.v10.EventDateB\x0e\x92\x93!\n" +
-	"xml:\"Date\"R\x04date\x12/\n" +
-	"\tis_winner\x18\x06 \x01(\bB\x12\x92\x93!\x0exml:\"IsWinner\"R\bisWinner\x12I\n" +
-	"\acomment\x18\a \x03(\v2\x1c.ddex.pie.v10.TextWithFormatB\x11\x92\x93!\rxml:\"Comment\"R\acomment\"\xad\x02\n" +
-	"\tBiography\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12?\n" +
-	"\x04text\x18\x02 \x03(\v2\x1b.ddex.pie.v10.BiographyTextB\x0e\x92\x93!\n" +
-	"xml:\"Text\"R\x04text\x12X\n" +
-	"\x06author\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x10\x92\x93!\fxml:\"Author\"R\x06author\"\xf5\x03\n" +
-	"\rBiographyText\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x12J\n" +
-	"\x06format\x18\x04 \x01(\x0e2\x1b.ddex.pie.v10.TextCodecTypeB\x15\x92\x93!\x11xml:\"Format,attr\"R\x06format\x126\n" +
-	"\tnamespace\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x06 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"r\n" +
-	"\rCatalogNumber\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\"\x8b\x04\n" +
-	"\x0fClassicalPeriod\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12=\n" +
-	"\x04name\x18\x02 \x01(\v2\x19.ddex.pie.v10.PeriodValueB\x0e\x92\x93!\n" +
-	"xml:\"Name\"R\x04name\x12\x81\x01\n" +
-	"'language_and_script_of_classical_period\x18\x03 \x03(\tB,\x92\x93!(xml:\"LanguageAndScriptOfClassicalPeriod\"R\"languageAndScriptOfClassicalPeriod\x12\xad\x01\n" +
-	")territory_of_classical_period_description\x18\x04 \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB/\x92\x93!+xml:\"TerritoryOfClassicalPeriodDescription\"R%territoryOfClassicalPeriodDescription\"\xd8\x05\n" +
-	"\x0eCommentaryNote\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12F\n" +
-	"\x04text\x18\x02 \x03(\v2\".ddex.pie.v10.TextWithoutTerritoryB\x0e\x92\x93!\n" +
-	"xml:\"Text\"R\x04text\x12p\n" +
-	"\x14commentary_note_type\x18\x03 \x03(\v2 .ddex.pie.v10.CommentaryNoteTypeB\x1c\x92\x93!\x18xml:\"CommentaryNoteType\"R\x12commentaryNoteType\x12~\n" +
-	"&language_and_script_of_commentary_note\x18\x04 \x03(\tB+\x92\x93!'xml:\"LanguageAndScriptOfCommentaryNote\"R!languageAndScriptOfCommentaryNote\x12\xaa\x01\n" +
-	"(territory_of_commentary_note_description\x18\x05 \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB.\x92\x93!*xml:\"TerritoryOfCommentaryNoteDescription\"R$territoryOfCommentaryNoteDescription\x12X\n" +
-	"\x06author\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x10\x92\x93!\fxml:\"Author\"R\x06author\"\xc6\x01\n" +
-	"\x12CommentaryNoteType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc3\x01\n" +
-	"\x0fContributorRole\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"v\n" +
-	"\x04Date\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\"\x97\x01\n" +
-	"\vDescription\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xd5\x02\n" +
-	"\x0fDetailedHashSum\x12U\n" +
-	"\talgorithm\x18\x01 \x01(\v2\".ddex.pie.v10.HashSumAlgorithmTypeB\x13\x92\x93!\x0fxml:\"Algorithm\"R\talgorithm\x12+\n" +
-	"\aversion\x18\x02 \x01(\tB\x11\x92\x93!\rxml:\"Version\"R\aversion\x121\n" +
-	"\tparameter\x18\x03 \x01(\tB\x13\x92\x93!\x0fxml:\"Parameter\"R\tparameter\x12M\n" +
-	"\tdata_type\x18\x04 \x01(\x0e2\x1c.ddex.pie.v10.BinaryDataTypeB\x12\x92\x93!\x0exml:\"DataType\"R\bdataType\x12<\n" +
-	"\x0ehash_sum_value\x18\x05 \x01(\tB\x16\x92\x93!\x12xml:\"HashSumValue\"R\fhashSumValue\"\xe4\x02\n" +
-	"\x0fDetailedPartyId\x12%\n" +
-	"\ai_s_n_i\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISNI\"R\x04iSNI\x12%\n" +
-	"\ad_p_i_d\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"DPID\"R\x04dPID\x12?\n" +
-	"\x0fipi_name_number\x18\x03 \x01(\tB\x17\x92\x93!\x13xml:\"IpiNameNumber\"R\ripiNameNumber\x12!\n" +
-	"\x05i_p_n\x18\x04 \x01(\tB\r\x92\x93!\txml:\"IPN\"R\x03iPN\x12B\n" +
-	"\x10cisac_society_id\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"CisacSocietyId\"R\x0ecisacSocietyId\x12[\n" +
-	"\x0eproprietary_id\x18\x06 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\"\xa6\x02\n" +
-	"\x11DisplayArtistName\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\"\xea\x02\n" +
-	"\x1cDisplayArtistNameWithDefault\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"award_name\x18\x04 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\tawardName\x12+\n" +
+	"\x04date\x18\x05 \x01(\v2\x17.ddex.pie.v10.EventDateR\x04date\x12\x1b\n" +
+	"\tis_winner\x18\x06 \x01(\bR\bisWinner\x126\n" +
+	"\acomment\x18\a \x03(\v2\x1c.ddex.pie.v10.TextWithFormatR\acomment\"\xe7\x01\n" +
+	"\tBiography\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12/\n" +
+	"\x04text\x18\x02 \x03(\v2\x1b.ddex.pie.v10.BiographyTextR\x04text\x12F\n" +
+	"\x06author\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06author\"\xbf\x02\n" +
+	"\rBiographyText\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\x123\n" +
+	"\x06format\x18\x04 \x01(\x0e2\x1b.ddex.pie.v10.TextCodecTypeR\x06format\x12\x1c\n" +
+	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\"C\n" +
+	"\rCatalogNumber\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"\xf6\x02\n" +
+	"\x0fClassicalPeriod\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12-\n" +
+	"\x04name\x18\x02 \x01(\v2\x19.ddex.pie.v10.PeriodValueR\x04name\x12S\n" +
+	"'language_and_script_of_classical_period\x18\x03 \x03(\tR\"languageAndScriptOfClassicalPeriod\x12|\n" +
+	")territory_of_classical_period_description\x18\x04 \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR%territoryOfClassicalPeriodDescription\"\x96\x04\n" +
+	"\x0eCommentaryNote\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x126\n" +
+	"\x04text\x18\x02 \x03(\v2\".ddex.pie.v10.TextWithoutTerritoryR\x04text\x12R\n" +
+	"\x14commentary_note_type\x18\x03 \x03(\v2 .ddex.pie.v10.CommentaryNoteTypeR\x12commentaryNoteType\x12Q\n" +
+	"&language_and_script_of_commentary_note\x18\x04 \x03(\tR!languageAndScriptOfCommentaryNote\x12z\n" +
+	"(territory_of_commentary_note_description\x18\x05 \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR$territoryOfCommentaryNoteDescription\x12F\n" +
+	"\x06author\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06author\"v\n" +
+	"\x12CommentaryNoteType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"s\n" +
+	"\x0fContributorRole\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"C\n" +
+	"\x04Date\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\"\\\n" +
+	"\vDescription\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xec\x01\n" +
+	"\x0fDetailedHashSum\x12@\n" +
+	"\talgorithm\x18\x01 \x01(\v2\".ddex.pie.v10.HashSumAlgorithmTypeR\talgorithm\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tparameter\x18\x03 \x01(\tR\tparameter\x129\n" +
+	"\tdata_type\x18\x04 \x01(\x0e2\x1c.ddex.pie.v10.BinaryDataTypeR\bdataType\x12$\n" +
+	"\x0ehash_sum_value\x18\x05 \x01(\tR\fhashSumValue\"\xe9\x01\n" +
+	"\x0fDetailedPartyId\x12\x15\n" +
+	"\ai_s_n_i\x18\x01 \x01(\tR\x04iSNI\x12\x15\n" +
+	"\ad_p_i_d\x18\x02 \x01(\tR\x04dPID\x12&\n" +
+	"\x0fipi_name_number\x18\x03 \x01(\tR\ripiNameNumber\x12\x12\n" +
+	"\x05i_p_n\x18\x04 \x01(\tR\x03iPN\x12(\n" +
+	"\x10cisac_society_id\x18\x05 \x01(\tR\x0ecisacSocietyId\x12B\n" +
+	"\x0eproprietary_id\x18\x06 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\"\xc2\x01\n" +
+	"\x11DisplayArtistName\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xec\x01\n" +
+	"\x1cDisplayArtistNameWithDefault\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xd0\x01\n" +
-	"\"DisplayArtistNameWithPronunciation\x12N\n" +
-	"\x04name\x18\x01 \x01(\v2*.ddex.pie.v10.DisplayArtistNameWithDefaultB\x0e\x92\x93!\n" +
-	"xml:\"Name\"R\x04name\x12Z\n" +
-	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationB\x17\x92\x93!\x13xml:\"Pronunciation\"R\rpronunciation\"\xfc\x03\n" +
-	"\x0fDisplaySubTitle\x12%\n" +
-	"\x05title\x18\x01 \x01(\tB\x0f\x92\x93!\vxml:\"Title\"R\x05title\x12Z\n" +
-	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationB\x17\x92\x93!\x13xml:\"Pronunciation\"R\rpronunciation\x12F\n" +
-	"\x0fsequence_number\x18\x03 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\x12T\n" +
-	"\x15is_displayed_in_title\x18\x04 \x01(\bB!\x92\x93!\x1dxml:\"IsDisplayedInTitle,attr\"R\x12isDisplayedInTitle\x126\n" +
-	"\tnamespace\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x06 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\x12A\n" +
-	"\x0esub_title_type\x18\a \x01(\tB\x1b\x92\x93!\x17xml:\"SubTitleType,attr\"R\fsubTitleType\"\xcc\x03\n" +
-	"\fDisplayTitle\x12K\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\xa7\x01\n" +
+	"\"DisplayArtistNameWithPronunciation\x12>\n" +
+	"\x04name\x18\x01 \x01(\v2*.ddex.pie.v10.DisplayArtistNameWithDefaultR\x04name\x12A\n" +
+	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"\xb8\x02\n" +
+	"\x0fDisplaySubTitle\x12\x14\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12A\n" +
+	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\x12'\n" +
+	"\x0fsequence_number\x18\x03 \x01(\x05R\x0esequenceNumber\x121\n" +
+	"\x15is_displayed_in_title\x18\x04 \x01(\bR\x12isDisplayedInTitle\x12\x1c\n" +
+	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\x12$\n" +
+	"\x0esub_title_type\x18\a \x01(\tR\fsubTitleType\"\xba\x02\n" +
+	"\fDisplayTitle\x126\n" +
 	"\n" +
-	"title_text\x18\x01 \x01(\v2\x17.ddex.pie.v10.TitleTextB\x13\x92\x93!\x0fxml:\"TitleText\"R\ttitleText\x12N\n" +
-	"\tsub_title\x18\x02 \x03(\v2\x1d.ddex.pie.v10.DisplaySubTitleB\x12\x92\x93!\x0exml:\"SubTitle\"R\bsubTitle\x12]\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"title_text\x18\x01 \x01(\v2\x17.ddex.pie.v10.TitleTextR\ttitleText\x12:\n" +
+	"\tsub_title\x18\x02 \x03(\v2\x1d.ddex.pie.v10.DisplaySubTitleR\bsubTitle\x127\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x05 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\x9d\x06\n" +
-	"\x05Epoch\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x129\n" +
-	"\x05value\x18\x02 \x03(\v2\x12.ddex.pie.v10.NameB\x0f\x92\x93!\vxml:\"Value\"R\x05value\x12n\n" +
-	"\x0erelated_artist\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x17\x92\x93!\x13xml:\"RelatedArtist\"R\rrelatedArtist\x12c\n" +
-	"\x10related_creation\x18\x04 \x03(\v2\x1d.ddex.pie.v10.RelatedCreationB\x19\x92\x93!\x15xml:\"RelatedCreation\"R\x0frelatedCreation\x12F\n" +
+	"is_default\x18\x05 \x01(\bR\tisDefault\"\xc0\x04\n" +
+	"\x05Epoch\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12(\n" +
+	"\x05value\x18\x02 \x03(\v2\x12.ddex.pie.v10.NameR\x05value\x12U\n" +
+	"\x0erelated_artist\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\rrelatedArtist\x12H\n" +
+	"\x10related_creation\x18\x04 \x03(\v2\x1d.ddex.pie.v10.RelatedCreationR\x0frelatedCreation\x121\n" +
 	"\n" +
-	"start_date\x18\x05 \x01(\v2\x12.ddex.pie.v10.DateB\x13\x92\x93!\x0fxml:\"StartDate\"R\tstartDate\x12@\n" +
-	"\bend_date\x18\x06 \x01(\v2\x12.ddex.pie.v10.DateB\x11\x92\x93!\rxml:\"EndDate\"R\aendDate\x12b\n" +
-	"\x1clanguage_and_script_of_epoch\x18\a \x03(\tB\"\x92\x93!\x1exml:\"LanguageAndScriptOfEpoch\"R\x18languageAndScriptOfEpoch\x12\x8e\x01\n" +
-	"\x1eterritory_of_epoch_description\x18\b \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB%\x92\x93!!xml:\"TerritoryOfEpochDescription\"R\x1bterritoryOfEpochDescription\"\x9f\x04\n" +
-	"\tEventDate\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\x124\n" +
-	"\tis_before\x18\x03 \x01(\bB\x17\x92\x93!\x13xml:\"IsBefore,attr\"R\bisBefore\x121\n" +
-	"\bis_after\x18\x04 \x01(\bB\x16\x92\x93!\x12xml:\"IsAfter,attr\"R\aisAfter\x12\x82\x01\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\v2\x1e.ddex.pie.v10.AllTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x12U\n" +
-	"\x14location_description\x18\x06 \x01(\tB\"\x92\x93!\x1exml:\"LocationDescription,attr\"R\x13locationDescription\x12]\n" +
-	"\x18language_and_script_code\x18\a \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xa7\x01\n" +
-	"\x04File\x12!\n" +
-	"\x05u_r_i\x18\x01 \x01(\tB\r\x92\x93!\txml:\"URI\"R\x03uRI\x12K\n" +
-	"\bhash_sum\x18\x02 \x01(\v2\x1d.ddex.pie.v10.DetailedHashSumB\x11\x92\x93!\rxml:\"HashSum\"R\ahashSum\x12/\n" +
-	"\tfile_size\x18\x03 \x01(\tB\x12\x92\x93!\x0exml:\"FileSize\"R\bfileSize\"\xc8\x01\n" +
-	"\x14HashSumAlgorithmType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x93\x02\n" +
-	"\x05Image\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x126\n" +
-	"\x04file\x18\x02 \x01(\v2\x12.ddex.pie.v10.FileB\x0e\x92\x93!\n" +
-	"xml:\"File\"R\x04file\x12K\n" +
+	"start_date\x18\x05 \x01(\v2\x12.ddex.pie.v10.DateR\tstartDate\x12-\n" +
+	"\bend_date\x18\x06 \x01(\v2\x12.ddex.pie.v10.DateR\aendDate\x12>\n" +
+	"\x1clanguage_and_script_of_epoch\x18\a \x03(\tR\x18languageAndScriptOfEpoch\x12g\n" +
+	"\x1eterritory_of_epoch_description\x18\b \x03(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x1bterritoryOfEpochDescription\"\xc8\x02\n" +
+	"\tEventDate\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12\x1b\n" +
+	"\tis_before\x18\x03 \x01(\bR\bisBefore\x12\x19\n" +
+	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12Z\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\v2\x1e.ddex.pie.v10.AllTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x14location_description\x18\x06 \x01(\tR\x13locationDescription\x127\n" +
+	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"q\n" +
+	"\x04File\x12\x12\n" +
+	"\x05u_r_i\x18\x01 \x01(\tR\x03uRI\x128\n" +
+	"\bhash_sum\x18\x02 \x01(\v2\x1d.ddex.pie.v10.DetailedHashSumR\ahashSum\x12\x1b\n" +
+	"\tfile_size\x18\x03 \x01(\tR\bfileSize\"x\n" +
+	"\x14HashSumAlgorithmType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xca\x01\n" +
+	"\x05Image\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12&\n" +
+	"\x04file\x18\x02 \x01(\v2\x12.ddex.pie.v10.FileR\x04file\x126\n" +
 	"\n" +
-	"image_type\x18\x03 \x03(\v2\x17.ddex.pie.v10.ImageTypeB\x13\x92\x93!\x0fxml:\"ImageType\"R\timageType\"\xbd\x01\n" +
-	"\tImageType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x97\x01\n" +
-	"\x11MessageAuditTrail\x12\x81\x01\n" +
-	"\x19message_audit_trail_event\x18\x01 \x03(\v2$.ddex.pie.v10.MessageAuditTrailEventB \x92\x93!\x1cxml:\"MessageAuditTrailEvent\"R\x16messageAuditTrailEvent\"\xd5\x01\n" +
-	"\x16MessageAuditTrailEvent\x12\x89\x01\n" +
-	"\x1amessaging_party_descriptor\x18\x01 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeB\"\x92\x93!\x1exml:\"MessagingPartyDescriptor\"R\x18messagingPartyDescriptor\x12/\n" +
-	"\tdate_time\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"DateTime\"R\bdateTime\"\xd7\x06\n" +
-	"\rMessageHeader\x12E\n" +
-	"\x11message_thread_id\x18\x01 \x01(\tB\x19\x92\x93!\x15xml:\"MessageThreadId\"R\x0fmessageThreadId\x122\n" +
+	"image_type\x18\x03 \x03(\v2\x17.ddex.pie.v10.ImageTypeR\timageType\"m\n" +
+	"\tImageType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"t\n" +
+	"\x11MessageAuditTrail\x12_\n" +
+	"\x19message_audit_trail_event\x18\x01 \x03(\v2$.ddex.pie.v10.MessageAuditTrailEventR\x16messageAuditTrailEvent\"\x9c\x01\n" +
+	"\x16MessageAuditTrailEvent\x12e\n" +
+	"\x1amessaging_party_descriptor\x18\x01 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeR\x18messagingPartyDescriptor\x12\x1b\n" +
+	"\tdate_time\x18\x02 \x01(\tR\bdateTime\"\xe0\x04\n" +
+	"\rMessageHeader\x12*\n" +
+	"\x11message_thread_id\x18\x01 \x01(\tR\x0fmessageThreadId\x12\x1d\n" +
 	"\n" +
-	"message_id\x18\x02 \x01(\tB\x13\x92\x93!\x0fxml:\"MessageId\"R\tmessageId\x12E\n" +
-	"\x11message_file_name\x18\x03 \x01(\tB\x19\x92\x93!\x15xml:\"MessageFileName\"R\x0fmessageFileName\x12g\n" +
-	"\x0emessage_sender\x18\x04 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeB\x17\x92\x93!\x13xml:\"MessageSender\"R\rmessageSender\x12l\n" +
-	"\x11sent_on_behalf_of\x18\x05 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeB\x18\x92\x93!\x14xml:\"SentOnBehalfOf\"R\x0esentOnBehalfOf\x12p\n" +
-	"\x11message_recipient\x18\x06 \x03(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeB\x1a\x92\x93!\x16xml:\"MessageRecipient\"R\x10messageRecipient\x12[\n" +
-	"\x19message_created_date_time\x18\a \x01(\tB \x92\x93!\x1cxml:\"MessageCreatedDateTime\"R\x16messageCreatedDateTime\x12l\n" +
-	"\x13message_audit_trail\x18\b \x01(\v2\x1f.ddex.pie.v10.MessageAuditTrailB\x1b\x92\x93!\x17xml:\"MessageAuditTrail\"R\x11messageAuditTrail\x12p\n" +
-	"\x14message_control_type\x18\t \x01(\x0e2 .ddex.pie.v10.MessageControlTypeB\x1c\x92\x93!\x18xml:\"MessageControlType\"R\x12messageControlType\"\xdb\x01\n" +
-	"\x19MessagingPartyWithoutCode\x12,\n" +
-	"\bparty_id\x18\x01 \x01(\tB\x11\x92\x93!\rxml:\"PartyId\"R\apartyId\x12V\n" +
+	"message_id\x18\x02 \x01(\tR\tmessageId\x12*\n" +
+	"\x11message_file_name\x18\x03 \x01(\tR\x0fmessageFileName\x12N\n" +
+	"\x0emessage_sender\x18\x04 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeR\rmessageSender\x12R\n" +
+	"\x11sent_on_behalf_of\x18\x05 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeR\x0esentOnBehalfOf\x12T\n" +
+	"\x11message_recipient\x18\x06 \x03(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeR\x10messageRecipient\x129\n" +
+	"\x19message_created_date_time\x18\a \x01(\tR\x16messageCreatedDateTime\x12O\n" +
+	"\x13message_audit_trail\x18\b \x01(\v2\x1f.ddex.pie.v10.MessageAuditTrailR\x11messageAuditTrail\x12R\n" +
+	"\x14message_control_type\x18\t \x01(\x0e2 .ddex.pie.v10.MessageControlTypeR\x12messageControlType\"\x9c\x01\n" +
+	"\x19MessagingPartyWithoutCode\x12\x19\n" +
+	"\bparty_id\x18\x01 \x01(\tR\apartyId\x12A\n" +
 	"\n" +
-	"party_name\x18\x02 \x01(\v2\".ddex.pie.v10.PartyNameWithoutCodeB\x13\x92\x93!\x0fxml:\"PartyName\"R\tpartyName\x128\n" +
-	"\ftrading_name\x18\x03 \x01(\tB\x15\x92\x93!\x11xml:\"TradingName\"R\vtradingName\"\xc8\x01\n" +
-	"\x0eMetadataSource\x12D\n" +
-	"\x10source_reference\x18\x01 \x01(\tB\x19\x92\x93!\x15xml:\"SourceReference\"R\x0fsourceReference\x12p\n" +
-	"\x14metadata_source_type\x18\x02 \x01(\v2 .ddex.pie.v10.MetadataSourceTypeB\x1c\x92\x93!\x18xml:\"MetadataSourceType\"R\x12metadataSourceType\"u\n" +
-	"\x12MetadataSourceList\x12_\n" +
-	"\x0fmetadata_source\x18\x01 \x03(\v2\x1c.ddex.pie.v10.MetadataSourceB\x18\x92\x93!\x14xml:\"MetadataSource\"R\x0emetadataSource\"\x93\x02\n" +
-	"\x17MetadataSourceReference\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12P\n" +
-	"\x13assertion_date_time\x18\x02 \x01(\tB \x92\x93!\x1cxml:\"AssertionDateTime,attr\"R\x11assertionDateTime\x12L\n" +
-	"\x06status\x18\x03 \x01(\x0e2\x1d.ddex.pie.v10.AssertionStatusB\x15\x92\x93!\x11xml:\"Status,attr\"R\x06status\x12-\n" +
-	"\x06weight\x18\x04 \x01(\tB\x15\x92\x93!\x11xml:\"Weight,attr\"R\x06weight\"\xc6\x01\n" +
-	"\x12MetadataSourceType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xae\x02\n" +
-	"\x18MusicalWorkIdWithoutFlag\x12%\n" +
-	"\ai_s_w_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISWC\"R\x04iSWC\x125\n" +
-	"\vopus_number\x18\x02 \x01(\tB\x14\x92\x93!\x10xml:\"OpusNumber\"R\n" +
-	"opusNumber\x12W\n" +
-	"\x17composer_catalog_number\x18\x03 \x03(\tB\x1f\x92\x93!\x1bxml:\"ComposerCatalogNumber\"R\x15composerCatalogNumber\x12[\n" +
-	"\x0eproprietary_id\x18\x04 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\"\x90\x01\n" +
-	"\x04Name\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xb2\x02\n" +
-	"\x06NameId\x12%\n" +
-	"\ai_s_n_i\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISNI\"R\x04iSNI\x12?\n" +
-	"\x0fipi_name_number\x18\x02 \x01(\tB\x17\x92\x93!\x13xml:\"IpiNameNumber\"R\ripiNameNumber\x12!\n" +
-	"\x05i_p_n\x18\x03 \x01(\tB\r\x92\x93!\txml:\"IPN\"R\x03iPN\x12[\n" +
-	"\x0eproprietary_id\x18\x04 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12@\n" +
-	"\ris_deprecated\x18\x05 \x01(\bB\x1b\x92\x93!\x17xml:\"IsDeprecated,attr\"R\fisDeprecated\"\xb8\x01\n" +
-	"\"NameWithPronunciationAndScriptCode\x126\n" +
-	"\x04name\x18\x01 \x01(\v2\x12.ddex.pie.v10.NameB\x0e\x92\x93!\n" +
-	"xml:\"Name\"R\x04name\x12Z\n" +
-	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationB\x17\x92\x93!\x13xml:\"Pronunciation\"R\rpronunciation\"{\n" +
-	" PartyDescriptorWithPronunciation\x12M\n" +
-	"\bparty_id\x18\x01 \x01(\v2\x1d.ddex.pie.v10.DetailedPartyIdB\x11\x92\x93!\rxml:\"PartyId\"H\x00R\apartyIdB\b\n" +
-	"\x06choice\"\xd2\b\n" +
-	"\x1aPartyNameWithPronunciation\x12a\n" +
-	"\tfull_name\x18\x01 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\x12\x92\x93!\x0exml:\"FullName\"R\bfullName\x12\x93\x01\n" +
-	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\"\x92\x93!\x1exml:\"FullNameAsciiTranscribed\"R\x18fullNameAsciiTranscribed\x12w\n" +
-	"\x11full_name_indexed\x18\x03 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\x19\x92\x93!\x15xml:\"FullNameIndexed\"R\x0ffullNameIndexed\x12\x81\x01\n" +
-	"\x15names_before_key_name\x18\x04 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\x1c\x92\x93!\x18xml:\"NamesBeforeKeyName\"R\x12namesBeforeKeyName\x12^\n" +
-	"\bkey_name\x18\x05 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\x11\x92\x93!\rxml:\"KeyName\"R\akeyName\x12~\n" +
-	"\x14names_after_key_name\x18\x06 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\x1b\x92\x93!\x17xml:\"NamesAfterKeyName\"R\x11namesAfterKeyName\x12v\n" +
-	"\x10abbreviated_name\x18\a \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeB\x19\x92\x93!\x15xml:\"AbbreviatedName\"R\x0fabbreviatedName\x12]\n" +
-	"\x18language_and_script_code\x18\b \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\t \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\"\x84\x04\n" +
-	"\x14PartyNameWithoutCode\x12/\n" +
-	"\tfull_name\x18\x01 \x01(\tB\x12\x92\x93!\x0exml:\"FullName\"R\bfullName\x12a\n" +
-	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tB\"\x92\x93!\x1exml:\"FullNameAsciiTranscribed\"R\x18fullNameAsciiTranscribed\x12E\n" +
-	"\x11full_name_indexed\x18\x03 \x01(\tB\x19\x92\x93!\x15xml:\"FullNameIndexed\"R\x0ffullNameIndexed\x12O\n" +
-	"\x15names_before_key_name\x18\x04 \x01(\tB\x1c\x92\x93!\x18xml:\"NamesBeforeKeyName\"R\x12namesBeforeKeyName\x12,\n" +
-	"\bkey_name\x18\x05 \x01(\tB\x11\x92\x93!\rxml:\"KeyName\"R\akeyName\x12L\n" +
-	"\x14names_after_key_name\x18\x06 \x01(\tB\x1b\x92\x93!\x17xml:\"NamesAfterKeyName\"R\x11namesAfterKeyName\x12D\n" +
-	"\x10abbreviated_name\x18\a \x01(\tB\x19\x92\x93!\x15xml:\"AbbreviatedName\"R\x0fabbreviatedName\"\xbf\x01\n" +
-	"\vPeriodValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x8c\x01\n" +
-	"\x0ePeriodWithTime\x12?\n" +
-	"\x0fstart_date_time\x18\x01 \x01(\tB\x17\x92\x93!\x13xml:\"StartDateTime\"R\rstartDateTime\x129\n" +
-	"\rend_date_time\x18\x02 \x01(\tB\x15\x92\x93!\x11xml:\"EndDateTime\"R\vendDateTime\"\xd2\x03\n" +
-	"\rPronunciation\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12=\n" +
-	"\fis_canonical\x18\x02 \x01(\bB\x1a\x92\x93!\x16xml:\"IsCanonical,attr\"R\visCanonical\x12@\n" +
-	"\rlanguage_code\x18\x03 \x01(\tB\x1b\x92\x93!\x17xml:\"LanguageCode,attr\"R\flanguageCode\x12\\\n" +
-	"\rencoding_type\x18\x04 \x01(\x0e2\x1a.ddex.pie.v10.EncodingTypeB\x1b\x92\x93!\x17xml:\"EncodingType,attr\"R\fencodingType\x12O\n" +
-	"\x12encoding_namespace\x18\x05 \x01(\tB \x92\x93!\x1cxml:\"EncodingNamespace,attr\"R\x11encodingNamespace\x12f\n" +
-	"\x1bencoding_user_defined_value\x18\x06 \x01(\tB'\x92\x93!#xml:\"EncodingUserDefinedValue,attr\"R\x18encodingUserDefinedValue\"r\n" +
-	"\rProprietaryId\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\"^\n" +
-	"\x0fRelatedCreation\x12K\n" +
-	"\x05title\x18\x01 \x01(\v2$.ddex.pie.v10.TitleWithPronunciationB\x0f\x92\x93!\vxml:\"Title\"R\x05title\"\xf3\x03\n" +
-	"\aRelease\x12#\n" +
-	"\x05g_rid\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"GRid\"R\x04gRid\x12%\n" +
-	"\ai_c_p_n\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ICPN\"R\x04iCPN\x12T\n" +
-	"\x16proprietary_release_id\x18\x03 \x01(\tB\x1e\x92\x93!\x1axml:\"ProprietaryReleaseId\"R\x14proprietaryReleaseId\x12W\n" +
-	"\rrelease_title\x18\x04 \x03(\v2\x1a.ddex.pie.v10.ReleaseTitleB\x16\x92\x93!\x12xml:\"ReleaseTitle\"R\freleaseTitle\x12}\n" +
-	"\x13display_artist_name\x18\x05 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12n\n" +
-	"\x0edisplay_artist\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\"\xb8\x02\n" +
-	"\tReleaseId\x12#\n" +
-	"\x05g_rid\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"GRid\"R\x04gRid\x12%\n" +
-	"\ai_s_r_c\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISRC\"R\x04iSRC\x12%\n" +
-	"\ai_c_p_n\x18\x03 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ICPN\"R\x04iCPN\x12[\n" +
-	"\x0ecatalog_number\x18\x04 \x01(\v2\x1b.ddex.pie.v10.CatalogNumberB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12[\n" +
-	"\x0eproprietary_id\x18\x05 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\"\xa5\x03\n" +
-	"\x0eReleaseSummary\x12K\n" +
+	"party_name\x18\x02 \x01(\v2\".ddex.pie.v10.PartyNameWithoutCodeR\tpartyName\x12!\n" +
+	"\ftrading_name\x18\x03 \x01(\tR\vtradingName\"\x8f\x01\n" +
+	"\x0eMetadataSource\x12)\n" +
+	"\x10source_reference\x18\x01 \x01(\tR\x0fsourceReference\x12R\n" +
+	"\x14metadata_source_type\x18\x02 \x01(\v2 .ddex.pie.v10.MetadataSourceTypeR\x12metadataSourceType\"[\n" +
+	"\x12MetadataSourceList\x12E\n" +
+	"\x0fmetadata_source\x18\x01 \x03(\v2\x1c.ddex.pie.v10.MetadataSourceR\x0emetadataSource\"\xae\x01\n" +
+	"\x17MetadataSourceReference\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12.\n" +
+	"\x13assertion_date_time\x18\x02 \x01(\tR\x11assertionDateTime\x125\n" +
+	"\x06status\x18\x03 \x01(\x0e2\x1d.ddex.pie.v10.AssertionStatusR\x06status\x12\x16\n" +
+	"\x06weight\x18\x04 \x01(\tR\x06weight\"v\n" +
+	"\x12MetadataSourceType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xce\x01\n" +
+	"\x18MusicalWorkIdWithoutFlag\x12\x15\n" +
+	"\ai_s_w_c\x18\x01 \x01(\tR\x04iSWC\x12\x1f\n" +
+	"\vopus_number\x18\x02 \x01(\tR\n" +
+	"opusNumber\x126\n" +
+	"\x17composer_catalog_number\x18\x03 \x03(\tR\x15composerCatalogNumber\x12B\n" +
+	"\x0eproprietary_id\x18\x04 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\"U\n" +
+	"\x04Name\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xc4\x01\n" +
+	"\x06NameId\x12\x15\n" +
+	"\ai_s_n_i\x18\x01 \x01(\tR\x04iSNI\x12&\n" +
+	"\x0fipi_name_number\x18\x02 \x01(\tR\ripiNameNumber\x12\x12\n" +
+	"\x05i_p_n\x18\x03 \x01(\tR\x03iPN\x12B\n" +
+	"\x0eproprietary_id\x18\x04 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\x12#\n" +
+	"\ris_deprecated\x18\x05 \x01(\bR\fisDeprecated\"\x8f\x01\n" +
+	"\"NameWithPronunciationAndScriptCode\x12&\n" +
+	"\x04name\x18\x01 \x01(\v2\x12.ddex.pie.v10.NameR\x04name\x12A\n" +
+	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"h\n" +
+	" PartyDescriptorWithPronunciation\x12:\n" +
+	"\bparty_id\x18\x01 \x01(\v2\x1d.ddex.pie.v10.DetailedPartyIdH\x00R\apartyIdB\b\n" +
+	"\x06choice\"\xc5\x06\n" +
+	"\x1aPartyNameWithPronunciation\x12M\n" +
+	"\tfull_name\x18\x01 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\bfullName\x12o\n" +
+	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x18fullNameAsciiTranscribed\x12\\\n" +
+	"\x11full_name_indexed\x18\x03 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x0ffullNameIndexed\x12c\n" +
+	"\x15names_before_key_name\x18\x04 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x12namesBeforeKeyName\x12K\n" +
+	"\bkey_name\x18\x05 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\akeyName\x12a\n" +
+	"\x14names_after_key_name\x18\x06 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x11namesAfterKeyName\x12[\n" +
+	"\x10abbreviated_name\x18\a \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x0fabbreviatedName\x127\n" +
+	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\t \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xc8\x02\n" +
+	"\x14PartyNameWithoutCode\x12\x1b\n" +
+	"\tfull_name\x18\x01 \x01(\tR\bfullName\x12=\n" +
+	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tR\x18fullNameAsciiTranscribed\x12*\n" +
+	"\x11full_name_indexed\x18\x03 \x01(\tR\x0ffullNameIndexed\x121\n" +
+	"\x15names_before_key_name\x18\x04 \x01(\tR\x12namesBeforeKeyName\x12\x19\n" +
+	"\bkey_name\x18\x05 \x01(\tR\akeyName\x12/\n" +
+	"\x14names_after_key_name\x18\x06 \x01(\tR\x11namesAfterKeyName\x12)\n" +
+	"\x10abbreviated_name\x18\a \x01(\tR\x0fabbreviatedName\"o\n" +
+	"\vPeriodValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\\\n" +
+	"\x0ePeriodWithTime\x12&\n" +
+	"\x0fstart_date_time\x18\x01 \x01(\tR\rstartDateTime\x12\"\n" +
+	"\rend_date_time\x18\x02 \x01(\tR\vendDateTime\"\x9c\x02\n" +
+	"\rPronunciation\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12!\n" +
+	"\fis_canonical\x18\x02 \x01(\bR\visCanonical\x12#\n" +
+	"\rlanguage_code\x18\x03 \x01(\tR\flanguageCode\x12?\n" +
+	"\rencoding_type\x18\x04 \x01(\x0e2\x1a.ddex.pie.v10.EncodingTypeR\fencodingType\x12-\n" +
+	"\x12encoding_namespace\x18\x05 \x01(\tR\x11encodingNamespace\x12=\n" +
+	"\x1bencoding_user_defined_value\x18\x06 \x01(\tR\x18encodingUserDefinedValue\"C\n" +
+	"\rProprietaryId\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"M\n" +
+	"\x0fRelatedCreation\x12:\n" +
+	"\x05title\x18\x01 \x01(\v2$.ddex.pie.v10.TitleWithPronunciationR\x05title\"\xe5\x02\n" +
+	"\aRelease\x12\x13\n" +
+	"\x05g_rid\x18\x01 \x01(\tR\x04gRid\x12\x15\n" +
+	"\ai_c_p_n\x18\x02 \x01(\tR\x04iCPN\x124\n" +
+	"\x16proprietary_release_id\x18\x03 \x01(\tR\x14proprietaryReleaseId\x12?\n" +
+	"\rrelease_title\x18\x04 \x03(\v2\x1a.ddex.pie.v10.ReleaseTitleR\freleaseTitle\x12`\n" +
+	"\x13display_artist_name\x18\x05 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationR\x11displayArtistName\x12U\n" +
+	"\x0edisplay_artist\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\rdisplayArtist\"\xd6\x01\n" +
+	"\tReleaseId\x12\x13\n" +
+	"\x05g_rid\x18\x01 \x01(\tR\x04gRid\x12\x15\n" +
+	"\ai_s_r_c\x18\x02 \x01(\tR\x04iSRC\x12\x15\n" +
+	"\ai_c_p_n\x18\x03 \x01(\tR\x04iCPN\x12B\n" +
+	"\x0ecatalog_number\x18\x04 \x01(\v2\x1b.ddex.pie.v10.CatalogNumberR\rcatalogNumber\x12B\n" +
+	"\x0eproprietary_id\x18\x05 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\"\xc2\x02\n" +
+	"\x0eReleaseSummary\x126\n" +
 	"\n" +
-	"release_id\x18\x01 \x01(\v2\x17.ddex.pie.v10.ReleaseIdB\x13\x92\x93!\x0fxml:\"ReleaseId\"R\treleaseId\x12W\n" +
-	"\rdisplay_title\x18\x02 \x03(\v2\x1a.ddex.pie.v10.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12}\n" +
-	"\x13display_artist_name\x18\x03 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12n\n" +
-	"\x0edisplay_artist\x18\x04 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\"\x98\x01\n" +
-	"\fReleaseTitle\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\x96\x04\n" +
-	"\bResource\x12%\n" +
-	"\ai_s_r_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISRC\"R\x04iSRC\x12>\n" +
-	"\x0ecatalog_number\x18\x02 \x01(\tB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12W\n" +
-	"\x17proprietary_resource_id\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"ProprietaryResourceId\"R\x15proprietaryResourceId\x12[\n" +
-	"\x0eresource_title\x18\x04 \x03(\v2\x1b.ddex.pie.v10.ResourceTitleB\x17\x92\x93!\x13xml:\"ResourceTitle\"R\rresourceTitle\x12}\n" +
-	"\x13display_artist_name\x18\x05 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12n\n" +
-	"\x0edisplay_artist\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\"\xe6\x03\n" +
-	"\x15ResourceIdWithoutFlag\x12%\n" +
-	"\ai_s_r_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISRC\"R\x04iSRC\x12%\n" +
-	"\ai_s_m_n\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISMN\"R\x04iSMN\x12%\n" +
-	"\ai_s_a_n\x18\x03 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISAN\"R\x04iSAN\x12)\n" +
-	"\tv_i_s_a_n\x18\x04 \x01(\tB\x0f\x92\x93!\vxml:\"VISAN\"R\x05vISAN\x12%\n" +
-	"\ai_s_b_n\x18\x05 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISBN\"R\x04iSBN\x12%\n" +
-	"\ai_s_s_n\x18\x06 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISSN\"R\x04iSSN\x12%\n" +
-	"\as_i_c_i\x18\a \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"SICI\"R\x04sICI\x12[\n" +
-	"\x0ecatalog_number\x18\b \x01(\v2\x1b.ddex.pie.v10.CatalogNumberB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12[\n" +
-	"\x0eproprietary_id\x18\t \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\"\xb5\x03\n" +
-	"\x0fResourceSummary\x12Z\n" +
-	"\vresource_id\x18\x01 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12W\n" +
-	"\rdisplay_title\x18\x02 \x03(\v2\x1a.ddex.pie.v10.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12}\n" +
-	"\x13display_artist_name\x18\x03 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12n\n" +
-	"\x0edisplay_artist\x18\x04 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\"\x99\x01\n" +
-	"\rResourceTitle\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"x\n" +
-	"\bSubTitle\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12A\n" +
-	"\x0esub_title_type\x18\x02 \x01(\tB\x1b\x92\x93!\x17xml:\"SubTitleType,attr\"R\fsubTitleType\"\xaf\x04\n" +
-	"\x0eTextWithFormat\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"release_id\x18\x01 \x01(\v2\x17.ddex.pie.v10.ReleaseIdR\treleaseId\x12?\n" +
+	"\rdisplay_title\x18\x02 \x03(\v2\x1a.ddex.pie.v10.DisplayTitleR\fdisplayTitle\x12`\n" +
+	"\x13display_artist_name\x18\x03 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationR\x11displayArtistName\x12U\n" +
+	"\x0edisplay_artist\x18\x04 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\rdisplayArtist\"]\n" +
+	"\fReleaseTitle\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xfd\x02\n" +
+	"\bResource\x12\x15\n" +
+	"\ai_s_r_c\x18\x01 \x01(\tR\x04iSRC\x12%\n" +
+	"\x0ecatalog_number\x18\x02 \x01(\tR\rcatalogNumber\x126\n" +
+	"\x17proprietary_resource_id\x18\x03 \x01(\tR\x15proprietaryResourceId\x12B\n" +
+	"\x0eresource_title\x18\x04 \x03(\v2\x1b.ddex.pie.v10.ResourceTitleR\rresourceTitle\x12`\n" +
+	"\x13display_artist_name\x18\x05 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationR\x11displayArtistName\x12U\n" +
+	"\x0edisplay_artist\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\rdisplayArtist\"\xc3\x02\n" +
+	"\x15ResourceIdWithoutFlag\x12\x15\n" +
+	"\ai_s_r_c\x18\x01 \x01(\tR\x04iSRC\x12\x15\n" +
+	"\ai_s_m_n\x18\x02 \x01(\tR\x04iSMN\x12\x15\n" +
+	"\ai_s_a_n\x18\x03 \x01(\tR\x04iSAN\x12\x18\n" +
+	"\tv_i_s_a_n\x18\x04 \x01(\tR\x05vISAN\x12\x15\n" +
+	"\ai_s_b_n\x18\x05 \x01(\tR\x04iSBN\x12\x15\n" +
+	"\ai_s_s_n\x18\x06 \x01(\tR\x04iSSN\x12\x15\n" +
+	"\as_i_c_i\x18\a \x01(\tR\x04sICI\x12B\n" +
+	"\x0ecatalog_number\x18\b \x01(\v2\x1b.ddex.pie.v10.CatalogNumberR\rcatalogNumber\x12B\n" +
+	"\x0eproprietary_id\x18\t \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\"\xd1\x02\n" +
+	"\x0fResourceSummary\x12D\n" +
+	"\vresource_id\x18\x01 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagR\n" +
+	"resourceId\x12?\n" +
+	"\rdisplay_title\x18\x02 \x03(\v2\x1a.ddex.pie.v10.DisplayTitleR\fdisplayTitle\x12`\n" +
+	"\x13display_artist_name\x18\x03 \x03(\v20.ddex.pie.v10.DisplayArtistNameWithPronunciationR\x11displayArtistName\x12U\n" +
+	"\x0edisplay_artist\x18\x04 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\rdisplayArtist\"^\n" +
+	"\rResourceTitle\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"F\n" +
+	"\bSubTitle\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12$\n" +
+	"\x0esub_title_type\x18\x02 \x01(\tR\fsubTitleType\"\xdf\x02\n" +
+	"\x0eTextWithFormat\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12J\n" +
-	"\x06format\x18\x05 \x01(\x0e2\x1b.ddex.pie.v10.TextCodecTypeB\x15\x92\x93!\x11xml:\"Format,attr\"R\x06format\x126\n" +
-	"\tnamespace\x18\x06 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\a \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xb5\x04\n" +
-	"\x14TextWithoutTerritory\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x86\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x123\n" +
+	"\x06format\x18\x05 \x01(\x0e2\x1b.ddex.pie.v10.TextCodecTypeR\x06format\x12\x1c\n" +
+	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xe5\x02\n" +
+	"\x14TextWithoutTerritory\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12^\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\".ddex.pie.v10.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12J\n" +
-	"\x06format\x18\x05 \x01(\x0e2\x1b.ddex.pie.v10.TextCodecTypeB\x15\x92\x93!\x11xml:\"Format,attr\"R\x06format\x126\n" +
-	"\tnamespace\x18\x06 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\a \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x8e\x01\n" +
-	"\tTitleText\x12%\n" +
-	"\x05title\x18\x01 \x01(\tB\x0f\x92\x93!\vxml:\"Title\"R\x05title\x12Z\n" +
-	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationB\x17\x92\x93!\x13xml:\"Pronunciation\"R\rpronunciation\"\xe7\x03\n" +
-	"\x16TitleWithPronunciation\x12K\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x123\n" +
+	"\x06format\x18\x05 \x01(\x0e2\x1b.ddex.pie.v10.TextCodecTypeR\x06format\x12\x1c\n" +
+	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"d\n" +
+	"\tTitleText\x12\x14\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12A\n" +
+	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"\xc3\x02\n" +
+	"\x16TitleWithPronunciation\x126\n" +
 	"\n" +
-	"title_text\x18\x01 \x01(\v2\x17.ddex.pie.v10.TitleTextB\x13\x92\x93!\x0fxml:\"TitleText\"R\ttitleText\x12H\n" +
-	"\tsub_title\x18\x02 \x01(\v2\x17.ddex.pie.v10.TitleTextB\x12\x92\x93!\x0exml:\"SubTitle\"R\bsubTitle\x12]\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12P\n" +
+	"title_text\x18\x01 \x01(\v2\x17.ddex.pie.v10.TitleTextR\ttitleText\x124\n" +
+	"\tsub_title\x18\x02 \x01(\v2\x17.ddex.pie.v10.TitleTextR\bsubTitle\x127\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x126\n" +
 	"\n" +
-	"title_type\x18\x04 \x01(\x0e2\x17.ddex.pie.v10.TitleTypeB\x18\x92\x93!\x14xml:\"TitleType,attr\"R\ttitleType\x126\n" +
-	"\tnamespace\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x06 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc3\x03\n" +
-	"\fTitleWithUDV\x122\n" +
+	"title_type\x18\x04 \x01(\x0e2\x17.ddex.pie.v10.TitleTypeR\ttitleType\x12\x1c\n" +
+	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\"\x9f\x02\n" +
+	"\fTitleWithUDV\x12\x1d\n" +
 	"\n" +
-	"title_text\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"TitleText\"R\ttitleText\x12G\n" +
-	"\tsub_title\x18\x02 \x03(\v2\x16.ddex.pie.v10.SubTitleB\x12\x92\x93!\x0exml:\"SubTitle\"R\bsubTitle\x12]\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12P\n" +
+	"title_text\x18\x01 \x01(\tR\ttitleText\x123\n" +
+	"\tsub_title\x18\x02 \x03(\v2\x16.ddex.pie.v10.SubTitleR\bsubTitle\x127\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x126\n" +
 	"\n" +
-	"title_type\x18\x04 \x01(\x0e2\x17.ddex.pie.v10.TitleTypeB\x18\x92\x93!\x14xml:\"TitleType,attr\"R\ttitleType\x126\n" +
-	"\tnamespace\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x06 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xa4\x01\n" +
-	"\x0eValidityPeriod\x12K\n" +
+	"title_type\x18\x04 \x01(\x0e2\x17.ddex.pie.v10.TitleTypeR\ttitleType\x12\x1c\n" +
+	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\"|\n" +
+	"\x0eValidityPeriod\x126\n" +
 	"\n" +
-	"start_date\x18\x01 \x01(\v2\x17.ddex.pie.v10.EventDateB\x13\x92\x93!\x0fxml:\"StartDate\"R\tstartDate\x12E\n" +
-	"\bend_date\x18\x02 \x01(\v2\x17.ddex.pie.v10.EventDateB\x11\x92\x93!\rxml:\"EndDate\"R\aendDate\"\xdf\x01\n" +
-	"\rVocalRegister\x12\x84\x01\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceB!\x92\x93!\x1dxml:\"MetadataSourceReference\"R\x17metadataSourceReference\x12G\n" +
-	"\x05value\x18\x02 \x01(\v2 .ddex.pie.v10.VocalRegisterValueB\x0f\x92\x93!\vxml:\"Value\"R\x05value\"\xc6\x01\n" +
-	"\x12VocalRegisterValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xa1\x02\n" +
-	"\x04Work\x12%\n" +
-	"\ai_s_w_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISWC\"R\x04iSWC\x12K\n" +
-	"\x13proprietary_work_id\x18\x02 \x01(\tB\x1b\x92\x93!\x17xml:\"ProprietaryWorkId\"R\x11proprietaryWorkId\x12K\n" +
+	"start_date\x18\x01 \x01(\v2\x17.ddex.pie.v10.EventDateR\tstartDate\x122\n" +
+	"\bend_date\x18\x02 \x01(\v2\x17.ddex.pie.v10.EventDateR\aendDate\"\xaa\x01\n" +
+	"\rVocalRegister\x12a\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x126\n" +
+	"\x05value\x18\x02 \x01(\v2 .ddex.pie.v10.VocalRegisterValueR\x05value\"v\n" +
+	"\x12VocalRegisterValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xcd\x01\n" +
+	"\x04Work\x12\x15\n" +
+	"\ai_s_w_c\x18\x01 \x01(\tR\x04iSWC\x12.\n" +
+	"\x13proprietary_work_id\x18\x02 \x01(\tR\x11proprietaryWorkId\x126\n" +
 	"\n" +
-	"work_title\x18\x03 \x03(\v2\x17.ddex.pie.v10.WorkTitleB\x13\x92\x93!\x0fxml:\"WorkTitle\"R\tworkTitle\x12X\n" +
-	"\x06writer\x18\x04 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x10\x92\x93!\fxml:\"Writer\"R\x06writer\"\xaa\x02\n" +
-	"\vWorkSummary\x12g\n" +
-	"\x0fmusical_work_id\x18\x01 \x01(\v2&.ddex.pie.v10.MusicalWorkIdWithoutFlagB\x17\x92\x93!\x13xml:\"MusicalWorkId\"R\rmusicalWorkId\x12X\n" +
+	"work_title\x18\x03 \x03(\v2\x17.ddex.pie.v10.WorkTitleR\tworkTitle\x12F\n" +
+	"\x06writer\x18\x04 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06writer\"\xea\x01\n" +
+	"\vWorkSummary\x12N\n" +
+	"\x0fmusical_work_id\x18\x01 \x01(\v2&.ddex.pie.v10.MusicalWorkIdWithoutFlagR\rmusicalWorkId\x12C\n" +
 	"\n" +
-	"work_title\x18\x02 \x03(\v2$.ddex.pie.v10.TitleWithPronunciationB\x13\x92\x93!\x0fxml:\"WorkTitle\"R\tworkTitle\x12X\n" +
-	"\x06writer\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationB\x10\x92\x93!\fxml:\"Writer\"R\x06writer\"\x95\x01\n" +
-	"\tWorkTitle\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode*\xb7\b\n" +
+	"work_title\x18\x02 \x03(\v2$.ddex.pie.v10.TitleWithPronunciationR\tworkTitle\x12F\n" +
+	"\x06writer\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06writer\"Z\n" +
+	"\tWorkTitle\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode*\xb7\b\n" +
 	"\bActivity\x12\x18\n" +
 	"\x14ACTIVITY_UNSPECIFIED\x10\x00\x12\x13\n" +
 	"\x0fACTIVITY_AFRAID\x10\x01\x12\x12\n" +

@@ -7,7 +7,6 @@
 package ernv432
 
 import (
-	_ "github.com/alecsavvy/ddex-go/gen/tagger"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -35215,22 +35214,35 @@ func (WorkType) EnumDescriptor() ([]byte, []int) {
 }
 
 type NewReleaseMessage struct {
-	state                          protoimpl.MessageState         `protogen:"open.v1"`
-	MessageHeader                  *MessageHeader                 `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty"`
-	ReleaseAdmin                   []*ReleaseAdmin                `protobuf:"bytes,2,rep,name=release_admin,json=releaseAdmin,proto3" json:"release_admin,omitempty"`
-	PartyList                      *PartyList                     `protobuf:"bytes,3,opt,name=party_list,json=partyList,proto3" json:"party_list,omitempty"`
-	CueSheetList                   *CueSheetList                  `protobuf:"bytes,4,opt,name=cue_sheet_list,json=cueSheetList,proto3" json:"cue_sheet_list,omitempty"`
-	ResourceList                   *ResourceList                  `protobuf:"bytes,5,opt,name=resource_list,json=resourceList,proto3" json:"resource_list,omitempty"`
-	ChapterList                    *ChapterList                   `protobuf:"bytes,6,opt,name=chapter_list,json=chapterList,proto3" json:"chapter_list,omitempty"`
-	ReleaseList                    *ReleaseList                   `protobuf:"bytes,7,opt,name=release_list,json=releaseList,proto3" json:"release_list,omitempty"`
-	DealList                       *DealList                      `protobuf:"bytes,8,opt,name=deal_list,json=dealList,proto3" json:"deal_list,omitempty"`
-	SupplementalDocumentList       *SupplementalDocumentList      `protobuf:"bytes,9,opt,name=supplemental_document_list,json=supplementalDocumentList,proto3" json:"supplemental_document_list,omitempty"`
-	ReleaseProfileVersionId        ReleaseProfileVersionId        `protobuf:"varint,10,opt,name=release_profile_version_id,json=releaseProfileVersionId,proto3,enum=ddex.ern.v432.ReleaseProfileVersionId" json:"release_profile_version_id,omitempty"`
-	ReleaseProfileVariantVersionId ReleaseProfileVariantVersionId `protobuf:"varint,11,opt,name=release_profile_variant_version_id,json=releaseProfileVariantVersionId,proto3,enum=ddex.ern.v432.ReleaseProfileVariantVersionId" json:"release_profile_variant_version_id,omitempty"`
-	AvsVersionId                   string                         `protobuf:"bytes,12,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty"`
-	LanguageAndScriptCode          string                         `protobuf:"bytes,13,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageHeader"
+	MessageHeader *MessageHeader `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty" xml:"MessageHeader"`
+	// @gotags: xml:"ReleaseAdmin"
+	ReleaseAdmin []*ReleaseAdmin `protobuf:"bytes,2,rep,name=release_admin,json=releaseAdmin,proto3" json:"release_admin,omitempty" xml:"ReleaseAdmin"`
+	// @gotags: xml:"PartyList"
+	PartyList *PartyList `protobuf:"bytes,3,opt,name=party_list,json=partyList,proto3" json:"party_list,omitempty" xml:"PartyList"`
+	// @gotags: xml:"CueSheetList"
+	CueSheetList *CueSheetList `protobuf:"bytes,4,opt,name=cue_sheet_list,json=cueSheetList,proto3" json:"cue_sheet_list,omitempty" xml:"CueSheetList"`
+	// @gotags: xml:"ResourceList"
+	ResourceList *ResourceList `protobuf:"bytes,5,opt,name=resource_list,json=resourceList,proto3" json:"resource_list,omitempty" xml:"ResourceList"`
+	// @gotags: xml:"ChapterList"
+	ChapterList *ChapterList `protobuf:"bytes,6,opt,name=chapter_list,json=chapterList,proto3" json:"chapter_list,omitempty" xml:"ChapterList"`
+	// @gotags: xml:"ReleaseList"
+	ReleaseList *ReleaseList `protobuf:"bytes,7,opt,name=release_list,json=releaseList,proto3" json:"release_list,omitempty" xml:"ReleaseList"`
+	// @gotags: xml:"DealList"
+	DealList *DealList `protobuf:"bytes,8,opt,name=deal_list,json=dealList,proto3" json:"deal_list,omitempty" xml:"DealList"`
+	// @gotags: xml:"SupplementalDocumentList"
+	SupplementalDocumentList *SupplementalDocumentList `protobuf:"bytes,9,opt,name=supplemental_document_list,json=supplementalDocumentList,proto3" json:"supplemental_document_list,omitempty" xml:"SupplementalDocumentList"`
+	// @gotags: xml:"ReleaseProfileVersionId,attr"
+	ReleaseProfileVersionId ReleaseProfileVersionId `protobuf:"varint,10,opt,name=release_profile_version_id,json=releaseProfileVersionId,proto3,enum=ddex.ern.v432.ReleaseProfileVersionId" json:"release_profile_version_id,omitempty" xml:"ReleaseProfileVersionId,attr"`
+	// @gotags: xml:"ReleaseProfileVariantVersionId,attr"
+	ReleaseProfileVariantVersionId ReleaseProfileVariantVersionId `protobuf:"varint,11,opt,name=release_profile_variant_version_id,json=releaseProfileVariantVersionId,proto3,enum=ddex.ern.v432.ReleaseProfileVariantVersionId" json:"release_profile_variant_version_id,omitempty" xml:"ReleaseProfileVariantVersionId,attr"`
+	// @gotags: xml:"AvsVersionId,attr"
+	AvsVersionId string `protobuf:"bytes,12,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,13,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *NewReleaseMessage) Reset() {
@@ -35355,11 +35367,15 @@ func (x *NewReleaseMessage) GetLanguageAndScriptCode() string {
 }
 
 type PurgeReleaseMessage struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	MessageHeader         *MessageHeader         `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty"`
-	PurgedRelease         *PurgedRelease         `protobuf:"bytes,2,opt,name=purged_release,json=purgedRelease,proto3" json:"purged_release,omitempty"`
-	AvsVersionId          string                 `protobuf:"bytes,3,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageHeader"
+	MessageHeader *MessageHeader `protobuf:"bytes,1,opt,name=message_header,json=messageHeader,proto3" json:"message_header,omitempty" xml:"MessageHeader"`
+	// @gotags: xml:"PurgedRelease"
+	PurgedRelease *PurgedRelease `protobuf:"bytes,2,opt,name=purged_release,json=purgedRelease,proto3" json:"purged_release,omitempty" xml:"PurgedRelease"`
+	// @gotags: xml:"AvsVersionId,attr"
+	AvsVersionId string `protobuf:"bytes,3,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -35423,11 +35439,13 @@ func (x *PurgeReleaseMessage) GetLanguageAndScriptCode() string {
 }
 
 type AdministratingRecordCompany struct {
-	state                       protoimpl.MessageState           `protogen:"open.v1"`
-	RecordCompanyPartyReference string                           `protobuf:"bytes,1,opt,name=record_company_party_reference,json=recordCompanyPartyReference,proto3" json:"record_company_party_reference,omitempty"`
-	Role                        *AdministratingRecordCompanyRole `protobuf:"bytes,2,opt,name=role,proto3" json:"role,omitempty"`
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"RecordCompanyPartyReference"
+	RecordCompanyPartyReference string `protobuf:"bytes,1,opt,name=record_company_party_reference,json=recordCompanyPartyReference,proto3" json:"record_company_party_reference,omitempty" xml:"RecordCompanyPartyReference"`
+	// @gotags: xml:"Role"
+	Role          *AdministratingRecordCompanyRole `protobuf:"bytes,2,opt,name=role,proto3" json:"role,omitempty" xml:"Role"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AdministratingRecordCompany) Reset() {
@@ -35475,22 +35493,37 @@ func (x *AdministratingRecordCompany) GetRole() *AdministratingRecordCompanyRole
 }
 
 type AudioDeliveryFile struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	Type                 string                 `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
-	ContainerFormat      *ContainerFormat       `protobuf:"bytes,2,opt,name=container_format,json=containerFormat,proto3" json:"container_format,omitempty"`
-	AudioCodecType       *AudioCodecType        `protobuf:"bytes,3,opt,name=audio_codec_type,json=audioCodecType,proto3" json:"audio_codec_type,omitempty"`
-	BitRate              *BitRate               `protobuf:"bytes,4,opt,name=bit_rate,json=bitRate,proto3" json:"bit_rate,omitempty"`
-	OriginalBitRate      *BitRate               `protobuf:"bytes,5,opt,name=original_bit_rate,json=originalBitRate,proto3" json:"original_bit_rate,omitempty"`
-	NumberOfChannels     string                 `protobuf:"bytes,6,opt,name=number_of_channels,json=numberOfChannels,proto3" json:"number_of_channels,omitempty"`
-	NumberOfAudioObjects int32                  `protobuf:"varint,7,opt,name=number_of_audio_objects,json=numberOfAudioObjects,proto3" json:"number_of_audio_objects,omitempty"`
-	SamplingRate         *SamplingRate          `protobuf:"bytes,8,opt,name=sampling_rate,json=samplingRate,proto3" json:"sampling_rate,omitempty"`
-	OriginalSamplingRate *SamplingRate          `protobuf:"bytes,9,opt,name=original_sampling_rate,json=originalSamplingRate,proto3" json:"original_sampling_rate,omitempty"`
-	BitsPerSample        int32                  `protobuf:"varint,10,opt,name=bits_per_sample,json=bitsPerSample,proto3" json:"bits_per_sample,omitempty"`
-	Duration             string                 `protobuf:"bytes,11,opt,name=duration,proto3" json:"duration,omitempty"`
-	BitDepth             int32                  `protobuf:"varint,12,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty"`
-	File                 *File                  `protobuf:"bytes,13,opt,name=file,proto3" json:"file,omitempty"`
-	Fingerprint          []*Fingerprint         `protobuf:"bytes,14,rep,name=fingerprint,proto3" json:"fingerprint,omitempty"`
-	IsProvidedInDelivery bool                   `protobuf:"varint,15,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Type"
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ContainerFormat"
+	ContainerFormat *ContainerFormat `protobuf:"bytes,2,opt,name=container_format,json=containerFormat,proto3" json:"container_format,omitempty" xml:"ContainerFormat"`
+	// @gotags: xml:"AudioCodecType"
+	AudioCodecType *AudioCodecType `protobuf:"bytes,3,opt,name=audio_codec_type,json=audioCodecType,proto3" json:"audio_codec_type,omitempty" xml:"AudioCodecType"`
+	// @gotags: xml:"BitRate"
+	BitRate *BitRate `protobuf:"bytes,4,opt,name=bit_rate,json=bitRate,proto3" json:"bit_rate,omitempty" xml:"BitRate"`
+	// @gotags: xml:"OriginalBitRate"
+	OriginalBitRate *BitRate `protobuf:"bytes,5,opt,name=original_bit_rate,json=originalBitRate,proto3" json:"original_bit_rate,omitempty" xml:"OriginalBitRate"`
+	// @gotags: xml:"NumberOfChannels"
+	NumberOfChannels string `protobuf:"bytes,6,opt,name=number_of_channels,json=numberOfChannels,proto3" json:"number_of_channels,omitempty" xml:"NumberOfChannels"`
+	// @gotags: xml:"NumberOfAudioObjects"
+	NumberOfAudioObjects int32 `protobuf:"varint,7,opt,name=number_of_audio_objects,json=numberOfAudioObjects,proto3" json:"number_of_audio_objects,omitempty" xml:"NumberOfAudioObjects"`
+	// @gotags: xml:"SamplingRate"
+	SamplingRate *SamplingRate `protobuf:"bytes,8,opt,name=sampling_rate,json=samplingRate,proto3" json:"sampling_rate,omitempty" xml:"SamplingRate"`
+	// @gotags: xml:"OriginalSamplingRate"
+	OriginalSamplingRate *SamplingRate `protobuf:"bytes,9,opt,name=original_sampling_rate,json=originalSamplingRate,proto3" json:"original_sampling_rate,omitempty" xml:"OriginalSamplingRate"`
+	// @gotags: xml:"BitsPerSample"
+	BitsPerSample int32 `protobuf:"varint,10,opt,name=bits_per_sample,json=bitsPerSample,proto3" json:"bits_per_sample,omitempty" xml:"BitsPerSample"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,11,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"BitDepth"
+	BitDepth int32 `protobuf:"varint,12,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty" xml:"BitDepth"`
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,13,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"Fingerprint"
+	Fingerprint []*Fingerprint `protobuf:"bytes,14,rep,name=fingerprint,proto3" json:"fingerprint,omitempty" xml:"Fingerprint"`
+	// @gotags: xml:"IsProvidedInDelivery"
+	IsProvidedInDelivery bool `protobuf:"varint,15,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty" xml:"IsProvidedInDelivery"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -35631,14 +35664,19 @@ func (x *AudioDeliveryFile) GetIsProvidedInDelivery() bool {
 }
 
 type AvRating struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Rating                  string                 `protobuf:"bytes,1,opt,name=rating,proto3" json:"rating,omitempty"`
-	Agency                  *RatingAgency          `protobuf:"bytes,2,opt,name=agency,proto3" json:"agency,omitempty"`
-	Reason                  *RatingReason          `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Rating"
+	Rating string `protobuf:"bytes,1,opt,name=rating,proto3" json:"rating,omitempty" xml:"Rating"`
+	// @gotags: xml:"Agency"
+	Agency *RatingAgency `protobuf:"bytes,2,opt,name=agency,proto3" json:"agency,omitempty" xml:"Agency"`
+	// @gotags: xml:"Reason"
+	Reason *RatingReason `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty" xml:"Reason"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AvRating) Reset() {
@@ -35707,8 +35745,9 @@ func (x *AvRating) GetIsDefault() bool {
 }
 
 type Brand struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	BrandReference string                 `protobuf:"bytes,1,opt,name=brand_reference,json=brandReference,proto3" json:"brand_reference,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"BrandReference"
+	BrandReference string `protobuf:"bytes,1,opt,name=brand_reference,json=brandReference,proto3" json:"brand_reference,omitempty" xml:"BrandReference"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -35751,9 +35790,11 @@ func (x *Brand) GetBrandReference() string {
 }
 
 type Channel struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,1,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	URL           []string               `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,1,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"URL"
+	URL           []string `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty" xml:"URL"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -35803,23 +35844,37 @@ func (x *Channel) GetURL() []string {
 }
 
 type Chapter struct {
-	state                        protoimpl.MessageState `protogen:"open.v1"`
-	ChapterReference             string                 `protobuf:"bytes,1,opt,name=chapter_reference,json=chapterReference,proto3" json:"chapter_reference,omitempty"`
-	ChapterId                    []*ChapterId           `protobuf:"bytes,2,rep,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
-	DisplayTitleText             []*DisplayTitleText    `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                 []*DisplayTitle        `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                  []*DisplayTitle        `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                []*DisplayTitle        `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	SequenceNumber               int32                  `protobuf:"varint,7,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	Contributor                  []*Contributor         `protobuf:"bytes,8,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	Character                    []*Character           `protobuf:"bytes,9,rep,name=character,proto3" json:"character,omitempty"`
-	RepresentativeImageReference string                 `protobuf:"bytes,10,opt,name=representative_image_reference,json=representativeImageReference,proto3" json:"representative_image_reference,omitempty"`
-	StartTime                    string                 `protobuf:"bytes,11,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	Duration                     string                 `protobuf:"bytes,12,opt,name=duration,proto3" json:"duration,omitempty"`
-	EndTime                      string                 `protobuf:"bytes,13,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
-	LanguageAndScriptCode        string                 `protobuf:"bytes,14,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields                protoimpl.UnknownFields
-	sizeCache                    protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ChapterReference"
+	ChapterReference string `protobuf:"bytes,1,opt,name=chapter_reference,json=chapterReference,proto3" json:"chapter_reference,omitempty" xml:"ChapterReference"`
+	// @gotags: xml:"ChapterId"
+	ChapterId []*ChapterId `protobuf:"bytes,2,rep,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty" xml:"ChapterId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"SequenceNumber"
+	SequenceNumber int32 `protobuf:"varint,7,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,8,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"Character"
+	Character []*Character `protobuf:"bytes,9,rep,name=character,proto3" json:"character,omitempty" xml:"Character"`
+	// @gotags: xml:"RepresentativeImageReference"
+	RepresentativeImageReference string `protobuf:"bytes,10,opt,name=representative_image_reference,json=representativeImageReference,proto3" json:"representative_image_reference,omitempty" xml:"RepresentativeImageReference"`
+	// @gotags: xml:"StartTime"
+	StartTime string `protobuf:"bytes,11,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty" xml:"StartTime"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,12,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"EndTime"
+	EndTime string `protobuf:"bytes,13,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty" xml:"EndTime"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,14,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *Chapter) Reset() {
@@ -35951,9 +36006,11 @@ func (x *Chapter) GetLanguageAndScriptCode() string {
 }
 
 type ChapterList struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Chapter               []*Chapter             `protobuf:"bytes,1,rep,name=chapter,proto3" json:"chapter,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Chapter"
+	Chapter []*Chapter `protobuf:"bytes,1,rep,name=chapter,proto3" json:"chapter,omitempty" xml:"Chapter"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -36003,12 +36060,15 @@ func (x *ChapterList) GetLanguageAndScriptCode() string {
 }
 
 type Character struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	CharacterPartyReference string                 `protobuf:"bytes,1,opt,name=character_party_reference,json=characterPartyReference,proto3" json:"character_party_reference,omitempty"`
-	Performer               *Contributor           `protobuf:"bytes,2,opt,name=performer,proto3" json:"performer,omitempty"`
-	SequenceNumber          int32                  `protobuf:"varint,3,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"CharacterPartyReference"
+	CharacterPartyReference string `protobuf:"bytes,1,opt,name=character_party_reference,json=characterPartyReference,proto3" json:"character_party_reference,omitempty" xml:"CharacterPartyReference"`
+	// @gotags: xml:"Performer"
+	Performer *Contributor `protobuf:"bytes,2,opt,name=performer,proto3" json:"performer,omitempty" xml:"Performer"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,3,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Character) Reset() {
@@ -36063,13 +36123,17 @@ func (x *Character) GetSequenceNumber() int32 {
 }
 
 type ClipDetails struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	ClipType          *ClipType              `protobuf:"bytes,1,opt,name=clip_type,json=clipType,proto3" json:"clip_type,omitempty"`
-	TopLeftCorner     string                 `protobuf:"bytes,2,opt,name=top_left_corner,json=topLeftCorner,proto3" json:"top_left_corner,omitempty"`
-	BottomRightCorner string                 `protobuf:"bytes,3,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty"`
-	ExpressionType    ExpressionType         `protobuf:"varint,4,opt,name=expression_type,json=expressionType,proto3,enum=ddex.ern.v432.ExpressionType" json:"expression_type,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ClipType"
+	ClipType *ClipType `protobuf:"bytes,1,opt,name=clip_type,json=clipType,proto3" json:"clip_type,omitempty" xml:"ClipType"`
+	// @gotags: xml:"TopLeftCorner"
+	TopLeftCorner string `protobuf:"bytes,2,opt,name=top_left_corner,json=topLeftCorner,proto3" json:"top_left_corner,omitempty" xml:"TopLeftCorner"`
+	// @gotags: xml:"BottomRightCorner"
+	BottomRightCorner string `protobuf:"bytes,3,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty" xml:"BottomRightCorner"`
+	// @gotags: xml:"ExpressionType"
+	ExpressionType ExpressionType `protobuf:"varint,4,opt,name=expression_type,json=expressionType,proto3,enum=ddex.ern.v432.ExpressionType" json:"expression_type,omitempty" xml:"ExpressionType"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ClipDetails) Reset() {
@@ -36131,19 +36195,29 @@ func (x *ClipDetails) GetExpressionType() ExpressionType {
 }
 
 type ClipRelease struct {
-	state                    protoimpl.MessageState            `protogen:"open.v1"`
-	ReleaseReference         string                            `protobuf:"bytes,1,opt,name=release_reference,json=releaseReference,proto3" json:"release_reference,omitempty"`
-	ReleaseId                *ReleaseId                        `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty"`
-	DisplayTitleText         []*DisplayTitleText               `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle             []*DisplayTitle                   `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle              []*DisplayTitle                   `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle            []*DisplayTitle                   `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	ReleaseResourceReference string                            `protobuf:"bytes,7,opt,name=release_resource_reference,json=releaseResourceReference,proto3" json:"release_resource_reference,omitempty"`
-	ReleaseLabelReference    []*ReleaseLabelReferenceWithParty `protobuf:"bytes,8,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty"`
-	DisplayGenre             []*GenreWithTerritory             `protobuf:"bytes,9,rep,name=display_genre,json=displayGenre,proto3" json:"display_genre,omitempty"`
-	RelatedRelease           []*RelatedRelease                 `protobuf:"bytes,10,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseReference"
+	ReleaseReference string `protobuf:"bytes,1,opt,name=release_reference,json=releaseReference,proto3" json:"release_reference,omitempty" xml:"ReleaseReference"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"ReleaseResourceReference"
+	ReleaseResourceReference string `protobuf:"bytes,7,opt,name=release_resource_reference,json=releaseResourceReference,proto3" json:"release_resource_reference,omitempty" xml:"ReleaseResourceReference"`
+	// @gotags: xml:"ReleaseLabelReference"
+	ReleaseLabelReference []*ReleaseLabelReferenceWithParty `protobuf:"bytes,8,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty" xml:"ReleaseLabelReference"`
+	// @gotags: xml:"DisplayGenre"
+	DisplayGenre []*GenreWithTerritory `protobuf:"bytes,9,rep,name=display_genre,json=displayGenre,proto3" json:"display_genre,omitempty" xml:"DisplayGenre"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,10,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ClipRelease) Reset() {
@@ -36247,10 +36321,13 @@ func (x *ClipRelease) GetRelatedRelease() []*RelatedRelease {
 }
 
 type CommercialModelType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -36307,16 +36384,23 @@ func (x *CommercialModelType) GetUserDefinedValue() string {
 }
 
 type ConditionForRightsClaimPolicy struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	Value             string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Unit              UnitOfConditionValue   `protobuf:"varint,2,opt,name=unit,proto3,enum=ddex.ern.v432.UnitOfConditionValue" json:"unit,omitempty"`
-	ReferenceCreation ReferenceCreation      `protobuf:"varint,3,opt,name=reference_creation,json=referenceCreation,proto3,enum=ddex.ern.v432.ReferenceCreation" json:"reference_creation,omitempty"`
-	RelationalRelator RelationalRelator      `protobuf:"varint,4,opt,name=relational_relator,json=relationalRelator,proto3,enum=ddex.ern.v432.RelationalRelator" json:"relational_relator,omitempty"`
-	MeasurementType   MeasurementType        `protobuf:"varint,5,opt,name=measurement_type,json=measurementType,proto3,enum=ddex.ern.v432.MeasurementType" json:"measurement_type,omitempty"`
-	Segment           []*Segment             `protobuf:"bytes,6,rep,name=segment,proto3" json:"segment,omitempty"`
-	ServiceException  []*ServiceException    `protobuf:"bytes,7,rep,name=service_exception,json=serviceException,proto3" json:"service_exception,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Value"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	// @gotags: xml:"Unit"
+	Unit UnitOfConditionValue `protobuf:"varint,2,opt,name=unit,proto3,enum=ddex.ern.v432.UnitOfConditionValue" json:"unit,omitempty" xml:"Unit"`
+	// @gotags: xml:"ReferenceCreation"
+	ReferenceCreation ReferenceCreation `protobuf:"varint,3,opt,name=reference_creation,json=referenceCreation,proto3,enum=ddex.ern.v432.ReferenceCreation" json:"reference_creation,omitempty" xml:"ReferenceCreation"`
+	// @gotags: xml:"RelationalRelator"
+	RelationalRelator RelationalRelator `protobuf:"varint,4,opt,name=relational_relator,json=relationalRelator,proto3,enum=ddex.ern.v432.RelationalRelator" json:"relational_relator,omitempty" xml:"RelationalRelator"`
+	// @gotags: xml:"MeasurementType"
+	MeasurementType MeasurementType `protobuf:"varint,5,opt,name=measurement_type,json=measurementType,proto3,enum=ddex.ern.v432.MeasurementType" json:"measurement_type,omitempty" xml:"MeasurementType"`
+	// @gotags: xml:"Segment"
+	Segment []*Segment `protobuf:"bytes,6,rep,name=segment,proto3" json:"segment,omitempty" xml:"Segment"`
+	// @gotags: xml:"ServiceException"
+	ServiceException []*ServiceException `protobuf:"bytes,7,rep,name=service_exception,json=serviceException,proto3" json:"service_exception,omitempty" xml:"ServiceException"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *ConditionForRightsClaimPolicy) Reset() {
@@ -36399,9 +36483,11 @@ func (x *ConditionForRightsClaimPolicy) GetServiceException() []*ServiceExceptio
 }
 
 type CoreArea struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	TopLeftCorner     string                 `protobuf:"bytes,1,opt,name=top_left_corner,json=topLeftCorner,proto3" json:"top_left_corner,omitempty"`
-	BottomRightCorner string                 `protobuf:"bytes,2,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TopLeftCorner"
+	TopLeftCorner string `protobuf:"bytes,1,opt,name=top_left_corner,json=topLeftCorner,proto3" json:"top_left_corner,omitempty" xml:"TopLeftCorner"`
+	// @gotags: xml:"BottomRightCorner"
+	BottomRightCorner string `protobuf:"bytes,2,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty" xml:"BottomRightCorner"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -36451,26 +36537,43 @@ func (x *CoreArea) GetBottomRightCorner() string {
 }
 
 type Cue struct {
-	state                   protoimpl.MessageState   `protogen:"open.v1"`
-	CueUseType              *CueUseType              `protobuf:"bytes,1,opt,name=cue_use_type,json=cueUseType,proto3" json:"cue_use_type,omitempty"`
-	CueThemeType            *CueThemeType            `protobuf:"bytes,2,opt,name=cue_theme_type,json=cueThemeType,proto3" json:"cue_theme_type,omitempty"`
-	CueVocalType            *CueVocalType            `protobuf:"bytes,3,opt,name=cue_vocal_type,json=cueVocalType,proto3" json:"cue_vocal_type,omitempty"`
-	CueVisualPerceptionType *CueVisualPerceptionType `protobuf:"bytes,4,opt,name=cue_visual_perception_type,json=cueVisualPerceptionType,proto3" json:"cue_visual_perception_type,omitempty"`
-	CueOrigin               *CueOrigin               `protobuf:"bytes,5,opt,name=cue_origin,json=cueOrigin,proto3" json:"cue_origin,omitempty"`
-	DisplayTitleText        []*DisplayTitleText      `protobuf:"bytes,6,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle            []*DisplayTitle          `protobuf:"bytes,7,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle             []*DisplayTitle          `protobuf:"bytes,8,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle           []*DisplayTitle          `protobuf:"bytes,9,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	Contributor             []*Contributor           `protobuf:"bytes,10,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	IsDance                 bool                     `protobuf:"varint,11,opt,name=is_dance,json=isDance,proto3" json:"is_dance,omitempty"`
-	HasMusicalContent       bool                     `protobuf:"varint,12,opt,name=has_musical_content,json=hasMusicalContent,proto3" json:"has_musical_content,omitempty"`
-	PLine                   []*PLine                 `protobuf:"bytes,13,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty"`
-	CLine                   []*CLine                 `protobuf:"bytes,14,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty"`
-	StartTime               string                   `protobuf:"bytes,15,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	Duration                string                   `protobuf:"bytes,16,opt,name=duration,proto3" json:"duration,omitempty"`
-	EndTime                 string                   `protobuf:"bytes,17,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"CueUseType"
+	CueUseType *CueUseType `protobuf:"bytes,1,opt,name=cue_use_type,json=cueUseType,proto3" json:"cue_use_type,omitempty" xml:"CueUseType"`
+	// @gotags: xml:"CueThemeType"
+	CueThemeType *CueThemeType `protobuf:"bytes,2,opt,name=cue_theme_type,json=cueThemeType,proto3" json:"cue_theme_type,omitempty" xml:"CueThemeType"`
+	// @gotags: xml:"CueVocalType"
+	CueVocalType *CueVocalType `protobuf:"bytes,3,opt,name=cue_vocal_type,json=cueVocalType,proto3" json:"cue_vocal_type,omitempty" xml:"CueVocalType"`
+	// @gotags: xml:"CueVisualPerceptionType"
+	CueVisualPerceptionType *CueVisualPerceptionType `protobuf:"bytes,4,opt,name=cue_visual_perception_type,json=cueVisualPerceptionType,proto3" json:"cue_visual_perception_type,omitempty" xml:"CueVisualPerceptionType"`
+	// @gotags: xml:"CueOrigin"
+	CueOrigin *CueOrigin `protobuf:"bytes,5,opt,name=cue_origin,json=cueOrigin,proto3" json:"cue_origin,omitempty" xml:"CueOrigin"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,6,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,8,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,9,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,10,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"IsDance"
+	IsDance bool `protobuf:"varint,11,opt,name=is_dance,json=isDance,proto3" json:"is_dance,omitempty" xml:"IsDance"`
+	// @gotags: xml:"HasMusicalContent"
+	HasMusicalContent bool `protobuf:"varint,12,opt,name=has_musical_content,json=hasMusicalContent,proto3" json:"has_musical_content,omitempty" xml:"HasMusicalContent"`
+	// @gotags: xml:"PLine"
+	PLine []*PLine `protobuf:"bytes,13,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty" xml:"PLine"`
+	// @gotags: xml:"CLine"
+	CLine []*CLine `protobuf:"bytes,14,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
+	// @gotags: xml:"StartTime"
+	StartTime string `protobuf:"bytes,15,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty" xml:"StartTime"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,16,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"EndTime"
+	EndTime       string `protobuf:"bytes,17,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty" xml:"EndTime"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Cue) Reset() {
@@ -36623,13 +36726,17 @@ func (x *Cue) GetEndTime() string {
 }
 
 type CueSheet struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	CueSheetId        []*ProprietaryId       `protobuf:"bytes,1,rep,name=cue_sheet_id,json=cueSheetId,proto3" json:"cue_sheet_id,omitempty"`
-	CueSheetReference string                 `protobuf:"bytes,2,opt,name=cue_sheet_reference,json=cueSheetReference,proto3" json:"cue_sheet_reference,omitempty"`
-	CueSheetType      *CueSheetType          `protobuf:"bytes,3,opt,name=cue_sheet_type,json=cueSheetType,proto3" json:"cue_sheet_type,omitempty"`
-	Cue               []*Cue                 `protobuf:"bytes,4,rep,name=cue,proto3" json:"cue,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"CueSheetId"
+	CueSheetId []*ProprietaryId `protobuf:"bytes,1,rep,name=cue_sheet_id,json=cueSheetId,proto3" json:"cue_sheet_id,omitempty" xml:"CueSheetId"`
+	// @gotags: xml:"CueSheetReference"
+	CueSheetReference string `protobuf:"bytes,2,opt,name=cue_sheet_reference,json=cueSheetReference,proto3" json:"cue_sheet_reference,omitempty" xml:"CueSheetReference"`
+	// @gotags: xml:"CueSheetType"
+	CueSheetType *CueSheetType `protobuf:"bytes,3,opt,name=cue_sheet_type,json=cueSheetType,proto3" json:"cue_sheet_type,omitempty" xml:"CueSheetType"`
+	// @gotags: xml:"Cue"
+	Cue           []*Cue `protobuf:"bytes,4,rep,name=cue,proto3" json:"cue,omitempty" xml:"Cue"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CueSheet) Reset() {
@@ -36691,8 +36798,9 @@ func (x *CueSheet) GetCue() []*Cue {
 }
 
 type CueSheetList struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	CueSheet      []*CueSheet            `protobuf:"bytes,1,rep,name=cue_sheet,json=cueSheet,proto3" json:"cue_sheet,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"CueSheet"
+	CueSheet      []*CueSheet `protobuf:"bytes,1,rep,name=cue_sheet,json=cueSheet,proto3" json:"cue_sheet,omitempty" xml:"CueSheet"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -36735,14 +36843,19 @@ func (x *CueSheetList) GetCueSheet() []*CueSheet {
 }
 
 type Deal struct {
-	state                                     protoimpl.MessageState                     `protogen:"open.v1"`
-	DealReference                             []string                                   `protobuf:"bytes,1,rep,name=deal_reference,json=dealReference,proto3" json:"deal_reference,omitempty"`
-	IsCommunicatedOutOfBand                   bool                                       `protobuf:"varint,2,opt,name=is_communicated_out_of_band,json=isCommunicatedOutOfBand,proto3" json:"is_communicated_out_of_band,omitempty"`
-	DealTerms                                 *DealTerms                                 `protobuf:"bytes,3,opt,name=deal_terms,json=dealTerms,proto3" json:"deal_terms,omitempty"`
-	DealTechnicalResourceDetailsReferenceList *DealTechnicalResourceDetailsReferenceList `protobuf:"bytes,4,opt,name=deal_technical_resource_details_reference_list,json=dealTechnicalResourceDetailsReferenceList,proto3" json:"deal_technical_resource_details_reference_list,omitempty"`
-	DistributionChannelPage                   []*DistributionChannelPage                 `protobuf:"bytes,5,rep,name=distribution_channel_page,json=distributionChannelPage,proto3" json:"distribution_channel_page,omitempty"`
-	unknownFields                             protoimpl.UnknownFields
-	sizeCache                                 protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"DealReference"
+	DealReference []string `protobuf:"bytes,1,rep,name=deal_reference,json=dealReference,proto3" json:"deal_reference,omitempty" xml:"DealReference"`
+	// @gotags: xml:"IsCommunicatedOutOfBand"
+	IsCommunicatedOutOfBand bool `protobuf:"varint,2,opt,name=is_communicated_out_of_band,json=isCommunicatedOutOfBand,proto3" json:"is_communicated_out_of_band,omitempty" xml:"IsCommunicatedOutOfBand"`
+	// @gotags: xml:"DealTerms"
+	DealTerms *DealTerms `protobuf:"bytes,3,opt,name=deal_terms,json=dealTerms,proto3" json:"deal_terms,omitempty" xml:"DealTerms"`
+	// @gotags: xml:"DealTechnicalResourceDetailsReferenceList"
+	DealTechnicalResourceDetailsReferenceList *DealTechnicalResourceDetailsReferenceList `protobuf:"bytes,4,opt,name=deal_technical_resource_details_reference_list,json=dealTechnicalResourceDetailsReferenceList,proto3" json:"deal_technical_resource_details_reference_list,omitempty" xml:"DealTechnicalResourceDetailsReferenceList"`
+	// @gotags: xml:"DistributionChannelPage"
+	DistributionChannelPage []*DistributionChannelPage `protobuf:"bytes,5,rep,name=distribution_channel_page,json=distributionChannelPage,proto3" json:"distribution_channel_page,omitempty" xml:"DistributionChannelPage"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *Deal) Reset() {
@@ -36811,10 +36924,13 @@ func (x *Deal) GetDistributionChannelPage() []*DistributionChannelPage {
 }
 
 type DealList struct {
-	state                  protoimpl.MessageState    `protogen:"open.v1"`
-	ReleaseDeal            []*ReleaseDeal            `protobuf:"bytes,1,rep,name=release_deal,json=releaseDeal,proto3" json:"release_deal,omitempty"`
-	ReleaseVisibility      []*ReleaseVisibility      `protobuf:"bytes,2,rep,name=release_visibility,json=releaseVisibility,proto3" json:"release_visibility,omitempty"`
-	TrackReleaseVisibility []*TrackReleaseVisibility `protobuf:"bytes,3,rep,name=track_release_visibility,json=trackReleaseVisibility,proto3" json:"track_release_visibility,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseDeal"
+	ReleaseDeal []*ReleaseDeal `protobuf:"bytes,1,rep,name=release_deal,json=releaseDeal,proto3" json:"release_deal,omitempty" xml:"ReleaseDeal"`
+	// @gotags: xml:"ReleaseVisibility"
+	ReleaseVisibility []*ReleaseVisibility `protobuf:"bytes,2,rep,name=release_visibility,json=releaseVisibility,proto3" json:"release_visibility,omitempty" xml:"ReleaseVisibility"`
+	// @gotags: xml:"TrackReleaseVisibility"
+	TrackReleaseVisibility []*TrackReleaseVisibility `protobuf:"bytes,3,rep,name=track_release_visibility,json=trackReleaseVisibility,proto3" json:"track_release_visibility,omitempty" xml:"TrackReleaseVisibility"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -36871,8 +36987,9 @@ func (x *DealList) GetTrackReleaseVisibility() []*TrackReleaseVisibility {
 }
 
 type DealResourceReferenceList struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	DealResourceReference []string               `protobuf:"bytes,1,rep,name=deal_resource_reference,json=dealResourceReference,proto3" json:"deal_resource_reference,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"DealResourceReference"
+	DealResourceReference []string `protobuf:"bytes,1,rep,name=deal_resource_reference,json=dealResourceReference,proto3" json:"deal_resource_reference,omitempty" xml:"DealResourceReference"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -36915,8 +37032,9 @@ func (x *DealResourceReferenceList) GetDealResourceReference() []string {
 }
 
 type DealTechnicalResourceDetailsReferenceList struct {
-	state                                 protoimpl.MessageState `protogen:"open.v1"`
-	DealTechnicalResourceDetailsReference []string               `protobuf:"bytes,1,rep,name=deal_technical_resource_details_reference,json=dealTechnicalResourceDetailsReference,proto3" json:"deal_technical_resource_details_reference,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"DealTechnicalResourceDetailsReference"
+	DealTechnicalResourceDetailsReference []string `protobuf:"bytes,1,rep,name=deal_technical_resource_details_reference,json=dealTechnicalResourceDetailsReference,proto3" json:"deal_technical_resource_details_reference,omitempty" xml:"DealTechnicalResourceDetailsReference"`
 	unknownFields                         protoimpl.UnknownFields
 	sizeCache                             protoimpl.SizeCache
 }
@@ -36959,22 +37077,35 @@ func (x *DealTechnicalResourceDetailsReferenceList) GetDealTechnicalResourceDeta
 }
 
 type DealTerms struct {
-	state                            protoimpl.MessageState           `protogen:"open.v1"`
-	ValidityPeriod                   []*PeriodWithStartDate           `protobuf:"bytes,1,rep,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty"`
-	CommercialModelType              []*CommercialModelType           `protobuf:"bytes,2,rep,name=commercial_model_type,json=commercialModelType,proto3" json:"commercial_model_type,omitempty"`
-	UseType                          []*DiscoverableUseType           `protobuf:"bytes,3,rep,name=use_type,json=useType,proto3" json:"use_type,omitempty"`
-	UserInterfaceType                []*UserInterfaceType             `protobuf:"bytes,4,rep,name=user_interface_type,json=userInterfaceType,proto3" json:"user_interface_type,omitempty"`
-	CarrierType                      []*CarrierType                   `protobuf:"bytes,5,rep,name=carrier_type,json=carrierType,proto3" json:"carrier_type,omitempty"`
-	TechnicalInstantiation           *DealTermsTechnicalInstantiation `protobuf:"bytes,6,opt,name=technical_instantiation,json=technicalInstantiation,proto3" json:"technical_instantiation,omitempty"`
-	NumberOfUsages                   int32                            `protobuf:"varint,7,opt,name=number_of_usages,json=numberOfUsages,proto3" json:"number_of_usages,omitempty"`
-	RightsClaimPolicy                []*RightsClaimPolicy             `protobuf:"bytes,8,rep,name=rights_claim_policy,json=rightsClaimPolicy,proto3" json:"rights_claim_policy,omitempty"`
-	PriceInformation                 []*PriceInformation              `protobuf:"bytes,9,rep,name=price_information,json=priceInformation,proto3" json:"price_information,omitempty"`
-	IsPreOrderDeal                   bool                             `protobuf:"varint,10,opt,name=is_pre_order_deal,json=isPreOrderDeal,proto3" json:"is_pre_order_deal,omitempty"`
-	InstantGratificationResourceList *DealResourceReferenceList       `protobuf:"bytes,11,opt,name=instant_gratification_resource_list,json=instantGratificationResourceList,proto3" json:"instant_gratification_resource_list,omitempty"`
-	PhysicalReturns                  *PhysicalReturns                 `protobuf:"bytes,12,opt,name=physical_returns,json=physicalReturns,proto3" json:"physical_returns,omitempty"`
-	NumberOfProductsPerCarton        int32                            `protobuf:"varint,13,opt,name=number_of_products_per_carton,json=numberOfProductsPerCarton,proto3" json:"number_of_products_per_carton,omitempty"`
-	unknownFields                    protoimpl.UnknownFields
-	sizeCache                        protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ValidityPeriod"
+	ValidityPeriod []*PeriodWithStartDate `protobuf:"bytes,1,rep,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty" xml:"ValidityPeriod"`
+	// @gotags: xml:"CommercialModelType"
+	CommercialModelType []*CommercialModelType `protobuf:"bytes,2,rep,name=commercial_model_type,json=commercialModelType,proto3" json:"commercial_model_type,omitempty" xml:"CommercialModelType"`
+	// @gotags: xml:"UseType"
+	UseType []*DiscoverableUseType `protobuf:"bytes,3,rep,name=use_type,json=useType,proto3" json:"use_type,omitempty" xml:"UseType"`
+	// @gotags: xml:"UserInterfaceType"
+	UserInterfaceType []*UserInterfaceType `protobuf:"bytes,4,rep,name=user_interface_type,json=userInterfaceType,proto3" json:"user_interface_type,omitempty" xml:"UserInterfaceType"`
+	// @gotags: xml:"CarrierType"
+	CarrierType []*CarrierType `protobuf:"bytes,5,rep,name=carrier_type,json=carrierType,proto3" json:"carrier_type,omitempty" xml:"CarrierType"`
+	// @gotags: xml:"TechnicalInstantiation"
+	TechnicalInstantiation *DealTermsTechnicalInstantiation `protobuf:"bytes,6,opt,name=technical_instantiation,json=technicalInstantiation,proto3" json:"technical_instantiation,omitempty" xml:"TechnicalInstantiation"`
+	// @gotags: xml:"NumberOfUsages"
+	NumberOfUsages int32 `protobuf:"varint,7,opt,name=number_of_usages,json=numberOfUsages,proto3" json:"number_of_usages,omitempty" xml:"NumberOfUsages"`
+	// @gotags: xml:"RightsClaimPolicy"
+	RightsClaimPolicy []*RightsClaimPolicy `protobuf:"bytes,8,rep,name=rights_claim_policy,json=rightsClaimPolicy,proto3" json:"rights_claim_policy,omitempty" xml:"RightsClaimPolicy"`
+	// @gotags: xml:"PriceInformation"
+	PriceInformation []*PriceInformation `protobuf:"bytes,9,rep,name=price_information,json=priceInformation,proto3" json:"price_information,omitempty" xml:"PriceInformation"`
+	// @gotags: xml:"IsPreOrderDeal"
+	IsPreOrderDeal bool `protobuf:"varint,10,opt,name=is_pre_order_deal,json=isPreOrderDeal,proto3" json:"is_pre_order_deal,omitempty" xml:"IsPreOrderDeal"`
+	// @gotags: xml:"InstantGratificationResourceList"
+	InstantGratificationResourceList *DealResourceReferenceList `protobuf:"bytes,11,opt,name=instant_gratification_resource_list,json=instantGratificationResourceList,proto3" json:"instant_gratification_resource_list,omitempty" xml:"InstantGratificationResourceList"`
+	// @gotags: xml:"PhysicalReturns"
+	PhysicalReturns *PhysicalReturns `protobuf:"bytes,12,opt,name=physical_returns,json=physicalReturns,proto3" json:"physical_returns,omitempty" xml:"PhysicalReturns"`
+	// @gotags: xml:"NumberOfProductsPerCarton"
+	NumberOfProductsPerCarton int32 `protobuf:"varint,13,opt,name=number_of_products_per_carton,json=numberOfProductsPerCarton,proto3" json:"number_of_products_per_carton,omitempty" xml:"NumberOfProductsPerCarton"`
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *DealTerms) Reset() {
@@ -37099,12 +37230,15 @@ func (x *DealTerms) GetNumberOfProductsPerCarton() int32 {
 }
 
 type DealTermsTechnicalInstantiation struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	VideoDefinitionType *VideoDefinitionType   `protobuf:"bytes,1,opt,name=video_definition_type,json=videoDefinitionType,proto3" json:"video_definition_type,omitempty"`
-	CodingType          CodingType             `protobuf:"varint,2,opt,name=coding_type,json=codingType,proto3,enum=ddex.ern.v432.CodingType" json:"coding_type,omitempty"`
-	BitRate             *BitRate               `protobuf:"bytes,3,opt,name=bit_rate,json=bitRate,proto3" json:"bit_rate,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"VideoDefinitionType"
+	VideoDefinitionType *VideoDefinitionType `protobuf:"bytes,1,opt,name=video_definition_type,json=videoDefinitionType,proto3" json:"video_definition_type,omitempty" xml:"VideoDefinitionType"`
+	// @gotags: xml:"CodingType"
+	CodingType CodingType `protobuf:"varint,2,opt,name=coding_type,json=codingType,proto3,enum=ddex.ern.v432.CodingType" json:"coding_type,omitempty" xml:"CodingType"`
+	// @gotags: xml:"BitRate"
+	BitRate       *BitRate `protobuf:"bytes,3,opt,name=bit_rate,json=bitRate,proto3" json:"bit_rate,omitempty" xml:"BitRate"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DealTermsTechnicalInstantiation) Reset() {
@@ -37159,12 +37293,15 @@ func (x *DealTermsTechnicalInstantiation) GetBitRate() *BitRate {
 }
 
 type Deity struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Deity) Reset() {
@@ -37219,10 +37356,13 @@ func (x *Deity) GetIsDefault() bool {
 }
 
 type DelegatedUsageRights struct {
-	state                       protoimpl.MessageState `protogen:"open.v1"`
-	UseType                     []*UseType             `protobuf:"bytes,1,rep,name=use_type,json=useType,proto3" json:"use_type,omitempty"`
-	PeriodOfRightsDelegation    *Period                `protobuf:"bytes,2,opt,name=period_of_rights_delegation,json=periodOfRightsDelegation,proto3" json:"period_of_rights_delegation,omitempty"`
-	TerritoryOfRightsDelegation []*AllTerritoryCode    `protobuf:"bytes,3,rep,name=territory_of_rights_delegation,json=territoryOfRightsDelegation,proto3" json:"territory_of_rights_delegation,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"UseType"
+	UseType []*UseType `protobuf:"bytes,1,rep,name=use_type,json=useType,proto3" json:"use_type,omitempty" xml:"UseType"`
+	// @gotags: xml:"PeriodOfRightsDelegation"
+	PeriodOfRightsDelegation *Period `protobuf:"bytes,2,opt,name=period_of_rights_delegation,json=periodOfRightsDelegation,proto3" json:"period_of_rights_delegation,omitempty" xml:"PeriodOfRightsDelegation"`
+	// @gotags: xml:"TerritoryOfRightsDelegation"
+	TerritoryOfRightsDelegation []*AllTerritoryCode `protobuf:"bytes,3,rep,name=territory_of_rights_delegation,json=territoryOfRightsDelegation,proto3" json:"territory_of_rights_delegation,omitempty" xml:"TerritoryOfRightsDelegation"`
 	unknownFields               protoimpl.UnknownFields
 	sizeCache                   protoimpl.SizeCache
 }
@@ -37279,13 +37419,17 @@ func (x *DelegatedUsageRights) GetTerritoryOfRightsDelegation() []*AllTerritoryC
 }
 
 type DescriptionWithTerritory struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DescriptionWithTerritory) Reset() {
@@ -37347,15 +37491,21 @@ func (x *DescriptionWithTerritory) GetIsDefault() bool {
 }
 
 type DetailedResourceContributor struct {
-	state                         protoimpl.MessageState `protogen:"open.v1"`
-	Role                          []*ContributorRole     `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty"`
-	InstrumentType                []*InstrumentType      `protobuf:"bytes,2,rep,name=instrument_type,json=instrumentType,proto3" json:"instrument_type,omitempty"`
-	HasMadeFeaturedContribution   bool                   `protobuf:"varint,3,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty"`
-	HasMadeContractedContribution bool                   `protobuf:"varint,4,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty"`
-	DisplayCredits                []*DisplayCredits      `protobuf:"bytes,5,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty"`
-	SequenceNumber                int32                  `protobuf:"varint,6,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Role"
+	Role []*ContributorRole `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty" xml:"Role"`
+	// @gotags: xml:"InstrumentType"
+	InstrumentType []*InstrumentType `protobuf:"bytes,2,rep,name=instrument_type,json=instrumentType,proto3" json:"instrument_type,omitempty" xml:"InstrumentType"`
+	// @gotags: xml:"HasMadeFeaturedContribution"
+	HasMadeFeaturedContribution bool `protobuf:"varint,3,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty" xml:"HasMadeFeaturedContribution"`
+	// @gotags: xml:"HasMadeContractedContribution"
+	HasMadeContractedContribution bool `protobuf:"varint,4,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty" xml:"HasMadeContractedContribution"`
+	// @gotags: xml:"DisplayCredits"
+	DisplayCredits []*DisplayCredits `protobuf:"bytes,5,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,6,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *DetailedResourceContributor) Reset() {
@@ -37431,11 +37581,15 @@ func (x *DetailedResourceContributor) GetSequenceNumber() int32 {
 }
 
 type DiscoverableUseType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	IsDiscoverable   bool                   `protobuf:"varint,3,opt,name=is_discoverable,json=isDiscoverable,proto3" json:"is_discoverable,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"IsDiscoverable,attr"
+	IsDiscoverable bool `protobuf:"varint,3,opt,name=is_discoverable,json=isDiscoverable,proto3" json:"is_discoverable,omitempty" xml:"IsDiscoverable,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -37499,13 +37653,17 @@ func (x *DiscoverableUseType) GetUserDefinedValue() string {
 }
 
 type DisplayArtist struct {
-	state                   protoimpl.MessageState     `protogen:"open.v1"`
-	ArtisticRole            []*ContributorRole         `protobuf:"bytes,1,rep,name=artistic_role,json=artisticRole,proto3" json:"artistic_role,omitempty"`
-	TitleDisplayInformation []*TitleDisplayInformation `protobuf:"bytes,2,rep,name=title_display_information,json=titleDisplayInformation,proto3" json:"title_display_information,omitempty"`
-	DisplayCredits          []*DisplayCredits          `protobuf:"bytes,3,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty"`
-	SequenceNumber          int32                      `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ArtisticRole"
+	ArtisticRole []*ContributorRole `protobuf:"bytes,1,rep,name=artistic_role,json=artisticRole,proto3" json:"artistic_role,omitempty" xml:"ArtisticRole"`
+	// @gotags: xml:"TitleDisplayInformation"
+	TitleDisplayInformation []*TitleDisplayInformation `protobuf:"bytes,2,rep,name=title_display_information,json=titleDisplayInformation,proto3" json:"title_display_information,omitempty" xml:"TitleDisplayInformation"`
+	// @gotags: xml:"DisplayCredits"
+	DisplayCredits []*DisplayCredits `protobuf:"bytes,3,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *DisplayArtist) Reset() {
@@ -37567,14 +37725,19 @@ func (x *DisplayArtist) GetSequenceNumber() int32 {
 }
 
 type DisplayTitleText struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	IsInOriginalLanguage    bool                   `protobuf:"varint,5,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"IsInOriginalLanguage,attr"
+	IsInOriginalLanguage bool `protobuf:"varint,5,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty" xml:"IsInOriginalLanguage,attr"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *DisplayTitleText) Reset() {
@@ -37643,11 +37806,15 @@ func (x *DisplayTitleText) GetIsInOriginalLanguage() bool {
 }
 
 type DistributionChannelPage struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PartyId       []*DetailedPartyId     `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty"`
-	PageName      *Name                  `protobuf:"bytes,2,opt,name=page_name,json=pageName,proto3" json:"page_name,omitempty"`
-	URL           string                 `protobuf:"bytes,3,opt,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty"`
-	UserName      string                 `protobuf:"bytes,4,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PageName"
+	PageName *Name `protobuf:"bytes,2,opt,name=page_name,json=pageName,proto3" json:"page_name,omitempty" xml:"PageName"`
+	// @gotags: xml:"URL"
+	URL string `protobuf:"bytes,3,opt,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty" xml:"URL"`
+	// @gotags: xml:"UserName"
+	UserName      string `protobuf:"bytes,4,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty" xml:"UserName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -37711,16 +37878,23 @@ func (x *DistributionChannelPage) GetUserName() string {
 }
 
 type EditionContributor struct {
-	state                         protoimpl.MessageState `protogen:"open.v1"`
-	Role                          []*ContributorRole     `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty"`
-	AiContribution                ContainsAI             `protobuf:"varint,2,opt,name=ai_contribution,json=aiContribution,proto3,enum=ddex.ern.v432.ContainsAI" json:"ai_contribution,omitempty"`
-	HasMadeFeaturedContribution   bool                   `protobuf:"varint,3,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty"`
-	HasMadeContractedContribution bool                   `protobuf:"varint,4,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty"`
-	IsCredited                    *IsCredited            `protobuf:"bytes,5,opt,name=is_credited,json=isCredited,proto3" json:"is_credited,omitempty"`
-	DisplayCredits                []*DisplayCredits      `protobuf:"bytes,6,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty"`
-	SequenceNumber                int32                  `protobuf:"varint,7,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Role"
+	Role []*ContributorRole `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty" xml:"Role"`
+	// @gotags: xml:"AiContribution"
+	AiContribution ContainsAI `protobuf:"varint,2,opt,name=ai_contribution,json=aiContribution,proto3,enum=ddex.ern.v432.ContainsAI" json:"ai_contribution,omitempty" xml:"AiContribution"`
+	// @gotags: xml:"HasMadeFeaturedContribution"
+	HasMadeFeaturedContribution bool `protobuf:"varint,3,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty" xml:"HasMadeFeaturedContribution"`
+	// @gotags: xml:"HasMadeContractedContribution"
+	HasMadeContractedContribution bool `protobuf:"varint,4,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty" xml:"HasMadeContractedContribution"`
+	// @gotags: xml:"IsCredited"
+	IsCredited *IsCredited `protobuf:"bytes,5,opt,name=is_credited,json=isCredited,proto3" json:"is_credited,omitempty" xml:"IsCredited"`
+	// @gotags: xml:"DisplayCredits"
+	DisplayCredits []*DisplayCredits `protobuf:"bytes,6,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,7,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *EditionContributor) Reset() {
@@ -37803,14 +37977,19 @@ func (x *EditionContributor) GetSequenceNumber() int32 {
 }
 
 type EventDateTimeWithoutFlags struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate           bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	LocationDescription     string                 `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"LocationDescription,attr"
+	LocationDescription string `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *EventDateTimeWithoutFlags) Reset() {
@@ -37879,14 +38058,19 @@ func (x *EventDateTimeWithoutFlags) GetLanguageAndScriptCode() string {
 }
 
 type EventDateWithCurrentTerritory struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate           bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	LocationDescription     string                 `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"LocationDescription,attr"
+	LocationDescription string `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *EventDateWithCurrentTerritory) Reset() {
@@ -37955,13 +38139,17 @@ func (x *EventDateWithCurrentTerritory) GetLanguageAndScriptCode() string {
 }
 
 type EventDateWithDefault struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate           bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
-	ApplicableTerritoryCode *AllTerritoryCode      `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *AllTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *EventDateWithDefault) Reset() {
@@ -38023,14 +38211,19 @@ func (x *EventDateWithDefault) GetIsDefault() bool {
 }
 
 type EventDateWithoutFlags struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate           bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
-	ApplicableTerritoryCode *AllTerritoryCode      `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	LocationDescription     string                 `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *AllTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"LocationDescription,attr"
+	LocationDescription string `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *EventDateWithoutFlags) Reset() {
@@ -38099,14 +38292,19 @@ func (x *EventDateWithoutFlags) GetLanguageAndScriptCode() string {
 }
 
 type ExternalResourceLink struct {
-	state                        protoimpl.MessageState          `protogen:"open.v1"`
-	URL                          []string                        `protobuf:"bytes,1,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty"`
-	ValidityPeriod               *PeriodWithoutFlags             `protobuf:"bytes,2,opt,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty"`
-	ExternalLink                 string                          `protobuf:"bytes,3,opt,name=external_link,json=externalLink,proto3" json:"external_link,omitempty"`
-	ExternallyLinkedResourceType []*ExternallyLinkedResourceType `protobuf:"bytes,4,rep,name=externally_linked_resource_type,json=externallyLinkedResourceType,proto3" json:"externally_linked_resource_type,omitempty"`
-	FileFormat                   string                          `protobuf:"bytes,5,opt,name=file_format,json=fileFormat,proto3" json:"file_format,omitempty"`
-	unknownFields                protoimpl.UnknownFields
-	sizeCache                    protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"URL"
+	URL []string `protobuf:"bytes,1,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty" xml:"URL"`
+	// @gotags: xml:"ValidityPeriod"
+	ValidityPeriod *PeriodWithoutFlags `protobuf:"bytes,2,opt,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty" xml:"ValidityPeriod"`
+	// @gotags: xml:"ExternalLink"
+	ExternalLink string `protobuf:"bytes,3,opt,name=external_link,json=externalLink,proto3" json:"external_link,omitempty" xml:"ExternalLink"`
+	// @gotags: xml:"ExternallyLinkedResourceType"
+	ExternallyLinkedResourceType []*ExternallyLinkedResourceType `protobuf:"bytes,4,rep,name=externally_linked_resource_type,json=externallyLinkedResourceType,proto3" json:"externally_linked_resource_type,omitempty" xml:"ExternallyLinkedResourceType"`
+	// @gotags: xml:"FileFormat"
+	FileFormat    string `protobuf:"bytes,5,opt,name=file_format,json=fileFormat,proto3" json:"file_format,omitempty" xml:"FileFormat"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ExternalResourceLink) Reset() {
@@ -38175,10 +38373,13 @@ func (x *ExternalResourceLink) GetFileFormat() string {
 }
 
 type HdrVideoDynamicMetadataType struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	Value                  string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Version                string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	SdrDerivationPermitted bool                   `protobuf:"varint,3,opt,name=sdr_derivation_permitted,json=sdrDerivationPermitted,proto3" json:"sdr_derivation_permitted,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Version,attr"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version,attr"`
+	// @gotags: xml:"SdrDerivationPermitted,attr"
+	SdrDerivationPermitted bool `protobuf:"varint,3,opt,name=sdr_derivation_permitted,json=sdrDerivationPermitted,proto3" json:"sdr_derivation_permitted,omitempty" xml:"SdrDerivationPermitted,attr"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -38235,35 +38436,61 @@ func (x *HdrVideoDynamicMetadataType) GetSdrDerivationPermitted() bool {
 }
 
 type Image struct {
-	state                    protoimpl.MessageState                   `protogen:"open.v1"`
-	ResourceReference        string                                   `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty"`
-	Type                     *ImageType                               `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	ResourceId               []*ResourceProprietaryId                 `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	DisplayTitleText         []*DisplayTitleText                      `protobuf:"bytes,4,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle             []*DisplayTitle                          `protobuf:"bytes,5,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle              []*DisplayTitle                          `protobuf:"bytes,6,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle            []*DisplayTitle                          `protobuf:"bytes,7,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	VersionType              []*VersionType                           `protobuf:"bytes,8,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty"`
-	DisplayArtistName        []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,9,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist            []*DisplayArtist                         `protobuf:"bytes,10,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	Contributor              []*Contributor                           `protobuf:"bytes,11,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	ResourceRightsController []*ResourceRightsController              `protobuf:"bytes,12,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty"`
-	WorkRightsController     []*WorkRightsController                  `protobuf:"bytes,13,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty"`
-	CLine                    []*CLine                                 `protobuf:"bytes,14,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty"`
-	CourtesyLine             []*CourtesyLine                          `protobuf:"bytes,15,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty"`
-	CreationDate             *EventDateWithoutFlags                   `protobuf:"bytes,16,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty"`
-	FirstPublicationDate     []*FulfillmentDate                       `protobuf:"bytes,17,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty"`
-	ParentalWarningType      []*ParentalWarningTypeWithStandard       `protobuf:"bytes,18,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty"`
-	RelatedRelease           []*RelatedRelease                        `protobuf:"bytes,19,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource          []*RelatedResource                       `protobuf:"bytes,20,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	ContainsAI               ContainsAI                               `protobuf:"varint,21,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty"`
-	ContainsHiddenContent    bool                                     `protobuf:"varint,22,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty"`
-	Description              []*DescriptionWithTerritory              `protobuf:"bytes,23,rep,name=description,proto3" json:"description,omitempty"`
-	TechnicalDetails         []*TechnicalImageDetails                 `protobuf:"bytes,24,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty"`
-	LanguageAndScriptCode    string                                   `protobuf:"bytes,25,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsSupplemental           bool                                     `protobuf:"varint,26,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceReference"
+	ResourceReference string `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty" xml:"ResourceReference"`
+	// @gotags: xml:"Type"
+	Type *ImageType `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ResourceId"
+	ResourceId []*ResourceProprietaryId `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,4,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,5,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"VersionType"
+	VersionType []*VersionType `protobuf:"bytes,8,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty" xml:"VersionType"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,9,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,10,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,11,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"ResourceRightsController"
+	ResourceRightsController []*ResourceRightsController `protobuf:"bytes,12,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty" xml:"ResourceRightsController"`
+	// @gotags: xml:"WorkRightsController"
+	WorkRightsController []*WorkRightsController `protobuf:"bytes,13,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty" xml:"WorkRightsController"`
+	// @gotags: xml:"CLine"
+	CLine []*CLine `protobuf:"bytes,14,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
+	// @gotags: xml:"CourtesyLine"
+	CourtesyLine []*CourtesyLine `protobuf:"bytes,15,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty" xml:"CourtesyLine"`
+	// @gotags: xml:"CreationDate"
+	CreationDate *EventDateWithoutFlags `protobuf:"bytes,16,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty" xml:"CreationDate"`
+	// @gotags: xml:"FirstPublicationDate"
+	FirstPublicationDate []*FulfillmentDate `protobuf:"bytes,17,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty" xml:"FirstPublicationDate"`
+	// @gotags: xml:"ParentalWarningType"
+	ParentalWarningType []*ParentalWarningTypeWithStandard `protobuf:"bytes,18,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty" xml:"ParentalWarningType"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,19,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,20,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"ContainsAI"
+	ContainsAI ContainsAI `protobuf:"varint,21,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	// @gotags: xml:"ContainsHiddenContent"
+	ContainsHiddenContent bool `protobuf:"varint,22,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
+	// @gotags: xml:"Description"
+	Description []*DescriptionWithTerritory `protobuf:"bytes,23,rep,name=description,proto3" json:"description,omitempty" xml:"Description"`
+	// @gotags: xml:"TechnicalDetails"
+	TechnicalDetails []*TechnicalImageDetails `protobuf:"bytes,24,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,25,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsSupplemental,attr"
+	IsSupplemental bool `protobuf:"varint,26,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Image) Reset() {
@@ -38479,16 +38706,23 @@ func (x *Image) GetIsSupplemental() bool {
 }
 
 type LinkedReleaseResourceReference struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LinkDescription       LinkDescription        `protobuf:"varint,2,opt,name=link_description,json=linkDescription,proto3,enum=ddex.ern.v432.LinkDescription" json:"link_description,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	Namespace             string                 `protobuf:"bytes,4,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue      string                 `protobuf:"bytes,5,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	SequenceNumber        int32                  `protobuf:"varint,6,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	IsMultiFile           bool                   `protobuf:"varint,7,opt,name=is_multi_file,json=isMultiFile,proto3" json:"is_multi_file,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LinkDescription,attr"
+	LinkDescription LinkDescription `protobuf:"varint,2,opt,name=link_description,json=linkDescription,proto3,enum=ddex.ern.v432.LinkDescription" json:"link_description,omitempty" xml:"LinkDescription,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,4,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,5,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,6,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	// @gotags: xml:"IsMultiFile,attr"
+	IsMultiFile   bool `protobuf:"varint,7,opt,name=is_multi_file,json=isMultiFile,proto3" json:"is_multi_file,omitempty" xml:"IsMultiFile,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LinkedReleaseResourceReference) Reset() {
@@ -38571,12 +38805,17 @@ func (x *LinkedReleaseResourceReference) GetIsMultiFile() bool {
 }
 
 type LocationAndDateOfSession struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SessionType   []*SessionType         `protobuf:"bytes,1,rep,name=session_type,json=sessionType,proto3" json:"session_type,omitempty"`
-	Period        *Period                `protobuf:"bytes,2,opt,name=period,proto3" json:"period,omitempty"`
-	Venue         []*Venue               `protobuf:"bytes,3,rep,name=venue,proto3" json:"venue,omitempty"`
-	Comment       *TextWithFormat        `protobuf:"bytes,4,opt,name=comment,proto3" json:"comment,omitempty"`
-	Contributor   []*PartyWithRole       `protobuf:"bytes,5,rep,name=contributor,proto3" json:"contributor,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"SessionType"
+	SessionType []*SessionType `protobuf:"bytes,1,rep,name=session_type,json=sessionType,proto3" json:"session_type,omitempty" xml:"SessionType"`
+	// @gotags: xml:"Period"
+	Period *Period `protobuf:"bytes,2,opt,name=period,proto3" json:"period,omitempty" xml:"Period"`
+	// @gotags: xml:"Venue"
+	Venue []*Venue `protobuf:"bytes,3,rep,name=venue,proto3" json:"venue,omitempty" xml:"Venue"`
+	// @gotags: xml:"Comment"
+	Comment *TextWithFormat `protobuf:"bytes,4,opt,name=comment,proto3" json:"comment,omitempty" xml:"Comment"`
+	// @gotags: xml:"Contributor"
+	Contributor   []*PartyWithRole `protobuf:"bytes,5,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -38647,11 +38886,15 @@ func (x *LocationAndDateOfSession) GetContributor() []*PartyWithRole {
 }
 
 type Party struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	PartyReference    string                 `protobuf:"bytes,1,opt,name=party_reference,json=partyReference,proto3" json:"party_reference,omitempty"`
-	Affiliation       []*Affiliation         `protobuf:"bytes,2,rep,name=affiliation,proto3" json:"affiliation,omitempty"`
-	RelatedParty      []*RelatedParty        `protobuf:"bytes,3,rep,name=related_party,json=relatedParty,proto3" json:"related_party,omitempty"`
-	ArtistProfilePage []string               `protobuf:"bytes,4,rep,name=artist_profile_page,json=artistProfilePage,proto3" json:"artist_profile_page,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyReference"
+	PartyReference string `protobuf:"bytes,1,opt,name=party_reference,json=partyReference,proto3" json:"party_reference,omitempty" xml:"PartyReference"`
+	// @gotags: xml:"Affiliation"
+	Affiliation []*Affiliation `protobuf:"bytes,2,rep,name=affiliation,proto3" json:"affiliation,omitempty" xml:"Affiliation"`
+	// @gotags: xml:"RelatedParty"
+	RelatedParty []*RelatedParty `protobuf:"bytes,3,rep,name=related_party,json=relatedParty,proto3" json:"related_party,omitempty" xml:"RelatedParty"`
+	// @gotags: xml:"ArtistProfilePage"
+	ArtistProfilePage []string `protobuf:"bytes,4,rep,name=artist_profile_page,json=artistProfilePage,proto3" json:"artist_profile_page,omitempty" xml:"ArtistProfilePage"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -38715,9 +38958,11 @@ func (x *Party) GetArtistProfilePage() []string {
 }
 
 type PartyList struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Party         []*Party               `protobuf:"bytes,1,rep,name=party,proto3" json:"party,omitempty"`
-	Brand         []*Brand               `protobuf:"bytes,2,rep,name=brand,proto3" json:"brand,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Party"
+	Party []*Party `protobuf:"bytes,1,rep,name=party,proto3" json:"party,omitempty" xml:"Party"`
+	// @gotags: xml:"Brand"
+	Brand         []*Brand `protobuf:"bytes,2,rep,name=brand,proto3" json:"brand,omitempty" xml:"Brand"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -38767,23 +39012,37 @@ func (x *PartyList) GetBrand() []*Brand {
 }
 
 type PartyNameWithTerritory struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	FullName                 *Name                  `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	FullNameAsciiTranscribed string                 `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty"`
-	FullNameIndexed          *Name                  `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty"`
-	NamesBeforeKeyName       *Name                  `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty"`
-	KeyName                  *Name                  `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty"`
-	NamesAfterKeyName        *Name                  `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty"`
-	AbbreviatedName          *Name                  `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty"`
-	LanguageAndScriptCode    string                 `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsNickname               bool                   `protobuf:"varint,9,opt,name=is_nickname,json=isNickname,proto3" json:"is_nickname,omitempty"`
-	IsStageName              bool                   `protobuf:"varint,10,opt,name=is_stage_name,json=isStageName,proto3" json:"is_stage_name,omitempty"`
-	IsLegalName              bool                   `protobuf:"varint,11,opt,name=is_legal_name,json=isLegalName,proto3" json:"is_legal_name,omitempty"`
-	ApplicableTerritoryCode  *CurrentTerritoryCode  `protobuf:"bytes,12,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                bool                   `protobuf:"varint,13,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	IsInOriginalLanguage     bool                   `protobuf:"varint,14,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"FullName"
+	FullName *Name `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty" xml:"FullName"`
+	// @gotags: xml:"FullNameAsciiTranscribed"
+	FullNameAsciiTranscribed string `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty" xml:"FullNameAsciiTranscribed"`
+	// @gotags: xml:"FullNameIndexed"
+	FullNameIndexed *Name `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty" xml:"FullNameIndexed"`
+	// @gotags: xml:"NamesBeforeKeyName"
+	NamesBeforeKeyName *Name `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty" xml:"NamesBeforeKeyName"`
+	// @gotags: xml:"KeyName"
+	KeyName *Name `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty" xml:"KeyName"`
+	// @gotags: xml:"NamesAfterKeyName"
+	NamesAfterKeyName *Name `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty" xml:"NamesAfterKeyName"`
+	// @gotags: xml:"AbbreviatedName"
+	AbbreviatedName *Name `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty" xml:"AbbreviatedName"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsNickname,attr"
+	IsNickname bool `protobuf:"varint,9,opt,name=is_nickname,json=isNickname,proto3" json:"is_nickname,omitempty" xml:"IsNickname,attr"`
+	// @gotags: xml:"IsStageName,attr"
+	IsStageName bool `protobuf:"varint,10,opt,name=is_stage_name,json=isStageName,proto3" json:"is_stage_name,omitempty" xml:"IsStageName,attr"`
+	// @gotags: xml:"IsLegalName,attr"
+	IsLegalName bool `protobuf:"varint,11,opt,name=is_legal_name,json=isLegalName,proto3" json:"is_legal_name,omitempty" xml:"IsLegalName,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,12,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,13,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"IsInOriginalLanguage,attr"
+	IsInOriginalLanguage bool `protobuf:"varint,14,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty" xml:"IsInOriginalLanguage,attr"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *PartyNameWithTerritory) Reset() {
@@ -38915,14 +39174,21 @@ func (x *PartyNameWithTerritory) GetIsInOriginalLanguage() bool {
 }
 
 type PartyWithRole struct {
-	state         protoimpl.MessageState   `protogen:"open.v1"`
-	ISNI          string                   `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty"`
-	DPID          string                   `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty"`
-	IpiNameNumber string                   `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty"`
-	IPN           string                   `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty"`
-	ProprietaryId []*ProprietaryId         `protobuf:"bytes,5,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	PartyName     *PartyNameWithTerritory  `protobuf:"bytes,6,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty"`
-	Role          *ResourceContributorRole `protobuf:"bytes,7,opt,name=role,proto3" json:"role,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISNI"
+	ISNI string `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty" xml:"ISNI"`
+	// @gotags: xml:"DPID"
+	DPID string `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty" xml:"DPID"`
+	// @gotags: xml:"IpiNameNumber"
+	IpiNameNumber string `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty" xml:"IpiNameNumber"`
+	// @gotags: xml:"IPN"
+	IPN string `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty" xml:"IPN"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,5,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"PartyName"
+	PartyName *PartyNameWithTerritory `protobuf:"bytes,6,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
+	// @gotags: xml:"Role"
+	Role          *ResourceContributorRole `protobuf:"bytes,7,opt,name=role,proto3" json:"role,omitempty" xml:"Role"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -39079,9 +39345,11 @@ func (*PeriodWithoutFlags) Descriptor() ([]byte, []int) {
 }
 
 type PhysicalReturns struct {
-	state                        protoimpl.MessageState `protogen:"open.v1"`
-	PhysicalReturnsAllowed       bool                   `protobuf:"varint,1,opt,name=physical_returns_allowed,json=physicalReturnsAllowed,proto3" json:"physical_returns_allowed,omitempty"`
-	LatestDateForPhysicalReturns string                 `protobuf:"bytes,2,opt,name=latest_date_for_physical_returns,json=latestDateForPhysicalReturns,proto3" json:"latest_date_for_physical_returns,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PhysicalReturnsAllowed"
+	PhysicalReturnsAllowed bool `protobuf:"varint,1,opt,name=physical_returns_allowed,json=physicalReturnsAllowed,proto3" json:"physical_returns_allowed,omitempty" xml:"PhysicalReturnsAllowed"`
+	// @gotags: xml:"LatestDateForPhysicalReturns"
+	LatestDateForPhysicalReturns string `protobuf:"bytes,2,opt,name=latest_date_for_physical_returns,json=latestDateForPhysicalReturns,proto3" json:"latest_date_for_physical_returns,omitempty" xml:"LatestDateForPhysicalReturns"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -39131,16 +39399,23 @@ func (x *PhysicalReturns) GetLatestDateForPhysicalReturns() string {
 }
 
 type PriceInformation struct {
-	state                          protoimpl.MessageState `protogen:"open.v1"`
-	PriceCode                      *PriceType             `protobuf:"bytes,1,opt,name=price_code,json=priceCode,proto3" json:"price_code,omitempty"`
-	WholesalePricePerUnit          *Price                 `protobuf:"bytes,2,opt,name=wholesale_price_per_unit,json=wholesalePricePerUnit,proto3" json:"wholesale_price_per_unit,omitempty"`
-	BulkOrderWholesalePricePerUnit *Price                 `protobuf:"bytes,3,opt,name=bulk_order_wholesale_price_per_unit,json=bulkOrderWholesalePricePerUnit,proto3" json:"bulk_order_wholesale_price_per_unit,omitempty"`
-	SuggestedRetailPrice           *Price                 `protobuf:"bytes,4,opt,name=suggested_retail_price,json=suggestedRetailPrice,proto3" json:"suggested_retail_price,omitempty"`
-	PriceType                      PriceInformationType   `protobuf:"varint,5,opt,name=price_type,json=priceType,proto3,enum=ddex.ern.v432.PriceInformationType" json:"price_type,omitempty"`
-	Namespace                      string                 `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue               string                 `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PriceCode"
+	PriceCode *PriceType `protobuf:"bytes,1,opt,name=price_code,json=priceCode,proto3" json:"price_code,omitempty" xml:"PriceCode"`
+	// @gotags: xml:"WholesalePricePerUnit"
+	WholesalePricePerUnit *Price `protobuf:"bytes,2,opt,name=wholesale_price_per_unit,json=wholesalePricePerUnit,proto3" json:"wholesale_price_per_unit,omitempty" xml:"WholesalePricePerUnit"`
+	// @gotags: xml:"BulkOrderWholesalePricePerUnit"
+	BulkOrderWholesalePricePerUnit *Price `protobuf:"bytes,3,opt,name=bulk_order_wholesale_price_per_unit,json=bulkOrderWholesalePricePerUnit,proto3" json:"bulk_order_wholesale_price_per_unit,omitempty" xml:"BulkOrderWholesalePricePerUnit"`
+	// @gotags: xml:"SuggestedRetailPrice"
+	SuggestedRetailPrice *Price `protobuf:"bytes,4,opt,name=suggested_retail_price,json=suggestedRetailPrice,proto3" json:"suggested_retail_price,omitempty" xml:"SuggestedRetailPrice"`
+	// @gotags: xml:"PriceType,attr"
+	PriceType PriceInformationType `protobuf:"varint,5,opt,name=price_type,json=priceType,proto3,enum=ddex.ern.v432.PriceInformationType" json:"price_type,omitempty" xml:"PriceType,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *PriceInformation) Reset() {
@@ -39223,10 +39498,13 @@ func (x *PriceInformation) GetUserDefinedValue() string {
 }
 
 type PurgedRelease struct {
-	state         protoimpl.MessageState         `protogen:"open.v1"`
-	ReleaseId     *ReleaseId                     `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty"`
-	Title         []*Title                       `protobuf:"bytes,2,rep,name=title,proto3" json:"title,omitempty"`
-	Contributor   []*DetailedResourceContributor `protobuf:"bytes,3,rep,name=contributor,proto3" json:"contributor,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"Title"
+	Title []*Title `protobuf:"bytes,2,rep,name=title,proto3" json:"title,omitempty" xml:"Title"`
+	// @gotags: xml:"Contributor"
+	Contributor   []*DetailedResourceContributor `protobuf:"bytes,3,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -39283,12 +39561,15 @@ func (x *PurgedRelease) GetContributor() []*DetailedResourceContributor {
 }
 
 type Raga struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Raga) Reset() {
@@ -39343,10 +39624,13 @@ func (x *Raga) GetIsDefault() bool {
 }
 
 type RecordingFormat struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -39403,19 +39687,29 @@ func (x *RecordingFormat) GetUserDefinedValue() string {
 }
 
 type RelatedRelease struct {
-	state                   protoimpl.MessageState                   `protogen:"open.v1"`
-	ReleaseRelationshipType *ReleaseRelationshipType                 `protobuf:"bytes,1,opt,name=release_relationship_type,json=releaseRelationshipType,proto3" json:"release_relationship_type,omitempty"`
-	ReleaseId               *ReleaseId                               `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty"`
-	DisplayTitleText        []*DisplayTitleText                      `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle            []*DisplayTitle                          `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle             []*DisplayTitle                          `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle           []*DisplayTitle                          `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	DisplayArtistName       []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,7,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	ReleaseLabelReference   []*ReleaseLabelReference                 `protobuf:"bytes,8,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty"`
-	ReleaseDate             *EventDateWithoutFlags                   `protobuf:"bytes,9,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
-	OriginalReleaseDate     *EventDateWithoutFlags                   `protobuf:"bytes,10,opt,name=original_release_date,json=originalReleaseDate,proto3" json:"original_release_date,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseRelationshipType"
+	ReleaseRelationshipType *ReleaseRelationshipType `protobuf:"bytes,1,opt,name=release_relationship_type,json=releaseRelationshipType,proto3" json:"release_relationship_type,omitempty" xml:"ReleaseRelationshipType"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,7,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"ReleaseLabelReference"
+	ReleaseLabelReference []*ReleaseLabelReference `protobuf:"bytes,8,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty" xml:"ReleaseLabelReference"`
+	// @gotags: xml:"ReleaseDate"
+	ReleaseDate *EventDateWithoutFlags `protobuf:"bytes,9,opt,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty" xml:"ReleaseDate"`
+	// @gotags: xml:"OriginalReleaseDate"
+	OriginalReleaseDate *EventDateWithoutFlags `protobuf:"bytes,10,opt,name=original_release_date,json=originalReleaseDate,proto3" json:"original_release_date,omitempty" xml:"OriginalReleaseDate"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *RelatedRelease) Reset() {
@@ -39519,11 +39813,13 @@ func (x *RelatedRelease) GetOriginalReleaseDate() *EventDateWithoutFlags {
 }
 
 type RelatedResource struct {
-	state                    protoimpl.MessageState   `protogen:"open.v1"`
-	ResourceRelationshipType ResourceRelationshipType `protobuf:"varint,1,opt,name=resource_relationship_type,json=resourceRelationshipType,proto3,enum=ddex.ern.v432.ResourceRelationshipType" json:"resource_relationship_type,omitempty"`
-	Timing                   []*Timing                `protobuf:"bytes,2,rep,name=timing,proto3" json:"timing,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceRelationshipType"
+	ResourceRelationshipType ResourceRelationshipType `protobuf:"varint,1,opt,name=resource_relationship_type,json=resourceRelationshipType,proto3,enum=ddex.ern.v432.ResourceRelationshipType" json:"resource_relationship_type,omitempty" xml:"ResourceRelationshipType"`
+	// @gotags: xml:"Timing"
+	Timing        []*Timing `protobuf:"bytes,2,rep,name=timing,proto3" json:"timing,omitempty" xml:"Timing"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RelatedResource) Reset() {
@@ -39571,47 +39867,85 @@ func (x *RelatedResource) GetTiming() []*Timing {
 }
 
 type Release struct {
-	state                       protoimpl.MessageState                   `protogen:"open.v1"`
-	ReleaseReference            string                                   `protobuf:"bytes,1,opt,name=release_reference,json=releaseReference,proto3" json:"release_reference,omitempty"`
-	ReleaseType                 []*ReleaseTypeForReleaseNotification     `protobuf:"bytes,2,rep,name=release_type,json=releaseType,proto3" json:"release_type,omitempty"`
-	ReleaseId                   *ReleaseId                               `protobuf:"bytes,3,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty"`
-	DisplayTitleText            []*DisplayTitleText                      `protobuf:"bytes,4,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                []*DisplayTitle                          `protobuf:"bytes,5,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                 []*DisplayTitle                          `protobuf:"bytes,6,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle               []*DisplayTitle                          `protobuf:"bytes,7,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	VersionType                 []*VersionType                           `protobuf:"bytes,8,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty"`
-	DisplayArtistName           []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,9,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist               []*DisplayArtist                         `protobuf:"bytes,10,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	ReleaseLabelReference       []*ReleaseLabelReferenceWithParty        `protobuf:"bytes,11,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty"`
-	AdministratingRecordCompany []*AdministratingRecordCompany           `protobuf:"bytes,12,rep,name=administrating_record_company,json=administratingRecordCompany,proto3" json:"administrating_record_company,omitempty"`
-	PLine                       []*PLine                                 `protobuf:"bytes,13,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty"`
-	CLine                       []*CLine                                 `protobuf:"bytes,14,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty"`
-	CourtesyLine                []*CourtesyLine                          `protobuf:"bytes,15,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty"`
-	Duration                    string                                   `protobuf:"bytes,16,opt,name=duration,proto3" json:"duration,omitempty"`
-	DisplayGenre                []*GenreWithTerritory                    `protobuf:"bytes,17,rep,name=display_genre,json=displayGenre,proto3" json:"display_genre,omitempty"`
-	ReleaseDate                 []*EventDateWithDefault                  `protobuf:"bytes,18,rep,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty"`
-	OriginalReleaseDate         []*EventDateWithDefault                  `protobuf:"bytes,19,rep,name=original_release_date,json=originalReleaseDate,proto3" json:"original_release_date,omitempty"`
-	ReleaseVisibilityReference  []string                                 `protobuf:"bytes,20,rep,name=release_visibility_reference,json=releaseVisibilityReference,proto3" json:"release_visibility_reference,omitempty"`
-	ParentalWarningType         []*ParentalWarningTypeWithStandard       `protobuf:"bytes,21,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty"`
-	AvRating                    []*AvRating                              `protobuf:"bytes,22,rep,name=av_rating,json=avRating,proto3" json:"av_rating,omitempty"`
-	RelatedRelease              []*RelatedRelease                        `protobuf:"bytes,23,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource             []*RelatedResource                       `protobuf:"bytes,24,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	ResourceGroup               *ResourceGroup                           `protobuf:"bytes,25,opt,name=resource_group,json=resourceGroup,proto3" json:"resource_group,omitempty"`
-	ExternalResourceLink        []*ExternalResourceLink                  `protobuf:"bytes,26,rep,name=external_resource_link,json=externalResourceLink,proto3" json:"external_resource_link,omitempty"`
-	TargetURL                   string                                   `protobuf:"bytes,27,opt,name=target_u_r_l,json=targetURL,proto3" json:"target_u_r_l,omitempty"`
-	Keywords                    []*KeywordsWithTerritory                 `protobuf:"bytes,28,rep,name=keywords,proto3" json:"keywords,omitempty"`
-	Synopsis                    []*SynopsisWithTerritory                 `protobuf:"bytes,29,rep,name=synopsis,proto3" json:"synopsis,omitempty"`
-	Raga                        []*Raga                                  `protobuf:"bytes,30,rep,name=raga,proto3" json:"raga,omitempty"`
-	Tala                        []*Tala                                  `protobuf:"bytes,31,rep,name=tala,proto3" json:"tala,omitempty"`
-	Deity                       []*Deity                                 `protobuf:"bytes,32,rep,name=deity,proto3" json:"deity,omitempty"`
-	HiResMusicDescription       string                                   `protobuf:"bytes,33,opt,name=hi_res_music_description,json=hiResMusicDescription,proto3" json:"hi_res_music_description,omitempty"`
-	ContainsAI                  ContainsAI                               `protobuf:"varint,34,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty"`
-	IsSoundtrack                bool                                     `protobuf:"varint,35,opt,name=is_soundtrack,json=isSoundtrack,proto3" json:"is_soundtrack,omitempty"`
-	IsHiResMusic                bool                                     `protobuf:"varint,36,opt,name=is_hi_res_music,json=isHiResMusic,proto3" json:"is_hi_res_music,omitempty"`
-	MarketingComment            []*MarketingComment                      `protobuf:"bytes,37,rep,name=marketing_comment,json=marketingComment,proto3" json:"marketing_comment,omitempty"`
-	LanguageAndScriptCode       string                                   `protobuf:"bytes,38,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseReference"
+	ReleaseReference string `protobuf:"bytes,1,opt,name=release_reference,json=releaseReference,proto3" json:"release_reference,omitempty" xml:"ReleaseReference"`
+	// @gotags: xml:"ReleaseType"
+	ReleaseType []*ReleaseTypeForReleaseNotification `protobuf:"bytes,2,rep,name=release_type,json=releaseType,proto3" json:"release_type,omitempty" xml:"ReleaseType"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,3,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,4,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,5,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"VersionType"
+	VersionType []*VersionType `protobuf:"bytes,8,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty" xml:"VersionType"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,9,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,10,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"ReleaseLabelReference"
+	ReleaseLabelReference []*ReleaseLabelReferenceWithParty `protobuf:"bytes,11,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty" xml:"ReleaseLabelReference"`
+	// @gotags: xml:"AdministratingRecordCompany"
+	AdministratingRecordCompany []*AdministratingRecordCompany `protobuf:"bytes,12,rep,name=administrating_record_company,json=administratingRecordCompany,proto3" json:"administrating_record_company,omitempty" xml:"AdministratingRecordCompany"`
+	// @gotags: xml:"PLine"
+	PLine []*PLine `protobuf:"bytes,13,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty" xml:"PLine"`
+	// @gotags: xml:"CLine"
+	CLine []*CLine `protobuf:"bytes,14,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
+	// @gotags: xml:"CourtesyLine"
+	CourtesyLine []*CourtesyLine `protobuf:"bytes,15,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty" xml:"CourtesyLine"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,16,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"DisplayGenre"
+	DisplayGenre []*GenreWithTerritory `protobuf:"bytes,17,rep,name=display_genre,json=displayGenre,proto3" json:"display_genre,omitempty" xml:"DisplayGenre"`
+	// @gotags: xml:"ReleaseDate"
+	ReleaseDate []*EventDateWithDefault `protobuf:"bytes,18,rep,name=release_date,json=releaseDate,proto3" json:"release_date,omitempty" xml:"ReleaseDate"`
+	// @gotags: xml:"OriginalReleaseDate"
+	OriginalReleaseDate []*EventDateWithDefault `protobuf:"bytes,19,rep,name=original_release_date,json=originalReleaseDate,proto3" json:"original_release_date,omitempty" xml:"OriginalReleaseDate"`
+	// @gotags: xml:"ReleaseVisibilityReference"
+	ReleaseVisibilityReference []string `protobuf:"bytes,20,rep,name=release_visibility_reference,json=releaseVisibilityReference,proto3" json:"release_visibility_reference,omitempty" xml:"ReleaseVisibilityReference"`
+	// @gotags: xml:"ParentalWarningType"
+	ParentalWarningType []*ParentalWarningTypeWithStandard `protobuf:"bytes,21,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty" xml:"ParentalWarningType"`
+	// @gotags: xml:"AvRating"
+	AvRating []*AvRating `protobuf:"bytes,22,rep,name=av_rating,json=avRating,proto3" json:"av_rating,omitempty" xml:"AvRating"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,23,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,24,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"ResourceGroup"
+	ResourceGroup *ResourceGroup `protobuf:"bytes,25,opt,name=resource_group,json=resourceGroup,proto3" json:"resource_group,omitempty" xml:"ResourceGroup"`
+	// @gotags: xml:"ExternalResourceLink"
+	ExternalResourceLink []*ExternalResourceLink `protobuf:"bytes,26,rep,name=external_resource_link,json=externalResourceLink,proto3" json:"external_resource_link,omitempty" xml:"ExternalResourceLink"`
+	// @gotags: xml:"TargetURL"
+	TargetURL string `protobuf:"bytes,27,opt,name=target_u_r_l,json=targetURL,proto3" json:"target_u_r_l,omitempty" xml:"TargetURL"`
+	// @gotags: xml:"Keywords"
+	Keywords []*KeywordsWithTerritory `protobuf:"bytes,28,rep,name=keywords,proto3" json:"keywords,omitempty" xml:"Keywords"`
+	// @gotags: xml:"Synopsis"
+	Synopsis []*SynopsisWithTerritory `protobuf:"bytes,29,rep,name=synopsis,proto3" json:"synopsis,omitempty" xml:"Synopsis"`
+	// @gotags: xml:"Raga"
+	Raga []*Raga `protobuf:"bytes,30,rep,name=raga,proto3" json:"raga,omitempty" xml:"Raga"`
+	// @gotags: xml:"Tala"
+	Tala []*Tala `protobuf:"bytes,31,rep,name=tala,proto3" json:"tala,omitempty" xml:"Tala"`
+	// @gotags: xml:"Deity"
+	Deity []*Deity `protobuf:"bytes,32,rep,name=deity,proto3" json:"deity,omitempty" xml:"Deity"`
+	// @gotags: xml:"HiResMusicDescription"
+	HiResMusicDescription string `protobuf:"bytes,33,opt,name=hi_res_music_description,json=hiResMusicDescription,proto3" json:"hi_res_music_description,omitempty" xml:"HiResMusicDescription"`
+	// @gotags: xml:"ContainsAI"
+	ContainsAI ContainsAI `protobuf:"varint,34,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	// @gotags: xml:"IsSoundtrack"
+	IsSoundtrack bool `protobuf:"varint,35,opt,name=is_soundtrack,json=isSoundtrack,proto3" json:"is_soundtrack,omitempty" xml:"IsSoundtrack"`
+	// @gotags: xml:"IsHiResMusic"
+	IsHiResMusic bool `protobuf:"varint,36,opt,name=is_hi_res_music,json=isHiResMusic,proto3" json:"is_hi_res_music,omitempty" xml:"IsHiResMusic"`
+	// @gotags: xml:"MarketingComment"
+	MarketingComment []*MarketingComment `protobuf:"bytes,37,rep,name=marketing_comment,json=marketingComment,proto3" json:"marketing_comment,omitempty" xml:"MarketingComment"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,38,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *Release) Reset() {
@@ -39911,12 +40245,15 @@ func (x *Release) GetLanguageAndScriptCode() string {
 }
 
 type ReleaseAdmin struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	ReleaseAdminId       string                 `protobuf:"bytes,1,opt,name=release_admin_id,json=releaseAdminId,proto3" json:"release_admin_id,omitempty"`
-	PersonnelDescription string                 `protobuf:"bytes,2,opt,name=personnel_description,json=personnelDescription,proto3" json:"personnel_description,omitempty"`
-	SystemDescription    []string               `protobuf:"bytes,3,rep,name=system_description,json=systemDescription,proto3" json:"system_description,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseAdminId"
+	ReleaseAdminId string `protobuf:"bytes,1,opt,name=release_admin_id,json=releaseAdminId,proto3" json:"release_admin_id,omitempty" xml:"ReleaseAdminId"`
+	// @gotags: xml:"PersonnelDescription"
+	PersonnelDescription string `protobuf:"bytes,2,opt,name=personnel_description,json=personnelDescription,proto3" json:"personnel_description,omitempty" xml:"PersonnelDescription"`
+	// @gotags: xml:"SystemDescription"
+	SystemDescription []string `protobuf:"bytes,3,rep,name=system_description,json=systemDescription,proto3" json:"system_description,omitempty" xml:"SystemDescription"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ReleaseAdmin) Reset() {
@@ -39971,11 +40308,13 @@ func (x *ReleaseAdmin) GetSystemDescription() []string {
 }
 
 type ReleaseDeal struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	DealReleaseReference []string               `protobuf:"bytes,1,rep,name=deal_release_reference,json=dealReleaseReference,proto3" json:"deal_release_reference,omitempty"`
-	Deal                 []*Deal                `protobuf:"bytes,2,rep,name=deal,proto3" json:"deal,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"DealReleaseReference"
+	DealReleaseReference []string `protobuf:"bytes,1,rep,name=deal_release_reference,json=dealReleaseReference,proto3" json:"deal_release_reference,omitempty" xml:"DealReleaseReference"`
+	// @gotags: xml:"Deal"
+	Deal          []*Deal `protobuf:"bytes,2,rep,name=deal,proto3" json:"deal,omitempty" xml:"Deal"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ReleaseDeal) Reset() {
@@ -40023,11 +40362,15 @@ func (x *ReleaseDeal) GetDeal() []*Deal {
 }
 
 type ReleaseId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	GRid          string                 `protobuf:"bytes,1,opt,name=g_rid,json=gRid,proto3" json:"g_rid,omitempty"`
-	ICPN          string                 `protobuf:"bytes,2,opt,name=i_c_p_n,json=iCPN,proto3" json:"i_c_p_n,omitempty"`
-	CatalogNumber *CatalogNumber         `protobuf:"bytes,3,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"GRid"
+	GRid string `protobuf:"bytes,1,opt,name=g_rid,json=gRid,proto3" json:"g_rid,omitempty" xml:"GRid"`
+	// @gotags: xml:"ICPN"
+	ICPN string `protobuf:"bytes,2,opt,name=i_c_p_n,json=iCPN,proto3" json:"i_c_p_n,omitempty" xml:"ICPN"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber *CatalogNumber `protobuf:"bytes,3,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -40091,14 +40434,21 @@ func (x *ReleaseId) GetProprietaryId() []*ProprietaryId {
 }
 
 type ReleaseLabelReference struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	LabelType               LabelType              `protobuf:"varint,4,opt,name=label_type,json=labelType,proto3,enum=ddex.ern.v432.LabelType" json:"label_type,omitempty"`
-	Namespace               string                 `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue        string                 `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"LabelType,attr"
+	LabelType LabelType `protobuf:"varint,4,opt,name=label_type,json=labelType,proto3,enum=ddex.ern.v432.LabelType" json:"label_type,omitempty" xml:"LabelType,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -40183,15 +40533,23 @@ func (x *ReleaseLabelReference) GetApplicableTerritoryCode() *CurrentTerritoryCo
 }
 
 type ReleaseLabelReferenceWithParty struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	LabelType               LabelType              `protobuf:"varint,4,opt,name=label_type,json=labelType,proto3,enum=ddex.ern.v432.LabelType" json:"label_type,omitempty"`
-	AccessControlParty      string                 `protobuf:"bytes,5,opt,name=access_control_party,json=accessControlParty,proto3" json:"access_control_party,omitempty"`
-	Namespace               string                 `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue        string                 `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,8,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"LabelType,attr"
+	LabelType LabelType `protobuf:"varint,4,opt,name=label_type,json=labelType,proto3,enum=ddex.ern.v432.LabelType" json:"label_type,omitempty" xml:"LabelType,attr"`
+	// @gotags: xml:"AccessControlParty,attr"
+	AccessControlParty string `protobuf:"bytes,5,opt,name=access_control_party,json=accessControlParty,proto3" json:"access_control_party,omitempty" xml:"AccessControlParty,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,8,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -40283,10 +40641,13 @@ func (x *ReleaseLabelReferenceWithParty) GetApplicableTerritoryCode() *CurrentTe
 }
 
 type ReleaseList struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Release       *Release               `protobuf:"bytes,1,opt,name=release,proto3" json:"release,omitempty"`
-	TrackRelease  []*TrackRelease        `protobuf:"bytes,2,rep,name=track_release,json=trackRelease,proto3" json:"track_release,omitempty"`
-	ClipRelease   []*ClipRelease         `protobuf:"bytes,3,rep,name=clip_release,json=clipRelease,proto3" json:"clip_release,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Release"
+	Release *Release `protobuf:"bytes,1,opt,name=release,proto3" json:"release,omitempty" xml:"Release"`
+	// @gotags: xml:"TrackRelease"
+	TrackRelease []*TrackRelease `protobuf:"bytes,2,rep,name=track_release,json=trackRelease,proto3" json:"track_release,omitempty" xml:"TrackRelease"`
+	// @gotags: xml:"ClipRelease"
+	ClipRelease   []*ClipRelease `protobuf:"bytes,3,rep,name=clip_release,json=clipRelease,proto3" json:"clip_release,omitempty" xml:"ClipRelease"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -40343,15 +40704,21 @@ func (x *ReleaseList) GetClipRelease() []*ClipRelease {
 }
 
 type ReleaseVisibility struct {
-	state                                protoimpl.MessageState `protogen:"open.v1"`
-	VisibilityReference                  string                 `protobuf:"bytes,1,opt,name=visibility_reference,json=visibilityReference,proto3" json:"visibility_reference,omitempty"`
-	ReleaseDisplayStartDateTime          string                 `protobuf:"bytes,2,opt,name=release_display_start_date_time,json=releaseDisplayStartDateTime,proto3" json:"release_display_start_date_time,omitempty"`
-	CoverArtPreviewStartDateTime         string                 `protobuf:"bytes,3,opt,name=cover_art_preview_start_date_time,json=coverArtPreviewStartDateTime,proto3" json:"cover_art_preview_start_date_time,omitempty"`
-	FullTrackListingPreviewStartDateTime string                 `protobuf:"bytes,4,opt,name=full_track_listing_preview_start_date_time,json=fullTrackListingPreviewStartDateTime,proto3" json:"full_track_listing_preview_start_date_time,omitempty"`
-	ClipPreviewStartDateTime             string                 `protobuf:"bytes,5,opt,name=clip_preview_start_date_time,json=clipPreviewStartDateTime,proto3" json:"clip_preview_start_date_time,omitempty"`
-	DoNotDisplayDates                    bool                   `protobuf:"varint,6,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty"`
-	unknownFields                        protoimpl.UnknownFields
-	sizeCache                            protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"VisibilityReference"
+	VisibilityReference string `protobuf:"bytes,1,opt,name=visibility_reference,json=visibilityReference,proto3" json:"visibility_reference,omitempty" xml:"VisibilityReference"`
+	// @gotags: xml:"ReleaseDisplayStartDateTime"
+	ReleaseDisplayStartDateTime string `protobuf:"bytes,2,opt,name=release_display_start_date_time,json=releaseDisplayStartDateTime,proto3" json:"release_display_start_date_time,omitempty" xml:"ReleaseDisplayStartDateTime"`
+	// @gotags: xml:"CoverArtPreviewStartDateTime"
+	CoverArtPreviewStartDateTime string `protobuf:"bytes,3,opt,name=cover_art_preview_start_date_time,json=coverArtPreviewStartDateTime,proto3" json:"cover_art_preview_start_date_time,omitempty" xml:"CoverArtPreviewStartDateTime"`
+	// @gotags: xml:"FullTrackListingPreviewStartDateTime"
+	FullTrackListingPreviewStartDateTime string `protobuf:"bytes,4,opt,name=full_track_listing_preview_start_date_time,json=fullTrackListingPreviewStartDateTime,proto3" json:"full_track_listing_preview_start_date_time,omitempty" xml:"FullTrackListingPreviewStartDateTime"`
+	// @gotags: xml:"ClipPreviewStartDateTime"
+	ClipPreviewStartDateTime string `protobuf:"bytes,5,opt,name=clip_preview_start_date_time,json=clipPreviewStartDateTime,proto3" json:"clip_preview_start_date_time,omitempty" xml:"ClipPreviewStartDateTime"`
+	// @gotags: xml:"DoNotDisplayDates,attr"
+	DoNotDisplayDates bool `protobuf:"varint,6,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty" xml:"DoNotDisplayDates,attr"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ReleaseVisibility) Reset() {
@@ -40427,18 +40794,29 @@ func (x *ReleaseVisibility) GetDoNotDisplayDates() bool {
 }
 
 type ResourceGroup struct {
-	state                          protoimpl.MessageState            `protogen:"open.v1"`
-	DisplayTitleText               []*DisplayTitleText               `protobuf:"bytes,1,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                   []*DisplayTitle                   `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                    []*DisplayTitle                   `protobuf:"bytes,3,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                  []*DisplayTitle                   `protobuf:"bytes,4,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	SequenceNumber                 int32                             `protobuf:"varint,5,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	DisplayArtist                  []*DisplayArtist                  `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	CarrierType                    []*CarrierType                    `protobuf:"bytes,7,rep,name=carrier_type,json=carrierType,proto3" json:"carrier_type,omitempty"`
-	Duration                       string                            `protobuf:"bytes,8,opt,name=duration,proto3" json:"duration,omitempty"`
-	ResourceGroup                  []*ResourceSubGroup               `protobuf:"bytes,9,rep,name=resource_group,json=resourceGroup,proto3" json:"resource_group,omitempty"`
-	ResourceGroupContentItem       []*ResourceGroupContentItem       `protobuf:"bytes,10,rep,name=resource_group_content_item,json=resourceGroupContentItem,proto3" json:"resource_group_content_item,omitempty"`
-	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,11,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,1,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,3,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,4,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"SequenceNumber"
+	SequenceNumber int32 `protobuf:"varint,5,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"CarrierType"
+	CarrierType []*CarrierType `protobuf:"bytes,7,rep,name=carrier_type,json=carrierType,proto3" json:"carrier_type,omitempty" xml:"CarrierType"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,8,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"ResourceGroup"
+	ResourceGroup []*ResourceSubGroup `protobuf:"bytes,9,rep,name=resource_group,json=resourceGroup,proto3" json:"resource_group,omitempty" xml:"ResourceGroup"`
+	// @gotags: xml:"ResourceGroupContentItem"
+	ResourceGroupContentItem []*ResourceGroupContentItem `protobuf:"bytes,10,rep,name=resource_group_content_item,json=resourceGroupContentItem,proto3" json:"resource_group_content_item,omitempty" xml:"ResourceGroupContentItem"`
+	// @gotags: xml:"LinkedReleaseResourceReference"
+	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,11,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty" xml:"LinkedReleaseResourceReference"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -40551,15 +40929,21 @@ func (x *ResourceGroup) GetLinkedReleaseResourceReference() []*LinkedReleaseReso
 }
 
 type ResourceGroupContentItem struct {
-	state                          protoimpl.MessageState            `protogen:"open.v1"`
-	SequenceNumber                 int32                             `protobuf:"varint,1,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	ReleaseResourceReference       string                            `protobuf:"bytes,2,opt,name=release_resource_reference,json=releaseResourceReference,proto3" json:"release_resource_reference,omitempty"`
-	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,3,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty"`
-	IsBonusResource                bool                              `protobuf:"varint,4,opt,name=is_bonus_resource,json=isBonusResource,proto3" json:"is_bonus_resource,omitempty"`
-	IsInstantGratificationResource bool                              `protobuf:"varint,5,opt,name=is_instant_gratification_resource,json=isInstantGratificationResource,proto3" json:"is_instant_gratification_resource,omitempty"`
-	IsPreOrderIncentiveResource    bool                              `protobuf:"varint,6,opt,name=is_pre_order_incentive_resource,json=isPreOrderIncentiveResource,proto3" json:"is_pre_order_incentive_resource,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"SequenceNumber"
+	SequenceNumber int32 `protobuf:"varint,1,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber"`
+	// @gotags: xml:"ReleaseResourceReference"
+	ReleaseResourceReference string `protobuf:"bytes,2,opt,name=release_resource_reference,json=releaseResourceReference,proto3" json:"release_resource_reference,omitempty" xml:"ReleaseResourceReference"`
+	// @gotags: xml:"LinkedReleaseResourceReference"
+	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,3,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty" xml:"LinkedReleaseResourceReference"`
+	// @gotags: xml:"IsBonusResource"
+	IsBonusResource bool `protobuf:"varint,4,opt,name=is_bonus_resource,json=isBonusResource,proto3" json:"is_bonus_resource,omitempty" xml:"IsBonusResource"`
+	// @gotags: xml:"IsInstantGratificationResource"
+	IsInstantGratificationResource bool `protobuf:"varint,5,opt,name=is_instant_gratification_resource,json=isInstantGratificationResource,proto3" json:"is_instant_gratification_resource,omitempty" xml:"IsInstantGratificationResource"`
+	// @gotags: xml:"IsPreOrderIncentiveResource"
+	IsPreOrderIncentiveResource bool `protobuf:"varint,6,opt,name=is_pre_order_incentive_resource,json=isPreOrderIncentiveResource,proto3" json:"is_pre_order_incentive_resource,omitempty" xml:"IsPreOrderIncentiveResource"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *ResourceGroupContentItem) Reset() {
@@ -40635,15 +41019,21 @@ func (x *ResourceGroupContentItem) GetIsPreOrderIncentiveResource() bool {
 }
 
 type ResourceList struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	SoundRecording []*SoundRecording      `protobuf:"bytes,1,rep,name=sound_recording,json=soundRecording,proto3" json:"sound_recording,omitempty"`
-	Video          []*Video               `protobuf:"bytes,2,rep,name=video,proto3" json:"video,omitempty"`
-	Image          []*Image               `protobuf:"bytes,3,rep,name=image,proto3" json:"image,omitempty"`
-	Text           []*Text                `protobuf:"bytes,4,rep,name=text,proto3" json:"text,omitempty"`
-	SheetMusic     []*SheetMusic          `protobuf:"bytes,5,rep,name=sheet_music,json=sheetMusic,proto3" json:"sheet_music,omitempty"`
-	Software       []*Software            `protobuf:"bytes,6,rep,name=software,proto3" json:"software,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"SoundRecording"
+	SoundRecording []*SoundRecording `protobuf:"bytes,1,rep,name=sound_recording,json=soundRecording,proto3" json:"sound_recording,omitempty" xml:"SoundRecording"`
+	// @gotags: xml:"Video"
+	Video []*Video `protobuf:"bytes,2,rep,name=video,proto3" json:"video,omitempty" xml:"Video"`
+	// @gotags: xml:"Image"
+	Image []*Image `protobuf:"bytes,3,rep,name=image,proto3" json:"image,omitempty" xml:"Image"`
+	// @gotags: xml:"Text"
+	Text []*Text `protobuf:"bytes,4,rep,name=text,proto3" json:"text,omitempty" xml:"Text"`
+	// @gotags: xml:"SheetMusic"
+	SheetMusic []*SheetMusic `protobuf:"bytes,5,rep,name=sheet_music,json=sheetMusic,proto3" json:"sheet_music,omitempty" xml:"SheetMusic"`
+	// @gotags: xml:"Software"
+	Software      []*Software `protobuf:"bytes,6,rep,name=software,proto3" json:"software,omitempty" xml:"Software"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ResourceList) Reset() {
@@ -40719,13 +41109,17 @@ func (x *ResourceList) GetSoftware() []*Software {
 }
 
 type ResourceRightsController struct {
-	state                          protoimpl.MessageState  `protogen:"open.v1"`
-	RightsControllerPartyReference string                  `protobuf:"bytes,1,opt,name=rights_controller_party_reference,json=rightsControllerPartyReference,proto3" json:"rights_controller_party_reference,omitempty"`
-	RightsControlType              []RightsControllerRole  `protobuf:"varint,2,rep,packed,name=rights_control_type,json=rightsControlType,proto3,enum=ddex.ern.v432.RightsControllerRole" json:"rights_control_type,omitempty"`
-	DelegatedUsageRights           []*DelegatedUsageRights `protobuf:"bytes,3,rep,name=delegated_usage_rights,json=delegatedUsageRights,proto3" json:"delegated_usage_rights,omitempty"`
-	SequenceNumber                 int32                   `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"RightsControllerPartyReference"
+	RightsControllerPartyReference string `protobuf:"bytes,1,opt,name=rights_controller_party_reference,json=rightsControllerPartyReference,proto3" json:"rights_controller_party_reference,omitempty" xml:"RightsControllerPartyReference"`
+	// @gotags: xml:"RightsControlType"
+	RightsControlType []RightsControllerRole `protobuf:"varint,2,rep,packed,name=rights_control_type,json=rightsControlType,proto3,enum=ddex.ern.v432.RightsControllerRole" json:"rights_control_type,omitempty" xml:"RightsControlType"`
+	// @gotags: xml:"DelegatedUsageRights"
+	DelegatedUsageRights []*DelegatedUsageRights `protobuf:"bytes,3,rep,name=delegated_usage_rights,json=delegatedUsageRights,proto3" json:"delegated_usage_rights,omitempty" xml:"DelegatedUsageRights"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ResourceRightsController) Reset() {
@@ -40787,21 +41181,33 @@ func (x *ResourceRightsController) GetSequenceNumber() int32 {
 }
 
 type ResourceSubGroup struct {
-	state                          protoimpl.MessageState            `protogen:"open.v1"`
-	DisplayTitleText               []*DisplayTitleText               `protobuf:"bytes,1,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                   []*DisplayTitle                   `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                    []*DisplayTitle                   `protobuf:"bytes,3,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                  []*DisplayTitle                   `protobuf:"bytes,4,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	SequenceNumber                 int32                             `protobuf:"varint,5,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	DisplayArtist                  []*DisplayArtist                  `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	CarrierType                    []*CarrierType                    `protobuf:"bytes,7,rep,name=carrier_type,json=carrierType,proto3" json:"carrier_type,omitempty"`
-	Duration                       string                            `protobuf:"bytes,8,opt,name=duration,proto3" json:"duration,omitempty"`
-	ResourceGroup                  []*ResourceSubGroup               `protobuf:"bytes,9,rep,name=resource_group,json=resourceGroup,proto3" json:"resource_group,omitempty"`
-	ResourceGroupContentItem       []*ResourceGroupContentItem       `protobuf:"bytes,10,rep,name=resource_group_content_item,json=resourceGroupContentItem,proto3" json:"resource_group_content_item,omitempty"`
-	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,11,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty"`
-	ResourceGroupType              ResourceGroupType                 `protobuf:"varint,12,opt,name=resource_group_type,json=resourceGroupType,proto3,enum=ddex.ern.v432.ResourceGroupType" json:"resource_group_type,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,1,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,2,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,3,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,4,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"SequenceNumber"
+	SequenceNumber int32 `protobuf:"varint,5,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,6,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"CarrierType"
+	CarrierType []*CarrierType `protobuf:"bytes,7,rep,name=carrier_type,json=carrierType,proto3" json:"carrier_type,omitempty" xml:"CarrierType"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,8,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"ResourceGroup"
+	ResourceGroup []*ResourceSubGroup `protobuf:"bytes,9,rep,name=resource_group,json=resourceGroup,proto3" json:"resource_group,omitempty" xml:"ResourceGroup"`
+	// @gotags: xml:"ResourceGroupContentItem"
+	ResourceGroupContentItem []*ResourceGroupContentItem `protobuf:"bytes,10,rep,name=resource_group_content_item,json=resourceGroupContentItem,proto3" json:"resource_group_content_item,omitempty" xml:"ResourceGroupContentItem"`
+	// @gotags: xml:"LinkedReleaseResourceReference"
+	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,11,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty" xml:"LinkedReleaseResourceReference"`
+	// @gotags: xml:"ResourceGroupType,attr"
+	ResourceGroupType ResourceGroupType `protobuf:"varint,12,opt,name=resource_group_type,json=resourceGroupType,proto3,enum=ddex.ern.v432.ResourceGroupType" json:"resource_group_type,omitempty" xml:"ResourceGroupType,attr"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ResourceSubGroup) Reset() {
@@ -40919,10 +41325,13 @@ func (x *ResourceSubGroup) GetResourceGroupType() ResourceGroupType {
 }
 
 type RightsClaimPolicy struct {
-	state                   protoimpl.MessageState           `protogen:"open.v1"`
-	Condition               []*ConditionForRightsClaimPolicy `protobuf:"bytes,1,rep,name=condition,proto3" json:"condition,omitempty"`
-	RightsClaimPolicyType   RightsClaimPolicyType            `protobuf:"varint,2,opt,name=rights_claim_policy_type,json=rightsClaimPolicyType,proto3,enum=ddex.ern.v432.RightsClaimPolicyType" json:"rights_claim_policy_type,omitempty"`
-	RightsClaimPolicyReason *RightsClaimPolicyReason         `protobuf:"bytes,3,opt,name=rights_claim_policy_reason,json=rightsClaimPolicyReason,proto3" json:"rights_claim_policy_reason,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Condition"
+	Condition []*ConditionForRightsClaimPolicy `protobuf:"bytes,1,rep,name=condition,proto3" json:"condition,omitempty" xml:"Condition"`
+	// @gotags: xml:"RightsClaimPolicyType"
+	RightsClaimPolicyType RightsClaimPolicyType `protobuf:"varint,2,opt,name=rights_claim_policy_type,json=rightsClaimPolicyType,proto3,enum=ddex.ern.v432.RightsClaimPolicyType" json:"rights_claim_policy_type,omitempty" xml:"RightsClaimPolicyType"`
+	// @gotags: xml:"RightsClaimPolicyReason"
+	RightsClaimPolicyReason *RightsClaimPolicyReason `protobuf:"bytes,3,opt,name=rights_claim_policy_reason,json=rightsClaimPolicyReason,proto3" json:"rights_claim_policy_reason,omitempty" xml:"RightsClaimPolicyReason"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -40979,8 +41388,9 @@ func (x *RightsClaimPolicy) GetRightsClaimPolicyReason() *RightsClaimPolicyReaso
 }
 
 type Segment struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StartTime     string                 `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"StartTime"
+	StartTime     string `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty" xml:"StartTime"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -41023,10 +41433,13 @@ func (x *Segment) GetStartTime() string {
 }
 
 type ServiceException struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	TradingName   *Name                  `protobuf:"bytes,1,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty"`
-	URL           []string               `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty"`
-	Channel       []*Channel             `protobuf:"bytes,3,rep,name=channel,proto3" json:"channel,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TradingName"
+	TradingName *Name `protobuf:"bytes,1,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty" xml:"TradingName"`
+	// @gotags: xml:"URL"
+	URL []string `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty" xml:"URL"`
+	// @gotags: xml:"Channel"
+	Channel       []*Channel `protobuf:"bytes,3,rep,name=channel,proto3" json:"channel,omitempty" xml:"Channel"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -41083,36 +41496,63 @@ func (x *ServiceException) GetChannel() []*Channel {
 }
 
 type SheetMusic struct {
-	state                                  protoimpl.MessageState                   `protogen:"open.v1"`
-	ResourceReference                      string                                   `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty"`
-	Type                                   *SheetMusicType                          `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	ResourceId                             []*SheetMusicId                          `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	WorkId                                 []*MusicalWorkId                         `protobuf:"bytes,4,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty"`
-	DisplayTitleText                       []*DisplayTitleText                      `protobuf:"bytes,5,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                           []*DisplayTitle                          `protobuf:"bytes,6,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                            []*DisplayTitle                          `protobuf:"bytes,7,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                          []*DisplayTitle                          `protobuf:"bytes,8,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	VersionType                            []*VersionType                           `protobuf:"bytes,9,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty"`
-	DisplayArtistName                      []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,10,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist                          []*DisplayArtist                         `protobuf:"bytes,11,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	Contributor                            []*Contributor                           `protobuf:"bytes,12,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	ResourceRightsController               []*ResourceRightsController              `protobuf:"bytes,13,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty"`
-	WorkRightsController                   []*WorkRightsController                  `protobuf:"bytes,14,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty"`
-	CLine                                  []*CLine                                 `protobuf:"bytes,15,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty"`
-	CourtesyLine                           []*CourtesyLine                          `protobuf:"bytes,16,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty"`
-	CreationDate                           *EventDateWithoutFlags                   `protobuf:"bytes,17,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty"`
-	FirstPublicationDate                   []*FulfillmentDate                       `protobuf:"bytes,18,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty"`
-	ParentalWarningType                    []*ParentalWarningTypeWithStandard       `protobuf:"bytes,19,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty"`
-	RelatedRelease                         []*RelatedRelease                        `protobuf:"bytes,20,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource                        []*RelatedResource                       `protobuf:"bytes,21,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	ContainsHiddenContent                  bool                                     `protobuf:"varint,22,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty"`
-	LanguageOfLyrics                       string                                   `protobuf:"bytes,23,opt,name=language_of_lyrics,json=languageOfLyrics,proto3" json:"language_of_lyrics,omitempty"`
-	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList  `protobuf:"bytes,24,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty"`
-	TechnicalDetails                       []*TechnicalSheetMusicDetails            `protobuf:"bytes,25,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty"`
-	LanguageAndScriptCode                  string                                   `protobuf:"bytes,26,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsSupplemental                         bool                                     `protobuf:"varint,27,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty"`
-	unknownFields                          protoimpl.UnknownFields
-	sizeCache                              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceReference"
+	ResourceReference string `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty" xml:"ResourceReference"`
+	// @gotags: xml:"Type"
+	Type *SheetMusicType `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ResourceId"
+	ResourceId []*SheetMusicId `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"WorkId"
+	WorkId []*MusicalWorkId `protobuf:"bytes,4,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty" xml:"WorkId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,5,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,8,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"VersionType"
+	VersionType []*VersionType `protobuf:"bytes,9,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty" xml:"VersionType"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,10,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,11,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,12,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"ResourceRightsController"
+	ResourceRightsController []*ResourceRightsController `protobuf:"bytes,13,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty" xml:"ResourceRightsController"`
+	// @gotags: xml:"WorkRightsController"
+	WorkRightsController []*WorkRightsController `protobuf:"bytes,14,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty" xml:"WorkRightsController"`
+	// @gotags: xml:"CLine"
+	CLine []*CLine `protobuf:"bytes,15,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
+	// @gotags: xml:"CourtesyLine"
+	CourtesyLine []*CourtesyLine `protobuf:"bytes,16,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty" xml:"CourtesyLine"`
+	// @gotags: xml:"CreationDate"
+	CreationDate *EventDateWithoutFlags `protobuf:"bytes,17,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty" xml:"CreationDate"`
+	// @gotags: xml:"FirstPublicationDate"
+	FirstPublicationDate []*FulfillmentDate `protobuf:"bytes,18,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty" xml:"FirstPublicationDate"`
+	// @gotags: xml:"ParentalWarningType"
+	ParentalWarningType []*ParentalWarningTypeWithStandard `protobuf:"bytes,19,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty" xml:"ParentalWarningType"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,20,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,21,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"ContainsHiddenContent"
+	ContainsHiddenContent bool `protobuf:"varint,22,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
+	// @gotags: xml:"LanguageOfLyrics"
+	LanguageOfLyrics string `protobuf:"bytes,23,opt,name=language_of_lyrics,json=languageOfLyrics,proto3" json:"language_of_lyrics,omitempty" xml:"LanguageOfLyrics"`
+	// @gotags: xml:"ResourceContainedResourceReferenceList"
+	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList `protobuf:"bytes,24,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty" xml:"ResourceContainedResourceReferenceList"`
+	// @gotags: xml:"TechnicalDetails"
+	TechnicalDetails []*TechnicalSheetMusicDetails `protobuf:"bytes,25,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,26,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsSupplemental,attr"
+	IsSupplemental bool `protobuf:"varint,27,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *SheetMusic) Reset() {
@@ -41335,36 +41775,63 @@ func (x *SheetMusic) GetIsSupplemental() bool {
 }
 
 type Software struct {
-	state                                  protoimpl.MessageState                   `protogen:"open.v1"`
-	ResourceReference                      string                                   `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty"`
-	Type                                   *SoftwareType                            `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	ResourceId                             []*ResourceProprietaryId                 `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	WorkId                                 []*MusicalWorkId                         `protobuf:"bytes,4,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty"`
-	DisplayTitleText                       []*DisplayTitleText                      `protobuf:"bytes,5,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                           []*DisplayTitle                          `protobuf:"bytes,6,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                            []*DisplayTitle                          `protobuf:"bytes,7,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                          []*DisplayTitle                          `protobuf:"bytes,8,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	VersionType                            []*VersionType                           `protobuf:"bytes,9,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty"`
-	DisplayArtistName                      []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,10,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist                          []*DisplayArtist                         `protobuf:"bytes,11,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	Contributor                            []*Contributor                           `protobuf:"bytes,12,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	ResourceRightsController               []*ResourceRightsController              `protobuf:"bytes,13,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty"`
-	WorkRightsController                   []*WorkRightsController                  `protobuf:"bytes,14,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty"`
-	PLine                                  []*PLine                                 `protobuf:"bytes,15,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty"`
-	CLine                                  []*CLine                                 `protobuf:"bytes,16,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty"`
-	CourtesyLine                           []*CourtesyLine                          `protobuf:"bytes,17,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty"`
-	CreationDate                           *EventDateWithoutFlags                   `protobuf:"bytes,18,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty"`
-	FirstPublicationDate                   []*FulfillmentDate                       `protobuf:"bytes,19,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty"`
-	ParentalWarningType                    []*ParentalWarningTypeWithStandard       `protobuf:"bytes,20,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty"`
-	RelatedRelease                         []*RelatedRelease                        `protobuf:"bytes,21,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource                        []*RelatedResource                       `protobuf:"bytes,22,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	ContainsHiddenContent                  bool                                     `protobuf:"varint,23,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty"`
-	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList  `protobuf:"bytes,24,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty"`
-	TechnicalDetails                       []*TechnicalSoftwareDetails              `protobuf:"bytes,25,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty"`
-	LanguageAndScriptCode                  string                                   `protobuf:"bytes,26,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsSupplemental                         bool                                     `protobuf:"varint,27,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty"`
-	unknownFields                          protoimpl.UnknownFields
-	sizeCache                              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceReference"
+	ResourceReference string `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty" xml:"ResourceReference"`
+	// @gotags: xml:"Type"
+	Type *SoftwareType `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ResourceId"
+	ResourceId []*ResourceProprietaryId `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"WorkId"
+	WorkId []*MusicalWorkId `protobuf:"bytes,4,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty" xml:"WorkId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,5,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,8,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"VersionType"
+	VersionType []*VersionType `protobuf:"bytes,9,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty" xml:"VersionType"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,10,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,11,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,12,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"ResourceRightsController"
+	ResourceRightsController []*ResourceRightsController `protobuf:"bytes,13,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty" xml:"ResourceRightsController"`
+	// @gotags: xml:"WorkRightsController"
+	WorkRightsController []*WorkRightsController `protobuf:"bytes,14,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty" xml:"WorkRightsController"`
+	// @gotags: xml:"PLine"
+	PLine []*PLine `protobuf:"bytes,15,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty" xml:"PLine"`
+	// @gotags: xml:"CLine"
+	CLine []*CLine `protobuf:"bytes,16,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
+	// @gotags: xml:"CourtesyLine"
+	CourtesyLine []*CourtesyLine `protobuf:"bytes,17,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty" xml:"CourtesyLine"`
+	// @gotags: xml:"CreationDate"
+	CreationDate *EventDateWithoutFlags `protobuf:"bytes,18,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty" xml:"CreationDate"`
+	// @gotags: xml:"FirstPublicationDate"
+	FirstPublicationDate []*FulfillmentDate `protobuf:"bytes,19,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty" xml:"FirstPublicationDate"`
+	// @gotags: xml:"ParentalWarningType"
+	ParentalWarningType []*ParentalWarningTypeWithStandard `protobuf:"bytes,20,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty" xml:"ParentalWarningType"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,21,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,22,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"ContainsHiddenContent"
+	ContainsHiddenContent bool `protobuf:"varint,23,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
+	// @gotags: xml:"ResourceContainedResourceReferenceList"
+	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList `protobuf:"bytes,24,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty" xml:"ResourceContainedResourceReferenceList"`
+	// @gotags: xml:"TechnicalDetails"
+	TechnicalDetails []*TechnicalSoftwareDetails `protobuf:"bytes,25,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,26,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsSupplemental,attr"
+	IsSupplemental bool `protobuf:"varint,27,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Software) Reset() {
@@ -41587,55 +42054,101 @@ func (x *Software) GetIsSupplemental() bool {
 }
 
 type SoundRecording struct {
-	state                         protoimpl.MessageState                   `protogen:"open.v1"`
-	ResourceReference             string                                   `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty"`
-	Type                          *SoundRecordingType                      `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	SoundRecordingEdition         []*SoundRecordingEdition                 `protobuf:"bytes,3,rep,name=sound_recording_edition,json=soundRecordingEdition,proto3" json:"sound_recording_edition,omitempty"`
-	RecordingFormat               []*RecordingFormat                       `protobuf:"bytes,4,rep,name=recording_format,json=recordingFormat,proto3" json:"recording_format,omitempty"`
-	WorkId                        []*MusicalWorkId                         `protobuf:"bytes,5,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty"`
-	DisplayTitleText              []*DisplayTitleText                      `protobuf:"bytes,6,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                  []*DisplayTitle                          `protobuf:"bytes,7,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                   []*DisplayTitle                          `protobuf:"bytes,8,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                 []*DisplayTitle                          `protobuf:"bytes,9,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	VersionType                   []*VersionType                           `protobuf:"bytes,10,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty"`
-	DisplayArtistName             []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,11,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist                 []*DisplayArtist                         `protobuf:"bytes,12,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	Contributor                   []*Contributor                           `protobuf:"bytes,13,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	Character                     []*Character                             `protobuf:"bytes,14,rep,name=character,proto3" json:"character,omitempty"`
-	ResourceRightsController      []*ResourceRightsController              `protobuf:"bytes,15,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty"`
-	WorkRightsController          []*WorkRightsController                  `protobuf:"bytes,16,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty"`
-	CourtesyLine                  []*CourtesyLine                          `protobuf:"bytes,17,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty"`
-	Duration                      string                                   `protobuf:"bytes,18,opt,name=duration,proto3" json:"duration,omitempty"`
-	CreationDate                  *EventDateWithoutFlags                   `protobuf:"bytes,19,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty"`
-	MasteredDate                  *EventDateWithoutFlags                   `protobuf:"bytes,20,opt,name=mastered_date,json=masteredDate,proto3" json:"mastered_date,omitempty"`
-	RemasteredDate                *EventDateWithoutFlags                   `protobuf:"bytes,21,opt,name=remastered_date,json=remasteredDate,proto3" json:"remastered_date,omitempty"`
-	FirstPublicationDate          []*FirstPublicationDate                  `protobuf:"bytes,22,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty"`
-	LocationAndDateOfSession      []*LocationAndDateOfSession              `protobuf:"bytes,23,rep,name=location_and_date_of_session,json=locationAndDateOfSession,proto3" json:"location_and_date_of_session,omitempty"`
-	ParentalWarningType           []*ParentalWarningTypeWithStandard       `protobuf:"bytes,24,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty"`
-	RelatedRelease                []*RelatedRelease                        `protobuf:"bytes,25,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource               []*RelatedResource                       `protobuf:"bytes,26,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	CompositeMusicalWorkType      CompositeMusicalWorkType                 `protobuf:"varint,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3,enum=ddex.ern.v432.CompositeMusicalWorkType" json:"composite_musical_work_type,omitempty"`
-	ContainsAI                    ContainsAI                               `protobuf:"varint,28,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty"`
-	IsCover                       bool                                     `protobuf:"varint,29,opt,name=is_cover,json=isCover,proto3" json:"is_cover,omitempty"`
-	HasVocalPerformance           bool                                     `protobuf:"varint,30,opt,name=has_vocal_performance,json=hasVocalPerformance,proto3" json:"has_vocal_performance,omitempty"`
-	HasForegroundVocalPerformance bool                                     `protobuf:"varint,31,opt,name=has_foreground_vocal_performance,json=hasForegroundVocalPerformance,proto3" json:"has_foreground_vocal_performance,omitempty"`
-	IsInstrumental                bool                                     `protobuf:"varint,32,opt,name=is_instrumental,json=isInstrumental,proto3" json:"is_instrumental,omitempty"`
-	ContainsHiddenContent         bool                                     `protobuf:"varint,33,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty"`
-	IsRemastered                  bool                                     `protobuf:"varint,34,opt,name=is_remastered,json=isRemastered,proto3" json:"is_remastered,omitempty"`
-	IsHiResMusic                  bool                                     `protobuf:"varint,35,opt,name=is_hi_res_music,json=isHiResMusic,proto3" json:"is_hi_res_music,omitempty"`
-	DisableCrossfade              bool                                     `protobuf:"varint,36,opt,name=disable_crossfade,json=disableCrossfade,proto3" json:"disable_crossfade,omitempty"`
-	DisableSearch                 bool                                     `protobuf:"varint,37,opt,name=disable_search,json=disableSearch,proto3" json:"disable_search,omitempty"`
-	DisplayCredits                []*DisplayCredits                        `protobuf:"bytes,38,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty"`
-	LanguageOfPerformance         []*Language                              `protobuf:"bytes,39,rep,name=language_of_performance,json=languageOfPerformance,proto3" json:"language_of_performance,omitempty"`
-	Raga                          []*Raga                                  `protobuf:"bytes,40,rep,name=raga,proto3" json:"raga,omitempty"`
-	Tala                          []*Tala                                  `protobuf:"bytes,41,rep,name=tala,proto3" json:"tala,omitempty"`
-	Deity                         []*Deity                                 `protobuf:"bytes,42,rep,name=deity,proto3" json:"deity,omitempty"`
-	AudioChapterReference         []string                                 `protobuf:"bytes,43,rep,name=audio_chapter_reference,json=audioChapterReference,proto3" json:"audio_chapter_reference,omitempty"`
-	LanguageAndScriptCode         string                                   `protobuf:"bytes,44,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsSupplemental                bool                                     `protobuf:"varint,45,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty"`
-	ApplyClassicalProfileVariant  bool                                     `protobuf:"varint,46,opt,name=apply_classical_profile_variant,json=applyClassicalProfileVariant,proto3" json:"apply_classical_profile_variant,omitempty"`
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceReference"
+	ResourceReference string `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty" xml:"ResourceReference"`
+	// @gotags: xml:"Type"
+	Type *SoundRecordingType `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"SoundRecordingEdition"
+	SoundRecordingEdition []*SoundRecordingEdition `protobuf:"bytes,3,rep,name=sound_recording_edition,json=soundRecordingEdition,proto3" json:"sound_recording_edition,omitempty" xml:"SoundRecordingEdition"`
+	// @gotags: xml:"RecordingFormat"
+	RecordingFormat []*RecordingFormat `protobuf:"bytes,4,rep,name=recording_format,json=recordingFormat,proto3" json:"recording_format,omitempty" xml:"RecordingFormat"`
+	// @gotags: xml:"WorkId"
+	WorkId []*MusicalWorkId `protobuf:"bytes,5,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty" xml:"WorkId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,6,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,8,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,9,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"VersionType"
+	VersionType []*VersionType `protobuf:"bytes,10,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty" xml:"VersionType"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,11,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,12,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,13,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"Character"
+	Character []*Character `protobuf:"bytes,14,rep,name=character,proto3" json:"character,omitempty" xml:"Character"`
+	// @gotags: xml:"ResourceRightsController"
+	ResourceRightsController []*ResourceRightsController `protobuf:"bytes,15,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty" xml:"ResourceRightsController"`
+	// @gotags: xml:"WorkRightsController"
+	WorkRightsController []*WorkRightsController `protobuf:"bytes,16,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty" xml:"WorkRightsController"`
+	// @gotags: xml:"CourtesyLine"
+	CourtesyLine []*CourtesyLine `protobuf:"bytes,17,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty" xml:"CourtesyLine"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,18,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"CreationDate"
+	CreationDate *EventDateWithoutFlags `protobuf:"bytes,19,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty" xml:"CreationDate"`
+	// @gotags: xml:"MasteredDate"
+	MasteredDate *EventDateWithoutFlags `protobuf:"bytes,20,opt,name=mastered_date,json=masteredDate,proto3" json:"mastered_date,omitempty" xml:"MasteredDate"`
+	// @gotags: xml:"RemasteredDate"
+	RemasteredDate *EventDateWithoutFlags `protobuf:"bytes,21,opt,name=remastered_date,json=remasteredDate,proto3" json:"remastered_date,omitempty" xml:"RemasteredDate"`
+	// @gotags: xml:"FirstPublicationDate"
+	FirstPublicationDate []*FirstPublicationDate `protobuf:"bytes,22,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty" xml:"FirstPublicationDate"`
+	// @gotags: xml:"LocationAndDateOfSession"
+	LocationAndDateOfSession []*LocationAndDateOfSession `protobuf:"bytes,23,rep,name=location_and_date_of_session,json=locationAndDateOfSession,proto3" json:"location_and_date_of_session,omitempty" xml:"LocationAndDateOfSession"`
+	// @gotags: xml:"ParentalWarningType"
+	ParentalWarningType []*ParentalWarningTypeWithStandard `protobuf:"bytes,24,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty" xml:"ParentalWarningType"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,25,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,26,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"CompositeMusicalWorkType"
+	CompositeMusicalWorkType CompositeMusicalWorkType `protobuf:"varint,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3,enum=ddex.ern.v432.CompositeMusicalWorkType" json:"composite_musical_work_type,omitempty" xml:"CompositeMusicalWorkType"`
+	// @gotags: xml:"ContainsAI"
+	ContainsAI ContainsAI `protobuf:"varint,28,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	// @gotags: xml:"IsCover"
+	IsCover bool `protobuf:"varint,29,opt,name=is_cover,json=isCover,proto3" json:"is_cover,omitempty" xml:"IsCover"`
+	// @gotags: xml:"HasVocalPerformance"
+	HasVocalPerformance bool `protobuf:"varint,30,opt,name=has_vocal_performance,json=hasVocalPerformance,proto3" json:"has_vocal_performance,omitempty" xml:"HasVocalPerformance"`
+	// @gotags: xml:"HasForegroundVocalPerformance"
+	HasForegroundVocalPerformance bool `protobuf:"varint,31,opt,name=has_foreground_vocal_performance,json=hasForegroundVocalPerformance,proto3" json:"has_foreground_vocal_performance,omitempty" xml:"HasForegroundVocalPerformance"`
+	// @gotags: xml:"IsInstrumental"
+	IsInstrumental bool `protobuf:"varint,32,opt,name=is_instrumental,json=isInstrumental,proto3" json:"is_instrumental,omitempty" xml:"IsInstrumental"`
+	// @gotags: xml:"ContainsHiddenContent"
+	ContainsHiddenContent bool `protobuf:"varint,33,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
+	// @gotags: xml:"IsRemastered"
+	IsRemastered bool `protobuf:"varint,34,opt,name=is_remastered,json=isRemastered,proto3" json:"is_remastered,omitempty" xml:"IsRemastered"`
+	// @gotags: xml:"IsHiResMusic"
+	IsHiResMusic bool `protobuf:"varint,35,opt,name=is_hi_res_music,json=isHiResMusic,proto3" json:"is_hi_res_music,omitempty" xml:"IsHiResMusic"`
+	// @gotags: xml:"DisableCrossfade"
+	DisableCrossfade bool `protobuf:"varint,36,opt,name=disable_crossfade,json=disableCrossfade,proto3" json:"disable_crossfade,omitempty" xml:"DisableCrossfade"`
+	// @gotags: xml:"DisableSearch"
+	DisableSearch bool `protobuf:"varint,37,opt,name=disable_search,json=disableSearch,proto3" json:"disable_search,omitempty" xml:"DisableSearch"`
+	// @gotags: xml:"DisplayCredits"
+	DisplayCredits []*DisplayCredits `protobuf:"bytes,38,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
+	// @gotags: xml:"LanguageOfPerformance"
+	LanguageOfPerformance []*Language `protobuf:"bytes,39,rep,name=language_of_performance,json=languageOfPerformance,proto3" json:"language_of_performance,omitempty" xml:"LanguageOfPerformance"`
+	// @gotags: xml:"Raga"
+	Raga []*Raga `protobuf:"bytes,40,rep,name=raga,proto3" json:"raga,omitempty" xml:"Raga"`
+	// @gotags: xml:"Tala"
+	Tala []*Tala `protobuf:"bytes,41,rep,name=tala,proto3" json:"tala,omitempty" xml:"Tala"`
+	// @gotags: xml:"Deity"
+	Deity []*Deity `protobuf:"bytes,42,rep,name=deity,proto3" json:"deity,omitempty" xml:"Deity"`
+	// @gotags: xml:"AudioChapterReference"
+	AudioChapterReference []string `protobuf:"bytes,43,rep,name=audio_chapter_reference,json=audioChapterReference,proto3" json:"audio_chapter_reference,omitempty" xml:"AudioChapterReference"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,44,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsSupplemental,attr"
+	IsSupplemental bool `protobuf:"varint,45,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
+	// @gotags: xml:"ApplyClassicalProfileVariant,attr"
+	ApplyClassicalProfileVariant bool `protobuf:"varint,46,opt,name=apply_classical_profile_variant,json=applyClassicalProfileVariant,proto3" json:"apply_classical_profile_variant,omitempty" xml:"ApplyClassicalProfileVariant,attr"`
+	unknownFields                protoimpl.UnknownFields
+	sizeCache                    protoimpl.SizeCache
 }
 
 func (x *SoundRecording) Reset() {
@@ -41991,14 +42504,19 @@ func (x *SoundRecording) GetApplyClassicalProfileVariant() bool {
 }
 
 type SoundRecordingClipDetails struct {
-	state                             protoimpl.MessageState `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                 `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	ClipType                          *ClipType              `protobuf:"bytes,2,opt,name=clip_type,json=clipType,proto3" json:"clip_type,omitempty"`
-	Timing                            []*Timing              `protobuf:"bytes,3,rep,name=timing,proto3" json:"timing,omitempty"`
-	ExpressionType                    ExpressionType         `protobuf:"varint,4,opt,name=expression_type,json=expressionType,proto3,enum=ddex.ern.v432.ExpressionType" json:"expression_type,omitempty"`
-	DeliveryFile                      []*AudioDeliveryFile   `protobuf:"bytes,5,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"ClipType"
+	ClipType *ClipType `protobuf:"bytes,2,opt,name=clip_type,json=clipType,proto3" json:"clip_type,omitempty" xml:"ClipType"`
+	// @gotags: xml:"Timing"
+	Timing []*Timing `protobuf:"bytes,3,rep,name=timing,proto3" json:"timing,omitempty" xml:"Timing"`
+	// @gotags: xml:"ExpressionType"
+	ExpressionType ExpressionType `protobuf:"varint,4,opt,name=expression_type,json=expressionType,proto3,enum=ddex.ern.v432.ExpressionType" json:"expression_type,omitempty" xml:"ExpressionType"`
+	// @gotags: xml:"DeliveryFile"
+	DeliveryFile  []*AudioDeliveryFile `protobuf:"bytes,5,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty" xml:"DeliveryFile"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *SoundRecordingClipDetails) Reset() {
@@ -42067,15 +42585,21 @@ func (x *SoundRecordingClipDetails) GetDeliveryFile() []*AudioDeliveryFile {
 }
 
 type SoundRecordingEdition struct {
-	state              protoimpl.MessageState            `protogen:"open.v1"`
-	Type               EditionType                       `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.EditionType" json:"type,omitempty"`
-	ResourceId         []*SoundRecordingId               `protobuf:"bytes,2,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	EditionContributor []*EditionContributor             `protobuf:"bytes,3,rep,name=edition_contributor,json=editionContributor,proto3" json:"edition_contributor,omitempty"`
-	PLine              []*PLine                          `protobuf:"bytes,4,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty"`
-	RecordingMode      RecordingMode                     `protobuf:"varint,5,opt,name=recording_mode,json=recordingMode,proto3,enum=ddex.ern.v432.RecordingMode" json:"recording_mode,omitempty"`
-	TechnicalDetails   []*TechnicalSoundRecordingDetails `protobuf:"bytes,6,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Type"
+	Type EditionType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.EditionType" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ResourceId"
+	ResourceId []*SoundRecordingId `protobuf:"bytes,2,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"EditionContributor"
+	EditionContributor []*EditionContributor `protobuf:"bytes,3,rep,name=edition_contributor,json=editionContributor,proto3" json:"edition_contributor,omitempty" xml:"EditionContributor"`
+	// @gotags: xml:"PLine"
+	PLine []*PLine `protobuf:"bytes,4,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty" xml:"PLine"`
+	// @gotags: xml:"RecordingMode"
+	RecordingMode RecordingMode `protobuf:"varint,5,opt,name=recording_mode,json=recordingMode,proto3,enum=ddex.ern.v432.RecordingMode" json:"recording_mode,omitempty" xml:"RecordingMode"`
+	// @gotags: xml:"TechnicalDetails"
+	TechnicalDetails []*TechnicalSoundRecordingDetails `protobuf:"bytes,6,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *SoundRecordingEdition) Reset() {
@@ -42151,8 +42675,9 @@ func (x *SoundRecordingEdition) GetTechnicalDetails() []*TechnicalSoundRecording
 }
 
 type SupplementalDocumentList struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	SupplementalDocument []*File                `protobuf:"bytes,1,rep,name=supplemental_document,json=supplementalDocument,proto3" json:"supplemental_document,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"SupplementalDocument"
+	SupplementalDocument []*File `protobuf:"bytes,1,rep,name=supplemental_document,json=supplementalDocument,proto3" json:"supplemental_document,omitempty" xml:"SupplementalDocument"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -42195,14 +42720,19 @@ func (x *SupplementalDocumentList) GetSupplementalDocument() []*File {
 }
 
 type SynopsisWithTerritory struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	IsShortSynopsis         bool                   `protobuf:"varint,5,opt,name=is_short_synopsis,json=isShortSynopsis,proto3" json:"is_short_synopsis,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"IsShortSynopsis,attr"
+	IsShortSynopsis bool `protobuf:"varint,5,opt,name=is_short_synopsis,json=isShortSynopsis,proto3" json:"is_short_synopsis,omitempty" xml:"IsShortSynopsis,attr"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *SynopsisWithTerritory) Reset() {
@@ -42271,12 +42801,15 @@ func (x *SynopsisWithTerritory) GetIsShortSynopsis() bool {
 }
 
 type Tala struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Tala) Reset() {
@@ -42331,25 +42864,41 @@ func (x *Tala) GetIsDefault() bool {
 }
 
 type TechnicalImageDetails struct {
-	state                             protoimpl.MessageState `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                 `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	ImageCodecType                    *ImageCodecType        `protobuf:"bytes,2,opt,name=image_codec_type,json=imageCodecType,proto3" json:"image_codec_type,omitempty"`
-	ImageHeight                       *Extent                `protobuf:"bytes,3,opt,name=image_height,json=imageHeight,proto3" json:"image_height,omitempty"`
-	ImageWidth                        *Extent                `protobuf:"bytes,4,opt,name=image_width,json=imageWidth,proto3" json:"image_width,omitempty"`
-	AspectRatio                       []*AspectRatio         `protobuf:"bytes,5,rep,name=aspect_ratio,json=aspectRatio,proto3" json:"aspect_ratio,omitempty"`
-	ColorDepth                        int32                  `protobuf:"varint,6,opt,name=color_depth,json=colorDepth,proto3" json:"color_depth,omitempty"`
-	ImageResolution                   int32                  `protobuf:"varint,7,opt,name=image_resolution,json=imageResolution,proto3" json:"image_resolution,omitempty"`
-	BitDepth                          int32                  `protobuf:"varint,8,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty"`
-	IsClip                            bool                   `protobuf:"varint,9,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty"`
-	ClipDetails                       []*ClipDetails         `protobuf:"bytes,10,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty"`
-	File                              *File                  `protobuf:"bytes,11,opt,name=file,proto3" json:"file,omitempty"`
-	IsProvidedInDelivery              bool                   `protobuf:"varint,12,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty"`
-	Fingerprint                       []*Fingerprint         `protobuf:"bytes,13,rep,name=fingerprint,proto3" json:"fingerprint,omitempty"`
-	LanguageAndScriptCode             string                 `protobuf:"bytes,14,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode           *CurrentTerritoryCode  `protobuf:"bytes,15,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                         bool                   `protobuf:"varint,16,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"ImageCodecType"
+	ImageCodecType *ImageCodecType `protobuf:"bytes,2,opt,name=image_codec_type,json=imageCodecType,proto3" json:"image_codec_type,omitempty" xml:"ImageCodecType"`
+	// @gotags: xml:"ImageHeight"
+	ImageHeight *Extent `protobuf:"bytes,3,opt,name=image_height,json=imageHeight,proto3" json:"image_height,omitempty" xml:"ImageHeight"`
+	// @gotags: xml:"ImageWidth"
+	ImageWidth *Extent `protobuf:"bytes,4,opt,name=image_width,json=imageWidth,proto3" json:"image_width,omitempty" xml:"ImageWidth"`
+	// @gotags: xml:"AspectRatio"
+	AspectRatio []*AspectRatio `protobuf:"bytes,5,rep,name=aspect_ratio,json=aspectRatio,proto3" json:"aspect_ratio,omitempty" xml:"AspectRatio"`
+	// @gotags: xml:"ColorDepth"
+	ColorDepth int32 `protobuf:"varint,6,opt,name=color_depth,json=colorDepth,proto3" json:"color_depth,omitempty" xml:"ColorDepth"`
+	// @gotags: xml:"ImageResolution"
+	ImageResolution int32 `protobuf:"varint,7,opt,name=image_resolution,json=imageResolution,proto3" json:"image_resolution,omitempty" xml:"ImageResolution"`
+	// @gotags: xml:"BitDepth"
+	BitDepth int32 `protobuf:"varint,8,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty" xml:"BitDepth"`
+	// @gotags: xml:"IsClip"
+	IsClip bool `protobuf:"varint,9,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty" xml:"IsClip"`
+	// @gotags: xml:"ClipDetails"
+	ClipDetails []*ClipDetails `protobuf:"bytes,10,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty" xml:"ClipDetails"`
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,11,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"IsProvidedInDelivery"
+	IsProvidedInDelivery bool `protobuf:"varint,12,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty" xml:"IsProvidedInDelivery"`
+	// @gotags: xml:"Fingerprint"
+	Fingerprint []*Fingerprint `protobuf:"bytes,13,rep,name=fingerprint,proto3" json:"fingerprint,omitempty" xml:"Fingerprint"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,14,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,15,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,16,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TechnicalImageDetails) Reset() {
@@ -42495,20 +43044,31 @@ func (x *TechnicalImageDetails) GetIsDefault() bool {
 }
 
 type TechnicalSheetMusicDetails struct {
-	state                             protoimpl.MessageState `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                 `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	SheetMusicCodecType               *SheetMusicCodecType   `protobuf:"bytes,2,opt,name=sheet_music_codec_type,json=sheetMusicCodecType,proto3" json:"sheet_music_codec_type,omitempty"`
-	BitDepth                          int32                  `protobuf:"varint,3,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty"`
-	IsClip                            bool                   `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty"`
-	ClipDetails                       []*ClipDetails         `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty"`
-	File                              *File                  `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty"`
-	IsProvidedInDelivery              bool                   `protobuf:"varint,7,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty"`
-	Fingerprint                       []*Fingerprint         `protobuf:"bytes,8,rep,name=fingerprint,proto3" json:"fingerprint,omitempty"`
-	LanguageAndScriptCode             string                 `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode           *CurrentTerritoryCode  `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                         bool                   `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"SheetMusicCodecType"
+	SheetMusicCodecType *SheetMusicCodecType `protobuf:"bytes,2,opt,name=sheet_music_codec_type,json=sheetMusicCodecType,proto3" json:"sheet_music_codec_type,omitempty" xml:"SheetMusicCodecType"`
+	// @gotags: xml:"BitDepth"
+	BitDepth int32 `protobuf:"varint,3,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty" xml:"BitDepth"`
+	// @gotags: xml:"IsClip"
+	IsClip bool `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty" xml:"IsClip"`
+	// @gotags: xml:"ClipDetails"
+	ClipDetails []*ClipDetails `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty" xml:"ClipDetails"`
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"IsProvidedInDelivery"
+	IsProvidedInDelivery bool `protobuf:"varint,7,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty" xml:"IsProvidedInDelivery"`
+	// @gotags: xml:"Fingerprint"
+	Fingerprint []*Fingerprint `protobuf:"bytes,8,rep,name=fingerprint,proto3" json:"fingerprint,omitempty" xml:"Fingerprint"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TechnicalSheetMusicDetails) Reset() {
@@ -42619,20 +43179,31 @@ func (x *TechnicalSheetMusicDetails) GetIsDefault() bool {
 }
 
 type TechnicalSoftwareDetails struct {
-	state                             protoimpl.MessageState `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                 `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	OperatingSystemType               *OperatingSystemType   `protobuf:"bytes,2,opt,name=operating_system_type,json=operatingSystemType,proto3" json:"operating_system_type,omitempty"`
-	BitDepth                          int32                  `protobuf:"varint,3,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty"`
-	IsClip                            bool                   `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty"`
-	ClipDetails                       []*ClipDetails         `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty"`
-	File                              *File                  `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty"`
-	IsProvidedInDelivery              bool                   `protobuf:"varint,7,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty"`
-	Fingerprint                       []*Fingerprint         `protobuf:"bytes,8,rep,name=fingerprint,proto3" json:"fingerprint,omitempty"`
-	LanguageAndScriptCode             string                 `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode           *CurrentTerritoryCode  `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                         bool                   `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"OperatingSystemType"
+	OperatingSystemType *OperatingSystemType `protobuf:"bytes,2,opt,name=operating_system_type,json=operatingSystemType,proto3" json:"operating_system_type,omitempty" xml:"OperatingSystemType"`
+	// @gotags: xml:"BitDepth"
+	BitDepth int32 `protobuf:"varint,3,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty" xml:"BitDepth"`
+	// @gotags: xml:"IsClip"
+	IsClip bool `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty" xml:"IsClip"`
+	// @gotags: xml:"ClipDetails"
+	ClipDetails []*ClipDetails `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty" xml:"ClipDetails"`
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"IsProvidedInDelivery"
+	IsProvidedInDelivery bool `protobuf:"varint,7,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty" xml:"IsProvidedInDelivery"`
+	// @gotags: xml:"Fingerprint"
+	Fingerprint []*Fingerprint `protobuf:"bytes,8,rep,name=fingerprint,proto3" json:"fingerprint,omitempty" xml:"Fingerprint"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TechnicalSoftwareDetails) Reset() {
@@ -42743,17 +43314,25 @@ func (x *TechnicalSoftwareDetails) GetIsDefault() bool {
 }
 
 type TechnicalSoundRecordingDetails struct {
-	state                             protoimpl.MessageState       `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                       `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	DeliveryFile                      []*AudioDeliveryFile         `protobuf:"bytes,2,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty"`
-	HasImmersiveAudioMetadata         bool                         `protobuf:"varint,3,opt,name=has_immersive_audio_metadata,json=hasImmersiveAudioMetadata,proto3" json:"has_immersive_audio_metadata,omitempty"`
-	IsClip                            bool                         `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty"`
-	ClipDetails                       []*SoundRecordingClipDetails `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty"`
-	LanguageAndScriptCode             string                       `protobuf:"bytes,6,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode           *CurrentTerritoryCode        `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                         bool                         `protobuf:"varint,8,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"DeliveryFile"
+	DeliveryFile []*AudioDeliveryFile `protobuf:"bytes,2,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty" xml:"DeliveryFile"`
+	// @gotags: xml:"HasImmersiveAudioMetadata"
+	HasImmersiveAudioMetadata bool `protobuf:"varint,3,opt,name=has_immersive_audio_metadata,json=hasImmersiveAudioMetadata,proto3" json:"has_immersive_audio_metadata,omitempty" xml:"HasImmersiveAudioMetadata"`
+	// @gotags: xml:"IsClip"
+	IsClip bool `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty" xml:"IsClip"`
+	// @gotags: xml:"ClipDetails"
+	ClipDetails []*SoundRecordingClipDetails `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty" xml:"ClipDetails"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,6,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,8,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TechnicalSoundRecordingDetails) Reset() {
@@ -42843,20 +43422,31 @@ func (x *TechnicalSoundRecordingDetails) GetIsDefault() bool {
 }
 
 type TechnicalTextDetails struct {
-	state                             protoimpl.MessageState `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                 `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	TextCodecType                     *TextCodecType         `protobuf:"bytes,2,opt,name=text_codec_type,json=textCodecType,proto3" json:"text_codec_type,omitempty"`
-	BitDepth                          int32                  `protobuf:"varint,3,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty"`
-	IsClip                            bool                   `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty"`
-	ClipDetails                       []*ClipDetails         `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty"`
-	File                              *File                  `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty"`
-	IsProvidedInDelivery              bool                   `protobuf:"varint,7,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty"`
-	Fingerprint                       []*Fingerprint         `protobuf:"bytes,8,rep,name=fingerprint,proto3" json:"fingerprint,omitempty"`
-	LanguageAndScriptCode             string                 `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode           *CurrentTerritoryCode  `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                         bool                   `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"TextCodecType"
+	TextCodecType *TextCodecType `protobuf:"bytes,2,opt,name=text_codec_type,json=textCodecType,proto3" json:"text_codec_type,omitempty" xml:"TextCodecType"`
+	// @gotags: xml:"BitDepth"
+	BitDepth int32 `protobuf:"varint,3,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty" xml:"BitDepth"`
+	// @gotags: xml:"IsClip"
+	IsClip bool `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty" xml:"IsClip"`
+	// @gotags: xml:"ClipDetails"
+	ClipDetails []*ClipDetails `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty" xml:"ClipDetails"`
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,6,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"IsProvidedInDelivery"
+	IsProvidedInDelivery bool `protobuf:"varint,7,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty" xml:"IsProvidedInDelivery"`
+	// @gotags: xml:"Fingerprint"
+	Fingerprint []*Fingerprint `protobuf:"bytes,8,rep,name=fingerprint,proto3" json:"fingerprint,omitempty" xml:"Fingerprint"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TechnicalTextDetails) Reset() {
@@ -42967,17 +43557,25 @@ func (x *TechnicalTextDetails) GetIsDefault() bool {
 }
 
 type TechnicalVideoDetails struct {
-	state                             protoimpl.MessageState `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                 `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	OverallBitRate                    *BitRate               `protobuf:"bytes,2,opt,name=overall_bit_rate,json=overallBitRate,proto3" json:"overall_bit_rate,omitempty"`
-	DeliveryFile                      []*VideoDeliveryFile   `protobuf:"bytes,3,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty"`
-	IsClip                            bool                   `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty"`
-	ClipDetails                       []*VideoClipDetails    `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty"`
-	LanguageAndScriptCode             string                 `protobuf:"bytes,6,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode           *CurrentTerritoryCode  `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                         bool                   `protobuf:"varint,8,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"OverallBitRate"
+	OverallBitRate *BitRate `protobuf:"bytes,2,opt,name=overall_bit_rate,json=overallBitRate,proto3" json:"overall_bit_rate,omitempty" xml:"OverallBitRate"`
+	// @gotags: xml:"DeliveryFile"
+	DeliveryFile []*VideoDeliveryFile `protobuf:"bytes,3,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty" xml:"DeliveryFile"`
+	// @gotags: xml:"IsClip"
+	IsClip bool `protobuf:"varint,4,opt,name=is_clip,json=isClip,proto3" json:"is_clip,omitempty" xml:"IsClip"`
+	// @gotags: xml:"ClipDetails"
+	ClipDetails []*VideoClipDetails `protobuf:"bytes,5,rep,name=clip_details,json=clipDetails,proto3" json:"clip_details,omitempty" xml:"ClipDetails"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,6,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,8,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TechnicalVideoDetails) Reset() {
@@ -43067,37 +43665,65 @@ func (x *TechnicalVideoDetails) GetIsDefault() bool {
 }
 
 type Text struct {
-	state                                  protoimpl.MessageState                   `protogen:"open.v1"`
-	ResourceReference                      string                                   `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty"`
-	Type                                   *TextType                                `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	ResourceId                             []*TextId                                `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	WorkId                                 []*MusicalWorkId                         `protobuf:"bytes,4,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty"`
-	DisplayTitleText                       []*DisplayTitleText                      `protobuf:"bytes,5,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                           []*DisplayTitle                          `protobuf:"bytes,6,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                            []*DisplayTitle                          `protobuf:"bytes,7,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                          []*DisplayTitle                          `protobuf:"bytes,8,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	VersionType                            []*VersionType                           `protobuf:"bytes,9,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty"`
-	DisplayArtistName                      []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,10,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist                          []*DisplayArtist                         `protobuf:"bytes,11,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	Contributor                            []*Contributor                           `protobuf:"bytes,12,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	ResourceRightsController               []*ResourceRightsController              `protobuf:"bytes,13,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty"`
-	WorkRightsController                   []*WorkRightsController                  `protobuf:"bytes,14,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty"`
-	CLine                                  []*CLine                                 `protobuf:"bytes,15,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty"`
-	CourtesyLine                           []*CourtesyLine                          `protobuf:"bytes,16,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty"`
-	CreationDate                           *EventDateWithoutFlags                   `protobuf:"bytes,17,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty"`
-	FirstPublicationDate                   []*FulfillmentDate                       `protobuf:"bytes,18,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty"`
-	ParentalWarningType                    []*ParentalWarningTypeWithStandard       `protobuf:"bytes,19,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty"`
-	RelatedRelease                         []*RelatedRelease                        `protobuf:"bytes,20,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource                        []*RelatedResource                       `protobuf:"bytes,21,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	ContainsAI                             ContainsAI                               `protobuf:"varint,22,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty"`
-	ContainsHiddenContent                  bool                                     `protobuf:"varint,23,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty"`
-	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList  `protobuf:"bytes,24,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty"`
-	TechnicalDetails                       []*TechnicalTextDetails                  `protobuf:"bytes,25,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty"`
-	LanguageOfText                         []*Language                              `protobuf:"bytes,26,rep,name=language_of_text,json=languageOfText,proto3" json:"language_of_text,omitempty"`
-	LanguageAndScriptCode                  string                                   `protobuf:"bytes,27,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsSupplemental                         bool                                     `protobuf:"varint,28,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty"`
-	unknownFields                          protoimpl.UnknownFields
-	sizeCache                              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceReference"
+	ResourceReference string `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty" xml:"ResourceReference"`
+	// @gotags: xml:"Type"
+	Type *TextType `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ResourceId"
+	ResourceId []*TextId `protobuf:"bytes,3,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"WorkId"
+	WorkId []*MusicalWorkId `protobuf:"bytes,4,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty" xml:"WorkId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,5,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,8,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"VersionType"
+	VersionType []*VersionType `protobuf:"bytes,9,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty" xml:"VersionType"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,10,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,11,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,12,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"ResourceRightsController"
+	ResourceRightsController []*ResourceRightsController `protobuf:"bytes,13,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty" xml:"ResourceRightsController"`
+	// @gotags: xml:"WorkRightsController"
+	WorkRightsController []*WorkRightsController `protobuf:"bytes,14,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty" xml:"WorkRightsController"`
+	// @gotags: xml:"CLine"
+	CLine []*CLine `protobuf:"bytes,15,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
+	// @gotags: xml:"CourtesyLine"
+	CourtesyLine []*CourtesyLine `protobuf:"bytes,16,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty" xml:"CourtesyLine"`
+	// @gotags: xml:"CreationDate"
+	CreationDate *EventDateWithoutFlags `protobuf:"bytes,17,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty" xml:"CreationDate"`
+	// @gotags: xml:"FirstPublicationDate"
+	FirstPublicationDate []*FulfillmentDate `protobuf:"bytes,18,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty" xml:"FirstPublicationDate"`
+	// @gotags: xml:"ParentalWarningType"
+	ParentalWarningType []*ParentalWarningTypeWithStandard `protobuf:"bytes,19,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty" xml:"ParentalWarningType"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,20,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,21,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"ContainsAI"
+	ContainsAI ContainsAI `protobuf:"varint,22,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	// @gotags: xml:"ContainsHiddenContent"
+	ContainsHiddenContent bool `protobuf:"varint,23,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
+	// @gotags: xml:"ResourceContainedResourceReferenceList"
+	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList `protobuf:"bytes,24,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty" xml:"ResourceContainedResourceReferenceList"`
+	// @gotags: xml:"TechnicalDetails"
+	TechnicalDetails []*TechnicalTextDetails `protobuf:"bytes,25,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
+	// @gotags: xml:"LanguageOfText"
+	LanguageOfText []*Language `protobuf:"bytes,26,rep,name=language_of_text,json=languageOfText,proto3" json:"language_of_text,omitempty" xml:"LanguageOfText"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,27,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsSupplemental,attr"
+	IsSupplemental bool `protobuf:"varint,28,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Text) Reset() {
@@ -43327,10 +43953,13 @@ func (x *Text) GetIsSupplemental() bool {
 }
 
 type Timing struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StartPoint    string                 `protobuf:"bytes,1,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty"`
-	EndPoint      string                 `protobuf:"bytes,2,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty"`
-	DurationUsed  []string               `protobuf:"bytes,3,rep,name=duration_used,json=durationUsed,proto3" json:"duration_used,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"StartPoint"
+	StartPoint string `protobuf:"bytes,1,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
+	// @gotags: xml:"EndPoint"
+	EndPoint string `protobuf:"bytes,2,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty" xml:"EndPoint"`
+	// @gotags: xml:"DurationUsed"
+	DurationUsed  []string `protobuf:"bytes,3,rep,name=duration_used,json=durationUsed,proto3" json:"duration_used,omitempty" xml:"DurationUsed"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -43387,13 +44016,17 @@ func (x *Timing) GetDurationUsed() []string {
 }
 
 type Title struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	TitleText             string                 `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty"`
-	SubTitle              string                 `protobuf:"bytes,2,opt,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	TitleType             AdditionalTitleType    `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.ern.v432.AdditionalTitleType" json:"title_type,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TitleText"
+	TitleText string `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty" xml:"TitleText"`
+	// @gotags: xml:"SubTitle"
+	SubTitle string `protobuf:"bytes,2,opt,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty" xml:"SubTitle"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"TitleType,attr"
+	TitleType     AdditionalTitleType `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.ern.v432.AdditionalTitleType" json:"title_type,omitempty" xml:"TitleType,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Title) Reset() {
@@ -43455,27 +44088,45 @@ func (x *Title) GetTitleType() AdditionalTitleType {
 }
 
 type TrackRelease struct {
-	state                          protoimpl.MessageState            `protogen:"open.v1"`
-	ReleaseReference               string                            `protobuf:"bytes,1,opt,name=release_reference,json=releaseReference,proto3" json:"release_reference,omitempty"`
-	ReleaseId                      *ReleaseId                        `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty"`
-	DisplayTitleText               []*DisplayTitleText               `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                   []*DisplayTitle                   `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                    []*DisplayTitle                   `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                  []*DisplayTitle                   `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	ReleaseResourceReference       string                            `protobuf:"bytes,7,opt,name=release_resource_reference,json=releaseResourceReference,proto3" json:"release_resource_reference,omitempty"`
-	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,8,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty"`
-	ReleaseLabelReference          []*ReleaseLabelReferenceWithParty `protobuf:"bytes,9,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty"`
-	DisplayGenre                   []*GenreWithTerritory             `protobuf:"bytes,10,rep,name=display_genre,json=displayGenre,proto3" json:"display_genre,omitempty"`
-	ReleaseVisibilityReference     []string                          `protobuf:"bytes,11,rep,name=release_visibility_reference,json=releaseVisibilityReference,proto3" json:"release_visibility_reference,omitempty"`
-	RelatedRelease                 []*RelatedRelease                 `protobuf:"bytes,12,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource                []*RelatedResource                `protobuf:"bytes,13,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	TargetURL                      string                            `protobuf:"bytes,14,opt,name=target_u_r_l,json=targetURL,proto3" json:"target_u_r_l,omitempty"`
-	Keywords                       []*KeywordsWithTerritory          `protobuf:"bytes,15,rep,name=keywords,proto3" json:"keywords,omitempty"`
-	Synopsis                       []*SynopsisWithTerritory          `protobuf:"bytes,16,rep,name=synopsis,proto3" json:"synopsis,omitempty"`
-	MarketingComment               []*MarketingComment               `protobuf:"bytes,17,rep,name=marketing_comment,json=marketingComment,proto3" json:"marketing_comment,omitempty"`
-	IsMainRelease                  bool                              `protobuf:"varint,18,opt,name=is_main_release,json=isMainRelease,proto3" json:"is_main_release,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ReleaseReference"
+	ReleaseReference string `protobuf:"bytes,1,opt,name=release_reference,json=releaseReference,proto3" json:"release_reference,omitempty" xml:"ReleaseReference"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,3,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,4,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,5,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,6,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"ReleaseResourceReference"
+	ReleaseResourceReference string `protobuf:"bytes,7,opt,name=release_resource_reference,json=releaseResourceReference,proto3" json:"release_resource_reference,omitempty" xml:"ReleaseResourceReference"`
+	// @gotags: xml:"LinkedReleaseResourceReference"
+	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,8,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty" xml:"LinkedReleaseResourceReference"`
+	// @gotags: xml:"ReleaseLabelReference"
+	ReleaseLabelReference []*ReleaseLabelReferenceWithParty `protobuf:"bytes,9,rep,name=release_label_reference,json=releaseLabelReference,proto3" json:"release_label_reference,omitempty" xml:"ReleaseLabelReference"`
+	// @gotags: xml:"DisplayGenre"
+	DisplayGenre []*GenreWithTerritory `protobuf:"bytes,10,rep,name=display_genre,json=displayGenre,proto3" json:"display_genre,omitempty" xml:"DisplayGenre"`
+	// @gotags: xml:"ReleaseVisibilityReference"
+	ReleaseVisibilityReference []string `protobuf:"bytes,11,rep,name=release_visibility_reference,json=releaseVisibilityReference,proto3" json:"release_visibility_reference,omitempty" xml:"ReleaseVisibilityReference"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,12,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,13,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"TargetURL"
+	TargetURL string `protobuf:"bytes,14,opt,name=target_u_r_l,json=targetURL,proto3" json:"target_u_r_l,omitempty" xml:"TargetURL"`
+	// @gotags: xml:"Keywords"
+	Keywords []*KeywordsWithTerritory `protobuf:"bytes,15,rep,name=keywords,proto3" json:"keywords,omitempty" xml:"Keywords"`
+	// @gotags: xml:"Synopsis"
+	Synopsis []*SynopsisWithTerritory `protobuf:"bytes,16,rep,name=synopsis,proto3" json:"synopsis,omitempty" xml:"Synopsis"`
+	// @gotags: xml:"MarketingComment"
+	MarketingComment []*MarketingComment `protobuf:"bytes,17,rep,name=marketing_comment,json=marketingComment,proto3" json:"marketing_comment,omitempty" xml:"MarketingComment"`
+	// @gotags: xml:"IsMainRelease,attr"
+	IsMainRelease bool `protobuf:"varint,18,opt,name=is_main_release,json=isMainRelease,proto3" json:"is_main_release,omitempty" xml:"IsMainRelease,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TrackRelease) Reset() {
@@ -43635,13 +44286,17 @@ func (x *TrackRelease) GetIsMainRelease() bool {
 }
 
 type TrackReleaseVisibility struct {
-	state                            protoimpl.MessageState `protogen:"open.v1"`
-	VisibilityReference              string                 `protobuf:"bytes,1,opt,name=visibility_reference,json=visibilityReference,proto3" json:"visibility_reference,omitempty"`
-	TrackListingPreviewStartDateTime string                 `protobuf:"bytes,2,opt,name=track_listing_preview_start_date_time,json=trackListingPreviewStartDateTime,proto3" json:"track_listing_preview_start_date_time,omitempty"`
-	ClipPreviewStartDateTime         string                 `protobuf:"bytes,3,opt,name=clip_preview_start_date_time,json=clipPreviewStartDateTime,proto3" json:"clip_preview_start_date_time,omitempty"`
-	DoNotDisplayDates                bool                   `protobuf:"varint,4,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty"`
-	unknownFields                    protoimpl.UnknownFields
-	sizeCache                        protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"VisibilityReference"
+	VisibilityReference string `protobuf:"bytes,1,opt,name=visibility_reference,json=visibilityReference,proto3" json:"visibility_reference,omitempty" xml:"VisibilityReference"`
+	// @gotags: xml:"TrackListingPreviewStartDateTime"
+	TrackListingPreviewStartDateTime string `protobuf:"bytes,2,opt,name=track_listing_preview_start_date_time,json=trackListingPreviewStartDateTime,proto3" json:"track_listing_preview_start_date_time,omitempty" xml:"TrackListingPreviewStartDateTime"`
+	// @gotags: xml:"ClipPreviewStartDateTime"
+	ClipPreviewStartDateTime string `protobuf:"bytes,3,opt,name=clip_preview_start_date_time,json=clipPreviewStartDateTime,proto3" json:"clip_preview_start_date_time,omitempty" xml:"ClipPreviewStartDateTime"`
+	// @gotags: xml:"DoNotDisplayDates,attr"
+	DoNotDisplayDates bool `protobuf:"varint,4,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty" xml:"DoNotDisplayDates,attr"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *TrackReleaseVisibility) Reset() {
@@ -43703,10 +44358,13 @@ func (x *TrackReleaseVisibility) GetDoNotDisplayDates() bool {
 }
 
 type UseType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -43763,10 +44421,13 @@ func (x *UseType) GetUserDefinedValue() string {
 }
 
 type UserInterfaceType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -43823,55 +44484,101 @@ func (x *UserInterfaceType) GetUserDefinedValue() string {
 }
 
 type Video struct {
-	state                                  protoimpl.MessageState                   `protogen:"open.v1"`
-	ResourceReference                      string                                   `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty"`
-	Type                                   *VideoType                               `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	VideoEdition                           []*VideoEdition                          `protobuf:"bytes,3,rep,name=video_edition,json=videoEdition,proto3" json:"video_edition,omitempty"`
-	RecordingFormat                        []*RecordingFormat                       `protobuf:"bytes,4,rep,name=recording_format,json=recordingFormat,proto3" json:"recording_format,omitempty"`
-	WorkId                                 []*MusicalWorkId                         `protobuf:"bytes,5,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty"`
-	DisplayTitleText                       []*DisplayTitleText                      `protobuf:"bytes,6,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty"`
-	DisplayTitle                           []*DisplayTitle                          `protobuf:"bytes,7,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty"`
-	FormalTitle                            []*DisplayTitle                          `protobuf:"bytes,8,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty"`
-	GroupingTitle                          []*DisplayTitle                          `protobuf:"bytes,9,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty"`
-	VersionType                            []*VersionType                           `protobuf:"bytes,10,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty"`
-	DisplayArtistName                      []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,11,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty"`
-	DisplayArtist                          []*DisplayArtist                         `protobuf:"bytes,12,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty"`
-	Contributor                            []*Contributor                           `protobuf:"bytes,13,rep,name=contributor,proto3" json:"contributor,omitempty"`
-	Character                              []*Character                             `protobuf:"bytes,14,rep,name=character,proto3" json:"character,omitempty"`
-	ResourceRightsController               []*ResourceRightsController              `protobuf:"bytes,15,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty"`
-	WorkRightsController                   []*WorkRightsController                  `protobuf:"bytes,16,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty"`
-	CourtesyLine                           []*CourtesyLine                          `protobuf:"bytes,17,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty"`
-	Duration                               string                                   `protobuf:"bytes,18,opt,name=duration,proto3" json:"duration,omitempty"`
-	CreationDate                           *EventDateWithoutFlags                   `protobuf:"bytes,19,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty"`
-	MasteredDate                           *EventDateWithoutFlags                   `protobuf:"bytes,20,opt,name=mastered_date,json=masteredDate,proto3" json:"mastered_date,omitempty"`
-	RemasteredDate                         []*EventDateWithoutFlags                 `protobuf:"bytes,21,rep,name=remastered_date,json=remasteredDate,proto3" json:"remastered_date,omitempty"`
-	FirstPublicationDate                   []*FulfillmentDate                       `protobuf:"bytes,22,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty"`
-	ParentalWarningType                    []*ParentalWarningTypeWithStandard       `protobuf:"bytes,23,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty"`
-	AvRating                               []*AvRating                              `protobuf:"bytes,24,rep,name=av_rating,json=avRating,proto3" json:"av_rating,omitempty"`
-	RelatedRelease                         []*RelatedRelease                        `protobuf:"bytes,25,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty"`
-	RelatedResource                        []*RelatedResource                       `protobuf:"bytes,26,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty"`
-	CompositeMusicalWorkType               CompositeMusicalWorkType                 `protobuf:"varint,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3,enum=ddex.ern.v432.CompositeMusicalWorkType" json:"composite_musical_work_type,omitempty"`
-	ContainsAI                             ContainsAI                               `protobuf:"varint,28,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty"`
-	IsCover                                bool                                     `protobuf:"varint,29,opt,name=is_cover,json=isCover,proto3" json:"is_cover,omitempty"`
-	HasVocalPerformance                    bool                                     `protobuf:"varint,30,opt,name=has_vocal_performance,json=hasVocalPerformance,proto3" json:"has_vocal_performance,omitempty"`
-	HasForegroundVocalPerformance          bool                                     `protobuf:"varint,31,opt,name=has_foreground_vocal_performance,json=hasForegroundVocalPerformance,proto3" json:"has_foreground_vocal_performance,omitempty"`
-	IsInstrumental                         bool                                     `protobuf:"varint,32,opt,name=is_instrumental,json=isInstrumental,proto3" json:"is_instrumental,omitempty"`
-	ContainsHiddenContent                  bool                                     `protobuf:"varint,33,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty"`
-	IsRemastered                           bool                                     `protobuf:"varint,34,opt,name=is_remastered,json=isRemastered,proto3" json:"is_remastered,omitempty"`
-	DisplayCredits                         []*DisplayCredits                        `protobuf:"bytes,35,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty"`
-	LanguageOfPerformance                  []*Language                              `protobuf:"bytes,36,rep,name=language_of_performance,json=languageOfPerformance,proto3" json:"language_of_performance,omitempty"`
-	LanguageOfDubbing                      []string                                 `protobuf:"bytes,37,rep,name=language_of_dubbing,json=languageOfDubbing,proto3" json:"language_of_dubbing,omitempty"`
-	SubTitleLanguage                       []string                                 `protobuf:"bytes,38,rep,name=sub_title_language,json=subTitleLanguage,proto3" json:"sub_title_language,omitempty"`
-	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList  `protobuf:"bytes,39,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty"`
-	Raga                                   []string                                 `protobuf:"bytes,40,rep,name=raga,proto3" json:"raga,omitempty"`
-	Tala                                   []string                                 `protobuf:"bytes,41,rep,name=tala,proto3" json:"tala,omitempty"`
-	Deity                                  []string                                 `protobuf:"bytes,42,rep,name=deity,proto3" json:"deity,omitempty"`
-	VideoChapterReference                  []string                                 `protobuf:"bytes,43,rep,name=video_chapter_reference,json=videoChapterReference,proto3" json:"video_chapter_reference,omitempty"`
-	LanguageAndScriptCode                  string                                   `protobuf:"bytes,44,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsSupplemental                         bool                                     `protobuf:"varint,45,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty"`
-	ApplyClassicalProfileVariant           bool                                     `protobuf:"varint,46,opt,name=apply_classical_profile_variant,json=applyClassicalProfileVariant,proto3" json:"apply_classical_profile_variant,omitempty"`
-	unknownFields                          protoimpl.UnknownFields
-	sizeCache                              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceReference"
+	ResourceReference string `protobuf:"bytes,1,opt,name=resource_reference,json=resourceReference,proto3" json:"resource_reference,omitempty" xml:"ResourceReference"`
+	// @gotags: xml:"Type"
+	Type *VideoType `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"VideoEdition"
+	VideoEdition []*VideoEdition `protobuf:"bytes,3,rep,name=video_edition,json=videoEdition,proto3" json:"video_edition,omitempty" xml:"VideoEdition"`
+	// @gotags: xml:"RecordingFormat"
+	RecordingFormat []*RecordingFormat `protobuf:"bytes,4,rep,name=recording_format,json=recordingFormat,proto3" json:"recording_format,omitempty" xml:"RecordingFormat"`
+	// @gotags: xml:"WorkId"
+	WorkId []*MusicalWorkId `protobuf:"bytes,5,rep,name=work_id,json=workId,proto3" json:"work_id,omitempty" xml:"WorkId"`
+	// @gotags: xml:"DisplayTitleText"
+	DisplayTitleText []*DisplayTitleText `protobuf:"bytes,6,rep,name=display_title_text,json=displayTitleText,proto3" json:"display_title_text,omitempty" xml:"DisplayTitleText"`
+	// @gotags: xml:"DisplayTitle"
+	DisplayTitle []*DisplayTitle `protobuf:"bytes,7,rep,name=display_title,json=displayTitle,proto3" json:"display_title,omitempty" xml:"DisplayTitle"`
+	// @gotags: xml:"FormalTitle"
+	FormalTitle []*DisplayTitle `protobuf:"bytes,8,rep,name=formal_title,json=formalTitle,proto3" json:"formal_title,omitempty" xml:"FormalTitle"`
+	// @gotags: xml:"GroupingTitle"
+	GroupingTitle []*DisplayTitle `protobuf:"bytes,9,rep,name=grouping_title,json=groupingTitle,proto3" json:"grouping_title,omitempty" xml:"GroupingTitle"`
+	// @gotags: xml:"VersionType"
+	VersionType []*VersionType `protobuf:"bytes,10,rep,name=version_type,json=versionType,proto3" json:"version_type,omitempty" xml:"VersionType"`
+	// @gotags: xml:"DisplayArtistName"
+	DisplayArtistName []*DisplayArtistNameWithOriginalLanguage `protobuf:"bytes,11,rep,name=display_artist_name,json=displayArtistName,proto3" json:"display_artist_name,omitempty" xml:"DisplayArtistName"`
+	// @gotags: xml:"DisplayArtist"
+	DisplayArtist []*DisplayArtist `protobuf:"bytes,12,rep,name=display_artist,json=displayArtist,proto3" json:"display_artist,omitempty" xml:"DisplayArtist"`
+	// @gotags: xml:"Contributor"
+	Contributor []*Contributor `protobuf:"bytes,13,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"Contributor"`
+	// @gotags: xml:"Character"
+	Character []*Character `protobuf:"bytes,14,rep,name=character,proto3" json:"character,omitempty" xml:"Character"`
+	// @gotags: xml:"ResourceRightsController"
+	ResourceRightsController []*ResourceRightsController `protobuf:"bytes,15,rep,name=resource_rights_controller,json=resourceRightsController,proto3" json:"resource_rights_controller,omitempty" xml:"ResourceRightsController"`
+	// @gotags: xml:"WorkRightsController"
+	WorkRightsController []*WorkRightsController `protobuf:"bytes,16,rep,name=work_rights_controller,json=workRightsController,proto3" json:"work_rights_controller,omitempty" xml:"WorkRightsController"`
+	// @gotags: xml:"CourtesyLine"
+	CourtesyLine []*CourtesyLine `protobuf:"bytes,17,rep,name=courtesy_line,json=courtesyLine,proto3" json:"courtesy_line,omitempty" xml:"CourtesyLine"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,18,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"CreationDate"
+	CreationDate *EventDateWithoutFlags `protobuf:"bytes,19,opt,name=creation_date,json=creationDate,proto3" json:"creation_date,omitempty" xml:"CreationDate"`
+	// @gotags: xml:"MasteredDate"
+	MasteredDate *EventDateWithoutFlags `protobuf:"bytes,20,opt,name=mastered_date,json=masteredDate,proto3" json:"mastered_date,omitempty" xml:"MasteredDate"`
+	// @gotags: xml:"RemasteredDate"
+	RemasteredDate []*EventDateWithoutFlags `protobuf:"bytes,21,rep,name=remastered_date,json=remasteredDate,proto3" json:"remastered_date,omitempty" xml:"RemasteredDate"`
+	// @gotags: xml:"FirstPublicationDate"
+	FirstPublicationDate []*FulfillmentDate `protobuf:"bytes,22,rep,name=first_publication_date,json=firstPublicationDate,proto3" json:"first_publication_date,omitempty" xml:"FirstPublicationDate"`
+	// @gotags: xml:"ParentalWarningType"
+	ParentalWarningType []*ParentalWarningTypeWithStandard `protobuf:"bytes,23,rep,name=parental_warning_type,json=parentalWarningType,proto3" json:"parental_warning_type,omitempty" xml:"ParentalWarningType"`
+	// @gotags: xml:"AvRating"
+	AvRating []*AvRating `protobuf:"bytes,24,rep,name=av_rating,json=avRating,proto3" json:"av_rating,omitempty" xml:"AvRating"`
+	// @gotags: xml:"RelatedRelease"
+	RelatedRelease []*RelatedRelease `protobuf:"bytes,25,rep,name=related_release,json=relatedRelease,proto3" json:"related_release,omitempty" xml:"RelatedRelease"`
+	// @gotags: xml:"RelatedResource"
+	RelatedResource []*RelatedResource `protobuf:"bytes,26,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
+	// @gotags: xml:"CompositeMusicalWorkType"
+	CompositeMusicalWorkType CompositeMusicalWorkType `protobuf:"varint,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3,enum=ddex.ern.v432.CompositeMusicalWorkType" json:"composite_musical_work_type,omitempty" xml:"CompositeMusicalWorkType"`
+	// @gotags: xml:"ContainsAI"
+	ContainsAI ContainsAI `protobuf:"varint,28,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.ern.v432.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	// @gotags: xml:"IsCover"
+	IsCover bool `protobuf:"varint,29,opt,name=is_cover,json=isCover,proto3" json:"is_cover,omitempty" xml:"IsCover"`
+	// @gotags: xml:"HasVocalPerformance"
+	HasVocalPerformance bool `protobuf:"varint,30,opt,name=has_vocal_performance,json=hasVocalPerformance,proto3" json:"has_vocal_performance,omitempty" xml:"HasVocalPerformance"`
+	// @gotags: xml:"HasForegroundVocalPerformance"
+	HasForegroundVocalPerformance bool `protobuf:"varint,31,opt,name=has_foreground_vocal_performance,json=hasForegroundVocalPerformance,proto3" json:"has_foreground_vocal_performance,omitempty" xml:"HasForegroundVocalPerformance"`
+	// @gotags: xml:"IsInstrumental"
+	IsInstrumental bool `protobuf:"varint,32,opt,name=is_instrumental,json=isInstrumental,proto3" json:"is_instrumental,omitempty" xml:"IsInstrumental"`
+	// @gotags: xml:"ContainsHiddenContent"
+	ContainsHiddenContent bool `protobuf:"varint,33,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
+	// @gotags: xml:"IsRemastered"
+	IsRemastered bool `protobuf:"varint,34,opt,name=is_remastered,json=isRemastered,proto3" json:"is_remastered,omitempty" xml:"IsRemastered"`
+	// @gotags: xml:"DisplayCredits"
+	DisplayCredits []*DisplayCredits `protobuf:"bytes,35,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
+	// @gotags: xml:"LanguageOfPerformance"
+	LanguageOfPerformance []*Language `protobuf:"bytes,36,rep,name=language_of_performance,json=languageOfPerformance,proto3" json:"language_of_performance,omitempty" xml:"LanguageOfPerformance"`
+	// @gotags: xml:"LanguageOfDubbing"
+	LanguageOfDubbing []string `protobuf:"bytes,37,rep,name=language_of_dubbing,json=languageOfDubbing,proto3" json:"language_of_dubbing,omitempty" xml:"LanguageOfDubbing"`
+	// @gotags: xml:"SubTitleLanguage"
+	SubTitleLanguage []string `protobuf:"bytes,38,rep,name=sub_title_language,json=subTitleLanguage,proto3" json:"sub_title_language,omitempty" xml:"SubTitleLanguage"`
+	// @gotags: xml:"ResourceContainedResourceReferenceList"
+	ResourceContainedResourceReferenceList *ResourceContainedResourceReferenceList `protobuf:"bytes,39,opt,name=resource_contained_resource_reference_list,json=resourceContainedResourceReferenceList,proto3" json:"resource_contained_resource_reference_list,omitempty" xml:"ResourceContainedResourceReferenceList"`
+	// @gotags: xml:"Raga"
+	Raga []string `protobuf:"bytes,40,rep,name=raga,proto3" json:"raga,omitempty" xml:"Raga"`
+	// @gotags: xml:"Tala"
+	Tala []string `protobuf:"bytes,41,rep,name=tala,proto3" json:"tala,omitempty" xml:"Tala"`
+	// @gotags: xml:"Deity"
+	Deity []string `protobuf:"bytes,42,rep,name=deity,proto3" json:"deity,omitempty" xml:"Deity"`
+	// @gotags: xml:"VideoChapterReference"
+	VideoChapterReference []string `protobuf:"bytes,43,rep,name=video_chapter_reference,json=videoChapterReference,proto3" json:"video_chapter_reference,omitempty" xml:"VideoChapterReference"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,44,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsSupplemental,attr"
+	IsSupplemental bool `protobuf:"varint,45,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
+	// @gotags: xml:"ApplyClassicalProfileVariant,attr"
+	ApplyClassicalProfileVariant bool `protobuf:"varint,46,opt,name=apply_classical_profile_variant,json=applyClassicalProfileVariant,proto3" json:"apply_classical_profile_variant,omitempty" xml:"ApplyClassicalProfileVariant,attr"`
+	unknownFields                protoimpl.UnknownFields
+	sizeCache                    protoimpl.SizeCache
 }
 
 func (x *Video) Reset() {
@@ -44227,16 +44934,23 @@ func (x *Video) GetApplyClassicalProfileVariant() bool {
 }
 
 type VideoClipDetails struct {
-	state                             protoimpl.MessageState `protogen:"open.v1"`
-	TechnicalResourceDetailsReference string                 `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty"`
-	ClipType                          *ClipType              `protobuf:"bytes,2,opt,name=clip_type,json=clipType,proto3" json:"clip_type,omitempty"`
-	Timing                            []*Timing              `protobuf:"bytes,3,rep,name=timing,proto3" json:"timing,omitempty"`
-	TopLeftCorner                     string                 `protobuf:"bytes,4,opt,name=top_left_corner,json=topLeftCorner,proto3" json:"top_left_corner,omitempty"`
-	BottomRightCorner                 string                 `protobuf:"bytes,5,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty"`
-	ExpressionType                    ExpressionType         `protobuf:"varint,6,opt,name=expression_type,json=expressionType,proto3,enum=ddex.ern.v432.ExpressionType" json:"expression_type,omitempty"`
-	DeliveryFile                      []*VideoDeliveryFile   `protobuf:"bytes,7,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty"`
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TechnicalResourceDetailsReference"
+	TechnicalResourceDetailsReference string `protobuf:"bytes,1,opt,name=technical_resource_details_reference,json=technicalResourceDetailsReference,proto3" json:"technical_resource_details_reference,omitempty" xml:"TechnicalResourceDetailsReference"`
+	// @gotags: xml:"ClipType"
+	ClipType *ClipType `protobuf:"bytes,2,opt,name=clip_type,json=clipType,proto3" json:"clip_type,omitempty" xml:"ClipType"`
+	// @gotags: xml:"Timing"
+	Timing []*Timing `protobuf:"bytes,3,rep,name=timing,proto3" json:"timing,omitempty" xml:"Timing"`
+	// @gotags: xml:"TopLeftCorner"
+	TopLeftCorner string `protobuf:"bytes,4,opt,name=top_left_corner,json=topLeftCorner,proto3" json:"top_left_corner,omitempty" xml:"TopLeftCorner"`
+	// @gotags: xml:"BottomRightCorner"
+	BottomRightCorner string `protobuf:"bytes,5,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty" xml:"BottomRightCorner"`
+	// @gotags: xml:"ExpressionType"
+	ExpressionType ExpressionType `protobuf:"varint,6,opt,name=expression_type,json=expressionType,proto3,enum=ddex.ern.v432.ExpressionType" json:"expression_type,omitempty" xml:"ExpressionType"`
+	// @gotags: xml:"DeliveryFile"
+	DeliveryFile  []*VideoDeliveryFile `protobuf:"bytes,7,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty" xml:"DeliveryFile"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *VideoClipDetails) Reset() {
@@ -44319,36 +45033,63 @@ func (x *VideoClipDetails) GetDeliveryFile() []*VideoDeliveryFile {
 }
 
 type VideoDeliveryFile struct {
-	state                              protoimpl.MessageState             `protogen:"open.v1"`
-	Type                               DeliveryFileType                   `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.DeliveryFileType" json:"type,omitempty"`
-	ContainerFormat                    *ContainerFormat                   `protobuf:"bytes,2,opt,name=container_format,json=containerFormat,proto3" json:"container_format,omitempty"`
-	VideoCodecType                     *VideoCodecType                    `protobuf:"bytes,3,opt,name=video_codec_type,json=videoCodecType,proto3" json:"video_codec_type,omitempty"`
-	VideoBitRate                       *BitRate                           `protobuf:"bytes,4,opt,name=video_bit_rate,json=videoBitRate,proto3" json:"video_bit_rate,omitempty"`
-	FrameRate                          *FrameRate                         `protobuf:"bytes,5,opt,name=frame_rate,json=frameRate,proto3" json:"frame_rate,omitempty"`
-	ImageHeight                        *Extent                            `protobuf:"bytes,6,opt,name=image_height,json=imageHeight,proto3" json:"image_height,omitempty"`
-	ImageWidth                         *Extent                            `protobuf:"bytes,7,opt,name=image_width,json=imageWidth,proto3" json:"image_width,omitempty"`
-	AspectRatio                        []*AspectRatio                     `protobuf:"bytes,8,rep,name=aspect_ratio,json=aspectRatio,proto3" json:"aspect_ratio,omitempty"`
-	CoreArea                           *CoreArea                          `protobuf:"bytes,9,opt,name=core_area,json=coreArea,proto3" json:"core_area,omitempty"`
-	ColorDepth                         int32                              `protobuf:"varint,10,opt,name=color_depth,json=colorDepth,proto3" json:"color_depth,omitempty"`
-	VideoDefinitionType                *VideoDefinitionType               `protobuf:"bytes,11,opt,name=video_definition_type,json=videoDefinitionType,proto3" json:"video_definition_type,omitempty"`
-	AudioCodecType                     *AudioCodecType                    `protobuf:"bytes,12,opt,name=audio_codec_type,json=audioCodecType,proto3" json:"audio_codec_type,omitempty"`
-	HasImmersiveAudioMetadata          bool                               `protobuf:"varint,13,opt,name=has_immersive_audio_metadata,json=hasImmersiveAudioMetadata,proto3" json:"has_immersive_audio_metadata,omitempty"`
-	ElectroOpticalTransferFunctionType ElectroOpticalTransferFunctionType `protobuf:"varint,14,opt,name=electro_optical_transfer_function_type,json=electroOpticalTransferFunctionType,proto3,enum=ddex.ern.v432.ElectroOpticalTransferFunctionType" json:"electro_optical_transfer_function_type,omitempty"`
-	PrimaryColorType                   PrimaryColorType                   `protobuf:"varint,15,opt,name=primary_color_type,json=primaryColorType,proto3,enum=ddex.ern.v432.PrimaryColorType" json:"primary_color_type,omitempty"`
-	HdrVideoDynamicMetadataType        *HdrVideoDynamicMetadataType       `protobuf:"bytes,16,opt,name=hdr_video_dynamic_metadata_type,json=hdrVideoDynamicMetadataType,proto3" json:"hdr_video_dynamic_metadata_type,omitempty"`
-	HdrVideoStaticMetadataType         HdrVideoStaticMetadataType         `protobuf:"varint,17,opt,name=hdr_video_static_metadata_type,json=hdrVideoStaticMetadataType,proto3,enum=ddex.ern.v432.HdrVideoStaticMetadataType" json:"hdr_video_static_metadata_type,omitempty"`
-	AudioBitRate                       *BitRate                           `protobuf:"bytes,18,opt,name=audio_bit_rate,json=audioBitRate,proto3" json:"audio_bit_rate,omitempty"`
-	NumberOfAudioChannels              int32                              `protobuf:"varint,19,opt,name=number_of_audio_channels,json=numberOfAudioChannels,proto3" json:"number_of_audio_channels,omitempty"`
-	NumberOfAudioObjects               int32                              `protobuf:"varint,20,opt,name=number_of_audio_objects,json=numberOfAudioObjects,proto3" json:"number_of_audio_objects,omitempty"`
-	AudioSamplingRate                  *SamplingRate                      `protobuf:"bytes,21,opt,name=audio_sampling_rate,json=audioSamplingRate,proto3" json:"audio_sampling_rate,omitempty"`
-	AudioBitsPerSample                 int32                              `protobuf:"varint,22,opt,name=audio_bits_per_sample,json=audioBitsPerSample,proto3" json:"audio_bits_per_sample,omitempty"`
-	Duration                           string                             `protobuf:"bytes,23,opt,name=duration,proto3" json:"duration,omitempty"`
-	BitDepth                           int32                              `protobuf:"varint,24,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty"`
-	File                               *File                              `protobuf:"bytes,25,opt,name=file,proto3" json:"file,omitempty"`
-	Fingerprint                        []*Fingerprint                     `protobuf:"bytes,26,rep,name=fingerprint,proto3" json:"fingerprint,omitempty"`
-	IsProvidedInDelivery               bool                               `protobuf:"varint,27,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty"`
-	unknownFields                      protoimpl.UnknownFields
-	sizeCache                          protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Type"
+	Type DeliveryFileType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.DeliveryFileType" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ContainerFormat"
+	ContainerFormat *ContainerFormat `protobuf:"bytes,2,opt,name=container_format,json=containerFormat,proto3" json:"container_format,omitempty" xml:"ContainerFormat"`
+	// @gotags: xml:"VideoCodecType"
+	VideoCodecType *VideoCodecType `protobuf:"bytes,3,opt,name=video_codec_type,json=videoCodecType,proto3" json:"video_codec_type,omitempty" xml:"VideoCodecType"`
+	// @gotags: xml:"VideoBitRate"
+	VideoBitRate *BitRate `protobuf:"bytes,4,opt,name=video_bit_rate,json=videoBitRate,proto3" json:"video_bit_rate,omitempty" xml:"VideoBitRate"`
+	// @gotags: xml:"FrameRate"
+	FrameRate *FrameRate `protobuf:"bytes,5,opt,name=frame_rate,json=frameRate,proto3" json:"frame_rate,omitempty" xml:"FrameRate"`
+	// @gotags: xml:"ImageHeight"
+	ImageHeight *Extent `protobuf:"bytes,6,opt,name=image_height,json=imageHeight,proto3" json:"image_height,omitempty" xml:"ImageHeight"`
+	// @gotags: xml:"ImageWidth"
+	ImageWidth *Extent `protobuf:"bytes,7,opt,name=image_width,json=imageWidth,proto3" json:"image_width,omitempty" xml:"ImageWidth"`
+	// @gotags: xml:"AspectRatio"
+	AspectRatio []*AspectRatio `protobuf:"bytes,8,rep,name=aspect_ratio,json=aspectRatio,proto3" json:"aspect_ratio,omitempty" xml:"AspectRatio"`
+	// @gotags: xml:"CoreArea"
+	CoreArea *CoreArea `protobuf:"bytes,9,opt,name=core_area,json=coreArea,proto3" json:"core_area,omitempty" xml:"CoreArea"`
+	// @gotags: xml:"ColorDepth"
+	ColorDepth int32 `protobuf:"varint,10,opt,name=color_depth,json=colorDepth,proto3" json:"color_depth,omitempty" xml:"ColorDepth"`
+	// @gotags: xml:"VideoDefinitionType"
+	VideoDefinitionType *VideoDefinitionType `protobuf:"bytes,11,opt,name=video_definition_type,json=videoDefinitionType,proto3" json:"video_definition_type,omitempty" xml:"VideoDefinitionType"`
+	// @gotags: xml:"AudioCodecType"
+	AudioCodecType *AudioCodecType `protobuf:"bytes,12,opt,name=audio_codec_type,json=audioCodecType,proto3" json:"audio_codec_type,omitempty" xml:"AudioCodecType"`
+	// @gotags: xml:"HasImmersiveAudioMetadata"
+	HasImmersiveAudioMetadata bool `protobuf:"varint,13,opt,name=has_immersive_audio_metadata,json=hasImmersiveAudioMetadata,proto3" json:"has_immersive_audio_metadata,omitempty" xml:"HasImmersiveAudioMetadata"`
+	// @gotags: xml:"ElectroOpticalTransferFunctionType"
+	ElectroOpticalTransferFunctionType ElectroOpticalTransferFunctionType `protobuf:"varint,14,opt,name=electro_optical_transfer_function_type,json=electroOpticalTransferFunctionType,proto3,enum=ddex.ern.v432.ElectroOpticalTransferFunctionType" json:"electro_optical_transfer_function_type,omitempty" xml:"ElectroOpticalTransferFunctionType"`
+	// @gotags: xml:"PrimaryColorType"
+	PrimaryColorType PrimaryColorType `protobuf:"varint,15,opt,name=primary_color_type,json=primaryColorType,proto3,enum=ddex.ern.v432.PrimaryColorType" json:"primary_color_type,omitempty" xml:"PrimaryColorType"`
+	// @gotags: xml:"HdrVideoDynamicMetadataType"
+	HdrVideoDynamicMetadataType *HdrVideoDynamicMetadataType `protobuf:"bytes,16,opt,name=hdr_video_dynamic_metadata_type,json=hdrVideoDynamicMetadataType,proto3" json:"hdr_video_dynamic_metadata_type,omitempty" xml:"HdrVideoDynamicMetadataType"`
+	// @gotags: xml:"HdrVideoStaticMetadataType"
+	HdrVideoStaticMetadataType HdrVideoStaticMetadataType `protobuf:"varint,17,opt,name=hdr_video_static_metadata_type,json=hdrVideoStaticMetadataType,proto3,enum=ddex.ern.v432.HdrVideoStaticMetadataType" json:"hdr_video_static_metadata_type,omitempty" xml:"HdrVideoStaticMetadataType"`
+	// @gotags: xml:"AudioBitRate"
+	AudioBitRate *BitRate `protobuf:"bytes,18,opt,name=audio_bit_rate,json=audioBitRate,proto3" json:"audio_bit_rate,omitempty" xml:"AudioBitRate"`
+	// @gotags: xml:"NumberOfAudioChannels"
+	NumberOfAudioChannels int32 `protobuf:"varint,19,opt,name=number_of_audio_channels,json=numberOfAudioChannels,proto3" json:"number_of_audio_channels,omitempty" xml:"NumberOfAudioChannels"`
+	// @gotags: xml:"NumberOfAudioObjects"
+	NumberOfAudioObjects int32 `protobuf:"varint,20,opt,name=number_of_audio_objects,json=numberOfAudioObjects,proto3" json:"number_of_audio_objects,omitempty" xml:"NumberOfAudioObjects"`
+	// @gotags: xml:"AudioSamplingRate"
+	AudioSamplingRate *SamplingRate `protobuf:"bytes,21,opt,name=audio_sampling_rate,json=audioSamplingRate,proto3" json:"audio_sampling_rate,omitempty" xml:"AudioSamplingRate"`
+	// @gotags: xml:"AudioBitsPerSample"
+	AudioBitsPerSample int32 `protobuf:"varint,22,opt,name=audio_bits_per_sample,json=audioBitsPerSample,proto3" json:"audio_bits_per_sample,omitempty" xml:"AudioBitsPerSample"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,23,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"BitDepth"
+	BitDepth int32 `protobuf:"varint,24,opt,name=bit_depth,json=bitDepth,proto3" json:"bit_depth,omitempty" xml:"BitDepth"`
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,25,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"Fingerprint"
+	Fingerprint []*Fingerprint `protobuf:"bytes,26,rep,name=fingerprint,proto3" json:"fingerprint,omitempty" xml:"Fingerprint"`
+	// @gotags: xml:"IsProvidedInDelivery"
+	IsProvidedInDelivery bool `protobuf:"varint,27,opt,name=is_provided_in_delivery,json=isProvidedInDelivery,proto3" json:"is_provided_in_delivery,omitempty" xml:"IsProvidedInDelivery"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *VideoDeliveryFile) Reset() {
@@ -44571,16 +45312,23 @@ func (x *VideoDeliveryFile) GetIsProvidedInDelivery() bool {
 }
 
 type VideoEdition struct {
-	state              protoimpl.MessageState   `protogen:"open.v1"`
-	Type               EditionType              `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.EditionType" json:"type,omitempty"`
-	ResourceId         []*VideoId               `protobuf:"bytes,2,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
-	EditionContributor []*EditionContributor    `protobuf:"bytes,3,rep,name=edition_contributor,json=editionContributor,proto3" json:"edition_contributor,omitempty"`
-	PLine              []*PLine                 `protobuf:"bytes,4,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty"`
-	CLine              []*CLine                 `protobuf:"bytes,5,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty"`
-	RecordingMode      RecordingMode            `protobuf:"varint,6,opt,name=recording_mode,json=recordingMode,proto3,enum=ddex.ern.v432.RecordingMode" json:"recording_mode,omitempty"`
-	TechnicalDetails   []*TechnicalVideoDetails `protobuf:"bytes,7,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Type"
+	Type EditionType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.EditionType" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ResourceId"
+	ResourceId []*VideoId `protobuf:"bytes,2,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"EditionContributor"
+	EditionContributor []*EditionContributor `protobuf:"bytes,3,rep,name=edition_contributor,json=editionContributor,proto3" json:"edition_contributor,omitempty" xml:"EditionContributor"`
+	// @gotags: xml:"PLine"
+	PLine []*PLine `protobuf:"bytes,4,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty" xml:"PLine"`
+	// @gotags: xml:"CLine"
+	CLine []*CLine `protobuf:"bytes,5,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
+	// @gotags: xml:"RecordingMode"
+	RecordingMode RecordingMode `protobuf:"varint,6,opt,name=recording_mode,json=recordingMode,proto3,enum=ddex.ern.v432.RecordingMode" json:"recording_mode,omitempty" xml:"RecordingMode"`
+	// @gotags: xml:"TechnicalDetails"
+	TechnicalDetails []*TechnicalVideoDetails `protobuf:"bytes,7,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *VideoEdition) Reset() {
@@ -44663,10 +45411,13 @@ func (x *VideoEdition) GetTechnicalDetails() []*TechnicalVideoDetails {
 }
 
 type VideoType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -44723,15 +45474,21 @@ func (x *VideoType) GetUserDefinedValue() string {
 }
 
 type WorkRightsController struct {
-	state                          protoimpl.MessageState `protogen:"open.v1"`
-	RightsControllerPartyReference string                 `protobuf:"bytes,1,opt,name=rights_controller_party_reference,json=rightsControllerPartyReference,proto3" json:"rights_controller_party_reference,omitempty"`
-	RightsControlType              []RightsControllerRole `protobuf:"varint,2,rep,packed,name=rights_control_type,json=rightsControlType,proto3,enum=ddex.ern.v432.RightsControllerRole" json:"rights_control_type,omitempty"`
-	RightsControllerType           RightsControllerType   `protobuf:"varint,3,opt,name=rights_controller_type,json=rightsControllerType,proto3,enum=ddex.ern.v432.RightsControllerType" json:"rights_controller_type,omitempty"`
-	Territory                      []*AllTerritoryCode    `protobuf:"bytes,4,rep,name=territory,proto3" json:"territory,omitempty"`
-	StartDate                      string                 `protobuf:"bytes,5,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
-	EndDate                        string                 `protobuf:"bytes,6,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"RightsControllerPartyReference"
+	RightsControllerPartyReference string `protobuf:"bytes,1,opt,name=rights_controller_party_reference,json=rightsControllerPartyReference,proto3" json:"rights_controller_party_reference,omitempty" xml:"RightsControllerPartyReference"`
+	// @gotags: xml:"RightsControlType"
+	RightsControlType []RightsControllerRole `protobuf:"varint,2,rep,packed,name=rights_control_type,json=rightsControlType,proto3,enum=ddex.ern.v432.RightsControllerRole" json:"rights_control_type,omitempty" xml:"RightsControlType"`
+	// @gotags: xml:"RightsControllerType"
+	RightsControllerType RightsControllerType `protobuf:"varint,3,opt,name=rights_controller_type,json=rightsControllerType,proto3,enum=ddex.ern.v432.RightsControllerType" json:"rights_controller_type,omitempty" xml:"RightsControllerType"`
+	// @gotags: xml:"Territory"
+	Territory []*AllTerritoryCode `protobuf:"bytes,4,rep,name=territory,proto3" json:"territory,omitempty" xml:"Territory"`
+	// @gotags: xml:"StartDate"
+	StartDate string `protobuf:"bytes,5,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate       string `protobuf:"bytes,6,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *WorkRightsController) Reset() {
@@ -44807,10 +45564,13 @@ func (x *WorkRightsController) GetEndDate() string {
 }
 
 type AdministratingRecordCompanyRole struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -44867,11 +45627,15 @@ func (x *AdministratingRecordCompanyRole) GetUserDefinedValue() string {
 }
 
 type Affiliation struct {
-	state                        protoimpl.MessageState `protogen:"open.v1"`
-	Type                         AffiliationType        `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.AffiliationType" json:"type,omitempty"`
-	ValidityPeriod               *ValidityPeriod        `protobuf:"bytes,2,opt,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty"`
-	RightsType                   []*RightsType          `protobuf:"bytes,3,rep,name=rights_type,json=rightsType,proto3" json:"rights_type,omitempty"`
-	PercentageOfRightsAssignment string                 `protobuf:"bytes,4,opt,name=percentage_of_rights_assignment,json=percentageOfRightsAssignment,proto3" json:"percentage_of_rights_assignment,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Type"
+	Type AffiliationType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.ern.v432.AffiliationType" json:"type,omitempty" xml:"Type"`
+	// @gotags: xml:"ValidityPeriod"
+	ValidityPeriod *ValidityPeriod `protobuf:"bytes,2,opt,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty" xml:"ValidityPeriod"`
+	// @gotags: xml:"RightsType"
+	RightsType []*RightsType `protobuf:"bytes,3,rep,name=rights_type,json=rightsType,proto3" json:"rights_type,omitempty" xml:"RightsType"`
+	// @gotags: xml:"PercentageOfRightsAssignment"
+	PercentageOfRightsAssignment string `protobuf:"bytes,4,opt,name=percentage_of_rights_assignment,json=percentageOfRightsAssignment,proto3" json:"percentage_of_rights_assignment,omitempty" xml:"PercentageOfRightsAssignment"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -44935,9 +45699,11 @@ func (x *Affiliation) GetPercentageOfRightsAssignment() string {
 }
 
 type AllTerritoryCode struct {
-	state          protoimpl.MessageState                    `protogen:"open.v1"`
-	Value          string                                    `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IdentifierType TerritoryCodeTypeIncludingDeprecatedCodes `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.ern.v432.TerritoryCodeTypeIncludingDeprecatedCodes" json:"identifier_type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IdentifierType,attr"
+	IdentifierType TerritoryCodeTypeIncludingDeprecatedCodes `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.ern.v432.TerritoryCodeTypeIncludingDeprecatedCodes" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -44987,10 +45753,13 @@ func (x *AllTerritoryCode) GetIdentifierType() TerritoryCodeTypeIncludingDepreca
 }
 
 type AspectRatio struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	Value                    string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	AspectRatioType          AspectRatioType        `protobuf:"varint,2,opt,name=aspect_ratio_type,json=aspectRatioType,proto3,enum=ddex.ern.v432.AspectRatioType" json:"aspect_ratio_type,omitempty"`
-	AppliesToCroppedResource bool                   `protobuf:"varint,3,opt,name=applies_to_cropped_resource,json=appliesToCroppedResource,proto3" json:"applies_to_cropped_resource,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"AspectRatioType,attr"
+	AspectRatioType AspectRatioType `protobuf:"varint,2,opt,name=aspect_ratio_type,json=aspectRatioType,proto3,enum=ddex.ern.v432.AspectRatioType" json:"aspect_ratio_type,omitempty" xml:"AspectRatioType,attr"`
+	// @gotags: xml:"AppliesToCroppedResource,attr"
+	AppliesToCroppedResource bool `protobuf:"varint,3,opt,name=applies_to_cropped_resource,json=appliesToCroppedResource,proto3" json:"applies_to_cropped_resource,omitempty" xml:"AppliesToCroppedResource,attr"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -45047,11 +45816,15 @@ func (x *AspectRatio) GetAppliesToCroppedResource() bool {
 }
 
 type AudioCodecType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Version          string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Namespace        string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Version,attr"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45115,9 +45888,11 @@ func (x *AudioCodecType) GetUserDefinedValue() string {
 }
 
 type BitRate struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	UnitOfMeasure UnitOfBitRate          `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfBitRate" json:"unit_of_measure,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"UnitOfMeasure,attr"
+	UnitOfMeasure UnitOfBitRate `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfBitRate" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45167,15 +45942,21 @@ func (x *BitRate) GetUnitOfMeasure() UnitOfBitRate {
 }
 
 type CLine struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Year                    string                 `protobuf:"bytes,1,opt,name=year,proto3" json:"year,omitempty"`
-	CLineCompany            string                 `protobuf:"bytes,2,opt,name=c_line_company,json=cLineCompany,proto3" json:"c_line_company,omitempty"`
-	CLineText               string                 `protobuf:"bytes,3,opt,name=c_line_text,json=cLineText,proto3" json:"c_line_text,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,6,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Year"
+	Year string `protobuf:"bytes,1,opt,name=year,proto3" json:"year,omitempty" xml:"Year"`
+	// @gotags: xml:"CLineCompany"
+	CLineCompany string `protobuf:"bytes,2,opt,name=c_line_company,json=cLineCompany,proto3" json:"c_line_company,omitempty" xml:"CLineCompany"`
+	// @gotags: xml:"CLineText"
+	CLineText string `protobuf:"bytes,3,opt,name=c_line_text,json=cLineText,proto3" json:"c_line_text,omitempty" xml:"CLineText"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,6,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CLine) Reset() {
@@ -45251,10 +46032,13 @@ func (x *CLine) GetIsDefault() bool {
 }
 
 type CarrierType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45311,9 +46095,11 @@ func (x *CarrierType) GetUserDefinedValue() string {
 }
 
 type CatalogNumber struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace     string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace     string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45363,14 +46149,21 @@ func (x *CatalogNumber) GetNamespace() string {
 }
 
 type ChapterId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISRC          string                 `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty"`
-	ISAN          string                 `protobuf:"bytes,2,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty"`
-	VISAN         string                 `protobuf:"bytes,3,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty"`
-	EIDR          []string               `protobuf:"bytes,4,rep,name=e_i_d_r,json=eIDR,proto3" json:"e_i_d_r,omitempty"`
-	ISWC          string                 `protobuf:"bytes,5,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty"`
-	CatalogNumber *CatalogNumber         `protobuf:"bytes,6,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,7,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISRC"
+	ISRC string `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty" xml:"ISRC"`
+	// @gotags: xml:"ISAN"
+	ISAN string `protobuf:"bytes,2,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty" xml:"ISAN"`
+	// @gotags: xml:"VISAN"
+	VISAN string `protobuf:"bytes,3,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty" xml:"VISAN"`
+	// @gotags: xml:"EIDR"
+	EIDR []string `protobuf:"bytes,4,rep,name=e_i_d_r,json=eIDR,proto3" json:"e_i_d_r,omitempty" xml:"EIDR"`
+	// @gotags: xml:"ISWC"
+	ISWC string `protobuf:"bytes,5,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty" xml:"ISWC"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber *CatalogNumber `protobuf:"bytes,6,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,7,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -45455,10 +46248,13 @@ func (x *ChapterId) GetProprietaryId() []*ProprietaryId {
 }
 
 type ClipType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45515,10 +46311,13 @@ func (x *ClipType) GetUserDefinedValue() string {
 }
 
 type ContainerFormat struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45575,17 +46374,25 @@ func (x *ContainerFormat) GetUserDefinedValue() string {
 }
 
 type Contributor struct {
-	state                         protoimpl.MessageState `protogen:"open.v1"`
-	Role                          []*ContributorRole     `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty"`
-	InstrumentType                []*InstrumentType      `protobuf:"bytes,2,rep,name=instrument_type,json=instrumentType,proto3" json:"instrument_type,omitempty"`
-	AiContribution                ContainsAI             `protobuf:"varint,3,opt,name=ai_contribution,json=aiContribution,proto3,enum=ddex.ern.v432.ContainsAI" json:"ai_contribution,omitempty"`
-	HasMadeFeaturedContribution   bool                   `protobuf:"varint,4,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty"`
-	HasMadeContractedContribution bool                   `protobuf:"varint,5,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty"`
-	IsCredited                    *IsCredited            `protobuf:"bytes,6,opt,name=is_credited,json=isCredited,proto3" json:"is_credited,omitempty"`
-	DisplayCredits                []*DisplayCredits      `protobuf:"bytes,7,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty"`
-	SequenceNumber                int32                  `protobuf:"varint,8,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Role"
+	Role []*ContributorRole `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty" xml:"Role"`
+	// @gotags: xml:"InstrumentType"
+	InstrumentType []*InstrumentType `protobuf:"bytes,2,rep,name=instrument_type,json=instrumentType,proto3" json:"instrument_type,omitempty" xml:"InstrumentType"`
+	// @gotags: xml:"AiContribution"
+	AiContribution ContainsAI `protobuf:"varint,3,opt,name=ai_contribution,json=aiContribution,proto3,enum=ddex.ern.v432.ContainsAI" json:"ai_contribution,omitempty" xml:"AiContribution"`
+	// @gotags: xml:"HasMadeFeaturedContribution"
+	HasMadeFeaturedContribution bool `protobuf:"varint,4,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty" xml:"HasMadeFeaturedContribution"`
+	// @gotags: xml:"HasMadeContractedContribution"
+	HasMadeContractedContribution bool `protobuf:"varint,5,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty" xml:"HasMadeContractedContribution"`
+	// @gotags: xml:"IsCredited"
+	IsCredited *IsCredited `protobuf:"bytes,6,opt,name=is_credited,json=isCredited,proto3" json:"is_credited,omitempty" xml:"IsCredited"`
+	// @gotags: xml:"DisplayCredits"
+	DisplayCredits []*DisplayCredits `protobuf:"bytes,7,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,8,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Contributor) Reset() {
@@ -45675,9 +46482,11 @@ func (x *Contributor) GetSequenceNumber() int32 {
 }
 
 type ContributorRole struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Value          *ContributorRoleValue  `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	InstrumentType []*InstrumentType      `protobuf:"bytes,2,rep,name=instrument_type,json=instrumentType,proto3" json:"instrument_type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Value"
+	Value *ContributorRoleValue `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	// @gotags: xml:"InstrumentType"
+	InstrumentType []*InstrumentType `protobuf:"bytes,2,rep,name=instrument_type,json=instrumentType,proto3" json:"instrument_type,omitempty" xml:"InstrumentType"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -45727,10 +46536,13 @@ func (x *ContributorRole) GetInstrumentType() []*InstrumentType {
 }
 
 type ContributorRoleValue struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45787,13 +46599,17 @@ func (x *ContributorRoleValue) GetUserDefinedValue() string {
 }
 
 type CourtesyLine struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CourtesyLine) Reset() {
@@ -45855,10 +46671,13 @@ func (x *CourtesyLine) GetIsDefault() bool {
 }
 
 type CueOrigin struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45915,10 +46734,13 @@ func (x *CueOrigin) GetUserDefinedValue() string {
 }
 
 type CueSheetType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -45975,10 +46797,13 @@ func (x *CueSheetType) GetUserDefinedValue() string {
 }
 
 type CueThemeType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -46035,10 +46860,13 @@ func (x *CueThemeType) GetUserDefinedValue() string {
 }
 
 type CueUseType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -46095,10 +46923,13 @@ func (x *CueUseType) GetUserDefinedValue() string {
 }
 
 type CueVisualPerceptionType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -46155,10 +46986,13 @@ func (x *CueVisualPerceptionType) GetUserDefinedValue() string {
 }
 
 type CueVocalType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -46215,9 +47049,11 @@ func (x *CueVocalType) GetUserDefinedValue() string {
 }
 
 type CurrentTerritoryCode struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Value          string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IdentifierType TerritoryCodeType      `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.ern.v432.TerritoryCodeType" json:"identifier_type,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IdentifierType,attr"
+	IdentifierType TerritoryCodeType `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.ern.v432.TerritoryCodeType" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -46267,9 +47103,11 @@ func (x *CurrentTerritoryCode) GetIdentifierType() TerritoryCodeType {
 }
 
 type DSP struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	TradingName   *Name                  `protobuf:"bytes,1,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty"`
-	URL           []string               `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TradingName"
+	TradingName *Name `protobuf:"bytes,1,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty" xml:"TradingName"`
+	// @gotags: xml:"URL"
+	URL           []string `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty" xml:"URL"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46319,12 +47157,17 @@ func (x *DSP) GetURL() []string {
 }
 
 type DetailedHashSum struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Algorithm     *HashSumAlgorithmType  `protobuf:"bytes,1,opt,name=algorithm,proto3" json:"algorithm,omitempty"`
-	Version       string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Parameter     string                 `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty"`
-	DataType      BinaryDataType         `protobuf:"varint,4,opt,name=data_type,json=dataType,proto3,enum=ddex.ern.v432.BinaryDataType" json:"data_type,omitempty"`
-	HashSumValue  string                 `protobuf:"bytes,5,opt,name=hash_sum_value,json=hashSumValue,proto3" json:"hash_sum_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Algorithm"
+	Algorithm *HashSumAlgorithmType `protobuf:"bytes,1,opt,name=algorithm,proto3" json:"algorithm,omitempty" xml:"Algorithm"`
+	// @gotags: xml:"Version"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version"`
+	// @gotags: xml:"Parameter"
+	Parameter string `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty" xml:"Parameter"`
+	// @gotags: xml:"DataType"
+	DataType BinaryDataType `protobuf:"varint,4,opt,name=data_type,json=dataType,proto3,enum=ddex.ern.v432.BinaryDataType" json:"data_type,omitempty" xml:"DataType"`
+	// @gotags: xml:"HashSumValue"
+	HashSumValue  string `protobuf:"bytes,5,opt,name=hash_sum_value,json=hashSumValue,proto3" json:"hash_sum_value,omitempty" xml:"HashSumValue"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -46395,15 +47238,21 @@ func (x *DetailedHashSum) GetHashSumValue() string {
 }
 
 type DetailedPartyId struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	ISNI           string                 `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty"`
-	DPID           string                 `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty"`
-	IpiNameNumber  string                 `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty"`
-	IPN            string                 `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty"`
-	CisacSocietyId string                 `protobuf:"bytes,5,opt,name=cisac_society_id,json=cisacSocietyId,proto3" json:"cisac_society_id,omitempty"`
-	ProprietaryId  []*ProprietaryId       `protobuf:"bytes,6,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISNI"
+	ISNI string `protobuf:"bytes,1,opt,name=i_s_n_i,json=iSNI,proto3" json:"i_s_n_i,omitempty" xml:"ISNI"`
+	// @gotags: xml:"DPID"
+	DPID string `protobuf:"bytes,2,opt,name=d_p_i_d,json=dPID,proto3" json:"d_p_i_d,omitempty" xml:"DPID"`
+	// @gotags: xml:"IpiNameNumber"
+	IpiNameNumber string `protobuf:"bytes,3,opt,name=ipi_name_number,json=ipiNameNumber,proto3" json:"ipi_name_number,omitempty" xml:"IpiNameNumber"`
+	// @gotags: xml:"IPN"
+	IPN string `protobuf:"bytes,4,opt,name=i_p_n,json=iPN,proto3" json:"i_p_n,omitempty" xml:"IPN"`
+	// @gotags: xml:"CisacSocietyId"
+	CisacSocietyId string `protobuf:"bytes,5,opt,name=cisac_society_id,json=cisacSocietyId,proto3" json:"cisac_society_id,omitempty" xml:"CisacSocietyId"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,6,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DetailedPartyId) Reset() {
@@ -46479,14 +47328,19 @@ func (x *DetailedPartyId) GetProprietaryId() []*ProprietaryId {
 }
 
 type DisplayArtistNameWithOriginalLanguage struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	IsInOriginalLanguage    bool                   `protobuf:"varint,3,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"IsInOriginalLanguage,attr"
+	IsInOriginalLanguage bool `protobuf:"varint,3,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty" xml:"IsInOriginalLanguage,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DisplayArtistNameWithOriginalLanguage) Reset() {
@@ -46555,10 +47409,13 @@ func (x *DisplayArtistNameWithOriginalLanguage) GetIsDefault() bool {
 }
 
 type DisplayArtistRole struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -46615,13 +47472,17 @@ func (x *DisplayArtistRole) GetUserDefinedValue() string {
 }
 
 type DisplayCredits struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	DisplayCreditText       string                 `protobuf:"bytes,1,opt,name=display_credit_text,json=displayCreditText,proto3" json:"display_credit_text,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"DisplayCreditText"
+	DisplayCreditText string `protobuf:"bytes,1,opt,name=display_credit_text,json=displayCreditText,proto3" json:"display_credit_text,omitempty" xml:"DisplayCreditText"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DisplayCredits) Reset() {
@@ -46683,13 +47544,17 @@ func (x *DisplayCredits) GetIsDefault() bool {
 }
 
 type DisplaySubTitle struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	Value              string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	SequenceNumber     int32                  `protobuf:"varint,2,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	IsDisplayedInTitle bool                   `protobuf:"varint,3,opt,name=is_displayed_in_title,json=isDisplayedInTitle,proto3" json:"is_displayed_in_title,omitempty"`
-	SubTitleType       SubTitleType           `protobuf:"varint,4,opt,name=sub_title_type,json=subTitleType,proto3,enum=ddex.ern.v432.SubTitleType" json:"sub_title_type,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,2,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	// @gotags: xml:"IsDisplayedInTitle,attr"
+	IsDisplayedInTitle bool `protobuf:"varint,3,opt,name=is_displayed_in_title,json=isDisplayedInTitle,proto3" json:"is_displayed_in_title,omitempty" xml:"IsDisplayedInTitle,attr"`
+	// @gotags: xml:"SubTitleType,attr"
+	SubTitleType  SubTitleType `protobuf:"varint,4,opt,name=sub_title_type,json=subTitleType,proto3,enum=ddex.ern.v432.SubTitleType" json:"sub_title_type,omitempty" xml:"SubTitleType,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DisplaySubTitle) Reset() {
@@ -46751,15 +47616,21 @@ func (x *DisplaySubTitle) GetSubTitleType() SubTitleType {
 }
 
 type DisplayTitle struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	TitleText               string                 `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty"`
-	SubTitle                []*DisplaySubTitle     `protobuf:"bytes,2,rep,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	IsInOriginalLanguage    bool                   `protobuf:"varint,6,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"TitleText"
+	TitleText string `protobuf:"bytes,1,opt,name=title_text,json=titleText,proto3" json:"title_text,omitempty" xml:"TitleText"`
+	// @gotags: xml:"SubTitle"
+	SubTitle []*DisplaySubTitle `protobuf:"bytes,2,rep,name=sub_title,json=subTitle,proto3" json:"sub_title,omitempty" xml:"SubTitle"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"IsInOriginalLanguage,attr"
+	IsInOriginalLanguage bool `protobuf:"varint,6,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty" xml:"IsInOriginalLanguage,attr"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *DisplayTitle) Reset() {
@@ -46835,16 +47706,23 @@ func (x *DisplayTitle) GetIsInOriginalLanguage() bool {
 }
 
 type EventDate struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate           bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
-	IsBefore                bool                   `protobuf:"varint,3,opt,name=is_before,json=isBefore,proto3" json:"is_before,omitempty"`
-	IsAfter                 bool                   `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty"`
-	ApplicableTerritoryCode *AllTerritoryCode      `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	LocationDescription     string                 `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,7,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
+	// @gotags: xml:"IsBefore,attr"
+	IsBefore bool `protobuf:"varint,3,opt,name=is_before,json=isBefore,proto3" json:"is_before,omitempty" xml:"IsBefore,attr"`
+	// @gotags: xml:"IsAfter,attr"
+	IsAfter bool `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty" xml:"IsAfter,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *AllTerritoryCode `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"LocationDescription,attr"
+	LocationDescription string `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,7,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *EventDate) Reset() {
@@ -46927,14 +47805,21 @@ func (x *EventDate) GetLanguageAndScriptCode() string {
 }
 
 type EventDateTime struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsApproximate         bool                   `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty"`
-	IsBefore              bool                   `protobuf:"varint,3,opt,name=is_before,json=isBefore,proto3" json:"is_before,omitempty"`
-	IsAfter               bool                   `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty"`
-	TerritoryCode         *AllTerritoryCode      `protobuf:"bytes,5,opt,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty"`
-	LocationDescription   string                 `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,7,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsApproximate,attr"
+	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
+	// @gotags: xml:"IsBefore,attr"
+	IsBefore bool `protobuf:"varint,3,opt,name=is_before,json=isBefore,proto3" json:"is_before,omitempty" xml:"IsBefore,attr"`
+	// @gotags: xml:"IsAfter,attr"
+	IsAfter bool `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty" xml:"IsAfter,attr"`
+	// @gotags: xml:"TerritoryCode,attr"
+	TerritoryCode *AllTerritoryCode `protobuf:"bytes,5,opt,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode,attr"`
+	// @gotags: xml:"LocationDescription,attr"
+	LocationDescription string `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,7,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -47019,9 +47904,11 @@ func (x *EventDateTime) GetLanguageAndScriptCode() string {
 }
 
 type Extent struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	UnitOfMeasure UnitOfExtent           `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfExtent" json:"unit_of_measure,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"UnitOfMeasure,attr"
+	UnitOfMeasure UnitOfExtent `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfExtent" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -47071,10 +47958,13 @@ func (x *Extent) GetUnitOfMeasure() UnitOfExtent {
 }
 
 type ExternallyLinkedResourceType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47131,10 +48021,13 @@ func (x *ExternallyLinkedResourceType) GetUserDefinedValue() string {
 }
 
 type File struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	URI           string                 `protobuf:"bytes,1,opt,name=u_r_i,json=uRI,proto3" json:"u_r_i,omitempty"`
-	HashSum       *DetailedHashSum       `protobuf:"bytes,2,opt,name=hash_sum,json=hashSum,proto3" json:"hash_sum,omitempty"`
-	FileSize      string                 `protobuf:"bytes,3,opt,name=file_size,json=fileSize,proto3" json:"file_size,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"URI"
+	URI string `protobuf:"bytes,1,opt,name=u_r_i,json=uRI,proto3" json:"u_r_i,omitempty" xml:"URI"`
+	// @gotags: xml:"HashSum"
+	HashSum *DetailedHashSum `protobuf:"bytes,2,opt,name=hash_sum,json=hashSum,proto3" json:"hash_sum,omitempty" xml:"HashSum"`
+	// @gotags: xml:"FileSize"
+	FileSize      string `protobuf:"bytes,3,opt,name=file_size,json=fileSize,proto3" json:"file_size,omitempty" xml:"FileSize"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -47191,10 +48084,13 @@ func (x *File) GetFileSize() string {
 }
 
 type Fingerprint struct {
-	state         protoimpl.MessageState    `protogen:"open.v1"`
-	Algorithm     *FingerprintAlgorithmType `protobuf:"bytes,1,opt,name=algorithm,proto3" json:"algorithm,omitempty"`
-	Version       string                    `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Parameter     string                    `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Algorithm"
+	Algorithm *FingerprintAlgorithmType `protobuf:"bytes,1,opt,name=algorithm,proto3" json:"algorithm,omitempty" xml:"Algorithm"`
+	// @gotags: xml:"Version"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version"`
+	// @gotags: xml:"Parameter"
+	Parameter     string `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty" xml:"Parameter"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -47251,10 +48147,13 @@ func (x *Fingerprint) GetParameter() string {
 }
 
 type FingerprintAlgorithmType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47311,12 +48210,15 @@ func (x *FingerprintAlgorithmType) GetUserDefinedValue() string {
 }
 
 type FirstPublicationDate struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *FirstPublicationDate) Reset() {
@@ -47371,9 +48273,11 @@ func (x *FirstPublicationDate) GetIsDefault() bool {
 }
 
 type FrameRate struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	UnitOfMeasure UnitOfFrameRate        `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfFrameRate" json:"unit_of_measure,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"UnitOfMeasure,attr"
+	UnitOfMeasure UnitOfFrameRate `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfFrameRate" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -47423,13 +48327,17 @@ func (x *FrameRate) GetUnitOfMeasure() UnitOfFrameRate {
 }
 
 type FulfillmentDate struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	FulfillmentDate          string                 `protobuf:"bytes,1,opt,name=fulfillment_date,json=fulfillmentDate,proto3" json:"fulfillment_date,omitempty"`
-	ResourceReleaseReference []string               `protobuf:"bytes,2,rep,name=resource_release_reference,json=resourceReleaseReference,proto3" json:"resource_release_reference,omitempty"`
-	ApplicableTerritoryCode  *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"FulfillmentDate"
+	FulfillmentDate string `protobuf:"bytes,1,opt,name=fulfillment_date,json=fulfillmentDate,proto3" json:"fulfillment_date,omitempty" xml:"FulfillmentDate"`
+	// @gotags: xml:"ResourceReleaseReference"
+	ResourceReleaseReference []string `protobuf:"bytes,2,rep,name=resource_release_reference,json=resourceReleaseReference,proto3" json:"resource_release_reference,omitempty" xml:"ResourceReleaseReference"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *FulfillmentDate) Reset() {
@@ -47491,10 +48399,13 @@ func (x *FulfillmentDate) GetIsDefault() bool {
 }
 
 type GenreCategory struct {
-	state                   protoimpl.MessageState  `protogen:"open.v1"`
-	Value                   *GenreCategoryValue     `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Description             []*TextWithoutTerritory `protobuf:"bytes,2,rep,name=description,proto3" json:"description,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode   `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Value"
+	Value *GenreCategoryValue `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	// @gotags: xml:"Description"
+	Description []*TextWithoutTerritory `protobuf:"bytes,2,rep,name=description,proto3" json:"description,omitempty" xml:"Description"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -47551,13 +48462,17 @@ func (x *GenreCategory) GetApplicableTerritoryCode() *CurrentTerritoryCode {
 }
 
 type GenreCategoryValue struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	Namespace             string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue      string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *GenreCategoryValue) Reset() {
@@ -47619,16 +48534,23 @@ func (x *GenreCategoryValue) GetUserDefinedValue() string {
 }
 
 type GenreWithTerritory struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	GenreText               string                 `protobuf:"bytes,1,opt,name=genre_text,json=genreText,proto3" json:"genre_text,omitempty"`
-	SubGenre                string                 `protobuf:"bytes,2,opt,name=sub_genre,json=subGenre,proto3" json:"sub_genre,omitempty"`
-	GenreCategory           []*GenreCategory       `protobuf:"bytes,3,rep,name=genre_category,json=genreCategory,proto3" json:"genre_category,omitempty"`
-	SubGenreCategory        []*SubGenreCategory    `protobuf:"bytes,4,rep,name=sub_genre_category,json=subGenreCategory,proto3" json:"sub_genre_category,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,6,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,7,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"GenreText"
+	GenreText string `protobuf:"bytes,1,opt,name=genre_text,json=genreText,proto3" json:"genre_text,omitempty" xml:"GenreText"`
+	// @gotags: xml:"SubGenre"
+	SubGenre string `protobuf:"bytes,2,opt,name=sub_genre,json=subGenre,proto3" json:"sub_genre,omitempty" xml:"SubGenre"`
+	// @gotags: xml:"GenreCategory"
+	GenreCategory []*GenreCategory `protobuf:"bytes,3,rep,name=genre_category,json=genreCategory,proto3" json:"genre_category,omitempty" xml:"GenreCategory"`
+	// @gotags: xml:"SubGenreCategory"
+	SubGenreCategory []*SubGenreCategory `protobuf:"bytes,4,rep,name=sub_genre_category,json=subGenreCategory,proto3" json:"sub_genre_category,omitempty" xml:"SubGenreCategory"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,6,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,7,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GenreWithTerritory) Reset() {
@@ -47711,10 +48633,13 @@ func (x *GenreWithTerritory) GetIsDefault() bool {
 }
 
 type HashSumAlgorithmType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47771,11 +48696,15 @@ func (x *HashSumAlgorithmType) GetUserDefinedValue() string {
 }
 
 type ImageCodecType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Version          string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Namespace        string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Version,attr"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47839,10 +48768,13 @@ func (x *ImageCodecType) GetUserDefinedValue() string {
 }
 
 type ImageType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47899,10 +48831,13 @@ func (x *ImageType) GetUserDefinedValue() string {
 }
 
 type InstrumentType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -47959,9 +48894,11 @@ func (x *InstrumentType) GetUserDefinedValue() string {
 }
 
 type IsCredited struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	MayBeShared   bool                   `protobuf:"varint,2,opt,name=may_be_shared,json=mayBeShared,proto3" json:"may_be_shared,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"MayBeShared,attr"
+	MayBeShared   bool `protobuf:"varint,2,opt,name=may_be_shared,json=mayBeShared,proto3" json:"may_be_shared,omitempty" xml:"MayBeShared,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -48011,13 +48948,17 @@ func (x *IsCredited) GetMayBeShared() bool {
 }
 
 type KeywordsWithTerritory struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *KeywordsWithTerritory) Reset() {
@@ -48079,9 +49020,11 @@ func (x *KeywordsWithTerritory) GetIsDefault() bool {
 }
 
 type Language struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Value          string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	IsMainLanguage bool                   `protobuf:"varint,2,opt,name=is_main_language,json=isMainLanguage,proto3" json:"is_main_language,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"IsMainLanguage,attr"
+	IsMainLanguage bool `protobuf:"varint,2,opt,name=is_main_language,json=isMainLanguage,proto3" json:"is_main_language,omitempty" xml:"IsMainLanguage,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -48131,13 +49074,17 @@ func (x *Language) GetIsMainLanguage() bool {
 }
 
 type MarketingComment struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MarketingComment) Reset() {
@@ -48199,8 +49146,9 @@ func (x *MarketingComment) GetIsDefault() bool {
 }
 
 type MessageAuditTrail struct {
-	state                  protoimpl.MessageState    `protogen:"open.v1"`
-	MessageAuditTrailEvent []*MessageAuditTrailEvent `protobuf:"bytes,1,rep,name=message_audit_trail_event,json=messageAuditTrailEvent,proto3" json:"message_audit_trail_event,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageAuditTrailEvent"
+	MessageAuditTrailEvent []*MessageAuditTrailEvent `protobuf:"bytes,1,rep,name=message_audit_trail_event,json=messageAuditTrailEvent,proto3" json:"message_audit_trail_event,omitempty" xml:"MessageAuditTrailEvent"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -48243,11 +49191,13 @@ func (x *MessageAuditTrail) GetMessageAuditTrailEvent() []*MessageAuditTrailEven
 }
 
 type MessageAuditTrailEvent struct {
-	state                    protoimpl.MessageState     `protogen:"open.v1"`
-	MessagingPartyDescriptor *MessagingPartyWithoutCode `protobuf:"bytes,1,opt,name=messaging_party_descriptor,json=messagingPartyDescriptor,proto3" json:"messaging_party_descriptor,omitempty"`
-	DateTime                 string                     `protobuf:"bytes,2,opt,name=date_time,json=dateTime,proto3" json:"date_time,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessagingPartyDescriptor"
+	MessagingPartyDescriptor *MessagingPartyWithoutCode `protobuf:"bytes,1,opt,name=messaging_party_descriptor,json=messagingPartyDescriptor,proto3" json:"messaging_party_descriptor,omitempty" xml:"MessagingPartyDescriptor"`
+	// @gotags: xml:"DateTime"
+	DateTime      string `protobuf:"bytes,2,opt,name=date_time,json=dateTime,proto3" json:"date_time,omitempty" xml:"DateTime"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MessageAuditTrailEvent) Reset() {
@@ -48295,19 +49245,29 @@ func (x *MessageAuditTrailEvent) GetDateTime() string {
 }
 
 type MessageHeader struct {
-	state                  protoimpl.MessageState       `protogen:"open.v1"`
-	MessageThreadId        string                       `protobuf:"bytes,1,opt,name=message_thread_id,json=messageThreadId,proto3" json:"message_thread_id,omitempty"`
-	MessageId              string                       `protobuf:"bytes,2,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
-	MessageFileName        string                       `protobuf:"bytes,3,opt,name=message_file_name,json=messageFileName,proto3" json:"message_file_name,omitempty"`
-	MessageSender          *MessagingPartyWithoutCode   `protobuf:"bytes,4,opt,name=message_sender,json=messageSender,proto3" json:"message_sender,omitempty"`
-	SentOnBehalfOf         *MessagingPartyWithoutCode   `protobuf:"bytes,5,opt,name=sent_on_behalf_of,json=sentOnBehalfOf,proto3" json:"sent_on_behalf_of,omitempty"`
-	MessageRecipient       []*MessagingPartyWithoutCode `protobuf:"bytes,6,rep,name=message_recipient,json=messageRecipient,proto3" json:"message_recipient,omitempty"`
-	SentAsRequestedBy      *MessagingPartyWithoutCode   `protobuf:"bytes,7,opt,name=sent_as_requested_by,json=sentAsRequestedBy,proto3" json:"sent_as_requested_by,omitempty"`
-	MessageCreatedDateTime string                       `protobuf:"bytes,8,opt,name=message_created_date_time,json=messageCreatedDateTime,proto3" json:"message_created_date_time,omitempty"`
-	MessageAuditTrail      *MessageAuditTrail           `protobuf:"bytes,9,opt,name=message_audit_trail,json=messageAuditTrail,proto3" json:"message_audit_trail,omitempty"`
-	MessageControlType     MessageControlType           `protobuf:"varint,10,opt,name=message_control_type,json=messageControlType,proto3,enum=ddex.ern.v432.MessageControlType" json:"message_control_type,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"MessageThreadId"
+	MessageThreadId string `protobuf:"bytes,1,opt,name=message_thread_id,json=messageThreadId,proto3" json:"message_thread_id,omitempty" xml:"MessageThreadId"`
+	// @gotags: xml:"MessageId"
+	MessageId string `protobuf:"bytes,2,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty" xml:"MessageId"`
+	// @gotags: xml:"MessageFileName"
+	MessageFileName string `protobuf:"bytes,3,opt,name=message_file_name,json=messageFileName,proto3" json:"message_file_name,omitempty" xml:"MessageFileName"`
+	// @gotags: xml:"MessageSender"
+	MessageSender *MessagingPartyWithoutCode `protobuf:"bytes,4,opt,name=message_sender,json=messageSender,proto3" json:"message_sender,omitempty" xml:"MessageSender"`
+	// @gotags: xml:"SentOnBehalfOf"
+	SentOnBehalfOf *MessagingPartyWithoutCode `protobuf:"bytes,5,opt,name=sent_on_behalf_of,json=sentOnBehalfOf,proto3" json:"sent_on_behalf_of,omitempty" xml:"SentOnBehalfOf"`
+	// @gotags: xml:"MessageRecipient"
+	MessageRecipient []*MessagingPartyWithoutCode `protobuf:"bytes,6,rep,name=message_recipient,json=messageRecipient,proto3" json:"message_recipient,omitempty" xml:"MessageRecipient"`
+	// @gotags: xml:"SentAsRequestedBy"
+	SentAsRequestedBy *MessagingPartyWithoutCode `protobuf:"bytes,7,opt,name=sent_as_requested_by,json=sentAsRequestedBy,proto3" json:"sent_as_requested_by,omitempty" xml:"SentAsRequestedBy"`
+	// @gotags: xml:"MessageCreatedDateTime"
+	MessageCreatedDateTime string `protobuf:"bytes,8,opt,name=message_created_date_time,json=messageCreatedDateTime,proto3" json:"message_created_date_time,omitempty" xml:"MessageCreatedDateTime"`
+	// @gotags: xml:"MessageAuditTrail"
+	MessageAuditTrail *MessageAuditTrail `protobuf:"bytes,9,opt,name=message_audit_trail,json=messageAuditTrail,proto3" json:"message_audit_trail,omitempty" xml:"MessageAuditTrail"`
+	// @gotags: xml:"MessageControlType"
+	MessageControlType MessageControlType `protobuf:"varint,10,opt,name=message_control_type,json=messageControlType,proto3,enum=ddex.ern.v432.MessageControlType" json:"message_control_type,omitempty" xml:"MessageControlType"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *MessageHeader) Reset() {
@@ -48411,10 +49371,13 @@ func (x *MessageHeader) GetMessageControlType() MessageControlType {
 }
 
 type MessagingPartyWithoutCode struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PartyId       string                 `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3" json:"party_id,omitempty"`
-	PartyName     *PartyNameWithoutCode  `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty"`
-	TradingName   string                 `protobuf:"bytes,3,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyId"
+	PartyId string `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName *PartyNameWithoutCode `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
+	// @gotags: xml:"TradingName"
+	TradingName   string `protobuf:"bytes,3,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty" xml:"TradingName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -48471,14 +49434,19 @@ func (x *MessagingPartyWithoutCode) GetTradingName() string {
 }
 
 type MusicalWorkId struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	ISWC                  string                 `protobuf:"bytes,1,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty"`
-	OpusNumber            string                 `protobuf:"bytes,2,opt,name=opus_number,json=opusNumber,proto3" json:"opus_number,omitempty"`
-	ComposerCatalogNumber []string               `protobuf:"bytes,3,rep,name=composer_catalog_number,json=composerCatalogNumber,proto3" json:"composer_catalog_number,omitempty"`
-	ProprietaryId         []*ProprietaryId       `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsReplaced            bool                   `protobuf:"varint,5,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISWC"
+	ISWC string `protobuf:"bytes,1,opt,name=i_s_w_c,json=iSWC,proto3" json:"i_s_w_c,omitempty" xml:"ISWC"`
+	// @gotags: xml:"OpusNumber"
+	OpusNumber string `protobuf:"bytes,2,opt,name=opus_number,json=opusNumber,proto3" json:"opus_number,omitempty" xml:"OpusNumber"`
+	// @gotags: xml:"ComposerCatalogNumber"
+	ComposerCatalogNumber []string `protobuf:"bytes,3,rep,name=composer_catalog_number,json=composerCatalogNumber,proto3" json:"composer_catalog_number,omitempty" xml:"ComposerCatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsReplaced,attr"
+	IsReplaced    bool `protobuf:"varint,5,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty" xml:"IsReplaced,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MusicalWorkId) Reset() {
@@ -48547,9 +49515,11 @@ func (x *MusicalWorkId) GetIsReplaced() bool {
 }
 
 type Name struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -48599,11 +49569,15 @@ func (x *Name) GetLanguageAndScriptCode() string {
 }
 
 type OperatingSystemType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Version          string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Namespace        string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Version,attr"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -48667,15 +49641,21 @@ func (x *OperatingSystemType) GetUserDefinedValue() string {
 }
 
 type PLine struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Year                    string                 `protobuf:"bytes,1,opt,name=year,proto3" json:"year,omitempty"`
-	PLineCompany            string                 `protobuf:"bytes,2,opt,name=p_line_company,json=pLineCompany,proto3" json:"p_line_company,omitempty"`
-	PLineText               string                 `protobuf:"bytes,3,opt,name=p_line_text,json=pLineText,proto3" json:"p_line_text,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,6,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Year"
+	Year string `protobuf:"bytes,1,opt,name=year,proto3" json:"year,omitempty" xml:"Year"`
+	// @gotags: xml:"PLineCompany"
+	PLineCompany string `protobuf:"bytes,2,opt,name=p_line_company,json=pLineCompany,proto3" json:"p_line_company,omitempty" xml:"PLineCompany"`
+	// @gotags: xml:"PLineText"
+	PLineText string `protobuf:"bytes,3,opt,name=p_line_text,json=pLineText,proto3" json:"p_line_text,omitempty" xml:"PLineText"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault     bool `protobuf:"varint,6,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PLine) Reset() {
@@ -48751,15 +49731,23 @@ func (x *PLine) GetIsDefault() bool {
 }
 
 type ParentalWarningTypeWithStandard struct {
-	state                    protoimpl.MessageState  `protogen:"open.v1"`
-	Value                    string                  `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	ApplicableTerritoryCode  *CurrentTerritoryCode   `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault                bool                    `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	TypeNamespace            string                  `protobuf:"bytes,4,opt,name=type_namespace,json=typeNamespace,proto3" json:"type_namespace,omitempty"`
-	TypeUserDefinedValue     string                  `protobuf:"bytes,5,opt,name=type_user_defined_value,json=typeUserDefinedValue,proto3" json:"type_user_defined_value,omitempty"`
-	ParentalWarningStandard  ParentalWarningStandard `protobuf:"varint,6,opt,name=parental_warning_standard,json=parentalWarningStandard,proto3,enum=ddex.ern.v432.ParentalWarningStandard" json:"parental_warning_standard,omitempty"`
-	StandardNamespace        string                  `protobuf:"bytes,7,opt,name=standard_namespace,json=standardNamespace,proto3" json:"standard_namespace,omitempty"`
-	StandardUserDefinedValue string                  `protobuf:"bytes,8,opt,name=standard_user_defined_value,json=standardUserDefinedValue,proto3" json:"standard_user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"TypeNamespace,attr"
+	TypeNamespace string `protobuf:"bytes,4,opt,name=type_namespace,json=typeNamespace,proto3" json:"type_namespace,omitempty" xml:"TypeNamespace,attr"`
+	// @gotags: xml:"TypeUserDefinedValue,attr"
+	TypeUserDefinedValue string `protobuf:"bytes,5,opt,name=type_user_defined_value,json=typeUserDefinedValue,proto3" json:"type_user_defined_value,omitempty" xml:"TypeUserDefinedValue,attr"`
+	// @gotags: xml:"ParentalWarningStandard,attr"
+	ParentalWarningStandard ParentalWarningStandard `protobuf:"varint,6,opt,name=parental_warning_standard,json=parentalWarningStandard,proto3,enum=ddex.ern.v432.ParentalWarningStandard" json:"parental_warning_standard,omitempty" xml:"ParentalWarningStandard,attr"`
+	// @gotags: xml:"StandardNamespace,attr"
+	StandardNamespace string `protobuf:"bytes,7,opt,name=standard_namespace,json=standardNamespace,proto3" json:"standard_namespace,omitempty" xml:"StandardNamespace,attr"`
+	// @gotags: xml:"StandardUserDefinedValue,attr"
+	StandardUserDefinedValue string `protobuf:"bytes,8,opt,name=standard_user_defined_value,json=standardUserDefinedValue,proto3" json:"standard_user_defined_value,omitempty" xml:"StandardUserDefinedValue,attr"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -48851,17 +49839,25 @@ func (x *ParentalWarningTypeWithStandard) GetStandardUserDefinedValue() string {
 }
 
 type PartyName struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	FullName                 *Name                  `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	FullNameAsciiTranscribed string                 `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty"`
-	FullNameIndexed          *Name                  `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty"`
-	NamesBeforeKeyName       *Name                  `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty"`
-	KeyName                  *Name                  `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty"`
-	NamesAfterKeyName        *Name                  `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty"`
-	AbbreviatedName          *Name                  `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty"`
-	LanguageAndScriptCode    string                 `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"FullName"
+	FullName *Name `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty" xml:"FullName"`
+	// @gotags: xml:"FullNameAsciiTranscribed"
+	FullNameAsciiTranscribed string `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty" xml:"FullNameAsciiTranscribed"`
+	// @gotags: xml:"FullNameIndexed"
+	FullNameIndexed *Name `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty" xml:"FullNameIndexed"`
+	// @gotags: xml:"NamesBeforeKeyName"
+	NamesBeforeKeyName *Name `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty" xml:"NamesBeforeKeyName"`
+	// @gotags: xml:"KeyName"
+	KeyName *Name `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty" xml:"KeyName"`
+	// @gotags: xml:"NamesAfterKeyName"
+	NamesAfterKeyName *Name `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty" xml:"NamesAfterKeyName"`
+	// @gotags: xml:"AbbreviatedName"
+	AbbreviatedName *Name `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty" xml:"AbbreviatedName"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *PartyName) Reset() {
@@ -48951,16 +49947,23 @@ func (x *PartyName) GetLanguageAndScriptCode() string {
 }
 
 type PartyNameWithoutCode struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	FullName                 string                 `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty"`
-	FullNameAsciiTranscribed string                 `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty"`
-	FullNameIndexed          string                 `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty"`
-	NamesBeforeKeyName       string                 `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty"`
-	KeyName                  string                 `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty"`
-	NamesAfterKeyName        string                 `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty"`
-	AbbreviatedName          string                 `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"FullName"
+	FullName string `protobuf:"bytes,1,opt,name=full_name,json=fullName,proto3" json:"full_name,omitempty" xml:"FullName"`
+	// @gotags: xml:"FullNameAsciiTranscribed"
+	FullNameAsciiTranscribed string `protobuf:"bytes,2,opt,name=full_name_ascii_transcribed,json=fullNameAsciiTranscribed,proto3" json:"full_name_ascii_transcribed,omitempty" xml:"FullNameAsciiTranscribed"`
+	// @gotags: xml:"FullNameIndexed"
+	FullNameIndexed string `protobuf:"bytes,3,opt,name=full_name_indexed,json=fullNameIndexed,proto3" json:"full_name_indexed,omitempty" xml:"FullNameIndexed"`
+	// @gotags: xml:"NamesBeforeKeyName"
+	NamesBeforeKeyName string `protobuf:"bytes,4,opt,name=names_before_key_name,json=namesBeforeKeyName,proto3" json:"names_before_key_name,omitempty" xml:"NamesBeforeKeyName"`
+	// @gotags: xml:"KeyName"
+	KeyName string `protobuf:"bytes,5,opt,name=key_name,json=keyName,proto3" json:"key_name,omitempty" xml:"KeyName"`
+	// @gotags: xml:"NamesAfterKeyName"
+	NamesAfterKeyName string `protobuf:"bytes,6,opt,name=names_after_key_name,json=namesAfterKeyName,proto3" json:"names_after_key_name,omitempty" xml:"NamesAfterKeyName"`
+	// @gotags: xml:"AbbreviatedName"
+	AbbreviatedName string `protobuf:"bytes,7,opt,name=abbreviated_name,json=abbreviatedName,proto3" json:"abbreviated_name,omitempty" xml:"AbbreviatedName"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *PartyNameWithoutCode) Reset() {
@@ -49043,13 +50046,17 @@ func (x *PartyNameWithoutCode) GetAbbreviatedName() string {
 }
 
 type PartyRelationshipType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	MayBeShared      bool                   `protobuf:"varint,4,opt,name=may_be_shared,json=mayBeShared,proto3" json:"may_be_shared,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	// @gotags: xml:"MayBeShared,attr"
+	MayBeShared   bool `protobuf:"varint,4,opt,name=may_be_shared,json=mayBeShared,proto3" json:"may_be_shared,omitempty" xml:"MayBeShared,attr"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PartyRelationshipType) Reset() {
@@ -49111,9 +50118,11 @@ func (x *PartyRelationshipType) GetMayBeShared() bool {
 }
 
 type Percentage struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	HasMaxValueOfOne bool                   `protobuf:"varint,2,opt,name=has_max_value_of_one,json=hasMaxValueOfOne,proto3" json:"has_max_value_of_one,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"HasMaxValueOfOne,attr"
+	HasMaxValueOfOne bool `protobuf:"varint,2,opt,name=has_max_value_of_one,json=hasMaxValueOfOne,proto3" json:"has_max_value_of_one,omitempty" xml:"HasMaxValueOfOne,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49199,9 +50208,11 @@ func (*Period) Descriptor() ([]byte, []int) {
 }
 
 type Prefix struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -49251,9 +50262,11 @@ func (x *Prefix) GetLanguageAndScriptCode() string {
 }
 
 type Price struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	CurrencyCode  CurrencyCode           `protobuf:"varint,2,opt,name=currency_code,json=currencyCode,proto3,enum=ddex.ern.v432.CurrencyCode" json:"currency_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"CurrencyCode,attr"
+	CurrencyCode  CurrencyCode `protobuf:"varint,2,opt,name=currency_code,json=currencyCode,proto3,enum=ddex.ern.v432.CurrencyCode" json:"currency_code,omitempty" xml:"CurrencyCode,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49303,9 +50316,11 @@ func (x *Price) GetCurrencyCode() CurrencyCode {
 }
 
 type PriceType struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace     string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace     string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49355,9 +50370,11 @@ func (x *PriceType) GetNamespace() string {
 }
 
 type PromotionalCode struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace     string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace     string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49407,9 +50424,11 @@ func (x *PromotionalCode) GetNamespace() string {
 }
 
 type ProprietaryId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace     string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace     string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -49459,10 +50478,13 @@ func (x *ProprietaryId) GetNamespace() string {
 }
 
 type Purpose struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49519,10 +50541,13 @@ func (x *Purpose) GetUserDefinedValue() string {
 }
 
 type RatingAgency struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49579,10 +50604,13 @@ func (x *RatingAgency) GetUserDefinedValue() string {
 }
 
 type RatingReason struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49639,9 +50667,11 @@ func (x *RatingReason) GetUserDefinedValue() string {
 }
 
 type Reason struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Value                 string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -49691,11 +50721,13 @@ func (x *Reason) GetLanguageAndScriptCode() string {
 }
 
 type RelatedParty struct {
-	state                      protoimpl.MessageState `protogen:"open.v1"`
-	PartyRelatedPartyReference string                 `protobuf:"bytes,1,opt,name=party_related_party_reference,json=partyRelatedPartyReference,proto3" json:"party_related_party_reference,omitempty"`
-	PartyRelationshipType      *PartyRelationshipType `protobuf:"bytes,2,opt,name=party_relationship_type,json=partyRelationshipType,proto3" json:"party_relationship_type,omitempty"`
-	unknownFields              protoimpl.UnknownFields
-	sizeCache                  protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyRelatedPartyReference"
+	PartyRelatedPartyReference string `protobuf:"bytes,1,opt,name=party_related_party_reference,json=partyRelatedPartyReference,proto3" json:"party_related_party_reference,omitempty" xml:"PartyRelatedPartyReference"`
+	// @gotags: xml:"PartyRelationshipType"
+	PartyRelationshipType *PartyRelationshipType `protobuf:"bytes,2,opt,name=party_relationship_type,json=partyRelationshipType,proto3" json:"party_relationship_type,omitempty" xml:"PartyRelationshipType"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *RelatedParty) Reset() {
@@ -49743,10 +50775,13 @@ func (x *RelatedParty) GetPartyRelationshipType() *PartyRelationshipType {
 }
 
 type ReleaseRelationshipType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49803,10 +50838,13 @@ func (x *ReleaseRelationshipType) GetUserDefinedValue() string {
 }
 
 type ReleaseTypeForReleaseNotification struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -49863,13 +50901,17 @@ func (x *ReleaseTypeForReleaseNotification) GetUserDefinedValue() string {
 }
 
 type ResourceContainedResourceReference struct {
-	state                              protoimpl.MessageState `protogen:"open.v1"`
-	ResourceContainedResourceReference string                 `protobuf:"bytes,1,opt,name=resource_contained_resource_reference,json=resourceContainedResourceReference,proto3" json:"resource_contained_resource_reference,omitempty"`
-	DurationUsed                       string                 `protobuf:"bytes,2,opt,name=duration_used,json=durationUsed,proto3" json:"duration_used,omitempty"`
-	StartPoint                         string                 `protobuf:"bytes,3,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty"`
-	Purpose                            *Purpose               `protobuf:"bytes,4,opt,name=purpose,proto3" json:"purpose,omitempty"`
-	unknownFields                      protoimpl.UnknownFields
-	sizeCache                          protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceContainedResourceReference"
+	ResourceContainedResourceReference string `protobuf:"bytes,1,opt,name=resource_contained_resource_reference,json=resourceContainedResourceReference,proto3" json:"resource_contained_resource_reference,omitempty" xml:"ResourceContainedResourceReference"`
+	// @gotags: xml:"DurationUsed"
+	DurationUsed string `protobuf:"bytes,2,opt,name=duration_used,json=durationUsed,proto3" json:"duration_used,omitempty" xml:"DurationUsed"`
+	// @gotags: xml:"StartPoint"
+	StartPoint string `protobuf:"bytes,3,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
+	// @gotags: xml:"Purpose"
+	Purpose       *Purpose `protobuf:"bytes,4,opt,name=purpose,proto3" json:"purpose,omitempty" xml:"Purpose"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ResourceContainedResourceReference) Reset() {
@@ -49931,8 +50973,9 @@ func (x *ResourceContainedResourceReference) GetPurpose() *Purpose {
 }
 
 type ResourceContainedResourceReferenceList struct {
-	state                              protoimpl.MessageState                `protogen:"open.v1"`
-	ResourceContainedResourceReference []*ResourceContainedResourceReference `protobuf:"bytes,1,rep,name=resource_contained_resource_reference,json=resourceContainedResourceReference,proto3" json:"resource_contained_resource_reference,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ResourceContainedResourceReference"
+	ResourceContainedResourceReference []*ResourceContainedResourceReference `protobuf:"bytes,1,rep,name=resource_contained_resource_reference,json=resourceContainedResourceReference,proto3" json:"resource_contained_resource_reference,omitempty" xml:"ResourceContainedResourceReference"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -49975,10 +51018,13 @@ func (x *ResourceContainedResourceReferenceList) GetResourceContainedResourceRef
 }
 
 type ResourceContributorRole struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50035,17 +51081,27 @@ func (x *ResourceContributorRole) GetUserDefinedValue() string {
 }
 
 type ResourceId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISRC          string                 `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty"`
-	ISMN          string                 `protobuf:"bytes,2,opt,name=i_s_m_n,json=iSMN,proto3" json:"i_s_m_n,omitempty"`
-	ISAN          string                 `protobuf:"bytes,3,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty"`
-	VISAN         string                 `protobuf:"bytes,4,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty"`
-	ISBN          string                 `protobuf:"bytes,5,opt,name=i_s_b_n,json=iSBN,proto3" json:"i_s_b_n,omitempty"`
-	ISSN          string                 `protobuf:"bytes,6,opt,name=i_s_s_n,json=iSSN,proto3" json:"i_s_s_n,omitempty"`
-	SICI          string                 `protobuf:"bytes,7,opt,name=s_i_c_i,json=sICI,proto3" json:"s_i_c_i,omitempty"`
-	CatalogNumber *CatalogNumber         `protobuf:"bytes,8,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,9,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsReplaced    bool                   `protobuf:"varint,10,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISRC"
+	ISRC string `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty" xml:"ISRC"`
+	// @gotags: xml:"ISMN"
+	ISMN string `protobuf:"bytes,2,opt,name=i_s_m_n,json=iSMN,proto3" json:"i_s_m_n,omitempty" xml:"ISMN"`
+	// @gotags: xml:"ISAN"
+	ISAN string `protobuf:"bytes,3,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty" xml:"ISAN"`
+	// @gotags: xml:"VISAN"
+	VISAN string `protobuf:"bytes,4,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty" xml:"VISAN"`
+	// @gotags: xml:"ISBN"
+	ISBN string `protobuf:"bytes,5,opt,name=i_s_b_n,json=iSBN,proto3" json:"i_s_b_n,omitempty" xml:"ISBN"`
+	// @gotags: xml:"ISSN"
+	ISSN string `protobuf:"bytes,6,opt,name=i_s_s_n,json=iSSN,proto3" json:"i_s_s_n,omitempty" xml:"ISSN"`
+	// @gotags: xml:"SICI"
+	SICI string `protobuf:"bytes,7,opt,name=s_i_c_i,json=sICI,proto3" json:"s_i_c_i,omitempty" xml:"SICI"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber *CatalogNumber `protobuf:"bytes,8,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,9,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsReplaced,attr"
+	IsReplaced    bool `protobuf:"varint,10,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty" xml:"IsReplaced,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50151,9 +51207,11 @@ func (x *ResourceId) GetIsReplaced() bool {
 }
 
 type ResourceProprietaryId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,1,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsReplaced    bool                   `protobuf:"varint,2,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,1,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsReplaced,attr"
+	IsReplaced    bool `protobuf:"varint,2,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty" xml:"IsReplaced,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50203,10 +51261,13 @@ func (x *ResourceProprietaryId) GetIsReplaced() bool {
 }
 
 type RightsClaimPolicyReason struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50263,10 +51324,13 @@ func (x *RightsClaimPolicyReason) GetUserDefinedValue() string {
 }
 
 type RightsType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50323,9 +51387,11 @@ func (x *RightsType) GetUserDefinedValue() string {
 }
 
 type SamplingRate struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	UnitOfMeasure UnitOfFrequency        `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfFrequency" json:"unit_of_measure,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"UnitOfMeasure,attr"
+	UnitOfMeasure UnitOfFrequency `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.ern.v432.UnitOfFrequency" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50375,10 +51441,13 @@ func (x *SamplingRate) GetUnitOfMeasure() UnitOfFrequency {
 }
 
 type SessionType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50435,11 +51504,15 @@ func (x *SessionType) GetUserDefinedValue() string {
 }
 
 type SheetMusicCodecType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Version          string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Namespace        string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Version,attr"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50503,10 +51576,13 @@ func (x *SheetMusicCodecType) GetUserDefinedValue() string {
 }
 
 type SheetMusicId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISMN          string                 `protobuf:"bytes,1,opt,name=i_s_m_n,json=iSMN,proto3" json:"i_s_m_n,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,2,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsReplaced    bool                   `protobuf:"varint,3,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISMN"
+	ISMN string `protobuf:"bytes,1,opt,name=i_s_m_n,json=iSMN,proto3" json:"i_s_m_n,omitempty" xml:"ISMN"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,2,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsReplaced,attr"
+	IsReplaced    bool `protobuf:"varint,3,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty" xml:"IsReplaced,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50563,10 +51639,13 @@ func (x *SheetMusicId) GetIsReplaced() bool {
 }
 
 type SheetMusicType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50623,10 +51702,13 @@ func (x *SheetMusicType) GetUserDefinedValue() string {
 }
 
 type SoftwareType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50683,11 +51765,15 @@ func (x *SoftwareType) GetUserDefinedValue() string {
 }
 
 type SoundRecordingId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISRC          string                 `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty"`
-	CatalogNumber *CatalogNumber         `protobuf:"bytes,2,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,3,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsReplaced    bool                   `protobuf:"varint,4,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISRC"
+	ISRC string `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty" xml:"ISRC"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber *CatalogNumber `protobuf:"bytes,2,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,3,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsReplaced,attr"
+	IsReplaced    bool `protobuf:"varint,4,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty" xml:"IsReplaced,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50751,10 +51837,13 @@ func (x *SoundRecordingId) GetIsReplaced() bool {
 }
 
 type SoundRecordingType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50811,10 +51900,13 @@ func (x *SoundRecordingType) GetUserDefinedValue() string {
 }
 
 type SpecialContributorType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50871,9 +51963,11 @@ func (x *SpecialContributorType) GetUserDefinedValue() string {
 }
 
 type SubGenreCategory struct {
-	state         protoimpl.MessageState   `protogen:"open.v1"`
-	Value         []*SubGenreCategoryValue `protobuf:"bytes,1,rep,name=value,proto3" json:"value,omitempty"`
-	Description   []*TextWithoutTerritory  `protobuf:"bytes,2,rep,name=description,proto3" json:"description,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"Value"
+	Value []*SubGenreCategoryValue `protobuf:"bytes,1,rep,name=value,proto3" json:"value,omitempty" xml:"Value"`
+	// @gotags: xml:"Description"
+	Description   []*TextWithoutTerritory `protobuf:"bytes,2,rep,name=description,proto3" json:"description,omitempty" xml:"Description"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -50923,10 +52017,13 @@ func (x *SubGenreCategory) GetDescription() []*TextWithoutTerritory {
 }
 
 type SubGenreCategoryValue struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -50983,11 +52080,15 @@ func (x *SubGenreCategoryValue) GetUserDefinedValue() string {
 }
 
 type TextCodecType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Version          string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Namespace        string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Version,attr"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -51051,12 +52152,17 @@ func (x *TextCodecType) GetUserDefinedValue() string {
 }
 
 type TextId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISBN          string                 `protobuf:"bytes,1,opt,name=i_s_b_n,json=iSBN,proto3" json:"i_s_b_n,omitempty"`
-	ISSN          string                 `protobuf:"bytes,2,opt,name=i_s_s_n,json=iSSN,proto3" json:"i_s_s_n,omitempty"`
-	SICI          string                 `protobuf:"bytes,3,opt,name=s_i_c_i,json=sICI,proto3" json:"s_i_c_i,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	IsReplaced    bool                   `protobuf:"varint,5,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISBN"
+	ISBN string `protobuf:"bytes,1,opt,name=i_s_b_n,json=iSBN,proto3" json:"i_s_b_n,omitempty" xml:"ISBN"`
+	// @gotags: xml:"ISSN"
+	ISSN string `protobuf:"bytes,2,opt,name=i_s_s_n,json=iSSN,proto3" json:"i_s_s_n,omitempty" xml:"ISSN"`
+	// @gotags: xml:"SICI"
+	SICI string `protobuf:"bytes,3,opt,name=s_i_c_i,json=sICI,proto3" json:"s_i_c_i,omitempty" xml:"SICI"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,4,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"IsReplaced,attr"
+	IsReplaced    bool `protobuf:"varint,5,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty" xml:"IsReplaced,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -51127,10 +52233,13 @@ func (x *TextId) GetIsReplaced() bool {
 }
 
 type TextType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -51187,16 +52296,23 @@ func (x *TextType) GetUserDefinedValue() string {
 }
 
 type TextWithFormat struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	Format                  *TextCodecType         `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
-	Namespace               string                 `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue        string                 `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"Format,attr"
+	Format *TextCodecType `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty" xml:"Format,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TextWithFormat) Reset() {
@@ -51279,16 +52395,23 @@ func (x *TextWithFormat) GetUserDefinedValue() string {
 }
 
 type TextWithoutTerritory struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	Value                   string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	LanguageAndScriptCode   string                 `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	ApplicableTerritoryCode *CurrentTerritoryCode  `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty"`
-	IsDefault               bool                   `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty"`
-	Format                  *TextCodecType         `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
-	Namespace               string                 `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue        string                 `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"ApplicableTerritoryCode,attr"
+	ApplicableTerritoryCode *CurrentTerritoryCode `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	// @gotags: xml:"IsDefault,attr"
+	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
+	// @gotags: xml:"Format,attr"
+	Format *TextCodecType `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty" xml:"Format,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TextWithoutTerritory) Reset() {
@@ -51371,13 +52494,17 @@ func (x *TextWithoutTerritory) GetUserDefinedValue() string {
 }
 
 type TitleDisplayInformation struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	IsDisplayedInTitle    bool                   `protobuf:"varint,1,opt,name=is_displayed_in_title,json=isDisplayedInTitle,proto3" json:"is_displayed_in_title,omitempty"`
-	Prefix                []*Prefix              `protobuf:"bytes,2,rep,name=prefix,proto3" json:"prefix,omitempty"`
-	LanguageAndScriptCode string                 `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty"`
-	SequenceNumber        int32                  `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"IsDisplayedInTitle"
+	IsDisplayedInTitle bool `protobuf:"varint,1,opt,name=is_displayed_in_title,json=isDisplayedInTitle,proto3" json:"is_displayed_in_title,omitempty" xml:"IsDisplayedInTitle"`
+	// @gotags: xml:"Prefix"
+	Prefix []*Prefix `protobuf:"bytes,2,rep,name=prefix,proto3" json:"prefix,omitempty" xml:"Prefix"`
+	// @gotags: xml:"LanguageAndScriptCode,attr"
+	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	// @gotags: xml:"SequenceNumber,attr"
+	SequenceNumber int32 `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *TitleDisplayInformation) Reset() {
@@ -51439,9 +52566,11 @@ func (x *TitleDisplayInformation) GetSequenceNumber() int32 {
 }
 
 type ValidityPeriod struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StartDate     *EventDate             `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
-	EndDate       *EventDate             `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"StartDate"
+	StartDate *EventDate `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate       *EventDate `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -51491,12 +52620,17 @@ func (x *ValidityPeriod) GetEndDate() *EventDate {
 }
 
 type Venue struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	VenueName     string                 `protobuf:"bytes,1,opt,name=venue_name,json=venueName,proto3" json:"venue_name,omitempty"`
-	VenueAddress  string                 `protobuf:"bytes,2,opt,name=venue_address,json=venueAddress,proto3" json:"venue_address,omitempty"`
-	TerritoryCode *AllTerritoryCode      `protobuf:"bytes,3,opt,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty"`
-	LocationCode  string                 `protobuf:"bytes,4,opt,name=location_code,json=locationCode,proto3" json:"location_code,omitempty"`
-	VenueRoom     string                 `protobuf:"bytes,5,opt,name=venue_room,json=venueRoom,proto3" json:"venue_room,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"VenueName"
+	VenueName string `protobuf:"bytes,1,opt,name=venue_name,json=venueName,proto3" json:"venue_name,omitempty" xml:"VenueName"`
+	// @gotags: xml:"VenueAddress"
+	VenueAddress string `protobuf:"bytes,2,opt,name=venue_address,json=venueAddress,proto3" json:"venue_address,omitempty" xml:"VenueAddress"`
+	// @gotags: xml:"TerritoryCode"
+	TerritoryCode *AllTerritoryCode `protobuf:"bytes,3,opt,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
+	// @gotags: xml:"LocationCode"
+	LocationCode string `protobuf:"bytes,4,opt,name=location_code,json=locationCode,proto3" json:"location_code,omitempty" xml:"LocationCode"`
+	// @gotags: xml:"VenueRoom"
+	VenueRoom     string `protobuf:"bytes,5,opt,name=venue_room,json=venueRoom,proto3" json:"venue_room,omitempty" xml:"VenueRoom"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -51567,10 +52701,13 @@ func (x *Venue) GetVenueRoom() string {
 }
 
 type VersionType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -51627,11 +52764,15 @@ func (x *VersionType) GetUserDefinedValue() string {
 }
 
 type VideoCodecType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Version          string                 `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	Namespace        string                 `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Version,attr"
+	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version,attr"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,3,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,4,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -51695,10 +52836,13 @@ func (x *VideoCodecType) GetUserDefinedValue() string {
 }
 
 type VideoDefinitionType struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Value            string                 `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
-	Namespace        string                 `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty"`
-	UserDefinedValue string                 `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:",chardata"
+	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
+	// @gotags: xml:"Namespace,attr"
+	Namespace string `protobuf:"bytes,2,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
+	// @gotags: xml:"UserDefinedValue,attr"
+	UserDefinedValue string `protobuf:"bytes,3,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -51755,14 +52899,21 @@ func (x *VideoDefinitionType) GetUserDefinedValue() string {
 }
 
 type VideoId struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ISRC          string                 `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty"`
-	ISAN          string                 `protobuf:"bytes,2,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty"`
-	VISAN         string                 `protobuf:"bytes,3,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty"`
-	CatalogNumber *CatalogNumber         `protobuf:"bytes,4,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty"`
-	ProprietaryId []*ProprietaryId       `protobuf:"bytes,5,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty"`
-	EIDR          []string               `protobuf:"bytes,6,rep,name=e_i_d_r,json=eIDR,proto3" json:"e_i_d_r,omitempty"`
-	IsReplaced    bool                   `protobuf:"varint,7,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"ISRC"
+	ISRC string `protobuf:"bytes,1,opt,name=i_s_r_c,json=iSRC,proto3" json:"i_s_r_c,omitempty" xml:"ISRC"`
+	// @gotags: xml:"ISAN"
+	ISAN string `protobuf:"bytes,2,opt,name=i_s_a_n,json=iSAN,proto3" json:"i_s_a_n,omitempty" xml:"ISAN"`
+	// @gotags: xml:"VISAN"
+	VISAN string `protobuf:"bytes,3,opt,name=v_i_s_a_n,json=vISAN,proto3" json:"v_i_s_a_n,omitempty" xml:"VISAN"`
+	// @gotags: xml:"CatalogNumber"
+	CatalogNumber *CatalogNumber `protobuf:"bytes,4,opt,name=catalog_number,json=catalogNumber,proto3" json:"catalog_number,omitempty" xml:"CatalogNumber"`
+	// @gotags: xml:"ProprietaryId"
+	ProprietaryId []*ProprietaryId `protobuf:"bytes,5,rep,name=proprietary_id,json=proprietaryId,proto3" json:"proprietary_id,omitempty" xml:"ProprietaryId"`
+	// @gotags: xml:"EIDR"
+	EIDR []string `protobuf:"bytes,6,rep,name=e_i_d_r,json=eIDR,proto3" json:"e_i_d_r,omitempty" xml:"EIDR"`
+	// @gotags: xml:"IsReplaced,attr"
+	IsReplaced    bool `protobuf:"varint,7,opt,name=is_replaced,json=isReplaced,proto3" json:"is_replaced,omitempty" xml:"IsReplaced,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -51850,1550 +53001,1488 @@ var File_ernv432_ern_proto protoreflect.FileDescriptor
 
 const file_ernv432_ern_proto_rawDesc = "" +
 	"\n" +
-	"\x11ernv432/ern.proto\x12\rddex.ern.v432\x1a\x13tagger/tagger.proto\"\xab\n" +
+	"\x11ernv432/ern.proto\x12\rddex.ern.v432\"\xb2\a\n" +
+	"\x11NewReleaseMessage\x12C\n" +
+	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderR\rmessageHeader\x12@\n" +
+	"\rrelease_admin\x18\x02 \x03(\v2\x1b.ddex.ern.v432.ReleaseAdminR\freleaseAdmin\x127\n" +
 	"\n" +
-	"\x11NewReleaseMessage\x12\\\n" +
-	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderB\x17\x92\x93!\x13xml:\"MessageHeader\"R\rmessageHeader\x12X\n" +
-	"\rrelease_admin\x18\x02 \x03(\v2\x1b.ddex.ern.v432.ReleaseAdminB\x16\x92\x93!\x12xml:\"ReleaseAdmin\"R\freleaseAdmin\x12L\n" +
-	"\n" +
-	"party_list\x18\x03 \x01(\v2\x18.ddex.ern.v432.PartyListB\x13\x92\x93!\x0fxml:\"PartyList\"R\tpartyList\x12Y\n" +
-	"\x0ecue_sheet_list\x18\x04 \x01(\v2\x1b.ddex.ern.v432.CueSheetListB\x16\x92\x93!\x12xml:\"CueSheetList\"R\fcueSheetList\x12X\n" +
-	"\rresource_list\x18\x05 \x01(\v2\x1b.ddex.ern.v432.ResourceListB\x16\x92\x93!\x12xml:\"ResourceList\"R\fresourceList\x12T\n" +
-	"\fchapter_list\x18\x06 \x01(\v2\x1a.ddex.ern.v432.ChapterListB\x15\x92\x93!\x11xml:\"ChapterList\"R\vchapterList\x12T\n" +
-	"\frelease_list\x18\a \x01(\v2\x1a.ddex.ern.v432.ReleaseListB\x15\x92\x93!\x11xml:\"ReleaseList\"R\vreleaseList\x12H\n" +
-	"\tdeal_list\x18\b \x01(\v2\x17.ddex.ern.v432.DealListB\x12\x92\x93!\x0exml:\"DealList\"R\bdealList\x12\x89\x01\n" +
-	"\x1asupplemental_document_list\x18\t \x01(\v2'.ddex.ern.v432.SupplementalDocumentListB\"\x92\x93!\x1exml:\"SupplementalDocumentList\"R\x18supplementalDocumentList\x12\x8b\x01\n" +
+	"party_list\x18\x03 \x01(\v2\x18.ddex.ern.v432.PartyListR\tpartyList\x12A\n" +
+	"\x0ecue_sheet_list\x18\x04 \x01(\v2\x1b.ddex.ern.v432.CueSheetListR\fcueSheetList\x12@\n" +
+	"\rresource_list\x18\x05 \x01(\v2\x1b.ddex.ern.v432.ResourceListR\fresourceList\x12=\n" +
+	"\fchapter_list\x18\x06 \x01(\v2\x1a.ddex.ern.v432.ChapterListR\vchapterList\x12=\n" +
+	"\frelease_list\x18\a \x01(\v2\x1a.ddex.ern.v432.ReleaseListR\vreleaseList\x124\n" +
+	"\tdeal_list\x18\b \x01(\v2\x17.ddex.ern.v432.DealListR\bdealList\x12e\n" +
+	"\x1asupplemental_document_list\x18\t \x01(\v2'.ddex.ern.v432.SupplementalDocumentListR\x18supplementalDocumentList\x12c\n" +
 	"\x1arelease_profile_version_id\x18\n" +
-	" \x01(\x0e2&.ddex.ern.v432.ReleaseProfileVersionIdB&\x92\x93!\"xml:\"ReleaseProfileVersionId,attr\"R\x17releaseProfileVersionId\x12\xa8\x01\n" +
-	"\"release_profile_variant_version_id\x18\v \x01(\x0e2-.ddex.ern.v432.ReleaseProfileVariantVersionIdB-\x92\x93!)xml:\"ReleaseProfileVariantVersionId,attr\"R\x1ereleaseProfileVariantVersionId\x12A\n" +
-	"\x0eavs_version_id\x18\f \x01(\tB\x1b\x92\x93!\x17xml:\"AvsVersionId,attr\"R\favsVersionId\x12]\n" +
-	"\x18language_and_script_code\x18\r \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xf3\x02\n" +
-	"\x13PurgeReleaseMessage\x12\\\n" +
-	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderB\x17\x92\x93!\x13xml:\"MessageHeader\"R\rmessageHeader\x12\\\n" +
-	"\x0epurged_release\x18\x02 \x01(\v2\x1c.ddex.ern.v432.PurgedReleaseB\x17\x92\x93!\x13xml:\"PurgedRelease\"R\rpurgedRelease\x12A\n" +
-	"\x0eavs_version_id\x18\x03 \x01(\tB\x1b\x92\x93!\x17xml:\"AvsVersionId,attr\"R\favsVersionId\x12]\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xdd\x01\n" +
-	"\x1bAdministratingRecordCompany\x12j\n" +
-	"\x1erecord_company_party_reference\x18\x01 \x01(\tB%\x92\x93!!xml:\"RecordCompanyPartyReference\"R\x1brecordCompanyPartyReference\x12R\n" +
-	"\x04role\x18\x02 \x01(\v2..ddex.ern.v432.AdministratingRecordCompanyRoleB\x0e\x92\x93!\n" +
-	"xml:\"Role\"R\x04role\"\x9a\t\n" +
-	"\x11AudioDeliveryFile\x12\"\n" +
-	"\x04type\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12d\n" +
-	"\x10container_format\x18\x02 \x01(\v2\x1e.ddex.ern.v432.ContainerFormatB\x19\x92\x93!\x15xml:\"ContainerFormat\"R\x0fcontainerFormat\x12a\n" +
-	"\x10audio_codec_type\x18\x03 \x01(\v2\x1d.ddex.ern.v432.AudioCodecTypeB\x18\x92\x93!\x14xml:\"AudioCodecType\"R\x0eaudioCodecType\x12D\n" +
-	"\bbit_rate\x18\x04 \x01(\v2\x16.ddex.ern.v432.BitRateB\x11\x92\x93!\rxml:\"BitRate\"R\abitRate\x12]\n" +
-	"\x11original_bit_rate\x18\x05 \x01(\v2\x16.ddex.ern.v432.BitRateB\x19\x92\x93!\x15xml:\"OriginalBitRate\"R\x0foriginalBitRate\x12H\n" +
-	"\x12number_of_channels\x18\x06 \x01(\tB\x1a\x92\x93!\x16xml:\"NumberOfChannels\"R\x10numberOfChannels\x12U\n" +
-	"\x17number_of_audio_objects\x18\a \x01(\x05B\x1e\x92\x93!\x1axml:\"NumberOfAudioObjects\"R\x14numberOfAudioObjects\x12X\n" +
-	"\rsampling_rate\x18\b \x01(\v2\x1b.ddex.ern.v432.SamplingRateB\x16\x92\x93!\x12xml:\"SamplingRate\"R\fsamplingRate\x12q\n" +
-	"\x16original_sampling_rate\x18\t \x01(\v2\x1b.ddex.ern.v432.SamplingRateB\x1e\x92\x93!\x1axml:\"OriginalSamplingRate\"R\x14originalSamplingRate\x12?\n" +
+	" \x01(\x0e2&.ddex.ern.v432.ReleaseProfileVersionIdR\x17releaseProfileVersionId\x12y\n" +
+	"\"release_profile_variant_version_id\x18\v \x01(\x0e2-.ddex.ern.v432.ReleaseProfileVariantVersionIdR\x1ereleaseProfileVariantVersionId\x12$\n" +
+	"\x0eavs_version_id\x18\f \x01(\tR\favsVersionId\x127\n" +
+	"\x18language_and_script_code\x18\r \x01(\tR\x15languageAndScriptCode\"\xfe\x01\n" +
+	"\x13PurgeReleaseMessage\x12C\n" +
+	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderR\rmessageHeader\x12C\n" +
+	"\x0epurged_release\x18\x02 \x01(\v2\x1c.ddex.ern.v432.PurgedReleaseR\rpurgedRelease\x12$\n" +
+	"\x0eavs_version_id\x18\x03 \x01(\tR\favsVersionId\x127\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\"\xa6\x01\n" +
+	"\x1bAdministratingRecordCompany\x12C\n" +
+	"\x1erecord_company_party_reference\x18\x01 \x01(\tR\x1brecordCompanyPartyReference\x12B\n" +
+	"\x04role\x18\x02 \x01(\v2..ddex.ern.v432.AdministratingRecordCompanyRoleR\x04role\"\xab\x06\n" +
+	"\x11AudioDeliveryFile\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\tR\x04type\x12I\n" +
+	"\x10container_format\x18\x02 \x01(\v2\x1e.ddex.ern.v432.ContainerFormatR\x0fcontainerFormat\x12G\n" +
+	"\x10audio_codec_type\x18\x03 \x01(\v2\x1d.ddex.ern.v432.AudioCodecTypeR\x0eaudioCodecType\x121\n" +
+	"\bbit_rate\x18\x04 \x01(\v2\x16.ddex.ern.v432.BitRateR\abitRate\x12B\n" +
+	"\x11original_bit_rate\x18\x05 \x01(\v2\x16.ddex.ern.v432.BitRateR\x0foriginalBitRate\x12,\n" +
+	"\x12number_of_channels\x18\x06 \x01(\tR\x10numberOfChannels\x125\n" +
+	"\x17number_of_audio_objects\x18\a \x01(\x05R\x14numberOfAudioObjects\x12@\n" +
+	"\rsampling_rate\x18\b \x01(\v2\x1b.ddex.ern.v432.SamplingRateR\fsamplingRate\x12Q\n" +
+	"\x16original_sampling_rate\x18\t \x01(\v2\x1b.ddex.ern.v432.SamplingRateR\x14originalSamplingRate\x12&\n" +
 	"\x0fbits_per_sample\x18\n" +
-	" \x01(\x05B\x17\x92\x93!\x13xml:\"BitsPerSample\"R\rbitsPerSample\x12.\n" +
-	"\bduration\x18\v \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12/\n" +
-	"\tbit_depth\x18\f \x01(\x05B\x12\x92\x93!\x0exml:\"BitDepth\"R\bbitDepth\x127\n" +
-	"\x04file\x18\r \x01(\v2\x13.ddex.ern.v432.FileB\x0e\x92\x93!\n" +
-	"xml:\"File\"R\x04file\x12S\n" +
-	"\vfingerprint\x18\x0e \x03(\v2\x1a.ddex.ern.v432.FingerprintB\x15\x92\x93!\x11xml:\"Fingerprint\"R\vfingerprint\x12U\n" +
-	"\x17is_provided_in_delivery\x18\x0f \x01(\bB\x1e\x92\x93!\x1axml:\"IsProvidedInDelivery\"R\x14isProvidedInDelivery\"\x85\x03\n" +
-	"\bAvRating\x12(\n" +
-	"\x06rating\x18\x01 \x01(\tB\x10\x92\x93!\fxml:\"Rating\"R\x06rating\x12E\n" +
-	"\x06agency\x18\x02 \x01(\v2\x1b.ddex.ern.v432.RatingAgencyB\x10\x92\x93!\fxml:\"Agency\"R\x06agency\x12E\n" +
-	"\x06reason\x18\x03 \x01(\v2\x1b.ddex.ern.v432.RatingReasonB\x10\x92\x93!\fxml:\"Reason\"R\x06reason\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x01(\x05R\rbitsPerSample\x12\x1a\n" +
+	"\bduration\x18\v \x01(\tR\bduration\x12\x1b\n" +
+	"\tbit_depth\x18\f \x01(\x05R\bbitDepth\x12'\n" +
+	"\x04file\x18\r \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x12<\n" +
+	"\vfingerprint\x18\x0e \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x125\n" +
+	"\x17is_provided_in_delivery\x18\x0f \x01(\bR\x14isProvidedInDelivery\"\x8c\x02\n" +
+	"\bAvRating\x12\x16\n" +
+	"\x06rating\x18\x01 \x01(\tR\x06rating\x123\n" +
+	"\x06agency\x18\x02 \x01(\v2\x1b.ddex.ern.v432.RatingAgencyR\x06agency\x123\n" +
+	"\x06reason\x18\x03 \x01(\v2\x1b.ddex.ern.v432.RatingReasonR\x06reason\x12_\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x05 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"J\n" +
-	"\x05Brand\x12A\n" +
-	"\x0fbrand_reference\x18\x01 \x01(\tB\x18\x92\x93!\x14xml:\"BrandReference\"R\x0ebrandReference\"\x8a\x01\n" +
-	"\aChannel\x12\\\n" +
-	"\x0eproprietary_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12!\n" +
-	"\x05u_r_l\x18\x02 \x03(\tB\r\x92\x93!\txml:\"URL\"R\x03uRL\"\xdd\b\n" +
-	"\aChapter\x12G\n" +
-	"\x11chapter_reference\x18\x01 \x01(\tB\x1a\x92\x93!\x16xml:\"ChapterReference\"R\x10chapterReference\x12L\n" +
+	"is_default\x18\x05 \x01(\bR\tisDefault\"0\n" +
+	"\x05Brand\x12'\n" +
+	"\x0fbrand_reference\x18\x01 \x01(\tR\x0ebrandReference\"b\n" +
+	"\aChannel\x12C\n" +
+	"\x0eproprietary_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x12\n" +
+	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\"\xf8\x05\n" +
+	"\aChapter\x12+\n" +
+	"\x11chapter_reference\x18\x01 \x01(\tR\x10chapterReference\x127\n" +
 	"\n" +
-	"chapter_id\x18\x02 \x03(\v2\x18.ddex.ern.v432.ChapterIdB\x13\x92\x93!\x0fxml:\"ChapterId\"R\tchapterId\x12i\n" +
-	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12A\n" +
-	"\x0fsequence_number\x18\a \x01(\x05B\x18\x92\x93!\x14xml:\"SequenceNumber\"R\x0esequenceNumber\x12S\n" +
-	"\vcontributor\x18\b \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12K\n" +
-	"\tcharacter\x18\t \x03(\v2\x18.ddex.ern.v432.CharacterB\x13\x92\x93!\x0fxml:\"Character\"R\tcharacter\x12l\n" +
+	"chapter_id\x18\x02 \x03(\v2\x18.ddex.ern.v432.ChapterIdR\tchapterId\x12M\n" +
+	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12'\n" +
+	"\x0fsequence_number\x18\a \x01(\x05R\x0esequenceNumber\x12<\n" +
+	"\vcontributor\x18\b \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x126\n" +
+	"\tcharacter\x18\t \x03(\v2\x18.ddex.ern.v432.CharacterR\tcharacter\x12D\n" +
 	"\x1erepresentative_image_reference\x18\n" +
-	" \x01(\tB&\x92\x93!\"xml:\"RepresentativeImageReference\"R\x1crepresentativeImageReference\x122\n" +
+	" \x01(\tR\x1crepresentativeImageReference\x12\x1d\n" +
 	"\n" +
-	"start_time\x18\v \x01(\tB\x13\x92\x93!\x0fxml:\"StartTime\"R\tstartTime\x12.\n" +
-	"\bduration\x18\f \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12,\n" +
-	"\bend_time\x18\r \x01(\tB\x11\x92\x93!\rxml:\"EndTime\"R\aendTime\x12]\n" +
-	"\x18language_and_script_code\x18\x0e \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xb1\x01\n" +
-	"\vChapterList\x12C\n" +
-	"\achapter\x18\x01 \x03(\v2\x16.ddex.ern.v432.ChapterB\x11\x92\x93!\rxml:\"Chapter\"R\achapter\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\x81\x02\n" +
-	"\tCharacter\x12]\n" +
-	"\x19character_party_reference\x18\x01 \x01(\tB!\x92\x93!\x1dxml:\"CharacterPartyReference\"R\x17characterPartyReference\x12M\n" +
-	"\tperformer\x18\x02 \x01(\v2\x1a.ddex.ern.v432.ContributorB\x13\x92\x93!\x0fxml:\"Performer\"R\tperformer\x12F\n" +
-	"\x0fsequence_number\x18\x03 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\"\xc7\x02\n" +
-	"\vClipDetails\x12H\n" +
-	"\tclip_type\x18\x01 \x01(\v2\x17.ddex.ern.v432.ClipTypeB\x12\x92\x93!\x0exml:\"ClipType\"R\bclipType\x12?\n" +
-	"\x0ftop_left_corner\x18\x02 \x01(\tB\x17\x92\x93!\x13xml:\"TopLeftCorner\"R\rtopLeftCorner\x12K\n" +
-	"\x13bottom_right_corner\x18\x03 \x01(\tB\x1b\x92\x93!\x17xml:\"BottomRightCorner\"R\x11bottomRightCorner\x12`\n" +
-	"\x0fexpression_type\x18\x04 \x01(\x0e2\x1d.ddex.ern.v432.ExpressionTypeB\x18\x92\x93!\x14xml:\"ExpressionType\"R\x0eexpressionType\"\xca\a\n" +
-	"\vClipRelease\x12G\n" +
-	"\x11release_reference\x18\x01 \x01(\tB\x1a\x92\x93!\x16xml:\"ReleaseReference\"R\x10releaseReference\x12L\n" +
+	"start_time\x18\v \x01(\tR\tstartTime\x12\x1a\n" +
+	"\bduration\x18\f \x01(\tR\bduration\x12\x19\n" +
+	"\bend_time\x18\r \x01(\tR\aendTime\x127\n" +
+	"\x18language_and_script_code\x18\x0e \x01(\tR\x15languageAndScriptCode\"x\n" +
+	"\vChapterList\x120\n" +
+	"\achapter\x18\x01 \x03(\v2\x16.ddex.ern.v432.ChapterR\achapter\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xaa\x01\n" +
+	"\tCharacter\x12:\n" +
+	"\x19character_party_reference\x18\x01 \x01(\tR\x17characterPartyReference\x128\n" +
+	"\tperformer\x18\x02 \x01(\v2\x1a.ddex.ern.v432.ContributorR\tperformer\x12'\n" +
+	"\x0fsequence_number\x18\x03 \x01(\x05R\x0esequenceNumber\"\xe3\x01\n" +
+	"\vClipDetails\x124\n" +
+	"\tclip_type\x18\x01 \x01(\v2\x17.ddex.ern.v432.ClipTypeR\bclipType\x12&\n" +
+	"\x0ftop_left_corner\x18\x02 \x01(\tR\rtopLeftCorner\x12.\n" +
+	"\x13bottom_right_corner\x18\x03 \x01(\tR\x11bottomRightCorner\x12F\n" +
+	"\x0fexpression_type\x18\x04 \x01(\x0e2\x1d.ddex.ern.v432.ExpressionTypeR\x0eexpressionType\"\xbd\x05\n" +
+	"\vClipRelease\x12+\n" +
+	"\x11release_reference\x18\x01 \x01(\tR\x10releaseReference\x127\n" +
 	"\n" +
-	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdB\x13\x92\x93!\x0fxml:\"ReleaseId\"R\treleaseId\x12i\n" +
-	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12`\n" +
-	"\x1arelease_resource_reference\x18\a \x01(\tB\"\x92\x93!\x1exml:\"ReleaseResourceReference\"R\x18releaseResourceReference\x12\x86\x01\n" +
-	"\x17release_label_reference\x18\b \x03(\v2-.ddex.ern.v432.ReleaseLabelReferenceWithPartyB\x1f\x92\x93!\x1bxml:\"ReleaseLabelReference\"R\x15releaseLabelReference\x12^\n" +
-	"\rdisplay_genre\x18\t \x03(\v2!.ddex.ern.v432.GenreWithTerritoryB\x16\x92\x93!\x12xml:\"DisplayGenre\"R\fdisplayGenre\x12`\n" +
+	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\x12M\n" +
+	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12<\n" +
+	"\x1arelease_resource_reference\x18\a \x01(\tR\x18releaseResourceReference\x12e\n" +
+	"\x17release_label_reference\x18\b \x03(\v2-.ddex.ern.v432.ReleaseLabelReferenceWithPartyR\x15releaseLabelReference\x12F\n" +
+	"\rdisplay_genre\x18\t \x03(\v2!.ddex.ern.v432.GenreWithTerritoryR\fdisplayGenre\x12F\n" +
 	"\x0frelated_release\x18\n" +
-	" \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\"\xc7\x01\n" +
-	"\x13CommercialModelType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x80\x05\n" +
-	"\x1dConditionForRightsClaimPolicy\x12%\n" +
-	"\x05value\x18\x01 \x01(\tB\x0f\x92\x93!\vxml:\"Value\"R\x05value\x12G\n" +
-	"\x04unit\x18\x02 \x01(\x0e2#.ddex.ern.v432.UnitOfConditionValueB\x0e\x92\x93!\n" +
-	"xml:\"Unit\"R\x04unit\x12l\n" +
-	"\x12reference_creation\x18\x03 \x01(\x0e2 .ddex.ern.v432.ReferenceCreationB\x1b\x92\x93!\x17xml:\"ReferenceCreation\"R\x11referenceCreation\x12l\n" +
-	"\x12relational_relator\x18\x04 \x01(\x0e2 .ddex.ern.v432.RelationalRelatorB\x1b\x92\x93!\x17xml:\"RelationalRelator\"R\x11relationalRelator\x12d\n" +
-	"\x10measurement_type\x18\x05 \x01(\x0e2\x1e.ddex.ern.v432.MeasurementTypeB\x19\x92\x93!\x15xml:\"MeasurementType\"R\x0fmeasurementType\x12C\n" +
-	"\asegment\x18\x06 \x03(\v2\x16.ddex.ern.v432.SegmentB\x11\x92\x93!\rxml:\"Segment\"R\asegment\x12h\n" +
-	"\x11service_exception\x18\a \x03(\v2\x1f.ddex.ern.v432.ServiceExceptionB\x1a\x92\x93!\x16xml:\"ServiceException\"R\x10serviceException\"\x98\x01\n" +
-	"\bCoreArea\x12?\n" +
-	"\x0ftop_left_corner\x18\x01 \x01(\tB\x17\x92\x93!\x13xml:\"TopLeftCorner\"R\rtopLeftCorner\x12K\n" +
-	"\x13bottom_right_corner\x18\x02 \x01(\tB\x1b\x92\x93!\x17xml:\"BottomRightCorner\"R\x11bottomRightCorner\"\xbc\n" +
+	" \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\"w\n" +
+	"\x13CommercialModelType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xdb\x03\n" +
+	"\x1dConditionForRightsClaimPolicy\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x04unit\x18\x02 \x01(\x0e2#.ddex.ern.v432.UnitOfConditionValueR\x04unit\x12O\n" +
+	"\x12reference_creation\x18\x03 \x01(\x0e2 .ddex.ern.v432.ReferenceCreationR\x11referenceCreation\x12O\n" +
+	"\x12relational_relator\x18\x04 \x01(\x0e2 .ddex.ern.v432.RelationalRelatorR\x11relationalRelator\x12I\n" +
+	"\x10measurement_type\x18\x05 \x01(\x0e2\x1e.ddex.ern.v432.MeasurementTypeR\x0fmeasurementType\x120\n" +
+	"\asegment\x18\x06 \x03(\v2\x16.ddex.ern.v432.SegmentR\asegment\x12L\n" +
+	"\x11service_exception\x18\a \x03(\v2\x1f.ddex.ern.v432.ServiceExceptionR\x10serviceException\"b\n" +
+	"\bCoreArea\x12&\n" +
+	"\x0ftop_left_corner\x18\x01 \x01(\tR\rtopLeftCorner\x12.\n" +
+	"\x13bottom_right_corner\x18\x02 \x01(\tR\x11bottomRightCorner\"\xb4\a\n" +
+	"\x03Cue\x12;\n" +
+	"\fcue_use_type\x18\x01 \x01(\v2\x19.ddex.ern.v432.CueUseTypeR\n" +
+	"cueUseType\x12A\n" +
+	"\x0ecue_theme_type\x18\x02 \x01(\v2\x1b.ddex.ern.v432.CueThemeTypeR\fcueThemeType\x12A\n" +
+	"\x0ecue_vocal_type\x18\x03 \x01(\v2\x1b.ddex.ern.v432.CueVocalTypeR\fcueVocalType\x12c\n" +
+	"\x1acue_visual_perception_type\x18\x04 \x01(\v2&.ddex.ern.v432.CueVisualPerceptionTypeR\x17cueVisualPerceptionType\x127\n" +
 	"\n" +
-	"\x03Cue\x12Q\n" +
-	"\fcue_use_type\x18\x01 \x01(\v2\x19.ddex.ern.v432.CueUseTypeB\x14\x92\x93!\x10xml:\"CueUseType\"R\n" +
-	"cueUseType\x12Y\n" +
-	"\x0ecue_theme_type\x18\x02 \x01(\v2\x1b.ddex.ern.v432.CueThemeTypeB\x16\x92\x93!\x12xml:\"CueThemeType\"R\fcueThemeType\x12Y\n" +
-	"\x0ecue_vocal_type\x18\x03 \x01(\v2\x1b.ddex.ern.v432.CueVocalTypeB\x16\x92\x93!\x12xml:\"CueVocalType\"R\fcueVocalType\x12\x86\x01\n" +
-	"\x1acue_visual_perception_type\x18\x04 \x01(\v2&.ddex.ern.v432.CueVisualPerceptionTypeB!\x92\x93!\x1dxml:\"CueVisualPerceptionType\"R\x17cueVisualPerceptionType\x12L\n" +
-	"\n" +
-	"cue_origin\x18\x05 \x01(\v2\x18.ddex.ern.v432.CueOriginB\x13\x92\x93!\x0fxml:\"CueOrigin\"R\tcueOrigin\x12i\n" +
-	"\x12display_title_text\x18\x06 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\t \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12S\n" +
+	"cue_origin\x18\x05 \x01(\v2\x18.ddex.ern.v432.CueOriginR\tcueOrigin\x12M\n" +
+	"\x12display_title_text\x18\x06 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\t \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12<\n" +
 	"\vcontributor\x18\n" +
-	" \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12,\n" +
-	"\bis_dance\x18\v \x01(\bB\x11\x92\x93!\rxml:\"IsDance\"R\aisDance\x12K\n" +
-	"\x13has_musical_content\x18\f \x01(\bB\x1b\x92\x93!\x17xml:\"HasMusicalContent\"R\x11hasMusicalContent\x12<\n" +
-	"\x06p_line\x18\r \x03(\v2\x14.ddex.ern.v432.PLineB\x0f\x92\x93!\vxml:\"PLine\"R\x05pLine\x12<\n" +
-	"\x06c_line\x18\x0e \x03(\v2\x14.ddex.ern.v432.CLineB\x0f\x92\x93!\vxml:\"CLine\"R\x05cLine\x122\n" +
+	" \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x12\x19\n" +
+	"\bis_dance\x18\v \x01(\bR\aisDance\x12.\n" +
+	"\x13has_musical_content\x18\f \x01(\bR\x11hasMusicalContent\x12+\n" +
+	"\x06p_line\x18\r \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12+\n" +
+	"\x06c_line\x18\x0e \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12\x1d\n" +
 	"\n" +
-	"start_time\x18\x0f \x01(\tB\x13\x92\x93!\x0fxml:\"StartTime\"R\tstartTime\x12.\n" +
-	"\bduration\x18\x10 \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12,\n" +
-	"\bend_time\x18\x11 \x01(\tB\x11\x92\x93!\rxml:\"EndTime\"R\aendTime\"\xbd\x02\n" +
-	"\bCueSheet\x12T\n" +
-	"\fcue_sheet_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x14\x92\x93!\x10xml:\"CueSheetId\"R\n" +
-	"cueSheetId\x12K\n" +
-	"\x13cue_sheet_reference\x18\x02 \x01(\tB\x1b\x92\x93!\x17xml:\"CueSheetReference\"R\x11cueSheetReference\x12Y\n" +
-	"\x0ecue_sheet_type\x18\x03 \x01(\v2\x1b.ddex.ern.v432.CueSheetTypeB\x16\x92\x93!\x12xml:\"CueSheetType\"R\fcueSheetType\x123\n" +
-	"\x03cue\x18\x04 \x03(\v2\x12.ddex.ern.v432.CueB\r\x92\x93!\txml:\"Cue\"R\x03cue\"X\n" +
-	"\fCueSheetList\x12H\n" +
-	"\tcue_sheet\x18\x01 \x03(\v2\x17.ddex.ern.v432.CueSheetB\x12\x92\x93!\x0exml:\"CueSheet\"R\bcueSheet\"\xd0\x04\n" +
-	"\x04Deal\x12>\n" +
-	"\x0edeal_reference\x18\x01 \x03(\tB\x17\x92\x93!\x13xml:\"DealReference\"R\rdealReference\x12_\n" +
-	"\x1bis_communicated_out_of_band\x18\x02 \x01(\bB!\x92\x93!\x1dxml:\"IsCommunicatedOutOfBand\"R\x17isCommunicatedOutOfBand\x12L\n" +
+	"start_time\x18\x0f \x01(\tR\tstartTime\x12\x1a\n" +
+	"\bduration\x18\x10 \x01(\tR\bduration\x12\x19\n" +
+	"\bend_time\x18\x11 \x01(\tR\aendTime\"\xe3\x01\n" +
+	"\bCueSheet\x12>\n" +
+	"\fcue_sheet_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\n" +
+	"cueSheetId\x12.\n" +
+	"\x13cue_sheet_reference\x18\x02 \x01(\tR\x11cueSheetReference\x12A\n" +
+	"\x0ecue_sheet_type\x18\x03 \x01(\v2\x1b.ddex.ern.v432.CueSheetTypeR\fcueSheetType\x12$\n" +
+	"\x03cue\x18\x04 \x03(\v2\x12.ddex.ern.v432.CueR\x03cue\"D\n" +
+	"\fCueSheetList\x124\n" +
+	"\tcue_sheet\x18\x01 \x03(\v2\x17.ddex.ern.v432.CueSheetR\bcueSheet\"\xa6\x03\n" +
+	"\x04Deal\x12%\n" +
+	"\x0edeal_reference\x18\x01 \x03(\tR\rdealReference\x12<\n" +
+	"\x1bis_communicated_out_of_band\x18\x02 \x01(\bR\x17isCommunicatedOutOfBand\x127\n" +
 	"\n" +
-	"deal_terms\x18\x03 \x01(\v2\x18.ddex.ern.v432.DealTermsB\x13\x92\x93!\x0fxml:\"DealTerms\"R\tdealTerms\x12\xd0\x01\n" +
-	".deal_technical_resource_details_reference_list\x18\x04 \x01(\v28.ddex.ern.v432.DealTechnicalResourceDetailsReferenceListB3\x92\x93!/xml:\"DealTechnicalResourceDetailsReferenceList\"R)dealTechnicalResourceDetailsReferenceList\x12\x85\x01\n" +
-	"\x19distribution_channel_page\x18\x05 \x03(\v2&.ddex.ern.v432.DistributionChannelPageB!\x92\x93!\x1dxml:\"DistributionChannelPage\"R\x17distributionChannelPage\"\xd2\x02\n" +
-	"\bDealList\x12T\n" +
-	"\frelease_deal\x18\x01 \x03(\v2\x1a.ddex.ern.v432.ReleaseDealB\x15\x92\x93!\x11xml:\"ReleaseDeal\"R\vreleaseDeal\x12l\n" +
-	"\x12release_visibility\x18\x02 \x03(\v2 .ddex.ern.v432.ReleaseVisibilityB\x1b\x92\x93!\x17xml:\"ReleaseVisibility\"R\x11releaseVisibility\x12\x81\x01\n" +
-	"\x18track_release_visibility\x18\x03 \x03(\v2%.ddex.ern.v432.TrackReleaseVisibilityB \x92\x93!\x1cxml:\"TrackReleaseVisibility\"R\x16trackReleaseVisibility\"t\n" +
-	"\x19DealResourceReferenceList\x12W\n" +
-	"\x17deal_resource_reference\x18\x01 \x03(\tB\x1f\x92\x93!\x1bxml:\"DealResourceReference\"R\x15dealResourceReference\"\xb7\x01\n" +
-	")DealTechnicalResourceDetailsReferenceList\x12\x89\x01\n" +
-	")deal_technical_resource_details_reference\x18\x01 \x03(\tB/\x92\x93!+xml:\"DealTechnicalResourceDetailsReference\"R%dealTechnicalResourceDetailsReference\"\xe1\n" +
-	"\n" +
-	"\tDealTerms\x12e\n" +
-	"\x0fvalidity_period\x18\x01 \x03(\v2\".ddex.ern.v432.PeriodWithStartDateB\x18\x92\x93!\x14xml:\"ValidityPeriod\"R\x0evalidityPeriod\x12u\n" +
-	"\x15commercial_model_type\x18\x02 \x03(\v2\".ddex.ern.v432.CommercialModelTypeB\x1d\x92\x93!\x19xml:\"CommercialModelType\"R\x13commercialModelType\x12P\n" +
-	"\buse_type\x18\x03 \x03(\v2\".ddex.ern.v432.DiscoverableUseTypeB\x11\x92\x93!\rxml:\"UseType\"R\auseType\x12m\n" +
-	"\x13user_interface_type\x18\x04 \x03(\v2 .ddex.ern.v432.UserInterfaceTypeB\x1b\x92\x93!\x17xml:\"UserInterfaceType\"R\x11userInterfaceType\x12T\n" +
-	"\fcarrier_type\x18\x05 \x03(\v2\x1a.ddex.ern.v432.CarrierTypeB\x15\x92\x93!\x11xml:\"CarrierType\"R\vcarrierType\x12\x89\x01\n" +
-	"\x17technical_instantiation\x18\x06 \x01(\v2..ddex.ern.v432.DealTermsTechnicalInstantiationB \x92\x93!\x1cxml:\"TechnicalInstantiation\"R\x16technicalInstantiation\x12B\n" +
-	"\x10number_of_usages\x18\a \x01(\x05B\x18\x92\x93!\x14xml:\"NumberOfUsages\"R\x0enumberOfUsages\x12m\n" +
-	"\x13rights_claim_policy\x18\b \x03(\v2 .ddex.ern.v432.RightsClaimPolicyB\x1b\x92\x93!\x17xml:\"RightsClaimPolicy\"R\x11rightsClaimPolicy\x12h\n" +
-	"\x11price_information\x18\t \x03(\v2\x1f.ddex.ern.v432.PriceInformationB\x1a\x92\x93!\x16xml:\"PriceInformation\"R\x10priceInformation\x12C\n" +
+	"deal_terms\x18\x03 \x01(\v2\x18.ddex.ern.v432.DealTermsR\tdealTerms\x12\x9b\x01\n" +
+	".deal_technical_resource_details_reference_list\x18\x04 \x01(\v28.ddex.ern.v432.DealTechnicalResourceDetailsReferenceListR)dealTechnicalResourceDetailsReferenceList\x12b\n" +
+	"\x19distribution_channel_page\x18\x05 \x03(\v2&.ddex.ern.v432.DistributionChannelPageR\x17distributionChannelPage\"\xfb\x01\n" +
+	"\bDealList\x12=\n" +
+	"\frelease_deal\x18\x01 \x03(\v2\x1a.ddex.ern.v432.ReleaseDealR\vreleaseDeal\x12O\n" +
+	"\x12release_visibility\x18\x02 \x03(\v2 .ddex.ern.v432.ReleaseVisibilityR\x11releaseVisibility\x12_\n" +
+	"\x18track_release_visibility\x18\x03 \x03(\v2%.ddex.ern.v432.TrackReleaseVisibilityR\x16trackReleaseVisibility\"S\n" +
+	"\x19DealResourceReferenceList\x126\n" +
+	"\x17deal_resource_reference\x18\x01 \x03(\tR\x15dealResourceReference\"\x85\x01\n" +
+	")DealTechnicalResourceDetailsReferenceList\x12X\n" +
+	")deal_technical_resource_details_reference\x18\x01 \x03(\tR%dealTechnicalResourceDetailsReference\"\xe4\a\n" +
+	"\tDealTerms\x12K\n" +
+	"\x0fvalidity_period\x18\x01 \x03(\v2\".ddex.ern.v432.PeriodWithStartDateR\x0evalidityPeriod\x12V\n" +
+	"\x15commercial_model_type\x18\x02 \x03(\v2\".ddex.ern.v432.CommercialModelTypeR\x13commercialModelType\x12=\n" +
+	"\buse_type\x18\x03 \x03(\v2\".ddex.ern.v432.DiscoverableUseTypeR\auseType\x12P\n" +
+	"\x13user_interface_type\x18\x04 \x03(\v2 .ddex.ern.v432.UserInterfaceTypeR\x11userInterfaceType\x12=\n" +
+	"\fcarrier_type\x18\x05 \x03(\v2\x1a.ddex.ern.v432.CarrierTypeR\vcarrierType\x12g\n" +
+	"\x17technical_instantiation\x18\x06 \x01(\v2..ddex.ern.v432.DealTermsTechnicalInstantiationR\x16technicalInstantiation\x12(\n" +
+	"\x10number_of_usages\x18\a \x01(\x05R\x0enumberOfUsages\x12P\n" +
+	"\x13rights_claim_policy\x18\b \x03(\v2 .ddex.ern.v432.RightsClaimPolicyR\x11rightsClaimPolicy\x12L\n" +
+	"\x11price_information\x18\t \x03(\v2\x1f.ddex.ern.v432.PriceInformationR\x10priceInformation\x12)\n" +
 	"\x11is_pre_order_deal\x18\n" +
-	" \x01(\bB\x18\x92\x93!\x14xml:\"IsPreOrderDeal\"R\x0eisPreOrderDeal\x12\xa3\x01\n" +
-	"#instant_gratification_resource_list\x18\v \x01(\v2(.ddex.ern.v432.DealResourceReferenceListB*\x92\x93!&xml:\"InstantGratificationResourceList\"R instantGratificationResourceList\x12d\n" +
-	"\x10physical_returns\x18\f \x01(\v2\x1e.ddex.ern.v432.PhysicalReturnsB\x19\x92\x93!\x15xml:\"PhysicalReturns\"R\x0fphysicalReturns\x12e\n" +
-	"\x1dnumber_of_products_per_carton\x18\r \x01(\x05B#\x92\x93!\x1fxml:\"NumberOfProductsPerCarton\"R\x19numberOfProductsPerCarton\"\xb0\x02\n" +
-	"\x1fDealTermsTechnicalInstantiation\x12u\n" +
-	"\x15video_definition_type\x18\x01 \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeB\x1d\x92\x93!\x19xml:\"VideoDefinitionType\"R\x13videoDefinitionType\x12P\n" +
-	"\vcoding_type\x18\x02 \x01(\x0e2\x19.ddex.ern.v432.CodingTypeB\x14\x92\x93!\x10xml:\"CodingType\"R\n" +
-	"codingType\x12D\n" +
-	"\bbit_rate\x18\x03 \x01(\v2\x16.ddex.ern.v432.BitRateB\x11\x92\x93!\rxml:\"BitRate\"R\abitRate\"\xf5\x01\n" +
-	"\x05Deity\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x01(\bR\x0eisPreOrderDeal\x12w\n" +
+	"#instant_gratification_resource_list\x18\v \x01(\v2(.ddex.ern.v432.DealResourceReferenceListR instantGratificationResourceList\x12I\n" +
+	"\x10physical_returns\x18\f \x01(\v2\x1e.ddex.ern.v432.PhysicalReturnsR\x0fphysicalReturns\x12@\n" +
+	"\x1dnumber_of_products_per_carton\x18\r \x01(\x05R\x19numberOfProductsPerCarton\"\xe8\x01\n" +
+	"\x1fDealTermsTechnicalInstantiation\x12V\n" +
+	"\x15video_definition_type\x18\x01 \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeR\x13videoDefinitionType\x12:\n" +
+	"\vcoding_type\x18\x02 \x01(\x0e2\x19.ddex.ern.v432.CodingTypeR\n" +
+	"codingType\x121\n" +
+	"\bbit_rate\x18\x03 \x01(\v2\x16.ddex.ern.v432.BitRateR\abitRate\"\x9d\x01\n" +
+	"\x05Deity\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12_\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xe4\x02\n" +
-	"\x14DelegatedUsageRights\x12D\n" +
-	"\buse_type\x18\x01 \x03(\v2\x16.ddex.ern.v432.UseTypeB\x11\x92\x93!\rxml:\"UseType\"R\auseType\x12x\n" +
-	"\x1bperiod_of_rights_delegation\x18\x02 \x01(\v2\x15.ddex.ern.v432.PeriodB\"\x92\x93!\x1exml:\"PeriodOfRightsDelegation\"R\x18periodOfRightsDelegation\x12\x8b\x01\n" +
-	"\x1eterritory_of_rights_delegation\x18\x03 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeB%\x92\x93!!xml:\"TerritoryOfRightsDelegation\"R\x1bterritoryOfRightsDelegation\"\xe7\x02\n" +
-	"\x18DescriptionWithTerritory\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\"\x85\x02\n" +
+	"\x14DelegatedUsageRights\x121\n" +
+	"\buse_type\x18\x01 \x03(\v2\x16.ddex.ern.v432.UseTypeR\auseType\x12T\n" +
+	"\x1bperiod_of_rights_delegation\x18\x02 \x01(\v2\x15.ddex.ern.v432.PeriodR\x18periodOfRightsDelegation\x12d\n" +
+	"\x1eterritory_of_rights_delegation\x18\x03 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\x1bterritoryOfRightsDelegation\"\xe9\x01\n" +
+	"\x18DescriptionWithTerritory\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xcb\x04\n" +
-	"\x1bDetailedResourceContributor\x12B\n" +
-	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleB\x0e\x92\x93!\n" +
-	"xml:\"Role\"R\x04role\x12`\n" +
-	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeB\x18\x92\x93!\x14xml:\"InstrumentType\"R\x0einstrumentType\x12j\n" +
-	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bB%\x92\x93!!xml:\"HasMadeFeaturedContribution\"R\x1bhasMadeFeaturedContribution\x12p\n" +
-	" has_made_contracted_contribution\x18\x04 \x01(\bB'\x92\x93!#xml:\"HasMadeContractedContribution\"R\x1dhasMadeContractedContribution\x12`\n" +
-	"\x0fdisplay_credits\x18\x05 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsB\x18\x92\x93!\x14xml:\"DisplayCredits\"R\x0edisplayCredits\x12F\n" +
-	"\x0fsequence_number\x18\x06 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\"\x8f\x02\n" +
-	"\x13DiscoverableUseType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12F\n" +
-	"\x0fis_discoverable\x18\x03 \x01(\bB\x1d\x92\x93!\x19xml:\"IsDiscoverable,attr\"R\x0eisDiscoverable\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x9e\x03\n" +
-	"\rDisplayArtist\x12[\n" +
-	"\rartistic_role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleB\x16\x92\x93!\x12xml:\"ArtisticRole\"R\fartisticRole\x12\x85\x01\n" +
-	"\x19title_display_information\x18\x02 \x03(\v2&.ddex.ern.v432.TitleDisplayInformationB!\x92\x93!\x1dxml:\"TitleDisplayInformation\"R\x17titleDisplayInformation\x12`\n" +
-	"\x0fdisplay_credits\x18\x03 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsB\x18\x92\x93!\x14xml:\"DisplayCredits\"R\x0edisplayCredits\x12F\n" +
-	"\x0fsequence_number\x18\x04 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\"\xbb\x03\n" +
-	"\x10DisplayTitleText\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\x98\x03\n" +
+	"\x1bDetailedResourceContributor\x122\n" +
+	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12F\n" +
+	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\x12C\n" +
+	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bR\x1bhasMadeFeaturedContribution\x12G\n" +
+	" has_made_contracted_contribution\x18\x04 \x01(\bR\x1dhasMadeContractedContribution\x12F\n" +
+	"\x0fdisplay_credits\x18\x05 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12'\n" +
+	"\x0fsequence_number\x18\x06 \x01(\x05R\x0esequenceNumber\"\xa0\x01\n" +
+	"\x13DiscoverableUseType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12'\n" +
+	"\x0fis_discoverable\x18\x03 \x01(\bR\x0eisDiscoverable\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\xa9\x02\n" +
+	"\rDisplayArtist\x12C\n" +
+	"\rartistic_role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\fartisticRole\x12b\n" +
+	"\x19title_display_information\x18\x02 \x03(\v2&.ddex.ern.v432.TitleDisplayInformationR\x17titleDisplayInformation\x12F\n" +
+	"\x0fdisplay_credits\x18\x03 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12'\n" +
+	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\"\x98\x02\n" +
+	"\x10DisplayTitleText\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12Z\n" +
-	"\x17is_in_original_language\x18\x05 \x01(\bB#\x92\x93!\x1fxml:\"IsInOriginalLanguage,attr\"R\x14isInOriginalLanguage\"\x81\x02\n" +
-	"\x17DistributionChannelPage\x12L\n" +
-	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdB\x11\x92\x93!\rxml:\"PartyId\"R\apartyId\x12D\n" +
-	"\tpage_name\x18\x02 \x01(\v2\x13.ddex.ern.v432.NameB\x12\x92\x93!\x0exml:\"PageName\"R\bpageName\x12!\n" +
-	"\x05u_r_l\x18\x03 \x01(\tB\r\x92\x93!\txml:\"URL\"R\x03uRL\x12/\n" +
-	"\tuser_name\x18\x04 \x01(\tB\x12\x92\x93!\x0exml:\"UserName\"R\buserName\"\x90\x05\n" +
-	"\x12EditionContributor\x12B\n" +
-	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleB\x0e\x92\x93!\n" +
-	"xml:\"Role\"R\x04role\x12\\\n" +
-	"\x0fai_contribution\x18\x02 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIB\x18\x92\x93!\x14xml:\"AiContribution\"R\x0eaiContribution\x12j\n" +
-	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bB%\x92\x93!!xml:\"HasMadeFeaturedContribution\"R\x1bhasMadeFeaturedContribution\x12p\n" +
-	" has_made_contracted_contribution\x18\x04 \x01(\bB'\x92\x93!#xml:\"HasMadeContractedContribution\"R\x1dhasMadeContractedContribution\x12P\n" +
-	"\vis_credited\x18\x05 \x01(\v2\x19.ddex.ern.v432.IsCreditedB\x14\x92\x93!\x10xml:\"IsCredited\"R\n" +
-	"isCredited\x12`\n" +
-	"\x0fdisplay_credits\x18\x06 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsB\x18\x92\x93!\x14xml:\"DisplayCredits\"R\x0edisplayCredits\x12F\n" +
-	"\x0fsequence_number\x18\a \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\"\xcb\x03\n" +
-	"\x19EventDateTimeWithoutFlags\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x12U\n" +
-	"\x14location_description\x18\x04 \x01(\tB\"\x92\x93!\x1exml:\"LocationDescription,attr\"R\x13locationDescription\x12]\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xcf\x03\n" +
-	"\x1dEventDateWithCurrentTerritory\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x12U\n" +
-	"\x14location_description\x18\x04 \x01(\tB\"\x92\x93!\x1exml:\"LocationDescription,attr\"R\x13locationDescription\x12]\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xc5\x02\n" +
-	"\x14EventDateWithDefault\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\x12\x83\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x125\n" +
+	"\x17is_in_original_language\x18\x05 \x01(\bR\x14isInOriginalLanguage\"\xb7\x01\n" +
+	"\x17DistributionChannelPage\x129\n" +
+	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x120\n" +
+	"\tpage_name\x18\x02 \x01(\v2\x13.ddex.ern.v432.NameR\bpageName\x12\x12\n" +
+	"\x05u_r_l\x18\x03 \x01(\tR\x03uRL\x12\x1b\n" +
+	"\tuser_name\x18\x04 \x01(\tR\buserName\"\xc7\x03\n" +
+	"\x12EditionContributor\x122\n" +
+	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12B\n" +
+	"\x0fai_contribution\x18\x02 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIR\x0eaiContribution\x12C\n" +
+	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bR\x1bhasMadeFeaturedContribution\x12G\n" +
+	" has_made_contracted_contribution\x18\x04 \x01(\bR\x1dhasMadeContractedContribution\x12:\n" +
+	"\vis_credited\x18\x05 \x01(\v2\x19.ddex.ern.v432.IsCreditedR\n" +
+	"isCredited\x12F\n" +
+	"\x0fdisplay_credits\x18\x06 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12'\n" +
+	"\x0fsequence_number\x18\a \x01(\x05R\x0esequenceNumber\"\xa5\x02\n" +
+	"\x19EventDateTimeWithoutFlags\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x14location_description\x18\x04 \x01(\tR\x13locationDescription\x127\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xa9\x02\n" +
+	"\x1dEventDateWithCurrentTerritory\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x14location_description\x18\x04 \x01(\tR\x13locationDescription\x127\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xcf\x01\n" +
+	"\x14EventDateWithDefault\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12[\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xc3\x03\n" +
-	"\x15EventDateWithoutFlags\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\x12\x83\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x12U\n" +
-	"\x14location_description\x18\x04 \x01(\tB\"\x92\x93!\x1exml:\"LocationDescription,attr\"R\x13locationDescription\x12]\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xb0\x03\n" +
-	"\x14ExternalResourceLink\x12!\n" +
-	"\x05u_r_l\x18\x01 \x03(\tB\r\x92\x93!\txml:\"URL\"R\x03uRL\x12d\n" +
-	"\x0fvalidity_period\x18\x02 \x01(\v2!.ddex.ern.v432.PeriodWithoutFlagsB\x18\x92\x93!\x14xml:\"ValidityPeriod\"R\x0evalidityPeriod\x12;\n" +
-	"\rexternal_link\x18\x03 \x01(\tB\x16\x92\x93!\x12xml:\"ExternalLink\"R\fexternalLink\x12\x9a\x01\n" +
-	"\x1fexternally_linked_resource_type\x18\x04 \x03(\v2+.ddex.ern.v432.ExternallyLinkedResourceTypeB&\x92\x93!\"xml:\"ExternallyLinkedResourceType\"R\x1cexternallyLinkedResourceType\x125\n" +
-	"\vfile_format\x18\x05 \x01(\tB\x14\x92\x93!\x10xml:\"FileFormat\"R\n" +
-	"fileFormat\"\xdb\x01\n" +
-	"\x1bHdrVideoDynamicMetadataType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x120\n" +
-	"\aversion\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"Version,attr\"R\aversion\x12_\n" +
-	"\x18sdr_derivation_permitted\x18\x03 \x01(\bB%\x92\x93!!xml:\"SdrDerivationPermitted,attr\"R\x16sdrDerivationPermitted\"\xdc\x13\n" +
-	"\x05Image\x12J\n" +
-	"\x12resource_reference\x18\x01 \x01(\tB\x1b\x92\x93!\x17xml:\"ResourceReference\"R\x11resourceReference\x12<\n" +
-	"\x04type\x18\x02 \x01(\v2\x18.ddex.ern.v432.ImageTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12[\n" +
-	"\vresource_id\x18\x03 \x03(\v2$.ddex.ern.v432.ResourceProprietaryIdB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12i\n" +
-	"\x12display_title_text\x18\x04 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12T\n" +
-	"\fversion_type\x18\b \x03(\v2\x1a.ddex.ern.v432.VersionTypeB\x15\x92\x93!\x11xml:\"VersionType\"R\vversionType\x12\x81\x01\n" +
-	"\x13display_artist_name\x18\t \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12\\\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\x9d\x02\n" +
+	"\x15EventDateWithoutFlags\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12[\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x14location_description\x18\x04 \x01(\tR\x13locationDescription\x127\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xb0\x02\n" +
+	"\x14ExternalResourceLink\x12\x12\n" +
+	"\x05u_r_l\x18\x01 \x03(\tR\x03uRL\x12J\n" +
+	"\x0fvalidity_period\x18\x02 \x01(\v2!.ddex.ern.v432.PeriodWithoutFlagsR\x0evalidityPeriod\x12#\n" +
+	"\rexternal_link\x18\x03 \x01(\tR\fexternalLink\x12r\n" +
+	"\x1fexternally_linked_resource_type\x18\x04 \x03(\v2+.ddex.ern.v432.ExternallyLinkedResourceTypeR\x1cexternallyLinkedResourceType\x12\x1f\n" +
+	"\vfile_format\x18\x05 \x01(\tR\n" +
+	"fileFormat\"\x87\x01\n" +
+	"\x1bHdrVideoDynamicMetadataType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x128\n" +
+	"\x18sdr_derivation_permitted\x18\x03 \x01(\bR\x16sdrDerivationPermitted\"\xa6\x0e\n" +
+	"\x05Image\x12-\n" +
+	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12,\n" +
+	"\x04type\x18\x02 \x01(\v2\x18.ddex.ern.v432.ImageTypeR\x04type\x12E\n" +
+	"\vresource_id\x18\x03 \x03(\v2$.ddex.ern.v432.ResourceProprietaryIdR\n" +
+	"resourceId\x12M\n" +
+	"\x12display_title_text\x18\x04 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12=\n" +
+	"\fversion_type\x18\b \x03(\v2\x1a.ddex.ern.v432.VersionTypeR\vversionType\x12d\n" +
+	"\x13display_artist_name\x18\t \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12C\n" +
 	"\x0edisplay_artist\x18\n" +
-	" \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12S\n" +
-	"\vcontributor\x18\v \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12\x89\x01\n" +
-	"\x1aresource_rights_controller\x18\f \x03(\v2'.ddex.ern.v432.ResourceRightsControllerB\"\x92\x93!\x1exml:\"ResourceRightsController\"R\x18resourceRightsController\x12y\n" +
-	"\x16work_rights_controller\x18\r \x03(\v2#.ddex.ern.v432.WorkRightsControllerB\x1e\x92\x93!\x1axml:\"WorkRightsController\"R\x14workRightsController\x12<\n" +
-	"\x06c_line\x18\x0e \x03(\v2\x14.ddex.ern.v432.CLineB\x0f\x92\x93!\vxml:\"CLine\"R\x05cLine\x12X\n" +
-	"\rcourtesy_line\x18\x0f \x03(\v2\x1b.ddex.ern.v432.CourtesyLineB\x16\x92\x93!\x12xml:\"CourtesyLine\"R\fcourtesyLine\x12a\n" +
-	"\rcreation_date\x18\x10 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"CreationDate\"R\fcreationDate\x12t\n" +
-	"\x16first_publication_date\x18\x11 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateB\x1e\x92\x93!\x1axml:\"FirstPublicationDate\"R\x14firstPublicationDate\x12\x81\x01\n" +
-	"\x15parental_warning_type\x18\x12 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardB\x1d\x92\x93!\x19xml:\"ParentalWarningType\"R\x13parentalWarningType\x12`\n" +
-	"\x0frelated_release\x18\x13 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\x14 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x12Q\n" +
-	"\fcontains_a_i\x18\x15 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIB\x14\x92\x93!\x10xml:\"ContainsAI\"R\n" +
-	"containsAI\x12W\n" +
-	"\x17contains_hidden_content\x18\x16 \x01(\bB\x1f\x92\x93!\x1bxml:\"ContainsHiddenContent\"R\x15containsHiddenContent\x12`\n" +
-	"\vdescription\x18\x17 \x03(\v2'.ddex.ern.v432.DescriptionWithTerritoryB\x15\x92\x93!\x11xml:\"Description\"R\vdescription\x12m\n" +
-	"\x11technical_details\x18\x18 \x03(\v2$.ddex.ern.v432.TechnicalImageDetailsB\x1a\x92\x93!\x16xml:\"TechnicalDetails\"R\x10technicalDetails\x12]\n" +
-	"\x18language_and_script_code\x18\x19 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12F\n" +
-	"\x0fis_supplemental\x18\x1a \x01(\bB\x1d\x92\x93!\x19xml:\"IsSupplemental,attr\"R\x0eisSupplemental\"\xa4\x04\n" +
-	"\x1eLinkedReleaseResourceReference\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12i\n" +
-	"\x10link_description\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.LinkDescriptionB\x1e\x92\x93!\x1axml:\"LinkDescription,attr\"R\x0flinkDescription\x12]\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x126\n" +
-	"\tnamespace\x18\x04 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x05 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\x12F\n" +
-	"\x0fsequence_number\x18\x06 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\x12>\n" +
-	"\ris_multi_file\x18\a \x01(\bB\x1a\x92\x93!\x16xml:\"IsMultiFile,attr\"R\visMultiFile\"\x91\x03\n" +
-	"\x18LocationAndDateOfSession\x12T\n" +
-	"\fsession_type\x18\x01 \x03(\v2\x1a.ddex.ern.v432.SessionTypeB\x15\x92\x93!\x11xml:\"SessionType\"R\vsessionType\x12?\n" +
-	"\x06period\x18\x02 \x01(\v2\x15.ddex.ern.v432.PeriodB\x10\x92\x93!\fxml:\"Period\"R\x06period\x12;\n" +
-	"\x05venue\x18\x03 \x03(\v2\x14.ddex.ern.v432.VenueB\x0f\x92\x93!\vxml:\"Venue\"R\x05venue\x12J\n" +
-	"\acomment\x18\x04 \x01(\v2\x1d.ddex.ern.v432.TextWithFormatB\x11\x92\x93!\rxml:\"Comment\"R\acomment\x12U\n" +
-	"\vcontributor\x18\x05 \x03(\v2\x1c.ddex.ern.v432.PartyWithRoleB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\"\xc6\x02\n" +
-	"\x05Party\x12A\n" +
-	"\x0fparty_reference\x18\x01 \x01(\tB\x18\x92\x93!\x14xml:\"PartyReference\"R\x0epartyReference\x12S\n" +
-	"\vaffiliation\x18\x02 \x03(\v2\x1a.ddex.ern.v432.AffiliationB\x15\x92\x93!\x11xml:\"Affiliation\"R\vaffiliation\x12X\n" +
-	"\rrelated_party\x18\x03 \x03(\v2\x1b.ddex.ern.v432.RelatedPartyB\x16\x92\x93!\x12xml:\"RelatedParty\"R\frelatedParty\x12K\n" +
-	"\x13artist_profile_page\x18\x04 \x03(\tB\x1b\x92\x93!\x17xml:\"ArtistProfilePage\"R\x11artistProfilePage\"\x85\x01\n" +
-	"\tPartyList\x12;\n" +
-	"\x05party\x18\x01 \x03(\v2\x14.ddex.ern.v432.PartyB\x0f\x92\x93!\vxml:\"Party\"R\x05party\x12;\n" +
-	"\x05brand\x18\x02 \x03(\v2\x14.ddex.ern.v432.BrandB\x0f\x92\x93!\vxml:\"Brand\"R\x05brand\"\xbe\t\n" +
-	"\x16PartyNameWithTerritory\x12D\n" +
-	"\tfull_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameB\x12\x92\x93!\x0exml:\"FullName\"R\bfullName\x12a\n" +
-	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tB\"\x92\x93!\x1exml:\"FullNameAsciiTranscribed\"R\x18fullNameAsciiTranscribed\x12Z\n" +
-	"\x11full_name_indexed\x18\x03 \x01(\v2\x13.ddex.ern.v432.NameB\x19\x92\x93!\x15xml:\"FullNameIndexed\"R\x0ffullNameIndexed\x12d\n" +
-	"\x15names_before_key_name\x18\x04 \x01(\v2\x13.ddex.ern.v432.NameB\x1c\x92\x93!\x18xml:\"NamesBeforeKeyName\"R\x12namesBeforeKeyName\x12A\n" +
-	"\bkey_name\x18\x05 \x01(\v2\x13.ddex.ern.v432.NameB\x11\x92\x93!\rxml:\"KeyName\"R\akeyName\x12a\n" +
-	"\x14names_after_key_name\x18\x06 \x01(\v2\x13.ddex.ern.v432.NameB\x1b\x92\x93!\x17xml:\"NamesAfterKeyName\"R\x11namesAfterKeyName\x12Y\n" +
-	"\x10abbreviated_name\x18\a \x01(\v2\x13.ddex.ern.v432.NameB\x19\x92\x93!\x15xml:\"AbbreviatedName\"R\x0fabbreviatedName\x12]\n" +
-	"\x18language_and_script_code\x18\b \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12:\n" +
-	"\vis_nickname\x18\t \x01(\bB\x19\x92\x93!\x15xml:\"IsNickname,attr\"R\n" +
-	"isNickname\x12>\n" +
+	" \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12<\n" +
+	"\vcontributor\x18\v \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x12e\n" +
+	"\x1aresource_rights_controller\x18\f \x03(\v2'.ddex.ern.v432.ResourceRightsControllerR\x18resourceRightsController\x12Y\n" +
+	"\x16work_rights_controller\x18\r \x03(\v2#.ddex.ern.v432.WorkRightsControllerR\x14workRightsController\x12+\n" +
+	"\x06c_line\x18\x0e \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12@\n" +
+	"\rcourtesy_line\x18\x0f \x03(\v2\x1b.ddex.ern.v432.CourtesyLineR\fcourtesyLine\x12I\n" +
+	"\rcreation_date\x18\x10 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fcreationDate\x12T\n" +
+	"\x16first_publication_date\x18\x11 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateR\x14firstPublicationDate\x12b\n" +
+	"\x15parental_warning_type\x18\x12 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
+	"\x0frelated_release\x18\x13 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\x14 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12;\n" +
+	"\fcontains_a_i\x18\x15 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIR\n" +
+	"containsAI\x126\n" +
+	"\x17contains_hidden_content\x18\x16 \x01(\bR\x15containsHiddenContent\x12I\n" +
+	"\vdescription\x18\x17 \x03(\v2'.ddex.ern.v432.DescriptionWithTerritoryR\vdescription\x12Q\n" +
+	"\x11technical_details\x18\x18 \x03(\v2$.ddex.ern.v432.TechnicalImageDetailsR\x10technicalDetails\x127\n" +
+	"\x18language_and_script_code\x18\x19 \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fis_supplemental\x18\x1a \x01(\bR\x0eisSupplemental\"\xd3\x02\n" +
+	"\x1eLinkedReleaseResourceReference\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12I\n" +
+	"\x10link_description\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.LinkDescriptionR\x0flinkDescription\x127\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12\x1c\n" +
+	"\tnamespace\x18\x04 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x05 \x01(\tR\x10userDefinedValue\x12'\n" +
+	"\x0fsequence_number\x18\x06 \x01(\x05R\x0esequenceNumber\x12\"\n" +
+	"\ris_multi_file\x18\a \x01(\bR\visMultiFile\"\xad\x02\n" +
+	"\x18LocationAndDateOfSession\x12=\n" +
+	"\fsession_type\x18\x01 \x03(\v2\x1a.ddex.ern.v432.SessionTypeR\vsessionType\x12-\n" +
+	"\x06period\x18\x02 \x01(\v2\x15.ddex.ern.v432.PeriodR\x06period\x12*\n" +
+	"\x05venue\x18\x03 \x03(\v2\x14.ddex.ern.v432.VenueR\x05venue\x127\n" +
+	"\acomment\x18\x04 \x01(\v2\x1d.ddex.ern.v432.TextWithFormatR\acomment\x12>\n" +
+	"\vcontributor\x18\x05 \x03(\v2\x1c.ddex.ern.v432.PartyWithRoleR\vcontributor\"\xe0\x01\n" +
+	"\x05Party\x12'\n" +
+	"\x0fparty_reference\x18\x01 \x01(\tR\x0epartyReference\x12<\n" +
+	"\vaffiliation\x18\x02 \x03(\v2\x1a.ddex.ern.v432.AffiliationR\vaffiliation\x12@\n" +
+	"\rrelated_party\x18\x03 \x03(\v2\x1b.ddex.ern.v432.RelatedPartyR\frelatedParty\x12.\n" +
+	"\x13artist_profile_page\x18\x04 \x03(\tR\x11artistProfilePage\"c\n" +
+	"\tPartyList\x12*\n" +
+	"\x05party\x18\x01 \x03(\v2\x14.ddex.ern.v432.PartyR\x05party\x12*\n" +
+	"\x05brand\x18\x02 \x03(\v2\x14.ddex.ern.v432.BrandR\x05brand\"\xa1\x06\n" +
+	"\x16PartyNameWithTerritory\x120\n" +
+	"\tfull_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\bfullName\x12=\n" +
+	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tR\x18fullNameAsciiTranscribed\x12?\n" +
+	"\x11full_name_indexed\x18\x03 \x01(\v2\x13.ddex.ern.v432.NameR\x0ffullNameIndexed\x12F\n" +
+	"\x15names_before_key_name\x18\x04 \x01(\v2\x13.ddex.ern.v432.NameR\x12namesBeforeKeyName\x12.\n" +
+	"\bkey_name\x18\x05 \x01(\v2\x13.ddex.ern.v432.NameR\akeyName\x12D\n" +
+	"\x14names_after_key_name\x18\x06 \x01(\v2\x13.ddex.ern.v432.NameR\x11namesAfterKeyName\x12>\n" +
+	"\x10abbreviated_name\x18\a \x01(\v2\x13.ddex.ern.v432.NameR\x0fabbreviatedName\x127\n" +
+	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\x12\x1f\n" +
+	"\vis_nickname\x18\t \x01(\bR\n" +
+	"isNickname\x12\"\n" +
 	"\ris_stage_name\x18\n" +
-	" \x01(\bB\x1a\x92\x93!\x16xml:\"IsStageName,attr\"R\visStageName\x12>\n" +
-	"\ris_legal_name\x18\v \x01(\bB\x1a\x92\x93!\x16xml:\"IsLegalName,attr\"R\visLegalName\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\f \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x01(\bR\visStageName\x12\"\n" +
+	"\ris_legal_name\x18\v \x01(\bR\visLegalName\x12_\n" +
+	"\x19applicable_territory_code\x18\f \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\r \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12Z\n" +
-	"\x17is_in_original_language\x18\x0e \x01(\bB#\x92\x93!\x1fxml:\"IsInOriginalLanguage,attr\"R\x14isInOriginalLanguage\"\xc6\x03\n" +
-	"\rPartyWithRole\x12%\n" +
-	"\ai_s_n_i\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISNI\"R\x04iSNI\x12%\n" +
-	"\ad_p_i_d\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"DPID\"R\x04dPID\x12?\n" +
-	"\x0fipi_name_number\x18\x03 \x01(\tB\x17\x92\x93!\x13xml:\"IpiNameNumber\"R\ripiNameNumber\x12!\n" +
-	"\x05i_p_n\x18\x04 \x01(\tB\r\x92\x93!\txml:\"IPN\"R\x03iPN\x12\\\n" +
-	"\x0eproprietary_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12Y\n" +
+	"is_default\x18\r \x01(\bR\tisDefault\x125\n" +
+	"\x17is_in_original_language\x18\x0e \x01(\bR\x14isInOriginalLanguage\"\xc0\x02\n" +
+	"\rPartyWithRole\x12\x15\n" +
+	"\ai_s_n_i\x18\x01 \x01(\tR\x04iSNI\x12\x15\n" +
+	"\ad_p_i_d\x18\x02 \x01(\tR\x04dPID\x12&\n" +
+	"\x0fipi_name_number\x18\x03 \x01(\tR\ripiNameNumber\x12\x12\n" +
+	"\x05i_p_n\x18\x04 \x01(\tR\x03iPN\x12C\n" +
+	"\x0eproprietary_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12D\n" +
 	"\n" +
-	"party_name\x18\x06 \x01(\v2%.ddex.ern.v432.PartyNameWithTerritoryB\x13\x92\x93!\x0fxml:\"PartyName\"R\tpartyName\x12J\n" +
-	"\x04role\x18\a \x01(\v2&.ddex.ern.v432.ResourceContributorRoleB\x0e\x92\x93!\n" +
-	"xml:\"Role\"R\x04role\"\x15\n" +
+	"party_name\x18\x06 \x01(\v2%.ddex.ern.v432.PartyNameWithTerritoryR\tpartyName\x12:\n" +
+	"\x04role\x18\a \x01(\v2&.ddex.ern.v432.ResourceContributorRoleR\x04role\"\x15\n" +
 	"\x13PeriodWithStartDate\"\x14\n" +
-	"\x12PeriodWithoutFlags\"\xdd\x01\n" +
-	"\x0fPhysicalReturns\x12Z\n" +
-	"\x18physical_returns_allowed\x18\x01 \x01(\bB \x92\x93!\x1cxml:\"PhysicalReturnsAllowed\"R\x16physicalReturnsAllowed\x12n\n" +
-	" latest_date_for_physical_returns\x18\x02 \x01(\tB&\x92\x93!\"xml:\"LatestDateForPhysicalReturns\"R\x1clatestDateForPhysicalReturns\"\xaf\x05\n" +
-	"\x10PriceInformation\x12L\n" +
+	"\x12PeriodWithoutFlags\"\x93\x01\n" +
+	"\x0fPhysicalReturns\x128\n" +
+	"\x18physical_returns_allowed\x18\x01 \x01(\bR\x16physicalReturnsAllowed\x12F\n" +
+	" latest_date_for_physical_returns\x18\x02 \x01(\tR\x1clatestDateForPhysicalReturns\"\xd9\x03\n" +
+	"\x10PriceInformation\x127\n" +
 	"\n" +
-	"price_code\x18\x01 \x01(\v2\x18.ddex.ern.v432.PriceTypeB\x13\x92\x93!\x0fxml:\"PriceCode\"R\tpriceCode\x12n\n" +
-	"\x18wholesale_price_per_unit\x18\x02 \x01(\v2\x14.ddex.ern.v432.PriceB\x1f\x92\x93!\x1bxml:\"WholesalePricePerUnit\"R\x15wholesalePricePerUnit\x12\x8b\x01\n" +
-	"#bulk_order_wholesale_price_per_unit\x18\x03 \x01(\v2\x14.ddex.ern.v432.PriceB(\x92\x93!$xml:\"BulkOrderWholesalePricePerUnit\"R\x1ebulkOrderWholesalePricePerUnit\x12j\n" +
-	"\x16suggested_retail_price\x18\x04 \x01(\v2\x14.ddex.ern.v432.PriceB\x1e\x92\x93!\x1axml:\"SuggestedRetailPrice\"R\x14suggestedRetailPrice\x12\\\n" +
+	"price_code\x18\x01 \x01(\v2\x18.ddex.ern.v432.PriceTypeR\tpriceCode\x12M\n" +
+	"\x18wholesale_price_per_unit\x18\x02 \x01(\v2\x14.ddex.ern.v432.PriceR\x15wholesalePricePerUnit\x12a\n" +
+	"#bulk_order_wholesale_price_per_unit\x18\x03 \x01(\v2\x14.ddex.ern.v432.PriceR\x1ebulkOrderWholesalePricePerUnit\x12J\n" +
+	"\x16suggested_retail_price\x18\x04 \x01(\v2\x14.ddex.ern.v432.PriceR\x14suggestedRetailPrice\x12B\n" +
 	"\n" +
-	"price_type\x18\x05 \x01(\x0e2#.ddex.ern.v432.PriceInformationTypeB\x18\x92\x93!\x14xml:\"PriceType,attr\"R\tpriceType\x126\n" +
-	"\tnamespace\x18\x06 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\a \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xff\x01\n" +
-	"\rPurgedRelease\x12L\n" +
+	"price_type\x18\x05 \x01(\x0e2#.ddex.ern.v432.PriceInformationTypeR\tpriceType\x12\x1c\n" +
+	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xc2\x01\n" +
+	"\rPurgedRelease\x127\n" +
 	"\n" +
-	"release_id\x18\x01 \x01(\v2\x18.ddex.ern.v432.ReleaseIdB\x13\x92\x93!\x0fxml:\"ReleaseId\"R\treleaseId\x12;\n" +
-	"\x05title\x18\x02 \x03(\v2\x14.ddex.ern.v432.TitleB\x0f\x92\x93!\vxml:\"Title\"R\x05title\x12c\n" +
-	"\vcontributor\x18\x03 \x03(\v2*.ddex.ern.v432.DetailedResourceContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\"\xf4\x01\n" +
-	"\x04Raga\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"release_id\x18\x01 \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\x12*\n" +
+	"\x05title\x18\x02 \x03(\v2\x14.ddex.ern.v432.TitleR\x05title\x12L\n" +
+	"\vcontributor\x18\x03 \x03(\v2*.ddex.ern.v432.DetailedResourceContributorR\vcontributor\"\x9c\x01\n" +
+	"\x04Raga\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12_\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xc3\x01\n" +
-	"\x0fRecordingFormat\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xbb\b\n" +
-	"\x0eRelatedRelease\x12\x85\x01\n" +
-	"\x19release_relationship_type\x18\x01 \x01(\v2&.ddex.ern.v432.ReleaseRelationshipTypeB!\x92\x93!\x1dxml:\"ReleaseRelationshipType\"R\x17releaseRelationshipType\x12L\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\"s\n" +
+	"\x0fRecordingFormat\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xa9\x06\n" +
+	"\x0eRelatedRelease\x12b\n" +
+	"\x19release_relationship_type\x18\x01 \x01(\v2&.ddex.ern.v432.ReleaseRelationshipTypeR\x17releaseRelationshipType\x127\n" +
 	"\n" +
-	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdB\x13\x92\x93!\x0fxml:\"ReleaseId\"R\treleaseId\x12i\n" +
-	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12\x81\x01\n" +
-	"\x13display_artist_name\x18\a \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12}\n" +
-	"\x17release_label_reference\x18\b \x03(\v2$.ddex.ern.v432.ReleaseLabelReferenceB\x1f\x92\x93!\x1bxml:\"ReleaseLabelReference\"R\x15releaseLabelReference\x12^\n" +
-	"\frelease_date\x18\t \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x15\x92\x93!\x11xml:\"ReleaseDate\"R\vreleaseDate\x12w\n" +
+	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\x12M\n" +
+	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12d\n" +
+	"\x13display_artist_name\x18\a \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12\\\n" +
+	"\x17release_label_reference\x18\b \x03(\v2$.ddex.ern.v432.ReleaseLabelReferenceR\x15releaseLabelReference\x12G\n" +
+	"\frelease_date\x18\t \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\vreleaseDate\x12X\n" +
 	"\x15original_release_date\x18\n" +
-	" \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x1d\x92\x93!\x19xml:\"OriginalReleaseDate\"R\x13originalReleaseDate\"\xde\x01\n" +
-	"\x0fRelatedResource\x12\x89\x01\n" +
-	"\x1aresource_relationship_type\x18\x01 \x01(\x0e2'.ddex.ern.v432.ResourceRelationshipTypeB\"\x92\x93!\x1exml:\"ResourceRelationshipType\"R\x18resourceRelationshipType\x12?\n" +
-	"\x06timing\x18\x02 \x03(\v2\x15.ddex.ern.v432.TimingB\x10\x92\x93!\fxml:\"Timing\"R\x06timing\"\xf5\x1a\n" +
-	"\aRelease\x12G\n" +
-	"\x11release_reference\x18\x01 \x01(\tB\x1a\x92\x93!\x16xml:\"ReleaseReference\"R\x10releaseReference\x12j\n" +
-	"\frelease_type\x18\x02 \x03(\v20.ddex.ern.v432.ReleaseTypeForReleaseNotificationB\x15\x92\x93!\x11xml:\"ReleaseType\"R\vreleaseType\x12L\n" +
+	" \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\x13originalReleaseDate\"\xa7\x01\n" +
+	"\x0fRelatedResource\x12e\n" +
+	"\x1aresource_relationship_type\x18\x01 \x01(\x0e2'.ddex.ern.v432.ResourceRelationshipTypeR\x18resourceRelationshipType\x12-\n" +
+	"\x06timing\x18\x02 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\"\xb6\x13\n" +
+	"\aRelease\x12+\n" +
+	"\x11release_reference\x18\x01 \x01(\tR\x10releaseReference\x12S\n" +
+	"\frelease_type\x18\x02 \x03(\v20.ddex.ern.v432.ReleaseTypeForReleaseNotificationR\vreleaseType\x127\n" +
 	"\n" +
-	"release_id\x18\x03 \x01(\v2\x18.ddex.ern.v432.ReleaseIdB\x13\x92\x93!\x0fxml:\"ReleaseId\"R\treleaseId\x12i\n" +
-	"\x12display_title_text\x18\x04 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12T\n" +
-	"\fversion_type\x18\b \x03(\v2\x1a.ddex.ern.v432.VersionTypeB\x15\x92\x93!\x11xml:\"VersionType\"R\vversionType\x12\x81\x01\n" +
-	"\x13display_artist_name\x18\t \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12\\\n" +
+	"release_id\x18\x03 \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\x12M\n" +
+	"\x12display_title_text\x18\x04 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12=\n" +
+	"\fversion_type\x18\b \x03(\v2\x1a.ddex.ern.v432.VersionTypeR\vversionType\x12d\n" +
+	"\x13display_artist_name\x18\t \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12C\n" +
 	"\x0edisplay_artist\x18\n" +
-	" \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12\x86\x01\n" +
-	"\x17release_label_reference\x18\v \x03(\v2-.ddex.ern.v432.ReleaseLabelReferenceWithPartyB\x1f\x92\x93!\x1bxml:\"ReleaseLabelReference\"R\x15releaseLabelReference\x12\x95\x01\n" +
-	"\x1dadministrating_record_company\x18\f \x03(\v2*.ddex.ern.v432.AdministratingRecordCompanyB%\x92\x93!!xml:\"AdministratingRecordCompany\"R\x1badministratingRecordCompany\x12<\n" +
-	"\x06p_line\x18\r \x03(\v2\x14.ddex.ern.v432.PLineB\x0f\x92\x93!\vxml:\"PLine\"R\x05pLine\x12<\n" +
-	"\x06c_line\x18\x0e \x03(\v2\x14.ddex.ern.v432.CLineB\x0f\x92\x93!\vxml:\"CLine\"R\x05cLine\x12X\n" +
-	"\rcourtesy_line\x18\x0f \x03(\v2\x1b.ddex.ern.v432.CourtesyLineB\x16\x92\x93!\x12xml:\"CourtesyLine\"R\fcourtesyLine\x12.\n" +
-	"\bduration\x18\x10 \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12^\n" +
-	"\rdisplay_genre\x18\x11 \x03(\v2!.ddex.ern.v432.GenreWithTerritoryB\x16\x92\x93!\x12xml:\"DisplayGenre\"R\fdisplayGenre\x12]\n" +
-	"\frelease_date\x18\x12 \x03(\v2#.ddex.ern.v432.EventDateWithDefaultB\x15\x92\x93!\x11xml:\"ReleaseDate\"R\vreleaseDate\x12v\n" +
-	"\x15original_release_date\x18\x13 \x03(\v2#.ddex.ern.v432.EventDateWithDefaultB\x1d\x92\x93!\x19xml:\"OriginalReleaseDate\"R\x13originalReleaseDate\x12f\n" +
-	"\x1crelease_visibility_reference\x18\x14 \x03(\tB$\x92\x93! xml:\"ReleaseVisibilityReference\"R\x1areleaseVisibilityReference\x12\x81\x01\n" +
-	"\x15parental_warning_type\x18\x15 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardB\x1d\x92\x93!\x19xml:\"ParentalWarningType\"R\x13parentalWarningType\x12H\n" +
-	"\tav_rating\x18\x16 \x03(\v2\x17.ddex.ern.v432.AvRatingB\x12\x92\x93!\x0exml:\"AvRating\"R\bavRating\x12`\n" +
-	"\x0frelated_release\x18\x17 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\x18 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x12\\\n" +
-	"\x0eresource_group\x18\x19 \x01(\v2\x1c.ddex.ern.v432.ResourceGroupB\x17\x92\x93!\x13xml:\"ResourceGroup\"R\rresourceGroup\x12y\n" +
-	"\x16external_resource_link\x18\x1a \x03(\v2#.ddex.ern.v432.ExternalResourceLinkB\x1e\x92\x93!\x1axml:\"ExternalResourceLink\"R\x14externalResourceLink\x124\n" +
-	"\ftarget_u_r_l\x18\x1b \x01(\tB\x13\x92\x93!\x0fxml:\"TargetURL\"R\ttargetURL\x12T\n" +
-	"\bkeywords\x18\x1c \x03(\v2$.ddex.ern.v432.KeywordsWithTerritoryB\x12\x92\x93!\x0exml:\"Keywords\"R\bkeywords\x12T\n" +
-	"\bsynopsis\x18\x1d \x03(\v2$.ddex.ern.v432.SynopsisWithTerritoryB\x12\x92\x93!\x0exml:\"Synopsis\"R\bsynopsis\x127\n" +
-	"\x04raga\x18\x1e \x03(\v2\x13.ddex.ern.v432.RagaB\x0e\x92\x93!\n" +
-	"xml:\"Raga\"R\x04raga\x127\n" +
-	"\x04tala\x18\x1f \x03(\v2\x13.ddex.ern.v432.TalaB\x0e\x92\x93!\n" +
-	"xml:\"Tala\"R\x04tala\x12;\n" +
-	"\x05deity\x18  \x03(\v2\x14.ddex.ern.v432.DeityB\x0f\x92\x93!\vxml:\"Deity\"R\x05deity\x12X\n" +
-	"\x18hi_res_music_description\x18! \x01(\tB\x1f\x92\x93!\x1bxml:\"HiResMusicDescription\"R\x15hiResMusicDescription\x12Q\n" +
-	"\fcontains_a_i\x18\" \x01(\x0e2\x19.ddex.ern.v432.ContainsAIB\x14\x92\x93!\x10xml:\"ContainsAI\"R\n" +
-	"containsAI\x12;\n" +
-	"\ris_soundtrack\x18# \x01(\bB\x16\x92\x93!\x12xml:\"IsSoundtrack\"R\fisSoundtrack\x12=\n" +
-	"\x0fis_hi_res_music\x18$ \x01(\bB\x16\x92\x93!\x12xml:\"IsHiResMusic\"R\fisHiResMusic\x12h\n" +
-	"\x11marketing_comment\x18% \x03(\v2\x1f.ddex.ern.v432.MarketingCommentB\x1a\x92\x93!\x16xml:\"MarketingComment\"R\x10marketingComment\x12]\n" +
-	"\x18language_and_script_code\x18& \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xf3\x01\n" +
-	"\fReleaseAdmin\x12B\n" +
-	"\x10release_admin_id\x18\x01 \x01(\tB\x18\x92\x93!\x14xml:\"ReleaseAdminId\"R\x0ereleaseAdminId\x12S\n" +
-	"\x15personnel_description\x18\x02 \x01(\tB\x1e\x92\x93!\x1axml:\"PersonnelDescription\"R\x14personnelDescription\x12J\n" +
-	"\x12system_description\x18\x03 \x03(\tB\x1b\x92\x93!\x17xml:\"SystemDescription\"R\x11systemDescription\"\x9c\x01\n" +
-	"\vReleaseDeal\x12T\n" +
-	"\x16deal_release_reference\x18\x01 \x03(\tB\x1e\x92\x93!\x1axml:\"DealReleaseReference\"R\x14dealReleaseReference\x127\n" +
-	"\x04deal\x18\x02 \x03(\v2\x13.ddex.ern.v432.DealB\x0e\x92\x93!\n" +
-	"xml:\"Deal\"R\x04deal\"\x93\x02\n" +
-	"\tReleaseId\x12#\n" +
-	"\x05g_rid\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"GRid\"R\x04gRid\x12%\n" +
-	"\ai_c_p_n\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ICPN\"R\x04iCPN\x12\\\n" +
-	"\x0ecatalog_number\x18\x03 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12\\\n" +
-	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\"\xbe\x04\n" +
-	"\x15ReleaseLabelReference\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x127\n" +
+	" \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12e\n" +
+	"\x17release_label_reference\x18\v \x03(\v2-.ddex.ern.v432.ReleaseLabelReferenceWithPartyR\x15releaseLabelReference\x12n\n" +
+	"\x1dadministrating_record_company\x18\f \x03(\v2*.ddex.ern.v432.AdministratingRecordCompanyR\x1badministratingRecordCompany\x12+\n" +
+	"\x06p_line\x18\r \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12+\n" +
+	"\x06c_line\x18\x0e \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12@\n" +
+	"\rcourtesy_line\x18\x0f \x03(\v2\x1b.ddex.ern.v432.CourtesyLineR\fcourtesyLine\x12\x1a\n" +
+	"\bduration\x18\x10 \x01(\tR\bduration\x12F\n" +
+	"\rdisplay_genre\x18\x11 \x03(\v2!.ddex.ern.v432.GenreWithTerritoryR\fdisplayGenre\x12F\n" +
+	"\frelease_date\x18\x12 \x03(\v2#.ddex.ern.v432.EventDateWithDefaultR\vreleaseDate\x12W\n" +
+	"\x15original_release_date\x18\x13 \x03(\v2#.ddex.ern.v432.EventDateWithDefaultR\x13originalReleaseDate\x12@\n" +
+	"\x1crelease_visibility_reference\x18\x14 \x03(\tR\x1areleaseVisibilityReference\x12b\n" +
+	"\x15parental_warning_type\x18\x15 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x124\n" +
+	"\tav_rating\x18\x16 \x03(\v2\x17.ddex.ern.v432.AvRatingR\bavRating\x12F\n" +
+	"\x0frelated_release\x18\x17 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\x18 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12C\n" +
+	"\x0eresource_group\x18\x19 \x01(\v2\x1c.ddex.ern.v432.ResourceGroupR\rresourceGroup\x12Y\n" +
+	"\x16external_resource_link\x18\x1a \x03(\v2#.ddex.ern.v432.ExternalResourceLinkR\x14externalResourceLink\x12\x1f\n" +
+	"\ftarget_u_r_l\x18\x1b \x01(\tR\ttargetURL\x12@\n" +
+	"\bkeywords\x18\x1c \x03(\v2$.ddex.ern.v432.KeywordsWithTerritoryR\bkeywords\x12@\n" +
+	"\bsynopsis\x18\x1d \x03(\v2$.ddex.ern.v432.SynopsisWithTerritoryR\bsynopsis\x12'\n" +
+	"\x04raga\x18\x1e \x03(\v2\x13.ddex.ern.v432.RagaR\x04raga\x12'\n" +
+	"\x04tala\x18\x1f \x03(\v2\x13.ddex.ern.v432.TalaR\x04tala\x12*\n" +
+	"\x05deity\x18  \x03(\v2\x14.ddex.ern.v432.DeityR\x05deity\x127\n" +
+	"\x18hi_res_music_description\x18! \x01(\tR\x15hiResMusicDescription\x12;\n" +
+	"\fcontains_a_i\x18\" \x01(\x0e2\x19.ddex.ern.v432.ContainsAIR\n" +
+	"containsAI\x12#\n" +
+	"\ris_soundtrack\x18# \x01(\bR\fisSoundtrack\x12%\n" +
+	"\x0fis_hi_res_music\x18$ \x01(\bR\fisHiResMusic\x12L\n" +
+	"\x11marketing_comment\x18% \x03(\v2\x1f.ddex.ern.v432.MarketingCommentR\x10marketingComment\x127\n" +
+	"\x18language_and_script_code\x18& \x01(\tR\x15languageAndScriptCode\"\x9c\x01\n" +
+	"\fReleaseAdmin\x12(\n" +
+	"\x10release_admin_id\x18\x01 \x01(\tR\x0ereleaseAdminId\x123\n" +
+	"\x15personnel_description\x18\x02 \x01(\tR\x14personnelDescription\x12-\n" +
+	"\x12system_description\x18\x03 \x03(\tR\x11systemDescription\"l\n" +
+	"\vReleaseDeal\x124\n" +
+	"\x16deal_release_reference\x18\x01 \x03(\tR\x14dealReleaseReference\x12'\n" +
+	"\x04deal\x18\x02 \x03(\v2\x13.ddex.ern.v432.DealR\x04deal\"\xc1\x01\n" +
+	"\tReleaseId\x12\x13\n" +
+	"\x05g_rid\x18\x01 \x01(\tR\x04gRid\x12\x15\n" +
+	"\ai_c_p_n\x18\x02 \x01(\tR\x04iCPN\x12C\n" +
+	"\x0ecatalog_number\x18\x03 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberR\rcatalogNumber\x12C\n" +
+	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\"\xeb\x02\n" +
+	"\x15ReleaseLabelReference\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12Q\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\x127\n" +
 	"\n" +
-	"label_type\x18\x04 \x01(\x0e2\x18.ddex.ern.v432.LabelTypeB\x18\x92\x93!\x14xml:\"LabelType,attr\"R\tlabelType\x126\n" +
-	"\tnamespace\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x06 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\a \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\"\x9c\x05\n" +
-	"\x1eReleaseLabelReferenceWithParty\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x127\n" +
+	"label_type\x18\x04 \x01(\x0e2\x18.ddex.ern.v432.LabelTypeR\tlabelType\x12\x1c\n" +
+	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\x12_\n" +
+	"\x19applicable_territory_code\x18\a \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xa6\x03\n" +
+	"\x1eReleaseLabelReferenceWithParty\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12Q\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\x127\n" +
 	"\n" +
-	"label_type\x18\x04 \x01(\x0e2\x18.ddex.ern.v432.LabelTypeB\x18\x92\x93!\x14xml:\"LabelType,attr\"R\tlabelType\x12S\n" +
-	"\x14access_control_party\x18\x05 \x01(\tB!\x92\x93!\x1dxml:\"AccessControlParty,attr\"R\x12accessControlParty\x126\n" +
-	"\tnamespace\x18\x06 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\a \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\b \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\"\x82\x02\n" +
-	"\vReleaseList\x12C\n" +
-	"\arelease\x18\x01 \x01(\v2\x16.ddex.ern.v432.ReleaseB\x11\x92\x93!\rxml:\"Release\"R\arelease\x12X\n" +
-	"\rtrack_release\x18\x02 \x03(\v2\x1b.ddex.ern.v432.TrackReleaseB\x16\x92\x93!\x12xml:\"TrackRelease\"R\ftrackRelease\x12T\n" +
-	"\fclip_release\x18\x03 \x03(\v2\x1a.ddex.ern.v432.ClipReleaseB\x15\x92\x93!\x11xml:\"ClipRelease\"R\vclipRelease\"\x85\x05\n" +
-	"\x11ReleaseVisibility\x12P\n" +
-	"\x14visibility_reference\x18\x01 \x01(\tB\x1d\x92\x93!\x19xml:\"VisibilityReference\"R\x13visibilityReference\x12k\n" +
-	"\x1frelease_display_start_date_time\x18\x02 \x01(\tB%\x92\x93!!xml:\"ReleaseDisplayStartDateTime\"R\x1breleaseDisplayStartDateTime\x12o\n" +
-	"!cover_art_preview_start_date_time\x18\x03 \x01(\tB&\x92\x93!\"xml:\"CoverArtPreviewStartDateTime\"R\x1ccoverArtPreviewStartDateTime\x12\x88\x01\n" +
-	"*full_track_listing_preview_start_date_time\x18\x04 \x01(\tB.\x92\x93!*xml:\"FullTrackListingPreviewStartDateTime\"R$fullTrackListingPreviewStartDateTime\x12b\n" +
-	"\x1cclip_preview_start_date_time\x18\x05 \x01(\tB\"\x92\x93!\x1exml:\"ClipPreviewStartDateTime\"R\x18clipPreviewStartDateTime\x12Q\n" +
-	"\x14do_not_display_dates\x18\x06 \x01(\bB \x92\x93!\x1cxml:\"DoNotDisplayDates,attr\"R\x11doNotDisplayDates\"\xc2\b\n" +
-	"\rResourceGroup\x12i\n" +
-	"\x12display_title_text\x18\x01 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x02 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x03 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12A\n" +
-	"\x0fsequence_number\x18\x05 \x01(\x05B\x18\x92\x93!\x14xml:\"SequenceNumber\"R\x0esequenceNumber\x12\\\n" +
-	"\x0edisplay_artist\x18\x06 \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12T\n" +
-	"\fcarrier_type\x18\a \x03(\v2\x1a.ddex.ern.v432.CarrierTypeB\x15\x92\x93!\x11xml:\"CarrierType\"R\vcarrierType\x12.\n" +
-	"\bduration\x18\b \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12_\n" +
-	"\x0eresource_group\x18\t \x03(\v2\x1f.ddex.ern.v432.ResourceSubGroupB\x17\x92\x93!\x13xml:\"ResourceGroup\"R\rresourceGroup\x12\x8a\x01\n" +
+	"label_type\x18\x04 \x01(\x0e2\x18.ddex.ern.v432.LabelTypeR\tlabelType\x120\n" +
+	"\x14access_control_party\x18\x05 \x01(\tR\x12accessControlParty\x12\x1c\n" +
+	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\x12_\n" +
+	"\x19applicable_territory_code\x18\b \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xc0\x01\n" +
+	"\vReleaseList\x120\n" +
+	"\arelease\x18\x01 \x01(\v2\x16.ddex.ern.v432.ReleaseR\arelease\x12@\n" +
+	"\rtrack_release\x18\x02 \x03(\v2\x1b.ddex.ern.v432.TrackReleaseR\ftrackRelease\x12=\n" +
+	"\fclip_release\x18\x03 \x03(\v2\x1a.ddex.ern.v432.ClipReleaseR\vclipRelease\"\xa0\x03\n" +
+	"\x11ReleaseVisibility\x121\n" +
+	"\x14visibility_reference\x18\x01 \x01(\tR\x13visibilityReference\x12D\n" +
+	"\x1frelease_display_start_date_time\x18\x02 \x01(\tR\x1breleaseDisplayStartDateTime\x12G\n" +
+	"!cover_art_preview_start_date_time\x18\x03 \x01(\tR\x1ccoverArtPreviewStartDateTime\x12X\n" +
+	"*full_track_listing_preview_start_date_time\x18\x04 \x01(\tR$fullTrackListingPreviewStartDateTime\x12>\n" +
+	"\x1cclip_preview_start_date_time\x18\x05 \x01(\tR\x18clipPreviewStartDateTime\x12/\n" +
+	"\x14do_not_display_dates\x18\x06 \x01(\bR\x11doNotDisplayDates\"\x97\x06\n" +
+	"\rResourceGroup\x12M\n" +
+	"\x12display_title_text\x18\x01 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x02 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x03 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12'\n" +
+	"\x0fsequence_number\x18\x05 \x01(\x05R\x0esequenceNumber\x12C\n" +
+	"\x0edisplay_artist\x18\x06 \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12=\n" +
+	"\fcarrier_type\x18\a \x03(\v2\x1a.ddex.ern.v432.CarrierTypeR\vcarrierType\x12\x1a\n" +
+	"\bduration\x18\b \x01(\tR\bduration\x12F\n" +
+	"\x0eresource_group\x18\t \x03(\v2\x1f.ddex.ern.v432.ResourceSubGroupR\rresourceGroup\x12f\n" +
 	"\x1bresource_group_content_item\x18\n" +
-	" \x03(\v2'.ddex.ern.v432.ResourceGroupContentItemB\"\x92\x93!\x1exml:\"ResourceGroupContentItem\"R\x18resourceGroupContentItem\x12\xa2\x01\n" +
-	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceB(\x92\x93!$xml:\"LinkedReleaseResourceReference\"R\x1elinkedReleaseResourceReference\"\x8d\x05\n" +
-	"\x18ResourceGroupContentItem\x12A\n" +
-	"\x0fsequence_number\x18\x01 \x01(\x05B\x18\x92\x93!\x14xml:\"SequenceNumber\"R\x0esequenceNumber\x12`\n" +
-	"\x1arelease_resource_reference\x18\x02 \x01(\tB\"\x92\x93!\x1exml:\"ReleaseResourceReference\"R\x18releaseResourceReference\x12\xa2\x01\n" +
-	"!linked_release_resource_reference\x18\x03 \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceB(\x92\x93!$xml:\"LinkedReleaseResourceReference\"R\x1elinkedReleaseResourceReference\x12E\n" +
-	"\x11is_bonus_resource\x18\x04 \x01(\bB\x19\x92\x93!\x15xml:\"IsBonusResource\"R\x0fisBonusResource\x12s\n" +
-	"!is_instant_gratification_resource\x18\x05 \x01(\bB(\x92\x93!$xml:\"IsInstantGratificationResource\"R\x1eisInstantGratificationResource\x12k\n" +
-	"\x1fis_pre_order_incentive_resource\x18\x06 \x01(\bB%\x92\x93!!xml:\"IsPreOrderIncentiveResource\"R\x1bisPreOrderIncentiveResource\"\xbe\x03\n" +
-	"\fResourceList\x12`\n" +
-	"\x0fsound_recording\x18\x01 \x03(\v2\x1d.ddex.ern.v432.SoundRecordingB\x18\x92\x93!\x14xml:\"SoundRecording\"R\x0esoundRecording\x12;\n" +
-	"\x05video\x18\x02 \x03(\v2\x14.ddex.ern.v432.VideoB\x0f\x92\x93!\vxml:\"Video\"R\x05video\x12;\n" +
-	"\x05image\x18\x03 \x03(\v2\x14.ddex.ern.v432.ImageB\x0f\x92\x93!\vxml:\"Image\"R\x05image\x127\n" +
-	"\x04text\x18\x04 \x03(\v2\x13.ddex.ern.v432.TextB\x0e\x92\x93!\n" +
-	"xml:\"Text\"R\x04text\x12P\n" +
-	"\vsheet_music\x18\x05 \x03(\v2\x19.ddex.ern.v432.SheetMusicB\x14\x92\x93!\x10xml:\"SheetMusic\"R\n" +
-	"sheetMusic\x12G\n" +
-	"\bsoftware\x18\x06 \x03(\v2\x17.ddex.ern.v432.SoftwareB\x12\x92\x93!\x0exml:\"Software\"R\bsoftware\"\xc4\x03\n" +
-	"\x18ResourceRightsController\x12s\n" +
-	"!rights_controller_party_reference\x18\x01 \x01(\tB(\x92\x93!$xml:\"RightsControllerPartyReference\"R\x1erightsControllerPartyReference\x12p\n" +
-	"\x13rights_control_type\x18\x02 \x03(\x0e2#.ddex.ern.v432.RightsControllerRoleB\x1b\x92\x93!\x17xml:\"RightsControlType\"R\x11rightsControlType\x12y\n" +
-	"\x16delegated_usage_rights\x18\x03 \x03(\v2#.ddex.ern.v432.DelegatedUsageRightsB\x1e\x92\x93!\x1axml:\"DelegatedUsageRights\"R\x14delegatedUsageRights\x12F\n" +
-	"\x0fsequence_number\x18\x04 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\"\xb9\t\n" +
-	"\x10ResourceSubGroup\x12i\n" +
-	"\x12display_title_text\x18\x01 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x02 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x03 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12A\n" +
-	"\x0fsequence_number\x18\x05 \x01(\x05B\x18\x92\x93!\x14xml:\"SequenceNumber\"R\x0esequenceNumber\x12\\\n" +
-	"\x0edisplay_artist\x18\x06 \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12T\n" +
-	"\fcarrier_type\x18\a \x03(\v2\x1a.ddex.ern.v432.CarrierTypeB\x15\x92\x93!\x11xml:\"CarrierType\"R\vcarrierType\x12.\n" +
-	"\bduration\x18\b \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12_\n" +
-	"\x0eresource_group\x18\t \x03(\v2\x1f.ddex.ern.v432.ResourceSubGroupB\x17\x92\x93!\x13xml:\"ResourceGroup\"R\rresourceGroup\x12\x8a\x01\n" +
+	" \x03(\v2'.ddex.ern.v432.ResourceGroupContentItemR\x18resourceGroupContentItem\x12x\n" +
+	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\"\xb8\x03\n" +
+	"\x18ResourceGroupContentItem\x12'\n" +
+	"\x0fsequence_number\x18\x01 \x01(\x05R\x0esequenceNumber\x12<\n" +
+	"\x1arelease_resource_reference\x18\x02 \x01(\tR\x18releaseResourceReference\x12x\n" +
+	"!linked_release_resource_reference\x18\x03 \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12*\n" +
+	"\x11is_bonus_resource\x18\x04 \x01(\bR\x0fisBonusResource\x12I\n" +
+	"!is_instant_gratification_resource\x18\x05 \x01(\bR\x1eisInstantGratificationResource\x12D\n" +
+	"\x1fis_pre_order_incentive_resource\x18\x06 \x01(\bR\x1bisPreOrderIncentiveResource\"\xc8\x02\n" +
+	"\fResourceList\x12F\n" +
+	"\x0fsound_recording\x18\x01 \x03(\v2\x1d.ddex.ern.v432.SoundRecordingR\x0esoundRecording\x12*\n" +
+	"\x05video\x18\x02 \x03(\v2\x14.ddex.ern.v432.VideoR\x05video\x12*\n" +
+	"\x05image\x18\x03 \x03(\v2\x14.ddex.ern.v432.ImageR\x05image\x12'\n" +
+	"\x04text\x18\x04 \x03(\v2\x13.ddex.ern.v432.TextR\x04text\x12:\n" +
+	"\vsheet_music\x18\x05 \x03(\v2\x19.ddex.ern.v432.SheetMusicR\n" +
+	"sheetMusic\x123\n" +
+	"\bsoftware\x18\x06 \x03(\v2\x17.ddex.ern.v432.SoftwareR\bsoftware\"\xbe\x02\n" +
+	"\x18ResourceRightsController\x12I\n" +
+	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12S\n" +
+	"\x13rights_control_type\x18\x02 \x03(\x0e2#.ddex.ern.v432.RightsControllerRoleR\x11rightsControlType\x12Y\n" +
+	"\x16delegated_usage_rights\x18\x03 \x03(\v2#.ddex.ern.v432.DelegatedUsageRightsR\x14delegatedUsageRights\x12'\n" +
+	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\"\xec\x06\n" +
+	"\x10ResourceSubGroup\x12M\n" +
+	"\x12display_title_text\x18\x01 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x02 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x03 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12'\n" +
+	"\x0fsequence_number\x18\x05 \x01(\x05R\x0esequenceNumber\x12C\n" +
+	"\x0edisplay_artist\x18\x06 \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12=\n" +
+	"\fcarrier_type\x18\a \x03(\v2\x1a.ddex.ern.v432.CarrierTypeR\vcarrierType\x12\x1a\n" +
+	"\bduration\x18\b \x01(\tR\bduration\x12F\n" +
+	"\x0eresource_group\x18\t \x03(\v2\x1f.ddex.ern.v432.ResourceSubGroupR\rresourceGroup\x12f\n" +
 	"\x1bresource_group_content_item\x18\n" +
-	" \x03(\v2'.ddex.ern.v432.ResourceGroupContentItemB\"\x92\x93!\x1exml:\"ResourceGroupContentItem\"R\x18resourceGroupContentItem\x12\xa2\x01\n" +
-	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceB(\x92\x93!$xml:\"LinkedReleaseResourceReference\"R\x1elinkedReleaseResourceReference\x12r\n" +
-	"\x13resource_group_type\x18\f \x01(\x0e2 .ddex.ern.v432.ResourceGroupTypeB \x92\x93!\x1cxml:\"ResourceGroupType,attr\"R\x11resourceGroupType\"\xfd\x02\n" +
-	"\x11RightsClaimPolicy\x12_\n" +
-	"\tcondition\x18\x01 \x03(\v2,.ddex.ern.v432.ConditionForRightsClaimPolicyB\x13\x92\x93!\x0fxml:\"Condition\"R\tcondition\x12~\n" +
-	"\x18rights_claim_policy_type\x18\x02 \x01(\x0e2$.ddex.ern.v432.RightsClaimPolicyTypeB\x1f\x92\x93!\x1bxml:\"RightsClaimPolicyType\"R\x15rightsClaimPolicyType\x12\x86\x01\n" +
-	"\x1arights_claim_policy_reason\x18\x03 \x01(\v2&.ddex.ern.v432.RightsClaimPolicyReasonB!\x92\x93!\x1dxml:\"RightsClaimPolicyReason\"R\x17rightsClaimPolicyReason\"=\n" +
-	"\aSegment\x122\n" +
+	" \x03(\v2'.ddex.ern.v432.ResourceGroupContentItemR\x18resourceGroupContentItem\x12x\n" +
+	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12P\n" +
+	"\x13resource_group_type\x18\f \x01(\x0e2 .ddex.ern.v432.ResourceGroupTypeR\x11resourceGroupType\"\xa3\x02\n" +
+	"\x11RightsClaimPolicy\x12J\n" +
+	"\tcondition\x18\x01 \x03(\v2,.ddex.ern.v432.ConditionForRightsClaimPolicyR\tcondition\x12]\n" +
+	"\x18rights_claim_policy_type\x18\x02 \x01(\x0e2$.ddex.ern.v432.RightsClaimPolicyTypeR\x15rightsClaimPolicyType\x12c\n" +
+	"\x1arights_claim_policy_reason\x18\x03 \x01(\v2&.ddex.ern.v432.RightsClaimPolicyReasonR\x17rightsClaimPolicyReason\"(\n" +
+	"\aSegment\x12\x1d\n" +
 	"\n" +
-	"start_time\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"StartTime\"R\tstartTime\"\xc9\x01\n" +
-	"\x10ServiceException\x12M\n" +
-	"\ftrading_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameB\x15\x92\x93!\x11xml:\"TradingName\"R\vtradingName\x12!\n" +
-	"\x05u_r_l\x18\x02 \x03(\tB\r\x92\x93!\txml:\"URL\"R\x03uRL\x12C\n" +
-	"\achannel\x18\x03 \x03(\v2\x16.ddex.ern.v432.ChannelB\x11\x92\x93!\rxml:\"Channel\"R\achannel\"\x86\x15\n" +
+	"start_time\x18\x01 \x01(\tR\tstartTime\"\x90\x01\n" +
+	"\x10ServiceException\x126\n" +
+	"\ftrading_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\vtradingName\x12\x12\n" +
+	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\x120\n" +
+	"\achannel\x18\x03 \x03(\v2\x16.ddex.ern.v432.ChannelR\achannel\"\x9d\x0f\n" +
 	"\n" +
-	"SheetMusic\x12J\n" +
-	"\x12resource_reference\x18\x01 \x01(\tB\x1b\x92\x93!\x17xml:\"ResourceReference\"R\x11resourceReference\x12A\n" +
-	"\x04type\x18\x02 \x01(\v2\x1d.ddex.ern.v432.SheetMusicTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12R\n" +
-	"\vresource_id\x18\x03 \x03(\v2\x1b.ddex.ern.v432.SheetMusicIdB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12G\n" +
-	"\awork_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdB\x10\x92\x93!\fxml:\"WorkId\"R\x06workId\x12i\n" +
-	"\x12display_title_text\x18\x05 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12T\n" +
-	"\fversion_type\x18\t \x03(\v2\x1a.ddex.ern.v432.VersionTypeB\x15\x92\x93!\x11xml:\"VersionType\"R\vversionType\x12\x81\x01\n" +
+	"SheetMusic\x12-\n" +
+	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x121\n" +
+	"\x04type\x18\x02 \x01(\v2\x1d.ddex.ern.v432.SheetMusicTypeR\x04type\x12<\n" +
+	"\vresource_id\x18\x03 \x03(\v2\x1b.ddex.ern.v432.SheetMusicIdR\n" +
+	"resourceId\x125\n" +
+	"\awork_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdR\x06workId\x12M\n" +
+	"\x12display_title_text\x18\x05 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12=\n" +
+	"\fversion_type\x18\t \x03(\v2\x1a.ddex.ern.v432.VersionTypeR\vversionType\x12d\n" +
 	"\x13display_artist_name\x18\n" +
-	" \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12\\\n" +
-	"\x0edisplay_artist\x18\v \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12S\n" +
-	"\vcontributor\x18\f \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12\x89\x01\n" +
-	"\x1aresource_rights_controller\x18\r \x03(\v2'.ddex.ern.v432.ResourceRightsControllerB\"\x92\x93!\x1exml:\"ResourceRightsController\"R\x18resourceRightsController\x12y\n" +
-	"\x16work_rights_controller\x18\x0e \x03(\v2#.ddex.ern.v432.WorkRightsControllerB\x1e\x92\x93!\x1axml:\"WorkRightsController\"R\x14workRightsController\x12<\n" +
-	"\x06c_line\x18\x0f \x03(\v2\x14.ddex.ern.v432.CLineB\x0f\x92\x93!\vxml:\"CLine\"R\x05cLine\x12X\n" +
-	"\rcourtesy_line\x18\x10 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineB\x16\x92\x93!\x12xml:\"CourtesyLine\"R\fcourtesyLine\x12a\n" +
-	"\rcreation_date\x18\x11 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"CreationDate\"R\fcreationDate\x12t\n" +
-	"\x16first_publication_date\x18\x12 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateB\x1e\x92\x93!\x1axml:\"FirstPublicationDate\"R\x14firstPublicationDate\x12\x81\x01\n" +
-	"\x15parental_warning_type\x18\x13 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardB\x1d\x92\x93!\x19xml:\"ParentalWarningType\"R\x13parentalWarningType\x12`\n" +
-	"\x0frelated_release\x18\x14 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\x15 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x12W\n" +
-	"\x17contains_hidden_content\x18\x16 \x01(\bB\x1f\x92\x93!\x1bxml:\"ContainsHiddenContent\"R\x15containsHiddenContent\x12H\n" +
-	"\x12language_of_lyrics\x18\x17 \x01(\tB\x1a\x92\x93!\x16xml:\"LanguageOfLyrics\"R\x10languageOfLyrics\x12\xc3\x01\n" +
-	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListB0\x92\x93!,xml:\"ResourceContainedResourceReferenceList\"R&resourceContainedResourceReferenceList\x12r\n" +
-	"\x11technical_details\x18\x19 \x03(\v2).ddex.ern.v432.TechnicalSheetMusicDetailsB\x1a\x92\x93!\x16xml:\"TechnicalDetails\"R\x10technicalDetails\x12]\n" +
-	"\x18language_and_script_code\x18\x1a \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12F\n" +
-	"\x0fis_supplemental\x18\x1b \x01(\bB\x1d\x92\x93!\x19xml:\"IsSupplemental,attr\"R\x0eisSupplemental\"\xfd\x14\n" +
-	"\bSoftware\x12J\n" +
-	"\x12resource_reference\x18\x01 \x01(\tB\x1b\x92\x93!\x17xml:\"ResourceReference\"R\x11resourceReference\x12?\n" +
-	"\x04type\x18\x02 \x01(\v2\x1b.ddex.ern.v432.SoftwareTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12[\n" +
-	"\vresource_id\x18\x03 \x03(\v2$.ddex.ern.v432.ResourceProprietaryIdB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12G\n" +
-	"\awork_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdB\x10\x92\x93!\fxml:\"WorkId\"R\x06workId\x12i\n" +
-	"\x12display_title_text\x18\x05 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12T\n" +
-	"\fversion_type\x18\t \x03(\v2\x1a.ddex.ern.v432.VersionTypeB\x15\x92\x93!\x11xml:\"VersionType\"R\vversionType\x12\x81\x01\n" +
+	" \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12C\n" +
+	"\x0edisplay_artist\x18\v \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12<\n" +
+	"\vcontributor\x18\f \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x12e\n" +
+	"\x1aresource_rights_controller\x18\r \x03(\v2'.ddex.ern.v432.ResourceRightsControllerR\x18resourceRightsController\x12Y\n" +
+	"\x16work_rights_controller\x18\x0e \x03(\v2#.ddex.ern.v432.WorkRightsControllerR\x14workRightsController\x12+\n" +
+	"\x06c_line\x18\x0f \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12@\n" +
+	"\rcourtesy_line\x18\x10 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineR\fcourtesyLine\x12I\n" +
+	"\rcreation_date\x18\x11 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fcreationDate\x12T\n" +
+	"\x16first_publication_date\x18\x12 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateR\x14firstPublicationDate\x12b\n" +
+	"\x15parental_warning_type\x18\x13 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
+	"\x0frelated_release\x18\x14 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\x15 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x126\n" +
+	"\x17contains_hidden_content\x18\x16 \x01(\bR\x15containsHiddenContent\x12,\n" +
+	"\x12language_of_lyrics\x18\x17 \x01(\tR\x10languageOfLyrics\x12\x91\x01\n" +
+	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListR&resourceContainedResourceReferenceList\x12V\n" +
+	"\x11technical_details\x18\x19 \x03(\v2).ddex.ern.v432.TechnicalSheetMusicDetailsR\x10technicalDetails\x127\n" +
+	"\x18language_and_script_code\x18\x1a \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fis_supplemental\x18\x1b \x01(\bR\x0eisSupplemental\"\x9f\x0f\n" +
+	"\bSoftware\x12-\n" +
+	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12/\n" +
+	"\x04type\x18\x02 \x01(\v2\x1b.ddex.ern.v432.SoftwareTypeR\x04type\x12E\n" +
+	"\vresource_id\x18\x03 \x03(\v2$.ddex.ern.v432.ResourceProprietaryIdR\n" +
+	"resourceId\x125\n" +
+	"\awork_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdR\x06workId\x12M\n" +
+	"\x12display_title_text\x18\x05 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12=\n" +
+	"\fversion_type\x18\t \x03(\v2\x1a.ddex.ern.v432.VersionTypeR\vversionType\x12d\n" +
 	"\x13display_artist_name\x18\n" +
-	" \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12\\\n" +
-	"\x0edisplay_artist\x18\v \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12S\n" +
-	"\vcontributor\x18\f \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12\x89\x01\n" +
-	"\x1aresource_rights_controller\x18\r \x03(\v2'.ddex.ern.v432.ResourceRightsControllerB\"\x92\x93!\x1exml:\"ResourceRightsController\"R\x18resourceRightsController\x12y\n" +
-	"\x16work_rights_controller\x18\x0e \x03(\v2#.ddex.ern.v432.WorkRightsControllerB\x1e\x92\x93!\x1axml:\"WorkRightsController\"R\x14workRightsController\x12<\n" +
-	"\x06p_line\x18\x0f \x03(\v2\x14.ddex.ern.v432.PLineB\x0f\x92\x93!\vxml:\"PLine\"R\x05pLine\x12<\n" +
-	"\x06c_line\x18\x10 \x03(\v2\x14.ddex.ern.v432.CLineB\x0f\x92\x93!\vxml:\"CLine\"R\x05cLine\x12X\n" +
-	"\rcourtesy_line\x18\x11 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineB\x16\x92\x93!\x12xml:\"CourtesyLine\"R\fcourtesyLine\x12a\n" +
-	"\rcreation_date\x18\x12 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"CreationDate\"R\fcreationDate\x12t\n" +
-	"\x16first_publication_date\x18\x13 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateB\x1e\x92\x93!\x1axml:\"FirstPublicationDate\"R\x14firstPublicationDate\x12\x81\x01\n" +
-	"\x15parental_warning_type\x18\x14 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardB\x1d\x92\x93!\x19xml:\"ParentalWarningType\"R\x13parentalWarningType\x12`\n" +
-	"\x0frelated_release\x18\x15 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\x16 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x12W\n" +
-	"\x17contains_hidden_content\x18\x17 \x01(\bB\x1f\x92\x93!\x1bxml:\"ContainsHiddenContent\"R\x15containsHiddenContent\x12\xc3\x01\n" +
-	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListB0\x92\x93!,xml:\"ResourceContainedResourceReferenceList\"R&resourceContainedResourceReferenceList\x12p\n" +
-	"\x11technical_details\x18\x19 \x03(\v2'.ddex.ern.v432.TechnicalSoftwareDetailsB\x1a\x92\x93!\x16xml:\"TechnicalDetails\"R\x10technicalDetails\x12]\n" +
-	"\x18language_and_script_code\x18\x1a \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12F\n" +
-	"\x0fis_supplemental\x18\x1b \x01(\bB\x1d\x92\x93!\x19xml:\"IsSupplemental,attr\"R\x0eisSupplemental\"\xa4!\n" +
-	"\x0eSoundRecording\x12J\n" +
-	"\x12resource_reference\x18\x01 \x01(\tB\x1b\x92\x93!\x17xml:\"ResourceReference\"R\x11resourceReference\x12E\n" +
-	"\x04type\x18\x02 \x01(\v2!.ddex.ern.v432.SoundRecordingTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12}\n" +
-	"\x17sound_recording_edition\x18\x03 \x03(\v2$.ddex.ern.v432.SoundRecordingEditionB\x1f\x92\x93!\x1bxml:\"SoundRecordingEdition\"R\x15soundRecordingEdition\x12d\n" +
-	"\x10recording_format\x18\x04 \x03(\v2\x1e.ddex.ern.v432.RecordingFormatB\x19\x92\x93!\x15xml:\"RecordingFormat\"R\x0frecordingFormat\x12G\n" +
-	"\awork_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdB\x10\x92\x93!\fxml:\"WorkId\"R\x06workId\x12i\n" +
-	"\x12display_title_text\x18\x06 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\t \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12T\n" +
+	" \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12C\n" +
+	"\x0edisplay_artist\x18\v \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12<\n" +
+	"\vcontributor\x18\f \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x12e\n" +
+	"\x1aresource_rights_controller\x18\r \x03(\v2'.ddex.ern.v432.ResourceRightsControllerR\x18resourceRightsController\x12Y\n" +
+	"\x16work_rights_controller\x18\x0e \x03(\v2#.ddex.ern.v432.WorkRightsControllerR\x14workRightsController\x12+\n" +
+	"\x06p_line\x18\x0f \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12+\n" +
+	"\x06c_line\x18\x10 \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12@\n" +
+	"\rcourtesy_line\x18\x11 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineR\fcourtesyLine\x12I\n" +
+	"\rcreation_date\x18\x12 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fcreationDate\x12T\n" +
+	"\x16first_publication_date\x18\x13 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateR\x14firstPublicationDate\x12b\n" +
+	"\x15parental_warning_type\x18\x14 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
+	"\x0frelated_release\x18\x15 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\x16 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x126\n" +
+	"\x17contains_hidden_content\x18\x17 \x01(\bR\x15containsHiddenContent\x12\x91\x01\n" +
+	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListR&resourceContainedResourceReferenceList\x12T\n" +
+	"\x11technical_details\x18\x19 \x03(\v2'.ddex.ern.v432.TechnicalSoftwareDetailsR\x10technicalDetails\x127\n" +
+	"\x18language_and_script_code\x18\x1a \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fis_supplemental\x18\x1b \x01(\bR\x0eisSupplemental\"\xc1\x17\n" +
+	"\x0eSoundRecording\x12-\n" +
+	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x125\n" +
+	"\x04type\x18\x02 \x01(\v2!.ddex.ern.v432.SoundRecordingTypeR\x04type\x12\\\n" +
+	"\x17sound_recording_edition\x18\x03 \x03(\v2$.ddex.ern.v432.SoundRecordingEditionR\x15soundRecordingEdition\x12I\n" +
+	"\x10recording_format\x18\x04 \x03(\v2\x1e.ddex.ern.v432.RecordingFormatR\x0frecordingFormat\x125\n" +
+	"\awork_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdR\x06workId\x12M\n" +
+	"\x12display_title_text\x18\x06 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\t \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12=\n" +
 	"\fversion_type\x18\n" +
-	" \x03(\v2\x1a.ddex.ern.v432.VersionTypeB\x15\x92\x93!\x11xml:\"VersionType\"R\vversionType\x12\x81\x01\n" +
-	"\x13display_artist_name\x18\v \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12\\\n" +
-	"\x0edisplay_artist\x18\f \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12S\n" +
-	"\vcontributor\x18\r \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12K\n" +
-	"\tcharacter\x18\x0e \x03(\v2\x18.ddex.ern.v432.CharacterB\x13\x92\x93!\x0fxml:\"Character\"R\tcharacter\x12\x89\x01\n" +
-	"\x1aresource_rights_controller\x18\x0f \x03(\v2'.ddex.ern.v432.ResourceRightsControllerB\"\x92\x93!\x1exml:\"ResourceRightsController\"R\x18resourceRightsController\x12y\n" +
-	"\x16work_rights_controller\x18\x10 \x03(\v2#.ddex.ern.v432.WorkRightsControllerB\x1e\x92\x93!\x1axml:\"WorkRightsController\"R\x14workRightsController\x12X\n" +
-	"\rcourtesy_line\x18\x11 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineB\x16\x92\x93!\x12xml:\"CourtesyLine\"R\fcourtesyLine\x12.\n" +
-	"\bduration\x18\x12 \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12a\n" +
-	"\rcreation_date\x18\x13 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"CreationDate\"R\fcreationDate\x12a\n" +
-	"\rmastered_date\x18\x14 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"MasteredDate\"R\fmasteredDate\x12g\n" +
-	"\x0fremastered_date\x18\x15 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x18\x92\x93!\x14xml:\"RemasteredDate\"R\x0eremasteredDate\x12y\n" +
-	"\x16first_publication_date\x18\x16 \x03(\v2#.ddex.ern.v432.FirstPublicationDateB\x1e\x92\x93!\x1axml:\"FirstPublicationDate\"R\x14firstPublicationDate\x12\x8b\x01\n" +
-	"\x1clocation_and_date_of_session\x18\x17 \x03(\v2'.ddex.ern.v432.LocationAndDateOfSessionB\"\x92\x93!\x1exml:\"LocationAndDateOfSession\"R\x18locationAndDateOfSession\x12\x81\x01\n" +
-	"\x15parental_warning_type\x18\x18 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardB\x1d\x92\x93!\x19xml:\"ParentalWarningType\"R\x13parentalWarningType\x12`\n" +
-	"\x0frelated_release\x18\x19 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x12\x8a\x01\n" +
-	"\x1bcomposite_musical_work_type\x18\x1b \x01(\x0e2'.ddex.ern.v432.CompositeMusicalWorkTypeB\"\x92\x93!\x1exml:\"CompositeMusicalWorkType\"R\x18compositeMusicalWorkType\x12Q\n" +
-	"\fcontains_a_i\x18\x1c \x01(\x0e2\x19.ddex.ern.v432.ContainsAIB\x14\x92\x93!\x10xml:\"ContainsAI\"R\n" +
-	"containsAI\x12,\n" +
-	"\bis_cover\x18\x1d \x01(\bB\x11\x92\x93!\rxml:\"IsCover\"R\aisCover\x12Q\n" +
-	"\x15has_vocal_performance\x18\x1e \x01(\bB\x1d\x92\x93!\x19xml:\"HasVocalPerformance\"R\x13hasVocalPerformance\x12p\n" +
-	" has_foreground_vocal_performance\x18\x1f \x01(\bB'\x92\x93!#xml:\"HasForegroundVocalPerformance\"R\x1dhasForegroundVocalPerformance\x12A\n" +
-	"\x0fis_instrumental\x18  \x01(\bB\x18\x92\x93!\x14xml:\"IsInstrumental\"R\x0eisInstrumental\x12W\n" +
-	"\x17contains_hidden_content\x18! \x01(\bB\x1f\x92\x93!\x1bxml:\"ContainsHiddenContent\"R\x15containsHiddenContent\x12;\n" +
-	"\ris_remastered\x18\" \x01(\bB\x16\x92\x93!\x12xml:\"IsRemastered\"R\fisRemastered\x12=\n" +
-	"\x0fis_hi_res_music\x18# \x01(\bB\x16\x92\x93!\x12xml:\"IsHiResMusic\"R\fisHiResMusic\x12G\n" +
-	"\x11disable_crossfade\x18$ \x01(\bB\x1a\x92\x93!\x16xml:\"DisableCrossfade\"R\x10disableCrossfade\x12>\n" +
-	"\x0edisable_search\x18% \x01(\bB\x17\x92\x93!\x13xml:\"DisableSearch\"R\rdisableSearch\x12`\n" +
-	"\x0fdisplay_credits\x18& \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsB\x18\x92\x93!\x14xml:\"DisplayCredits\"R\x0edisplayCredits\x12p\n" +
-	"\x17language_of_performance\x18' \x03(\v2\x17.ddex.ern.v432.LanguageB\x1f\x92\x93!\x1bxml:\"LanguageOfPerformance\"R\x15languageOfPerformance\x127\n" +
-	"\x04raga\x18( \x03(\v2\x13.ddex.ern.v432.RagaB\x0e\x92\x93!\n" +
-	"xml:\"Raga\"R\x04raga\x127\n" +
-	"\x04tala\x18) \x03(\v2\x13.ddex.ern.v432.TalaB\x0e\x92\x93!\n" +
-	"xml:\"Tala\"R\x04tala\x12;\n" +
-	"\x05deity\x18* \x03(\v2\x14.ddex.ern.v432.DeityB\x0f\x92\x93!\vxml:\"Deity\"R\x05deity\x12W\n" +
-	"\x17audio_chapter_reference\x18+ \x03(\tB\x1f\x92\x93!\x1bxml:\"AudioChapterReference\"R\x15audioChapterReference\x12]\n" +
-	"\x18language_and_script_code\x18, \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12F\n" +
-	"\x0fis_supplemental\x18- \x01(\bB\x1d\x92\x93!\x19xml:\"IsSupplemental,attr\"R\x0eisSupplemental\x12r\n" +
-	"\x1fapply_classical_profile_variant\x18. \x01(\bB+\x92\x93!'xml:\"ApplyClassicalProfileVariant,attr\"R\x1capplyClassicalProfileVariant\"\xe5\x03\n" +
-	"\x19SoundRecordingClipDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12H\n" +
-	"\tclip_type\x18\x02 \x01(\v2\x17.ddex.ern.v432.ClipTypeB\x12\x92\x93!\x0exml:\"ClipType\"R\bclipType\x12?\n" +
-	"\x06timing\x18\x03 \x03(\v2\x15.ddex.ern.v432.TimingB\x10\x92\x93!\fxml:\"Timing\"R\x06timing\x12`\n" +
-	"\x0fexpression_type\x18\x04 \x01(\x0e2\x1d.ddex.ern.v432.ExpressionTypeB\x18\x92\x93!\x14xml:\"ExpressionType\"R\x0eexpressionType\x12]\n" +
-	"\rdelivery_file\x18\x05 \x03(\v2 .ddex.ern.v432.AudioDeliveryFileB\x16\x92\x93!\x12xml:\"DeliveryFile\"R\fdeliveryFile\"\xb5\x04\n" +
-	"\x15SoundRecordingEdition\x12>\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1a.ddex.ern.v432.EditionTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12V\n" +
-	"\vresource_id\x18\x02 \x03(\v2\x1f.ddex.ern.v432.SoundRecordingIdB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12p\n" +
-	"\x13edition_contributor\x18\x03 \x03(\v2!.ddex.ern.v432.EditionContributorB\x1c\x92\x93!\x18xml:\"EditionContributor\"R\x12editionContributor\x12<\n" +
-	"\x06p_line\x18\x04 \x03(\v2\x14.ddex.ern.v432.PLineB\x0f\x92\x93!\vxml:\"PLine\"R\x05pLine\x12\\\n" +
-	"\x0erecording_mode\x18\x05 \x01(\x0e2\x1c.ddex.ern.v432.RecordingModeB\x17\x92\x93!\x13xml:\"RecordingMode\"R\rrecordingMode\x12v\n" +
-	"\x11technical_details\x18\x06 \x03(\v2-.ddex.ern.v432.TechnicalSoundRecordingDetailsB\x1a\x92\x93!\x16xml:\"TechnicalDetails\"R\x10technicalDetails\"\x84\x01\n" +
-	"\x18SupplementalDocumentList\x12h\n" +
-	"\x15supplemental_document\x18\x01 \x03(\v2\x13.ddex.ern.v432.FileB\x1e\x92\x93!\x1axml:\"SupplementalDocument\"R\x14supplementalDocument\"\xb0\x03\n" +
-	"\x15SynopsisWithTerritory\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x03(\v2\x1a.ddex.ern.v432.VersionTypeR\vversionType\x12d\n" +
+	"\x13display_artist_name\x18\v \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12C\n" +
+	"\x0edisplay_artist\x18\f \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12<\n" +
+	"\vcontributor\x18\r \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x126\n" +
+	"\tcharacter\x18\x0e \x03(\v2\x18.ddex.ern.v432.CharacterR\tcharacter\x12e\n" +
+	"\x1aresource_rights_controller\x18\x0f \x03(\v2'.ddex.ern.v432.ResourceRightsControllerR\x18resourceRightsController\x12Y\n" +
+	"\x16work_rights_controller\x18\x10 \x03(\v2#.ddex.ern.v432.WorkRightsControllerR\x14workRightsController\x12@\n" +
+	"\rcourtesy_line\x18\x11 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineR\fcourtesyLine\x12\x1a\n" +
+	"\bduration\x18\x12 \x01(\tR\bduration\x12I\n" +
+	"\rcreation_date\x18\x13 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fcreationDate\x12I\n" +
+	"\rmastered_date\x18\x14 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fmasteredDate\x12M\n" +
+	"\x0fremastered_date\x18\x15 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\x0eremasteredDate\x12Y\n" +
+	"\x16first_publication_date\x18\x16 \x03(\v2#.ddex.ern.v432.FirstPublicationDateR\x14firstPublicationDate\x12g\n" +
+	"\x1clocation_and_date_of_session\x18\x17 \x03(\v2'.ddex.ern.v432.LocationAndDateOfSessionR\x18locationAndDateOfSession\x12b\n" +
+	"\x15parental_warning_type\x18\x18 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
+	"\x0frelated_release\x18\x19 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12f\n" +
+	"\x1bcomposite_musical_work_type\x18\x1b \x01(\x0e2'.ddex.ern.v432.CompositeMusicalWorkTypeR\x18compositeMusicalWorkType\x12;\n" +
+	"\fcontains_a_i\x18\x1c \x01(\x0e2\x19.ddex.ern.v432.ContainsAIR\n" +
+	"containsAI\x12\x19\n" +
+	"\bis_cover\x18\x1d \x01(\bR\aisCover\x122\n" +
+	"\x15has_vocal_performance\x18\x1e \x01(\bR\x13hasVocalPerformance\x12G\n" +
+	" has_foreground_vocal_performance\x18\x1f \x01(\bR\x1dhasForegroundVocalPerformance\x12'\n" +
+	"\x0fis_instrumental\x18  \x01(\bR\x0eisInstrumental\x126\n" +
+	"\x17contains_hidden_content\x18! \x01(\bR\x15containsHiddenContent\x12#\n" +
+	"\ris_remastered\x18\" \x01(\bR\fisRemastered\x12%\n" +
+	"\x0fis_hi_res_music\x18# \x01(\bR\fisHiResMusic\x12+\n" +
+	"\x11disable_crossfade\x18$ \x01(\bR\x10disableCrossfade\x12%\n" +
+	"\x0edisable_search\x18% \x01(\bR\rdisableSearch\x12F\n" +
+	"\x0fdisplay_credits\x18& \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12O\n" +
+	"\x17language_of_performance\x18' \x03(\v2\x17.ddex.ern.v432.LanguageR\x15languageOfPerformance\x12'\n" +
+	"\x04raga\x18( \x03(\v2\x13.ddex.ern.v432.RagaR\x04raga\x12'\n" +
+	"\x04tala\x18) \x03(\v2\x13.ddex.ern.v432.TalaR\x04tala\x12*\n" +
+	"\x05deity\x18* \x03(\v2\x14.ddex.ern.v432.DeityR\x05deity\x126\n" +
+	"\x17audio_chapter_reference\x18+ \x03(\tR\x15audioChapterReference\x127\n" +
+	"\x18language_and_script_code\x18, \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fis_supplemental\x18- \x01(\bR\x0eisSupplemental\x12E\n" +
+	"\x1fapply_classical_profile_variant\x18. \x01(\bR\x1capplyClassicalProfileVariant\"\xe0\x02\n" +
+	"\x19SoundRecordingClipDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x124\n" +
+	"\tclip_type\x18\x02 \x01(\v2\x17.ddex.ern.v432.ClipTypeR\bclipType\x12-\n" +
+	"\x06timing\x18\x03 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\x12F\n" +
+	"\x0fexpression_type\x18\x04 \x01(\x0e2\x1d.ddex.ern.v432.ExpressionTypeR\x0eexpressionType\x12E\n" +
+	"\rdelivery_file\x18\x05 \x03(\v2 .ddex.ern.v432.AudioDeliveryFileR\fdeliveryFile\"\xab\x03\n" +
+	"\x15SoundRecordingEdition\x12.\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1a.ddex.ern.v432.EditionTypeR\x04type\x12@\n" +
+	"\vresource_id\x18\x02 \x03(\v2\x1f.ddex.ern.v432.SoundRecordingIdR\n" +
+	"resourceId\x12R\n" +
+	"\x13edition_contributor\x18\x03 \x03(\v2!.ddex.ern.v432.EditionContributorR\x12editionContributor\x12+\n" +
+	"\x06p_line\x18\x04 \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12C\n" +
+	"\x0erecording_mode\x18\x05 \x01(\x0e2\x1c.ddex.ern.v432.RecordingModeR\rrecordingMode\x12Z\n" +
+	"\x11technical_details\x18\x06 \x03(\v2-.ddex.ern.v432.TechnicalSoundRecordingDetailsR\x10technicalDetails\"d\n" +
+	"\x18SupplementalDocumentList\x12H\n" +
+	"\x15supplemental_document\x18\x01 \x03(\v2\x13.ddex.ern.v432.FileR\x14supplementalDocument\"\x92\x02\n" +
+	"\x15SynopsisWithTerritory\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12J\n" +
-	"\x11is_short_synopsis\x18\x05 \x01(\bB\x1e\x92\x93!\x1axml:\"IsShortSynopsis,attr\"R\x0fisShortSynopsis\"\xf4\x01\n" +
-	"\x04Tala\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x12*\n" +
+	"\x11is_short_synopsis\x18\x05 \x01(\bR\x0fisShortSynopsis\"\x9c\x01\n" +
+	"\x04Tala\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12_\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xa3\n" +
-	"\n" +
-	"\x15TechnicalImageDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12a\n" +
-	"\x10image_codec_type\x18\x02 \x01(\v2\x1d.ddex.ern.v432.ImageCodecTypeB\x18\x92\x93!\x14xml:\"ImageCodecType\"R\x0eimageCodecType\x12O\n" +
-	"\fimage_height\x18\x03 \x01(\v2\x15.ddex.ern.v432.ExtentB\x15\x92\x93!\x11xml:\"ImageHeight\"R\vimageHeight\x12L\n" +
-	"\vimage_width\x18\x04 \x01(\v2\x15.ddex.ern.v432.ExtentB\x14\x92\x93!\x10xml:\"ImageWidth\"R\n" +
-	"imageWidth\x12T\n" +
-	"\faspect_ratio\x18\x05 \x03(\v2\x1a.ddex.ern.v432.AspectRatioB\x15\x92\x93!\x11xml:\"AspectRatio\"R\vaspectRatio\x125\n" +
-	"\vcolor_depth\x18\x06 \x01(\x05B\x14\x92\x93!\x10xml:\"ColorDepth\"R\n" +
-	"colorDepth\x12D\n" +
-	"\x10image_resolution\x18\a \x01(\x05B\x19\x92\x93!\x15xml:\"ImageResolution\"R\x0fimageResolution\x12/\n" +
-	"\tbit_depth\x18\b \x01(\x05B\x12\x92\x93!\x0exml:\"BitDepth\"R\bbitDepth\x12)\n" +
-	"\ais_clip\x18\t \x01(\bB\x10\x92\x93!\fxml:\"IsClip\"R\x06isClip\x12T\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\"\xfa\x06\n" +
+	"\x15TechnicalImageDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12G\n" +
+	"\x10image_codec_type\x18\x02 \x01(\v2\x1d.ddex.ern.v432.ImageCodecTypeR\x0eimageCodecType\x128\n" +
+	"\fimage_height\x18\x03 \x01(\v2\x15.ddex.ern.v432.ExtentR\vimageHeight\x126\n" +
+	"\vimage_width\x18\x04 \x01(\v2\x15.ddex.ern.v432.ExtentR\n" +
+	"imageWidth\x12=\n" +
+	"\faspect_ratio\x18\x05 \x03(\v2\x1a.ddex.ern.v432.AspectRatioR\vaspectRatio\x12\x1f\n" +
+	"\vcolor_depth\x18\x06 \x01(\x05R\n" +
+	"colorDepth\x12)\n" +
+	"\x10image_resolution\x18\a \x01(\x05R\x0fimageResolution\x12\x1b\n" +
+	"\tbit_depth\x18\b \x01(\x05R\bbitDepth\x12\x17\n" +
+	"\ais_clip\x18\t \x01(\bR\x06isClip\x12=\n" +
 	"\fclip_details\x18\n" +
-	" \x03(\v2\x1a.ddex.ern.v432.ClipDetailsB\x15\x92\x93!\x11xml:\"ClipDetails\"R\vclipDetails\x127\n" +
-	"\x04file\x18\v \x01(\v2\x13.ddex.ern.v432.FileB\x0e\x92\x93!\n" +
-	"xml:\"File\"R\x04file\x12U\n" +
-	"\x17is_provided_in_delivery\x18\f \x01(\bB\x1e\x92\x93!\x1axml:\"IsProvidedInDelivery\"R\x14isProvidedInDelivery\x12S\n" +
-	"\vfingerprint\x18\r \x03(\v2\x1a.ddex.ern.v432.FingerprintB\x15\x92\x93!\x11xml:\"Fingerprint\"R\vfingerprint\x12]\n" +
-	"\x18language_and_script_code\x18\x0e \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x0f \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x03(\v2\x1a.ddex.ern.v432.ClipDetailsR\vclipDetails\x12'\n" +
+	"\x04file\x18\v \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
+	"\x17is_provided_in_delivery\x18\f \x01(\bR\x14isProvidedInDelivery\x12<\n" +
+	"\vfingerprint\x18\r \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
+	"\x18language_and_script_code\x18\x0e \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x0f \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x10 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xcb\a\n" +
-	"\x1aTechnicalSheetMusicDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12v\n" +
-	"\x16sheet_music_codec_type\x18\x02 \x01(\v2\".ddex.ern.v432.SheetMusicCodecTypeB\x1d\x92\x93!\x19xml:\"SheetMusicCodecType\"R\x13sheetMusicCodecType\x12/\n" +
-	"\tbit_depth\x18\x03 \x01(\x05B\x12\x92\x93!\x0exml:\"BitDepth\"R\bbitDepth\x12)\n" +
-	"\ais_clip\x18\x04 \x01(\bB\x10\x92\x93!\fxml:\"IsClip\"R\x06isClip\x12T\n" +
-	"\fclip_details\x18\x05 \x03(\v2\x1a.ddex.ern.v432.ClipDetailsB\x15\x92\x93!\x11xml:\"ClipDetails\"R\vclipDetails\x127\n" +
-	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileB\x0e\x92\x93!\n" +
-	"xml:\"File\"R\x04file\x12U\n" +
-	"\x17is_provided_in_delivery\x18\a \x01(\bB\x1e\x92\x93!\x1axml:\"IsProvidedInDelivery\"R\x14isProvidedInDelivery\x12S\n" +
-	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintB\x15\x92\x93!\x11xml:\"Fingerprint\"R\vfingerprint\x12]\n" +
-	"\x18language_and_script_code\x18\t \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
+	"is_default\x18\x10 \x01(\bR\tisDefault\"\x92\x05\n" +
+	"\x1aTechnicalSheetMusicDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12W\n" +
+	"\x16sheet_music_codec_type\x18\x02 \x01(\v2\".ddex.ern.v432.SheetMusicCodecTypeR\x13sheetMusicCodecType\x12\x1b\n" +
+	"\tbit_depth\x18\x03 \x01(\x05R\bbitDepth\x12\x17\n" +
+	"\ais_clip\x18\x04 \x01(\bR\x06isClip\x12=\n" +
+	"\fclip_details\x18\x05 \x03(\v2\x1a.ddex.ern.v432.ClipDetailsR\vclipDetails\x12'\n" +
+	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
+	"\x17is_provided_in_delivery\x18\a \x01(\bR\x14isProvidedInDelivery\x12<\n" +
+	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
+	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12_\n" +
 	"\x19applicable_territory_code\x18\n" +
-	" \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\v \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xc8\a\n" +
-	"\x18TechnicalSoftwareDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12u\n" +
-	"\x15operating_system_type\x18\x02 \x01(\v2\".ddex.ern.v432.OperatingSystemTypeB\x1d\x92\x93!\x19xml:\"OperatingSystemType\"R\x13operatingSystemType\x12/\n" +
-	"\tbit_depth\x18\x03 \x01(\x05B\x12\x92\x93!\x0exml:\"BitDepth\"R\bbitDepth\x12)\n" +
-	"\ais_clip\x18\x04 \x01(\bB\x10\x92\x93!\fxml:\"IsClip\"R\x06isClip\x12T\n" +
-	"\fclip_details\x18\x05 \x03(\v2\x1a.ddex.ern.v432.ClipDetailsB\x15\x92\x93!\x11xml:\"ClipDetails\"R\vclipDetails\x127\n" +
-	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileB\x0e\x92\x93!\n" +
-	"xml:\"File\"R\x04file\x12U\n" +
-	"\x17is_provided_in_delivery\x18\a \x01(\bB\x1e\x92\x93!\x1axml:\"IsProvidedInDelivery\"R\x14isProvidedInDelivery\x12S\n" +
-	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintB\x15\x92\x93!\x11xml:\"Fingerprint\"R\vfingerprint\x12]\n" +
-	"\x18language_and_script_code\x18\t \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
+	"is_default\x18\v \x01(\bR\tisDefault\"\x8f\x05\n" +
+	"\x18TechnicalSoftwareDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12V\n" +
+	"\x15operating_system_type\x18\x02 \x01(\v2\".ddex.ern.v432.OperatingSystemTypeR\x13operatingSystemType\x12\x1b\n" +
+	"\tbit_depth\x18\x03 \x01(\x05R\bbitDepth\x12\x17\n" +
+	"\ais_clip\x18\x04 \x01(\bR\x06isClip\x12=\n" +
+	"\fclip_details\x18\x05 \x03(\v2\x1a.ddex.ern.v432.ClipDetailsR\vclipDetails\x12'\n" +
+	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
+	"\x17is_provided_in_delivery\x18\a \x01(\bR\x14isProvidedInDelivery\x12<\n" +
+	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
+	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12_\n" +
 	"\x19applicable_territory_code\x18\n" +
-	" \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\v \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\x94\x06\n" +
-	"\x1eTechnicalSoundRecordingDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12]\n" +
-	"\rdelivery_file\x18\x02 \x03(\v2 .ddex.ern.v432.AudioDeliveryFileB\x16\x92\x93!\x12xml:\"DeliveryFile\"R\fdeliveryFile\x12d\n" +
-	"\x1chas_immersive_audio_metadata\x18\x03 \x01(\bB#\x92\x93!\x1fxml:\"HasImmersiveAudioMetadata\"R\x19hasImmersiveAudioMetadata\x12)\n" +
-	"\ais_clip\x18\x04 \x01(\bB\x10\x92\x93!\fxml:\"IsClip\"R\x06isClip\x12b\n" +
-	"\fclip_details\x18\x05 \x03(\v2(.ddex.ern.v432.SoundRecordingClipDetailsB\x15\x92\x93!\x11xml:\"ClipDetails\"R\vclipDetails\x12]\n" +
-	"\x18language_and_script_code\x18\x06 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\a \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\v \x01(\bR\tisDefault\"\x98\x04\n" +
+	"\x1eTechnicalSoundRecordingDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12E\n" +
+	"\rdelivery_file\x18\x02 \x03(\v2 .ddex.ern.v432.AudioDeliveryFileR\fdeliveryFile\x12?\n" +
+	"\x1chas_immersive_audio_metadata\x18\x03 \x01(\bR\x19hasImmersiveAudioMetadata\x12\x17\n" +
+	"\ais_clip\x18\x04 \x01(\bR\x06isClip\x12K\n" +
+	"\fclip_details\x18\x05 \x03(\v2(.ddex.ern.v432.SoundRecordingClipDetailsR\vclipDetails\x127\n" +
+	"\x18language_and_script_code\x18\x06 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\a \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\b \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xac\a\n" +
-	"\x14TechnicalTextDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12]\n" +
-	"\x0ftext_codec_type\x18\x02 \x01(\v2\x1c.ddex.ern.v432.TextCodecTypeB\x17\x92\x93!\x13xml:\"TextCodecType\"R\rtextCodecType\x12/\n" +
-	"\tbit_depth\x18\x03 \x01(\x05B\x12\x92\x93!\x0exml:\"BitDepth\"R\bbitDepth\x12)\n" +
-	"\ais_clip\x18\x04 \x01(\bB\x10\x92\x93!\fxml:\"IsClip\"R\x06isClip\x12T\n" +
-	"\fclip_details\x18\x05 \x03(\v2\x1a.ddex.ern.v432.ClipDetailsB\x15\x92\x93!\x11xml:\"ClipDetails\"R\vclipDetails\x127\n" +
-	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileB\x0e\x92\x93!\n" +
-	"xml:\"File\"R\x04file\x12U\n" +
-	"\x17is_provided_in_delivery\x18\a \x01(\bB\x1e\x92\x93!\x1axml:\"IsProvidedInDelivery\"R\x14isProvidedInDelivery\x12S\n" +
-	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintB\x15\x92\x93!\x11xml:\"Fingerprint\"R\vfingerprint\x12]\n" +
-	"\x18language_and_script_code\x18\t \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
+	"is_default\x18\b \x01(\bR\tisDefault\"\xf9\x04\n" +
+	"\x14TechnicalTextDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12D\n" +
+	"\x0ftext_codec_type\x18\x02 \x01(\v2\x1c.ddex.ern.v432.TextCodecTypeR\rtextCodecType\x12\x1b\n" +
+	"\tbit_depth\x18\x03 \x01(\x05R\bbitDepth\x12\x17\n" +
+	"\ais_clip\x18\x04 \x01(\bR\x06isClip\x12=\n" +
+	"\fclip_details\x18\x05 \x03(\v2\x1a.ddex.ern.v432.ClipDetailsR\vclipDetails\x12'\n" +
+	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
+	"\x17is_provided_in_delivery\x18\a \x01(\bR\x14isProvidedInDelivery\x12<\n" +
+	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
+	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12_\n" +
 	"\x19applicable_territory_code\x18\n" +
-	" \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	" \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\v \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xf8\x05\n" +
-	"\x15TechnicalVideoDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12Z\n" +
-	"\x10overall_bit_rate\x18\x02 \x01(\v2\x16.ddex.ern.v432.BitRateB\x18\x92\x93!\x14xml:\"OverallBitRate\"R\x0eoverallBitRate\x12]\n" +
-	"\rdelivery_file\x18\x03 \x03(\v2 .ddex.ern.v432.VideoDeliveryFileB\x16\x92\x93!\x12xml:\"DeliveryFile\"R\fdeliveryFile\x12)\n" +
-	"\ais_clip\x18\x04 \x01(\bB\x10\x92\x93!\fxml:\"IsClip\"R\x06isClip\x12Y\n" +
-	"\fclip_details\x18\x05 \x03(\v2\x1f.ddex.ern.v432.VideoClipDetailsB\x15\x92\x93!\x11xml:\"ClipDetails\"R\vclipDetails\x12]\n" +
-	"\x18language_and_script_code\x18\x06 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\a \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\v \x01(\bR\tisDefault\"\x87\x04\n" +
+	"\x15TechnicalVideoDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12@\n" +
+	"\x10overall_bit_rate\x18\x02 \x01(\v2\x16.ddex.ern.v432.BitRateR\x0eoverallBitRate\x12E\n" +
+	"\rdelivery_file\x18\x03 \x03(\v2 .ddex.ern.v432.VideoDeliveryFileR\fdeliveryFile\x12\x17\n" +
+	"\ais_clip\x18\x04 \x01(\bR\x06isClip\x12B\n" +
+	"\fclip_details\x18\x05 \x03(\v2\x1f.ddex.ern.v432.VideoClipDetailsR\vclipDetails\x127\n" +
+	"\x18language_and_script_code\x18\x06 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\a \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\b \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xd4\x15\n" +
-	"\x04Text\x12J\n" +
-	"\x12resource_reference\x18\x01 \x01(\tB\x1b\x92\x93!\x17xml:\"ResourceReference\"R\x11resourceReference\x12;\n" +
-	"\x04type\x18\x02 \x01(\v2\x17.ddex.ern.v432.TextTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12L\n" +
-	"\vresource_id\x18\x03 \x03(\v2\x15.ddex.ern.v432.TextIdB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12G\n" +
-	"\awork_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdB\x10\x92\x93!\fxml:\"WorkId\"R\x06workId\x12i\n" +
-	"\x12display_title_text\x18\x05 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12T\n" +
-	"\fversion_type\x18\t \x03(\v2\x1a.ddex.ern.v432.VersionTypeB\x15\x92\x93!\x11xml:\"VersionType\"R\vversionType\x12\x81\x01\n" +
+	"is_default\x18\b \x01(\bR\tisDefault\"\xd7\x0f\n" +
+	"\x04Text\x12-\n" +
+	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12+\n" +
+	"\x04type\x18\x02 \x01(\v2\x17.ddex.ern.v432.TextTypeR\x04type\x126\n" +
+	"\vresource_id\x18\x03 \x03(\v2\x15.ddex.ern.v432.TextIdR\n" +
+	"resourceId\x125\n" +
+	"\awork_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdR\x06workId\x12M\n" +
+	"\x12display_title_text\x18\x05 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12=\n" +
+	"\fversion_type\x18\t \x03(\v2\x1a.ddex.ern.v432.VersionTypeR\vversionType\x12d\n" +
 	"\x13display_artist_name\x18\n" +
-	" \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12\\\n" +
-	"\x0edisplay_artist\x18\v \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12S\n" +
-	"\vcontributor\x18\f \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12\x89\x01\n" +
-	"\x1aresource_rights_controller\x18\r \x03(\v2'.ddex.ern.v432.ResourceRightsControllerB\"\x92\x93!\x1exml:\"ResourceRightsController\"R\x18resourceRightsController\x12y\n" +
-	"\x16work_rights_controller\x18\x0e \x03(\v2#.ddex.ern.v432.WorkRightsControllerB\x1e\x92\x93!\x1axml:\"WorkRightsController\"R\x14workRightsController\x12<\n" +
-	"\x06c_line\x18\x0f \x03(\v2\x14.ddex.ern.v432.CLineB\x0f\x92\x93!\vxml:\"CLine\"R\x05cLine\x12X\n" +
-	"\rcourtesy_line\x18\x10 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineB\x16\x92\x93!\x12xml:\"CourtesyLine\"R\fcourtesyLine\x12a\n" +
-	"\rcreation_date\x18\x11 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"CreationDate\"R\fcreationDate\x12t\n" +
-	"\x16first_publication_date\x18\x12 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateB\x1e\x92\x93!\x1axml:\"FirstPublicationDate\"R\x14firstPublicationDate\x12\x81\x01\n" +
-	"\x15parental_warning_type\x18\x13 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardB\x1d\x92\x93!\x19xml:\"ParentalWarningType\"R\x13parentalWarningType\x12`\n" +
-	"\x0frelated_release\x18\x14 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\x15 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x12Q\n" +
-	"\fcontains_a_i\x18\x16 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIB\x14\x92\x93!\x10xml:\"ContainsAI\"R\n" +
-	"containsAI\x12W\n" +
-	"\x17contains_hidden_content\x18\x17 \x01(\bB\x1f\x92\x93!\x1bxml:\"ContainsHiddenContent\"R\x15containsHiddenContent\x12\xc3\x01\n" +
-	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListB0\x92\x93!,xml:\"ResourceContainedResourceReferenceList\"R&resourceContainedResourceReferenceList\x12l\n" +
-	"\x11technical_details\x18\x19 \x03(\v2#.ddex.ern.v432.TechnicalTextDetailsB\x1a\x92\x93!\x16xml:\"TechnicalDetails\"R\x10technicalDetails\x12[\n" +
-	"\x10language_of_text\x18\x1a \x03(\v2\x17.ddex.ern.v432.LanguageB\x18\x92\x93!\x14xml:\"LanguageOfText\"R\x0elanguageOfText\x12]\n" +
-	"\x18language_and_script_code\x18\x1b \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12F\n" +
-	"\x0fis_supplemental\x18\x1c \x01(\bB\x1d\x92\x93!\x19xml:\"IsSupplemental,attr\"R\x0eisSupplemental\"\xad\x01\n" +
-	"\x06Timing\x125\n" +
-	"\vstart_point\x18\x01 \x01(\tB\x14\x92\x93!\x10xml:\"StartPoint\"R\n" +
-	"startPoint\x12/\n" +
-	"\tend_point\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"EndPoint\"R\bendPoint\x12;\n" +
-	"\rduration_used\x18\x03 \x03(\tB\x16\x92\x93!\x12xml:\"DurationUsed\"R\fdurationUsed\"\xa8\x02\n" +
-	"\x05Title\x122\n" +
+	" \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12C\n" +
+	"\x0edisplay_artist\x18\v \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12<\n" +
+	"\vcontributor\x18\f \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x12e\n" +
+	"\x1aresource_rights_controller\x18\r \x03(\v2'.ddex.ern.v432.ResourceRightsControllerR\x18resourceRightsController\x12Y\n" +
+	"\x16work_rights_controller\x18\x0e \x03(\v2#.ddex.ern.v432.WorkRightsControllerR\x14workRightsController\x12+\n" +
+	"\x06c_line\x18\x0f \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12@\n" +
+	"\rcourtesy_line\x18\x10 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineR\fcourtesyLine\x12I\n" +
+	"\rcreation_date\x18\x11 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fcreationDate\x12T\n" +
+	"\x16first_publication_date\x18\x12 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateR\x14firstPublicationDate\x12b\n" +
+	"\x15parental_warning_type\x18\x13 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
+	"\x0frelated_release\x18\x14 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\x15 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12;\n" +
+	"\fcontains_a_i\x18\x16 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIR\n" +
+	"containsAI\x126\n" +
+	"\x17contains_hidden_content\x18\x17 \x01(\bR\x15containsHiddenContent\x12\x91\x01\n" +
+	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListR&resourceContainedResourceReferenceList\x12P\n" +
+	"\x11technical_details\x18\x19 \x03(\v2#.ddex.ern.v432.TechnicalTextDetailsR\x10technicalDetails\x12A\n" +
+	"\x10language_of_text\x18\x1a \x03(\v2\x17.ddex.ern.v432.LanguageR\x0elanguageOfText\x127\n" +
+	"\x18language_and_script_code\x18\x1b \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fis_supplemental\x18\x1c \x01(\bR\x0eisSupplemental\"k\n" +
+	"\x06Timing\x12\x1f\n" +
+	"\vstart_point\x18\x01 \x01(\tR\n" +
+	"startPoint\x12\x1b\n" +
+	"\tend_point\x18\x02 \x01(\tR\bendPoint\x12#\n" +
+	"\rduration_used\x18\x03 \x03(\tR\fdurationUsed\"\xbf\x01\n" +
+	"\x05Title\x12\x1d\n" +
 	"\n" +
-	"title_text\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"TitleText\"R\ttitleText\x12/\n" +
-	"\tsub_title\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"SubTitle\"R\bsubTitle\x12]\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12[\n" +
+	"title_text\x18\x01 \x01(\tR\ttitleText\x12\x1b\n" +
+	"\tsub_title\x18\x02 \x01(\tR\bsubTitle\x127\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12A\n" +
 	"\n" +
-	"title_type\x18\x04 \x01(\x0e2\".ddex.ern.v432.AdditionalTitleTypeB\x18\x92\x93!\x14xml:\"TitleType,attr\"R\ttitleType\"\xd0\r\n" +
-	"\fTrackRelease\x12G\n" +
-	"\x11release_reference\x18\x01 \x01(\tB\x1a\x92\x93!\x16xml:\"ReleaseReference\"R\x10releaseReference\x12L\n" +
+	"title_type\x18\x04 \x01(\x0e2\".ddex.ern.v432.AdditionalTitleTypeR\ttitleType\"\xe0\t\n" +
+	"\fTrackRelease\x12+\n" +
+	"\x11release_reference\x18\x01 \x01(\tR\x10releaseReference\x127\n" +
 	"\n" +
-	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdB\x13\x92\x93!\x0fxml:\"ReleaseId\"R\treleaseId\x12i\n" +
-	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12`\n" +
-	"\x1arelease_resource_reference\x18\a \x01(\tB\"\x92\x93!\x1exml:\"ReleaseResourceReference\"R\x18releaseResourceReference\x12\xa2\x01\n" +
-	"!linked_release_resource_reference\x18\b \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceB(\x92\x93!$xml:\"LinkedReleaseResourceReference\"R\x1elinkedReleaseResourceReference\x12\x86\x01\n" +
-	"\x17release_label_reference\x18\t \x03(\v2-.ddex.ern.v432.ReleaseLabelReferenceWithPartyB\x1f\x92\x93!\x1bxml:\"ReleaseLabelReference\"R\x15releaseLabelReference\x12^\n" +
+	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\x12M\n" +
+	"\x12display_title_text\x18\x03 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\x04 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\x05 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\x06 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12<\n" +
+	"\x1arelease_resource_reference\x18\a \x01(\tR\x18releaseResourceReference\x12x\n" +
+	"!linked_release_resource_reference\x18\b \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12e\n" +
+	"\x17release_label_reference\x18\t \x03(\v2-.ddex.ern.v432.ReleaseLabelReferenceWithPartyR\x15releaseLabelReference\x12F\n" +
 	"\rdisplay_genre\x18\n" +
-	" \x03(\v2!.ddex.ern.v432.GenreWithTerritoryB\x16\x92\x93!\x12xml:\"DisplayGenre\"R\fdisplayGenre\x12f\n" +
-	"\x1crelease_visibility_reference\x18\v \x03(\tB$\x92\x93! xml:\"ReleaseVisibilityReference\"R\x1areleaseVisibilityReference\x12`\n" +
-	"\x0frelated_release\x18\f \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\r \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x124\n" +
-	"\ftarget_u_r_l\x18\x0e \x01(\tB\x13\x92\x93!\x0fxml:\"TargetURL\"R\ttargetURL\x12T\n" +
-	"\bkeywords\x18\x0f \x03(\v2$.ddex.ern.v432.KeywordsWithTerritoryB\x12\x92\x93!\x0exml:\"Keywords\"R\bkeywords\x12T\n" +
-	"\bsynopsis\x18\x10 \x03(\v2$.ddex.ern.v432.SynopsisWithTerritoryB\x12\x92\x93!\x0exml:\"Synopsis\"R\bsynopsis\x12h\n" +
-	"\x11marketing_comment\x18\x11 \x03(\v2\x1f.ddex.ern.v432.MarketingCommentB\x1a\x92\x93!\x16xml:\"MarketingComment\"R\x10marketingComment\x12D\n" +
-	"\x0fis_main_release\x18\x12 \x01(\bB\x1c\x92\x93!\x18xml:\"IsMainRelease,attr\"R\risMainRelease\"\x9e\x03\n" +
-	"\x16TrackReleaseVisibility\x12P\n" +
-	"\x14visibility_reference\x18\x01 \x01(\tB\x1d\x92\x93!\x19xml:\"VisibilityReference\"R\x13visibilityReference\x12{\n" +
-	"%track_listing_preview_start_date_time\x18\x02 \x01(\tB*\x92\x93!&xml:\"TrackListingPreviewStartDateTime\"R trackListingPreviewStartDateTime\x12b\n" +
-	"\x1cclip_preview_start_date_time\x18\x03 \x01(\tB\"\x92\x93!\x1exml:\"ClipPreviewStartDateTime\"R\x18clipPreviewStartDateTime\x12Q\n" +
-	"\x14do_not_display_dates\x18\x04 \x01(\bB \x92\x93!\x1cxml:\"DoNotDisplayDates,attr\"R\x11doNotDisplayDates\"\xbb\x01\n" +
-	"\aUseType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc5\x01\n" +
-	"\x11UserInterfaceType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xf9 \n" +
-	"\x05Video\x12J\n" +
-	"\x12resource_reference\x18\x01 \x01(\tB\x1b\x92\x93!\x17xml:\"ResourceReference\"R\x11resourceReference\x12<\n" +
-	"\x04type\x18\x02 \x01(\v2\x18.ddex.ern.v432.VideoTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12X\n" +
-	"\rvideo_edition\x18\x03 \x03(\v2\x1b.ddex.ern.v432.VideoEditionB\x16\x92\x93!\x12xml:\"VideoEdition\"R\fvideoEdition\x12d\n" +
-	"\x10recording_format\x18\x04 \x03(\v2\x1e.ddex.ern.v432.RecordingFormatB\x19\x92\x93!\x15xml:\"RecordingFormat\"R\x0frecordingFormat\x12G\n" +
-	"\awork_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdB\x10\x92\x93!\fxml:\"WorkId\"R\x06workId\x12i\n" +
-	"\x12display_title_text\x18\x06 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextB\x1a\x92\x93!\x16xml:\"DisplayTitleText\"R\x10displayTitleText\x12X\n" +
-	"\rdisplay_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x16\x92\x93!\x12xml:\"DisplayTitle\"R\fdisplayTitle\x12U\n" +
-	"\fformal_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x15\x92\x93!\x11xml:\"FormalTitle\"R\vformalTitle\x12[\n" +
-	"\x0egrouping_title\x18\t \x03(\v2\x1b.ddex.ern.v432.DisplayTitleB\x17\x92\x93!\x13xml:\"GroupingTitle\"R\rgroupingTitle\x12T\n" +
+	" \x03(\v2!.ddex.ern.v432.GenreWithTerritoryR\fdisplayGenre\x12@\n" +
+	"\x1crelease_visibility_reference\x18\v \x03(\tR\x1areleaseVisibilityReference\x12F\n" +
+	"\x0frelated_release\x18\f \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\r \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12\x1f\n" +
+	"\ftarget_u_r_l\x18\x0e \x01(\tR\ttargetURL\x12@\n" +
+	"\bkeywords\x18\x0f \x03(\v2$.ddex.ern.v432.KeywordsWithTerritoryR\bkeywords\x12@\n" +
+	"\bsynopsis\x18\x10 \x03(\v2$.ddex.ern.v432.SynopsisWithTerritoryR\bsynopsis\x12L\n" +
+	"\x11marketing_comment\x18\x11 \x03(\v2\x1f.ddex.ern.v432.MarketingCommentR\x10marketingComment\x12&\n" +
+	"\x0fis_main_release\x18\x12 \x01(\bR\risMainRelease\"\x8d\x02\n" +
+	"\x16TrackReleaseVisibility\x121\n" +
+	"\x14visibility_reference\x18\x01 \x01(\tR\x13visibilityReference\x12O\n" +
+	"%track_listing_preview_start_date_time\x18\x02 \x01(\tR trackListingPreviewStartDateTime\x12>\n" +
+	"\x1cclip_preview_start_date_time\x18\x03 \x01(\tR\x18clipPreviewStartDateTime\x12/\n" +
+	"\x14do_not_display_dates\x18\x04 \x01(\bR\x11doNotDisplayDates\"k\n" +
+	"\aUseType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"u\n" +
+	"\x11UserInterfaceType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x92\x17\n" +
+	"\x05Video\x12-\n" +
+	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12,\n" +
+	"\x04type\x18\x02 \x01(\v2\x18.ddex.ern.v432.VideoTypeR\x04type\x12@\n" +
+	"\rvideo_edition\x18\x03 \x03(\v2\x1b.ddex.ern.v432.VideoEditionR\fvideoEdition\x12I\n" +
+	"\x10recording_format\x18\x04 \x03(\v2\x1e.ddex.ern.v432.RecordingFormatR\x0frecordingFormat\x125\n" +
+	"\awork_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.MusicalWorkIdR\x06workId\x12M\n" +
+	"\x12display_title_text\x18\x06 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
+	"\rdisplay_title\x18\a \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
+	"\fformal_title\x18\b \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\vformalTitle\x12B\n" +
+	"\x0egrouping_title\x18\t \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\rgroupingTitle\x12=\n" +
 	"\fversion_type\x18\n" +
-	" \x03(\v2\x1a.ddex.ern.v432.VersionTypeB\x15\x92\x93!\x11xml:\"VersionType\"R\vversionType\x12\x81\x01\n" +
-	"\x13display_artist_name\x18\v \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageB\x1b\x92\x93!\x17xml:\"DisplayArtistName\"R\x11displayArtistName\x12\\\n" +
-	"\x0edisplay_artist\x18\f \x03(\v2\x1c.ddex.ern.v432.DisplayArtistB\x17\x92\x93!\x13xml:\"DisplayArtist\"R\rdisplayArtist\x12S\n" +
-	"\vcontributor\x18\r \x03(\v2\x1a.ddex.ern.v432.ContributorB\x15\x92\x93!\x11xml:\"Contributor\"R\vcontributor\x12K\n" +
-	"\tcharacter\x18\x0e \x03(\v2\x18.ddex.ern.v432.CharacterB\x13\x92\x93!\x0fxml:\"Character\"R\tcharacter\x12\x89\x01\n" +
-	"\x1aresource_rights_controller\x18\x0f \x03(\v2'.ddex.ern.v432.ResourceRightsControllerB\"\x92\x93!\x1exml:\"ResourceRightsController\"R\x18resourceRightsController\x12y\n" +
-	"\x16work_rights_controller\x18\x10 \x03(\v2#.ddex.ern.v432.WorkRightsControllerB\x1e\x92\x93!\x1axml:\"WorkRightsController\"R\x14workRightsController\x12X\n" +
-	"\rcourtesy_line\x18\x11 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineB\x16\x92\x93!\x12xml:\"CourtesyLine\"R\fcourtesyLine\x12.\n" +
-	"\bduration\x18\x12 \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12a\n" +
-	"\rcreation_date\x18\x13 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"CreationDate\"R\fcreationDate\x12a\n" +
-	"\rmastered_date\x18\x14 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x16\x92\x93!\x12xml:\"MasteredDate\"R\fmasteredDate\x12g\n" +
-	"\x0fremastered_date\x18\x15 \x03(\v2$.ddex.ern.v432.EventDateWithoutFlagsB\x18\x92\x93!\x14xml:\"RemasteredDate\"R\x0eremasteredDate\x12t\n" +
-	"\x16first_publication_date\x18\x16 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateB\x1e\x92\x93!\x1axml:\"FirstPublicationDate\"R\x14firstPublicationDate\x12\x81\x01\n" +
-	"\x15parental_warning_type\x18\x17 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardB\x1d\x92\x93!\x19xml:\"ParentalWarningType\"R\x13parentalWarningType\x12H\n" +
-	"\tav_rating\x18\x18 \x03(\v2\x17.ddex.ern.v432.AvRatingB\x12\x92\x93!\x0exml:\"AvRating\"R\bavRating\x12`\n" +
-	"\x0frelated_release\x18\x19 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseB\x18\x92\x93!\x14xml:\"RelatedRelease\"R\x0erelatedRelease\x12d\n" +
-	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceB\x19\x92\x93!\x15xml:\"RelatedResource\"R\x0frelatedResource\x12\x8a\x01\n" +
-	"\x1bcomposite_musical_work_type\x18\x1b \x01(\x0e2'.ddex.ern.v432.CompositeMusicalWorkTypeB\"\x92\x93!\x1exml:\"CompositeMusicalWorkType\"R\x18compositeMusicalWorkType\x12Q\n" +
-	"\fcontains_a_i\x18\x1c \x01(\x0e2\x19.ddex.ern.v432.ContainsAIB\x14\x92\x93!\x10xml:\"ContainsAI\"R\n" +
-	"containsAI\x12,\n" +
-	"\bis_cover\x18\x1d \x01(\bB\x11\x92\x93!\rxml:\"IsCover\"R\aisCover\x12Q\n" +
-	"\x15has_vocal_performance\x18\x1e \x01(\bB\x1d\x92\x93!\x19xml:\"HasVocalPerformance\"R\x13hasVocalPerformance\x12p\n" +
-	" has_foreground_vocal_performance\x18\x1f \x01(\bB'\x92\x93!#xml:\"HasForegroundVocalPerformance\"R\x1dhasForegroundVocalPerformance\x12A\n" +
-	"\x0fis_instrumental\x18  \x01(\bB\x18\x92\x93!\x14xml:\"IsInstrumental\"R\x0eisInstrumental\x12W\n" +
-	"\x17contains_hidden_content\x18! \x01(\bB\x1f\x92\x93!\x1bxml:\"ContainsHiddenContent\"R\x15containsHiddenContent\x12;\n" +
-	"\ris_remastered\x18\" \x01(\bB\x16\x92\x93!\x12xml:\"IsRemastered\"R\fisRemastered\x12`\n" +
-	"\x0fdisplay_credits\x18# \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsB\x18\x92\x93!\x14xml:\"DisplayCredits\"R\x0edisplayCredits\x12p\n" +
-	"\x17language_of_performance\x18$ \x03(\v2\x17.ddex.ern.v432.LanguageB\x1f\x92\x93!\x1bxml:\"LanguageOfPerformance\"R\x15languageOfPerformance\x12K\n" +
-	"\x13language_of_dubbing\x18% \x03(\tB\x1b\x92\x93!\x17xml:\"LanguageOfDubbing\"R\x11languageOfDubbing\x12H\n" +
-	"\x12sub_title_language\x18& \x03(\tB\x1a\x92\x93!\x16xml:\"SubTitleLanguage\"R\x10subTitleLanguage\x12\xc3\x01\n" +
-	"*resource_contained_resource_reference_list\x18' \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListB0\x92\x93!,xml:\"ResourceContainedResourceReferenceList\"R&resourceContainedResourceReferenceList\x12\"\n" +
-	"\x04raga\x18( \x03(\tB\x0e\x92\x93!\n" +
-	"xml:\"Raga\"R\x04raga\x12\"\n" +
-	"\x04tala\x18) \x03(\tB\x0e\x92\x93!\n" +
-	"xml:\"Tala\"R\x04tala\x12%\n" +
-	"\x05deity\x18* \x03(\tB\x0f\x92\x93!\vxml:\"Deity\"R\x05deity\x12W\n" +
-	"\x17video_chapter_reference\x18+ \x03(\tB\x1f\x92\x93!\x1bxml:\"VideoChapterReference\"R\x15videoChapterReference\x12]\n" +
-	"\x18language_and_script_code\x18, \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12F\n" +
-	"\x0fis_supplemental\x18- \x01(\bB\x1d\x92\x93!\x19xml:\"IsSupplemental,attr\"R\x0eisSupplemental\x12r\n" +
-	"\x1fapply_classical_profile_variant\x18. \x01(\bB+\x92\x93!'xml:\"ApplyClassicalProfileVariant,attr\"R\x1capplyClassicalProfileVariant\"\xea\x04\n" +
-	"\x10VideoClipDetails\x12|\n" +
-	"$technical_resource_details_reference\x18\x01 \x01(\tB+\x92\x93!'xml:\"TechnicalResourceDetailsReference\"R!technicalResourceDetailsReference\x12H\n" +
-	"\tclip_type\x18\x02 \x01(\v2\x17.ddex.ern.v432.ClipTypeB\x12\x92\x93!\x0exml:\"ClipType\"R\bclipType\x12?\n" +
-	"\x06timing\x18\x03 \x03(\v2\x15.ddex.ern.v432.TimingB\x10\x92\x93!\fxml:\"Timing\"R\x06timing\x12?\n" +
-	"\x0ftop_left_corner\x18\x04 \x01(\tB\x17\x92\x93!\x13xml:\"TopLeftCorner\"R\rtopLeftCorner\x12K\n" +
-	"\x13bottom_right_corner\x18\x05 \x01(\tB\x1b\x92\x93!\x17xml:\"BottomRightCorner\"R\x11bottomRightCorner\x12`\n" +
-	"\x0fexpression_type\x18\x06 \x01(\x0e2\x1d.ddex.ern.v432.ExpressionTypeB\x18\x92\x93!\x14xml:\"ExpressionType\"R\x0eexpressionType\x12]\n" +
-	"\rdelivery_file\x18\a \x03(\v2 .ddex.ern.v432.VideoDeliveryFileB\x16\x92\x93!\x12xml:\"DeliveryFile\"R\fdeliveryFile\"\xd4\x13\n" +
-	"\x11VideoDeliveryFile\x12C\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1f.ddex.ern.v432.DeliveryFileTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12d\n" +
-	"\x10container_format\x18\x02 \x01(\v2\x1e.ddex.ern.v432.ContainerFormatB\x19\x92\x93!\x15xml:\"ContainerFormat\"R\x0fcontainerFormat\x12a\n" +
-	"\x10video_codec_type\x18\x03 \x01(\v2\x1d.ddex.ern.v432.VideoCodecTypeB\x18\x92\x93!\x14xml:\"VideoCodecType\"R\x0evideoCodecType\x12T\n" +
-	"\x0evideo_bit_rate\x18\x04 \x01(\v2\x16.ddex.ern.v432.BitRateB\x16\x92\x93!\x12xml:\"VideoBitRate\"R\fvideoBitRate\x12L\n" +
+	" \x03(\v2\x1a.ddex.ern.v432.VersionTypeR\vversionType\x12d\n" +
+	"\x13display_artist_name\x18\v \x03(\v24.ddex.ern.v432.DisplayArtistNameWithOriginalLanguageR\x11displayArtistName\x12C\n" +
+	"\x0edisplay_artist\x18\f \x03(\v2\x1c.ddex.ern.v432.DisplayArtistR\rdisplayArtist\x12<\n" +
+	"\vcontributor\x18\r \x03(\v2\x1a.ddex.ern.v432.ContributorR\vcontributor\x126\n" +
+	"\tcharacter\x18\x0e \x03(\v2\x18.ddex.ern.v432.CharacterR\tcharacter\x12e\n" +
+	"\x1aresource_rights_controller\x18\x0f \x03(\v2'.ddex.ern.v432.ResourceRightsControllerR\x18resourceRightsController\x12Y\n" +
+	"\x16work_rights_controller\x18\x10 \x03(\v2#.ddex.ern.v432.WorkRightsControllerR\x14workRightsController\x12@\n" +
+	"\rcourtesy_line\x18\x11 \x03(\v2\x1b.ddex.ern.v432.CourtesyLineR\fcourtesyLine\x12\x1a\n" +
+	"\bduration\x18\x12 \x01(\tR\bduration\x12I\n" +
+	"\rcreation_date\x18\x13 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fcreationDate\x12I\n" +
+	"\rmastered_date\x18\x14 \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\fmasteredDate\x12M\n" +
+	"\x0fremastered_date\x18\x15 \x03(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\x0eremasteredDate\x12T\n" +
+	"\x16first_publication_date\x18\x16 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateR\x14firstPublicationDate\x12b\n" +
+	"\x15parental_warning_type\x18\x17 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x124\n" +
+	"\tav_rating\x18\x18 \x03(\v2\x17.ddex.ern.v432.AvRatingR\bavRating\x12F\n" +
+	"\x0frelated_release\x18\x19 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
+	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12f\n" +
+	"\x1bcomposite_musical_work_type\x18\x1b \x01(\x0e2'.ddex.ern.v432.CompositeMusicalWorkTypeR\x18compositeMusicalWorkType\x12;\n" +
+	"\fcontains_a_i\x18\x1c \x01(\x0e2\x19.ddex.ern.v432.ContainsAIR\n" +
+	"containsAI\x12\x19\n" +
+	"\bis_cover\x18\x1d \x01(\bR\aisCover\x122\n" +
+	"\x15has_vocal_performance\x18\x1e \x01(\bR\x13hasVocalPerformance\x12G\n" +
+	" has_foreground_vocal_performance\x18\x1f \x01(\bR\x1dhasForegroundVocalPerformance\x12'\n" +
+	"\x0fis_instrumental\x18  \x01(\bR\x0eisInstrumental\x126\n" +
+	"\x17contains_hidden_content\x18! \x01(\bR\x15containsHiddenContent\x12#\n" +
+	"\ris_remastered\x18\" \x01(\bR\fisRemastered\x12F\n" +
+	"\x0fdisplay_credits\x18# \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12O\n" +
+	"\x17language_of_performance\x18$ \x03(\v2\x17.ddex.ern.v432.LanguageR\x15languageOfPerformance\x12.\n" +
+	"\x13language_of_dubbing\x18% \x03(\tR\x11languageOfDubbing\x12,\n" +
+	"\x12sub_title_language\x18& \x03(\tR\x10subTitleLanguage\x12\x91\x01\n" +
+	"*resource_contained_resource_reference_list\x18' \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListR&resourceContainedResourceReferenceList\x12\x12\n" +
+	"\x04raga\x18( \x03(\tR\x04raga\x12\x12\n" +
+	"\x04tala\x18) \x03(\tR\x04tala\x12\x14\n" +
+	"\x05deity\x18* \x03(\tR\x05deity\x126\n" +
+	"\x17video_chapter_reference\x18+ \x03(\tR\x15videoChapterReference\x127\n" +
+	"\x18language_and_script_code\x18, \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fis_supplemental\x18- \x01(\bR\x0eisSupplemental\x12E\n" +
+	"\x1fapply_classical_profile_variant\x18. \x01(\bR\x1capplyClassicalProfileVariant\"\xaf\x03\n" +
+	"\x10VideoClipDetails\x12O\n" +
+	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x124\n" +
+	"\tclip_type\x18\x02 \x01(\v2\x17.ddex.ern.v432.ClipTypeR\bclipType\x12-\n" +
+	"\x06timing\x18\x03 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\x12&\n" +
+	"\x0ftop_left_corner\x18\x04 \x01(\tR\rtopLeftCorner\x12.\n" +
+	"\x13bottom_right_corner\x18\x05 \x01(\tR\x11bottomRightCorner\x12F\n" +
+	"\x0fexpression_type\x18\x06 \x01(\x0e2\x1d.ddex.ern.v432.ExpressionTypeR\x0eexpressionType\x12E\n" +
+	"\rdelivery_file\x18\a \x03(\v2 .ddex.ern.v432.VideoDeliveryFileR\fdeliveryFile\"\xfa\r\n" +
+	"\x11VideoDeliveryFile\x123\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1f.ddex.ern.v432.DeliveryFileTypeR\x04type\x12I\n" +
+	"\x10container_format\x18\x02 \x01(\v2\x1e.ddex.ern.v432.ContainerFormatR\x0fcontainerFormat\x12G\n" +
+	"\x10video_codec_type\x18\x03 \x01(\v2\x1d.ddex.ern.v432.VideoCodecTypeR\x0evideoCodecType\x12<\n" +
+	"\x0evideo_bit_rate\x18\x04 \x01(\v2\x16.ddex.ern.v432.BitRateR\fvideoBitRate\x127\n" +
 	"\n" +
-	"frame_rate\x18\x05 \x01(\v2\x18.ddex.ern.v432.FrameRateB\x13\x92\x93!\x0fxml:\"FrameRate\"R\tframeRate\x12O\n" +
-	"\fimage_height\x18\x06 \x01(\v2\x15.ddex.ern.v432.ExtentB\x15\x92\x93!\x11xml:\"ImageHeight\"R\vimageHeight\x12L\n" +
-	"\vimage_width\x18\a \x01(\v2\x15.ddex.ern.v432.ExtentB\x14\x92\x93!\x10xml:\"ImageWidth\"R\n" +
-	"imageWidth\x12T\n" +
-	"\faspect_ratio\x18\b \x03(\v2\x1a.ddex.ern.v432.AspectRatioB\x15\x92\x93!\x11xml:\"AspectRatio\"R\vaspectRatio\x12H\n" +
-	"\tcore_area\x18\t \x01(\v2\x17.ddex.ern.v432.CoreAreaB\x12\x92\x93!\x0exml:\"CoreArea\"R\bcoreArea\x125\n" +
+	"frame_rate\x18\x05 \x01(\v2\x18.ddex.ern.v432.FrameRateR\tframeRate\x128\n" +
+	"\fimage_height\x18\x06 \x01(\v2\x15.ddex.ern.v432.ExtentR\vimageHeight\x126\n" +
+	"\vimage_width\x18\a \x01(\v2\x15.ddex.ern.v432.ExtentR\n" +
+	"imageWidth\x12=\n" +
+	"\faspect_ratio\x18\b \x03(\v2\x1a.ddex.ern.v432.AspectRatioR\vaspectRatio\x124\n" +
+	"\tcore_area\x18\t \x01(\v2\x17.ddex.ern.v432.CoreAreaR\bcoreArea\x12\x1f\n" +
 	"\vcolor_depth\x18\n" +
-	" \x01(\x05B\x14\x92\x93!\x10xml:\"ColorDepth\"R\n" +
-	"colorDepth\x12u\n" +
-	"\x15video_definition_type\x18\v \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeB\x1d\x92\x93!\x19xml:\"VideoDefinitionType\"R\x13videoDefinitionType\x12a\n" +
-	"\x10audio_codec_type\x18\f \x01(\v2\x1d.ddex.ern.v432.AudioCodecTypeB\x18\x92\x93!\x14xml:\"AudioCodecType\"R\x0eaudioCodecType\x12d\n" +
-	"\x1chas_immersive_audio_metadata\x18\r \x01(\bB#\x92\x93!\x1fxml:\"HasImmersiveAudioMetadata\"R\x19hasImmersiveAudioMetadata\x12\xb3\x01\n" +
-	"&electro_optical_transfer_function_type\x18\x0e \x01(\x0e21.ddex.ern.v432.ElectroOpticalTransferFunctionTypeB,\x92\x93!(xml:\"ElectroOpticalTransferFunctionType\"R\"electroOpticalTransferFunctionType\x12i\n" +
-	"\x12primary_color_type\x18\x0f \x01(\x0e2\x1f.ddex.ern.v432.PrimaryColorTypeB\x1a\x92\x93!\x16xml:\"PrimaryColorType\"R\x10primaryColorType\x12\x97\x01\n" +
-	"\x1fhdr_video_dynamic_metadata_type\x18\x10 \x01(\v2*.ddex.ern.v432.HdrVideoDynamicMetadataTypeB%\x92\x93!!xml:\"HdrVideoDynamicMetadataType\"R\x1bhdrVideoDynamicMetadataType\x12\x93\x01\n" +
-	"\x1ehdr_video_static_metadata_type\x18\x11 \x01(\x0e2).ddex.ern.v432.HdrVideoStaticMetadataTypeB$\x92\x93! xml:\"HdrVideoStaticMetadataType\"R\x1ahdrVideoStaticMetadataType\x12T\n" +
-	"\x0eaudio_bit_rate\x18\x12 \x01(\v2\x16.ddex.ern.v432.BitRateB\x16\x92\x93!\x12xml:\"AudioBitRate\"R\faudioBitRate\x12X\n" +
-	"\x18number_of_audio_channels\x18\x13 \x01(\x05B\x1f\x92\x93!\x1bxml:\"NumberOfAudioChannels\"R\x15numberOfAudioChannels\x12U\n" +
-	"\x17number_of_audio_objects\x18\x14 \x01(\x05B\x1e\x92\x93!\x1axml:\"NumberOfAudioObjects\"R\x14numberOfAudioObjects\x12h\n" +
-	"\x13audio_sampling_rate\x18\x15 \x01(\v2\x1b.ddex.ern.v432.SamplingRateB\x1b\x92\x93!\x17xml:\"AudioSamplingRate\"R\x11audioSamplingRate\x12O\n" +
-	"\x15audio_bits_per_sample\x18\x16 \x01(\x05B\x1c\x92\x93!\x18xml:\"AudioBitsPerSample\"R\x12audioBitsPerSample\x12.\n" +
-	"\bduration\x18\x17 \x01(\tB\x12\x92\x93!\x0exml:\"Duration\"R\bduration\x12/\n" +
-	"\tbit_depth\x18\x18 \x01(\x05B\x12\x92\x93!\x0exml:\"BitDepth\"R\bbitDepth\x127\n" +
-	"\x04file\x18\x19 \x01(\v2\x13.ddex.ern.v432.FileB\x0e\x92\x93!\n" +
-	"xml:\"File\"R\x04file\x12S\n" +
-	"\vfingerprint\x18\x1a \x03(\v2\x1a.ddex.ern.v432.FingerprintB\x15\x92\x93!\x11xml:\"Fingerprint\"R\vfingerprint\x12U\n" +
-	"\x17is_provided_in_delivery\x18\x1b \x01(\bB\x1e\x92\x93!\x1axml:\"IsProvidedInDelivery\"R\x14isProvidedInDelivery\"\xd8\x04\n" +
-	"\fVideoEdition\x12>\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1a.ddex.ern.v432.EditionTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12M\n" +
-	"\vresource_id\x18\x02 \x03(\v2\x16.ddex.ern.v432.VideoIdB\x14\x92\x93!\x10xml:\"ResourceId\"R\n" +
-	"resourceId\x12p\n" +
-	"\x13edition_contributor\x18\x03 \x03(\v2!.ddex.ern.v432.EditionContributorB\x1c\x92\x93!\x18xml:\"EditionContributor\"R\x12editionContributor\x12<\n" +
-	"\x06p_line\x18\x04 \x03(\v2\x14.ddex.ern.v432.PLineB\x0f\x92\x93!\vxml:\"PLine\"R\x05pLine\x12<\n" +
-	"\x06c_line\x18\x05 \x03(\v2\x14.ddex.ern.v432.CLineB\x0f\x92\x93!\vxml:\"CLine\"R\x05cLine\x12\\\n" +
-	"\x0erecording_mode\x18\x06 \x01(\x0e2\x1c.ddex.ern.v432.RecordingModeB\x17\x92\x93!\x13xml:\"RecordingMode\"R\rrecordingMode\x12m\n" +
-	"\x11technical_details\x18\a \x03(\v2$.ddex.ern.v432.TechnicalVideoDetailsB\x1a\x92\x93!\x16xml:\"TechnicalDetails\"R\x10technicalDetails\"\xbd\x01\n" +
-	"\tVideoType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xae\x04\n" +
-	"\x14WorkRightsController\x12s\n" +
-	"!rights_controller_party_reference\x18\x01 \x01(\tB(\x92\x93!$xml:\"RightsControllerPartyReference\"R\x1erightsControllerPartyReference\x12p\n" +
-	"\x13rights_control_type\x18\x02 \x03(\x0e2#.ddex.ern.v432.RightsControllerRoleB\x1b\x92\x93!\x17xml:\"RightsControlType\"R\x11rightsControlType\x12y\n" +
-	"\x16rights_controller_type\x18\x03 \x01(\x0e2#.ddex.ern.v432.RightsControllerTypeB\x1e\x92\x93!\x1axml:\"RightsControllerType\"R\x14rightsControllerType\x12R\n" +
-	"\tterritory\x18\x04 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeB\x13\x92\x93!\x0fxml:\"Territory\"R\tterritory\x122\n" +
+	" \x01(\x05R\n" +
+	"colorDepth\x12V\n" +
+	"\x15video_definition_type\x18\v \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeR\x13videoDefinitionType\x12G\n" +
+	"\x10audio_codec_type\x18\f \x01(\v2\x1d.ddex.ern.v432.AudioCodecTypeR\x0eaudioCodecType\x12?\n" +
+	"\x1chas_immersive_audio_metadata\x18\r \x01(\bR\x19hasImmersiveAudioMetadata\x12\x85\x01\n" +
+	"&electro_optical_transfer_function_type\x18\x0e \x01(\x0e21.ddex.ern.v432.ElectroOpticalTransferFunctionTypeR\"electroOpticalTransferFunctionType\x12M\n" +
+	"\x12primary_color_type\x18\x0f \x01(\x0e2\x1f.ddex.ern.v432.PrimaryColorTypeR\x10primaryColorType\x12p\n" +
+	"\x1fhdr_video_dynamic_metadata_type\x18\x10 \x01(\v2*.ddex.ern.v432.HdrVideoDynamicMetadataTypeR\x1bhdrVideoDynamicMetadataType\x12m\n" +
+	"\x1ehdr_video_static_metadata_type\x18\x11 \x01(\x0e2).ddex.ern.v432.HdrVideoStaticMetadataTypeR\x1ahdrVideoStaticMetadataType\x12<\n" +
+	"\x0eaudio_bit_rate\x18\x12 \x01(\v2\x16.ddex.ern.v432.BitRateR\faudioBitRate\x127\n" +
+	"\x18number_of_audio_channels\x18\x13 \x01(\x05R\x15numberOfAudioChannels\x125\n" +
+	"\x17number_of_audio_objects\x18\x14 \x01(\x05R\x14numberOfAudioObjects\x12K\n" +
+	"\x13audio_sampling_rate\x18\x15 \x01(\v2\x1b.ddex.ern.v432.SamplingRateR\x11audioSamplingRate\x121\n" +
+	"\x15audio_bits_per_sample\x18\x16 \x01(\x05R\x12audioBitsPerSample\x12\x1a\n" +
+	"\bduration\x18\x17 \x01(\tR\bduration\x12\x1b\n" +
+	"\tbit_depth\x18\x18 \x01(\x05R\bbitDepth\x12'\n" +
+	"\x04file\x18\x19 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x12<\n" +
+	"\vfingerprint\x18\x1a \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x125\n" +
+	"\x17is_provided_in_delivery\x18\x1b \x01(\bR\x14isProvidedInDelivery\"\xbd\x03\n" +
+	"\fVideoEdition\x12.\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1a.ddex.ern.v432.EditionTypeR\x04type\x127\n" +
+	"\vresource_id\x18\x02 \x03(\v2\x16.ddex.ern.v432.VideoIdR\n" +
+	"resourceId\x12R\n" +
+	"\x13edition_contributor\x18\x03 \x03(\v2!.ddex.ern.v432.EditionContributorR\x12editionContributor\x12+\n" +
+	"\x06p_line\x18\x04 \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12+\n" +
+	"\x06c_line\x18\x05 \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12C\n" +
+	"\x0erecording_mode\x18\x06 \x01(\x0e2\x1c.ddex.ern.v432.RecordingModeR\rrecordingMode\x12Q\n" +
+	"\x11technical_details\x18\a \x03(\v2$.ddex.ern.v432.TechnicalVideoDetailsR\x10technicalDetails\"m\n" +
+	"\tVideoType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x8a\x03\n" +
+	"\x14WorkRightsController\x12I\n" +
+	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12S\n" +
+	"\x13rights_control_type\x18\x02 \x03(\x0e2#.ddex.ern.v432.RightsControllerRoleR\x11rightsControlType\x12Y\n" +
+	"\x16rights_controller_type\x18\x03 \x01(\x0e2#.ddex.ern.v432.RightsControllerTypeR\x14rightsControllerType\x12=\n" +
+	"\tterritory\x18\x04 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\tterritory\x12\x1d\n" +
 	"\n" +
-	"start_date\x18\x05 \x01(\tB\x13\x92\x93!\x0fxml:\"StartDate\"R\tstartDate\x12,\n" +
-	"\bend_date\x18\x06 \x01(\tB\x11\x92\x93!\rxml:\"EndDate\"R\aendDate\"\xd3\x01\n" +
-	"\x1fAdministratingRecordCompanyRole\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xf4\x02\n" +
-	"\vAffiliation\x12B\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1e.ddex.ern.v432.AffiliationTypeB\x0e\x92\x93!\n" +
-	"xml:\"Type\"R\x04type\x12`\n" +
-	"\x0fvalidity_period\x18\x02 \x01(\v2\x1d.ddex.ern.v432.ValidityPeriodB\x18\x92\x93!\x14xml:\"ValidityPeriod\"R\x0evalidityPeriod\x12P\n" +
-	"\vrights_type\x18\x03 \x03(\v2\x19.ddex.ern.v432.RightsTypeB\x14\x92\x93!\x10xml:\"RightsType\"R\n" +
-	"rightsType\x12m\n" +
-	"\x1fpercentage_of_rights_assignment\x18\x04 \x01(\tB&\x92\x93!\"xml:\"PercentageOfRightsAssignment\"R\x1cpercentageOfRightsAssignment\"\xc0\x01\n" +
-	"\x10AllTerritoryCode\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12\x80\x01\n" +
-	"\x0fidentifier_type\x18\x02 \x01(\x0e28.ddex.ern.v432.TerritoryCodeTypeIncludingDeprecatedCodesB\x1d\x92\x93!\x19xml:\"IdentifierType,attr\"R\x0eidentifierType\"\x8c\x02\n" +
-	"\vAspectRatio\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12j\n" +
-	"\x11aspect_ratio_type\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.AspectRatioTypeB\x1e\x92\x93!\x1axml:\"AspectRatioType,attr\"R\x0faspectRatioType\x12f\n" +
-	"\x1bapplies_to_cropped_resource\x18\x03 \x01(\bB'\x92\x93!#xml:\"AppliesToCroppedResource,attr\"R\x18appliesToCroppedResource\"\xf4\x01\n" +
-	"\x0eAudioCodecType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x120\n" +
-	"\aversion\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"Version,attr\"R\aversion\x126\n" +
-	"\tnamespace\x18\x03 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x98\x01\n" +
-	"\aBitRate\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12b\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1c.ddex.ern.v432.UnitOfBitRateB\x1c\x92\x93!\x18xml:\"UnitOfMeasure,attr\"R\runitOfMeasure\"\xc0\x03\n" +
-	"\x05CLine\x12\"\n" +
-	"\x04year\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"Year\"R\x04year\x12<\n" +
-	"\x0ec_line_company\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"CLineCompany\"R\fcLineCompany\x123\n" +
-	"\vc_line_text\x18\x03 \x01(\tB\x13\x92\x93!\x0fxml:\"CLineText\"R\tcLineText\x12]\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"start_date\x18\x05 \x01(\tR\tstartDate\x12\x19\n" +
+	"\bend_date\x18\x06 \x01(\tR\aendDate\"\x83\x01\n" +
+	"\x1fAdministratingRecordCompanyRole\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x8c\x02\n" +
+	"\vAffiliation\x122\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1e.ddex.ern.v432.AffiliationTypeR\x04type\x12F\n" +
+	"\x0fvalidity_period\x18\x02 \x01(\v2\x1d.ddex.ern.v432.ValidityPeriodR\x0evalidityPeriod\x12:\n" +
+	"\vrights_type\x18\x03 \x03(\v2\x19.ddex.ern.v432.RightsTypeR\n" +
+	"rightsType\x12E\n" +
+	"\x1fpercentage_of_rights_assignment\x18\x04 \x01(\tR\x1cpercentageOfRightsAssignment\"\x8b\x01\n" +
+	"\x10AllTerritoryCode\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12a\n" +
+	"\x0fidentifier_type\x18\x02 \x01(\x0e28.ddex.ern.v432.TerritoryCodeTypeIncludingDeprecatedCodesR\x0eidentifierType\"\xae\x01\n" +
+	"\vAspectRatio\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12J\n" +
+	"\x11aspect_ratio_type\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.AspectRatioTypeR\x0faspectRatioType\x12=\n" +
+	"\x1bapplies_to_cropped_resource\x18\x03 \x01(\bR\x18appliesToCroppedResource\"\x8c\x01\n" +
+	"\x0eAudioCodecType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"e\n" +
+	"\aBitRate\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12D\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1c.ddex.ern.v432.UnitOfBitRateR\runitOfMeasure\"\x9a\x02\n" +
+	"\x05CLine\x12\x12\n" +
+	"\x04year\x18\x01 \x01(\tR\x04year\x12$\n" +
+	"\x0ec_line_company\x18\x02 \x01(\tR\fcLineCompany\x12\x1e\n" +
+	"\vc_line_text\x18\x03 \x01(\tR\tcLineText\x127\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x06 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xbf\x01\n" +
-	"\vCarrierType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"r\n" +
-	"\rCatalogNumber\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\"\x8e\x03\n" +
-	"\tChapterId\x12%\n" +
-	"\ai_s_r_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISRC\"R\x04iSRC\x12%\n" +
-	"\ai_s_a_n\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISAN\"R\x04iSAN\x12)\n" +
-	"\tv_i_s_a_n\x18\x03 \x01(\tB\x0f\x92\x93!\vxml:\"VISAN\"R\x05vISAN\x12%\n" +
-	"\ae_i_d_r\x18\x04 \x03(\tB\x0e\x92\x93!\n" +
-	"xml:\"EIDR\"R\x04eIDR\x12%\n" +
-	"\ai_s_w_c\x18\x05 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISWC\"R\x04iSWC\x12\\\n" +
-	"\x0ecatalog_number\x18\x06 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12\\\n" +
-	"\x0eproprietary_id\x18\a \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\"\xbc\x01\n" +
-	"\bClipType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc3\x01\n" +
-	"\x0fContainerFormat\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xeb\x05\n" +
-	"\vContributor\x12B\n" +
-	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleB\x0e\x92\x93!\n" +
-	"xml:\"Role\"R\x04role\x12`\n" +
-	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeB\x18\x92\x93!\x14xml:\"InstrumentType\"R\x0einstrumentType\x12\\\n" +
-	"\x0fai_contribution\x18\x03 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIB\x18\x92\x93!\x14xml:\"AiContribution\"R\x0eaiContribution\x12j\n" +
-	"\x1ehas_made_featured_contribution\x18\x04 \x01(\bB%\x92\x93!!xml:\"HasMadeFeaturedContribution\"R\x1bhasMadeFeaturedContribution\x12p\n" +
-	" has_made_contracted_contribution\x18\x05 \x01(\bB'\x92\x93!#xml:\"HasMadeContractedContribution\"R\x1dhasMadeContractedContribution\x12P\n" +
-	"\vis_credited\x18\x06 \x01(\v2\x19.ddex.ern.v432.IsCreditedB\x14\x92\x93!\x10xml:\"IsCredited\"R\n" +
-	"isCredited\x12`\n" +
-	"\x0fdisplay_credits\x18\a \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsB\x18\x92\x93!\x14xml:\"DisplayCredits\"R\x0edisplayCredits\x12F\n" +
-	"\x0fsequence_number\x18\b \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\"\xbf\x01\n" +
-	"\x0fContributorRole\x12J\n" +
-	"\x05value\x18\x01 \x01(\v2#.ddex.ern.v432.ContributorRoleValueB\x0f\x92\x93!\vxml:\"Value\"R\x05value\x12`\n" +
-	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeB\x18\x92\x93!\x14xml:\"InstrumentType\"R\x0einstrumentType\"\xc8\x01\n" +
-	"\x14ContributorRoleValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xdb\x02\n" +
-	"\fCourtesyLine\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x06 \x01(\bR\tisDefault\"o\n" +
+	"\vCarrierType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"C\n" +
+	"\rCatalogNumber\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"\x8b\x02\n" +
+	"\tChapterId\x12\x15\n" +
+	"\ai_s_r_c\x18\x01 \x01(\tR\x04iSRC\x12\x15\n" +
+	"\ai_s_a_n\x18\x02 \x01(\tR\x04iSAN\x12\x18\n" +
+	"\tv_i_s_a_n\x18\x03 \x01(\tR\x05vISAN\x12\x15\n" +
+	"\ae_i_d_r\x18\x04 \x03(\tR\x04eIDR\x12\x15\n" +
+	"\ai_s_w_c\x18\x05 \x01(\tR\x04iSWC\x12C\n" +
+	"\x0ecatalog_number\x18\x06 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberR\rcatalogNumber\x12C\n" +
+	"\x0eproprietary_id\x18\a \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\"l\n" +
+	"\bClipType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"s\n" +
+	"\x0fContainerFormat\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x88\x04\n" +
+	"\vContributor\x122\n" +
+	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12F\n" +
+	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\x12B\n" +
+	"\x0fai_contribution\x18\x03 \x01(\x0e2\x19.ddex.ern.v432.ContainsAIR\x0eaiContribution\x12C\n" +
+	"\x1ehas_made_featured_contribution\x18\x04 \x01(\bR\x1bhasMadeFeaturedContribution\x12G\n" +
+	" has_made_contracted_contribution\x18\x05 \x01(\bR\x1dhasMadeContractedContribution\x12:\n" +
+	"\vis_credited\x18\x06 \x01(\v2\x19.ddex.ern.v432.IsCreditedR\n" +
+	"isCredited\x12F\n" +
+	"\x0fdisplay_credits\x18\a \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12'\n" +
+	"\x0fsequence_number\x18\b \x01(\x05R\x0esequenceNumber\"\x94\x01\n" +
+	"\x0fContributorRole\x129\n" +
+	"\x05value\x18\x01 \x01(\v2#.ddex.ern.v432.ContributorRoleValueR\x05value\x12F\n" +
+	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\"x\n" +
+	"\x14ContributorRoleValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xdd\x01\n" +
+	"\fCourtesyLine\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xbd\x01\n" +
-	"\tCueOrigin\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc0\x01\n" +
-	"\fCueSheetType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc0\x01\n" +
-	"\fCueThemeType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xbe\x01\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"m\n" +
+	"\tCueOrigin\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"p\n" +
+	"\fCueSheetType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"p\n" +
+	"\fCueThemeType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"n\n" +
 	"\n" +
-	"CueUseType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xcb\x01\n" +
-	"\x17CueVisualPerceptionType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc0\x01\n" +
-	"\fCueVocalType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xab\x01\n" +
-	"\x14CurrentTerritoryCode\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12h\n" +
-	"\x0fidentifier_type\x18\x02 \x01(\x0e2 .ddex.ern.v432.TerritoryCodeTypeB\x1d\x92\x93!\x19xml:\"IdentifierType,attr\"R\x0eidentifierType\"w\n" +
-	"\x03DSP\x12M\n" +
-	"\ftrading_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameB\x15\x92\x93!\x11xml:\"TradingName\"R\vtradingName\x12!\n" +
-	"\x05u_r_l\x18\x02 \x03(\tB\r\x92\x93!\txml:\"URL\"R\x03uRL\"\xd7\x02\n" +
-	"\x0fDetailedHashSum\x12V\n" +
-	"\talgorithm\x18\x01 \x01(\v2#.ddex.ern.v432.HashSumAlgorithmTypeB\x13\x92\x93!\x0fxml:\"Algorithm\"R\talgorithm\x12+\n" +
-	"\aversion\x18\x02 \x01(\tB\x11\x92\x93!\rxml:\"Version\"R\aversion\x121\n" +
-	"\tparameter\x18\x03 \x01(\tB\x13\x92\x93!\x0fxml:\"Parameter\"R\tparameter\x12N\n" +
-	"\tdata_type\x18\x04 \x01(\x0e2\x1d.ddex.ern.v432.BinaryDataTypeB\x12\x92\x93!\x0exml:\"DataType\"R\bdataType\x12<\n" +
-	"\x0ehash_sum_value\x18\x05 \x01(\tB\x16\x92\x93!\x12xml:\"HashSumValue\"R\fhashSumValue\"\xe5\x02\n" +
-	"\x0fDetailedPartyId\x12%\n" +
-	"\ai_s_n_i\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISNI\"R\x04iSNI\x12%\n" +
-	"\ad_p_i_d\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"DPID\"R\x04dPID\x12?\n" +
-	"\x0fipi_name_number\x18\x03 \x01(\tB\x17\x92\x93!\x13xml:\"IpiNameNumber\"R\ripiNameNumber\x12!\n" +
-	"\x05i_p_n\x18\x04 \x01(\tB\r\x92\x93!\txml:\"IPN\"R\x03iPN\x12B\n" +
-	"\x10cisac_society_id\x18\x05 \x01(\tB\x18\x92\x93!\x14xml:\"CisacSocietyId\"R\x0ecisacSocietyId\x12\\\n" +
-	"\x0eproprietary_id\x18\x06 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\"\xd0\x03\n" +
-	"%DisplayArtistNameWithOriginalLanguage\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12Z\n" +
-	"\x17is_in_original_language\x18\x03 \x01(\bB#\x92\x93!\x1fxml:\"IsInOriginalLanguage,attr\"R\x14isInOriginalLanguage\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"CueUseType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"{\n" +
+	"\x17CueVisualPerceptionType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"p\n" +
+	"\fCueVocalType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"w\n" +
+	"\x14CurrentTerritoryCode\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12I\n" +
+	"\x0fidentifier_type\x18\x02 \x01(\x0e2 .ddex.ern.v432.TerritoryCodeTypeR\x0eidentifierType\"Q\n" +
+	"\x03DSP\x126\n" +
+	"\ftrading_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\vtradingName\x12\x12\n" +
+	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\"\xee\x01\n" +
+	"\x0fDetailedHashSum\x12A\n" +
+	"\talgorithm\x18\x01 \x01(\v2#.ddex.ern.v432.HashSumAlgorithmTypeR\talgorithm\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tparameter\x18\x03 \x01(\tR\tparameter\x12:\n" +
+	"\tdata_type\x18\x04 \x01(\x0e2\x1d.ddex.ern.v432.BinaryDataTypeR\bdataType\x12$\n" +
+	"\x0ehash_sum_value\x18\x05 \x01(\tR\fhashSumValue\"\xea\x01\n" +
+	"\x0fDetailedPartyId\x12\x15\n" +
+	"\ai_s_n_i\x18\x01 \x01(\tR\x04iSNI\x12\x15\n" +
+	"\ad_p_i_d\x18\x02 \x01(\tR\x04dPID\x12&\n" +
+	"\x0fipi_name_number\x18\x03 \x01(\tR\ripiNameNumber\x12\x12\n" +
+	"\x05i_p_n\x18\x04 \x01(\tR\x03iPN\x12(\n" +
+	"\x10cisac_society_id\x18\x05 \x01(\tR\x0ecisacSocietyId\x12C\n" +
+	"\x0eproprietary_id\x18\x06 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\"\xad\x02\n" +
+	"%DisplayArtistNameWithOriginalLanguage\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x125\n" +
+	"\x17is_in_original_language\x18\x03 \x01(\bR\x14isInOriginalLanguage\x12_\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x05 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xc5\x01\n" +
-	"\x11DisplayArtistRole\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xff\x02\n" +
-	"\x0eDisplayCredits\x12K\n" +
-	"\x13display_credit_text\x18\x01 \x01(\tB\x1b\x92\x93!\x17xml:\"DisplayCreditText\"R\x11displayCreditText\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x05 \x01(\bR\tisDefault\"u\n" +
+	"\x11DisplayArtistRole\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xf9\x01\n" +
+	"\x0eDisplayCredits\x12.\n" +
+	"\x13display_credit_text\x18\x01 \x01(\tR\x11displayCreditText\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xba\x02\n" +
-	"\x0fDisplaySubTitle\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12F\n" +
-	"\x0fsequence_number\x18\x02 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\x12T\n" +
-	"\x15is_displayed_in_title\x18\x03 \x01(\bB!\x92\x93!\x1dxml:\"IsDisplayedInTitle,attr\"R\x12isDisplayedInTitle\x12^\n" +
-	"\x0esub_title_type\x18\x04 \x01(\x0e2\x1b.ddex.ern.v432.SubTitleTypeB\x1b\x92\x93!\x17xml:\"SubTitleType,attr\"R\fsubTitleType\"\x91\x04\n" +
-	"\fDisplayTitle\x122\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\xc6\x01\n" +
+	"\x0fDisplaySubTitle\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12'\n" +
+	"\x0fsequence_number\x18\x02 \x01(\x05R\x0esequenceNumber\x121\n" +
+	"\x15is_displayed_in_title\x18\x03 \x01(\bR\x12isDisplayedInTitle\x12A\n" +
+	"\x0esub_title_type\x18\x04 \x01(\x0e2\x1b.ddex.ern.v432.SubTitleTypeR\fsubTitleType\"\xda\x02\n" +
+	"\fDisplayTitle\x12\x1d\n" +
 	"\n" +
-	"title_text\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"TitleText\"R\ttitleText\x12O\n" +
-	"\tsub_title\x18\x02 \x03(\v2\x1e.ddex.ern.v432.DisplaySubTitleB\x12\x92\x93!\x0exml:\"SubTitle\"R\bsubTitle\x12]\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"title_text\x18\x01 \x01(\tR\ttitleText\x12;\n" +
+	"\tsub_title\x18\x02 \x03(\v2\x1e.ddex.ern.v432.DisplaySubTitleR\bsubTitle\x127\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x05 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12Z\n" +
-	"\x17is_in_original_language\x18\x06 \x01(\bB#\x92\x93!\x1fxml:\"IsInOriginalLanguage,attr\"R\x14isInOriginalLanguage\"\xa0\x04\n" +
-	"\tEventDate\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\x124\n" +
-	"\tis_before\x18\x03 \x01(\bB\x17\x92\x93!\x13xml:\"IsBefore,attr\"R\bisBefore\x121\n" +
-	"\bis_after\x18\x04 \x01(\bB\x16\x92\x93!\x12xml:\"IsAfter,attr\"R\aisAfter\x12\x83\x01\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x12U\n" +
-	"\x14location_description\x18\x06 \x01(\tB\"\x92\x93!\x1exml:\"LocationDescription,attr\"R\x13locationDescription\x12]\n" +
-	"\x18language_and_script_code\x18\a \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\x84\x04\n" +
-	"\rEventDateTime\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12C\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bB\x1c\x92\x93!\x18xml:\"IsApproximate,attr\"R\risApproximate\x124\n" +
-	"\tis_before\x18\x03 \x01(\bB\x17\x92\x93!\x13xml:\"IsBefore,attr\"R\bisBefore\x121\n" +
-	"\bis_after\x18\x04 \x01(\bB\x16\x92\x93!\x12xml:\"IsAfter,attr\"R\aisAfter\x12d\n" +
-	"\x0eterritory_code\x18\x05 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeB\x1c\x92\x93!\x18xml:\"TerritoryCode,attr\"R\rterritoryCode\x12U\n" +
-	"\x14location_description\x18\x06 \x01(\tB\"\x92\x93!\x1exml:\"LocationDescription,attr\"R\x13locationDescription\x12]\n" +
-	"\x18language_and_script_code\x18\a \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\x96\x01\n" +
-	"\x06Extent\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12a\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1b.ddex.ern.v432.UnitOfExtentB\x1c\x92\x93!\x18xml:\"UnitOfMeasure,attr\"R\runitOfMeasure\"\xd0\x01\n" +
-	"\x1cExternallyLinkedResourceType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xa8\x01\n" +
-	"\x04File\x12!\n" +
-	"\x05u_r_i\x18\x01 \x01(\tB\r\x92\x93!\txml:\"URI\"R\x03uRI\x12L\n" +
-	"\bhash_sum\x18\x02 \x01(\v2\x1e.ddex.ern.v432.DetailedHashSumB\x11\x92\x93!\rxml:\"HashSum\"R\ahashSum\x12/\n" +
-	"\tfile_size\x18\x03 \x01(\tB\x12\x92\x93!\x0exml:\"FileSize\"R\bfileSize\"\xc9\x01\n" +
-	"\vFingerprint\x12Z\n" +
-	"\talgorithm\x18\x01 \x01(\v2'.ddex.ern.v432.FingerprintAlgorithmTypeB\x13\x92\x93!\x0fxml:\"Algorithm\"R\talgorithm\x12+\n" +
-	"\aversion\x18\x02 \x01(\tB\x11\x92\x93!\rxml:\"Version\"R\aversion\x121\n" +
-	"\tparameter\x18\x03 \x01(\tB\x13\x92\x93!\x0fxml:\"Parameter\"R\tparameter\"\xcc\x01\n" +
-	"\x18FingerprintAlgorithmType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x84\x02\n" +
-	"\x14FirstPublicationDate\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x05 \x01(\bR\tisDefault\x125\n" +
+	"\x17is_in_original_language\x18\x06 \x01(\bR\x14isInOriginalLanguage\"\xc9\x02\n" +
+	"\tEventDate\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12\x1b\n" +
+	"\tis_before\x18\x03 \x01(\bR\bisBefore\x12\x19\n" +
+	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12[\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x14location_description\x18\x06 \x01(\tR\x13locationDescription\x127\n" +
+	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"\xb8\x02\n" +
+	"\rEventDateTime\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12\x1b\n" +
+	"\tis_before\x18\x03 \x01(\bR\bisBefore\x12\x19\n" +
+	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12F\n" +
+	"\x0eterritory_code\x18\x05 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\rterritoryCode\x121\n" +
+	"\x14location_description\x18\x06 \x01(\tR\x13locationDescription\x127\n" +
+	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"c\n" +
+	"\x06Extent\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12C\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1b.ddex.ern.v432.UnitOfExtentR\runitOfMeasure\"\x80\x01\n" +
+	"\x1cExternallyLinkedResourceType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"r\n" +
+	"\x04File\x12\x12\n" +
+	"\x05u_r_i\x18\x01 \x01(\tR\x03uRI\x129\n" +
+	"\bhash_sum\x18\x02 \x01(\v2\x1e.ddex.ern.v432.DetailedHashSumR\ahashSum\x12\x1b\n" +
+	"\tfile_size\x18\x03 \x01(\tR\bfileSize\"\x8c\x01\n" +
+	"\vFingerprint\x12E\n" +
+	"\talgorithm\x18\x01 \x01(\v2'.ddex.ern.v432.FingerprintAlgorithmTypeR\talgorithm\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tparameter\x18\x03 \x01(\tR\tparameter\"|\n" +
+	"\x18FingerprintAlgorithmType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xac\x01\n" +
+	"\x14FirstPublicationDate\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12_\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\x9c\x01\n" +
-	"\tFrameRate\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12d\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.UnitOfFrameRateB\x1c\x92\x93!\x18xml:\"UnitOfMeasure,attr\"R\runitOfMeasure\"\xfc\x02\n" +
-	"\x0fFulfillmentDate\x12D\n" +
-	"\x10fulfillment_date\x18\x01 \x01(\tB\x19\x92\x93!\x15xml:\"FulfillmentDate\"R\x0ffulfillmentDate\x12`\n" +
-	"\x1aresource_release_reference\x18\x02 \x03(\tB\"\x92\x93!\x1exml:\"ResourceReleaseReference\"R\x18resourceReleaseReference\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\"i\n" +
+	"\tFrameRate\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12F\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.UnitOfFrameRateR\runitOfMeasure\"\xfa\x01\n" +
+	"\x0fFulfillmentDate\x12)\n" +
+	"\x10fulfillment_date\x18\x01 \x01(\tR\x0ffulfillmentDate\x12<\n" +
+	"\x1aresource_release_reference\x18\x02 \x03(\tR\x18resourceReleaseReference\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xc1\x02\n" +
-	"\rGenreCategory\x12H\n" +
-	"\x05value\x18\x01 \x01(\v2!.ddex.ern.v432.GenreCategoryValueB\x0f\x92\x93!\vxml:\"Value\"R\x05value\x12\\\n" +
-	"\vdescription\x18\x02 \x03(\v2#.ddex.ern.v432.TextWithoutTerritoryB\x15\x92\x93!\x11xml:\"Description\"R\vdescription\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\"\xa5\x02\n" +
-	"\x12GenreCategoryValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x126\n" +
-	"\tnamespace\x18\x03 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xe4\x04\n" +
-	"\x12GenreWithTerritory\x122\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\xf0\x01\n" +
+	"\rGenreCategory\x127\n" +
+	"\x05value\x18\x01 \x01(\v2!.ddex.ern.v432.GenreCategoryValueR\x05value\x12E\n" +
+	"\vdescription\x18\x02 \x03(\v2#.ddex.ern.v432.TextWithoutTerritoryR\vdescription\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xaf\x01\n" +
+	"\x12GenreCategoryValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12\x1c\n" +
+	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\x9d\x03\n" +
+	"\x12GenreWithTerritory\x12\x1d\n" +
 	"\n" +
-	"genre_text\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"GenreText\"R\tgenreText\x12/\n" +
-	"\tsub_genre\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"SubGenre\"R\bsubGenre\x12\\\n" +
-	"\x0egenre_category\x18\x03 \x03(\v2\x1c.ddex.ern.v432.GenreCategoryB\x17\x92\x93!\x13xml:\"GenreCategory\"R\rgenreCategory\x12i\n" +
-	"\x12sub_genre_category\x18\x04 \x03(\v2\x1f.ddex.ern.v432.SubGenreCategoryB\x1a\x92\x93!\x16xml:\"SubGenreCategory\"R\x10subGenreCategory\x12]\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x06 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"genre_text\x18\x01 \x01(\tR\tgenreText\x12\x1b\n" +
+	"\tsub_genre\x18\x02 \x01(\tR\bsubGenre\x12C\n" +
+	"\x0egenre_category\x18\x03 \x03(\v2\x1c.ddex.ern.v432.GenreCategoryR\rgenreCategory\x12M\n" +
+	"\x12sub_genre_category\x18\x04 \x03(\v2\x1f.ddex.ern.v432.SubGenreCategoryR\x10subGenreCategory\x127\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x06 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\a \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xc8\x01\n" +
-	"\x14HashSumAlgorithmType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xf4\x01\n" +
-	"\x0eImageCodecType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x120\n" +
-	"\aversion\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"Version,attr\"R\aversion\x126\n" +
-	"\tnamespace\x18\x03 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xbd\x01\n" +
-	"\tImageType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc2\x01\n" +
-	"\x0eInstrumentType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"w\n" +
+	"is_default\x18\a \x01(\bR\tisDefault\"x\n" +
+	"\x14HashSumAlgorithmType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x8c\x01\n" +
+	"\x0eImageCodecType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"m\n" +
+	"\tImageType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"r\n" +
+	"\x0eInstrumentType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"F\n" +
 	"\n" +
-	"IsCredited\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12>\n" +
-	"\rmay_be_shared\x18\x02 \x01(\bB\x1a\x92\x93!\x16xml:\"MayBeShared,attr\"R\vmayBeShared\"\xe4\x02\n" +
-	"\x15KeywordsWithTerritory\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"IsCredited\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\"\n" +
+	"\rmay_be_shared\x18\x02 \x01(\bR\vmayBeShared\"\xe6\x01\n" +
+	"\x15KeywordsWithTerritory\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"~\n" +
-	"\bLanguage\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12G\n" +
-	"\x10is_main_language\x18\x02 \x01(\bB\x1d\x92\x93!\x19xml:\"IsMainLanguage,attr\"R\x0eisMainLanguage\"\xdf\x02\n" +
-	"\x10MarketingComment\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"J\n" +
+	"\bLanguage\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12(\n" +
+	"\x10is_main_language\x18\x02 \x01(\bR\x0eisMainLanguage\"\xe1\x01\n" +
+	"\x10MarketingComment\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\x98\x01\n" +
-	"\x11MessageAuditTrail\x12\x82\x01\n" +
-	"\x19message_audit_trail_event\x18\x01 \x03(\v2%.ddex.ern.v432.MessageAuditTrailEventB \x92\x93!\x1cxml:\"MessageAuditTrailEvent\"R\x16messageAuditTrailEvent\"\xd6\x01\n" +
-	"\x16MessageAuditTrailEvent\x12\x8a\x01\n" +
-	"\x1amessaging_party_descriptor\x18\x01 \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeB\"\x92\x93!\x1exml:\"MessagingPartyDescriptor\"R\x18messagingPartyDescriptor\x12/\n" +
-	"\tdate_time\x18\x02 \x01(\tB\x12\x92\x93!\x0exml:\"DateTime\"R\bdateTime\"\xd4\a\n" +
-	"\rMessageHeader\x12E\n" +
-	"\x11message_thread_id\x18\x01 \x01(\tB\x19\x92\x93!\x15xml:\"MessageThreadId\"R\x0fmessageThreadId\x122\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"u\n" +
+	"\x11MessageAuditTrail\x12`\n" +
+	"\x19message_audit_trail_event\x18\x01 \x03(\v2%.ddex.ern.v432.MessageAuditTrailEventR\x16messageAuditTrailEvent\"\x9d\x01\n" +
+	"\x16MessageAuditTrailEvent\x12f\n" +
+	"\x1amessaging_party_descriptor\x18\x01 \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\x18messagingPartyDescriptor\x12\x1b\n" +
+	"\tdate_time\x18\x02 \x01(\tR\bdateTime\"\xc0\x05\n" +
+	"\rMessageHeader\x12*\n" +
+	"\x11message_thread_id\x18\x01 \x01(\tR\x0fmessageThreadId\x12\x1d\n" +
 	"\n" +
-	"message_id\x18\x02 \x01(\tB\x13\x92\x93!\x0fxml:\"MessageId\"R\tmessageId\x12E\n" +
-	"\x11message_file_name\x18\x03 \x01(\tB\x19\x92\x93!\x15xml:\"MessageFileName\"R\x0fmessageFileName\x12h\n" +
-	"\x0emessage_sender\x18\x04 \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeB\x17\x92\x93!\x13xml:\"MessageSender\"R\rmessageSender\x12m\n" +
-	"\x11sent_on_behalf_of\x18\x05 \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeB\x18\x92\x93!\x14xml:\"SentOnBehalfOf\"R\x0esentOnBehalfOf\x12q\n" +
-	"\x11message_recipient\x18\x06 \x03(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeB\x1a\x92\x93!\x16xml:\"MessageRecipient\"R\x10messageRecipient\x12v\n" +
-	"\x14sent_as_requested_by\x18\a \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeB\x1b\x92\x93!\x17xml:\"SentAsRequestedBy\"R\x11sentAsRequestedBy\x12[\n" +
-	"\x19message_created_date_time\x18\b \x01(\tB \x92\x93!\x1cxml:\"MessageCreatedDateTime\"R\x16messageCreatedDateTime\x12m\n" +
-	"\x13message_audit_trail\x18\t \x01(\v2 .ddex.ern.v432.MessageAuditTrailB\x1b\x92\x93!\x17xml:\"MessageAuditTrail\"R\x11messageAuditTrail\x12q\n" +
+	"message_id\x18\x02 \x01(\tR\tmessageId\x12*\n" +
+	"\x11message_file_name\x18\x03 \x01(\tR\x0fmessageFileName\x12O\n" +
+	"\x0emessage_sender\x18\x04 \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\rmessageSender\x12S\n" +
+	"\x11sent_on_behalf_of\x18\x05 \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\x0esentOnBehalfOf\x12U\n" +
+	"\x11message_recipient\x18\x06 \x03(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\x10messageRecipient\x12Y\n" +
+	"\x14sent_as_requested_by\x18\a \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\x11sentAsRequestedBy\x129\n" +
+	"\x19message_created_date_time\x18\b \x01(\tR\x16messageCreatedDateTime\x12P\n" +
+	"\x13message_audit_trail\x18\t \x01(\v2 .ddex.ern.v432.MessageAuditTrailR\x11messageAuditTrail\x12S\n" +
 	"\x14message_control_type\x18\n" +
-	" \x01(\x0e2!.ddex.ern.v432.MessageControlTypeB\x1c\x92\x93!\x18xml:\"MessageControlType\"R\x12messageControlType\"\xdc\x01\n" +
-	"\x19MessagingPartyWithoutCode\x12,\n" +
-	"\bparty_id\x18\x01 \x01(\tB\x11\x92\x93!\rxml:\"PartyId\"R\apartyId\x12W\n" +
+	" \x01(\x0e2!.ddex.ern.v432.MessageControlTypeR\x12messageControlType\"\x9d\x01\n" +
+	"\x19MessagingPartyWithoutCode\x12\x19\n" +
+	"\bparty_id\x18\x01 \x01(\tR\apartyId\x12B\n" +
 	"\n" +
-	"party_name\x18\x02 \x01(\v2#.ddex.ern.v432.PartyNameWithoutCodeB\x13\x92\x93!\x0fxml:\"PartyName\"R\tpartyName\x128\n" +
-	"\ftrading_name\x18\x03 \x01(\tB\x15\x92\x93!\x11xml:\"TradingName\"R\vtradingName\"\xe0\x02\n" +
-	"\rMusicalWorkId\x12%\n" +
-	"\ai_s_w_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISWC\"R\x04iSWC\x125\n" +
-	"\vopus_number\x18\x02 \x01(\tB\x14\x92\x93!\x10xml:\"OpusNumber\"R\n" +
-	"opusNumber\x12W\n" +
-	"\x17composer_catalog_number\x18\x03 \x03(\tB\x1f\x92\x93!\x1bxml:\"ComposerCatalogNumber\"R\x15composerCatalogNumber\x12\\\n" +
-	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12:\n" +
-	"\vis_replaced\x18\x05 \x01(\bB\x19\x92\x93!\x15xml:\"IsReplaced,attr\"R\n" +
-	"isReplaced\"\x90\x01\n" +
-	"\x04Name\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xf9\x01\n" +
-	"\x13OperatingSystemType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x120\n" +
-	"\aversion\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"Version,attr\"R\aversion\x126\n" +
-	"\tnamespace\x18\x03 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc0\x03\n" +
-	"\x05PLine\x12\"\n" +
-	"\x04year\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"Year\"R\x04year\x12<\n" +
-	"\x0ep_line_company\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"PLineCompany\"R\fpLineCompany\x123\n" +
-	"\vp_line_text\x18\x03 \x01(\tB\x13\x92\x93!\x0fxml:\"PLineText\"R\tpLineText\x12]\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"party_name\x18\x02 \x01(\v2#.ddex.ern.v432.PartyNameWithoutCodeR\tpartyName\x12!\n" +
+	"\ftrading_name\x18\x03 \x01(\tR\vtradingName\"\xe5\x01\n" +
+	"\rMusicalWorkId\x12\x15\n" +
+	"\ai_s_w_c\x18\x01 \x01(\tR\x04iSWC\x12\x1f\n" +
+	"\vopus_number\x18\x02 \x01(\tR\n" +
+	"opusNumber\x126\n" +
+	"\x17composer_catalog_number\x18\x03 \x03(\tR\x15composerCatalogNumber\x12C\n" +
+	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x1f\n" +
+	"\vis_replaced\x18\x05 \x01(\bR\n" +
+	"isReplaced\"U\n" +
+	"\x04Name\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\x91\x01\n" +
+	"\x13OperatingSystemType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\x9a\x02\n" +
+	"\x05PLine\x12\x12\n" +
+	"\x04year\x18\x01 \x01(\tR\x04year\x12$\n" +
+	"\x0ep_line_company\x18\x02 \x01(\tR\fpLineCompany\x12\x1e\n" +
+	"\vp_line_text\x18\x03 \x01(\tR\tpLineText\x127\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x06 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\"\xf6\x05\n" +
-	"\x1fParentalWarningTypeWithStandard\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x06 \x01(\bR\tisDefault\"\xe7\x03\n" +
+	"\x1fParentalWarningTypeWithStandard\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12_\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12C\n" +
-	"\x0etype_namespace\x18\x04 \x01(\tB\x1c\x92\x93!\x18xml:\"TypeNamespace,attr\"R\rtypeNamespace\x12Z\n" +
-	"\x17type_user_defined_value\x18\x05 \x01(\tB#\x92\x93!\x1fxml:\"TypeUserDefinedValue,attr\"R\x14typeUserDefinedValue\x12\x8a\x01\n" +
-	"\x19parental_warning_standard\x18\x06 \x01(\x0e2&.ddex.ern.v432.ParentalWarningStandardB&\x92\x93!\"xml:\"ParentalWarningStandard,attr\"R\x17parentalWarningStandard\x12O\n" +
-	"\x12standard_namespace\x18\a \x01(\tB \x92\x93!\x1cxml:\"StandardNamespace,attr\"R\x11standardNamespace\x12f\n" +
-	"\x1bstandard_user_defined_value\x18\b \x01(\tB'\x92\x93!#xml:\"StandardUserDefinedValue,attr\"R\x18standardUserDefinedValue\"\xd6\x05\n" +
-	"\tPartyName\x12D\n" +
-	"\tfull_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameB\x12\x92\x93!\x0exml:\"FullName\"R\bfullName\x12a\n" +
-	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tB\"\x92\x93!\x1exml:\"FullNameAsciiTranscribed\"R\x18fullNameAsciiTranscribed\x12Z\n" +
-	"\x11full_name_indexed\x18\x03 \x01(\v2\x13.ddex.ern.v432.NameB\x19\x92\x93!\x15xml:\"FullNameIndexed\"R\x0ffullNameIndexed\x12d\n" +
-	"\x15names_before_key_name\x18\x04 \x01(\v2\x13.ddex.ern.v432.NameB\x1c\x92\x93!\x18xml:\"NamesBeforeKeyName\"R\x12namesBeforeKeyName\x12A\n" +
-	"\bkey_name\x18\x05 \x01(\v2\x13.ddex.ern.v432.NameB\x11\x92\x93!\rxml:\"KeyName\"R\akeyName\x12a\n" +
-	"\x14names_after_key_name\x18\x06 \x01(\v2\x13.ddex.ern.v432.NameB\x1b\x92\x93!\x17xml:\"NamesAfterKeyName\"R\x11namesAfterKeyName\x12Y\n" +
-	"\x10abbreviated_name\x18\a \x01(\v2\x13.ddex.ern.v432.NameB\x19\x92\x93!\x15xml:\"AbbreviatedName\"R\x0fabbreviatedName\x12]\n" +
-	"\x18language_and_script_code\x18\b \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\x84\x04\n" +
-	"\x14PartyNameWithoutCode\x12/\n" +
-	"\tfull_name\x18\x01 \x01(\tB\x12\x92\x93!\x0exml:\"FullName\"R\bfullName\x12a\n" +
-	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tB\"\x92\x93!\x1exml:\"FullNameAsciiTranscribed\"R\x18fullNameAsciiTranscribed\x12E\n" +
-	"\x11full_name_indexed\x18\x03 \x01(\tB\x19\x92\x93!\x15xml:\"FullNameIndexed\"R\x0ffullNameIndexed\x12O\n" +
-	"\x15names_before_key_name\x18\x04 \x01(\tB\x1c\x92\x93!\x18xml:\"NamesBeforeKeyName\"R\x12namesBeforeKeyName\x12,\n" +
-	"\bkey_name\x18\x05 \x01(\tB\x11\x92\x93!\rxml:\"KeyName\"R\akeyName\x12L\n" +
-	"\x14names_after_key_name\x18\x06 \x01(\tB\x1b\x92\x93!\x17xml:\"NamesAfterKeyName\"R\x11namesAfterKeyName\x12D\n" +
-	"\x10abbreviated_name\x18\a \x01(\tB\x19\x92\x93!\x15xml:\"AbbreviatedName\"R\x0fabbreviatedName\"\x89\x02\n" +
-	"\x15PartyRelationshipType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\x12>\n" +
-	"\rmay_be_shared\x18\x04 \x01(\bB\x1a\x92\x93!\x16xml:\"MayBeShared,attr\"R\vmayBeShared\"\x88\x01\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\x12%\n" +
+	"\x0etype_namespace\x18\x04 \x01(\tR\rtypeNamespace\x125\n" +
+	"\x17type_user_defined_value\x18\x05 \x01(\tR\x14typeUserDefinedValue\x12b\n" +
+	"\x19parental_warning_standard\x18\x06 \x01(\x0e2&.ddex.ern.v432.ParentalWarningStandardR\x17parentalWarningStandard\x12-\n" +
+	"\x12standard_namespace\x18\a \x01(\tR\x11standardNamespace\x12=\n" +
+	"\x1bstandard_user_defined_value\x18\b \x01(\tR\x18standardUserDefinedValue\"\xf4\x03\n" +
+	"\tPartyName\x120\n" +
+	"\tfull_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\bfullName\x12=\n" +
+	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tR\x18fullNameAsciiTranscribed\x12?\n" +
+	"\x11full_name_indexed\x18\x03 \x01(\v2\x13.ddex.ern.v432.NameR\x0ffullNameIndexed\x12F\n" +
+	"\x15names_before_key_name\x18\x04 \x01(\v2\x13.ddex.ern.v432.NameR\x12namesBeforeKeyName\x12.\n" +
+	"\bkey_name\x18\x05 \x01(\v2\x13.ddex.ern.v432.NameR\akeyName\x12D\n" +
+	"\x14names_after_key_name\x18\x06 \x01(\v2\x13.ddex.ern.v432.NameR\x11namesAfterKeyName\x12>\n" +
+	"\x10abbreviated_name\x18\a \x01(\v2\x13.ddex.ern.v432.NameR\x0fabbreviatedName\x127\n" +
+	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\"\xc8\x02\n" +
+	"\x14PartyNameWithoutCode\x12\x1b\n" +
+	"\tfull_name\x18\x01 \x01(\tR\bfullName\x12=\n" +
+	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tR\x18fullNameAsciiTranscribed\x12*\n" +
+	"\x11full_name_indexed\x18\x03 \x01(\tR\x0ffullNameIndexed\x121\n" +
+	"\x15names_before_key_name\x18\x04 \x01(\tR\x12namesBeforeKeyName\x12\x19\n" +
+	"\bkey_name\x18\x05 \x01(\tR\akeyName\x12/\n" +
+	"\x14names_after_key_name\x18\x06 \x01(\tR\x11namesAfterKeyName\x12)\n" +
+	"\x10abbreviated_name\x18\a \x01(\tR\x0fabbreviatedName\"\x9d\x01\n" +
+	"\x15PartyRelationshipType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\x12\"\n" +
+	"\rmay_be_shared\x18\x04 \x01(\bR\vmayBeShared\"R\n" +
 	"\n" +
-	"Percentage\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12O\n" +
-	"\x14has_max_value_of_one\x18\x02 \x01(\bB\x1f\x92\x93!\x1bxml:\"HasMaxValueOfOne,attr\"R\x10hasMaxValueOfOne\"\b\n" +
-	"\x06Period\"\x92\x01\n" +
-	"\x06Prefix\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\x91\x01\n" +
-	"\x05Price\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\rcurrency_code\x18\x02 \x01(\x0e2\x1b.ddex.ern.v432.CurrencyCodeB\x1b\x92\x93!\x17xml:\"CurrencyCode,attr\"R\fcurrencyCode\"n\n" +
-	"\tPriceType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\"t\n" +
-	"\x0fPromotionalCode\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\"r\n" +
-	"\rProprietaryId\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\"\xbb\x01\n" +
-	"\aPurpose\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc0\x01\n" +
-	"\fRatingAgency\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc0\x01\n" +
-	"\fRatingReason\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x92\x01\n" +
-	"\x06Reason\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\"\xf6\x01\n" +
-	"\fRelatedParty\x12g\n" +
-	"\x1dparty_related_party_reference\x18\x01 \x01(\tB$\x92\x93! xml:\"PartyRelatedPartyReference\"R\x1apartyRelatedPartyReference\x12}\n" +
-	"\x17party_relationship_type\x18\x02 \x01(\v2$.ddex.ern.v432.PartyRelationshipTypeB\x1f\x92\x93!\x1bxml:\"PartyRelationshipType\"R\x15partyRelationshipType\"\xcb\x01\n" +
-	"\x17ReleaseRelationshipType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xd5\x01\n" +
-	"!ReleaseTypeForReleaseNotification\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xde\x02\n" +
-	"\"ResourceContainedResourceReference\x12\x7f\n" +
-	"%resource_contained_resource_reference\x18\x01 \x01(\tB,\x92\x93!(xml:\"ResourceContainedResourceReference\"R\"resourceContainedResourceReference\x12;\n" +
-	"\rduration_used\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"DurationUsed\"R\fdurationUsed\x125\n" +
-	"\vstart_point\x18\x03 \x01(\tB\x14\x92\x93!\x10xml:\"StartPoint\"R\n" +
-	"startPoint\x12C\n" +
-	"\apurpose\x18\x04 \x01(\v2\x16.ddex.ern.v432.PurposeB\x11\x92\x93!\rxml:\"Purpose\"R\apurpose\"\xdd\x01\n" +
-	"&ResourceContainedResourceReferenceList\x12\xb2\x01\n" +
-	"%resource_contained_resource_reference\x18\x01 \x03(\v21.ddex.ern.v432.ResourceContainedResourceReferenceB,\x92\x93!(xml:\"ResourceContainedResourceReference\"R\"resourceContainedResourceReference\"\xcb\x01\n" +
-	"\x17ResourceContributorRole\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x99\x04\n" +
+	"Percentage\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12.\n" +
+	"\x14has_max_value_of_one\x18\x02 \x01(\bR\x10hasMaxValueOfOne\"\b\n" +
+	"\x06Period\"W\n" +
+	"\x06Prefix\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"_\n" +
+	"\x05Price\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12@\n" +
+	"\rcurrency_code\x18\x02 \x01(\x0e2\x1b.ddex.ern.v432.CurrencyCodeR\fcurrencyCode\"?\n" +
+	"\tPriceType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"E\n" +
+	"\x0fPromotionalCode\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"C\n" +
+	"\rProprietaryId\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"k\n" +
+	"\aPurpose\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"p\n" +
+	"\fRatingAgency\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"p\n" +
+	"\fRatingReason\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"W\n" +
+	"\x06Reason\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xaf\x01\n" +
+	"\fRelatedParty\x12A\n" +
+	"\x1dparty_related_party_reference\x18\x01 \x01(\tR\x1apartyRelatedPartyReference\x12\\\n" +
+	"\x17party_relationship_type\x18\x02 \x01(\v2$.ddex.ern.v432.PartyRelationshipTypeR\x15partyRelationshipType\"{\n" +
+	"\x17ReleaseRelationshipType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x85\x01\n" +
+	"!ReleaseTypeForReleaseNotification\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xef\x01\n" +
+	"\"ResourceContainedResourceReference\x12Q\n" +
+	"%resource_contained_resource_reference\x18\x01 \x01(\tR\"resourceContainedResourceReference\x12#\n" +
+	"\rduration_used\x18\x02 \x01(\tR\fdurationUsed\x12\x1f\n" +
+	"\vstart_point\x18\x03 \x01(\tR\n" +
+	"startPoint\x120\n" +
+	"\apurpose\x18\x04 \x01(\v2\x16.ddex.ern.v432.PurposeR\apurpose\"\xaf\x01\n" +
+	"&ResourceContainedResourceReferenceList\x12\x84\x01\n" +
+	"%resource_contained_resource_reference\x18\x01 \x03(\v21.ddex.ern.v432.ResourceContainedResourceReferenceR\"resourceContainedResourceReference\"{\n" +
+	"\x17ResourceContributorRole\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xdb\x02\n" +
 	"\n" +
-	"ResourceId\x12%\n" +
-	"\ai_s_r_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISRC\"R\x04iSRC\x12%\n" +
-	"\ai_s_m_n\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISMN\"R\x04iSMN\x12%\n" +
-	"\ai_s_a_n\x18\x03 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISAN\"R\x04iSAN\x12)\n" +
-	"\tv_i_s_a_n\x18\x04 \x01(\tB\x0f\x92\x93!\vxml:\"VISAN\"R\x05vISAN\x12%\n" +
-	"\ai_s_b_n\x18\x05 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISBN\"R\x04iSBN\x12%\n" +
-	"\ai_s_s_n\x18\x06 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISSN\"R\x04iSSN\x12%\n" +
-	"\as_i_c_i\x18\a \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"SICI\"R\x04sICI\x12\\\n" +
-	"\x0ecatalog_number\x18\b \x01(\v2\x1c.ddex.ern.v432.CatalogNumberB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12\\\n" +
-	"\x0eproprietary_id\x18\t \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12:\n" +
+	"ResourceId\x12\x15\n" +
+	"\ai_s_r_c\x18\x01 \x01(\tR\x04iSRC\x12\x15\n" +
+	"\ai_s_m_n\x18\x02 \x01(\tR\x04iSMN\x12\x15\n" +
+	"\ai_s_a_n\x18\x03 \x01(\tR\x04iSAN\x12\x18\n" +
+	"\tv_i_s_a_n\x18\x04 \x01(\tR\x05vISAN\x12\x15\n" +
+	"\ai_s_b_n\x18\x05 \x01(\tR\x04iSBN\x12\x15\n" +
+	"\ai_s_s_n\x18\x06 \x01(\tR\x04iSSN\x12\x15\n" +
+	"\as_i_c_i\x18\a \x01(\tR\x04sICI\x12C\n" +
+	"\x0ecatalog_number\x18\b \x01(\v2\x1c.ddex.ern.v432.CatalogNumberR\rcatalogNumber\x12C\n" +
+	"\x0eproprietary_id\x18\t \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x1f\n" +
 	"\vis_replaced\x18\n" +
-	" \x01(\bB\x19\x92\x93!\x15xml:\"IsReplaced,attr\"R\n" +
-	"isReplaced\"\xb1\x01\n" +
-	"\x15ResourceProprietaryId\x12\\\n" +
-	"\x0eproprietary_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12:\n" +
-	"\vis_replaced\x18\x02 \x01(\bB\x19\x92\x93!\x15xml:\"IsReplaced,attr\"R\n" +
-	"isReplaced\"\xcb\x01\n" +
-	"\x17RightsClaimPolicyReason\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xbe\x01\n" +
+	" \x01(\bR\n" +
+	"isReplaced\"}\n" +
+	"\x15ResourceProprietaryId\x12C\n" +
+	"\x0eproprietary_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x1f\n" +
+	"\vis_replaced\x18\x02 \x01(\bR\n" +
+	"isReplaced\"{\n" +
+	"\x17RightsClaimPolicyReason\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"n\n" +
 	"\n" +
-	"RightsType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x9f\x01\n" +
-	"\fSamplingRate\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12d\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.UnitOfFrequencyB\x1c\x92\x93!\x18xml:\"UnitOfMeasure,attr\"R\runitOfMeasure\"\xbf\x01\n" +
-	"\vSessionType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xf9\x01\n" +
-	"\x13SheetMusicCodecType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x120\n" +
-	"\aversion\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"Version,attr\"R\aversion\x126\n" +
-	"\tnamespace\x18\x03 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xcf\x01\n" +
-	"\fSheetMusicId\x12%\n" +
-	"\ai_s_m_n\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISMN\"R\x04iSMN\x12\\\n" +
-	"\x0eproprietary_id\x18\x02 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12:\n" +
-	"\vis_replaced\x18\x03 \x01(\bB\x19\x92\x93!\x15xml:\"IsReplaced,attr\"R\n" +
-	"isReplaced\"\xc2\x01\n" +
-	"\x0eSheetMusicType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc0\x01\n" +
-	"\fSoftwareType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xb1\x02\n" +
-	"\x10SoundRecordingId\x12%\n" +
-	"\ai_s_r_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISRC\"R\x04iSRC\x12\\\n" +
-	"\x0ecatalog_number\x18\x02 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12\\\n" +
-	"\x0eproprietary_id\x18\x03 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12:\n" +
-	"\vis_replaced\x18\x04 \x01(\bB\x19\x92\x93!\x15xml:\"IsReplaced,attr\"R\n" +
-	"isReplaced\"\xc6\x01\n" +
-	"\x12SoundRecordingType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xca\x01\n" +
-	"\x16SpecialContributorType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xbd\x01\n" +
-	"\x10SubGenreCategory\x12K\n" +
-	"\x05value\x18\x01 \x03(\v2$.ddex.ern.v432.SubGenreCategoryValueB\x0f\x92\x93!\vxml:\"Value\"R\x05value\x12\\\n" +
-	"\vdescription\x18\x02 \x03(\v2#.ddex.ern.v432.TextWithoutTerritoryB\x15\x92\x93!\x11xml:\"Description\"R\vdescription\"\xc9\x01\n" +
-	"\x15SubGenreCategoryValue\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xf3\x01\n" +
-	"\rTextCodecType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x120\n" +
-	"\aversion\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"Version,attr\"R\aversion\x126\n" +
-	"\tnamespace\x18\x03 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\x97\x02\n" +
-	"\x06TextId\x12%\n" +
-	"\ai_s_b_n\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISBN\"R\x04iSBN\x12%\n" +
-	"\ai_s_s_n\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISSN\"R\x04iSSN\x12%\n" +
-	"\as_i_c_i\x18\x03 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"SICI\"R\x04sICI\x12\\\n" +
-	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12:\n" +
-	"\vis_replaced\x18\x05 \x01(\bB\x19\x92\x93!\x15xml:\"IsReplaced,attr\"R\n" +
-	"isReplaced\"\xbc\x01\n" +
-	"\bTextType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xb1\x04\n" +
-	"\x0eTextWithFormat\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"RightsType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"l\n" +
+	"\fSamplingRate\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12F\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x1e.ddex.ern.v432.UnitOfFrequencyR\runitOfMeasure\"o\n" +
+	"\vSessionType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x91\x01\n" +
+	"\x13SheetMusicCodecType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\x8b\x01\n" +
+	"\fSheetMusicId\x12\x15\n" +
+	"\ai_s_m_n\x18\x01 \x01(\tR\x04iSMN\x12C\n" +
+	"\x0eproprietary_id\x18\x02 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x1f\n" +
+	"\vis_replaced\x18\x03 \x01(\bR\n" +
+	"isReplaced\"r\n" +
+	"\x0eSheetMusicType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"p\n" +
+	"\fSoftwareType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xd4\x01\n" +
+	"\x10SoundRecordingId\x12\x15\n" +
+	"\ai_s_r_c\x18\x01 \x01(\tR\x04iSRC\x12C\n" +
+	"\x0ecatalog_number\x18\x02 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberR\rcatalogNumber\x12C\n" +
+	"\x0eproprietary_id\x18\x03 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x1f\n" +
+	"\vis_replaced\x18\x04 \x01(\bR\n" +
+	"isReplaced\"v\n" +
+	"\x12SoundRecordingType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"z\n" +
+	"\x16SpecialContributorType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x95\x01\n" +
+	"\x10SubGenreCategory\x12:\n" +
+	"\x05value\x18\x01 \x03(\v2$.ddex.ern.v432.SubGenreCategoryValueR\x05value\x12E\n" +
+	"\vdescription\x18\x02 \x03(\v2#.ddex.ern.v432.TextWithoutTerritoryR\vdescription\"y\n" +
+	"\x15SubGenreCategoryValue\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x8b\x01\n" +
+	"\rTextCodecType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\xb3\x01\n" +
+	"\x06TextId\x12\x15\n" +
+	"\ai_s_b_n\x18\x01 \x01(\tR\x04iSBN\x12\x15\n" +
+	"\ai_s_s_n\x18\x02 \x01(\tR\x04iSSN\x12\x15\n" +
+	"\as_i_c_i\x18\x03 \x01(\tR\x04sICI\x12C\n" +
+	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x1f\n" +
+	"\vis_replaced\x18\x05 \x01(\bR\n" +
+	"isReplaced\"l\n" +
+	"\bTextType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xe1\x02\n" +
+	"\x0eTextWithFormat\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12K\n" +
-	"\x06format\x18\x05 \x01(\v2\x1c.ddex.ern.v432.TextCodecTypeB\x15\x92\x93!\x11xml:\"Format,attr\"R\x06format\x126\n" +
-	"\tnamespace\x18\x06 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\a \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xb7\x04\n" +
-	"\x14TextWithoutTerritory\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x12]\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12\x87\x01\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeB&\x92\x93!\"xml:\"ApplicableTerritoryCode,attr\"R\x17applicableTerritoryCode\x127\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x124\n" +
+	"\x06format\x18\x05 \x01(\v2\x1c.ddex.ern.v432.TextCodecTypeR\x06format\x12\x1c\n" +
+	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xe7\x02\n" +
+	"\x14TextWithoutTerritory\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12_\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bB\x18\x92\x93!\x14xml:\"IsDefault,attr\"R\tisDefault\x12K\n" +
-	"\x06format\x18\x05 \x01(\v2\x1c.ddex.ern.v432.TextCodecTypeB\x15\x92\x93!\x11xml:\"Format,attr\"R\x06format\x126\n" +
-	"\tnamespace\x18\x06 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\a \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xd2\x02\n" +
-	"\x17TitleDisplayInformation\x12O\n" +
-	"\x15is_displayed_in_title\x18\x01 \x01(\bB\x1c\x92\x93!\x18xml:\"IsDisplayedInTitle\"R\x12isDisplayedInTitle\x12?\n" +
-	"\x06prefix\x18\x02 \x03(\v2\x15.ddex.ern.v432.PrefixB\x10\x92\x93!\fxml:\"Prefix\"R\x06prefix\x12]\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tB$\x92\x93! xml:\"LanguageAndScriptCode,attr\"R\x15languageAndScriptCode\x12F\n" +
-	"\x0fsequence_number\x18\x04 \x01(\x05B\x1d\x92\x93!\x19xml:\"SequenceNumber,attr\"R\x0esequenceNumber\"\xa6\x01\n" +
-	"\x0eValidityPeriod\x12L\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x124\n" +
+	"\x06format\x18\x05 \x01(\v2\x1c.ddex.ern.v432.TextCodecTypeR\x06format\x12\x1c\n" +
+	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xdd\x01\n" +
+	"\x17TitleDisplayInformation\x121\n" +
+	"\x15is_displayed_in_title\x18\x01 \x01(\bR\x12isDisplayedInTitle\x12-\n" +
+	"\x06prefix\x18\x02 \x03(\v2\x15.ddex.ern.v432.PrefixR\x06prefix\x127\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\"~\n" +
+	"\x0eValidityPeriod\x127\n" +
 	"\n" +
-	"start_date\x18\x01 \x01(\v2\x18.ddex.ern.v432.EventDateB\x13\x92\x93!\x0fxml:\"StartDate\"R\tstartDate\x12F\n" +
-	"\bend_date\x18\x02 \x01(\v2\x18.ddex.ern.v432.EventDateB\x11\x92\x93!\rxml:\"EndDate\"R\aendDate\"\xca\x02\n" +
-	"\x05Venue\x122\n" +
+	"start_date\x18\x01 \x01(\v2\x18.ddex.ern.v432.EventDateR\tstartDate\x123\n" +
+	"\bend_date\x18\x02 \x01(\v2\x18.ddex.ern.v432.EventDateR\aendDate\"\xd7\x01\n" +
+	"\x05Venue\x12\x1d\n" +
 	"\n" +
-	"venue_name\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\"VenueName\"R\tvenueName\x12;\n" +
-	"\rvenue_address\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"VenueAddress\"R\fvenueAddress\x12_\n" +
-	"\x0eterritory_code\x18\x03 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeB\x17\x92\x93!\x13xml:\"TerritoryCode\"R\rterritoryCode\x12;\n" +
-	"\rlocation_code\x18\x04 \x01(\tB\x16\x92\x93!\x12xml:\"LocationCode\"R\flocationCode\x122\n" +
+	"venue_name\x18\x01 \x01(\tR\tvenueName\x12#\n" +
+	"\rvenue_address\x18\x02 \x01(\tR\fvenueAddress\x12F\n" +
+	"\x0eterritory_code\x18\x03 \x01(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\rterritoryCode\x12#\n" +
+	"\rlocation_code\x18\x04 \x01(\tR\flocationCode\x12\x1d\n" +
 	"\n" +
-	"venue_room\x18\x05 \x01(\tB\x13\x92\x93!\x0fxml:\"VenueRoom\"R\tvenueRoom\"\xbf\x01\n" +
-	"\vVersionType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xf4\x01\n" +
-	"\x0eVideoCodecType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x120\n" +
-	"\aversion\x18\x02 \x01(\tB\x16\x92\x93!\x12xml:\"Version,attr\"R\aversion\x126\n" +
-	"\tnamespace\x18\x03 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xc7\x01\n" +
-	"\x13VideoDefinitionType\x12)\n" +
-	"\x05value\x18\x01 \x01(\tB\x13\x92\x93!\x0fxml:\",chardata\"R\x05value\x126\n" +
-	"\tnamespace\x18\x02 \x01(\tB\x18\x92\x93!\x14xml:\"Namespace,attr\"R\tnamespace\x12M\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tB\x1f\x92\x93!\x1bxml:\"UserDefinedValue,attr\"R\x10userDefinedValue\"\xa1\x03\n" +
-	"\aVideoId\x12%\n" +
-	"\ai_s_r_c\x18\x01 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISRC\"R\x04iSRC\x12%\n" +
-	"\ai_s_a_n\x18\x02 \x01(\tB\x0e\x92\x93!\n" +
-	"xml:\"ISAN\"R\x04iSAN\x12)\n" +
-	"\tv_i_s_a_n\x18\x03 \x01(\tB\x0f\x92\x93!\vxml:\"VISAN\"R\x05vISAN\x12\\\n" +
-	"\x0ecatalog_number\x18\x04 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberB\x17\x92\x93!\x13xml:\"CatalogNumber\"R\rcatalogNumber\x12\\\n" +
-	"\x0eproprietary_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdB\x17\x92\x93!\x13xml:\"ProprietaryId\"R\rproprietaryId\x12%\n" +
-	"\ae_i_d_r\x18\x06 \x03(\tB\x0e\x92\x93!\n" +
-	"xml:\"EIDR\"R\x04eIDR\x12:\n" +
-	"\vis_replaced\x18\a \x01(\bB\x19\x92\x93!\x15xml:\"IsReplaced,attr\"R\n" +
+	"venue_room\x18\x05 \x01(\tR\tvenueRoom\"o\n" +
+	"\vVersionType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x8c\x01\n" +
+	"\x0eVideoCodecType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
+	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"w\n" +
+	"\x13VideoDefinitionType\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x93\x02\n" +
+	"\aVideoId\x12\x15\n" +
+	"\ai_s_r_c\x18\x01 \x01(\tR\x04iSRC\x12\x15\n" +
+	"\ai_s_a_n\x18\x02 \x01(\tR\x04iSAN\x12\x18\n" +
+	"\tv_i_s_a_n\x18\x03 \x01(\tR\x05vISAN\x12C\n" +
+	"\x0ecatalog_number\x18\x04 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberR\rcatalogNumber\x12C\n" +
+	"\x0eproprietary_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x15\n" +
+	"\ae_i_d_r\x18\x06 \x03(\tR\x04eIDR\x12\x1f\n" +
+	"\vis_replaced\x18\a \x01(\bR\n" +
 	"isReplaced*\xb7\b\n" +
 	"\bActivity\x12\x18\n" +
 	"\x14ACTIVITY_UNSPECIFIED\x10\x00\x12\x13\n" +
