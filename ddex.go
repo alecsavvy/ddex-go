@@ -8,7 +8,7 @@ import (
 
 // Versioned type aliases for discoverability of pure XML types
 type (
-	// ERN v4.3.2 types
+	// ERN v4.3.2 - Main message types
 	NewReleaseMessageV432   = ernv432.NewReleaseMessage
 	PurgeReleaseMessageV432 = ernv432.PurgeReleaseMessage
 
