@@ -1,9 +1,9 @@
 package ddex
 
 import (
-	"github.com/alecsavvy/ddex-go/ddex/ernv432"
-	"github.com/alecsavvy/ddex-go/ddex/meadv11"
-	"github.com/alecsavvy/ddex-go/ddex/piev10"
+	ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
+	meadv11 "github.com/alecsavvy/ddex-go/gen/ddex/mead/v11"
+	piev10 "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10"
 )
 
 // Versioned type aliases for discoverability of pure XML types
