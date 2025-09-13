@@ -1,6 +1,6 @@
 # DDEX Go Library Makefile
 
-.PHONY: test testdata clean generate-go generate-proto generate buf-lint buf-generate buf-all help
+.PHONY: test testdata clean generate-go generate-proto generate-proto-go generate buf-lint buf-generate buf-all help
 
 # Default target
 help:
@@ -9,6 +9,7 @@ help:
 	@echo "Generation:"
 	@echo "  generate-go    - Generate pure Go structs from XSD (ddex/ directory)"
 	@echo "  generate-proto - Generate .proto files from XSD (proto/ directory)"  
+	@echo "  generate-proto-go - Generate Go structs from .proto files (gen/ directory)"
 	@echo "  generate       - Generate both Go and proto files"
 	@echo "  buf-lint      - Lint protobuf files with buf"
 	@echo "  buf-generate  - Generate Go code from .proto files with buf"
@@ -33,8 +34,17 @@ generate-proto:
 	@echo "Generating proto files from XSD..."
 	go run tools/xsd2proto/main.go
 
+# Generate Go structs from proto files
+generate-proto-go:
+	@echo "Generating Go structs from proto files..."
+	buf generate
+	@echo "Injecting XML tags with protoc-go-inject-tag..."
+	@$(MAKE) inject-tags
+	@echo "Generating string conversion methods for enums..."
+	@$(MAKE) generate-enum-strings
+
 # Generate everything
-generate: generate-go generate-proto
+generate: generate-go generate-proto generate-proto-go
 	@echo "All generation complete!"
 
 # Lint protobuf files with buf
