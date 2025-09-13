@@ -1,6 +1,6 @@
 # DDEX Go Library Makefile
 
-.PHONY: test testdata clean generate-go generate-proto generate buf-lint buf-generate buf-all help
+.PHONY: test testdata clean generate-go generate-proto generate-proto-go generate buf-lint buf-generate buf-all help
 
 # Default target
 help:
@@ -9,7 +9,8 @@ help:
 	@echo "Generation:"
 	@echo "  generate-go    - Generate pure Go structs from XSD (ddex/ directory)"
 	@echo "  generate-proto - Generate .proto files from XSD (proto/ directory)"  
-	@echo "  generate-all   - Generate both Go and proto files"
+	@echo "  generate-proto-go - Generate Go structs from .proto files (gen/ directory)"
+	@echo "  generate       - Generate both Go and proto files"
 	@echo "  buf-lint      - Lint protobuf files with buf"
 	@echo "  buf-generate  - Generate Go code from .proto files with buf"
 	@echo "  buf-all       - Generate protos from XSD, then Go code from protos"
@@ -33,8 +34,17 @@ generate-proto:
 	@echo "Generating proto files from XSD..."
 	go run tools/xsd2proto/main.go
 
+# Generate Go structs from proto files
+generate-proto-go:
+	@echo "Generating Go structs from proto files..."
+	buf generate
+	@echo "Injecting XML tags with protoc-go-inject-tag..."
+	@$(MAKE) inject-tags
+	@echo "Generating string conversion methods for enums..."
+	@$(MAKE) generate-enum-strings
+
 # Generate everything
-generate: generate-go generate-proto
+generate: generate-go generate-proto generate-proto-go
 	@echo "All generation complete!"
 
 # Lint protobuf files with buf
@@ -48,6 +58,8 @@ buf-generate:
 	buf generate
 	@echo "Injecting XML tags with protoc-go-inject-tag..."
 	@$(MAKE) inject-tags
+	@echo "Generating string conversion methods for enums..."
+	@$(MAKE) generate-enum-strings
 
 # Inject XML tags into generated protobuf structs using protoc-go-inject-tag
 inject-tags:
@@ -57,6 +69,12 @@ inject-tags:
 		protoc-go-inject-tag -input=$$file 2>/dev/null || true; \
 	done
 	@echo "XML tags injected successfully!"
+
+# Generate string conversion methods for enum types
+generate-enum-strings:
+	@echo "Generating enum_strings.go files for enum string conversion..."
+	go run tools/generate-enum-strings.go
+	@echo "Enum string generation complete!"
 
 # Complete protobuf workflow: XSD -> proto -> Go with XML tags
 buf-all: generate-proto buf-lint buf-generate

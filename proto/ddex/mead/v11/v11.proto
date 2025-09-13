@@ -77,7 +77,7 @@ message Activity {
   // @gotags: xml:"LanguageAndScriptOfActivity"
   repeated string language_and_script_of_activity = 4;
   // @gotags: xml:"TerritoryOfActivityDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_activity_description = 5;
+  repeated string territory_of_activity_description = 5;
 }
 
 message ActivityValue {
@@ -99,7 +99,7 @@ message AlternativeTitle {
   // @gotags: xml:"LanguageAndScriptOfTitle"
   repeated string language_and_script_of_title = 4;
   // @gotags: xml:"TitleType,attr"
-  ddex.avs.TitleType title_type = 5;
+  string title_type = 5;
   // @gotags: xml:"Namespace,attr"
   string namespace = 6;
   // @gotags: xml:"UserDefinedValue,attr"
@@ -119,7 +119,7 @@ message ArtisticStyle {
   // @gotags: xml:"Value"
   ddex.mead.v11.ArtistTypeValue value = 2;
   // @gotags: xml:"TerritoryOfArtisticStyleDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_artistic_style_description = 3;
+  repeated string territory_of_artistic_style_description = 3;
 }
 
 message BeatsPerMinute {
@@ -167,7 +167,7 @@ message DanceStyle {
   // @gotags: xml:"LanguageAndScriptOfDanceStyle"
   repeated string language_and_script_of_dance_style = 4;
   // @gotags: xml:"TerritoryOfDanceStyleDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_dance_style_description = 5;
+  repeated string territory_of_dance_style_description = 5;
 }
 
 message DanceStyleValue {
@@ -219,7 +219,7 @@ message DisplayTitle {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 3;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 4;
+  string applicable_territory_code = 4;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 5;
 }
@@ -284,7 +284,7 @@ message GenreCategory {
   // @gotags: xml:"MetadataSourceReference"
   repeated ddex.mead.v11.MetadataSourceReference metadata_source_reference = 1;
   // @gotags: xml:"TerritoryOfGenreCategoryDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_genre_category_description = 2;
+  repeated string territory_of_genre_category_description = 2;
   // @gotags: xml:"Value"
   ddex.mead.v11.GenreCategoryValue value = 3;
   // @gotags: xml:"Description"
@@ -384,13 +384,13 @@ message Lyrics {
   // @gotags: xml:"LanguageAndScriptOfLyrics"
   repeated string language_and_script_of_lyrics = 3;
   // @gotags: xml:"TerritoryOfLyricsDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_lyrics_description = 4;
+  repeated string territory_of_lyrics_description = 4;
   // @gotags: xml:"Pronunciation"
   repeated ddex.mead.v11.Pronunciation pronunciation = 5;
   // @gotags: xml:"SequenceNumber,attr"
   int32 sequence_number = 6;
   // @gotags: xml:"LyricsType,attr"
-  ddex.avs.LyricsType lyrics_type = 7;
+  string lyrics_type = 7;
   // @gotags: xml:"LyricsTypeNamespace,attr"
   string lyrics_type_namespace = 8;
   // @gotags: xml:"LyricsTypeUserDefinedValue,attr"
@@ -403,7 +403,7 @@ message LyricsText {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"Format,attr"
-  ddex.avs.TextCodecType format = 2;
+  string format = 2;
   // @gotags: xml:"FormatNamespace,attr"
   string format_namespace = 3;
   // @gotags: xml:"FormatUserDefinedValue,attr"
@@ -443,9 +443,9 @@ message Mood {
   // @gotags: xml:"LanguageAndScriptOfMood"
   repeated string language_and_script_of_mood = 4;
   // @gotags: xml:"TerritoryOfMoodDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_mood_description = 5;
+  repeated string territory_of_mood_description = 5;
   // @gotags: xml:"MoodType,attr"
-  ddex.avs.MoodOrThemeType mood_type = 6;
+  string mood_type = 6;
 }
 
 message MoodValue {
@@ -480,7 +480,7 @@ message RecordingPart {
   // @gotags: xml:"MetadataSourceReference"
   repeated ddex.mead.v11.MetadataSourceReference metadata_source_reference = 1;
   // @gotags: xml:"Unit"
-  ddex.avs.UnitOfCuePoints unit = 2;
+  string unit = 2;
   // @gotags: xml:"StartPoint"
   string start_point = 3;
   // @gotags: xml:"EndPoint"
@@ -546,7 +546,7 @@ message ReleaseInformation {
   // @gotags: xml:"PriorityPeriodEndDate,attr"
   string priority_period_end_date = 18;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 19;
+  string applicable_territory_code = 19;
 }
 
 message ReleaseInformationList {
@@ -650,7 +650,7 @@ message ResourceInformation {
   // @gotags: xml:"PriorityPeriodEndDate,attr"
   string priority_period_end_date = 38;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 39;
+  string applicable_territory_code = 39;
 }
 
 message ResourceInformationList {
@@ -694,7 +694,7 @@ message RhythmStyle {
   // @gotags: xml:"LanguageAndScriptOfRhythmStyle"
   repeated string language_and_script_of_rhythm_style = 4;
   // @gotags: xml:"TerritoryOfRhythmStyleDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_rhythm_style_description = 5;
+  repeated string territory_of_rhythm_style_description = 5;
 }
 
 message RhythmStyleValue {
@@ -795,9 +795,9 @@ message Theme {
   // @gotags: xml:"LanguageAndScriptOfTheme"
   repeated string language_and_script_of_theme = 4;
   // @gotags: xml:"TerritoryOfThemeDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_theme_description = 5;
+  repeated string territory_of_theme_description = 5;
   // @gotags: xml:"ThemeType,attr"
-  ddex.avs.MoodOrThemeType theme_type = 6;
+  string theme_type = 6;
 }
 
 message ThemeValue {
@@ -827,7 +827,7 @@ message Usage {
   // @gotags: xml:"Description"
   repeated ddex.mead.v11.TextWithFormat description = 2;
   // @gotags: xml:"TerritoryOfUsageDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_usage_description = 3;
+  repeated string territory_of_usage_description = 3;
   // @gotags: xml:"SequenceNumber"
   int32 sequence_number = 4;
   // @gotags: xml:"RelevantResource"
@@ -1040,7 +1040,7 @@ message Source {
 
 message Text {
   // @gotags: xml:"type,attr"
-  ddex.avs.TextTypeATOM type = 1;
+  string type = 1;
 }
 
 message URI {
@@ -1052,7 +1052,7 @@ message AllTerritoryCode {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"IdentifierType,attr"
-  ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes identifier_type = 2;
+  string identifier_type = 2;
 }
 
 message ArtistTypeValue {
@@ -1126,7 +1126,7 @@ message ClassicalPeriod {
   // @gotags: xml:"LanguageAndScriptOfClassicalPeriod"
   repeated string language_and_script_of_classical_period = 3;
   // @gotags: xml:"TerritoryOfClassicalPeriodDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_classical_period_description = 4;
+  repeated string territory_of_classical_period_description = 4;
 }
 
 message CommentaryNote {
@@ -1139,7 +1139,7 @@ message CommentaryNote {
   // @gotags: xml:"LanguageAndScriptOfCommentaryNote"
   repeated string language_and_script_of_commentary_note = 4;
   // @gotags: xml:"TerritoryOfCommentaryNoteDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_commentary_note_description = 5;
+  repeated string territory_of_commentary_note_description = 5;
   // @gotags: xml:"Author"
   repeated ddex.mead.v11.PartyDescriptorWithPronunciation author = 6;
 }
@@ -1157,7 +1157,7 @@ message CurrentTerritoryCode {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"IdentifierType,attr"
-  ddex.avs.TerritoryCodeType identifier_type = 2;
+  string identifier_type = 2;
 }
 
 message Date {
@@ -1175,7 +1175,7 @@ message DetailedHashSum {
   // @gotags: xml:"Parameter"
   string parameter = 3;
   // @gotags: xml:"DataType"
-  ddex.avs.BinaryDataType data_type = 4;
+  string data_type = 4;
   // @gotags: xml:"HashSumValue"
   string hash_sum_value = 5;
 }
@@ -1201,7 +1201,7 @@ message DisplayArtistNameWithDefault {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -1217,7 +1217,7 @@ message Duration {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"UnitOfDuration,attr"
-  ddex.avs.UnitOfDuration unit_of_duration = 2;
+  string unit_of_duration = 2;
   // @gotags: xml:"Namespace,attr"
   string namespace = 3;
   // @gotags: xml:"UserDefinedValue,attr"
@@ -1240,7 +1240,7 @@ message Epoch {
   // @gotags: xml:"LanguageAndScriptOfEpoch"
   repeated string language_and_script_of_epoch = 7;
   // @gotags: xml:"TerritoryOfEpochDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_epoch_description = 8;
+  repeated string territory_of_epoch_description = 8;
 }
 
 message EventDate {
@@ -1253,7 +1253,7 @@ message EventDate {
   // @gotags: xml:"IsAfter,attr"
   bool is_after = 4;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.AllTerritoryCode applicable_territory_code = 5;
+  string applicable_territory_code = 5;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 6;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -1270,7 +1270,7 @@ message EventDateTime {
   // @gotags: xml:"IsAfter,attr"
   bool is_after = 4;
   // @gotags: xml:"TerritoryCode,attr"
-  ddex.avs.AllTerritoryCode territory_code = 5;
+  string territory_code = 5;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 6;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -1302,7 +1302,7 @@ message Focus {
   // @gotags: xml:"PeriodOfBeingFocus"
   repeated ddex.mead.v11.PeriodWithTime period_of_being_focus = 7;
   // @gotags: xml:"TerritoryOfBeingFocusTrackDescription"
-  repeated ddex.avs.CurrentTerritoryCode territory_of_being_focus_track_description = 8;
+  repeated string territory_of_being_focus_track_description = 8;
   // @gotags: xml:"Comment"
   repeated ddex.mead.v11.TextWithoutTerritory comment = 9;
   // @gotags: xml:"IsDefault,attr"
@@ -1394,7 +1394,7 @@ message MessageHeader {
   // @gotags: xml:"MessageAuditTrail"
   ddex.mead.v11.MessageAuditTrail message_audit_trail = 8;
   // @gotags: xml:"MessageControlType"
-  ddex.avs.MessageControlType message_control_type = 9;
+  string message_control_type = 9;
 }
 
 message MessagingPartyWithoutCode {
@@ -1424,7 +1424,7 @@ message MetadataSourceReference {
   // @gotags: xml:"AssertionDateTime,attr"
   string assertion_date_time = 2;
   // @gotags: xml:"Status,attr"
-  ddex.avs.AssertionStatus status = 3;
+  string status = 3;
   // @gotags: xml:"Weight,attr"
   string weight = 4;
 }
@@ -1488,7 +1488,7 @@ message PartyNameWithPronunciation {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 8;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 9;
+  string applicable_territory_code = 9;
 }
 
 message PartyNameWithoutCode {
@@ -1535,7 +1535,7 @@ message Pronunciation {
   // @gotags: xml:"LanguageCode,attr"
   string language_code = 3;
   // @gotags: xml:"EncodingType,attr"
-  ddex.avs.EncodingType encoding_type = 4;
+  string encoding_type = 4;
   // @gotags: xml:"EncodingNamespace,attr"
   string encoding_namespace = 5;
   // @gotags: xml:"EncodingUserDefinedValue,attr"
@@ -1692,11 +1692,11 @@ message TextWithFormat {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
   // @gotags: xml:"Format,attr"
-  ddex.avs.TextCodecType format = 5;
+  string format = 5;
   // @gotags: xml:"Namespace,attr"
   string namespace = 6;
   // @gotags: xml:"UserDefinedValue,attr"
@@ -1709,11 +1709,11 @@ message TextWithoutTerritory {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
   // @gotags: xml:"Format,attr"
-  ddex.avs.TextCodecType format = 5;
+  string format = 5;
   // @gotags: xml:"Namespace,attr"
   string namespace = 6;
   // @gotags: xml:"UserDefinedValue,attr"
@@ -1735,7 +1735,7 @@ message TitleWithPronunciation {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 3;
   // @gotags: xml:"TitleType,attr"
-  ddex.avs.TitleType title_type = 4;
+  string title_type = 4;
   // @gotags: xml:"Namespace,attr"
   string namespace = 5;
   // @gotags: xml:"UserDefinedValue,attr"
@@ -1804,7 +1804,7 @@ message EventDateWithoutFlags {
   // @gotags: xml:"IsApproximate,attr"
   bool is_approximate = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.AllTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 4;
   // @gotags: xml:"LanguageAndScriptCode,attr"

@@ -6,14 +6,14 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/alecsavvy/ddex-go/ddex/ernv432"
-	"github.com/alecsavvy/ddex-go/ddex/meadv11"
-	"github.com/alecsavvy/ddex-go/ddex/piev10"
+	ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
+	meadv11 "github.com/alecsavvy/ddex-go/gen/ddex/mead/v11"
+	piev10 "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10"
 )
 
 func TestERNUnmarshaling(t *testing.T) {
 	testFiles := []struct {
-		filename string
+		filename    string
 		description string
 	}{
 		{"1 Audio.xml", "Audio Album"},
@@ -44,7 +44,7 @@ func TestERNUnmarshaling(t *testing.T) {
 			if newRelease.MessageHeader == nil {
 				t.Errorf("MessageHeader is nil in %s", testFile.filename)
 			}
-			
+
 			if newRelease.ReleaseList == nil {
 				t.Errorf("ReleaseList is nil in %s", testFile.filename)
 				return
@@ -57,7 +57,7 @@ func TestERNUnmarshaling(t *testing.T) {
 			}
 			releaseCount += len(newRelease.ReleaseList.TrackRelease)
 			releaseCount += len(newRelease.ReleaseList.ClipRelease)
-			
+
 			if releaseCount == 0 {
 				t.Errorf("No releases found in %s", testFile.filename)
 			}
@@ -82,17 +82,11 @@ func TestPurgeReleaseMessage(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to unmarshal as NewReleaseMessage: %v", err)
 	}
-
-	// Verify we can access type aliases
-	var aliased NewReleaseMessageV432 = newRelease
-	if aliased.MessageHeader == nil {
-		t.Error("Type alias not working correctly")
-	}
 }
 
 func TestXMLRoundTrip(t *testing.T) {
 	xmlPath := filepath.Join("testdata", "ernv432", "Samples43", "5 SimpleVideoSingle.xml")
-	
+
 	// Read original
 	originalData, err := os.ReadFile(xmlPath)
 	if err != nil {
@@ -107,7 +101,7 @@ func TestXMLRoundTrip(t *testing.T) {
 	}
 
 	// Marshal back
-	marshaledData, err := xml.MarshalIndent(message, "", "  ")
+	marshaledData, err := xml.MarshalIndent(&message, "", "  ")
 	if err != nil {
 		t.Fatalf("Failed to marshal: %v", err)
 	}

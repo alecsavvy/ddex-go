@@ -28,9 +28,9 @@ message NewReleaseMessage {
   // @gotags: xml:"SupplementalDocumentList"
   ddex.ern.v432.SupplementalDocumentList supplemental_document_list = 9;
   // @gotags: xml:"ReleaseProfileVersionId,attr"
-  ddex.avs.ReleaseProfileVersionId release_profile_version_id = 10;
+  string release_profile_version_id = 10;
   // @gotags: xml:"ReleaseProfileVariantVersionId,attr"
-  ddex.avs.ReleaseProfileVariantVersionId release_profile_variant_version_id = 11;
+  string release_profile_variant_version_id = 11;
   // @gotags: xml:"AvsVersionId,attr"
   string avs_version_id = 12;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -96,7 +96,7 @@ message AvRating {
   // @gotags: xml:"Reason"
   ddex.ern.v432.RatingReason reason = 3;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 4;
+  string applicable_territory_code = 4;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 5;
 }
@@ -168,7 +168,7 @@ message ClipDetails {
   // @gotags: xml:"BottomRightCorner"
   string bottom_right_corner = 3;
   // @gotags: xml:"ExpressionType"
-  ddex.avs.ExpressionType expression_type = 4;
+  string expression_type = 4;
 }
 
 message ClipRelease {
@@ -207,13 +207,13 @@ message ConditionForRightsClaimPolicy {
   // @gotags: xml:"Value"
   string value = 1;
   // @gotags: xml:"Unit"
-  ddex.avs.UnitOfConditionValue unit = 2;
+  string unit = 2;
   // @gotags: xml:"ReferenceCreation"
-  ddex.avs.ReferenceCreation reference_creation = 3;
+  string reference_creation = 3;
   // @gotags: xml:"RelationalRelator"
-  ddex.avs.RelationalRelator relational_relator = 4;
+  string relational_relator = 4;
   // @gotags: xml:"MeasurementType"
-  ddex.avs.MeasurementType measurement_type = 5;
+  string measurement_type = 5;
   // @gotags: xml:"Segment"
   repeated ddex.ern.v432.Segment segment = 6;
   // @gotags: xml:"ServiceException"
@@ -345,7 +345,7 @@ message DealTermsTechnicalInstantiation {
   // @gotags: xml:"VideoDefinitionType"
   ddex.ern.v432.VideoDefinitionType video_definition_type = 1;
   // @gotags: xml:"CodingType"
-  ddex.avs.CodingType coding_type = 2;
+  string coding_type = 2;
   // @gotags: xml:"BitRate"
   ddex.ern.v432.BitRate bit_rate = 3;
 }
@@ -354,7 +354,7 @@ message Deity {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 2;
+  string applicable_territory_code = 2;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 3;
 }
@@ -374,7 +374,7 @@ message DescriptionWithTerritory {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -422,7 +422,7 @@ message DisplayTitleText {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
   // @gotags: xml:"IsInOriginalLanguage,attr"
@@ -444,7 +444,7 @@ message EditionContributor {
   // @gotags: xml:"Role"
   repeated ddex.ern.v432.ContributorRole role = 1;
   // @gotags: xml:"AiContribution"
-  ddex.avs.ContainsAI ai_contribution = 2;
+  string ai_contribution = 2;
   // @gotags: xml:"HasMadeFeaturedContribution"
   bool has_made_featured_contribution = 3;
   // @gotags: xml:"HasMadeContractedContribution"
@@ -463,7 +463,7 @@ message EventDateTimeWithoutFlags {
   // @gotags: xml:"IsApproximate,attr"
   bool is_approximate = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 4;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -476,7 +476,7 @@ message EventDateWithCurrentTerritory {
   // @gotags: xml:"IsApproximate,attr"
   bool is_approximate = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 4;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -489,7 +489,7 @@ message EventDateWithDefault {
   // @gotags: xml:"IsApproximate,attr"
   bool is_approximate = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.AllTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -500,7 +500,7 @@ message EventDateWithoutFlags {
   // @gotags: xml:"IsApproximate,attr"
   bool is_approximate = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.AllTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 4;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -571,7 +571,7 @@ message Image {
   // @gotags: xml:"RelatedResource"
   repeated ddex.ern.v432.RelatedResource related_resource = 20;
   // @gotags: xml:"ContainsAI"
-  ddex.avs.ContainsAI contains_a_i = 21;
+  string contains_a_i = 21;
   // @gotags: xml:"ContainsHiddenContent"
   bool contains_hidden_content = 22;
   // @gotags: xml:"Description"
@@ -588,7 +588,7 @@ message LinkedReleaseResourceReference {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"LinkDescription,attr"
-  ddex.avs.LinkDescription link_description = 2;
+  string link_description = 2;
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 3;
   // @gotags: xml:"Namespace,attr"
@@ -656,7 +656,7 @@ message PartyNameWithTerritory {
   // @gotags: xml:"IsLegalName,attr"
   bool is_legal_name = 11;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 12;
+  string applicable_territory_code = 12;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 13;
   // @gotags: xml:"IsInOriginalLanguage,attr"
@@ -703,7 +703,7 @@ message PriceInformation {
   // @gotags: xml:"SuggestedRetailPrice"
   ddex.ern.v432.Price suggested_retail_price = 4;
   // @gotags: xml:"PriceType,attr"
-  ddex.avs.PriceInformationType price_type = 5;
+  string price_type = 5;
   // @gotags: xml:"Namespace,attr"
   string namespace = 6;
   // @gotags: xml:"UserDefinedValue,attr"
@@ -723,7 +723,7 @@ message Raga {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 2;
+  string applicable_territory_code = 2;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 3;
 }
@@ -762,7 +762,7 @@ message RelatedRelease {
 
 message RelatedResource {
   // @gotags: xml:"ResourceRelationshipType"
-  ddex.avs.ResourceRelationshipType resource_relationship_type = 1;
+  string resource_relationship_type = 1;
   // @gotags: xml:"Timing"
   repeated ddex.ern.v432.Timing timing = 2;
 }
@@ -835,7 +835,7 @@ message Release {
   // @gotags: xml:"HiResMusicDescription"
   string hi_res_music_description = 33;
   // @gotags: xml:"ContainsAI"
-  ddex.avs.ContainsAI contains_a_i = 34;
+  string contains_a_i = 34;
   // @gotags: xml:"IsSoundtrack"
   bool is_soundtrack = 35;
   // @gotags: xml:"IsHiResMusic"
@@ -881,13 +881,13 @@ message ReleaseLabelReference {
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 3;
   // @gotags: xml:"LabelType,attr"
-  ddex.avs.LabelType label_type = 4;
+  string label_type = 4;
   // @gotags: xml:"Namespace,attr"
   string namespace = 5;
   // @gotags: xml:"UserDefinedValue,attr"
   string user_defined_value = 6;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 7;
+  string applicable_territory_code = 7;
 }
 
 message ReleaseLabelReferenceWithParty {
@@ -898,7 +898,7 @@ message ReleaseLabelReferenceWithParty {
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 3;
   // @gotags: xml:"LabelType,attr"
-  ddex.avs.LabelType label_type = 4;
+  string label_type = 4;
   // @gotags: xml:"AccessControlParty,attr"
   string access_control_party = 5;
   // @gotags: xml:"Namespace,attr"
@@ -906,7 +906,7 @@ message ReleaseLabelReferenceWithParty {
   // @gotags: xml:"UserDefinedValue,attr"
   string user_defined_value = 7;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 8;
+  string applicable_territory_code = 8;
 }
 
 message ReleaseList {
@@ -992,7 +992,7 @@ message ResourceRightsController {
   // @gotags: xml:"RightsControllerPartyReference"
   string rights_controller_party_reference = 1;
   // @gotags: xml:"RightsControlType"
-  repeated ddex.avs.RightsControllerRole rights_control_type = 2;
+  repeated string rights_control_type = 2;
   // @gotags: xml:"DelegatedUsageRights"
   repeated ddex.ern.v432.DelegatedUsageRights delegated_usage_rights = 3;
   // @gotags: xml:"SequenceNumber,attr"
@@ -1023,14 +1023,14 @@ message ResourceSubGroup {
   // @gotags: xml:"LinkedReleaseResourceReference"
   repeated ddex.ern.v432.LinkedReleaseResourceReference linked_release_resource_reference = 11;
   // @gotags: xml:"ResourceGroupType,attr"
-  ddex.avs.ResourceGroupType resource_group_type = 12;
+  string resource_group_type = 12;
 }
 
 message RightsClaimPolicy {
   // @gotags: xml:"Condition"
   repeated ddex.ern.v432.ConditionForRightsClaimPolicy condition = 1;
   // @gotags: xml:"RightsClaimPolicyType"
-  ddex.avs.RightsClaimPolicyType rights_claim_policy_type = 2;
+  string rights_claim_policy_type = 2;
   // @gotags: xml:"RightsClaimPolicyReason"
   ddex.ern.v432.RightsClaimPolicyReason rights_claim_policy_reason = 3;
 }
@@ -1217,9 +1217,9 @@ message SoundRecording {
   // @gotags: xml:"RelatedResource"
   repeated ddex.ern.v432.RelatedResource related_resource = 26;
   // @gotags: xml:"CompositeMusicalWorkType"
-  ddex.avs.CompositeMusicalWorkType composite_musical_work_type = 27;
+  string composite_musical_work_type = 27;
   // @gotags: xml:"ContainsAI"
-  ddex.avs.ContainsAI contains_a_i = 28;
+  string contains_a_i = 28;
   // @gotags: xml:"IsCover"
   bool is_cover = 29;
   // @gotags: xml:"HasVocalPerformance"
@@ -1266,14 +1266,14 @@ message SoundRecordingClipDetails {
   // @gotags: xml:"Timing"
   repeated ddex.ern.v432.Timing timing = 3;
   // @gotags: xml:"ExpressionType"
-  ddex.avs.ExpressionType expression_type = 4;
+  string expression_type = 4;
   // @gotags: xml:"DeliveryFile"
   repeated ddex.ern.v432.AudioDeliveryFile delivery_file = 5;
 }
 
 message SoundRecordingEdition {
   // @gotags: xml:"Type"
-  ddex.avs.EditionType type = 1;
+  string type = 1;
   // @gotags: xml:"ResourceId"
   repeated ddex.ern.v432.SoundRecordingId resource_id = 2;
   // @gotags: xml:"EditionContributor"
@@ -1281,7 +1281,7 @@ message SoundRecordingEdition {
   // @gotags: xml:"PLine"
   repeated ddex.ern.v432.PLine p_line = 4;
   // @gotags: xml:"RecordingMode"
-  ddex.avs.RecordingMode recording_mode = 5;
+  string recording_mode = 5;
   // @gotags: xml:"TechnicalDetails"
   repeated ddex.ern.v432.TechnicalSoundRecordingDetails technical_details = 6;
 }
@@ -1297,7 +1297,7 @@ message SynopsisWithTerritory {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
   // @gotags: xml:"IsShortSynopsis,attr"
@@ -1308,7 +1308,7 @@ message Tala {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 2;
+  string applicable_territory_code = 2;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 3;
 }
@@ -1343,7 +1343,7 @@ message TechnicalImageDetails {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 14;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 15;
+  string applicable_territory_code = 15;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 16;
 }
@@ -1368,7 +1368,7 @@ message TechnicalSheetMusicDetails {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 9;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 10;
+  string applicable_territory_code = 10;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 11;
 }
@@ -1393,7 +1393,7 @@ message TechnicalSoftwareDetails {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 9;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 10;
+  string applicable_territory_code = 10;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 11;
 }
@@ -1412,7 +1412,7 @@ message TechnicalSoundRecordingDetails {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 6;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 7;
+  string applicable_territory_code = 7;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 8;
 }
@@ -1437,7 +1437,7 @@ message TechnicalTextDetails {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 9;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 10;
+  string applicable_territory_code = 10;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 11;
 }
@@ -1456,7 +1456,7 @@ message TechnicalVideoDetails {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 6;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 7;
+  string applicable_territory_code = 7;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 8;
 }
@@ -1505,7 +1505,7 @@ message Text {
   // @gotags: xml:"RelatedResource"
   repeated ddex.ern.v432.RelatedResource related_resource = 21;
   // @gotags: xml:"ContainsAI"
-  ddex.avs.ContainsAI contains_a_i = 22;
+  string contains_a_i = 22;
   // @gotags: xml:"ContainsHiddenContent"
   bool contains_hidden_content = 23;
   // @gotags: xml:"ResourceContainedResourceReferenceList"
@@ -1537,7 +1537,7 @@ message Title {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 3;
   // @gotags: xml:"TitleType,attr"
-  ddex.avs.AdditionalTitleType title_type = 4;
+  string title_type = 4;
 }
 
 message TrackRelease {
@@ -1662,9 +1662,9 @@ message Video {
   // @gotags: xml:"RelatedResource"
   repeated ddex.ern.v432.RelatedResource related_resource = 26;
   // @gotags: xml:"CompositeMusicalWorkType"
-  ddex.avs.CompositeMusicalWorkType composite_musical_work_type = 27;
+  string composite_musical_work_type = 27;
   // @gotags: xml:"ContainsAI"
-  ddex.avs.ContainsAI contains_a_i = 28;
+  string contains_a_i = 28;
   // @gotags: xml:"IsCover"
   bool is_cover = 29;
   // @gotags: xml:"HasVocalPerformance"
@@ -1715,14 +1715,14 @@ message VideoClipDetails {
   // @gotags: xml:"BottomRightCorner"
   string bottom_right_corner = 5;
   // @gotags: xml:"ExpressionType"
-  ddex.avs.ExpressionType expression_type = 6;
+  string expression_type = 6;
   // @gotags: xml:"DeliveryFile"
   repeated ddex.ern.v432.VideoDeliveryFile delivery_file = 7;
 }
 
 message VideoDeliveryFile {
   // @gotags: xml:"Type"
-  ddex.avs.DeliveryFileType type = 1;
+  string type = 1;
   // @gotags: xml:"ContainerFormat"
   ddex.ern.v432.ContainerFormat container_format = 2;
   // @gotags: xml:"VideoCodecType"
@@ -1748,13 +1748,13 @@ message VideoDeliveryFile {
   // @gotags: xml:"HasImmersiveAudioMetadata"
   bool has_immersive_audio_metadata = 13;
   // @gotags: xml:"ElectroOpticalTransferFunctionType"
-  ddex.avs.ElectroOpticalTransferFunctionType electro_optical_transfer_function_type = 14;
+  string electro_optical_transfer_function_type = 14;
   // @gotags: xml:"PrimaryColorType"
-  ddex.avs.PrimaryColorType primary_color_type = 15;
+  string primary_color_type = 15;
   // @gotags: xml:"HdrVideoDynamicMetadataType"
   ddex.ern.v432.HdrVideoDynamicMetadataType hdr_video_dynamic_metadata_type = 16;
   // @gotags: xml:"HdrVideoStaticMetadataType"
-  ddex.avs.HdrVideoStaticMetadataType hdr_video_static_metadata_type = 17;
+  string hdr_video_static_metadata_type = 17;
   // @gotags: xml:"AudioBitRate"
   ddex.ern.v432.BitRate audio_bit_rate = 18;
   // @gotags: xml:"NumberOfAudioChannels"
@@ -1779,7 +1779,7 @@ message VideoDeliveryFile {
 
 message VideoEdition {
   // @gotags: xml:"Type"
-  ddex.avs.EditionType type = 1;
+  string type = 1;
   // @gotags: xml:"ResourceId"
   repeated ddex.ern.v432.VideoId resource_id = 2;
   // @gotags: xml:"EditionContributor"
@@ -1789,7 +1789,7 @@ message VideoEdition {
   // @gotags: xml:"CLine"
   repeated ddex.ern.v432.CLine c_line = 5;
   // @gotags: xml:"RecordingMode"
-  ddex.avs.RecordingMode recording_mode = 6;
+  string recording_mode = 6;
   // @gotags: xml:"TechnicalDetails"
   repeated ddex.ern.v432.TechnicalVideoDetails technical_details = 7;
 }
@@ -1807,9 +1807,9 @@ message WorkRightsController {
   // @gotags: xml:"RightsControllerPartyReference"
   string rights_controller_party_reference = 1;
   // @gotags: xml:"RightsControlType"
-  repeated ddex.avs.RightsControllerRole rights_control_type = 2;
+  repeated string rights_control_type = 2;
   // @gotags: xml:"RightsControllerType"
-  ddex.avs.RightsControllerType rights_controller_type = 3;
+  string rights_controller_type = 3;
   // @gotags: xml:"Territory"
   repeated ddex.ern.v432.AllTerritoryCode territory = 4;
   // @gotags: xml:"StartDate"
@@ -1829,7 +1829,7 @@ message AdministratingRecordCompanyRole {
 
 message Affiliation {
   // @gotags: xml:"Type"
-  ddex.avs.AffiliationType type = 1;
+  string type = 1;
   // @gotags: xml:"ValidityPeriod"
   ddex.ern.v432.ValidityPeriod validity_period = 2;
   // @gotags: xml:"RightsType"
@@ -1842,14 +1842,14 @@ message AllTerritoryCode {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"IdentifierType,attr"
-  ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes identifier_type = 2;
+  string identifier_type = 2;
 }
 
 message AspectRatio {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"AspectRatioType,attr"
-  ddex.avs.AspectRatioType aspect_ratio_type = 2;
+  string aspect_ratio_type = 2;
   // @gotags: xml:"AppliesToCroppedResource,attr"
   bool applies_to_cropped_resource = 3;
 }
@@ -1869,7 +1869,7 @@ message BitRate {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"UnitOfMeasure,attr"
-  ddex.avs.UnitOfBitRate unit_of_measure = 2;
+  string unit_of_measure = 2;
 }
 
 message CLine {
@@ -1882,7 +1882,7 @@ message CLine {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 4;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 5;
+  string applicable_territory_code = 5;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 6;
 }
@@ -1944,7 +1944,7 @@ message Contributor {
   // @gotags: xml:"InstrumentType"
   repeated ddex.ern.v432.InstrumentType instrument_type = 2;
   // @gotags: xml:"AiContribution"
-  ddex.avs.ContainsAI ai_contribution = 3;
+  string ai_contribution = 3;
   // @gotags: xml:"HasMadeFeaturedContribution"
   bool has_made_featured_contribution = 4;
   // @gotags: xml:"HasMadeContractedContribution"
@@ -1979,7 +1979,7 @@ message CourtesyLine {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -2042,7 +2042,7 @@ message CurrentTerritoryCode {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"IdentifierType,attr"
-  ddex.avs.TerritoryCodeType identifier_type = 2;
+  string identifier_type = 2;
 }
 
 message DSP {
@@ -2060,7 +2060,7 @@ message DetailedHashSum {
   // @gotags: xml:"Parameter"
   string parameter = 3;
   // @gotags: xml:"DataType"
-  ddex.avs.BinaryDataType data_type = 4;
+  string data_type = 4;
   // @gotags: xml:"HashSumValue"
   string hash_sum_value = 5;
 }
@@ -2088,7 +2088,7 @@ message DisplayArtistNameWithOriginalLanguage {
   // @gotags: xml:"IsInOriginalLanguage,attr"
   bool is_in_original_language = 3;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 4;
+  string applicable_territory_code = 4;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 5;
 }
@@ -2108,7 +2108,7 @@ message DisplayCredits {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -2121,7 +2121,7 @@ message DisplaySubTitle {
   // @gotags: xml:"IsDisplayedInTitle,attr"
   bool is_displayed_in_title = 3;
   // @gotags: xml:"SubTitleType,attr"
-  ddex.avs.SubTitleType sub_title_type = 4;
+  string sub_title_type = 4;
 }
 
 message DisplayTitle {
@@ -2132,7 +2132,7 @@ message DisplayTitle {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 3;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 4;
+  string applicable_territory_code = 4;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 5;
   // @gotags: xml:"IsInOriginalLanguage,attr"
@@ -2149,7 +2149,7 @@ message EventDate {
   // @gotags: xml:"IsAfter,attr"
   bool is_after = 4;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.AllTerritoryCode applicable_territory_code = 5;
+  string applicable_territory_code = 5;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 6;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -2166,7 +2166,7 @@ message EventDateTime {
   // @gotags: xml:"IsAfter,attr"
   bool is_after = 4;
   // @gotags: xml:"TerritoryCode,attr"
-  ddex.avs.AllTerritoryCode territory_code = 5;
+  string territory_code = 5;
   // @gotags: xml:"LocationDescription,attr"
   string location_description = 6;
   // @gotags: xml:"LanguageAndScriptCode,attr"
@@ -2177,7 +2177,7 @@ message Extent {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"UnitOfMeasure,attr"
-  ddex.avs.UnitOfExtent unit_of_measure = 2;
+  string unit_of_measure = 2;
 }
 
 message ExternallyLinkedResourceType {
@@ -2220,7 +2220,7 @@ message FirstPublicationDate {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 2;
+  string applicable_territory_code = 2;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 3;
 }
@@ -2229,7 +2229,7 @@ message FrameRate {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"UnitOfMeasure,attr"
-  ddex.avs.UnitOfFrameRate unit_of_measure = 2;
+  string unit_of_measure = 2;
 }
 
 message FulfillmentDate {
@@ -2238,7 +2238,7 @@ message FulfillmentDate {
   // @gotags: xml:"ResourceReleaseReference"
   repeated string resource_release_reference = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -2249,7 +2249,7 @@ message GenreCategory {
   // @gotags: xml:"Description"
   repeated ddex.ern.v432.TextWithoutTerritory description = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
 }
 
 message GenreCategoryValue {
@@ -2275,7 +2275,7 @@ message GenreWithTerritory {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 5;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 6;
+  string applicable_territory_code = 6;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 7;
 }
@@ -2331,7 +2331,7 @@ message KeywordsWithTerritory {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -2349,7 +2349,7 @@ message MarketingComment {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
 }
@@ -2386,7 +2386,7 @@ message MessageHeader {
   // @gotags: xml:"MessageAuditTrail"
   ddex.ern.v432.MessageAuditTrail message_audit_trail = 9;
   // @gotags: xml:"MessageControlType"
-  ddex.avs.MessageControlType message_control_type = 10;
+  string message_control_type = 10;
 }
 
 message MessagingPartyWithoutCode {
@@ -2439,7 +2439,7 @@ message PLine {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 4;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 5;
+  string applicable_territory_code = 5;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 6;
 }
@@ -2448,7 +2448,7 @@ message ParentalWarningTypeWithStandard {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 2;
+  string applicable_territory_code = 2;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 3;
   // @gotags: xml:"TypeNamespace,attr"
@@ -2456,7 +2456,7 @@ message ParentalWarningTypeWithStandard {
   // @gotags: xml:"TypeUserDefinedValue,attr"
   string type_user_defined_value = 5;
   // @gotags: xml:"ParentalWarningStandard,attr"
-  ddex.avs.ParentalWarningStandard parental_warning_standard = 6;
+  string parental_warning_standard = 6;
   // @gotags: xml:"StandardNamespace,attr"
   string standard_namespace = 7;
   // @gotags: xml:"StandardUserDefinedValue,attr"
@@ -2531,7 +2531,7 @@ message Price {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"CurrencyCode,attr"
-  ddex.avs.CurrencyCode currency_code = 2;
+  string currency_code = 2;
 }
 
 message PriceType {
@@ -2691,7 +2691,7 @@ message SamplingRate {
   // @gotags: xml:",chardata"
   string value = 1;
   // @gotags: xml:"UnitOfMeasure,attr"
-  ddex.avs.UnitOfFrequency unit_of_measure = 2;
+  string unit_of_measure = 2;
 }
 
 message SessionType {
@@ -2825,11 +2825,11 @@ message TextWithFormat {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
   // @gotags: xml:"Format,attr"
-  ddex.avs.TextCodecType format = 5;
+  string format = 5;
   // @gotags: xml:"Namespace,attr"
   string namespace = 6;
   // @gotags: xml:"UserDefinedValue,attr"
@@ -2842,11 +2842,11 @@ message TextWithoutTerritory {
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 2;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  string applicable_territory_code = 3;
   // @gotags: xml:"IsDefault,attr"
   bool is_default = 4;
   // @gotags: xml:"Format,attr"
-  ddex.avs.TextCodecType format = 5;
+  string format = 5;
   // @gotags: xml:"Namespace,attr"
   string namespace = 6;
   // @gotags: xml:"UserDefinedValue,attr"
