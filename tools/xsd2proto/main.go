@@ -4,12 +4,19 @@ import (
 	"encoding/xml"
 	"fmt"
 	"log"
+	"net/url"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 )
 
-// DDEX specifications to convert
+//
+// =======================
+// Spec list (entry schemas)
+// =======================
+//
+
 var specs = []struct {
 	name     string
 	version  string
@@ -20,13 +27,31 @@ var specs = []struct {
 	{"pie", "10", "party-identification-and-enrichment.xsd"},
 }
 
-// XSD Schema parsing structures - tailored for DDEX patterns
+//
+// =======================
+// XSD Models (extended)
+// =======================
+//
+
 type XSDSchema struct {
 	XMLName         xml.Name         `xml:"schema"`
 	TargetNamespace string           `xml:"targetNamespace,attr"`
 	Elements        []XSDElement     `xml:"element"`
 	ComplexTypes    []XSDComplexType `xml:"complexType"`
 	SimpleTypes     []XSDSimpleType  `xml:"simpleType"`
+
+	// NEW: follow schema structure
+	Imports  []XSDImport  `xml:"import"`
+	Includes []XSDInclude `xml:"include"`
+}
+
+type XSDImport struct {
+	Namespace      string `xml:"namespace,attr"`
+	SchemaLocation string `xml:"schemaLocation,attr"`
+}
+
+type XSDInclude struct {
+	SchemaLocation string `xml:"schemaLocation,attr"`
 }
 
 type XSDElement struct {
@@ -84,15 +109,65 @@ type XSDEnumeration struct {
 	Value string `xml:"value,attr"`
 }
 
+//
+// =======================
+// Aggregation by namespace
+// =======================
+//
+
+type NamespaceBundle struct {
+	TargetNamespace string
+
+	// Aggregated components (includes merged here).
+	Elements     []XSDElement
+	ComplexTypes []XSDComplexType
+	SimpleTypes  []XSDSimpleType
+
+	// Cross-namespace dependencies discovered via xs:import
+	// and via seeing qname types with foreign prefixes (best-effort).
+	Imports map[string]struct{} // set of targetNamespace strings
+}
+
+// Graph loader state
+type loadState struct {
+	visitedFiles map[string]struct{} // absolute paths visited
+	// Map of targetNamespace → bundle
+	nsBundles map[string]*NamespaceBundle
+	// file path → schema's ns (helpful for relative includes)
+	fileToNS map[string]string
+}
+
+func newLoadState() *loadState {
+	return &loadState{
+		visitedFiles: make(map[string]struct{}),
+		nsBundles:    make(map[string]*NamespaceBundle),
+		fileToNS:     make(map[string]string),
+	}
+}
+
+//
+// =======================
+// Entry
+// =======================
+//
+
+// 1) Put this near the top-level (package scope), not inside convertSpec:
+
+type protoPkgInfo struct {
+	pkgName   string
+	goPackage string
+	filePath  string // relative to proto root
+}
+
 func main() {
 	for _, spec := range specs {
-		log.Printf("Converting %s v%s to protobuf...", spec.name, spec.version)
+		log.Printf("Converting %s v%s to protobuf (namespace-aware)...", spec.name, spec.version)
 
 		if err := validateSchemas(spec); err != nil {
 			log.Fatalf("Schema validation failed for %s v%s: %v", spec.name, spec.version, err)
 		}
 
-		if err := convertToProto(spec); err != nil {
+		if err := convertSpec(spec); err != nil {
 			log.Fatalf("Failed to convert %s v%s: %v", spec.name, spec.version, err)
 		}
 	}
@@ -100,211 +175,267 @@ func main() {
 
 func validateSchemas(spec struct{ name, version, mainFile string }) error {
 	schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
-
-	// Check if schema directory exists
 	if _, err := os.Stat(schemasDir); os.IsNotExist(err) {
-		return fmt.Errorf("schema directory %s does not exist - please ensure XSD files are placed in xsd/ directory", schemasDir)
+		return fmt.Errorf("schema directory %s does not exist", schemasDir)
 	}
 
-	// Check if main schema file exists (try both original name and underscore version)
-	mainSchemaPath := filepath.Join(schemasDir, spec.mainFile)
-	if _, err := os.Stat(mainSchemaPath); os.IsNotExist(err) {
-		// Try with underscores
-		mainSchemaPath = filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_"))
-		if _, err := os.Stat(mainSchemaPath); os.IsNotExist(err) {
-			return fmt.Errorf("main schema file not found (tried %s and %s)",
-				filepath.Join(schemasDir, spec.mainFile),
-				filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_")))
+	entry := filepath.Join(schemasDir, spec.mainFile)
+	if _, err := os.Stat(entry); os.IsNotExist(err) {
+		alt := filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_"))
+		if _, err2 := os.Stat(alt); os.IsNotExist(err2) {
+			return fmt.Errorf("main schema not found; tried %s and %s", entry, alt)
 		}
 	}
-
-	log.Printf("Found schemas in %s", schemasDir)
 	return nil
 }
 
-func convertToProto(spec struct{ name, version, mainFile string }) error {
-	log.Printf("Converting %s v%s schemas to .proto files...", spec.name, spec.version)
+//
+// =======================
+// Conversion pipeline
+// =======================
+//
 
-	// Parse the main XSD schema
+func convertSpec(spec struct{ name, version, mainFile string }) error {
 	schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
-	schemaFile := filepath.Join(schemasDir, spec.mainFile)
-
-	schema, err := parseXSDFile(schemaFile)
-	if err != nil {
-		return fmt.Errorf("failed to parse XSD file %s: %v", schemaFile, err)
+	entryPath := filepath.Join(schemasDir, spec.mainFile)
+	if _, err := os.Stat(entryPath); os.IsNotExist(err) {
+		entryPath = filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_"))
 	}
 
-	// Parse the allowed-value-sets.xsd file to get enum definitions
-	allowedValueSetsFile := filepath.Join("xsd", "allowed-value-sets.xsd")
-	if _, err := os.Stat(allowedValueSetsFile); err == nil {
-		avsSchema, err := parseXSDFile(allowedValueSetsFile)
+	st := newLoadState()
+	if err := loadSchemaGraph(st, entryPath); err != nil {
+		return fmt.Errorf("load graph: %w", err)
+	}
+
+	// Create output dir: proto/<spec or inferred>/*
+	outRoot := filepath.Join("proto")
+	if err := os.MkdirAll(outRoot, 0755); err != nil {
+		return err
+	}
+
+	// Emit one .proto per namespace bundle.
+	// We need deterministic order for stable builds.
+	var namespaces []string
+	for ns := range st.nsBundles {
+		namespaces = append(namespaces, ns)
+	}
+	sort.Strings(namespaces)
+
+	// Pre-compute package + file paths for imports
+	pkgs := make(map[string]protoPkgInfo) // ns → info
+	for _, ns := range namespaces {
+		pkg := namespaceToProtoPackage(ns, spec)
+		goPkg := namespaceToGoPackage(ns, spec)
+		path := packageToPath(pkg)
+		pkgs[ns] = protoPkgInfo{pkgName: pkg, goPackage: goPkg, filePath: path}
+	}
+
+	for _, ns := range namespaces {
+		b := st.nsBundles[ns]
+		info := pkgs[ns]
+
+		// Ensure directory exists
+		dir := filepath.Join(outRoot, filepath.Dir(info.filePath))
+		if err := os.MkdirAll(dir, 0755); err != nil {
+			return err
+		}
+
+		// Build file content
+		content, err := generateProtoForBundle(b, info.pkgName, info.goPackage, pkgs)
 		if err != nil {
-			return fmt.Errorf("failed to parse allowed-value-sets.xsd: %v", err)
-		}
-		// Merge schemas - prioritize main schema, add from allowed-value-sets only if not already present
-		initialCounts := [3]int{len(schema.ComplexTypes), len(schema.SimpleTypes), len(schema.Elements)}
-
-		// Add complex types from AVS only if not already in main schema
-		for _, avsType := range avsSchema.ComplexTypes {
-			exists := false
-			for _, mainType := range schema.ComplexTypes {
-				if mainType.Name == avsType.Name {
-					exists = true
-					log.Printf("Skipping duplicate complex type: %s (exists in main schema)", avsType.Name)
-					break
-				}
-			}
-			if !exists {
-				schema.ComplexTypes = append(schema.ComplexTypes, avsType)
-			}
+			return fmt.Errorf("generate for ns %s: %w", ns, err)
 		}
 
-		// Add simple types from AVS only if not already in main schema
-		for _, avsType := range avsSchema.SimpleTypes {
-			exists := false
-			for _, mainType := range schema.SimpleTypes {
-				if mainType.Name == avsType.Name {
-					exists = true
-					log.Printf("Skipping duplicate simple type: %s (exists in main schema)", avsType.Name)
-					break
-				}
-			}
-			if !exists {
-				schema.SimpleTypes = append(schema.SimpleTypes, avsType)
-			}
+		outFile := filepath.Join(outRoot, info.filePath)
+		if err := os.WriteFile(outFile, []byte(content), 0644); err != nil {
+			return fmt.Errorf("write %s: %w", outFile, err)
 		}
-
-		// Add elements from AVS only if not already in main schema
-		for _, avsElement := range avsSchema.Elements {
-			exists := false
-			for _, mainElement := range schema.Elements {
-				if mainElement.Name == avsElement.Name {
-					exists = true
-					log.Printf("Skipping duplicate element: %s (exists in main schema)", avsElement.Name)
-					break
-				}
-			}
-			if !exists {
-				schema.Elements = append(schema.Elements, avsElement)
-			}
-		}
-
-		addedCounts := [3]int{
-			len(schema.ComplexTypes) - initialCounts[0],
-			len(schema.SimpleTypes) - initialCounts[1],
-			len(schema.Elements) - initialCounts[2],
-		}
-		log.Printf("Merged allowed-value-sets.xsd: +%d complex types, +%d simple types, +%d elements (prioritizing main schema)",
-			addedCounts[0], addedCounts[1], addedCounts[2])
+		log.Printf("Generated %s", outFile)
 	}
 
-	// Create output directory
-	protoDir := filepath.Join("proto", spec.name+"v"+spec.version)
-	if err := os.MkdirAll(protoDir, 0755); err != nil {
-		return fmt.Errorf("failed to create proto directory: %v", err)
-	}
-
-	// Generate proto file
-	protoFile := filepath.Join(protoDir, spec.name+".proto")
-	protoContent, err := generateProtoFromXSD(schema, spec)
-	if err != nil {
-		return fmt.Errorf("failed to generate proto content: %v", err)
-	}
-
-	if err := os.WriteFile(protoFile, []byte(protoContent), 0644); err != nil {
-		return fmt.Errorf("failed to write proto file: %v", err)
-	}
-
-	log.Printf("Generated proto file: %s", protoFile)
 	return nil
 }
 
-func parseXSDFile(filePath string) (*XSDSchema, error) {
-	data, err := os.ReadFile(filePath)
+//
+// =======================
+// Graph loader (includes/imports)
+// =======================
+//
+
+func loadSchemaGraph(st *loadState, filePath string) error {
+	abs, _ := filepath.Abs(filePath)
+	if _, ok := st.visitedFiles[abs]; ok {
+		return nil
+	}
+	st.visitedFiles[abs] = struct{}{}
+
+	data, err := os.ReadFile(abs)
 	if err != nil {
-		return nil, fmt.Errorf("failed to read XSD file: %v", err)
+		return fmt.Errorf("read %s: %w", abs, err)
 	}
 
 	var schema XSDSchema
 	if err := xml.Unmarshal(data, &schema); err != nil {
-		return nil, fmt.Errorf("failed to parse XSD: %v", err)
+		return fmt.Errorf("parse %s: %w", abs, err)
 	}
 
-	log.Printf("Parsed XSD: %d elements, %d complex types, %d simple types",
-		len(schema.Elements), len(schema.ComplexTypes), len(schema.SimpleTypes))
+	if schema.TargetNamespace == "" {
+		return fmt.Errorf("schema %s missing targetNamespace", abs)
+	}
 
-	return &schema, nil
+	st.fileToNS[abs] = schema.TargetNamespace
+
+	// Get or create namespace bundle
+	b := st.nsBundles[schema.TargetNamespace]
+	if b == nil {
+		b = &NamespaceBundle{
+			TargetNamespace: schema.TargetNamespace,
+			Imports:         make(map[string]struct{}),
+		}
+		st.nsBundles[schema.TargetNamespace] = b
+	}
+
+	// Merge components (includes naturally collapse here)
+	b.Elements = append(b.Elements, schema.Elements...)
+	b.ComplexTypes = append(b.ComplexTypes, schema.ComplexTypes...)
+	b.SimpleTypes = append(b.SimpleTypes, schema.SimpleTypes...)
+
+	// Track declared imports by namespace
+	for _, imp := range schema.Imports {
+		if imp.Namespace != "" && imp.Namespace != schema.TargetNamespace {
+			b.Imports[imp.Namespace] = struct{}{}
+		}
+	}
+
+	// Follow xs:include (same-namespace; relative to this file)
+	baseDir := filepath.Dir(abs)
+	for _, inc := range schema.Includes {
+		if inc.SchemaLocation == "" {
+			continue
+		}
+		next := filepath.Join(baseDir, inc.SchemaLocation)
+		if err := loadSchemaGraph(st, next); err != nil {
+			return err
+		}
+	}
+
+	// Follow xs:import where schemaLocation is present; if absent, we still recorded the ns in Imports
+	for _, imp := range schema.Imports {
+		if imp.SchemaLocation == "" {
+			continue
+		}
+		next := filepath.Join(baseDir, imp.SchemaLocation)
+		// If the imported file has a different targetNamespace, it will get its own bundle.
+		if err := loadSchemaGraph(st, next); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
 
-func generateProtoFromXSD(schema *XSDSchema, spec struct{ name, version, mainFile string }) (string, error) {
-	var builder strings.Builder
+//
+// =======================
+// Codegen per namespace
+// =======================
+//
 
-	// Proto header
-	builder.WriteString(`syntax = "proto3";
+func generateProtoForBundle(
+	b *NamespaceBundle,
+	packageName string,
+	goPackage string,
+	all map[string]protoPkgInfo,
+) (string, error) {
 
-`)
-	builder.WriteString(fmt.Sprintf("package ddex.%s.v%s;\n\n", spec.name, spec.version))
-	builder.WriteString(fmt.Sprintf("option go_package = \"github.com/alecsavvy/ddex-go/gen/%sv%s\";\n\n", spec.name, spec.version))
+	var sb strings.Builder
 
-	builder.WriteString(fmt.Sprintf("// Generated from %s\n", spec.mainFile))
-	builder.WriteString(fmt.Sprintf("// Target namespace: %s\n\n", schema.TargetNamespace))
+	// Header
+	sb.WriteString(`syntax = "proto3";` + "\n\n")
+	sb.WriteString(fmt.Sprintf("package %s;\n\n", packageName))
+	sb.WriteString(fmt.Sprintf("option go_package = \"%s\";\n\n", goPackage))
+	sb.WriteString(fmt.Sprintf("// Target namespace: %s\n\n", b.TargetNamespace))
 
-	// Track generated type names to avoid duplicates (single namespace for both messages and enums)
-	// Import priority: main schema types always win, imported types (AVS) are skipped if conflicts
-	generatedTypes := make(map[string]string) // name -> source ("main" or "import")
+	// Imports (protobuf)
+	// Sort for determinism
+	var deps []string
+	for ns := range b.Imports {
+		if ns == b.TargetNamespace {
+			continue
+		}
+		if info, ok := all[ns]; ok {
+			deps = append(deps, info.filePath)
+		}
+	}
+	sort.Strings(deps)
+	for _, f := range deps {
+		// Normalize to POSIX paths in import statements
+		sb.WriteString(fmt.Sprintf("import \"%s\";\n", toPosixPath(f)))
+	}
+	if len(deps) > 0 {
+		sb.WriteString("\n")
+	}
 
-	// First pass: Generate all types from main schema (top priority)
-	// Generate messages for top-level elements from main schema
-	for _, element := range schema.Elements {
-		if element.ComplexType != nil {
-			// Inline complex type
-			messageName := toProtoMessageName(element.Name)
-			if _, exists := generatedTypes[messageName]; !exists {
-				msgContent, err := generateComplexTypeMessage(element.Name, element.ComplexType)
+	// Track generated type names (message & enum in one space) for this package
+	generated := make(map[string]struct{})
+
+	// Top-level elements with inline complex types → message
+	for _, el := range b.Elements {
+		if el.ComplexType != nil {
+			name := toProtoMessageName(el.Name)
+			if _, exists := generated[name]; !exists {
+				msg, err := generateComplexTypeMessage(el.Name, el.ComplexType, all)
 				if err != nil {
-					return "", fmt.Errorf("failed to generate message for element %s: %v", element.Name, err)
+					return "", err
 				}
-				builder.WriteString(msgContent)
-				builder.WriteString("\n")
-				generatedTypes[messageName] = "main"
+				sb.WriteString(msg)
+				sb.WriteString("\n\n")
+				generated[name] = struct{}{}
 			}
 		}
 	}
 
-	// Generate messages for named complex types from main schema
-	for _, complexType := range schema.ComplexTypes {
-		messageName := toProtoMessageName(complexType.Name)
-		if _, exists := generatedTypes[messageName]; !exists {
-			msgContent, err := generateComplexTypeMessage(complexType.Name, &complexType)
-			if err != nil {
-				return "", fmt.Errorf("failed to generate message for complex type %s: %v", complexType.Name, err)
-			}
-			builder.WriteString(msgContent)
-			builder.WriteString("\n")
-			generatedTypes[messageName] = "main"
+	// Named complex types → message
+	for _, ct := range b.ComplexTypes {
+		if ct.Name == "" {
+			continue
 		}
+		name := toProtoMessageName(ct.Name)
+		if _, exists := generated[name]; exists {
+			continue
+		}
+		msg, err := generateComplexTypeMessage(ct.Name, &ct, all)
+		if err != nil {
+			return "", err
+		}
+		sb.WriteString(msg)
+		sb.WriteString("\n\n")
+		generated[name] = struct{}{}
 	}
 
-	// Generate enums for simple types from main schema
-	for _, simpleType := range schema.SimpleTypes {
-		if simpleType.Restriction != nil && len(simpleType.Restriction.Enumerations) > 0 {
-			enumName := toProtoEnumName(simpleType.Name)
-			if _, exists := generatedTypes[enumName]; !exists {
-				enumContent := generateEnum(simpleType)
-				builder.WriteString(enumContent)
-				builder.WriteString("\n")
-				generatedTypes[enumName] = "main"
-			}
+	// Simple types with enumerations → enum
+	for _, st := range b.SimpleTypes {
+		if st.Name == "" || st.Restriction == nil || len(st.Restriction.Enumerations) == 0 {
+			continue
 		}
+		en := toProtoEnumName(st.Name)
+		if _, exists := generated[en]; exists {
+			continue
+		}
+		sb.WriteString(generateEnum(st))
+		sb.WriteString("\n\n")
+		generated[en] = struct{}{}
 	}
 
-	// Note: Types from imported schemas (AVS) that conflict with main schema types are 
-	// automatically skipped due to the merge logic in convertToProto() that prioritizes main schema
-
-	return builder.String(), nil
+	return strings.TrimSpace(sb.String()) + "\n", nil
 }
 
-func generateComplexTypeMessage(name string, complexType *XSDComplexType) (string, error) {
+//
+// =======================
+// Field/message/enum codegen (your original logic, kept)
+// =======================
+//
+
+func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkgs map[string]protoPkgInfo) (string, error) {
 	var builder strings.Builder
 
 	messageName := toProtoMessageName(name)
@@ -312,10 +443,10 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 
 	fieldNum := 1
 
-	// Handle sequence elements
+	// sequence → fields
 	if complexType.Sequence != nil {
 		for _, element := range complexType.Sequence.Elements {
-			field, err := generateField(element, fieldNum)
+			field, err := generateField(element, fieldNum, allPkgs)
 			if err != nil {
 				return "", fmt.Errorf("failed to generate field for element %s: %v", element.Name, err)
 			}
@@ -324,11 +455,11 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 		}
 	}
 
-	// Handle choice elements (use oneof)
+	// choice → oneof
 	if complexType.Choice != nil && len(complexType.Choice.Elements) > 0 {
 		builder.WriteString("  oneof choice {\n")
 		for _, element := range complexType.Choice.Elements {
-			field, err := generateChoiceField(element, fieldNum)
+			field, err := generateChoiceField(element, fieldNum, allPkgs)
 			if err != nil {
 				return "", fmt.Errorf("failed to generate choice field for element %s: %v", element.Name, err)
 			}
@@ -338,25 +469,24 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 		builder.WriteString("  }\n")
 	}
 
-	// Handle simple content with extension (attributes + value)
+	// simpleContent extension → value + attributes
 	if complexType.SimpleContent != nil && complexType.SimpleContent.Extension != nil {
-		// Add value field for the simple content
-		// Generate gotags comment for chardata
+		// chardata value
 		injectComment := "  // @gotags: xml:\",chardata\""
 		builder.WriteString(fmt.Sprintf("%s\n  string value = %d;\n", injectComment, fieldNum))
 		fieldNum++
 
-		// Add attribute fields
+		// attributes
 		for _, attr := range complexType.SimpleContent.Extension.Attributes {
-			field := generateAttributeField(attr, fieldNum)
+			field := generateAttributeField(attr, fieldNum, allPkgs)
 			builder.WriteString(field + "\n")
 			fieldNum++
 		}
 	}
 
-	// Handle attributes
+	// attributes on the complexType itself
 	for _, attr := range complexType.Attributes {
-		field := generateAttributeField(attr, fieldNum)
+		field := generateAttributeField(attr, fieldNum, allPkgs)
 		builder.WriteString(field + "\n")
 		fieldNum++
 	}
@@ -365,81 +495,65 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType) (strin
 	return builder.String(), nil
 }
 
-func generateField(element XSDElement, fieldNum int) (string, error) {
+func generateField(element XSDElement, fieldNum int, allPkgs map[string]protoPkgInfo) (string, error) {
 	fieldName := toProtoFieldName(element.Name)
 
-	// Handle elements without explicit type (inline types)
-	fieldType := "string" // Default for elements with inline types
+	// Type mapping
+	fieldType := "string" // default
 	if element.Type != "" {
-		fieldType = xsdTypeToProto(element.Type)
+		fieldType = xsdTypeToProto(element.Type, allPkgs)
 	}
 
-	// Handle cardinality
+	// Cardinality
 	repeated := ""
 	if element.MaxOccurs == "unbounded" {
 		repeated = "repeated "
 	}
 
-	// Generate gotags comment for protoc-go-inject-tag
-	// This will add xml tags to the generated Go struct
+	// gotags for xml element name
 	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s\"", element.Name)
 
 	return fmt.Sprintf("%s\n  %s%s %s = %d;", injectComment, repeated, fieldType, fieldName, fieldNum), nil
 }
 
-func generateChoiceField(element XSDElement, fieldNum int) (string, error) {
+func generateChoiceField(element XSDElement, fieldNum int, allPkgs map[string]protoPkgInfo) (string, error) {
 	fieldName := toProtoFieldName(element.Name)
 
-	// Handle elements without explicit type (inline types)
-	fieldType := "string" // Default for elements with inline types
+	fieldType := "string"
 	if element.Type != "" {
-		fieldType = xsdTypeToProto(element.Type)
+		fieldType = xsdTypeToProto(element.Type, allPkgs)
 	}
 
-	// NOTE: No repeated allowed in oneof - ignore MaxOccurs for choice fields
-	// This is a protobuf limitation - oneof fields cannot be repeated
-
-	// Generate gotags comment for protoc-go-inject-tag
 	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s\"", element.Name)
-
 	return fmt.Sprintf("%s\n    %s %s = %d;", injectComment, fieldType, fieldName, fieldNum), nil
 }
 
-func generateAttributeField(attr XSDAttribute, fieldNum int) string {
+func generateAttributeField(attr XSDAttribute, fieldNum int, allPkgs map[string]protoPkgInfo) string {
 	fieldName := toProtoFieldName(attr.Name)
 
-	// If no type is specified, default to string (XSD default for attributes)
-	fieldType := "string" // XSD default
+	fieldType := "string"
 	if attr.Type != "" {
-		fieldType = xsdTypeToProto(attr.Type)
+		fieldType = xsdTypeToProto(attr.Type, allPkgs)
 	}
 
-	// Generate gotags comment for protoc-go-inject-tag
 	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", attr.Name)
-
 	return fmt.Sprintf("%s\n  %s %s = %d;", injectComment, fieldType, fieldName, fieldNum)
 }
-
 
 func generateEnum(simpleType XSDSimpleType) string {
 	var builder strings.Builder
 
-	// Remove underscores from enum name for PascalCase
 	enumName := strings.ReplaceAll(toProtoMessageName(simpleType.Name), "_", "")
 	builder.WriteString(fmt.Sprintf("enum %s {\n", enumName))
 
-	// Convert enum name to snake_case for prefixes, but clean up double underscores
-	enumPrefix := toProtoFieldName(simpleType.Name) // Use original name
+	enumPrefix := toProtoFieldName(simpleType.Name)
 	enumPrefix = strings.ToUpper(enumPrefix)
-	// Clean up any double underscores that might have been created
 	for strings.Contains(enumPrefix, "__") {
 		enumPrefix = strings.ReplaceAll(enumPrefix, "__", "_")
 	}
 
-	// Add required UNSPECIFIED zero value
 	builder.WriteString(fmt.Sprintf("  %s_UNSPECIFIED = 0;\n", enumPrefix))
 
-	// Add DDEX enum values starting from 1
 	for i, enum := range simpleType.Restriction.Enumerations {
 		rawValue := toProtoEnumValue(enum.Value)
 		enumValue := enumPrefix + "_" + rawValue
@@ -450,11 +564,19 @@ func generateEnum(simpleType XSDSimpleType) string {
 	return builder.String()
 }
 
-// Type mapping functions
-func xsdTypeToProto(xsdType string) string {
+//
+// =======================
+// Type/name helpers (kept + small improvements)
+// =======================
+//
+
+func xsdTypeToProto(xsdType string, allPkgs map[string]protoPkgInfo) string {
 	originalType := xsdType
-	// Remove namespace prefix if present
+	var prefix string
+	
+	// Extract prefix if present (xs:, avs:, ern:, etc.)
 	if idx := strings.Index(xsdType, ":"); idx != -1 {
+		prefix = xsdType[:idx]
 		xsdType = xsdType[idx+1:]
 	}
 
@@ -468,47 +590,61 @@ func xsdTypeToProto(xsdType string) string {
 	case "boolean":
 		return "bool"
 	case "decimal", "float":
-		return "string" // Preserve precision for decimal
+		return "string" // preserve precision for decimals
 	case "double":
 		return "double"
 	case "dateTime", "date", "time", "duration", "gYear", "GYear", "ddex_IsoDate", "Ddex_IsoDate":
-		return "string" // ISO 8601 format strings and custom date types
+		return "string" // ISO8601 strings
 	case "base64Binary":
 		return "bytes"
 	default:
-		// Log unmapped types for debugging
+		// Handle namespace prefixes for custom types
+		if prefix == "avs" {
+			// AVS types go to ddex.avs package
+			return "ddex.avs." + strings.ReplaceAll(toProtoMessageName(xsdType), "_", "")
+		}
+		
+		// For other prefixes, try to map to known packages
+		if prefix != "" && prefix != "xs" {
+			// Look for a namespace that might match this prefix
+			for ns, pkg := range allPkgs {
+				if strings.Contains(strings.ToLower(ns), prefix) {
+					packageName := pkg.pkgName
+					return packageName + "." + strings.ReplaceAll(toProtoMessageName(xsdType), "_", "")
+				}
+			}
+		}
+		
+		// Assume custom type → Proto message in local package
 		if xsdType != originalType {
 			log.Printf("Unmapped XSD type: %s (original: %s) -> treating as custom message", xsdType, originalType)
 		} else {
 			log.Printf("Unmapped XSD type: %s -> treating as custom message", xsdType)
 		}
-		// Assume it's a custom type/message - remove underscores for consistency with enum names
 		return strings.ReplaceAll(toProtoMessageName(xsdType), "_", "")
 	}
 }
 
 func toProtoFieldName(name string) string {
-	// Convert to snake_case
-	result := ""
+	var b strings.Builder
 	for i, r := range name {
 		if i > 0 && r >= 'A' && r <= 'Z' {
-			result += "_"
+			b.WriteByte('_')
 		}
-		result += strings.ToLower(string(r))
+		b.WriteByte(byte(strings.ToLower(string(r))[0]))
 	}
-	return result
+	return b.String()
 }
 
 func toProtoMessageName(name string) string {
-	// Ensure PascalCase
 	if name == "" {
 		return ""
 	}
+	// Basic PascalCase
 	return strings.ToUpper(name[:1]) + name[1:]
 }
 
 func toProtoEnumName(name string) string {
-	// Ensure PascalCase for enum names
 	if name == "" {
 		return ""
 	}
@@ -516,10 +652,7 @@ func toProtoEnumName(name string) string {
 }
 
 func toProtoEnumValue(value string) string {
-	// Convert to valid protobuf enum value (UPPER_SNAKE_CASE, starts with letter)
 	result := strings.ToUpper(value)
-
-	// Replace invalid characters with underscores
 	result = strings.ReplaceAll(result, "-", "_")
 	result = strings.ReplaceAll(result, " ", "_")
 	result = strings.ReplaceAll(result, ".", "_")
@@ -531,32 +664,141 @@ func toProtoEnumValue(value string) string {
 	result = strings.ReplaceAll(result, "\"", "_")
 	result = strings.ReplaceAll(result, "&", "_AND_")
 
-	// Remove any remaining invalid characters
 	var cleaned strings.Builder
 	for _, r := range result {
 		if (r >= 'A' && r <= 'Z') || (r >= '0' && r <= '9') || r == '_' {
 			cleaned.WriteRune(r)
 		}
 	}
-	result = cleaned.String()
+	out := cleaned.String()
+	if out == "" {
+		out = "UNKNOWN"
+	}
+	if out[0] >= '0' && out[0] <= '9' {
+		out = "E_" + out
+	}
+	for strings.Contains(out, "__") {
+		out = strings.ReplaceAll(out, "__", "_")
+	}
+	return strings.Trim(out, "_")
+}
 
-	// Ensure it starts with a letter (prefix with E_ if starts with digit)
-	if len(result) > 0 && result[0] >= '0' && result[0] <= '9' {
-		result = "E_" + result
+func toPosixPath(p string) string {
+	return strings.ReplaceAll(p, string(os.PathSeparator), "/")
+}
+
+//
+// =======================
+// Namespace → package mapping
+// =======================
+//
+
+// For DDEX, we want:
+//
+//	ddex.xml/ern/43 → package "ddex.ern.v43"
+//	ddex.xml/mead/11 → "ddex.mead.v11"
+//	ddex.xml/pie/10 → "ddex.pie.v10"
+//	ddex.xml/avs/avs → "ddex.avs"
+func namespaceToProtoPackage(ns string, spec struct{ name, version, mainFile string }) string {
+	host, pathParts := splitNS(ns)
+
+	// DDEX-friendly mapping
+	if host == "ddex.net" && len(pathParts) >= 2 && pathParts[0] == "xml" {
+		// AVS in the wild appears as: /xml/avs/avs, /xml/allowed-value-sets, /xml/allowed_value_sets
+		if pathParts[1] == "avs" ||
+			pathParts[1] == "allowed-value-sets" ||
+			pathParts[1] == "allowed_value_sets" {
+			return "ddex.avs"
+		}
+		// Normal versioned families: /xml/{ern|mead|pie}/{digits}
+		if len(pathParts) >= 3 && isDigits(pathParts[2]) {
+			return fmt.Sprintf("ddex.%s.v%s", pathParts[1], pathParts[2])
+		}
 	}
 
-	// Ensure it's not empty
-	if result == "" {
-		result = "UNKNOWN"
+	// Fallback: if this namespace matches the entry spec (ern/mead/pie…), pin it
+	if looksLikeEntry(ns, spec) {
+		return fmt.Sprintf("ddex.%s.v%s", spec.name, spec.version)
 	}
 
-	// Clean up multiple underscores
-	for strings.Contains(result, "__") {
-		result = strings.ReplaceAll(result, "__", "_")
+	// Generic fallback: reverse host + path; add v<digits> suffix where appropriate
+	revHost := reverseHost(host)
+	if len(pathParts) > 0 && isDigits(pathParts[len(pathParts)-1]) {
+		last := "v" + pathParts[len(pathParts)-1]
+		return sanitizePackage(strings.Join(append([]string{revHost}, append(pathParts[:len(pathParts)-1], last)...), "."))
 	}
+	return sanitizePackage(strings.Join(append([]string{revHost}, pathParts...), "."))
+}
 
-	// Remove leading/trailing underscores
-	result = strings.Trim(result, "_")
+func looksLikeEntry(ns string, spec struct{ name, version, mainFile string }) bool {
+	// ddex.net/xml/<spec>/<versionDigits>, but never treat AVS as an entry package
+	host, parts := splitNS(ns)
+	if host != "ddex.net" || len(parts) < 3 || parts[0] != "xml" {
+		return false
+	}
+	if parts[1] == "avs" || parts[1] == "allowed-value-sets" || parts[1] == "allowed_value_sets" {
+		return false
+	}
+	return parts[1] == spec.name && isDigits(parts[2]) && parts[2] == stripLeadingV(spec.version)
+}
 
-	return result
+func namespaceToGoPackage(ns string, spec struct{ name, version, mainFile string }) string {
+	// Put Go package paths under your repo. Mirror the proto package path as directories.
+	pkg := namespaceToProtoPackage(ns, spec)
+	path := strings.ReplaceAll(pkg, ".", "/")
+	return "github.com/alecsavvy/ddex-go/gen/" + path
+}
+
+func packageToPath(pkg string) string {
+	parts := strings.Split(pkg, ".")
+	if len(parts) == 0 {
+		return "unknown.proto"
+	}
+	dir := strings.Join(parts, "/")
+	filename := parts[len(parts)-1] + ".proto"
+	return filepath.Join(dir, filename)
+}
+
+func splitNS(ns string) (host string, parts []string) {
+	u, err := url.Parse(ns)
+	if err != nil {
+		return "", nil
+	}
+	host = u.Host
+	parts = strings.Split(strings.Trim(u.Path, "/"), "/")
+	return
+}
+
+func reverseHost(h string) string {
+	if h == "" {
+		return "unknown"
+	}
+	parts := strings.Split(h, ".")
+	for i, j := 0, len(parts)-1; i < j; i, j = i+1, j-1 {
+		parts[i], parts[j] = parts[j], parts[i]
+	}
+	return strings.Join(parts, ".")
+}
+
+func isDigits(s string) bool {
+	if s == "" {
+		return false
+	}
+	for _, r := range s {
+		if r < '0' || r > '9' {
+			return false
+		}
+	}
+	return true
+}
+
+func sanitizePackage(p string) string {
+	// very light cleanup: no invalid idents
+	p = strings.ReplaceAll(p, "-", "_")
+	p = strings.ReplaceAll(p, " ", "_")
+	return p
+}
+
+func stripLeadingV(s string) string {
+	return strings.TrimPrefix(strings.ToLower(s), "v")
 }

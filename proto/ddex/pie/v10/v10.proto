@@ -1,0 +1,1362 @@
+syntax = "proto3";
+
+package ddex.pie.v10;
+
+option go_package = "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10";
+
+// Target namespace: http://ddex.net/xml/pie/10
+
+import "ddex/avs/avs.proto";
+
+message PieMessage {
+  // @gotags: xml:"MessageHeader"
+  ddex.pie.v10.MessageHeader message_header = 1;
+  // @gotags: xml:"MetadataSourceList"
+  ddex.pie.v10.MetadataSourceList metadata_source_list = 2;
+  // @gotags: xml:"PartyList"
+  ddex.pie.v10.PartyList party_list = 3;
+  // @gotags: xml:"AvsVersionId,attr"
+  string avs_version_id = 4;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 5;
+}
+
+message PieRequestMessage {
+  // @gotags: xml:"MessageHeader"
+  ddex.pie.v10.MessageHeader message_header = 1;
+  // @gotags: xml:"RequestedParty"
+  repeated ddex.pie.v10.RequestedParty requested_party = 2;
+  // @gotags: xml:"AvsVersionId,attr"
+  string avs_version_id = 3;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 4;
+}
+
+message Feed {
+  oneof choice {
+  // @gotags: xml:"author"
+    ddex.pie.v10.Person author = 1;
+  // @gotags: xml:"category"
+    ddex.pie.v10.Category category = 2;
+  // @gotags: xml:"contributor"
+    ddex.pie.v10.Person contributor = 3;
+  // @gotags: xml:"generator"
+    ddex.pie.v10.Generator generator = 4;
+  // @gotags: xml:"icon"
+    ddex.pie.v10.Icon icon = 5;
+  // @gotags: xml:"id"
+    ddex.pie.v10.Id id = 6;
+  // @gotags: xml:"link"
+    ddex.pie.v10.Link link = 7;
+  // @gotags: xml:"logo"
+    ddex.pie.v10.Logo logo = 8;
+  // @gotags: xml:"rights"
+    ddex.pie.v10.Text rights = 9;
+  // @gotags: xml:"subtitle"
+    ddex.pie.v10.Text subtitle = 10;
+  // @gotags: xml:"title"
+    ddex.pie.v10.Text title = 11;
+  // @gotags: xml:"updated"
+    ddex.pie.v10.DateTime updated = 12;
+  // @gotags: xml:"entry"
+    ddex.pie.v10.Entry entry = 13;
+  }
+}
+
+message Contribution {
+  // @gotags: xml:"Role"
+  repeated ddex.pie.v10.ContributorRole role = 1;
+  // @gotags: xml:"IsPrimaryRole"
+  bool is_primary_role = 2;
+  // @gotags: xml:"HasMadeFeaturedContribution"
+  bool has_made_featured_contribution = 3;
+  // @gotags: xml:"HasMadeContractedContribution"
+  bool has_made_contracted_contribution = 4;
+  // @gotags: xml:"Event"
+  ddex.pie.v10.EventDate event = 5;
+}
+
+message CreationDescription {
+  // @gotags: xml:"Title"
+  repeated ddex.pie.v10.TitleWithUDV title = 1;
+  // @gotags: xml:"DisplayArtistName"
+  ddex.pie.v10.DisplayArtistName display_artist_name = 2;
+  // @gotags: xml:"PublicationDate"
+  ddex.pie.v10.EventDate publication_date = 3;
+}
+
+message DetailedPartyIdForParty {
+  // @gotags: xml:"ISNI"
+  string i_s_n_i = 1;
+  // @gotags: xml:"DPID"
+  string d_p_i_d = 2;
+  // @gotags: xml:"IpiNameNumber"
+  string ipi_name_number = 3;
+  // @gotags: xml:"IPN"
+  string i_p_n = 4;
+  // @gotags: xml:"CisacSocietyId"
+  string cisac_society_id = 5;
+  // @gotags: xml:"ProprietaryId"
+  repeated ddex.pie.v10.ProprietaryId proprietary_id = 6;
+  // @gotags: xml:"IsDeprecated,attr"
+  bool is_deprecated = 7;
+}
+
+message Entry {
+  oneof choice {
+  // @gotags: xml:"author"
+    ddex.pie.v10.Person author = 1;
+  // @gotags: xml:"category"
+    ddex.pie.v10.Category category = 2;
+  // @gotags: xml:"content"
+    ddex.pie.v10.Content content = 3;
+  // @gotags: xml:"contributor"
+    ddex.pie.v10.Person contributor = 4;
+  // @gotags: xml:"id"
+    ddex.pie.v10.Id id = 5;
+  // @gotags: xml:"link"
+    ddex.pie.v10.Link link = 6;
+  // @gotags: xml:"published"
+    ddex.pie.v10.DateTime published = 7;
+  // @gotags: xml:"rights"
+    ddex.pie.v10.Text rights = 8;
+  // @gotags: xml:"source"
+    ddex.pie.v10.Source source = 9;
+  // @gotags: xml:"summary"
+    ddex.pie.v10.Text summary = 10;
+  // @gotags: xml:"title"
+    ddex.pie.v10.Text title = 11;
+  // @gotags: xml:"updated"
+    ddex.pie.v10.DateTime updated = 12;
+  // @gotags: xml:"SubscriptionId"
+    string subscription_id = 13;
+  // @gotags: xml:"Party"
+    ddex.pie.v10.PartyDescriptorForEntry party = 14;
+  }
+  // @gotags: xml:"AvsVersionId,attr"
+  string avs_version_id = 15;
+}
+
+message Event {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"EventType"
+  ddex.pie.v10.EventType event_type = 2;
+  // @gotags: xml:"EventDescription"
+  repeated ddex.pie.v10.Description event_description = 3;
+}
+
+message EventType {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message Focus {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"FocusTrack"
+  ddex.pie.v10.ResourceSummary focus_track = 2;
+  // @gotags: xml:"FocusRelease"
+  ddex.pie.v10.ReleaseSummary focus_release = 3;
+  // @gotags: xml:"FocusWork"
+  ddex.pie.v10.WorkSummary focus_work = 4;
+  // @gotags: xml:"DisplayArtistName"
+  repeated ddex.pie.v10.DisplayArtistNameWithPronunciation display_artist_name = 5;
+  // @gotags: xml:"DisplayArtist"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation display_artist = 6;
+  // @gotags: xml:"Writer"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation writer = 7;
+  // @gotags: xml:"SequenceNumber"
+  int32 sequence_number = 8;
+  // @gotags: xml:"PeriodOfBeingFocus"
+  repeated ddex.pie.v10.PeriodWithTime period_of_being_focus = 9;
+  // @gotags: xml:"TerritoryOfBeingFocusTrackDescription"
+  repeated ddex.avs.CurrentTerritoryCode territory_of_being_focus_track_description = 10;
+  // @gotags: xml:"Comment"
+  repeated ddex.pie.v10.TextWithoutTerritory comment = 11;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 12;
+}
+
+message Gender {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ddex.pie.v10.GenderValue value = 2;
+  // @gotags: xml:"DoNotDisplay,attr"
+  bool do_not_display = 3;
+}
+
+message GenderValue {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message NameWithPronunciation {
+  // @gotags: xml:"Name"
+  string name = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated ddex.pie.v10.PronunciationForParty pronunciation = 2;
+}
+
+message NameWithScriptCode {
+  // @gotags: xml:"Name"
+  ddex.pie.v10.Name name = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated ddex.pie.v10.PronunciationForParty pronunciation = 2;
+}
+
+message Nationality {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ddex.pie.v10.AllTerritoryCode value = 2;
+}
+
+message Party {
+  // @gotags: xml:"PartyReference"
+  string party_reference = 1;
+  // @gotags: xml:"PartyId"
+  repeated ddex.pie.v10.DetailedPartyIdForParty party_id = 2;
+  // @gotags: xml:"PartyName"
+  repeated ddex.pie.v10.PartyName party_name = 3;
+  // @gotags: xml:"PartyType"
+  ddex.pie.v10.PartyType party_type = 4;
+  // @gotags: xml:"Event"
+  repeated ddex.pie.v10.Event event = 5;
+  // @gotags: xml:"RelatedParty"
+  repeated ddex.pie.v10.RelatedParty related_party = 6;
+  // @gotags: xml:"RelatedCreation"
+  repeated ddex.pie.v10.RelatedCreationForParty related_creation = 7;
+  // @gotags: xml:"Gender"
+  ddex.pie.v10.Gender gender = 8;
+  // @gotags: xml:"Nationality"
+  repeated ddex.pie.v10.Nationality nationality = 9;
+  // @gotags: xml:"PrimaryRole"
+  ddex.pie.v10.PrimaryRole primary_role = 10;
+  // @gotags: xml:"VocalRegister"
+  ddex.pie.v10.VocalRegister vocal_register = 11;
+  // @gotags: xml:"Focus"
+  repeated ddex.pie.v10.Focus focus = 12;
+  // @gotags: xml:"ArtistType"
+  repeated ddex.pie.v10.ArtistType artist_type = 13;
+  // @gotags: xml:"ClassicalPeriod"
+  ddex.pie.v10.ClassicalPeriod classical_period = 14;
+  // @gotags: xml:"Epoch"
+  repeated ddex.pie.v10.Epoch epoch = 15;
+  // @gotags: xml:"ArtisticInfluence"
+  repeated ddex.pie.v10.ArtisticInfluence artistic_influence = 16;
+  // @gotags: xml:"Award"
+  repeated ddex.pie.v10.Award award = 17;
+  // @gotags: xml:"Biography"
+  repeated ddex.pie.v10.Biography biography = 18;
+  // @gotags: xml:"Image"
+  repeated ddex.pie.v10.Image image = 19;
+  // @gotags: xml:"SocialMediaURL"
+  ddex.pie.v10.SocialMediaURL social_media_u_r_l = 20;
+  // @gotags: xml:"CommentaryNote"
+  repeated ddex.pie.v10.CommentaryNote commentary_note = 21;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 22;
+}
+
+message PartyDescriptorForEntry {
+  // @gotags: xml:"PartyId"
+  ddex.pie.v10.DetailedPartyId party_id = 1;
+  // @gotags: xml:"PartyName"
+  string party_name = 2;
+}
+
+message PartyList {
+  // @gotags: xml:"Party"
+  repeated ddex.pie.v10.Party party = 1;
+}
+
+message PartyName {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"NameId"
+  repeated ddex.pie.v10.NameId name_id = 2;
+  // @gotags: xml:"PartyNameType"
+  repeated ddex.pie.v10.PartyNameType party_name_type = 3;
+  // @gotags: xml:"ReasonForNameChange"
+  ddex.pie.v10.ReasonForNameChange reason_for_name_change = 4;
+  // @gotags: xml:"PartyNamePurpose"
+  repeated ddex.pie.v10.PartyNamePurpose party_name_purpose = 5;
+  // @gotags: xml:"PartyNameFormat"
+  repeated ddex.pie.v10.PartyNameFormat party_name_format = 6;
+  // @gotags: xml:"FullName"
+  ddex.pie.v10.NameWithScriptCode full_name = 7;
+  // @gotags: xml:"FullNameAsciiTranscribed"
+  ddex.pie.v10.NameWithPronunciation full_name_ascii_transcribed = 8;
+  // @gotags: xml:"FullNameIndexed"
+  ddex.pie.v10.NameWithScriptCode full_name_indexed = 9;
+  // @gotags: xml:"TitlesBeforeNames"
+  string titles_before_names = 10;
+  // @gotags: xml:"NamesBeforeKeyName"
+  ddex.pie.v10.NameWithScriptCode names_before_key_name = 11;
+  // @gotags: xml:"KeyName"
+  ddex.pie.v10.NameWithScriptCode key_name = 12;
+  // @gotags: xml:"NamesAfterKeyName"
+  ddex.pie.v10.NameWithScriptCode names_after_key_name = 13;
+  // @gotags: xml:"TitlesAfterNames"
+  string titles_after_names = 14;
+  // @gotags: xml:"ShortName"
+  repeated ddex.pie.v10.NameWithScriptCode short_name = 15;
+  // @gotags: xml:"AbbreviatedName"
+  repeated ddex.pie.v10.NameWithScriptCode abbreviated_name = 16;
+  // @gotags: xml:"ValidityPeriod"
+  repeated ddex.pie.v10.ValidityPeriod validity_period = 17;
+  // @gotags: xml:"RelatedCreation"
+  repeated ddex.pie.v10.RelatedCreationForParty related_creation = 18;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 19;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 20;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 21;
+  // @gotags: xml:"IsCanonical,attr"
+  bool is_canonical = 22;
+}
+
+message PartyNameForRequest {
+  // @gotags: xml:"FullName"
+  ddex.pie.v10.Name full_name = 1;
+  // @gotags: xml:"FullNameAsciiTranscribed"
+  string full_name_ascii_transcribed = 2;
+  // @gotags: xml:"FullNameIndexed"
+  ddex.pie.v10.Name full_name_indexed = 3;
+  // @gotags: xml:"NamesBeforeKeyName"
+  ddex.pie.v10.Name names_before_key_name = 4;
+  // @gotags: xml:"KeyName"
+  ddex.pie.v10.Name key_name = 5;
+  // @gotags: xml:"NamesAfterKeyName"
+  ddex.pie.v10.Name names_after_key_name = 6;
+  // @gotags: xml:"AbbreviatedName"
+  ddex.pie.v10.Name abbreviated_name = 7;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 8;
+}
+
+message PartyNameFormat {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message PartyNamePurpose {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message PartyNameType {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message PartyRelationshipType {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message PartyType {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ddex.pie.v10.PartyTypeValue value = 2;
+}
+
+message PartyTypeValue {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message PrimaryRole {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ddex.pie.v10.ContributorRole value = 2;
+}
+
+message PronunciationForParty {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsCanonical,attr"
+  bool is_canonical = 2;
+  // @gotags: xml:"IsMispronounced,attr"
+  bool is_mispronounced = 3;
+  // @gotags: xml:"LanguageCode,attr"
+  string language_code = 4;
+  // @gotags: xml:"EncodingType,attr"
+  ddex.avs.EncodingType encoding_type = 5;
+  // @gotags: xml:"EncodingNamespace,attr"
+  string encoding_namespace = 6;
+  // @gotags: xml:"EncodingUserDefinedValue,attr"
+  string encoding_user_defined_value = 7;
+}
+
+message ReasonForNameChange {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message RelatedCreationForParty {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"CreationType"
+  ddex.avs.CreationType creation_type = 2;
+  // @gotags: xml:"Contribution"
+  ddex.pie.v10.Contribution contribution = 3;
+  // @gotags: xml:"RelationshipDescription"
+  repeated ddex.pie.v10.Description relationship_description = 4;
+  // @gotags: xml:"Contract"
+  string contract = 5;
+  // @gotags: xml:"IsFalse,attr"
+  bool is_false = 6;
+  // @gotags: xml:"IsConfidential,attr"
+  bool is_confidential = 7;
+  // @gotags: xml:"IsFirstCreation,attr"
+  bool is_first_creation = 8;
+  // @gotags: xml:"IsLastCreation,attr"
+  bool is_last_creation = 9;
+}
+
+message RelatedParty {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"PartyRelationshipType"
+  ddex.pie.v10.PartyRelationshipType party_relationship_type = 2;
+  // @gotags: xml:"BusinessPurpose"
+  string business_purpose = 3;
+  // @gotags: xml:"Description"
+  repeated ddex.pie.v10.Description description = 4;
+  // @gotags: xml:"Contract"
+  string contract = 5;
+  // @gotags: xml:"ValidityPeriod"
+  repeated ddex.pie.v10.ValidityPeriod validity_period = 6;
+  // @gotags: xml:"RelatedCreation"
+  repeated ddex.pie.v10.RelatedCreationForParty related_creation = 7;
+  // @gotags: xml:"IsFalse,attr"
+  bool is_false = 8;
+  // @gotags: xml:"IsConfidential,attr"
+  bool is_confidential = 9;
+}
+
+message ReleaseForRequest {
+  // @gotags: xml:"ReleaseId"
+  ddex.pie.v10.ReleaseId release_id = 1;
+  // @gotags: xml:"ReleaseTitle"
+  ddex.pie.v10.ReleaseTitle release_title = 2;
+}
+
+message RequestedParty {
+  // @gotags: xml:"Role"
+  repeated ddex.pie.v10.ContributorRole role = 1;
+  // @gotags: xml:"Release"
+  repeated ddex.pie.v10.ReleaseForRequest release = 2;
+  // @gotags: xml:"Resource"
+  repeated ddex.pie.v10.ResourceForRequest resource = 3;
+  // @gotags: xml:"Work"
+  repeated ddex.pie.v10.WorkForRequest work = 4;
+}
+
+message ResourceForRequest {
+  // @gotags: xml:"ResourceId"
+  ddex.pie.v10.ResourceIdWithoutFlag resource_id = 1;
+  // @gotags: xml:"ResourceTitle"
+  ddex.pie.v10.ResourceTitle resource_title = 2;
+  // @gotags: xml:"ResourceType"
+  ddex.avs.ResourceType resource_type = 3;
+}
+
+message SocialMediaURL {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageCode,attr"
+  string language_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+}
+
+message WorkForRequest {
+  // @gotags: xml:"WorkId"
+  ddex.pie.v10.MusicalWorkIdWithoutFlag work_id = 1;
+  // @gotags: xml:"WorkTitle"
+  ddex.pie.v10.WorkTitle work_title = 2;
+}
+
+message Category {
+  // @gotags: xml:"term,attr"
+  string term = 1;
+  // @gotags: xml:"scheme,attr"
+  string scheme = 2;
+  // @gotags: xml:"label,attr"
+  string label = 3;
+}
+
+message Content {
+  // @gotags: xml:"type,attr"
+  string type = 1;
+  // @gotags: xml:"src,attr"
+  string src = 2;
+}
+
+message DateTime {
+  // @gotags: xml:",chardata"
+  string value = 1;
+}
+
+message Generator {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"uri,attr"
+  string uri = 2;
+  // @gotags: xml:"version,attr"
+  string version = 3;
+}
+
+message Icon {
+  // @gotags: xml:",chardata"
+  string value = 1;
+}
+
+message Id {
+  // @gotags: xml:",chardata"
+  string value = 1;
+}
+
+message Link {
+  // @gotags: xml:"href,attr"
+  string href = 1;
+  // @gotags: xml:"rel,attr"
+  string rel = 2;
+  // @gotags: xml:"type,attr"
+  string type = 3;
+  // @gotags: xml:"hreflang,attr"
+  string hreflang = 4;
+  // @gotags: xml:"title,attr"
+  string title = 5;
+  // @gotags: xml:"length,attr"
+  int32 length = 6;
+}
+
+message Logo {
+  // @gotags: xml:",chardata"
+  string value = 1;
+}
+
+message Person {
+  oneof choice {
+  // @gotags: xml:"name"
+    string name = 1;
+  // @gotags: xml:"uri"
+    ddex.pie.v10.URI uri = 2;
+  // @gotags: xml:"email"
+    string email = 3;
+  }
+}
+
+message Source {
+  oneof choice {
+  // @gotags: xml:"author"
+    ddex.pie.v10.Person author = 1;
+  // @gotags: xml:"category"
+    ddex.pie.v10.Category category = 2;
+  // @gotags: xml:"contributor"
+    ddex.pie.v10.Person contributor = 3;
+  // @gotags: xml:"generator"
+    ddex.pie.v10.Generator generator = 4;
+  // @gotags: xml:"icon"
+    ddex.pie.v10.Icon icon = 5;
+  // @gotags: xml:"id"
+    ddex.pie.v10.Id id = 6;
+  // @gotags: xml:"link"
+    ddex.pie.v10.Link link = 7;
+  // @gotags: xml:"logo"
+    ddex.pie.v10.Logo logo = 8;
+  // @gotags: xml:"rights"
+    ddex.pie.v10.Text rights = 9;
+  // @gotags: xml:"subtitle"
+    ddex.pie.v10.Text subtitle = 10;
+  // @gotags: xml:"title"
+    ddex.pie.v10.Text title = 11;
+  // @gotags: xml:"updated"
+    ddex.pie.v10.DateTime updated = 12;
+  }
+}
+
+message Text {
+  // @gotags: xml:"type,attr"
+  ddex.avs.TextTypeATOM type = 1;
+}
+
+message URI {
+  // @gotags: xml:",chardata"
+  string value = 1;
+}
+
+message AllTerritoryCode {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IdentifierType,attr"
+  ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes identifier_type = 2;
+}
+
+message ArtistType {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ddex.pie.v10.ArtistTypeValue value = 2;
+  // @gotags: xml:"TerritoryOfArtistTypeDescription"
+  repeated ddex.avs.CurrentTerritoryCode territory_of_artist_type_description = 3;
+}
+
+message ArtistTypeValue {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message ArtisticInfluence {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Party"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation party = 2;
+  // @gotags: xml:"Work"
+  repeated ddex.pie.v10.Work work = 3;
+  // @gotags: xml:"Resource"
+  repeated ddex.pie.v10.Resource resource = 4;
+  // @gotags: xml:"Release"
+  repeated ddex.pie.v10.Release release = 5;
+  // @gotags: xml:"Description"
+  repeated ddex.pie.v10.TextWithFormat description = 6;
+  // @gotags: xml:"IsInfluenced"
+  bool is_influenced = 7;
+  // @gotags: xml:"IsInfluencer"
+  bool is_influencer = 8;
+}
+
+message Award {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"AwardingBody"
+  ddex.pie.v10.PartyDescriptorWithPronunciation awarding_body = 2;
+  // @gotags: xml:"AwardedParty"
+  ddex.pie.v10.PartyDescriptorWithPronunciation awarded_party = 3;
+  // @gotags: xml:"AwardName"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode award_name = 4;
+  // @gotags: xml:"Date"
+  ddex.pie.v10.EventDate date = 5;
+  // @gotags: xml:"IsWinner"
+  bool is_winner = 6;
+  // @gotags: xml:"Comment"
+  repeated ddex.pie.v10.TextWithFormat comment = 7;
+}
+
+message Biography {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Text"
+  repeated ddex.pie.v10.BiographyText text = 2;
+  // @gotags: xml:"Author"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation author = 3;
+}
+
+message BiographyText {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"Format,attr"
+  ddex.avs.TextCodecType format = 4;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 5;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 6;
+}
+
+message CatalogNumber {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+}
+
+message ClassicalPeriod {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Name"
+  ddex.pie.v10.PeriodValue name = 2;
+  // @gotags: xml:"LanguageAndScriptOfClassicalPeriod"
+  repeated string language_and_script_of_classical_period = 3;
+  // @gotags: xml:"TerritoryOfClassicalPeriodDescription"
+  repeated ddex.avs.CurrentTerritoryCode territory_of_classical_period_description = 4;
+}
+
+message CommentaryNote {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Text"
+  repeated ddex.pie.v10.TextWithoutTerritory text = 2;
+  // @gotags: xml:"CommentaryNoteType"
+  repeated ddex.pie.v10.CommentaryNoteType commentary_note_type = 3;
+  // @gotags: xml:"LanguageAndScriptOfCommentaryNote"
+  repeated string language_and_script_of_commentary_note = 4;
+  // @gotags: xml:"TerritoryOfCommentaryNoteDescription"
+  repeated ddex.avs.CurrentTerritoryCode territory_of_commentary_note_description = 5;
+  // @gotags: xml:"Author"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation author = 6;
+}
+
+message CommentaryNoteType {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message ContributorRole {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message Date {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsApproximate,attr"
+  bool is_approximate = 2;
+}
+
+message Description {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+}
+
+message DetailedHashSum {
+  // @gotags: xml:"Algorithm"
+  ddex.pie.v10.HashSumAlgorithmType algorithm = 1;
+  // @gotags: xml:"Version"
+  string version = 2;
+  // @gotags: xml:"Parameter"
+  string parameter = 3;
+  // @gotags: xml:"DataType"
+  ddex.avs.BinaryDataType data_type = 4;
+  // @gotags: xml:"HashSumValue"
+  string hash_sum_value = 5;
+}
+
+message DetailedPartyId {
+  // @gotags: xml:"ISNI"
+  string i_s_n_i = 1;
+  // @gotags: xml:"DPID"
+  string d_p_i_d = 2;
+  // @gotags: xml:"IpiNameNumber"
+  string ipi_name_number = 3;
+  // @gotags: xml:"IPN"
+  string i_p_n = 4;
+  // @gotags: xml:"CisacSocietyId"
+  string cisac_society_id = 5;
+  // @gotags: xml:"ProprietaryId"
+  repeated ddex.pie.v10.ProprietaryId proprietary_id = 6;
+}
+
+message DisplayArtistName {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+}
+
+message DisplayArtistNameWithDefault {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 4;
+}
+
+message DisplayArtistNameWithPronunciation {
+  // @gotags: xml:"Name"
+  ddex.pie.v10.DisplayArtistNameWithDefault name = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated ddex.pie.v10.Pronunciation pronunciation = 2;
+}
+
+message DisplaySubTitle {
+  // @gotags: xml:"Title"
+  string title = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated ddex.pie.v10.Pronunciation pronunciation = 2;
+  // @gotags: xml:"SequenceNumber,attr"
+  int32 sequence_number = 3;
+  // @gotags: xml:"IsDisplayedInTitle,attr"
+  bool is_displayed_in_title = 4;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 5;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 6;
+  // @gotags: xml:"SubTitleType,attr"
+  string sub_title_type = 7;
+}
+
+message DisplayTitle {
+  // @gotags: xml:"TitleText"
+  ddex.pie.v10.TitleText title_text = 1;
+  // @gotags: xml:"SubTitle"
+  repeated ddex.pie.v10.DisplaySubTitle sub_title = 2;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 3;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 4;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 5;
+}
+
+message Epoch {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  repeated ddex.pie.v10.Name value = 2;
+  // @gotags: xml:"RelatedArtist"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation related_artist = 3;
+  // @gotags: xml:"RelatedCreation"
+  repeated ddex.pie.v10.RelatedCreation related_creation = 4;
+  // @gotags: xml:"StartDate"
+  ddex.pie.v10.Date start_date = 5;
+  // @gotags: xml:"EndDate"
+  ddex.pie.v10.Date end_date = 6;
+  // @gotags: xml:"LanguageAndScriptOfEpoch"
+  repeated string language_and_script_of_epoch = 7;
+  // @gotags: xml:"TerritoryOfEpochDescription"
+  repeated ddex.avs.CurrentTerritoryCode territory_of_epoch_description = 8;
+}
+
+message EventDate {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsApproximate,attr"
+  bool is_approximate = 2;
+  // @gotags: xml:"IsBefore,attr"
+  bool is_before = 3;
+  // @gotags: xml:"IsAfter,attr"
+  bool is_after = 4;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.AllTerritoryCode applicable_territory_code = 5;
+  // @gotags: xml:"LocationDescription,attr"
+  string location_description = 6;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 7;
+}
+
+message File {
+  // @gotags: xml:"URI"
+  string u_r_i = 1;
+  // @gotags: xml:"HashSum"
+  ddex.pie.v10.DetailedHashSum hash_sum = 2;
+  // @gotags: xml:"FileSize"
+  string file_size = 3;
+}
+
+message HashSumAlgorithmType {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message Image {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"File"
+  ddex.pie.v10.File file = 2;
+  // @gotags: xml:"ImageType"
+  repeated ddex.pie.v10.ImageType image_type = 3;
+}
+
+message ImageType {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message MessageAuditTrail {
+  // @gotags: xml:"MessageAuditTrailEvent"
+  repeated ddex.pie.v10.MessageAuditTrailEvent message_audit_trail_event = 1;
+}
+
+message MessageAuditTrailEvent {
+  // @gotags: xml:"MessagingPartyDescriptor"
+  ddex.pie.v10.MessagingPartyWithoutCode messaging_party_descriptor = 1;
+  // @gotags: xml:"DateTime"
+  string date_time = 2;
+}
+
+message MessageHeader {
+  // @gotags: xml:"MessageThreadId"
+  string message_thread_id = 1;
+  // @gotags: xml:"MessageId"
+  string message_id = 2;
+  // @gotags: xml:"MessageFileName"
+  string message_file_name = 3;
+  // @gotags: xml:"MessageSender"
+  ddex.pie.v10.MessagingPartyWithoutCode message_sender = 4;
+  // @gotags: xml:"SentOnBehalfOf"
+  ddex.pie.v10.MessagingPartyWithoutCode sent_on_behalf_of = 5;
+  // @gotags: xml:"MessageRecipient"
+  repeated ddex.pie.v10.MessagingPartyWithoutCode message_recipient = 6;
+  // @gotags: xml:"MessageCreatedDateTime"
+  string message_created_date_time = 7;
+  // @gotags: xml:"MessageAuditTrail"
+  ddex.pie.v10.MessageAuditTrail message_audit_trail = 8;
+  // @gotags: xml:"MessageControlType"
+  ddex.avs.MessageControlType message_control_type = 9;
+}
+
+message MessagingPartyWithoutCode {
+  // @gotags: xml:"PartyId"
+  string party_id = 1;
+  // @gotags: xml:"PartyName"
+  ddex.pie.v10.PartyNameWithoutCode party_name = 2;
+  // @gotags: xml:"TradingName"
+  string trading_name = 3;
+}
+
+message MetadataSource {
+  // @gotags: xml:"SourceReference"
+  string source_reference = 1;
+  // @gotags: xml:"MetadataSourceType"
+  ddex.pie.v10.MetadataSourceType metadata_source_type = 2;
+}
+
+message MetadataSourceList {
+  // @gotags: xml:"MetadataSource"
+  repeated ddex.pie.v10.MetadataSource metadata_source = 1;
+}
+
+message MetadataSourceReference {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"AssertionDateTime,attr"
+  string assertion_date_time = 2;
+  // @gotags: xml:"Status,attr"
+  ddex.avs.AssertionStatus status = 3;
+  // @gotags: xml:"Weight,attr"
+  string weight = 4;
+}
+
+message MetadataSourceType {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message MusicalWorkIdWithoutFlag {
+  // @gotags: xml:"ISWC"
+  string i_s_w_c = 1;
+  // @gotags: xml:"OpusNumber"
+  string opus_number = 2;
+  // @gotags: xml:"ComposerCatalogNumber"
+  repeated string composer_catalog_number = 3;
+  // @gotags: xml:"ProprietaryId"
+  repeated ddex.pie.v10.ProprietaryId proprietary_id = 4;
+}
+
+message Name {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+}
+
+message NameId {
+  // @gotags: xml:"ISNI"
+  string i_s_n_i = 1;
+  // @gotags: xml:"IpiNameNumber"
+  string ipi_name_number = 2;
+  // @gotags: xml:"IPN"
+  string i_p_n = 3;
+  // @gotags: xml:"ProprietaryId"
+  repeated ddex.pie.v10.ProprietaryId proprietary_id = 4;
+  // @gotags: xml:"IsDeprecated,attr"
+  bool is_deprecated = 5;
+}
+
+message NameWithPronunciationAndScriptCode {
+  // @gotags: xml:"Name"
+  ddex.pie.v10.Name name = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated ddex.pie.v10.Pronunciation pronunciation = 2;
+}
+
+message PartyDescriptorWithPronunciation {
+  oneof choice {
+  // @gotags: xml:"PartyId"
+    ddex.pie.v10.DetailedPartyId party_id = 1;
+  }
+}
+
+message PartyNameWithPronunciation {
+  // @gotags: xml:"FullName"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode full_name = 1;
+  // @gotags: xml:"FullNameAsciiTranscribed"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode full_name_ascii_transcribed = 2;
+  // @gotags: xml:"FullNameIndexed"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode full_name_indexed = 3;
+  // @gotags: xml:"NamesBeforeKeyName"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode names_before_key_name = 4;
+  // @gotags: xml:"KeyName"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode key_name = 5;
+  // @gotags: xml:"NamesAfterKeyName"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode names_after_key_name = 6;
+  // @gotags: xml:"AbbreviatedName"
+  ddex.pie.v10.NameWithPronunciationAndScriptCode abbreviated_name = 7;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 8;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 9;
+}
+
+message PartyNameWithoutCode {
+  // @gotags: xml:"FullName"
+  string full_name = 1;
+  // @gotags: xml:"FullNameAsciiTranscribed"
+  string full_name_ascii_transcribed = 2;
+  // @gotags: xml:"FullNameIndexed"
+  string full_name_indexed = 3;
+  // @gotags: xml:"NamesBeforeKeyName"
+  string names_before_key_name = 4;
+  // @gotags: xml:"KeyName"
+  string key_name = 5;
+  // @gotags: xml:"NamesAfterKeyName"
+  string names_after_key_name = 6;
+  // @gotags: xml:"AbbreviatedName"
+  string abbreviated_name = 7;
+}
+
+message PeriodValue {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message PeriodWithTime {
+  // @gotags: xml:"StartDateTime"
+  string start_date_time = 1;
+  // @gotags: xml:"EndDateTime"
+  string end_date_time = 2;
+}
+
+message Pronunciation {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsCanonical,attr"
+  bool is_canonical = 2;
+  // @gotags: xml:"LanguageCode,attr"
+  string language_code = 3;
+  // @gotags: xml:"EncodingType,attr"
+  ddex.avs.EncodingType encoding_type = 4;
+  // @gotags: xml:"EncodingNamespace,attr"
+  string encoding_namespace = 5;
+  // @gotags: xml:"EncodingUserDefinedValue,attr"
+  string encoding_user_defined_value = 6;
+}
+
+message ProprietaryId {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+}
+
+message RelatedCreation {
+  // @gotags: xml:"Title"
+  ddex.pie.v10.TitleWithPronunciation title = 1;
+}
+
+message Release {
+  // @gotags: xml:"GRid"
+  string g_rid = 1;
+  // @gotags: xml:"ICPN"
+  string i_c_p_n = 2;
+  // @gotags: xml:"ProprietaryReleaseId"
+  string proprietary_release_id = 3;
+  // @gotags: xml:"ReleaseTitle"
+  repeated ddex.pie.v10.ReleaseTitle release_title = 4;
+  // @gotags: xml:"DisplayArtistName"
+  repeated ddex.pie.v10.DisplayArtistNameWithPronunciation display_artist_name = 5;
+  // @gotags: xml:"DisplayArtist"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation display_artist = 6;
+}
+
+message ReleaseId {
+  // @gotags: xml:"GRid"
+  string g_rid = 1;
+  // @gotags: xml:"ISRC"
+  string i_s_r_c = 2;
+  // @gotags: xml:"ICPN"
+  string i_c_p_n = 3;
+  // @gotags: xml:"CatalogNumber"
+  ddex.pie.v10.CatalogNumber catalog_number = 4;
+  // @gotags: xml:"ProprietaryId"
+  repeated ddex.pie.v10.ProprietaryId proprietary_id = 5;
+}
+
+message ReleaseSummary {
+  // @gotags: xml:"ReleaseId"
+  ddex.pie.v10.ReleaseId release_id = 1;
+  // @gotags: xml:"DisplayTitle"
+  repeated ddex.pie.v10.DisplayTitle display_title = 2;
+  // @gotags: xml:"DisplayArtistName"
+  repeated ddex.pie.v10.DisplayArtistNameWithPronunciation display_artist_name = 3;
+  // @gotags: xml:"DisplayArtist"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation display_artist = 4;
+}
+
+message ReleaseTitle {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+}
+
+message Resource {
+  // @gotags: xml:"ISRC"
+  string i_s_r_c = 1;
+  // @gotags: xml:"CatalogNumber"
+  string catalog_number = 2;
+  // @gotags: xml:"ProprietaryResourceId"
+  string proprietary_resource_id = 3;
+  // @gotags: xml:"ResourceTitle"
+  repeated ddex.pie.v10.ResourceTitle resource_title = 4;
+  // @gotags: xml:"DisplayArtistName"
+  repeated ddex.pie.v10.DisplayArtistNameWithPronunciation display_artist_name = 5;
+  // @gotags: xml:"DisplayArtist"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation display_artist = 6;
+}
+
+message ResourceIdWithoutFlag {
+  // @gotags: xml:"ISRC"
+  string i_s_r_c = 1;
+  // @gotags: xml:"ISMN"
+  string i_s_m_n = 2;
+  // @gotags: xml:"ISAN"
+  string i_s_a_n = 3;
+  // @gotags: xml:"VISAN"
+  string v_i_s_a_n = 4;
+  // @gotags: xml:"ISBN"
+  string i_s_b_n = 5;
+  // @gotags: xml:"ISSN"
+  string i_s_s_n = 6;
+  // @gotags: xml:"SICI"
+  string s_i_c_i = 7;
+  // @gotags: xml:"CatalogNumber"
+  ddex.pie.v10.CatalogNumber catalog_number = 8;
+  // @gotags: xml:"ProprietaryId"
+  repeated ddex.pie.v10.ProprietaryId proprietary_id = 9;
+}
+
+message ResourceSummary {
+  // @gotags: xml:"ResourceId"
+  ddex.pie.v10.ResourceIdWithoutFlag resource_id = 1;
+  // @gotags: xml:"DisplayTitle"
+  repeated ddex.pie.v10.DisplayTitle display_title = 2;
+  // @gotags: xml:"DisplayArtistName"
+  repeated ddex.pie.v10.DisplayArtistNameWithPronunciation display_artist_name = 3;
+  // @gotags: xml:"DisplayArtist"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation display_artist = 4;
+}
+
+message ResourceTitle {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+}
+
+message SubTitle {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"SubTitleType,attr"
+  string sub_title_type = 2;
+}
+
+message TextWithFormat {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 4;
+  // @gotags: xml:"Format,attr"
+  ddex.avs.TextCodecType format = 5;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 6;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 7;
+}
+
+message TextWithoutTerritory {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+  // @gotags: xml:"ApplicableTerritoryCode,attr"
+  ddex.avs.CurrentTerritoryCode applicable_territory_code = 3;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 4;
+  // @gotags: xml:"Format,attr"
+  ddex.avs.TextCodecType format = 5;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 6;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 7;
+}
+
+message TitleText {
+  // @gotags: xml:"Title"
+  string title = 1;
+  // @gotags: xml:"Pronunciation"
+  repeated ddex.pie.v10.Pronunciation pronunciation = 2;
+}
+
+message TitleWithPronunciation {
+  // @gotags: xml:"TitleText"
+  ddex.pie.v10.TitleText title_text = 1;
+  // @gotags: xml:"SubTitle"
+  ddex.pie.v10.TitleText sub_title = 2;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 3;
+  // @gotags: xml:"TitleType,attr"
+  ddex.avs.TitleType title_type = 4;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 5;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 6;
+}
+
+message TitleWithUDV {
+  // @gotags: xml:"TitleText"
+  string title_text = 1;
+  // @gotags: xml:"SubTitle"
+  repeated ddex.pie.v10.SubTitle sub_title = 2;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 3;
+  // @gotags: xml:"TitleType,attr"
+  ddex.avs.TitleType title_type = 4;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 5;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 6;
+}
+
+message ValidityPeriod {
+  // @gotags: xml:"StartDate"
+  ddex.pie.v10.EventDate start_date = 1;
+  // @gotags: xml:"EndDate"
+  ddex.pie.v10.EventDate end_date = 2;
+}
+
+message VocalRegister {
+  // @gotags: xml:"MetadataSourceReference"
+  repeated ddex.pie.v10.MetadataSourceReference metadata_source_reference = 1;
+  // @gotags: xml:"Value"
+  ddex.pie.v10.VocalRegisterValue value = 2;
+}
+
+message VocalRegisterValue {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"Namespace,attr"
+  string namespace = 2;
+  // @gotags: xml:"UserDefinedValue,attr"
+  string user_defined_value = 3;
+}
+
+message Work {
+  // @gotags: xml:"ISWC"
+  string i_s_w_c = 1;
+  // @gotags: xml:"ProprietaryWorkId"
+  string proprietary_work_id = 2;
+  // @gotags: xml:"WorkTitle"
+  repeated ddex.pie.v10.WorkTitle work_title = 3;
+  // @gotags: xml:"Writer"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation writer = 4;
+}
+
+message WorkSummary {
+  // @gotags: xml:"MusicalWorkId"
+  ddex.pie.v10.MusicalWorkIdWithoutFlag musical_work_id = 1;
+  // @gotags: xml:"WorkTitle"
+  repeated ddex.pie.v10.TitleWithPronunciation work_title = 2;
+  // @gotags: xml:"Writer"
+  repeated ddex.pie.v10.PartyDescriptorWithPronunciation writer = 3;
+}
+
+message WorkTitle {
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"LanguageAndScriptCode,attr"
+  string language_and_script_code = 2;
+}
