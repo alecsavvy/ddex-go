@@ -84,11 +84,18 @@ type PieMessageV10 = piev10.PieMessage
 
 ### Manual Testing with Real DDEX Files
 
-The `examples/` directory contains a simple tool for testing DDEX file parsing:
+The `examples/` directory contains tools for testing DDEX file parsing with both pure Go and protobuf-generated structs:
 
+#### Using Pure Go Structs (XSD-generated)
 ```bash
-# Parse any DDEX file and dump the parsed structure
-go run examples/main.go -file path/to/your/ddex-file.xml
+# Parse with XSD-generated Go structs
+go run examples/xsd/main.go -file path/to/your/ddex-file.xml
+```
+
+#### Using Protocol Buffer Structs (with XML tags)
+```bash
+# Parse with protobuf-generated Go structs that include XML unmarshaling
+go run examples/proto/main.go -file path/to/your/ddex-file.xml
 ```
 
 For safely storing real DDEX files for testing, create a `test-files/` or `ddex-samples/` directory (already gitignored):
@@ -96,10 +103,10 @@ For safely storing real DDEX files for testing, create a `test-files/` or `ddex-
 ```bash
 mkdir test-files
 # Copy your DDEX files here
-go run examples/main.go -file test-files/sample.xml
+go run examples/proto/main.go -file test-files/sample.xml
 ```
 
-The example will automatically detect the message type (ERN, MEAD, or PIE) and output the parsed structure.
+Both examples will automatically detect the message type (ERN, MEAD, or PIE) and dump the parsed structure using `spew.Dump()` for easy inspection.
 
 ## Development
 
@@ -146,23 +153,29 @@ ddex-go/
 │   └── piev10/             # PIE v1.0 - Party Identification and Enrichment
 │
 ├── proto/                   # Protocol Buffer definitions with XML tags
-│   ├── ernv432/            # ERN v4.3.2 .proto files
-│   ├── meadv11/            # MEAD v1.1 .proto files
-│   └── piev10/             # PIE v1.0 .proto files
+│   └── ddex/               # Namespace-aware proto organization
+│       ├── avs/            # Allowed Value Sets (enums shared across specs)
+│       ├── ern/v432/       # ERN v4.3.2 .proto files
+│       ├── mead/v11/       # MEAD v1.1 .proto files
+│       └── pie/v10/        # PIE v1.0 .proto files
 │
 ├── gen/                     # Generated Go code from proto files
-│   ├── ernv432/            # Go code with protobuf + XML support
-│   ├── meadv11/            # Go code with protobuf + XML support
-│   └── piev10/             # Go code with protobuf + XML support
+│   └── ddex/               # Mirrors proto structure
+│       ├── avs/            # Shared enum types with proper XML tags
+│       ├── ern/v432/       # ERN Go code with protobuf + XML support
+│       ├── mead/v11/       # MEAD Go code with protobuf + XML support
+│       └── pie/v10/        # PIE Go code with protobuf + XML support
 │
 ├── tools/                   # Generation and conversion tools
 │   ├── xsd2go/             # XSD to Go generator (using xgen)
-│   └── xsd2proto/          # XSD to Proto converter with XML tags
+│   └── xsd2proto/          # XSD to Proto converter with namespace-aware imports
 │
-├── test/                    # Validation and compatibility tests
-│   └── roundtrip/          # Compare XML output between ddex/ and gen/
+├── examples/                # Usage examples and documentation
+│   ├── proto/              # Example using protobuf-generated structs
+│   └── xsd/                # Example using XSD-generated structs
 │
-└── example/                 # Usage examples and documentation
+└── test/                    # Validation and compatibility tests
+    └── roundtrip/          # Compare XML output between ddex/ and gen/
 ```
 
 ## Two Approaches
