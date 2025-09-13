@@ -9,7 +9,7 @@ help:
 	@echo "Generation:"
 	@echo "  generate-go    - Generate pure Go structs from XSD (ddex/ directory)"
 	@echo "  generate-proto - Generate .proto files from XSD (proto/ directory)"  
-	@echo "  generate-all   - Generate both Go and proto files"
+	@echo "  generate       - Generate both Go and proto files"
 	@echo "  buf-lint      - Lint protobuf files with buf"
 	@echo "  buf-generate  - Generate Go code from .proto files with buf"
 	@echo "  buf-all       - Generate protos from XSD, then Go code from protos"
@@ -48,6 +48,8 @@ buf-generate:
 	buf generate
 	@echo "Injecting XML tags with protoc-go-inject-tag..."
 	@$(MAKE) inject-tags
+	@echo "Generating XML marshaling for enums..."
+	@$(MAKE) generate-marshals
 
 # Inject XML tags into generated protobuf structs using protoc-go-inject-tag
 inject-tags:
@@ -57,6 +59,12 @@ inject-tags:
 		protoc-go-inject-tag -input=$$file 2>/dev/null || true; \
 	done
 	@echo "XML tags injected successfully!"
+
+# Generate XML marshaling wrappers for enum types
+generate-marshals:
+	@echo "Generating marshal.go files for enum XML handling..."
+	go run tools/generate-marshals.go
+	@echo "Marshal generation complete!"
 
 # Complete protobuf workflow: XSD -> proto -> Go with XML tags
 buf-all: generate-proto buf-lint buf-generate

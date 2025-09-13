@@ -600,8 +600,10 @@ func xsdTypeToProto(xsdType string, allPkgs map[string]protoPkgInfo) string {
 	default:
 		// Handle namespace prefixes for custom types
 		if prefix == "avs" {
-			// AVS types go to ddex.avs package
-			return "ddex.avs." + strings.ReplaceAll(toProtoMessageName(xsdType), "_", "")
+			// AVS contains only enum types, which we represent as strings in messages
+			// for XML compatibility. The actual enum definitions still exist in ddex.avs
+			// for type safety when developers want to use them programmatically.
+			return "string"
 		}
 		
 		// For other prefixes, try to map to known packages

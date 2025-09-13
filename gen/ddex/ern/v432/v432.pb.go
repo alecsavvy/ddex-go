@@ -7,7 +7,7 @@
 package v432
 
 import (
-	avs "github.com/alecsavvy/ddex-go/gen/ddex/avs"
+	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -43,9 +43,9 @@ type NewReleaseMessage struct {
 	// @gotags: xml:"SupplementalDocumentList"
 	SupplementalDocumentList *SupplementalDocumentList `protobuf:"bytes,9,opt,name=supplemental_document_list,json=supplementalDocumentList,proto3" json:"supplemental_document_list,omitempty" xml:"SupplementalDocumentList"`
 	// @gotags: xml:"ReleaseProfileVersionId,attr"
-	ReleaseProfileVersionId avs.ReleaseProfileVersionId `protobuf:"varint,10,opt,name=release_profile_version_id,json=releaseProfileVersionId,proto3,enum=ddex.avs.ReleaseProfileVersionId" json:"release_profile_version_id,omitempty" xml:"ReleaseProfileVersionId,attr"`
+	ReleaseProfileVersionId string `protobuf:"bytes,10,opt,name=release_profile_version_id,json=releaseProfileVersionId,proto3" json:"release_profile_version_id,omitempty" xml:"ReleaseProfileVersionId,attr"`
 	// @gotags: xml:"ReleaseProfileVariantVersionId,attr"
-	ReleaseProfileVariantVersionId avs.ReleaseProfileVariantVersionId `protobuf:"varint,11,opt,name=release_profile_variant_version_id,json=releaseProfileVariantVersionId,proto3,enum=ddex.avs.ReleaseProfileVariantVersionId" json:"release_profile_variant_version_id,omitempty" xml:"ReleaseProfileVariantVersionId,attr"`
+	ReleaseProfileVariantVersionId string `protobuf:"bytes,11,opt,name=release_profile_variant_version_id,json=releaseProfileVariantVersionId,proto3" json:"release_profile_variant_version_id,omitempty" xml:"ReleaseProfileVariantVersionId,attr"`
 	// @gotags: xml:"AvsVersionId,attr"
 	AvsVersionId string `protobuf:"bytes,12,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
@@ -147,18 +147,18 @@ func (x *NewReleaseMessage) GetSupplementalDocumentList() *SupplementalDocumentL
 	return nil
 }
 
-func (x *NewReleaseMessage) GetReleaseProfileVersionId() avs.ReleaseProfileVersionId {
+func (x *NewReleaseMessage) GetReleaseProfileVersionId() string {
 	if x != nil {
 		return x.ReleaseProfileVersionId
 	}
-	return avs.ReleaseProfileVersionId(0)
+	return ""
 }
 
-func (x *NewReleaseMessage) GetReleaseProfileVariantVersionId() avs.ReleaseProfileVariantVersionId {
+func (x *NewReleaseMessage) GetReleaseProfileVariantVersionId() string {
 	if x != nil {
 		return x.ReleaseProfileVariantVersionId
 	}
-	return avs.ReleaseProfileVariantVersionId(0)
+	return ""
 }
 
 func (x *NewReleaseMessage) GetAvsVersionId() string {
@@ -481,7 +481,7 @@ type AvRating struct {
 	// @gotags: xml:"Reason"
 	Reason *RatingReason `protobuf:"bytes,3,opt,name=reason,proto3" json:"reason,omitempty" xml:"Reason"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -539,11 +539,11 @@ func (x *AvRating) GetReason() *RatingReason {
 	return nil
 }
 
-func (x *AvRating) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *AvRating) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *AvRating) GetIsDefault() bool {
@@ -940,7 +940,7 @@ type ClipDetails struct {
 	// @gotags: xml:"BottomRightCorner"
 	BottomRightCorner string `protobuf:"bytes,3,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty" xml:"BottomRightCorner"`
 	// @gotags: xml:"ExpressionType"
-	ExpressionType avs.ExpressionType `protobuf:"varint,4,opt,name=expression_type,json=expressionType,proto3,enum=ddex.avs.ExpressionType" json:"expression_type,omitempty" xml:"ExpressionType"`
+	ExpressionType string `protobuf:"bytes,4,opt,name=expression_type,json=expressionType,proto3" json:"expression_type,omitempty" xml:"ExpressionType"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -996,11 +996,11 @@ func (x *ClipDetails) GetBottomRightCorner() string {
 	return ""
 }
 
-func (x *ClipDetails) GetExpressionType() avs.ExpressionType {
+func (x *ClipDetails) GetExpressionType() string {
 	if x != nil {
 		return x.ExpressionType
 	}
-	return avs.ExpressionType(0)
+	return ""
 }
 
 type ClipRelease struct {
@@ -1197,13 +1197,13 @@ type ConditionForRightsClaimPolicy struct {
 	// @gotags: xml:"Value"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
 	// @gotags: xml:"Unit"
-	Unit avs.UnitOfConditionValue `protobuf:"varint,2,opt,name=unit,proto3,enum=ddex.avs.UnitOfConditionValue" json:"unit,omitempty" xml:"Unit"`
+	Unit string `protobuf:"bytes,2,opt,name=unit,proto3" json:"unit,omitempty" xml:"Unit"`
 	// @gotags: xml:"ReferenceCreation"
-	ReferenceCreation avs.ReferenceCreation `protobuf:"varint,3,opt,name=reference_creation,json=referenceCreation,proto3,enum=ddex.avs.ReferenceCreation" json:"reference_creation,omitempty" xml:"ReferenceCreation"`
+	ReferenceCreation string `protobuf:"bytes,3,opt,name=reference_creation,json=referenceCreation,proto3" json:"reference_creation,omitempty" xml:"ReferenceCreation"`
 	// @gotags: xml:"RelationalRelator"
-	RelationalRelator avs.RelationalRelator `protobuf:"varint,4,opt,name=relational_relator,json=relationalRelator,proto3,enum=ddex.avs.RelationalRelator" json:"relational_relator,omitempty" xml:"RelationalRelator"`
+	RelationalRelator string `protobuf:"bytes,4,opt,name=relational_relator,json=relationalRelator,proto3" json:"relational_relator,omitempty" xml:"RelationalRelator"`
 	// @gotags: xml:"MeasurementType"
-	MeasurementType avs.MeasurementType `protobuf:"varint,5,opt,name=measurement_type,json=measurementType,proto3,enum=ddex.avs.MeasurementType" json:"measurement_type,omitempty" xml:"MeasurementType"`
+	MeasurementType string `protobuf:"bytes,5,opt,name=measurement_type,json=measurementType,proto3" json:"measurement_type,omitempty" xml:"MeasurementType"`
 	// @gotags: xml:"Segment"
 	Segment []*Segment `protobuf:"bytes,6,rep,name=segment,proto3" json:"segment,omitempty" xml:"Segment"`
 	// @gotags: xml:"ServiceException"
@@ -1249,32 +1249,32 @@ func (x *ConditionForRightsClaimPolicy) GetValue() string {
 	return ""
 }
 
-func (x *ConditionForRightsClaimPolicy) GetUnit() avs.UnitOfConditionValue {
+func (x *ConditionForRightsClaimPolicy) GetUnit() string {
 	if x != nil {
 		return x.Unit
 	}
-	return avs.UnitOfConditionValue(0)
+	return ""
 }
 
-func (x *ConditionForRightsClaimPolicy) GetReferenceCreation() avs.ReferenceCreation {
+func (x *ConditionForRightsClaimPolicy) GetReferenceCreation() string {
 	if x != nil {
 		return x.ReferenceCreation
 	}
-	return avs.ReferenceCreation(0)
+	return ""
 }
 
-func (x *ConditionForRightsClaimPolicy) GetRelationalRelator() avs.RelationalRelator {
+func (x *ConditionForRightsClaimPolicy) GetRelationalRelator() string {
 	if x != nil {
 		return x.RelationalRelator
 	}
-	return avs.RelationalRelator(0)
+	return ""
 }
 
-func (x *ConditionForRightsClaimPolicy) GetMeasurementType() avs.MeasurementType {
+func (x *ConditionForRightsClaimPolicy) GetMeasurementType() string {
 	if x != nil {
 		return x.MeasurementType
 	}
-	return avs.MeasurementType(0)
+	return ""
 }
 
 func (x *ConditionForRightsClaimPolicy) GetSegment() []*Segment {
@@ -2043,7 +2043,7 @@ type DealTermsTechnicalInstantiation struct {
 	// @gotags: xml:"VideoDefinitionType"
 	VideoDefinitionType *VideoDefinitionType `protobuf:"bytes,1,opt,name=video_definition_type,json=videoDefinitionType,proto3" json:"video_definition_type,omitempty" xml:"VideoDefinitionType"`
 	// @gotags: xml:"CodingType"
-	CodingType avs.CodingType `protobuf:"varint,2,opt,name=coding_type,json=codingType,proto3,enum=ddex.avs.CodingType" json:"coding_type,omitempty" xml:"CodingType"`
+	CodingType string `protobuf:"bytes,2,opt,name=coding_type,json=codingType,proto3" json:"coding_type,omitempty" xml:"CodingType"`
 	// @gotags: xml:"BitRate"
 	BitRate       *BitRate `protobuf:"bytes,3,opt,name=bit_rate,json=bitRate,proto3" json:"bit_rate,omitempty" xml:"BitRate"`
 	unknownFields protoimpl.UnknownFields
@@ -2087,11 +2087,11 @@ func (x *DealTermsTechnicalInstantiation) GetVideoDefinitionType() *VideoDefinit
 	return nil
 }
 
-func (x *DealTermsTechnicalInstantiation) GetCodingType() avs.CodingType {
+func (x *DealTermsTechnicalInstantiation) GetCodingType() string {
 	if x != nil {
 		return x.CodingType
 	}
-	return avs.CodingType(0)
+	return ""
 }
 
 func (x *DealTermsTechnicalInstantiation) GetBitRate() *BitRate {
@@ -2106,7 +2106,7 @@ type Deity struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -2150,11 +2150,11 @@ func (x *Deity) GetValue() string {
 	return ""
 }
 
-func (x *Deity) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *Deity) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *Deity) GetIsDefault() bool {
@@ -2234,7 +2234,7 @@ type DescriptionWithTerritory struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -2285,11 +2285,11 @@ func (x *DescriptionWithTerritory) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *DescriptionWithTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DescriptionWithTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *DescriptionWithTerritory) GetIsDefault() bool {
@@ -2540,7 +2540,7 @@ type DisplayTitleText struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"IsInOriginalLanguage,attr"
@@ -2593,11 +2593,11 @@ func (x *DisplayTitleText) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *DisplayTitleText) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DisplayTitleText) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *DisplayTitleText) GetIsDefault() bool {
@@ -2691,7 +2691,7 @@ type EditionContributor struct {
 	// @gotags: xml:"Role"
 	Role []*ContributorRole `protobuf:"bytes,1,rep,name=role,proto3" json:"role,omitempty" xml:"Role"`
 	// @gotags: xml:"AiContribution"
-	AiContribution avs.ContainsAI `protobuf:"varint,2,opt,name=ai_contribution,json=aiContribution,proto3,enum=ddex.avs.ContainsAI" json:"ai_contribution,omitempty" xml:"AiContribution"`
+	AiContribution string `protobuf:"bytes,2,opt,name=ai_contribution,json=aiContribution,proto3" json:"ai_contribution,omitempty" xml:"AiContribution"`
 	// @gotags: xml:"HasMadeFeaturedContribution"
 	HasMadeFeaturedContribution bool `protobuf:"varint,3,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty" xml:"HasMadeFeaturedContribution"`
 	// @gotags: xml:"HasMadeContractedContribution"
@@ -2743,11 +2743,11 @@ func (x *EditionContributor) GetRole() []*ContributorRole {
 	return nil
 }
 
-func (x *EditionContributor) GetAiContribution() avs.ContainsAI {
+func (x *EditionContributor) GetAiContribution() string {
 	if x != nil {
 		return x.AiContribution
 	}
-	return avs.ContainsAI(0)
+	return ""
 }
 
 func (x *EditionContributor) GetHasMadeFeaturedContribution() bool {
@@ -2792,7 +2792,7 @@ type EventDateTimeWithoutFlags struct {
 	// @gotags: xml:"IsApproximate,attr"
 	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"LocationDescription,attr"
 	LocationDescription string `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
@@ -2845,11 +2845,11 @@ func (x *EventDateTimeWithoutFlags) GetIsApproximate() bool {
 	return false
 }
 
-func (x *EventDateTimeWithoutFlags) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *EventDateTimeWithoutFlags) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *EventDateTimeWithoutFlags) GetLocationDescription() string {
@@ -2873,7 +2873,7 @@ type EventDateWithCurrentTerritory struct {
 	// @gotags: xml:"IsApproximate,attr"
 	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"LocationDescription,attr"
 	LocationDescription string `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
@@ -2926,11 +2926,11 @@ func (x *EventDateWithCurrentTerritory) GetIsApproximate() bool {
 	return false
 }
 
-func (x *EventDateWithCurrentTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *EventDateWithCurrentTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *EventDateWithCurrentTerritory) GetLocationDescription() string {
@@ -2954,7 +2954,7 @@ type EventDateWithDefault struct {
 	// @gotags: xml:"IsApproximate,attr"
 	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.AllTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.AllTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -3005,11 +3005,11 @@ func (x *EventDateWithDefault) GetIsApproximate() bool {
 	return false
 }
 
-func (x *EventDateWithDefault) GetApplicableTerritoryCode() avs.AllTerritoryCode {
+func (x *EventDateWithDefault) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.AllTerritoryCode(0)
+	return ""
 }
 
 func (x *EventDateWithDefault) GetIsDefault() bool {
@@ -3026,7 +3026,7 @@ type EventDateWithoutFlags struct {
 	// @gotags: xml:"IsApproximate,attr"
 	IsApproximate bool `protobuf:"varint,2,opt,name=is_approximate,json=isApproximate,proto3" json:"is_approximate,omitempty" xml:"IsApproximate,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.AllTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.AllTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"LocationDescription,attr"
 	LocationDescription string `protobuf:"bytes,4,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
@@ -3079,11 +3079,11 @@ func (x *EventDateWithoutFlags) GetIsApproximate() bool {
 	return false
 }
 
-func (x *EventDateWithoutFlags) GetApplicableTerritoryCode() avs.AllTerritoryCode {
+func (x *EventDateWithoutFlags) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.AllTerritoryCode(0)
+	return ""
 }
 
 func (x *EventDateWithoutFlags) GetLocationDescription() string {
@@ -3287,7 +3287,7 @@ type Image struct {
 	// @gotags: xml:"RelatedResource"
 	RelatedResource []*RelatedResource `protobuf:"bytes,20,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
 	// @gotags: xml:"ContainsAI"
-	ContainsAI avs.ContainsAI `protobuf:"varint,21,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.avs.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	ContainsAI string `protobuf:"bytes,21,opt,name=contains_a_i,json=containsAI,proto3" json:"contains_a_i,omitempty" xml:"ContainsAI"`
 	// @gotags: xml:"ContainsHiddenContent"
 	ContainsHiddenContent bool `protobuf:"varint,22,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
 	// @gotags: xml:"Description"
@@ -3472,11 +3472,11 @@ func (x *Image) GetRelatedResource() []*RelatedResource {
 	return nil
 }
 
-func (x *Image) GetContainsAI() avs.ContainsAI {
+func (x *Image) GetContainsAI() string {
 	if x != nil {
 		return x.ContainsAI
 	}
-	return avs.ContainsAI(0)
+	return ""
 }
 
 func (x *Image) GetContainsHiddenContent() bool {
@@ -3519,7 +3519,7 @@ type LinkedReleaseResourceReference struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"LinkDescription,attr"
-	LinkDescription avs.LinkDescription `protobuf:"varint,2,opt,name=link_description,json=linkDescription,proto3,enum=ddex.avs.LinkDescription" json:"link_description,omitempty" xml:"LinkDescription,attr"`
+	LinkDescription string `protobuf:"bytes,2,opt,name=link_description,json=linkDescription,proto3" json:"link_description,omitempty" xml:"LinkDescription,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"Namespace,attr"
@@ -3571,11 +3571,11 @@ func (x *LinkedReleaseResourceReference) GetValue() string {
 	return ""
 }
 
-func (x *LinkedReleaseResourceReference) GetLinkDescription() avs.LinkDescription {
+func (x *LinkedReleaseResourceReference) GetLinkDescription() string {
 	if x != nil {
 		return x.LinkDescription
 	}
-	return avs.LinkDescription(0)
+	return ""
 }
 
 func (x *LinkedReleaseResourceReference) GetLanguageAndScriptCode() string {
@@ -3845,7 +3845,7 @@ type PartyNameWithTerritory struct {
 	// @gotags: xml:"IsLegalName,attr"
 	IsLegalName bool `protobuf:"varint,11,opt,name=is_legal_name,json=isLegalName,proto3" json:"is_legal_name,omitempty" xml:"IsLegalName,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,12,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,12,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,13,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"IsInOriginalLanguage,attr"
@@ -3961,11 +3961,11 @@ func (x *PartyNameWithTerritory) GetIsLegalName() bool {
 	return false
 }
 
-func (x *PartyNameWithTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *PartyNameWithTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *PartyNameWithTerritory) GetIsDefault() bool {
@@ -4218,7 +4218,7 @@ type PriceInformation struct {
 	// @gotags: xml:"SuggestedRetailPrice"
 	SuggestedRetailPrice *Price `protobuf:"bytes,4,opt,name=suggested_retail_price,json=suggestedRetailPrice,proto3" json:"suggested_retail_price,omitempty" xml:"SuggestedRetailPrice"`
 	// @gotags: xml:"PriceType,attr"
-	PriceType avs.PriceInformationType `protobuf:"varint,5,opt,name=price_type,json=priceType,proto3,enum=ddex.avs.PriceInformationType" json:"price_type,omitempty" xml:"PriceType,attr"`
+	PriceType string `protobuf:"bytes,5,opt,name=price_type,json=priceType,proto3" json:"price_type,omitempty" xml:"PriceType,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -4285,11 +4285,11 @@ func (x *PriceInformation) GetSuggestedRetailPrice() *Price {
 	return nil
 }
 
-func (x *PriceInformation) GetPriceType() avs.PriceInformationType {
+func (x *PriceInformation) GetPriceType() string {
 	if x != nil {
 		return x.PriceType
 	}
-	return avs.PriceInformationType(0)
+	return ""
 }
 
 func (x *PriceInformation) GetNamespace() string {
@@ -4374,7 +4374,7 @@ type Raga struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -4418,11 +4418,11 @@ func (x *Raga) GetValue() string {
 	return ""
 }
 
-func (x *Raga) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *Raga) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *Raga) GetIsDefault() bool {
@@ -4624,7 +4624,7 @@ func (x *RelatedRelease) GetOriginalReleaseDate() *EventDateWithoutFlags {
 type RelatedResource struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"ResourceRelationshipType"
-	ResourceRelationshipType avs.ResourceRelationshipType `protobuf:"varint,1,opt,name=resource_relationship_type,json=resourceRelationshipType,proto3,enum=ddex.avs.ResourceRelationshipType" json:"resource_relationship_type,omitempty" xml:"ResourceRelationshipType"`
+	ResourceRelationshipType string `protobuf:"bytes,1,opt,name=resource_relationship_type,json=resourceRelationshipType,proto3" json:"resource_relationship_type,omitempty" xml:"ResourceRelationshipType"`
 	// @gotags: xml:"Timing"
 	Timing        []*Timing `protobuf:"bytes,2,rep,name=timing,proto3" json:"timing,omitempty" xml:"Timing"`
 	unknownFields protoimpl.UnknownFields
@@ -4661,11 +4661,11 @@ func (*RelatedResource) Descriptor() ([]byte, []int) {
 	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{54}
 }
 
-func (x *RelatedResource) GetResourceRelationshipType() avs.ResourceRelationshipType {
+func (x *RelatedResource) GetResourceRelationshipType() string {
 	if x != nil {
 		return x.ResourceRelationshipType
 	}
-	return avs.ResourceRelationshipType(0)
+	return ""
 }
 
 func (x *RelatedResource) GetTiming() []*Timing {
@@ -4744,7 +4744,7 @@ type Release struct {
 	// @gotags: xml:"HiResMusicDescription"
 	HiResMusicDescription string `protobuf:"bytes,33,opt,name=hi_res_music_description,json=hiResMusicDescription,proto3" json:"hi_res_music_description,omitempty" xml:"HiResMusicDescription"`
 	// @gotags: xml:"ContainsAI"
-	ContainsAI avs.ContainsAI `protobuf:"varint,34,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.avs.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	ContainsAI string `protobuf:"bytes,34,opt,name=contains_a_i,json=containsAI,proto3" json:"contains_a_i,omitempty" xml:"ContainsAI"`
 	// @gotags: xml:"IsSoundtrack"
 	IsSoundtrack bool `protobuf:"varint,35,opt,name=is_soundtrack,json=isSoundtrack,proto3" json:"is_soundtrack,omitempty" xml:"IsSoundtrack"`
 	// @gotags: xml:"IsHiResMusic"
@@ -5018,11 +5018,11 @@ func (x *Release) GetHiResMusicDescription() string {
 	return ""
 }
 
-func (x *Release) GetContainsAI() avs.ContainsAI {
+func (x *Release) GetContainsAI() string {
 	if x != nil {
 		return x.ContainsAI
 	}
-	return avs.ContainsAI(0)
+	return ""
 }
 
 func (x *Release) GetIsSoundtrack() bool {
@@ -5251,13 +5251,13 @@ type ReleaseLabelReference struct {
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"LabelType,attr"
-	LabelType avs.LabelType `protobuf:"varint,4,opt,name=label_type,json=labelType,proto3,enum=ddex.avs.LabelType" json:"label_type,omitempty" xml:"LabelType,attr"`
+	LabelType string `protobuf:"bytes,4,opt,name=label_type,json=labelType,proto3" json:"label_type,omitempty" xml:"LabelType,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
 	UserDefinedValue string `protobuf:"bytes,6,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -5313,11 +5313,11 @@ func (x *ReleaseLabelReference) GetIsDefault() bool {
 	return false
 }
 
-func (x *ReleaseLabelReference) GetLabelType() avs.LabelType {
+func (x *ReleaseLabelReference) GetLabelType() string {
 	if x != nil {
 		return x.LabelType
 	}
-	return avs.LabelType(0)
+	return ""
 }
 
 func (x *ReleaseLabelReference) GetNamespace() string {
@@ -5334,11 +5334,11 @@ func (x *ReleaseLabelReference) GetUserDefinedValue() string {
 	return ""
 }
 
-func (x *ReleaseLabelReference) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *ReleaseLabelReference) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 type ReleaseLabelReferenceWithParty struct {
@@ -5350,7 +5350,7 @@ type ReleaseLabelReferenceWithParty struct {
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"LabelType,attr"
-	LabelType avs.LabelType `protobuf:"varint,4,opt,name=label_type,json=labelType,proto3,enum=ddex.avs.LabelType" json:"label_type,omitempty" xml:"LabelType,attr"`
+	LabelType string `protobuf:"bytes,4,opt,name=label_type,json=labelType,proto3" json:"label_type,omitempty" xml:"LabelType,attr"`
 	// @gotags: xml:"AccessControlParty,attr"
 	AccessControlParty string `protobuf:"bytes,5,opt,name=access_control_party,json=accessControlParty,proto3" json:"access_control_party,omitempty" xml:"AccessControlParty,attr"`
 	// @gotags: xml:"Namespace,attr"
@@ -5358,7 +5358,7 @@ type ReleaseLabelReferenceWithParty struct {
 	// @gotags: xml:"UserDefinedValue,attr"
 	UserDefinedValue string `protobuf:"bytes,7,opt,name=user_defined_value,json=userDefinedValue,proto3" json:"user_defined_value,omitempty" xml:"UserDefinedValue,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,8,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,8,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -5414,11 +5414,11 @@ func (x *ReleaseLabelReferenceWithParty) GetIsDefault() bool {
 	return false
 }
 
-func (x *ReleaseLabelReferenceWithParty) GetLabelType() avs.LabelType {
+func (x *ReleaseLabelReferenceWithParty) GetLabelType() string {
 	if x != nil {
 		return x.LabelType
 	}
-	return avs.LabelType(0)
+	return ""
 }
 
 func (x *ReleaseLabelReferenceWithParty) GetAccessControlParty() string {
@@ -5442,11 +5442,11 @@ func (x *ReleaseLabelReferenceWithParty) GetUserDefinedValue() string {
 	return ""
 }
 
-func (x *ReleaseLabelReferenceWithParty) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *ReleaseLabelReferenceWithParty) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 type ReleaseList struct {
@@ -5922,7 +5922,7 @@ type ResourceRightsController struct {
 	// @gotags: xml:"RightsControllerPartyReference"
 	RightsControllerPartyReference string `protobuf:"bytes,1,opt,name=rights_controller_party_reference,json=rightsControllerPartyReference,proto3" json:"rights_controller_party_reference,omitempty" xml:"RightsControllerPartyReference"`
 	// @gotags: xml:"RightsControlType"
-	RightsControlType []avs.RightsControllerRole `protobuf:"varint,2,rep,packed,name=rights_control_type,json=rightsControlType,proto3,enum=ddex.avs.RightsControllerRole" json:"rights_control_type,omitempty" xml:"RightsControlType"`
+	RightsControlType []string `protobuf:"bytes,2,rep,name=rights_control_type,json=rightsControlType,proto3" json:"rights_control_type,omitempty" xml:"RightsControlType"`
 	// @gotags: xml:"DelegatedUsageRights"
 	DelegatedUsageRights []*DelegatedUsageRights `protobuf:"bytes,3,rep,name=delegated_usage_rights,json=delegatedUsageRights,proto3" json:"delegated_usage_rights,omitempty" xml:"DelegatedUsageRights"`
 	// @gotags: xml:"SequenceNumber,attr"
@@ -5968,7 +5968,7 @@ func (x *ResourceRightsController) GetRightsControllerPartyReference() string {
 	return ""
 }
 
-func (x *ResourceRightsController) GetRightsControlType() []avs.RightsControllerRole {
+func (x *ResourceRightsController) GetRightsControlType() []string {
 	if x != nil {
 		return x.RightsControlType
 	}
@@ -6014,7 +6014,7 @@ type ResourceSubGroup struct {
 	// @gotags: xml:"LinkedReleaseResourceReference"
 	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,11,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty" xml:"LinkedReleaseResourceReference"`
 	// @gotags: xml:"ResourceGroupType,attr"
-	ResourceGroupType avs.ResourceGroupType `protobuf:"varint,12,opt,name=resource_group_type,json=resourceGroupType,proto3,enum=ddex.avs.ResourceGroupType" json:"resource_group_type,omitempty" xml:"ResourceGroupType,attr"`
+	ResourceGroupType string `protobuf:"bytes,12,opt,name=resource_group_type,json=resourceGroupType,proto3" json:"resource_group_type,omitempty" xml:"ResourceGroupType,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -6126,11 +6126,11 @@ func (x *ResourceSubGroup) GetLinkedReleaseResourceReference() []*LinkedReleaseR
 	return nil
 }
 
-func (x *ResourceSubGroup) GetResourceGroupType() avs.ResourceGroupType {
+func (x *ResourceSubGroup) GetResourceGroupType() string {
 	if x != nil {
 		return x.ResourceGroupType
 	}
-	return avs.ResourceGroupType(0)
+	return ""
 }
 
 type RightsClaimPolicy struct {
@@ -6138,7 +6138,7 @@ type RightsClaimPolicy struct {
 	// @gotags: xml:"Condition"
 	Condition []*ConditionForRightsClaimPolicy `protobuf:"bytes,1,rep,name=condition,proto3" json:"condition,omitempty" xml:"Condition"`
 	// @gotags: xml:"RightsClaimPolicyType"
-	RightsClaimPolicyType avs.RightsClaimPolicyType `protobuf:"varint,2,opt,name=rights_claim_policy_type,json=rightsClaimPolicyType,proto3,enum=ddex.avs.RightsClaimPolicyType" json:"rights_claim_policy_type,omitempty" xml:"RightsClaimPolicyType"`
+	RightsClaimPolicyType string `protobuf:"bytes,2,opt,name=rights_claim_policy_type,json=rightsClaimPolicyType,proto3" json:"rights_claim_policy_type,omitempty" xml:"RightsClaimPolicyType"`
 	// @gotags: xml:"RightsClaimPolicyReason"
 	RightsClaimPolicyReason *RightsClaimPolicyReason `protobuf:"bytes,3,opt,name=rights_claim_policy_reason,json=rightsClaimPolicyReason,proto3" json:"rights_claim_policy_reason,omitempty" xml:"RightsClaimPolicyReason"`
 	unknownFields           protoimpl.UnknownFields
@@ -6182,11 +6182,11 @@ func (x *RightsClaimPolicy) GetCondition() []*ConditionForRightsClaimPolicy {
 	return nil
 }
 
-func (x *RightsClaimPolicy) GetRightsClaimPolicyType() avs.RightsClaimPolicyType {
+func (x *RightsClaimPolicy) GetRightsClaimPolicyType() string {
 	if x != nil {
 		return x.RightsClaimPolicyType
 	}
-	return avs.RightsClaimPolicyType(0)
+	return ""
 }
 
 func (x *RightsClaimPolicy) GetRightsClaimPolicyReason() *RightsClaimPolicyReason {
@@ -6917,9 +6917,9 @@ type SoundRecording struct {
 	// @gotags: xml:"RelatedResource"
 	RelatedResource []*RelatedResource `protobuf:"bytes,26,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
 	// @gotags: xml:"CompositeMusicalWorkType"
-	CompositeMusicalWorkType avs.CompositeMusicalWorkType `protobuf:"varint,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3,enum=ddex.avs.CompositeMusicalWorkType" json:"composite_musical_work_type,omitempty" xml:"CompositeMusicalWorkType"`
+	CompositeMusicalWorkType string `protobuf:"bytes,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3" json:"composite_musical_work_type,omitempty" xml:"CompositeMusicalWorkType"`
 	// @gotags: xml:"ContainsAI"
-	ContainsAI avs.ContainsAI `protobuf:"varint,28,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.avs.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	ContainsAI string `protobuf:"bytes,28,opt,name=contains_a_i,json=containsAI,proto3" json:"contains_a_i,omitempty" xml:"ContainsAI"`
 	// @gotags: xml:"IsCover"
 	IsCover bool `protobuf:"varint,29,opt,name=is_cover,json=isCover,proto3" json:"is_cover,omitempty" xml:"IsCover"`
 	// @gotags: xml:"HasVocalPerformance"
@@ -7172,18 +7172,18 @@ func (x *SoundRecording) GetRelatedResource() []*RelatedResource {
 	return nil
 }
 
-func (x *SoundRecording) GetCompositeMusicalWorkType() avs.CompositeMusicalWorkType {
+func (x *SoundRecording) GetCompositeMusicalWorkType() string {
 	if x != nil {
 		return x.CompositeMusicalWorkType
 	}
-	return avs.CompositeMusicalWorkType(0)
+	return ""
 }
 
-func (x *SoundRecording) GetContainsAI() avs.ContainsAI {
+func (x *SoundRecording) GetContainsAI() string {
 	if x != nil {
 		return x.ContainsAI
 	}
-	return avs.ContainsAI(0)
+	return ""
 }
 
 func (x *SoundRecording) GetIsCover() bool {
@@ -7321,7 +7321,7 @@ type SoundRecordingClipDetails struct {
 	// @gotags: xml:"Timing"
 	Timing []*Timing `protobuf:"bytes,3,rep,name=timing,proto3" json:"timing,omitempty" xml:"Timing"`
 	// @gotags: xml:"ExpressionType"
-	ExpressionType avs.ExpressionType `protobuf:"varint,4,opt,name=expression_type,json=expressionType,proto3,enum=ddex.avs.ExpressionType" json:"expression_type,omitempty" xml:"ExpressionType"`
+	ExpressionType string `protobuf:"bytes,4,opt,name=expression_type,json=expressionType,proto3" json:"expression_type,omitempty" xml:"ExpressionType"`
 	// @gotags: xml:"DeliveryFile"
 	DeliveryFile  []*AudioDeliveryFile `protobuf:"bytes,5,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty" xml:"DeliveryFile"`
 	unknownFields protoimpl.UnknownFields
@@ -7379,11 +7379,11 @@ func (x *SoundRecordingClipDetails) GetTiming() []*Timing {
 	return nil
 }
 
-func (x *SoundRecordingClipDetails) GetExpressionType() avs.ExpressionType {
+func (x *SoundRecordingClipDetails) GetExpressionType() string {
 	if x != nil {
 		return x.ExpressionType
 	}
-	return avs.ExpressionType(0)
+	return ""
 }
 
 func (x *SoundRecordingClipDetails) GetDeliveryFile() []*AudioDeliveryFile {
@@ -7396,7 +7396,7 @@ func (x *SoundRecordingClipDetails) GetDeliveryFile() []*AudioDeliveryFile {
 type SoundRecordingEdition struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Type"
-	Type avs.EditionType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.avs.EditionType" json:"type,omitempty" xml:"Type"`
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
 	// @gotags: xml:"ResourceId"
 	ResourceId []*SoundRecordingId `protobuf:"bytes,2,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
 	// @gotags: xml:"EditionContributor"
@@ -7404,7 +7404,7 @@ type SoundRecordingEdition struct {
 	// @gotags: xml:"PLine"
 	PLine []*PLine `protobuf:"bytes,4,rep,name=p_line,json=pLine,proto3" json:"p_line,omitempty" xml:"PLine"`
 	// @gotags: xml:"RecordingMode"
-	RecordingMode avs.RecordingMode `protobuf:"varint,5,opt,name=recording_mode,json=recordingMode,proto3,enum=ddex.avs.RecordingMode" json:"recording_mode,omitempty" xml:"RecordingMode"`
+	RecordingMode string `protobuf:"bytes,5,opt,name=recording_mode,json=recordingMode,proto3" json:"recording_mode,omitempty" xml:"RecordingMode"`
 	// @gotags: xml:"TechnicalDetails"
 	TechnicalDetails []*TechnicalSoundRecordingDetails `protobuf:"bytes,6,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
 	unknownFields    protoimpl.UnknownFields
@@ -7441,11 +7441,11 @@ func (*SoundRecordingEdition) Descriptor() ([]byte, []int) {
 	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{75}
 }
 
-func (x *SoundRecordingEdition) GetType() avs.EditionType {
+func (x *SoundRecordingEdition) GetType() string {
 	if x != nil {
 		return x.Type
 	}
-	return avs.EditionType(0)
+	return ""
 }
 
 func (x *SoundRecordingEdition) GetResourceId() []*SoundRecordingId {
@@ -7469,11 +7469,11 @@ func (x *SoundRecordingEdition) GetPLine() []*PLine {
 	return nil
 }
 
-func (x *SoundRecordingEdition) GetRecordingMode() avs.RecordingMode {
+func (x *SoundRecordingEdition) GetRecordingMode() string {
 	if x != nil {
 		return x.RecordingMode
 	}
-	return avs.RecordingMode(0)
+	return ""
 }
 
 func (x *SoundRecordingEdition) GetTechnicalDetails() []*TechnicalSoundRecordingDetails {
@@ -7535,7 +7535,7 @@ type SynopsisWithTerritory struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"IsShortSynopsis,attr"
@@ -7588,11 +7588,11 @@ func (x *SynopsisWithTerritory) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *SynopsisWithTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *SynopsisWithTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *SynopsisWithTerritory) GetIsDefault() bool {
@@ -7614,7 +7614,7 @@ type Tala struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -7658,11 +7658,11 @@ func (x *Tala) GetValue() string {
 	return ""
 }
 
-func (x *Tala) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *Tala) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *Tala) GetIsDefault() bool {
@@ -7703,7 +7703,7 @@ type TechnicalImageDetails struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,14,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,15,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,15,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,16,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -7838,11 +7838,11 @@ func (x *TechnicalImageDetails) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TechnicalImageDetails) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TechnicalImageDetails) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TechnicalImageDetails) GetIsDefault() bool {
@@ -7873,7 +7873,7 @@ type TechnicalSheetMusicDetails struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -7973,11 +7973,11 @@ func (x *TechnicalSheetMusicDetails) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TechnicalSheetMusicDetails) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TechnicalSheetMusicDetails) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TechnicalSheetMusicDetails) GetIsDefault() bool {
@@ -8008,7 +8008,7 @@ type TechnicalSoftwareDetails struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -8108,11 +8108,11 @@ func (x *TechnicalSoftwareDetails) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TechnicalSoftwareDetails) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TechnicalSoftwareDetails) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TechnicalSoftwareDetails) GetIsDefault() bool {
@@ -8137,7 +8137,7 @@ type TechnicalSoundRecordingDetails struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,6,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,8,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -8216,11 +8216,11 @@ func (x *TechnicalSoundRecordingDetails) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TechnicalSoundRecordingDetails) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TechnicalSoundRecordingDetails) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TechnicalSoundRecordingDetails) GetIsDefault() bool {
@@ -8251,7 +8251,7 @@ type TechnicalTextDetails struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,9,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,10,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,11,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -8351,11 +8351,11 @@ func (x *TechnicalTextDetails) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TechnicalTextDetails) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TechnicalTextDetails) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TechnicalTextDetails) GetIsDefault() bool {
@@ -8380,7 +8380,7 @@ type TechnicalVideoDetails struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,6,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,7,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,8,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -8459,11 +8459,11 @@ func (x *TechnicalVideoDetails) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TechnicalVideoDetails) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TechnicalVideoDetails) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TechnicalVideoDetails) GetIsDefault() bool {
@@ -8518,7 +8518,7 @@ type Text struct {
 	// @gotags: xml:"RelatedResource"
 	RelatedResource []*RelatedResource `protobuf:"bytes,21,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
 	// @gotags: xml:"ContainsAI"
-	ContainsAI avs.ContainsAI `protobuf:"varint,22,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.avs.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	ContainsAI string `protobuf:"bytes,22,opt,name=contains_a_i,json=containsAI,proto3" json:"contains_a_i,omitempty" xml:"ContainsAI"`
 	// @gotags: xml:"ContainsHiddenContent"
 	ContainsHiddenContent bool `protobuf:"varint,23,opt,name=contains_hidden_content,json=containsHiddenContent,proto3" json:"contains_hidden_content,omitempty" xml:"ContainsHiddenContent"`
 	// @gotags: xml:"ResourceContainedResourceReferenceList"
@@ -8712,11 +8712,11 @@ func (x *Text) GetRelatedResource() []*RelatedResource {
 	return nil
 }
 
-func (x *Text) GetContainsAI() avs.ContainsAI {
+func (x *Text) GetContainsAI() string {
 	if x != nil {
 		return x.ContainsAI
 	}
-	return avs.ContainsAI(0)
+	return ""
 }
 
 func (x *Text) GetContainsHiddenContent() bool {
@@ -8833,7 +8833,7 @@ type Title struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"TitleType,attr"
-	TitleType     avs.AdditionalTitleType `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.avs.AdditionalTitleType" json:"title_type,omitempty" xml:"TitleType,attr"`
+	TitleType     string `protobuf:"bytes,4,opt,name=title_type,json=titleType,proto3" json:"title_type,omitempty" xml:"TitleType,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -8889,11 +8889,11 @@ func (x *Title) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *Title) GetTitleType() avs.AdditionalTitleType {
+func (x *Title) GetTitleType() string {
 	if x != nil {
 		return x.TitleType
 	}
-	return avs.AdditionalTitleType(0)
+	return ""
 }
 
 type TrackRelease struct {
@@ -9347,9 +9347,9 @@ type Video struct {
 	// @gotags: xml:"RelatedResource"
 	RelatedResource []*RelatedResource `protobuf:"bytes,26,rep,name=related_resource,json=relatedResource,proto3" json:"related_resource,omitempty" xml:"RelatedResource"`
 	// @gotags: xml:"CompositeMusicalWorkType"
-	CompositeMusicalWorkType avs.CompositeMusicalWorkType `protobuf:"varint,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3,enum=ddex.avs.CompositeMusicalWorkType" json:"composite_musical_work_type,omitempty" xml:"CompositeMusicalWorkType"`
+	CompositeMusicalWorkType string `protobuf:"bytes,27,opt,name=composite_musical_work_type,json=compositeMusicalWorkType,proto3" json:"composite_musical_work_type,omitempty" xml:"CompositeMusicalWorkType"`
 	// @gotags: xml:"ContainsAI"
-	ContainsAI avs.ContainsAI `protobuf:"varint,28,opt,name=contains_a_i,json=containsAI,proto3,enum=ddex.avs.ContainsAI" json:"contains_a_i,omitempty" xml:"ContainsAI"`
+	ContainsAI string `protobuf:"bytes,28,opt,name=contains_a_i,json=containsAI,proto3" json:"contains_a_i,omitempty" xml:"ContainsAI"`
 	// @gotags: xml:"IsCover"
 	IsCover bool `protobuf:"varint,29,opt,name=is_cover,json=isCover,proto3" json:"is_cover,omitempty" xml:"IsCover"`
 	// @gotags: xml:"HasVocalPerformance"
@@ -9602,18 +9602,18 @@ func (x *Video) GetRelatedResource() []*RelatedResource {
 	return nil
 }
 
-func (x *Video) GetCompositeMusicalWorkType() avs.CompositeMusicalWorkType {
+func (x *Video) GetCompositeMusicalWorkType() string {
 	if x != nil {
 		return x.CompositeMusicalWorkType
 	}
-	return avs.CompositeMusicalWorkType(0)
+	return ""
 }
 
-func (x *Video) GetContainsAI() avs.ContainsAI {
+func (x *Video) GetContainsAI() string {
 	if x != nil {
 		return x.ContainsAI
 	}
-	return avs.ContainsAI(0)
+	return ""
 }
 
 func (x *Video) GetIsCover() bool {
@@ -9755,7 +9755,7 @@ type VideoClipDetails struct {
 	// @gotags: xml:"BottomRightCorner"
 	BottomRightCorner string `protobuf:"bytes,5,opt,name=bottom_right_corner,json=bottomRightCorner,proto3" json:"bottom_right_corner,omitempty" xml:"BottomRightCorner"`
 	// @gotags: xml:"ExpressionType"
-	ExpressionType avs.ExpressionType `protobuf:"varint,6,opt,name=expression_type,json=expressionType,proto3,enum=ddex.avs.ExpressionType" json:"expression_type,omitempty" xml:"ExpressionType"`
+	ExpressionType string `protobuf:"bytes,6,opt,name=expression_type,json=expressionType,proto3" json:"expression_type,omitempty" xml:"ExpressionType"`
 	// @gotags: xml:"DeliveryFile"
 	DeliveryFile  []*VideoDeliveryFile `protobuf:"bytes,7,rep,name=delivery_file,json=deliveryFile,proto3" json:"delivery_file,omitempty" xml:"DeliveryFile"`
 	unknownFields protoimpl.UnknownFields
@@ -9827,11 +9827,11 @@ func (x *VideoClipDetails) GetBottomRightCorner() string {
 	return ""
 }
 
-func (x *VideoClipDetails) GetExpressionType() avs.ExpressionType {
+func (x *VideoClipDetails) GetExpressionType() string {
 	if x != nil {
 		return x.ExpressionType
 	}
-	return avs.ExpressionType(0)
+	return ""
 }
 
 func (x *VideoClipDetails) GetDeliveryFile() []*VideoDeliveryFile {
@@ -9844,7 +9844,7 @@ func (x *VideoClipDetails) GetDeliveryFile() []*VideoDeliveryFile {
 type VideoDeliveryFile struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Type"
-	Type avs.DeliveryFileType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.avs.DeliveryFileType" json:"type,omitempty" xml:"Type"`
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
 	// @gotags: xml:"ContainerFormat"
 	ContainerFormat *ContainerFormat `protobuf:"bytes,2,opt,name=container_format,json=containerFormat,proto3" json:"container_format,omitempty" xml:"ContainerFormat"`
 	// @gotags: xml:"VideoCodecType"
@@ -9870,13 +9870,13 @@ type VideoDeliveryFile struct {
 	// @gotags: xml:"HasImmersiveAudioMetadata"
 	HasImmersiveAudioMetadata bool `protobuf:"varint,13,opt,name=has_immersive_audio_metadata,json=hasImmersiveAudioMetadata,proto3" json:"has_immersive_audio_metadata,omitempty" xml:"HasImmersiveAudioMetadata"`
 	// @gotags: xml:"ElectroOpticalTransferFunctionType"
-	ElectroOpticalTransferFunctionType avs.ElectroOpticalTransferFunctionType `protobuf:"varint,14,opt,name=electro_optical_transfer_function_type,json=electroOpticalTransferFunctionType,proto3,enum=ddex.avs.ElectroOpticalTransferFunctionType" json:"electro_optical_transfer_function_type,omitempty" xml:"ElectroOpticalTransferFunctionType"`
+	ElectroOpticalTransferFunctionType string `protobuf:"bytes,14,opt,name=electro_optical_transfer_function_type,json=electroOpticalTransferFunctionType,proto3" json:"electro_optical_transfer_function_type,omitempty" xml:"ElectroOpticalTransferFunctionType"`
 	// @gotags: xml:"PrimaryColorType"
-	PrimaryColorType avs.PrimaryColorType `protobuf:"varint,15,opt,name=primary_color_type,json=primaryColorType,proto3,enum=ddex.avs.PrimaryColorType" json:"primary_color_type,omitempty" xml:"PrimaryColorType"`
+	PrimaryColorType string `protobuf:"bytes,15,opt,name=primary_color_type,json=primaryColorType,proto3" json:"primary_color_type,omitempty" xml:"PrimaryColorType"`
 	// @gotags: xml:"HdrVideoDynamicMetadataType"
 	HdrVideoDynamicMetadataType *HdrVideoDynamicMetadataType `protobuf:"bytes,16,opt,name=hdr_video_dynamic_metadata_type,json=hdrVideoDynamicMetadataType,proto3" json:"hdr_video_dynamic_metadata_type,omitempty" xml:"HdrVideoDynamicMetadataType"`
 	// @gotags: xml:"HdrVideoStaticMetadataType"
-	HdrVideoStaticMetadataType avs.HdrVideoStaticMetadataType `protobuf:"varint,17,opt,name=hdr_video_static_metadata_type,json=hdrVideoStaticMetadataType,proto3,enum=ddex.avs.HdrVideoStaticMetadataType" json:"hdr_video_static_metadata_type,omitempty" xml:"HdrVideoStaticMetadataType"`
+	HdrVideoStaticMetadataType string `protobuf:"bytes,17,opt,name=hdr_video_static_metadata_type,json=hdrVideoStaticMetadataType,proto3" json:"hdr_video_static_metadata_type,omitempty" xml:"HdrVideoStaticMetadataType"`
 	// @gotags: xml:"AudioBitRate"
 	AudioBitRate *BitRate `protobuf:"bytes,18,opt,name=audio_bit_rate,json=audioBitRate,proto3" json:"audio_bit_rate,omitempty" xml:"AudioBitRate"`
 	// @gotags: xml:"NumberOfAudioChannels"
@@ -9931,11 +9931,11 @@ func (*VideoDeliveryFile) Descriptor() ([]byte, []int) {
 	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{94}
 }
 
-func (x *VideoDeliveryFile) GetType() avs.DeliveryFileType {
+func (x *VideoDeliveryFile) GetType() string {
 	if x != nil {
 		return x.Type
 	}
-	return avs.DeliveryFileType(0)
+	return ""
 }
 
 func (x *VideoDeliveryFile) GetContainerFormat() *ContainerFormat {
@@ -10022,18 +10022,18 @@ func (x *VideoDeliveryFile) GetHasImmersiveAudioMetadata() bool {
 	return false
 }
 
-func (x *VideoDeliveryFile) GetElectroOpticalTransferFunctionType() avs.ElectroOpticalTransferFunctionType {
+func (x *VideoDeliveryFile) GetElectroOpticalTransferFunctionType() string {
 	if x != nil {
 		return x.ElectroOpticalTransferFunctionType
 	}
-	return avs.ElectroOpticalTransferFunctionType(0)
+	return ""
 }
 
-func (x *VideoDeliveryFile) GetPrimaryColorType() avs.PrimaryColorType {
+func (x *VideoDeliveryFile) GetPrimaryColorType() string {
 	if x != nil {
 		return x.PrimaryColorType
 	}
-	return avs.PrimaryColorType(0)
+	return ""
 }
 
 func (x *VideoDeliveryFile) GetHdrVideoDynamicMetadataType() *HdrVideoDynamicMetadataType {
@@ -10043,11 +10043,11 @@ func (x *VideoDeliveryFile) GetHdrVideoDynamicMetadataType() *HdrVideoDynamicMet
 	return nil
 }
 
-func (x *VideoDeliveryFile) GetHdrVideoStaticMetadataType() avs.HdrVideoStaticMetadataType {
+func (x *VideoDeliveryFile) GetHdrVideoStaticMetadataType() string {
 	if x != nil {
 		return x.HdrVideoStaticMetadataType
 	}
-	return avs.HdrVideoStaticMetadataType(0)
+	return ""
 }
 
 func (x *VideoDeliveryFile) GetAudioBitRate() *BitRate {
@@ -10123,7 +10123,7 @@ func (x *VideoDeliveryFile) GetIsProvidedInDelivery() bool {
 type VideoEdition struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Type"
-	Type avs.EditionType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.avs.EditionType" json:"type,omitempty" xml:"Type"`
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
 	// @gotags: xml:"ResourceId"
 	ResourceId []*VideoId `protobuf:"bytes,2,rep,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
 	// @gotags: xml:"EditionContributor"
@@ -10133,7 +10133,7 @@ type VideoEdition struct {
 	// @gotags: xml:"CLine"
 	CLine []*CLine `protobuf:"bytes,5,rep,name=c_line,json=cLine,proto3" json:"c_line,omitempty" xml:"CLine"`
 	// @gotags: xml:"RecordingMode"
-	RecordingMode avs.RecordingMode `protobuf:"varint,6,opt,name=recording_mode,json=recordingMode,proto3,enum=ddex.avs.RecordingMode" json:"recording_mode,omitempty" xml:"RecordingMode"`
+	RecordingMode string `protobuf:"bytes,6,opt,name=recording_mode,json=recordingMode,proto3" json:"recording_mode,omitempty" xml:"RecordingMode"`
 	// @gotags: xml:"TechnicalDetails"
 	TechnicalDetails []*TechnicalVideoDetails `protobuf:"bytes,7,rep,name=technical_details,json=technicalDetails,proto3" json:"technical_details,omitempty" xml:"TechnicalDetails"`
 	unknownFields    protoimpl.UnknownFields
@@ -10170,11 +10170,11 @@ func (*VideoEdition) Descriptor() ([]byte, []int) {
 	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{95}
 }
 
-func (x *VideoEdition) GetType() avs.EditionType {
+func (x *VideoEdition) GetType() string {
 	if x != nil {
 		return x.Type
 	}
-	return avs.EditionType(0)
+	return ""
 }
 
 func (x *VideoEdition) GetResourceId() []*VideoId {
@@ -10205,11 +10205,11 @@ func (x *VideoEdition) GetCLine() []*CLine {
 	return nil
 }
 
-func (x *VideoEdition) GetRecordingMode() avs.RecordingMode {
+func (x *VideoEdition) GetRecordingMode() string {
 	if x != nil {
 		return x.RecordingMode
 	}
-	return avs.RecordingMode(0)
+	return ""
 }
 
 func (x *VideoEdition) GetTechnicalDetails() []*TechnicalVideoDetails {
@@ -10287,9 +10287,9 @@ type WorkRightsController struct {
 	// @gotags: xml:"RightsControllerPartyReference"
 	RightsControllerPartyReference string `protobuf:"bytes,1,opt,name=rights_controller_party_reference,json=rightsControllerPartyReference,proto3" json:"rights_controller_party_reference,omitempty" xml:"RightsControllerPartyReference"`
 	// @gotags: xml:"RightsControlType"
-	RightsControlType []avs.RightsControllerRole `protobuf:"varint,2,rep,packed,name=rights_control_type,json=rightsControlType,proto3,enum=ddex.avs.RightsControllerRole" json:"rights_control_type,omitempty" xml:"RightsControlType"`
+	RightsControlType []string `protobuf:"bytes,2,rep,name=rights_control_type,json=rightsControlType,proto3" json:"rights_control_type,omitempty" xml:"RightsControlType"`
 	// @gotags: xml:"RightsControllerType"
-	RightsControllerType avs.RightsControllerType `protobuf:"varint,3,opt,name=rights_controller_type,json=rightsControllerType,proto3,enum=ddex.avs.RightsControllerType" json:"rights_controller_type,omitempty" xml:"RightsControllerType"`
+	RightsControllerType string `protobuf:"bytes,3,opt,name=rights_controller_type,json=rightsControllerType,proto3" json:"rights_controller_type,omitempty" xml:"RightsControllerType"`
 	// @gotags: xml:"Territory"
 	Territory []*AllTerritoryCode `protobuf:"bytes,4,rep,name=territory,proto3" json:"territory,omitempty" xml:"Territory"`
 	// @gotags: xml:"StartDate"
@@ -10337,18 +10337,18 @@ func (x *WorkRightsController) GetRightsControllerPartyReference() string {
 	return ""
 }
 
-func (x *WorkRightsController) GetRightsControlType() []avs.RightsControllerRole {
+func (x *WorkRightsController) GetRightsControlType() []string {
 	if x != nil {
 		return x.RightsControlType
 	}
 	return nil
 }
 
-func (x *WorkRightsController) GetRightsControllerType() avs.RightsControllerType {
+func (x *WorkRightsController) GetRightsControllerType() string {
 	if x != nil {
 		return x.RightsControllerType
 	}
-	return avs.RightsControllerType(0)
+	return ""
 }
 
 func (x *WorkRightsController) GetTerritory() []*AllTerritoryCode {
@@ -10438,7 +10438,7 @@ func (x *AdministratingRecordCompanyRole) GetUserDefinedValue() string {
 type Affiliation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Type"
-	Type avs.AffiliationType `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.avs.AffiliationType" json:"type,omitempty" xml:"Type"`
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" xml:"Type"`
 	// @gotags: xml:"ValidityPeriod"
 	ValidityPeriod *ValidityPeriod `protobuf:"bytes,2,opt,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty" xml:"ValidityPeriod"`
 	// @gotags: xml:"RightsType"
@@ -10479,11 +10479,11 @@ func (*Affiliation) Descriptor() ([]byte, []int) {
 	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{99}
 }
 
-func (x *Affiliation) GetType() avs.AffiliationType {
+func (x *Affiliation) GetType() string {
 	if x != nil {
 		return x.Type
 	}
-	return avs.AffiliationType(0)
+	return ""
 }
 
 func (x *Affiliation) GetValidityPeriod() *ValidityPeriod {
@@ -10512,7 +10512,7 @@ type AllTerritoryCode struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"IdentifierType,attr"
-	IdentifierType avs.TerritoryCodeTypeIncludingDeprecatedCodes `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
+	IdentifierType string `protobuf:"bytes,2,opt,name=identifier_type,json=identifierType,proto3" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -10554,11 +10554,11 @@ func (x *AllTerritoryCode) GetValue() string {
 	return ""
 }
 
-func (x *AllTerritoryCode) GetIdentifierType() avs.TerritoryCodeTypeIncludingDeprecatedCodes {
+func (x *AllTerritoryCode) GetIdentifierType() string {
 	if x != nil {
 		return x.IdentifierType
 	}
-	return avs.TerritoryCodeTypeIncludingDeprecatedCodes(0)
+	return ""
 }
 
 type AspectRatio struct {
@@ -10566,7 +10566,7 @@ type AspectRatio struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"AspectRatioType,attr"
-	AspectRatioType avs.AspectRatioType `protobuf:"varint,2,opt,name=aspect_ratio_type,json=aspectRatioType,proto3,enum=ddex.avs.AspectRatioType" json:"aspect_ratio_type,omitempty" xml:"AspectRatioType,attr"`
+	AspectRatioType string `protobuf:"bytes,2,opt,name=aspect_ratio_type,json=aspectRatioType,proto3" json:"aspect_ratio_type,omitempty" xml:"AspectRatioType,attr"`
 	// @gotags: xml:"AppliesToCroppedResource,attr"
 	AppliesToCroppedResource bool `protobuf:"varint,3,opt,name=applies_to_cropped_resource,json=appliesToCroppedResource,proto3" json:"applies_to_cropped_resource,omitempty" xml:"AppliesToCroppedResource,attr"`
 	unknownFields            protoimpl.UnknownFields
@@ -10610,11 +10610,11 @@ func (x *AspectRatio) GetValue() string {
 	return ""
 }
 
-func (x *AspectRatio) GetAspectRatioType() avs.AspectRatioType {
+func (x *AspectRatio) GetAspectRatioType() string {
 	if x != nil {
 		return x.AspectRatioType
 	}
-	return avs.AspectRatioType(0)
+	return ""
 }
 
 func (x *AspectRatio) GetAppliesToCroppedResource() bool {
@@ -10701,7 +10701,7 @@ type BitRate struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"UnitOfMeasure,attr"
-	UnitOfMeasure avs.UnitOfBitRate `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.avs.UnitOfBitRate" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
+	UnitOfMeasure string `protobuf:"bytes,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -10743,11 +10743,11 @@ func (x *BitRate) GetValue() string {
 	return ""
 }
 
-func (x *BitRate) GetUnitOfMeasure() avs.UnitOfBitRate {
+func (x *BitRate) GetUnitOfMeasure() string {
 	if x != nil {
 		return x.UnitOfMeasure
 	}
-	return avs.UnitOfBitRate(0)
+	return ""
 }
 
 type CLine struct {
@@ -10761,7 +10761,7 @@ type CLine struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,6,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -10826,11 +10826,11 @@ func (x *CLine) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *CLine) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *CLine) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *CLine) GetIsDefault() bool {
@@ -11189,7 +11189,7 @@ type Contributor struct {
 	// @gotags: xml:"InstrumentType"
 	InstrumentType []*InstrumentType `protobuf:"bytes,2,rep,name=instrument_type,json=instrumentType,proto3" json:"instrument_type,omitempty" xml:"InstrumentType"`
 	// @gotags: xml:"AiContribution"
-	AiContribution avs.ContainsAI `protobuf:"varint,3,opt,name=ai_contribution,json=aiContribution,proto3,enum=ddex.avs.ContainsAI" json:"ai_contribution,omitempty" xml:"AiContribution"`
+	AiContribution string `protobuf:"bytes,3,opt,name=ai_contribution,json=aiContribution,proto3" json:"ai_contribution,omitempty" xml:"AiContribution"`
 	// @gotags: xml:"HasMadeFeaturedContribution"
 	HasMadeFeaturedContribution bool `protobuf:"varint,4,opt,name=has_made_featured_contribution,json=hasMadeFeaturedContribution,proto3" json:"has_made_featured_contribution,omitempty" xml:"HasMadeFeaturedContribution"`
 	// @gotags: xml:"HasMadeContractedContribution"
@@ -11248,11 +11248,11 @@ func (x *Contributor) GetInstrumentType() []*InstrumentType {
 	return nil
 }
 
-func (x *Contributor) GetAiContribution() avs.ContainsAI {
+func (x *Contributor) GetAiContribution() string {
 	if x != nil {
 		return x.AiContribution
 	}
-	return avs.ContainsAI(0)
+	return ""
 }
 
 func (x *Contributor) GetHasMadeFeaturedContribution() bool {
@@ -11414,7 +11414,7 @@ type CourtesyLine struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -11465,11 +11465,11 @@ func (x *CourtesyLine) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *CourtesyLine) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *CourtesyLine) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *CourtesyLine) GetIsDefault() bool {
@@ -11862,7 +11862,7 @@ type CurrentTerritoryCode struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"IdentifierType,attr"
-	IdentifierType avs.TerritoryCodeType `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.avs.TerritoryCodeType" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
+	IdentifierType string `protobuf:"bytes,2,opt,name=identifier_type,json=identifierType,proto3" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -11904,11 +11904,11 @@ func (x *CurrentTerritoryCode) GetValue() string {
 	return ""
 }
 
-func (x *CurrentTerritoryCode) GetIdentifierType() avs.TerritoryCodeType {
+func (x *CurrentTerritoryCode) GetIdentifierType() string {
 	if x != nil {
 		return x.IdentifierType
 	}
-	return avs.TerritoryCodeType(0)
+	return ""
 }
 
 type DSP struct {
@@ -11974,7 +11974,7 @@ type DetailedHashSum struct {
 	// @gotags: xml:"Parameter"
 	Parameter string `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty" xml:"Parameter"`
 	// @gotags: xml:"DataType"
-	DataType avs.BinaryDataType `protobuf:"varint,4,opt,name=data_type,json=dataType,proto3,enum=ddex.avs.BinaryDataType" json:"data_type,omitempty" xml:"DataType"`
+	DataType string `protobuf:"bytes,4,opt,name=data_type,json=dataType,proto3" json:"data_type,omitempty" xml:"DataType"`
 	// @gotags: xml:"HashSumValue"
 	HashSumValue  string `protobuf:"bytes,5,opt,name=hash_sum_value,json=hashSumValue,proto3" json:"hash_sum_value,omitempty" xml:"HashSumValue"`
 	unknownFields protoimpl.UnknownFields
@@ -12032,11 +12032,11 @@ func (x *DetailedHashSum) GetParameter() string {
 	return ""
 }
 
-func (x *DetailedHashSum) GetDataType() avs.BinaryDataType {
+func (x *DetailedHashSum) GetDataType() string {
 	if x != nil {
 		return x.DataType
 	}
-	return avs.BinaryDataType(0)
+	return ""
 }
 
 func (x *DetailedHashSum) GetHashSumValue() string {
@@ -12145,7 +12145,7 @@ type DisplayArtistNameWithOriginalLanguage struct {
 	// @gotags: xml:"IsInOriginalLanguage,attr"
 	IsInOriginalLanguage bool `protobuf:"varint,3,opt,name=is_in_original_language,json=isInOriginalLanguage,proto3" json:"is_in_original_language,omitempty" xml:"IsInOriginalLanguage,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -12203,11 +12203,11 @@ func (x *DisplayArtistNameWithOriginalLanguage) GetIsInOriginalLanguage() bool {
 	return false
 }
 
-func (x *DisplayArtistNameWithOriginalLanguage) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DisplayArtistNameWithOriginalLanguage) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *DisplayArtistNameWithOriginalLanguage) GetIsDefault() bool {
@@ -12287,7 +12287,7 @@ type DisplayCredits struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -12338,11 +12338,11 @@ func (x *DisplayCredits) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *DisplayCredits) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DisplayCredits) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *DisplayCredits) GetIsDefault() bool {
@@ -12361,7 +12361,7 @@ type DisplaySubTitle struct {
 	// @gotags: xml:"IsDisplayedInTitle,attr"
 	IsDisplayedInTitle bool `protobuf:"varint,3,opt,name=is_displayed_in_title,json=isDisplayedInTitle,proto3" json:"is_displayed_in_title,omitempty" xml:"IsDisplayedInTitle,attr"`
 	// @gotags: xml:"SubTitleType,attr"
-	SubTitleType  avs.SubTitleType `protobuf:"varint,4,opt,name=sub_title_type,json=subTitleType,proto3,enum=ddex.avs.SubTitleType" json:"sub_title_type,omitempty" xml:"SubTitleType,attr"`
+	SubTitleType  string `protobuf:"bytes,4,opt,name=sub_title_type,json=subTitleType,proto3" json:"sub_title_type,omitempty" xml:"SubTitleType,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -12417,11 +12417,11 @@ func (x *DisplaySubTitle) GetIsDisplayedInTitle() bool {
 	return false
 }
 
-func (x *DisplaySubTitle) GetSubTitleType() avs.SubTitleType {
+func (x *DisplaySubTitle) GetSubTitleType() string {
 	if x != nil {
 		return x.SubTitleType
 	}
-	return avs.SubTitleType(0)
+	return ""
 }
 
 type DisplayTitle struct {
@@ -12433,7 +12433,7 @@ type DisplayTitle struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"IsInOriginalLanguage,attr"
@@ -12493,11 +12493,11 @@ func (x *DisplayTitle) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *DisplayTitle) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DisplayTitle) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *DisplayTitle) GetIsDefault() bool {
@@ -12525,7 +12525,7 @@ type EventDate struct {
 	// @gotags: xml:"IsAfter,attr"
 	IsAfter bool `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty" xml:"IsAfter,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.AllTerritoryCode `protobuf:"varint,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.AllTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"LocationDescription,attr"
 	LocationDescription string `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
@@ -12592,11 +12592,11 @@ func (x *EventDate) GetIsAfter() bool {
 	return false
 }
 
-func (x *EventDate) GetApplicableTerritoryCode() avs.AllTerritoryCode {
+func (x *EventDate) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.AllTerritoryCode(0)
+	return ""
 }
 
 func (x *EventDate) GetLocationDescription() string {
@@ -12624,7 +12624,7 @@ type EventDateTime struct {
 	// @gotags: xml:"IsAfter,attr"
 	IsAfter bool `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty" xml:"IsAfter,attr"`
 	// @gotags: xml:"TerritoryCode,attr"
-	TerritoryCode avs.AllTerritoryCode `protobuf:"varint,5,opt,name=territory_code,json=territoryCode,proto3,enum=ddex.avs.AllTerritoryCode" json:"territory_code,omitempty" xml:"TerritoryCode,attr"`
+	TerritoryCode string `protobuf:"bytes,5,opt,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode,attr"`
 	// @gotags: xml:"LocationDescription,attr"
 	LocationDescription string `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
@@ -12691,11 +12691,11 @@ func (x *EventDateTime) GetIsAfter() bool {
 	return false
 }
 
-func (x *EventDateTime) GetTerritoryCode() avs.AllTerritoryCode {
+func (x *EventDateTime) GetTerritoryCode() string {
 	if x != nil {
 		return x.TerritoryCode
 	}
-	return avs.AllTerritoryCode(0)
+	return ""
 }
 
 func (x *EventDateTime) GetLocationDescription() string {
@@ -12717,7 +12717,7 @@ type Extent struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"UnitOfMeasure,attr"
-	UnitOfMeasure avs.UnitOfExtent `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.avs.UnitOfExtent" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
+	UnitOfMeasure string `protobuf:"bytes,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -12759,11 +12759,11 @@ func (x *Extent) GetValue() string {
 	return ""
 }
 
-func (x *Extent) GetUnitOfMeasure() avs.UnitOfExtent {
+func (x *Extent) GetUnitOfMeasure() string {
 	if x != nil {
 		return x.UnitOfMeasure
 	}
-	return avs.UnitOfExtent(0)
+	return ""
 }
 
 type ExternallyLinkedResourceType struct {
@@ -13023,7 +13023,7 @@ type FirstPublicationDate struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -13067,11 +13067,11 @@ func (x *FirstPublicationDate) GetValue() string {
 	return ""
 }
 
-func (x *FirstPublicationDate) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *FirstPublicationDate) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *FirstPublicationDate) GetIsDefault() bool {
@@ -13086,7 +13086,7 @@ type FrameRate struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"UnitOfMeasure,attr"
-	UnitOfMeasure avs.UnitOfFrameRate `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.avs.UnitOfFrameRate" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
+	UnitOfMeasure string `protobuf:"bytes,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -13128,11 +13128,11 @@ func (x *FrameRate) GetValue() string {
 	return ""
 }
 
-func (x *FrameRate) GetUnitOfMeasure() avs.UnitOfFrameRate {
+func (x *FrameRate) GetUnitOfMeasure() string {
 	if x != nil {
 		return x.UnitOfMeasure
 	}
-	return avs.UnitOfFrameRate(0)
+	return ""
 }
 
 type FulfillmentDate struct {
@@ -13142,7 +13142,7 @@ type FulfillmentDate struct {
 	// @gotags: xml:"ResourceReleaseReference"
 	ResourceReleaseReference []string `protobuf:"bytes,2,rep,name=resource_release_reference,json=resourceReleaseReference,proto3" json:"resource_release_reference,omitempty" xml:"ResourceReleaseReference"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -13193,11 +13193,11 @@ func (x *FulfillmentDate) GetResourceReleaseReference() []string {
 	return nil
 }
 
-func (x *FulfillmentDate) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *FulfillmentDate) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *FulfillmentDate) GetIsDefault() bool {
@@ -13214,7 +13214,7 @@ type GenreCategory struct {
 	// @gotags: xml:"Description"
 	Description []*TextWithoutTerritory `protobuf:"bytes,2,rep,name=description,proto3" json:"description,omitempty" xml:"Description"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -13263,11 +13263,11 @@ func (x *GenreCategory) GetDescription() []*TextWithoutTerritory {
 	return nil
 }
 
-func (x *GenreCategory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *GenreCategory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 type GenreCategoryValue struct {
@@ -13355,7 +13355,7 @@ type GenreWithTerritory struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,6,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,6,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,7,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -13427,11 +13427,11 @@ func (x *GenreWithTerritory) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *GenreWithTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *GenreWithTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *GenreWithTerritory) GetIsDefault() bool {
@@ -13763,7 +13763,7 @@ type KeywordsWithTerritory struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -13814,11 +13814,11 @@ func (x *KeywordsWithTerritory) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *KeywordsWithTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *KeywordsWithTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *KeywordsWithTerritory) GetIsDefault() bool {
@@ -13889,7 +13889,7 @@ type MarketingComment struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -13940,11 +13940,11 @@ func (x *MarketingComment) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *MarketingComment) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *MarketingComment) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *MarketingComment) GetIsDefault() bool {
@@ -14074,7 +14074,7 @@ type MessageHeader struct {
 	// @gotags: xml:"MessageAuditTrail"
 	MessageAuditTrail *MessageAuditTrail `protobuf:"bytes,9,opt,name=message_audit_trail,json=messageAuditTrail,proto3" json:"message_audit_trail,omitempty" xml:"MessageAuditTrail"`
 	// @gotags: xml:"MessageControlType"
-	MessageControlType avs.MessageControlType `protobuf:"varint,10,opt,name=message_control_type,json=messageControlType,proto3,enum=ddex.avs.MessageControlType" json:"message_control_type,omitempty" xml:"MessageControlType"`
+	MessageControlType string `protobuf:"bytes,10,opt,name=message_control_type,json=messageControlType,proto3" json:"message_control_type,omitempty" xml:"MessageControlType"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -14172,11 +14172,11 @@ func (x *MessageHeader) GetMessageAuditTrail() *MessageAuditTrail {
 	return nil
 }
 
-func (x *MessageHeader) GetMessageControlType() avs.MessageControlType {
+func (x *MessageHeader) GetMessageControlType() string {
 	if x != nil {
 		return x.MessageControlType
 	}
-	return avs.MessageControlType(0)
+	return ""
 }
 
 type MessagingPartyWithoutCode struct {
@@ -14460,7 +14460,7 @@ type PLine struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,6,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -14525,11 +14525,11 @@ func (x *PLine) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *PLine) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *PLine) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *PLine) GetIsDefault() bool {
@@ -14544,7 +14544,7 @@ type ParentalWarningTypeWithStandard struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,2,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,3,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"TypeNamespace,attr"
@@ -14552,7 +14552,7 @@ type ParentalWarningTypeWithStandard struct {
 	// @gotags: xml:"TypeUserDefinedValue,attr"
 	TypeUserDefinedValue string `protobuf:"bytes,5,opt,name=type_user_defined_value,json=typeUserDefinedValue,proto3" json:"type_user_defined_value,omitempty" xml:"TypeUserDefinedValue,attr"`
 	// @gotags: xml:"ParentalWarningStandard,attr"
-	ParentalWarningStandard avs.ParentalWarningStandard `protobuf:"varint,6,opt,name=parental_warning_standard,json=parentalWarningStandard,proto3,enum=ddex.avs.ParentalWarningStandard" json:"parental_warning_standard,omitempty" xml:"ParentalWarningStandard,attr"`
+	ParentalWarningStandard string `protobuf:"bytes,6,opt,name=parental_warning_standard,json=parentalWarningStandard,proto3" json:"parental_warning_standard,omitempty" xml:"ParentalWarningStandard,attr"`
 	// @gotags: xml:"StandardNamespace,attr"
 	StandardNamespace string `protobuf:"bytes,7,opt,name=standard_namespace,json=standardNamespace,proto3" json:"standard_namespace,omitempty" xml:"StandardNamespace,attr"`
 	// @gotags: xml:"StandardUserDefinedValue,attr"
@@ -14598,11 +14598,11 @@ func (x *ParentalWarningTypeWithStandard) GetValue() string {
 	return ""
 }
 
-func (x *ParentalWarningTypeWithStandard) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *ParentalWarningTypeWithStandard) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *ParentalWarningTypeWithStandard) GetIsDefault() bool {
@@ -14626,11 +14626,11 @@ func (x *ParentalWarningTypeWithStandard) GetTypeUserDefinedValue() string {
 	return ""
 }
 
-func (x *ParentalWarningTypeWithStandard) GetParentalWarningStandard() avs.ParentalWarningStandard {
+func (x *ParentalWarningTypeWithStandard) GetParentalWarningStandard() string {
 	if x != nil {
 		return x.ParentalWarningStandard
 	}
-	return avs.ParentalWarningStandard(0)
+	return ""
 }
 
 func (x *ParentalWarningTypeWithStandard) GetStandardNamespace() string {
@@ -15075,7 +15075,7 @@ type Price struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"CurrencyCode,attr"
-	CurrencyCode  avs.CurrencyCode `protobuf:"varint,2,opt,name=currency_code,json=currencyCode,proto3,enum=ddex.avs.CurrencyCode" json:"currency_code,omitempty" xml:"CurrencyCode,attr"`
+	CurrencyCode  string `protobuf:"bytes,2,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty" xml:"CurrencyCode,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -15117,11 +15117,11 @@ func (x *Price) GetValue() string {
 	return ""
 }
 
-func (x *Price) GetCurrencyCode() avs.CurrencyCode {
+func (x *Price) GetCurrencyCode() string {
 	if x != nil {
 		return x.CurrencyCode
 	}
-	return avs.CurrencyCode(0)
+	return ""
 }
 
 type PriceType struct {
@@ -16200,7 +16200,7 @@ type SamplingRate struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"UnitOfMeasure,attr"
-	UnitOfMeasure avs.UnitOfFrequency `protobuf:"varint,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3,enum=ddex.avs.UnitOfFrequency" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
+	UnitOfMeasure string `protobuf:"bytes,2,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty" xml:"UnitOfMeasure,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -16242,11 +16242,11 @@ func (x *SamplingRate) GetValue() string {
 	return ""
 }
 
-func (x *SamplingRate) GetUnitOfMeasure() avs.UnitOfFrequency {
+func (x *SamplingRate) GetUnitOfMeasure() string {
 	if x != nil {
 		return x.UnitOfMeasure
 	}
-	return avs.UnitOfFrequency(0)
+	return ""
 }
 
 type SessionType struct {
@@ -17111,11 +17111,11 @@ type TextWithFormat struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"Format,attr"
-	Format avs.TextCodecType `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.avs.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	Format string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty" xml:"Format,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -17168,11 +17168,11 @@ func (x *TextWithFormat) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TextWithFormat) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TextWithFormat) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TextWithFormat) GetIsDefault() bool {
@@ -17182,11 +17182,11 @@ func (x *TextWithFormat) GetIsDefault() bool {
 	return false
 }
 
-func (x *TextWithFormat) GetFormat() avs.TextCodecType {
+func (x *TextWithFormat) GetFormat() string {
 	if x != nil {
 		return x.Format
 	}
-	return avs.TextCodecType(0)
+	return ""
 }
 
 func (x *TextWithFormat) GetNamespace() string {
@@ -17210,11 +17210,11 @@ type TextWithoutTerritory struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"Format,attr"
-	Format avs.TextCodecType `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.avs.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	Format string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty" xml:"Format,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -17267,11 +17267,11 @@ func (x *TextWithoutTerritory) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TextWithoutTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TextWithoutTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TextWithoutTerritory) GetIsDefault() bool {
@@ -17281,11 +17281,11 @@ func (x *TextWithoutTerritory) GetIsDefault() bool {
 	return false
 }
 
-func (x *TextWithoutTerritory) GetFormat() avs.TextCodecType {
+func (x *TextWithoutTerritory) GetFormat() string {
 	if x != nil {
 		return x.Format
 	}
-	return avs.TextCodecType(0)
+	return ""
 }
 
 func (x *TextWithoutTerritory) GetNamespace() string {
@@ -17810,7 +17810,7 @@ var File_ddex_ern_v432_v432_proto protoreflect.FileDescriptor
 
 const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\n" +
-	"\x18ddex/ern/v432/v432.proto\x12\rddex.ern.v432\x1a\x12ddex/avs/avs.proto\"\xa8\a\n" +
+	"\x18ddex/ern/v432/v432.proto\x12\rddex.ern.v432\x1a\x12ddex/avs/avs.proto\"\xdb\x06\n" +
 	"\x11NewReleaseMessage\x12C\n" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderR\rmessageHeader\x12@\n" +
 	"\rrelease_admin\x18\x02 \x03(\v2\x1b.ddex.ern.v432.ReleaseAdminR\freleaseAdmin\x127\n" +
@@ -17821,10 +17821,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\fchapter_list\x18\x06 \x01(\v2\x1a.ddex.ern.v432.ChapterListR\vchapterList\x12=\n" +
 	"\frelease_list\x18\a \x01(\v2\x1a.ddex.ern.v432.ReleaseListR\vreleaseList\x124\n" +
 	"\tdeal_list\x18\b \x01(\v2\x17.ddex.ern.v432.DealListR\bdealList\x12e\n" +
-	"\x1asupplemental_document_list\x18\t \x01(\v2'.ddex.ern.v432.SupplementalDocumentListR\x18supplementalDocumentList\x12^\n" +
+	"\x1asupplemental_document_list\x18\t \x01(\v2'.ddex.ern.v432.SupplementalDocumentListR\x18supplementalDocumentList\x12;\n" +
 	"\x1arelease_profile_version_id\x18\n" +
-	" \x01(\x0e2!.ddex.avs.ReleaseProfileVersionIdR\x17releaseProfileVersionId\x12t\n" +
-	"\"release_profile_variant_version_id\x18\v \x01(\x0e2(.ddex.avs.ReleaseProfileVariantVersionIdR\x1ereleaseProfileVariantVersionId\x12$\n" +
+	" \x01(\tR\x17releaseProfileVersionId\x12J\n" +
+	"\"release_profile_variant_version_id\x18\v \x01(\tR\x1ereleaseProfileVariantVersionId\x12$\n" +
 	"\x0eavs_version_id\x18\f \x01(\tR\favsVersionId\x127\n" +
 	"\x18language_and_script_code\x18\r \x01(\tR\x15languageAndScriptCode\"\xfe\x01\n" +
 	"\x13PurgeReleaseMessage\x12C\n" +
@@ -17851,12 +17851,12 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\tbit_depth\x18\f \x01(\x05R\bbitDepth\x12'\n" +
 	"\x04file\x18\r \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x12<\n" +
 	"\vfingerprint\x18\x0e \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x125\n" +
-	"\x17is_provided_in_delivery\x18\x0f \x01(\bR\x14isProvidedInDelivery\"\x87\x02\n" +
+	"\x17is_provided_in_delivery\x18\x0f \x01(\bR\x14isProvidedInDelivery\"\xe7\x01\n" +
 	"\bAvRating\x12\x16\n" +
 	"\x06rating\x18\x01 \x01(\tR\x06rating\x123\n" +
 	"\x06agency\x18\x02 \x01(\v2\x1b.ddex.ern.v432.RatingAgencyR\x06agency\x123\n" +
-	"\x06reason\x18\x03 \x01(\v2\x1b.ddex.ern.v432.RatingReasonR\x06reason\x12Z\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x06reason\x18\x03 \x01(\v2\x1b.ddex.ern.v432.RatingReasonR\x06reason\x12:\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x05 \x01(\bR\tisDefault\"0\n" +
 	"\x05Brand\x12'\n" +
@@ -17888,12 +17888,12 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\tCharacter\x12:\n" +
 	"\x19character_party_reference\x18\x01 \x01(\tR\x17characterPartyReference\x128\n" +
 	"\tperformer\x18\x02 \x01(\v2\x1a.ddex.ern.v432.ContributorR\tperformer\x12'\n" +
-	"\x0fsequence_number\x18\x03 \x01(\x05R\x0esequenceNumber\"\xde\x01\n" +
+	"\x0fsequence_number\x18\x03 \x01(\x05R\x0esequenceNumber\"\xc4\x01\n" +
 	"\vClipDetails\x124\n" +
 	"\tclip_type\x18\x01 \x01(\v2\x17.ddex.ern.v432.ClipTypeR\bclipType\x12&\n" +
 	"\x0ftop_left_corner\x18\x02 \x01(\tR\rtopLeftCorner\x12.\n" +
-	"\x13bottom_right_corner\x18\x03 \x01(\tR\x11bottomRightCorner\x12A\n" +
-	"\x0fexpression_type\x18\x04 \x01(\x0e2\x18.ddex.avs.ExpressionTypeR\x0eexpressionType\"\xbd\x05\n" +
+	"\x13bottom_right_corner\x18\x03 \x01(\tR\x11bottomRightCorner\x12'\n" +
+	"\x0fexpression_type\x18\x04 \x01(\tR\x0eexpressionType\"\xbd\x05\n" +
 	"\vClipRelease\x12+\n" +
 	"\x11release_reference\x18\x01 \x01(\tR\x10releaseReference\x127\n" +
 	"\n" +
@@ -17910,13 +17910,13 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x13CommercialModelType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xc7\x03\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xd2\x02\n" +
 	"\x1dConditionForRightsClaimPolicy\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x122\n" +
-	"\x04unit\x18\x02 \x01(\x0e2\x1e.ddex.avs.UnitOfConditionValueR\x04unit\x12J\n" +
-	"\x12reference_creation\x18\x03 \x01(\x0e2\x1b.ddex.avs.ReferenceCreationR\x11referenceCreation\x12J\n" +
-	"\x12relational_relator\x18\x04 \x01(\x0e2\x1b.ddex.avs.RelationalRelatorR\x11relationalRelator\x12D\n" +
-	"\x10measurement_type\x18\x05 \x01(\x0e2\x19.ddex.avs.MeasurementTypeR\x0fmeasurementType\x120\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x12\n" +
+	"\x04unit\x18\x02 \x01(\tR\x04unit\x12-\n" +
+	"\x12reference_creation\x18\x03 \x01(\tR\x11referenceCreation\x12-\n" +
+	"\x12relational_relator\x18\x04 \x01(\tR\x11relationalRelator\x12)\n" +
+	"\x10measurement_type\x18\x05 \x01(\tR\x0fmeasurementType\x120\n" +
 	"\asegment\x18\x06 \x03(\v2\x16.ddex.ern.v432.SegmentR\asegment\x12L\n" +
 	"\x11service_exception\x18\a \x03(\v2\x1f.ddex.ern.v432.ServiceExceptionR\x10serviceException\"b\n" +
 	"\bCoreArea\x12&\n" +
@@ -17981,25 +17981,25 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	" \x01(\bR\x0eisPreOrderDeal\x12w\n" +
 	"#instant_gratification_resource_list\x18\v \x01(\v2(.ddex.ern.v432.DealResourceReferenceListR instantGratificationResourceList\x12I\n" +
 	"\x10physical_returns\x18\f \x01(\v2\x1e.ddex.ern.v432.PhysicalReturnsR\x0fphysicalReturns\x12@\n" +
-	"\x1dnumber_of_products_per_carton\x18\r \x01(\x05R\x19numberOfProductsPerCarton\"\xe3\x01\n" +
+	"\x1dnumber_of_products_per_carton\x18\r \x01(\x05R\x19numberOfProductsPerCarton\"\xcd\x01\n" +
 	"\x1fDealTermsTechnicalInstantiation\x12V\n" +
-	"\x15video_definition_type\x18\x01 \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeR\x13videoDefinitionType\x125\n" +
-	"\vcoding_type\x18\x02 \x01(\x0e2\x14.ddex.avs.CodingTypeR\n" +
+	"\x15video_definition_type\x18\x01 \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeR\x13videoDefinitionType\x12\x1f\n" +
+	"\vcoding_type\x18\x02 \x01(\tR\n" +
 	"codingType\x121\n" +
-	"\bbit_rate\x18\x03 \x01(\v2\x16.ddex.ern.v432.BitRateR\abitRate\"\x98\x01\n" +
+	"\bbit_rate\x18\x03 \x01(\v2\x16.ddex.ern.v432.BitRateR\abitRate\"x\n" +
 	"\x05Deity\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12Z\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12:\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x03 \x01(\bR\tisDefault\"\x85\x02\n" +
 	"\x14DelegatedUsageRights\x121\n" +
 	"\buse_type\x18\x01 \x03(\v2\x16.ddex.ern.v432.UseTypeR\auseType\x12T\n" +
 	"\x1bperiod_of_rights_delegation\x18\x02 \x01(\v2\x15.ddex.ern.v432.PeriodR\x18periodOfRightsDelegation\x12d\n" +
-	"\x1eterritory_of_rights_delegation\x18\x03 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\x1bterritoryOfRightsDelegation\"\xe4\x01\n" +
+	"\x1eterritory_of_rights_delegation\x18\x03 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\x1bterritoryOfRightsDelegation\"\xc4\x01\n" +
 	"\x18DescriptionWithTerritory\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x04 \x01(\bR\tisDefault\"\x98\x03\n" +
 	"\x1bDetailedResourceContributor\x122\n" +
@@ -18018,11 +18018,11 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\rartistic_role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\fartisticRole\x12b\n" +
 	"\x19title_display_information\x18\x02 \x03(\v2&.ddex.ern.v432.TitleDisplayInformationR\x17titleDisplayInformation\x12F\n" +
 	"\x0fdisplay_credits\x18\x03 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12'\n" +
-	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\"\x93\x02\n" +
+	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\"\xf3\x01\n" +
 	"\x10DisplayTitleText\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x04 \x01(\bR\tisDefault\x125\n" +
 	"\x17is_in_original_language\x18\x05 \x01(\bR\x14isInOriginalLanguage\"\xb7\x01\n" +
@@ -18030,38 +18030,38 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x120\n" +
 	"\tpage_name\x18\x02 \x01(\v2\x13.ddex.ern.v432.NameR\bpageName\x12\x12\n" +
 	"\x05u_r_l\x18\x03 \x01(\tR\x03uRL\x12\x1b\n" +
-	"\tuser_name\x18\x04 \x01(\tR\buserName\"\xc2\x03\n" +
+	"\tuser_name\x18\x04 \x01(\tR\buserName\"\xac\x03\n" +
 	"\x12EditionContributor\x122\n" +
-	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12=\n" +
-	"\x0fai_contribution\x18\x02 \x01(\x0e2\x14.ddex.avs.ContainsAIR\x0eaiContribution\x12C\n" +
+	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12'\n" +
+	"\x0fai_contribution\x18\x02 \x01(\tR\x0eaiContribution\x12C\n" +
 	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bR\x1bhasMadeFeaturedContribution\x12G\n" +
 	" has_made_contracted_contribution\x18\x04 \x01(\bR\x1dhasMadeContractedContribution\x12:\n" +
 	"\vis_credited\x18\x05 \x01(\v2\x19.ddex.ern.v432.IsCreditedR\n" +
 	"isCredited\x12F\n" +
 	"\x0fdisplay_credits\x18\x06 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12'\n" +
-	"\x0fsequence_number\x18\a \x01(\x05R\x0esequenceNumber\"\xa0\x02\n" +
+	"\x0fsequence_number\x18\a \x01(\x05R\x0esequenceNumber\"\x80\x02\n" +
 	"\x19EventDateTimeWithoutFlags\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x121\n" +
 	"\x14location_description\x18\x04 \x01(\tR\x13locationDescription\x127\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xa4\x02\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\x84\x02\n" +
 	"\x1dEventDateWithCurrentTerritory\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x121\n" +
 	"\x14location_description\x18\x04 \x01(\tR\x13locationDescription\x127\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xca\x01\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xae\x01\n" +
 	"\x14EventDateWithDefault\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12V\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1a.ddex.avs.AllTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\"\x98\x02\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\xfc\x01\n" +
 	"\x15EventDateWithoutFlags\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
-	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12V\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1a.ddex.avs.AllTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x121\n" +
 	"\x14location_description\x18\x04 \x01(\tR\x13locationDescription\x127\n" +
 	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\"\xb0\x02\n" +
 	"\x14ExternalResourceLink\x12\x12\n" +
@@ -18074,7 +18074,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x1bHdrVideoDynamicMetadataType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x128\n" +
-	"\x18sdr_derivation_permitted\x18\x03 \x01(\bR\x16sdrDerivationPermitted\"\xa1\x0e\n" +
+	"\x18sdr_derivation_permitted\x18\x03 \x01(\bR\x16sdrDerivationPermitted\"\x8b\x0e\n" +
 	"\x05Image\x12-\n" +
 	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12,\n" +
 	"\x04type\x18\x02 \x01(\v2\x18.ddex.ern.v432.ImageTypeR\x04type\x12E\n" +
@@ -18097,17 +18097,17 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x16first_publication_date\x18\x11 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateR\x14firstPublicationDate\x12b\n" +
 	"\x15parental_warning_type\x18\x12 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
 	"\x0frelated_release\x18\x13 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
-	"\x10related_resource\x18\x14 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x126\n" +
-	"\fcontains_a_i\x18\x15 \x01(\x0e2\x14.ddex.avs.ContainsAIR\n" +
+	"\x10related_resource\x18\x14 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12 \n" +
+	"\fcontains_a_i\x18\x15 \x01(\tR\n" +
 	"containsAI\x126\n" +
 	"\x17contains_hidden_content\x18\x16 \x01(\bR\x15containsHiddenContent\x12I\n" +
 	"\vdescription\x18\x17 \x03(\v2'.ddex.ern.v432.DescriptionWithTerritoryR\vdescription\x12Q\n" +
 	"\x11technical_details\x18\x18 \x03(\v2$.ddex.ern.v432.TechnicalImageDetailsR\x10technicalDetails\x127\n" +
 	"\x18language_and_script_code\x18\x19 \x01(\tR\x15languageAndScriptCode\x12'\n" +
-	"\x0fis_supplemental\x18\x1a \x01(\bR\x0eisSupplemental\"\xce\x02\n" +
+	"\x0fis_supplemental\x18\x1a \x01(\bR\x0eisSupplemental\"\xb3\x02\n" +
 	"\x1eLinkedReleaseResourceReference\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12D\n" +
-	"\x10link_description\x18\x02 \x01(\x0e2\x19.ddex.avs.LinkDescriptionR\x0flinkDescription\x127\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12)\n" +
+	"\x10link_description\x18\x02 \x01(\tR\x0flinkDescription\x127\n" +
 	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12\x1c\n" +
 	"\tnamespace\x18\x04 \x01(\tR\tnamespace\x12,\n" +
 	"\x12user_defined_value\x18\x05 \x01(\tR\x10userDefinedValue\x12'\n" +
@@ -18126,7 +18126,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x13artist_profile_page\x18\x04 \x03(\tR\x11artistProfilePage\"c\n" +
 	"\tPartyList\x12*\n" +
 	"\x05party\x18\x01 \x03(\v2\x14.ddex.ern.v432.PartyR\x05party\x12*\n" +
-	"\x05brand\x18\x02 \x03(\v2\x14.ddex.ern.v432.BrandR\x05brand\"\x9c\x06\n" +
+	"\x05brand\x18\x02 \x03(\v2\x14.ddex.ern.v432.BrandR\x05brand\"\xfc\x05\n" +
 	"\x16PartyNameWithTerritory\x120\n" +
 	"\tfull_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\bfullName\x12=\n" +
 	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tR\x18fullNameAsciiTranscribed\x12?\n" +
@@ -18140,8 +18140,8 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"isNickname\x12\"\n" +
 	"\ris_stage_name\x18\n" +
 	" \x01(\bR\visStageName\x12\"\n" +
-	"\ris_legal_name\x18\v \x01(\bR\visLegalName\x12Z\n" +
-	"\x19applicable_territory_code\x18\f \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\ris_legal_name\x18\v \x01(\bR\visLegalName\x12:\n" +
+	"\x19applicable_territory_code\x18\f \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\r \x01(\bR\tisDefault\x125\n" +
 	"\x17is_in_original_language\x18\x0e \x01(\bR\x14isInOriginalLanguage\"\xc0\x02\n" +
@@ -18158,25 +18158,25 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x12PeriodWithoutFlags\"\x93\x01\n" +
 	"\x0fPhysicalReturns\x128\n" +
 	"\x18physical_returns_allowed\x18\x01 \x01(\bR\x16physicalReturnsAllowed\x12F\n" +
-	" latest_date_for_physical_returns\x18\x02 \x01(\tR\x1clatestDateForPhysicalReturns\"\xd4\x03\n" +
+	" latest_date_for_physical_returns\x18\x02 \x01(\tR\x1clatestDateForPhysicalReturns\"\xb4\x03\n" +
 	"\x10PriceInformation\x127\n" +
 	"\n" +
 	"price_code\x18\x01 \x01(\v2\x18.ddex.ern.v432.PriceTypeR\tpriceCode\x12M\n" +
 	"\x18wholesale_price_per_unit\x18\x02 \x01(\v2\x14.ddex.ern.v432.PriceR\x15wholesalePricePerUnit\x12a\n" +
 	"#bulk_order_wholesale_price_per_unit\x18\x03 \x01(\v2\x14.ddex.ern.v432.PriceR\x1ebulkOrderWholesalePricePerUnit\x12J\n" +
-	"\x16suggested_retail_price\x18\x04 \x01(\v2\x14.ddex.ern.v432.PriceR\x14suggestedRetailPrice\x12=\n" +
+	"\x16suggested_retail_price\x18\x04 \x01(\v2\x14.ddex.ern.v432.PriceR\x14suggestedRetailPrice\x12\x1d\n" +
 	"\n" +
-	"price_type\x18\x05 \x01(\x0e2\x1e.ddex.avs.PriceInformationTypeR\tpriceType\x12\x1c\n" +
+	"price_type\x18\x05 \x01(\tR\tpriceType\x12\x1c\n" +
 	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
 	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xc2\x01\n" +
 	"\rPurgedRelease\x127\n" +
 	"\n" +
 	"release_id\x18\x01 \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\x12*\n" +
 	"\x05title\x18\x02 \x03(\v2\x14.ddex.ern.v432.TitleR\x05title\x12L\n" +
-	"\vcontributor\x18\x03 \x03(\v2*.ddex.ern.v432.DetailedResourceContributorR\vcontributor\"\x97\x01\n" +
+	"\vcontributor\x18\x03 \x03(\v2*.ddex.ern.v432.DetailedResourceContributorR\vcontributor\"w\n" +
 	"\x04Raga\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12Z\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12:\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x03 \x01(\bR\tisDefault\"s\n" +
 	"\x0fRecordingFormat\x12\x14\n" +
@@ -18195,10 +18195,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x17release_label_reference\x18\b \x03(\v2$.ddex.ern.v432.ReleaseLabelReferenceR\x15releaseLabelReference\x12G\n" +
 	"\frelease_date\x18\t \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\vreleaseDate\x12X\n" +
 	"\x15original_release_date\x18\n" +
-	" \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\x13originalReleaseDate\"\xa2\x01\n" +
-	"\x0fRelatedResource\x12`\n" +
-	"\x1aresource_relationship_type\x18\x01 \x01(\x0e2\".ddex.avs.ResourceRelationshipTypeR\x18resourceRelationshipType\x12-\n" +
-	"\x06timing\x18\x02 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\"\xb1\x13\n" +
+	" \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\x13originalReleaseDate\"~\n" +
+	"\x0fRelatedResource\x12<\n" +
+	"\x1aresource_relationship_type\x18\x01 \x01(\tR\x18resourceRelationshipType\x12-\n" +
+	"\x06timing\x18\x02 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\"\x9b\x13\n" +
 	"\aRelease\x12+\n" +
 	"\x11release_reference\x18\x01 \x01(\tR\x10releaseReference\x12S\n" +
 	"\frelease_type\x18\x02 \x03(\v20.ddex.ern.v432.ReleaseTypeForReleaseNotificationR\vreleaseType\x127\n" +
@@ -18234,8 +18234,8 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04raga\x18\x1e \x03(\v2\x13.ddex.ern.v432.RagaR\x04raga\x12'\n" +
 	"\x04tala\x18\x1f \x03(\v2\x13.ddex.ern.v432.TalaR\x04tala\x12*\n" +
 	"\x05deity\x18  \x03(\v2\x14.ddex.ern.v432.DeityR\x05deity\x127\n" +
-	"\x18hi_res_music_description\x18! \x01(\tR\x15hiResMusicDescription\x126\n" +
-	"\fcontains_a_i\x18\" \x01(\x0e2\x14.ddex.avs.ContainsAIR\n" +
+	"\x18hi_res_music_description\x18! \x01(\tR\x15hiResMusicDescription\x12 \n" +
+	"\fcontains_a_i\x18\" \x01(\tR\n" +
 	"containsAI\x12#\n" +
 	"\ris_soundtrack\x18# \x01(\bR\fisSoundtrack\x12%\n" +
 	"\x0fis_hi_res_music\x18$ \x01(\bR\fisHiResMusic\x12L\n" +
@@ -18252,28 +18252,28 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x05g_rid\x18\x01 \x01(\tR\x04gRid\x12\x15\n" +
 	"\ai_c_p_n\x18\x02 \x01(\tR\x04iCPN\x12C\n" +
 	"\x0ecatalog_number\x18\x03 \x01(\v2\x1c.ddex.ern.v432.CatalogNumberR\rcatalogNumber\x12C\n" +
-	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\"\xe1\x02\n" +
+	"\x0eproprietary_id\x18\x04 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\"\xac\x02\n" +
 	"\x15ReleaseLabelReference\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bR\tisDefault\x122\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\x12\x1d\n" +
 	"\n" +
-	"label_type\x18\x04 \x01(\x0e2\x13.ddex.avs.LabelTypeR\tlabelType\x12\x1c\n" +
+	"label_type\x18\x04 \x01(\tR\tlabelType\x12\x1c\n" +
 	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\x12Z\n" +
-	"\x19applicable_territory_code\x18\a \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\x9c\x03\n" +
+	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\x12:\n" +
+	"\x19applicable_territory_code\x18\a \x01(\tR\x17applicableTerritoryCode\"\xe7\x02\n" +
 	"\x1eReleaseLabelReferenceWithParty\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bR\tisDefault\x122\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\x12\x1d\n" +
 	"\n" +
-	"label_type\x18\x04 \x01(\x0e2\x13.ddex.avs.LabelTypeR\tlabelType\x120\n" +
+	"label_type\x18\x04 \x01(\tR\tlabelType\x120\n" +
 	"\x14access_control_party\x18\x05 \x01(\tR\x12accessControlParty\x12\x1c\n" +
 	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\x12Z\n" +
-	"\x19applicable_territory_code\x18\b \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xc0\x01\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\x12:\n" +
+	"\x19applicable_territory_code\x18\b \x01(\tR\x17applicableTerritoryCode\"\xc0\x01\n" +
 	"\vReleaseList\x120\n" +
 	"\arelease\x18\x01 \x01(\v2\x16.ddex.ern.v432.ReleaseR\arelease\x12@\n" +
 	"\rtrack_release\x18\x02 \x03(\v2\x1b.ddex.ern.v432.TrackReleaseR\ftrackRelease\x12=\n" +
@@ -18312,12 +18312,12 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04text\x18\x04 \x03(\v2\x13.ddex.ern.v432.TextR\x04text\x12:\n" +
 	"\vsheet_music\x18\x05 \x03(\v2\x19.ddex.ern.v432.SheetMusicR\n" +
 	"sheetMusic\x123\n" +
-	"\bsoftware\x18\x06 \x03(\v2\x17.ddex.ern.v432.SoftwareR\bsoftware\"\xb9\x02\n" +
+	"\bsoftware\x18\x06 \x03(\v2\x17.ddex.ern.v432.SoftwareR\bsoftware\"\x99\x02\n" +
 	"\x18ResourceRightsController\x12I\n" +
-	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12N\n" +
-	"\x13rights_control_type\x18\x02 \x03(\x0e2\x1e.ddex.avs.RightsControllerRoleR\x11rightsControlType\x12Y\n" +
+	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12.\n" +
+	"\x13rights_control_type\x18\x02 \x03(\tR\x11rightsControlType\x12Y\n" +
 	"\x16delegated_usage_rights\x18\x03 \x03(\v2#.ddex.ern.v432.DelegatedUsageRightsR\x14delegatedUsageRights\x12'\n" +
-	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\"\xe7\x06\n" +
+	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\"\xca\x06\n" +
 	"\x10ResourceSubGroup\x12M\n" +
 	"\x12display_title_text\x18\x01 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
 	"\rdisplay_title\x18\x02 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
@@ -18330,11 +18330,11 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x0eresource_group\x18\t \x03(\v2\x1f.ddex.ern.v432.ResourceSubGroupR\rresourceGroup\x12f\n" +
 	"\x1bresource_group_content_item\x18\n" +
 	" \x03(\v2'.ddex.ern.v432.ResourceGroupContentItemR\x18resourceGroupContentItem\x12x\n" +
-	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12K\n" +
-	"\x13resource_group_type\x18\f \x01(\x0e2\x1b.ddex.avs.ResourceGroupTypeR\x11resourceGroupType\"\x9e\x02\n" +
+	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12.\n" +
+	"\x13resource_group_type\x18\f \x01(\tR\x11resourceGroupType\"\xfd\x01\n" +
 	"\x11RightsClaimPolicy\x12J\n" +
-	"\tcondition\x18\x01 \x03(\v2,.ddex.ern.v432.ConditionForRightsClaimPolicyR\tcondition\x12X\n" +
-	"\x18rights_claim_policy_type\x18\x02 \x01(\x0e2\x1f.ddex.avs.RightsClaimPolicyTypeR\x15rightsClaimPolicyType\x12c\n" +
+	"\tcondition\x18\x01 \x03(\v2,.ddex.ern.v432.ConditionForRightsClaimPolicyR\tcondition\x127\n" +
+	"\x18rights_claim_policy_type\x18\x02 \x01(\tR\x15rightsClaimPolicyType\x12c\n" +
 	"\x1arights_claim_policy_reason\x18\x03 \x01(\v2&.ddex.ern.v432.RightsClaimPolicyReasonR\x17rightsClaimPolicyReason\"(\n" +
 	"\aSegment\x12\x1d\n" +
 	"\n" +
@@ -18403,7 +18403,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListR&resourceContainedResourceReferenceList\x12T\n" +
 	"\x11technical_details\x18\x19 \x03(\v2'.ddex.ern.v432.TechnicalSoftwareDetailsR\x10technicalDetails\x127\n" +
 	"\x18language_and_script_code\x18\x1a \x01(\tR\x15languageAndScriptCode\x12'\n" +
-	"\x0fis_supplemental\x18\x1b \x01(\bR\x0eisSupplemental\"\xb7\x17\n" +
+	"\x0fis_supplemental\x18\x1b \x01(\bR\x0eisSupplemental\"\xfd\x16\n" +
 	"\x0eSoundRecording\x12-\n" +
 	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x125\n" +
 	"\x04type\x18\x02 \x01(\v2!.ddex.ern.v432.SoundRecordingTypeR\x04type\x12\\\n" +
@@ -18431,9 +18431,9 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x1clocation_and_date_of_session\x18\x17 \x03(\v2'.ddex.ern.v432.LocationAndDateOfSessionR\x18locationAndDateOfSession\x12b\n" +
 	"\x15parental_warning_type\x18\x18 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
 	"\x0frelated_release\x18\x19 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
-	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12a\n" +
-	"\x1bcomposite_musical_work_type\x18\x1b \x01(\x0e2\".ddex.avs.CompositeMusicalWorkTypeR\x18compositeMusicalWorkType\x126\n" +
-	"\fcontains_a_i\x18\x1c \x01(\x0e2\x14.ddex.avs.ContainsAIR\n" +
+	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12=\n" +
+	"\x1bcomposite_musical_work_type\x18\x1b \x01(\tR\x18compositeMusicalWorkType\x12 \n" +
+	"\fcontains_a_i\x18\x1c \x01(\tR\n" +
 	"containsAI\x12\x19\n" +
 	"\bis_cover\x18\x1d \x01(\bR\aisCover\x122\n" +
 	"\x15has_vocal_performance\x18\x1e \x01(\bR\x13hasVocalPerformance\x12G\n" +
@@ -18452,35 +18452,35 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x17audio_chapter_reference\x18+ \x03(\tR\x15audioChapterReference\x127\n" +
 	"\x18language_and_script_code\x18, \x01(\tR\x15languageAndScriptCode\x12'\n" +
 	"\x0fis_supplemental\x18- \x01(\bR\x0eisSupplemental\x12E\n" +
-	"\x1fapply_classical_profile_variant\x18. \x01(\bR\x1capplyClassicalProfileVariant\"\xdb\x02\n" +
+	"\x1fapply_classical_profile_variant\x18. \x01(\bR\x1capplyClassicalProfileVariant\"\xc1\x02\n" +
 	"\x19SoundRecordingClipDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x124\n" +
 	"\tclip_type\x18\x02 \x01(\v2\x17.ddex.ern.v432.ClipTypeR\bclipType\x12-\n" +
-	"\x06timing\x18\x03 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\x12A\n" +
-	"\x0fexpression_type\x18\x04 \x01(\x0e2\x18.ddex.avs.ExpressionTypeR\x0eexpressionType\x12E\n" +
-	"\rdelivery_file\x18\x05 \x03(\v2 .ddex.ern.v432.AudioDeliveryFileR\fdeliveryFile\"\xa1\x03\n" +
-	"\x15SoundRecordingEdition\x12)\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x15.ddex.avs.EditionTypeR\x04type\x12@\n" +
+	"\x06timing\x18\x03 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\x12'\n" +
+	"\x0fexpression_type\x18\x04 \x01(\tR\x0eexpressionType\x12E\n" +
+	"\rdelivery_file\x18\x05 \x03(\v2 .ddex.ern.v432.AudioDeliveryFileR\fdeliveryFile\"\xf1\x02\n" +
+	"\x15SoundRecordingEdition\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\tR\x04type\x12@\n" +
 	"\vresource_id\x18\x02 \x03(\v2\x1f.ddex.ern.v432.SoundRecordingIdR\n" +
 	"resourceId\x12R\n" +
 	"\x13edition_contributor\x18\x03 \x03(\v2!.ddex.ern.v432.EditionContributorR\x12editionContributor\x12+\n" +
-	"\x06p_line\x18\x04 \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12>\n" +
-	"\x0erecording_mode\x18\x05 \x01(\x0e2\x17.ddex.avs.RecordingModeR\rrecordingMode\x12Z\n" +
+	"\x06p_line\x18\x04 \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12%\n" +
+	"\x0erecording_mode\x18\x05 \x01(\tR\rrecordingMode\x12Z\n" +
 	"\x11technical_details\x18\x06 \x03(\v2-.ddex.ern.v432.TechnicalSoundRecordingDetailsR\x10technicalDetails\"d\n" +
 	"\x18SupplementalDocumentList\x12H\n" +
-	"\x15supplemental_document\x18\x01 \x03(\v2\x13.ddex.ern.v432.FileR\x14supplementalDocument\"\x8d\x02\n" +
+	"\x15supplemental_document\x18\x01 \x03(\v2\x13.ddex.ern.v432.FileR\x14supplementalDocument\"\xed\x01\n" +
 	"\x15SynopsisWithTerritory\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x04 \x01(\bR\tisDefault\x12*\n" +
-	"\x11is_short_synopsis\x18\x05 \x01(\bR\x0fisShortSynopsis\"\x97\x01\n" +
+	"\x11is_short_synopsis\x18\x05 \x01(\bR\x0fisShortSynopsis\"w\n" +
 	"\x04Tala\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12Z\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12:\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bR\tisDefault\"\xf5\x06\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\"\xd5\x06\n" +
 	"\x15TechnicalImageDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12G\n" +
 	"\x10image_codec_type\x18\x02 \x01(\v2\x1d.ddex.ern.v432.ImageCodecTypeR\x0eimageCodecType\x128\n" +
@@ -18498,10 +18498,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04file\x18\v \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
 	"\x17is_provided_in_delivery\x18\f \x01(\bR\x14isProvidedInDelivery\x12<\n" +
 	"\vfingerprint\x18\r \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
-	"\x18language_and_script_code\x18\x0e \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x0f \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x0e \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x0f \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x10 \x01(\bR\tisDefault\"\x8d\x05\n" +
+	"is_default\x18\x10 \x01(\bR\tisDefault\"\xed\x04\n" +
 	"\x1aTechnicalSheetMusicDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12W\n" +
 	"\x16sheet_music_codec_type\x18\x02 \x01(\v2\".ddex.ern.v432.SheetMusicCodecTypeR\x13sheetMusicCodecType\x12\x1b\n" +
@@ -18511,11 +18511,11 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
 	"\x17is_provided_in_delivery\x18\a \x01(\bR\x14isProvidedInDelivery\x12<\n" +
 	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
-	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12Z\n" +
+	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12:\n" +
 	"\x19applicable_territory_code\x18\n" +
-	" \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	" \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\v \x01(\bR\tisDefault\"\x8a\x05\n" +
+	"is_default\x18\v \x01(\bR\tisDefault\"\xea\x04\n" +
 	"\x18TechnicalSoftwareDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12V\n" +
 	"\x15operating_system_type\x18\x02 \x01(\v2\".ddex.ern.v432.OperatingSystemTypeR\x13operatingSystemType\x12\x1b\n" +
@@ -18525,21 +18525,21 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
 	"\x17is_provided_in_delivery\x18\a \x01(\bR\x14isProvidedInDelivery\x12<\n" +
 	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
-	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12Z\n" +
+	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12:\n" +
 	"\x19applicable_territory_code\x18\n" +
-	" \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	" \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\v \x01(\bR\tisDefault\"\x93\x04\n" +
+	"is_default\x18\v \x01(\bR\tisDefault\"\xf3\x03\n" +
 	"\x1eTechnicalSoundRecordingDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12E\n" +
 	"\rdelivery_file\x18\x02 \x03(\v2 .ddex.ern.v432.AudioDeliveryFileR\fdeliveryFile\x12?\n" +
 	"\x1chas_immersive_audio_metadata\x18\x03 \x01(\bR\x19hasImmersiveAudioMetadata\x12\x17\n" +
 	"\ais_clip\x18\x04 \x01(\bR\x06isClip\x12K\n" +
 	"\fclip_details\x18\x05 \x03(\v2(.ddex.ern.v432.SoundRecordingClipDetailsR\vclipDetails\x127\n" +
-	"\x18language_and_script_code\x18\x06 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\a \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x06 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\a \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\b \x01(\bR\tisDefault\"\xf4\x04\n" +
+	"is_default\x18\b \x01(\bR\tisDefault\"\xd4\x04\n" +
 	"\x14TechnicalTextDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12D\n" +
 	"\x0ftext_codec_type\x18\x02 \x01(\v2\x1c.ddex.ern.v432.TextCodecTypeR\rtextCodecType\x12\x1b\n" +
@@ -18549,21 +18549,21 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04file\x18\x06 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x125\n" +
 	"\x17is_provided_in_delivery\x18\a \x01(\bR\x14isProvidedInDelivery\x12<\n" +
 	"\vfingerprint\x18\b \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x127\n" +
-	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12Z\n" +
+	"\x18language_and_script_code\x18\t \x01(\tR\x15languageAndScriptCode\x12:\n" +
 	"\x19applicable_territory_code\x18\n" +
-	" \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	" \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\v \x01(\bR\tisDefault\"\x82\x04\n" +
+	"is_default\x18\v \x01(\bR\tisDefault\"\xe2\x03\n" +
 	"\x15TechnicalVideoDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x12@\n" +
 	"\x10overall_bit_rate\x18\x02 \x01(\v2\x16.ddex.ern.v432.BitRateR\x0eoverallBitRate\x12E\n" +
 	"\rdelivery_file\x18\x03 \x03(\v2 .ddex.ern.v432.VideoDeliveryFileR\fdeliveryFile\x12\x17\n" +
 	"\ais_clip\x18\x04 \x01(\bR\x06isClip\x12B\n" +
 	"\fclip_details\x18\x05 \x03(\v2\x1f.ddex.ern.v432.VideoClipDetailsR\vclipDetails\x127\n" +
-	"\x18language_and_script_code\x18\x06 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\a \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x06 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\a \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\b \x01(\bR\tisDefault\"\xd2\x0f\n" +
+	"is_default\x18\b \x01(\bR\tisDefault\"\xbc\x0f\n" +
 	"\x04Text\x12-\n" +
 	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12+\n" +
 	"\x04type\x18\x02 \x01(\v2\x17.ddex.ern.v432.TextTypeR\x04type\x126\n" +
@@ -18587,8 +18587,8 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x16first_publication_date\x18\x12 \x03(\v2\x1e.ddex.ern.v432.FulfillmentDateR\x14firstPublicationDate\x12b\n" +
 	"\x15parental_warning_type\x18\x13 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x12F\n" +
 	"\x0frelated_release\x18\x14 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
-	"\x10related_resource\x18\x15 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x126\n" +
-	"\fcontains_a_i\x18\x16 \x01(\x0e2\x14.ddex.avs.ContainsAIR\n" +
+	"\x10related_resource\x18\x15 \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12 \n" +
+	"\fcontains_a_i\x18\x16 \x01(\tR\n" +
 	"containsAI\x126\n" +
 	"\x17contains_hidden_content\x18\x17 \x01(\bR\x15containsHiddenContent\x12\x91\x01\n" +
 	"*resource_contained_resource_reference_list\x18\x18 \x01(\v25.ddex.ern.v432.ResourceContainedResourceReferenceListR&resourceContainedResourceReferenceList\x12P\n" +
@@ -18600,14 +18600,14 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\vstart_point\x18\x01 \x01(\tR\n" +
 	"startPoint\x12\x1b\n" +
 	"\tend_point\x18\x02 \x01(\tR\bendPoint\x12#\n" +
-	"\rduration_used\x18\x03 \x03(\tR\fdurationUsed\"\xba\x01\n" +
+	"\rduration_used\x18\x03 \x03(\tR\fdurationUsed\"\x9b\x01\n" +
 	"\x05Title\x12\x1d\n" +
 	"\n" +
 	"title_text\x18\x01 \x01(\tR\ttitleText\x12\x1b\n" +
 	"\tsub_title\x18\x02 \x01(\tR\bsubTitle\x127\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12<\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
 	"\n" +
-	"title_type\x18\x04 \x01(\x0e2\x1d.ddex.avs.AdditionalTitleTypeR\ttitleType\"\xe0\t\n" +
+	"title_type\x18\x04 \x01(\tR\ttitleType\"\xe0\t\n" +
 	"\fTrackRelease\x12+\n" +
 	"\x11release_reference\x18\x01 \x01(\tR\x10releaseReference\x127\n" +
 	"\n" +
@@ -18641,7 +18641,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x11UserInterfaceType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x88\x17\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xce\x16\n" +
 	"\x05Video\x12-\n" +
 	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12,\n" +
 	"\x04type\x18\x02 \x01(\v2\x18.ddex.ern.v432.VideoTypeR\x04type\x12@\n" +
@@ -18669,9 +18669,9 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x15parental_warning_type\x18\x17 \x03(\v2..ddex.ern.v432.ParentalWarningTypeWithStandardR\x13parentalWarningType\x124\n" +
 	"\tav_rating\x18\x18 \x03(\v2\x17.ddex.ern.v432.AvRatingR\bavRating\x12F\n" +
 	"\x0frelated_release\x18\x19 \x03(\v2\x1d.ddex.ern.v432.RelatedReleaseR\x0erelatedRelease\x12I\n" +
-	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12a\n" +
-	"\x1bcomposite_musical_work_type\x18\x1b \x01(\x0e2\".ddex.avs.CompositeMusicalWorkTypeR\x18compositeMusicalWorkType\x126\n" +
-	"\fcontains_a_i\x18\x1c \x01(\x0e2\x14.ddex.avs.ContainsAIR\n" +
+	"\x10related_resource\x18\x1a \x03(\v2\x1e.ddex.ern.v432.RelatedResourceR\x0frelatedResource\x12=\n" +
+	"\x1bcomposite_musical_work_type\x18\x1b \x01(\tR\x18compositeMusicalWorkType\x12 \n" +
+	"\fcontains_a_i\x18\x1c \x01(\tR\n" +
 	"containsAI\x12\x19\n" +
 	"\bis_cover\x18\x1d \x01(\bR\aisCover\x122\n" +
 	"\x15has_vocal_performance\x18\x1e \x01(\bR\x13hasVocalPerformance\x12G\n" +
@@ -18690,17 +18690,17 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x17video_chapter_reference\x18+ \x03(\tR\x15videoChapterReference\x127\n" +
 	"\x18language_and_script_code\x18, \x01(\tR\x15languageAndScriptCode\x12'\n" +
 	"\x0fis_supplemental\x18- \x01(\bR\x0eisSupplemental\x12E\n" +
-	"\x1fapply_classical_profile_variant\x18. \x01(\bR\x1capplyClassicalProfileVariant\"\xaa\x03\n" +
+	"\x1fapply_classical_profile_variant\x18. \x01(\bR\x1capplyClassicalProfileVariant\"\x90\x03\n" +
 	"\x10VideoClipDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x124\n" +
 	"\tclip_type\x18\x02 \x01(\v2\x17.ddex.ern.v432.ClipTypeR\bclipType\x12-\n" +
 	"\x06timing\x18\x03 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\x12&\n" +
 	"\x0ftop_left_corner\x18\x04 \x01(\tR\rtopLeftCorner\x12.\n" +
-	"\x13bottom_right_corner\x18\x05 \x01(\tR\x11bottomRightCorner\x12A\n" +
-	"\x0fexpression_type\x18\x06 \x01(\x0e2\x18.ddex.avs.ExpressionTypeR\x0eexpressionType\x12E\n" +
-	"\rdelivery_file\x18\a \x03(\v2 .ddex.ern.v432.VideoDeliveryFileR\fdeliveryFile\"\xe6\r\n" +
-	"\x11VideoDeliveryFile\x12.\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1a.ddex.avs.DeliveryFileTypeR\x04type\x12I\n" +
+	"\x13bottom_right_corner\x18\x05 \x01(\tR\x11bottomRightCorner\x12'\n" +
+	"\x0fexpression_type\x18\x06 \x01(\tR\x0eexpressionType\x12E\n" +
+	"\rdelivery_file\x18\a \x03(\v2 .ddex.ern.v432.VideoDeliveryFileR\fdeliveryFile\"\xd9\f\n" +
+	"\x11VideoDeliveryFile\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\tR\x04type\x12I\n" +
 	"\x10container_format\x18\x02 \x01(\v2\x1e.ddex.ern.v432.ContainerFormatR\x0fcontainerFormat\x12G\n" +
 	"\x10video_codec_type\x18\x03 \x01(\v2\x1d.ddex.ern.v432.VideoCodecTypeR\x0evideoCodecType\x12<\n" +
 	"\x0evideo_bit_rate\x18\x04 \x01(\v2\x16.ddex.ern.v432.BitRateR\fvideoBitRate\x127\n" +
@@ -18716,11 +18716,11 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"colorDepth\x12V\n" +
 	"\x15video_definition_type\x18\v \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeR\x13videoDefinitionType\x12G\n" +
 	"\x10audio_codec_type\x18\f \x01(\v2\x1d.ddex.ern.v432.AudioCodecTypeR\x0eaudioCodecType\x12?\n" +
-	"\x1chas_immersive_audio_metadata\x18\r \x01(\bR\x19hasImmersiveAudioMetadata\x12\x80\x01\n" +
-	"&electro_optical_transfer_function_type\x18\x0e \x01(\x0e2,.ddex.avs.ElectroOpticalTransferFunctionTypeR\"electroOpticalTransferFunctionType\x12H\n" +
-	"\x12primary_color_type\x18\x0f \x01(\x0e2\x1a.ddex.avs.PrimaryColorTypeR\x10primaryColorType\x12p\n" +
-	"\x1fhdr_video_dynamic_metadata_type\x18\x10 \x01(\v2*.ddex.ern.v432.HdrVideoDynamicMetadataTypeR\x1bhdrVideoDynamicMetadataType\x12h\n" +
-	"\x1ehdr_video_static_metadata_type\x18\x11 \x01(\x0e2$.ddex.avs.HdrVideoStaticMetadataTypeR\x1ahdrVideoStaticMetadataType\x12<\n" +
+	"\x1chas_immersive_audio_metadata\x18\r \x01(\bR\x19hasImmersiveAudioMetadata\x12R\n" +
+	"&electro_optical_transfer_function_type\x18\x0e \x01(\tR\"electroOpticalTransferFunctionType\x12,\n" +
+	"\x12primary_color_type\x18\x0f \x01(\tR\x10primaryColorType\x12p\n" +
+	"\x1fhdr_video_dynamic_metadata_type\x18\x10 \x01(\v2*.ddex.ern.v432.HdrVideoDynamicMetadataTypeR\x1bhdrVideoDynamicMetadataType\x12B\n" +
+	"\x1ehdr_video_static_metadata_type\x18\x11 \x01(\tR\x1ahdrVideoStaticMetadataType\x12<\n" +
 	"\x0eaudio_bit_rate\x18\x12 \x01(\v2\x16.ddex.ern.v432.BitRateR\faudioBitRate\x127\n" +
 	"\x18number_of_audio_channels\x18\x13 \x01(\x05R\x15numberOfAudioChannels\x125\n" +
 	"\x17number_of_audio_objects\x18\x14 \x01(\x05R\x14numberOfAudioObjects\x12K\n" +
@@ -18730,24 +18730,24 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\tbit_depth\x18\x18 \x01(\x05R\bbitDepth\x12'\n" +
 	"\x04file\x18\x19 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x12<\n" +
 	"\vfingerprint\x18\x1a \x03(\v2\x1a.ddex.ern.v432.FingerprintR\vfingerprint\x125\n" +
-	"\x17is_provided_in_delivery\x18\x1b \x01(\bR\x14isProvidedInDelivery\"\xb3\x03\n" +
-	"\fVideoEdition\x12)\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x15.ddex.avs.EditionTypeR\x04type\x127\n" +
+	"\x17is_provided_in_delivery\x18\x1b \x01(\bR\x14isProvidedInDelivery\"\x83\x03\n" +
+	"\fVideoEdition\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\tR\x04type\x127\n" +
 	"\vresource_id\x18\x02 \x03(\v2\x16.ddex.ern.v432.VideoIdR\n" +
 	"resourceId\x12R\n" +
 	"\x13edition_contributor\x18\x03 \x03(\v2!.ddex.ern.v432.EditionContributorR\x12editionContributor\x12+\n" +
 	"\x06p_line\x18\x04 \x03(\v2\x14.ddex.ern.v432.PLineR\x05pLine\x12+\n" +
-	"\x06c_line\x18\x05 \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12>\n" +
-	"\x0erecording_mode\x18\x06 \x01(\x0e2\x17.ddex.avs.RecordingModeR\rrecordingMode\x12Q\n" +
+	"\x06c_line\x18\x05 \x03(\v2\x14.ddex.ern.v432.CLineR\x05cLine\x12%\n" +
+	"\x0erecording_mode\x18\x06 \x01(\tR\rrecordingMode\x12Q\n" +
 	"\x11technical_details\x18\a \x03(\v2$.ddex.ern.v432.TechnicalVideoDetailsR\x10technicalDetails\"m\n" +
 	"\tVideoType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x80\x03\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xc0\x02\n" +
 	"\x14WorkRightsController\x12I\n" +
-	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12N\n" +
-	"\x13rights_control_type\x18\x02 \x03(\x0e2\x1e.ddex.avs.RightsControllerRoleR\x11rightsControlType\x12T\n" +
-	"\x16rights_controller_type\x18\x03 \x01(\x0e2\x1e.ddex.avs.RightsControllerTypeR\x14rightsControllerType\x12=\n" +
+	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12.\n" +
+	"\x13rights_control_type\x18\x02 \x03(\tR\x11rightsControlType\x124\n" +
+	"\x16rights_controller_type\x18\x03 \x01(\tR\x14rightsControllerType\x12=\n" +
 	"\tterritory\x18\x04 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\tterritory\x12\x1d\n" +
 	"\n" +
 	"start_date\x18\x05 \x01(\tR\tstartDate\x12\x19\n" +
@@ -18755,34 +18755,34 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x1fAdministratingRecordCompanyRole\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x87\x02\n" +
-	"\vAffiliation\x12-\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x19.ddex.avs.AffiliationTypeR\x04type\x12F\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xec\x01\n" +
+	"\vAffiliation\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\tR\x04type\x12F\n" +
 	"\x0fvalidity_period\x18\x02 \x01(\v2\x1d.ddex.ern.v432.ValidityPeriodR\x0evalidityPeriod\x12:\n" +
 	"\vrights_type\x18\x03 \x03(\v2\x19.ddex.ern.v432.RightsTypeR\n" +
 	"rightsType\x12E\n" +
-	"\x1fpercentage_of_rights_assignment\x18\x04 \x01(\tR\x1cpercentageOfRightsAssignment\"\x86\x01\n" +
+	"\x1fpercentage_of_rights_assignment\x18\x04 \x01(\tR\x1cpercentageOfRightsAssignment\"Q\n" +
 	"\x10AllTerritoryCode\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12\\\n" +
-	"\x0fidentifier_type\x18\x02 \x01(\x0e23.ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodesR\x0eidentifierType\"\xa9\x01\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12'\n" +
+	"\x0fidentifier_type\x18\x02 \x01(\tR\x0eidentifierType\"\x8e\x01\n" +
 	"\vAspectRatio\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12E\n" +
-	"\x11aspect_ratio_type\x18\x02 \x01(\x0e2\x19.ddex.avs.AspectRatioTypeR\x0faspectRatioType\x12=\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12*\n" +
+	"\x11aspect_ratio_type\x18\x02 \x01(\tR\x0faspectRatioType\x12=\n" +
 	"\x1bapplies_to_cropped_resource\x18\x03 \x01(\bR\x18appliesToCroppedResource\"\x8c\x01\n" +
 	"\x0eAudioCodecType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
 	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"`\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"G\n" +
 	"\aBitRate\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12?\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x17.ddex.avs.UnitOfBitRateR\runitOfMeasure\"\x95\x02\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12&\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\tR\runitOfMeasure\"\xf5\x01\n" +
 	"\x05CLine\x12\x12\n" +
 	"\x04year\x18\x01 \x01(\tR\x04year\x12$\n" +
 	"\x0ec_line_company\x18\x02 \x01(\tR\fcLineCompany\x12\x1e\n" +
 	"\vc_line_text\x18\x03 \x01(\tR\tcLineText\x127\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x06 \x01(\bR\tisDefault\"o\n" +
 	"\vCarrierType\x12\x14\n" +
@@ -18807,11 +18807,11 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x0fContainerFormat\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x83\x04\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xed\x03\n" +
 	"\vContributor\x122\n" +
 	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12F\n" +
-	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\x12=\n" +
-	"\x0fai_contribution\x18\x03 \x01(\x0e2\x14.ddex.avs.ContainsAIR\x0eaiContribution\x12C\n" +
+	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\x12'\n" +
+	"\x0fai_contribution\x18\x03 \x01(\tR\x0eaiContribution\x12C\n" +
 	"\x1ehas_made_featured_contribution\x18\x04 \x01(\bR\x1bhasMadeFeaturedContribution\x12G\n" +
 	" has_made_contracted_contribution\x18\x05 \x01(\bR\x1dhasMadeContractedContribution\x12:\n" +
 	"\vis_credited\x18\x06 \x01(\v2\x19.ddex.ern.v432.IsCreditedR\n" +
@@ -18824,11 +18824,11 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x14ContributorRoleValue\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xd8\x01\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xb8\x01\n" +
 	"\fCourtesyLine\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x04 \x01(\bR\tisDefault\"m\n" +
 	"\tCueOrigin\x12\x14\n" +
@@ -18855,18 +18855,18 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\fCueVocalType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"r\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"U\n" +
 	"\x14CurrentTerritoryCode\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12D\n" +
-	"\x0fidentifier_type\x18\x02 \x01(\x0e2\x1b.ddex.avs.TerritoryCodeTypeR\x0eidentifierType\"Q\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12'\n" +
+	"\x0fidentifier_type\x18\x02 \x01(\tR\x0eidentifierType\"Q\n" +
 	"\x03DSP\x126\n" +
 	"\ftrading_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\vtradingName\x12\x12\n" +
-	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\"\xe9\x01\n" +
+	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\"\xcf\x01\n" +
 	"\x0fDetailedHashSum\x12A\n" +
 	"\talgorithm\x18\x01 \x01(\v2#.ddex.ern.v432.HashSumAlgorithmTypeR\talgorithm\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
-	"\tparameter\x18\x03 \x01(\tR\tparameter\x125\n" +
-	"\tdata_type\x18\x04 \x01(\x0e2\x18.ddex.avs.BinaryDataTypeR\bdataType\x12$\n" +
+	"\tparameter\x18\x03 \x01(\tR\tparameter\x12\x1b\n" +
+	"\tdata_type\x18\x04 \x01(\tR\bdataType\x12$\n" +
 	"\x0ehash_sum_value\x18\x05 \x01(\tR\fhashSumValue\"\xea\x01\n" +
 	"\x0fDetailedPartyId\x12\x15\n" +
 	"\ai_s_n_i\x18\x01 \x01(\tR\x04iSNI\x12\x15\n" +
@@ -18874,57 +18874,57 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x0fipi_name_number\x18\x03 \x01(\tR\ripiNameNumber\x12\x12\n" +
 	"\x05i_p_n\x18\x04 \x01(\tR\x03iPN\x12(\n" +
 	"\x10cisac_society_id\x18\x05 \x01(\tR\x0ecisacSocietyId\x12C\n" +
-	"\x0eproprietary_id\x18\x06 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\"\xa8\x02\n" +
+	"\x0eproprietary_id\x18\x06 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\"\x88\x02\n" +
 	"%DisplayArtistNameWithOriginalLanguage\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x125\n" +
-	"\x17is_in_original_language\x18\x03 \x01(\bR\x14isInOriginalLanguage\x12Z\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x17is_in_original_language\x18\x03 \x01(\bR\x14isInOriginalLanguage\x12:\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x05 \x01(\bR\tisDefault\"u\n" +
 	"\x11DisplayArtistRole\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xf4\x01\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xd4\x01\n" +
 	"\x0eDisplayCredits\x12.\n" +
 	"\x13display_credit_text\x18\x01 \x01(\tR\x11displayCreditText\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\"\xc1\x01\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\xa9\x01\n" +
 	"\x0fDisplaySubTitle\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12'\n" +
 	"\x0fsequence_number\x18\x02 \x01(\x05R\x0esequenceNumber\x121\n" +
-	"\x15is_displayed_in_title\x18\x03 \x01(\bR\x12isDisplayedInTitle\x12<\n" +
-	"\x0esub_title_type\x18\x04 \x01(\x0e2\x16.ddex.avs.SubTitleTypeR\fsubTitleType\"\xd5\x02\n" +
+	"\x15is_displayed_in_title\x18\x03 \x01(\bR\x12isDisplayedInTitle\x12$\n" +
+	"\x0esub_title_type\x18\x04 \x01(\tR\fsubTitleType\"\xb5\x02\n" +
 	"\fDisplayTitle\x12\x1d\n" +
 	"\n" +
 	"title_text\x18\x01 \x01(\tR\ttitleText\x12;\n" +
 	"\tsub_title\x18\x02 \x03(\v2\x1e.ddex.ern.v432.DisplaySubTitleR\bsubTitle\x127\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x05 \x01(\bR\tisDefault\x125\n" +
-	"\x17is_in_original_language\x18\x06 \x01(\bR\x14isInOriginalLanguage\"\xc4\x02\n" +
+	"\x17is_in_original_language\x18\x06 \x01(\bR\x14isInOriginalLanguage\"\xa8\x02\n" +
 	"\tEventDate\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
 	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12\x1b\n" +
 	"\tis_before\x18\x03 \x01(\bR\bisBefore\x12\x19\n" +
-	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12V\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\x0e2\x1a.ddex.avs.AllTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12:\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\tR\x17applicableTerritoryCode\x121\n" +
 	"\x14location_description\x18\x06 \x01(\tR\x13locationDescription\x127\n" +
-	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"\xb3\x02\n" +
+	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"\x97\x02\n" +
 	"\rEventDateTime\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
 	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12\x1b\n" +
 	"\tis_before\x18\x03 \x01(\bR\bisBefore\x12\x19\n" +
-	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12A\n" +
-	"\x0eterritory_code\x18\x05 \x01(\x0e2\x1a.ddex.avs.AllTerritoryCodeR\rterritoryCode\x121\n" +
+	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12%\n" +
+	"\x0eterritory_code\x18\x05 \x01(\tR\rterritoryCode\x121\n" +
 	"\x14location_description\x18\x06 \x01(\tR\x13locationDescription\x127\n" +
-	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"^\n" +
+	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"F\n" +
 	"\x06Extent\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12>\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x16.ddex.avs.UnitOfExtentR\runitOfMeasure\"\x80\x01\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12&\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\tR\runitOfMeasure\"\x80\x01\n" +
 	"\x1cExternallyLinkedResourceType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -18940,38 +18940,38 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x18FingerprintAlgorithmType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xa7\x01\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x87\x01\n" +
 	"\x14FirstPublicationDate\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12Z\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12:\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x03 \x01(\bR\tisDefault\"d\n" +
+	"is_default\x18\x03 \x01(\bR\tisDefault\"I\n" +
 	"\tFrameRate\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12A\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x19.ddex.avs.UnitOfFrameRateR\runitOfMeasure\"\xf5\x01\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12&\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\tR\runitOfMeasure\"\xd5\x01\n" +
 	"\x0fFulfillmentDate\x12)\n" +
 	"\x10fulfillment_date\x18\x01 \x01(\tR\x0ffulfillmentDate\x12<\n" +
-	"\x1aresource_release_reference\x18\x02 \x03(\tR\x18resourceReleaseReference\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x1aresource_release_reference\x18\x02 \x03(\tR\x18resourceReleaseReference\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\"\xeb\x01\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\xcb\x01\n" +
 	"\rGenreCategory\x127\n" +
 	"\x05value\x18\x01 \x01(\v2!.ddex.ern.v432.GenreCategoryValueR\x05value\x12E\n" +
-	"\vdescription\x18\x02 \x03(\v2#.ddex.ern.v432.TextWithoutTerritoryR\vdescription\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xaf\x01\n" +
+	"\vdescription\x18\x02 \x03(\v2#.ddex.ern.v432.TextWithoutTerritoryR\vdescription\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\"\xaf\x01\n" +
 	"\x12GenreCategoryValue\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12\x1c\n" +
 	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\x98\x03\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\xf8\x02\n" +
 	"\x12GenreWithTerritory\x12\x1d\n" +
 	"\n" +
 	"genre_text\x18\x01 \x01(\tR\tgenreText\x12\x1b\n" +
 	"\tsub_genre\x18\x02 \x01(\tR\bsubGenre\x12C\n" +
 	"\x0egenre_category\x18\x03 \x03(\v2\x1c.ddex.ern.v432.GenreCategoryR\rgenreCategory\x12M\n" +
 	"\x12sub_genre_category\x18\x04 \x03(\v2\x1f.ddex.ern.v432.SubGenreCategoryR\x10subGenreCategory\x127\n" +
-	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x06 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x05 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x06 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\a \x01(\bR\tisDefault\"x\n" +
 	"\x14HashSumAlgorithmType\x12\x14\n" +
@@ -18994,27 +18994,27 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\n" +
 	"IsCredited\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\"\n" +
-	"\rmay_be_shared\x18\x02 \x01(\bR\vmayBeShared\"\xe1\x01\n" +
+	"\rmay_be_shared\x18\x02 \x01(\bR\vmayBeShared\"\xc1\x01\n" +
 	"\x15KeywordsWithTerritory\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x04 \x01(\bR\tisDefault\"J\n" +
 	"\bLanguage\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12(\n" +
-	"\x10is_main_language\x18\x02 \x01(\bR\x0eisMainLanguage\"\xdc\x01\n" +
+	"\x10is_main_language\x18\x02 \x01(\bR\x0eisMainLanguage\"\xbc\x01\n" +
 	"\x10MarketingComment\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x04 \x01(\bR\tisDefault\"u\n" +
 	"\x11MessageAuditTrail\x12`\n" +
 	"\x19message_audit_trail_event\x18\x01 \x03(\v2%.ddex.ern.v432.MessageAuditTrailEventR\x16messageAuditTrailEvent\"\x9d\x01\n" +
 	"\x16MessageAuditTrailEvent\x12f\n" +
 	"\x1amessaging_party_descriptor\x18\x01 \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\x18messagingPartyDescriptor\x12\x1b\n" +
-	"\tdate_time\x18\x02 \x01(\tR\bdateTime\"\xbb\x05\n" +
+	"\tdate_time\x18\x02 \x01(\tR\bdateTime\"\x9d\x05\n" +
 	"\rMessageHeader\x12*\n" +
 	"\x11message_thread_id\x18\x01 \x01(\tR\x0fmessageThreadId\x12\x1d\n" +
 	"\n" +
@@ -19025,9 +19025,9 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x11message_recipient\x18\x06 \x03(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\x10messageRecipient\x12Y\n" +
 	"\x14sent_as_requested_by\x18\a \x01(\v2(.ddex.ern.v432.MessagingPartyWithoutCodeR\x11sentAsRequestedBy\x129\n" +
 	"\x19message_created_date_time\x18\b \x01(\tR\x16messageCreatedDateTime\x12P\n" +
-	"\x13message_audit_trail\x18\t \x01(\v2 .ddex.ern.v432.MessageAuditTrailR\x11messageAuditTrail\x12N\n" +
+	"\x13message_audit_trail\x18\t \x01(\v2 .ddex.ern.v432.MessageAuditTrailR\x11messageAuditTrail\x120\n" +
 	"\x14message_control_type\x18\n" +
-	" \x01(\x0e2\x1c.ddex.avs.MessageControlTypeR\x12messageControlType\"\x9d\x01\n" +
+	" \x01(\tR\x12messageControlType\"\x9d\x01\n" +
 	"\x19MessagingPartyWithoutCode\x12\x19\n" +
 	"\bparty_id\x18\x01 \x01(\tR\apartyId\x12B\n" +
 	"\n" +
@@ -19048,23 +19048,23 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
 	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\x95\x02\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\xf5\x01\n" +
 	"\x05PLine\x12\x12\n" +
 	"\x04year\x18\x01 \x01(\tR\x04year\x12$\n" +
 	"\x0ep_line_company\x18\x02 \x01(\tR\fpLineCompany\x12\x1e\n" +
 	"\vp_line_text\x18\x03 \x01(\tR\tpLineText\x127\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x06 \x01(\bR\tisDefault\"\xdd\x03\n" +
+	"is_default\x18\x06 \x01(\bR\tisDefault\"\x9a\x03\n" +
 	"\x1fParentalWarningTypeWithStandard\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12Z\n" +
-	"\x19applicable_territory_code\x18\x02 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12:\n" +
+	"\x19applicable_territory_code\x18\x02 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x03 \x01(\bR\tisDefault\x12%\n" +
 	"\x0etype_namespace\x18\x04 \x01(\tR\rtypeNamespace\x125\n" +
-	"\x17type_user_defined_value\x18\x05 \x01(\tR\x14typeUserDefinedValue\x12]\n" +
-	"\x19parental_warning_standard\x18\x06 \x01(\x0e2!.ddex.avs.ParentalWarningStandardR\x17parentalWarningStandard\x12-\n" +
+	"\x17type_user_defined_value\x18\x05 \x01(\tR\x14typeUserDefinedValue\x12:\n" +
+	"\x19parental_warning_standard\x18\x06 \x01(\tR\x17parentalWarningStandard\x12-\n" +
 	"\x12standard_namespace\x18\a \x01(\tR\x11standardNamespace\x12=\n" +
 	"\x1bstandard_user_defined_value\x18\b \x01(\tR\x18standardUserDefinedValue\"\xf4\x03\n" +
 	"\tPartyName\x120\n" +
@@ -19096,10 +19096,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x06Period\"W\n" +
 	"\x06Prefix\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"Z\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"B\n" +
 	"\x05Price\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12;\n" +
-	"\rcurrency_code\x18\x02 \x01(\x0e2\x16.ddex.avs.CurrencyCodeR\fcurrencyCode\"?\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12#\n" +
+	"\rcurrency_code\x18\x02 \x01(\tR\fcurrencyCode\"?\n" +
 	"\tPriceType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"E\n" +
@@ -19173,10 +19173,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"RightsType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"g\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"L\n" +
 	"\fSamplingRate\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12A\n" +
-	"\x0funit_of_measure\x18\x02 \x01(\x0e2\x19.ddex.avs.UnitOfFrequencyR\runitOfMeasure\"o\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12&\n" +
+	"\x0funit_of_measure\x18\x02 \x01(\tR\runitOfMeasure\"o\n" +
 	"\vSessionType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -19235,23 +19235,23 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\bTextType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xd7\x02\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x9e\x02\n" +
 	"\x0eTextWithFormat\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\x12/\n" +
-	"\x06format\x18\x05 \x01(\x0e2\x17.ddex.avs.TextCodecTypeR\x06format\x12\x1c\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x12\x16\n" +
+	"\x06format\x18\x05 \x01(\tR\x06format\x12\x1c\n" +
 	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xdd\x02\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xa4\x02\n" +
 	"\x14TextWithoutTerritory\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\x12/\n" +
-	"\x06format\x18\x05 \x01(\x0e2\x17.ddex.avs.TextCodecTypeR\x06format\x12\x1c\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x12\x16\n" +
+	"\x06format\x18\x05 \x01(\tR\x06format\x12\x1c\n" +
 	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
 	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xdd\x01\n" +
 	"\x17TitleDisplayInformation\x121\n" +
@@ -19331,231 +19331,190 @@ var file_ddex_ern_v432_v432_proto_goTypes = []any{
 	(*DealList)(nil),                      // 19: ddex.ern.v432.DealList
 	(*DealResourceReferenceList)(nil),     // 20: ddex.ern.v432.DealResourceReferenceList
 	(*DealTechnicalResourceDetailsReferenceList)(nil), // 21: ddex.ern.v432.DealTechnicalResourceDetailsReferenceList
-	(*DealTerms)(nil),                                  // 22: ddex.ern.v432.DealTerms
-	(*DealTermsTechnicalInstantiation)(nil),            // 23: ddex.ern.v432.DealTermsTechnicalInstantiation
-	(*Deity)(nil),                                      // 24: ddex.ern.v432.Deity
-	(*DelegatedUsageRights)(nil),                       // 25: ddex.ern.v432.DelegatedUsageRights
-	(*DescriptionWithTerritory)(nil),                   // 26: ddex.ern.v432.DescriptionWithTerritory
-	(*DetailedResourceContributor)(nil),                // 27: ddex.ern.v432.DetailedResourceContributor
-	(*DiscoverableUseType)(nil),                        // 28: ddex.ern.v432.DiscoverableUseType
-	(*DisplayArtist)(nil),                              // 29: ddex.ern.v432.DisplayArtist
-	(*DisplayTitleText)(nil),                           // 30: ddex.ern.v432.DisplayTitleText
-	(*DistributionChannelPage)(nil),                    // 31: ddex.ern.v432.DistributionChannelPage
-	(*EditionContributor)(nil),                         // 32: ddex.ern.v432.EditionContributor
-	(*EventDateTimeWithoutFlags)(nil),                  // 33: ddex.ern.v432.EventDateTimeWithoutFlags
-	(*EventDateWithCurrentTerritory)(nil),              // 34: ddex.ern.v432.EventDateWithCurrentTerritory
-	(*EventDateWithDefault)(nil),                       // 35: ddex.ern.v432.EventDateWithDefault
-	(*EventDateWithoutFlags)(nil),                      // 36: ddex.ern.v432.EventDateWithoutFlags
-	(*ExternalResourceLink)(nil),                       // 37: ddex.ern.v432.ExternalResourceLink
-	(*HdrVideoDynamicMetadataType)(nil),                // 38: ddex.ern.v432.HdrVideoDynamicMetadataType
-	(*Image)(nil),                                      // 39: ddex.ern.v432.Image
-	(*LinkedReleaseResourceReference)(nil),             // 40: ddex.ern.v432.LinkedReleaseResourceReference
-	(*LocationAndDateOfSession)(nil),                   // 41: ddex.ern.v432.LocationAndDateOfSession
-	(*Party)(nil),                                      // 42: ddex.ern.v432.Party
-	(*PartyList)(nil),                                  // 43: ddex.ern.v432.PartyList
-	(*PartyNameWithTerritory)(nil),                     // 44: ddex.ern.v432.PartyNameWithTerritory
-	(*PartyWithRole)(nil),                              // 45: ddex.ern.v432.PartyWithRole
-	(*PeriodWithStartDate)(nil),                        // 46: ddex.ern.v432.PeriodWithStartDate
-	(*PeriodWithoutFlags)(nil),                         // 47: ddex.ern.v432.PeriodWithoutFlags
-	(*PhysicalReturns)(nil),                            // 48: ddex.ern.v432.PhysicalReturns
-	(*PriceInformation)(nil),                           // 49: ddex.ern.v432.PriceInformation
-	(*PurgedRelease)(nil),                              // 50: ddex.ern.v432.PurgedRelease
-	(*Raga)(nil),                                       // 51: ddex.ern.v432.Raga
-	(*RecordingFormat)(nil),                            // 52: ddex.ern.v432.RecordingFormat
-	(*RelatedRelease)(nil),                             // 53: ddex.ern.v432.RelatedRelease
-	(*RelatedResource)(nil),                            // 54: ddex.ern.v432.RelatedResource
-	(*Release)(nil),                                    // 55: ddex.ern.v432.Release
-	(*ReleaseAdmin)(nil),                               // 56: ddex.ern.v432.ReleaseAdmin
-	(*ReleaseDeal)(nil),                                // 57: ddex.ern.v432.ReleaseDeal
-	(*ReleaseId)(nil),                                  // 58: ddex.ern.v432.ReleaseId
-	(*ReleaseLabelReference)(nil),                      // 59: ddex.ern.v432.ReleaseLabelReference
-	(*ReleaseLabelReferenceWithParty)(nil),             // 60: ddex.ern.v432.ReleaseLabelReferenceWithParty
-	(*ReleaseList)(nil),                                // 61: ddex.ern.v432.ReleaseList
-	(*ReleaseVisibility)(nil),                          // 62: ddex.ern.v432.ReleaseVisibility
-	(*ResourceGroup)(nil),                              // 63: ddex.ern.v432.ResourceGroup
-	(*ResourceGroupContentItem)(nil),                   // 64: ddex.ern.v432.ResourceGroupContentItem
-	(*ResourceList)(nil),                               // 65: ddex.ern.v432.ResourceList
-	(*ResourceRightsController)(nil),                   // 66: ddex.ern.v432.ResourceRightsController
-	(*ResourceSubGroup)(nil),                           // 67: ddex.ern.v432.ResourceSubGroup
-	(*RightsClaimPolicy)(nil),                          // 68: ddex.ern.v432.RightsClaimPolicy
-	(*Segment)(nil),                                    // 69: ddex.ern.v432.Segment
-	(*ServiceException)(nil),                           // 70: ddex.ern.v432.ServiceException
-	(*SheetMusic)(nil),                                 // 71: ddex.ern.v432.SheetMusic
-	(*Software)(nil),                                   // 72: ddex.ern.v432.Software
-	(*SoundRecording)(nil),                             // 73: ddex.ern.v432.SoundRecording
-	(*SoundRecordingClipDetails)(nil),                  // 74: ddex.ern.v432.SoundRecordingClipDetails
-	(*SoundRecordingEdition)(nil),                      // 75: ddex.ern.v432.SoundRecordingEdition
-	(*SupplementalDocumentList)(nil),                   // 76: ddex.ern.v432.SupplementalDocumentList
-	(*SynopsisWithTerritory)(nil),                      // 77: ddex.ern.v432.SynopsisWithTerritory
-	(*Tala)(nil),                                       // 78: ddex.ern.v432.Tala
-	(*TechnicalImageDetails)(nil),                      // 79: ddex.ern.v432.TechnicalImageDetails
-	(*TechnicalSheetMusicDetails)(nil),                 // 80: ddex.ern.v432.TechnicalSheetMusicDetails
-	(*TechnicalSoftwareDetails)(nil),                   // 81: ddex.ern.v432.TechnicalSoftwareDetails
-	(*TechnicalSoundRecordingDetails)(nil),             // 82: ddex.ern.v432.TechnicalSoundRecordingDetails
-	(*TechnicalTextDetails)(nil),                       // 83: ddex.ern.v432.TechnicalTextDetails
-	(*TechnicalVideoDetails)(nil),                      // 84: ddex.ern.v432.TechnicalVideoDetails
-	(*Text)(nil),                                       // 85: ddex.ern.v432.Text
-	(*Timing)(nil),                                     // 86: ddex.ern.v432.Timing
-	(*Title)(nil),                                      // 87: ddex.ern.v432.Title
-	(*TrackRelease)(nil),                               // 88: ddex.ern.v432.TrackRelease
-	(*TrackReleaseVisibility)(nil),                     // 89: ddex.ern.v432.TrackReleaseVisibility
-	(*UseType)(nil),                                    // 90: ddex.ern.v432.UseType
-	(*UserInterfaceType)(nil),                          // 91: ddex.ern.v432.UserInterfaceType
-	(*Video)(nil),                                      // 92: ddex.ern.v432.Video
-	(*VideoClipDetails)(nil),                           // 93: ddex.ern.v432.VideoClipDetails
-	(*VideoDeliveryFile)(nil),                          // 94: ddex.ern.v432.VideoDeliveryFile
-	(*VideoEdition)(nil),                               // 95: ddex.ern.v432.VideoEdition
-	(*VideoType)(nil),                                  // 96: ddex.ern.v432.VideoType
-	(*WorkRightsController)(nil),                       // 97: ddex.ern.v432.WorkRightsController
-	(*AdministratingRecordCompanyRole)(nil),            // 98: ddex.ern.v432.AdministratingRecordCompanyRole
-	(*Affiliation)(nil),                                // 99: ddex.ern.v432.Affiliation
-	(*AllTerritoryCode)(nil),                           // 100: ddex.ern.v432.AllTerritoryCode
-	(*AspectRatio)(nil),                                // 101: ddex.ern.v432.AspectRatio
-	(*AudioCodecType)(nil),                             // 102: ddex.ern.v432.AudioCodecType
-	(*BitRate)(nil),                                    // 103: ddex.ern.v432.BitRate
-	(*CLine)(nil),                                      // 104: ddex.ern.v432.CLine
-	(*CarrierType)(nil),                                // 105: ddex.ern.v432.CarrierType
-	(*CatalogNumber)(nil),                              // 106: ddex.ern.v432.CatalogNumber
-	(*ChapterId)(nil),                                  // 107: ddex.ern.v432.ChapterId
-	(*ClipType)(nil),                                   // 108: ddex.ern.v432.ClipType
-	(*ContainerFormat)(nil),                            // 109: ddex.ern.v432.ContainerFormat
-	(*Contributor)(nil),                                // 110: ddex.ern.v432.Contributor
-	(*ContributorRole)(nil),                            // 111: ddex.ern.v432.ContributorRole
-	(*ContributorRoleValue)(nil),                       // 112: ddex.ern.v432.ContributorRoleValue
-	(*CourtesyLine)(nil),                               // 113: ddex.ern.v432.CourtesyLine
-	(*CueOrigin)(nil),                                  // 114: ddex.ern.v432.CueOrigin
-	(*CueSheetType)(nil),                               // 115: ddex.ern.v432.CueSheetType
-	(*CueThemeType)(nil),                               // 116: ddex.ern.v432.CueThemeType
-	(*CueUseType)(nil),                                 // 117: ddex.ern.v432.CueUseType
-	(*CueVisualPerceptionType)(nil),                    // 118: ddex.ern.v432.CueVisualPerceptionType
-	(*CueVocalType)(nil),                               // 119: ddex.ern.v432.CueVocalType
-	(*CurrentTerritoryCode)(nil),                       // 120: ddex.ern.v432.CurrentTerritoryCode
-	(*DSP)(nil),                                        // 121: ddex.ern.v432.DSP
-	(*DetailedHashSum)(nil),                            // 122: ddex.ern.v432.DetailedHashSum
-	(*DetailedPartyId)(nil),                            // 123: ddex.ern.v432.DetailedPartyId
-	(*DisplayArtistNameWithOriginalLanguage)(nil),      // 124: ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	(*DisplayArtistRole)(nil),                          // 125: ddex.ern.v432.DisplayArtistRole
-	(*DisplayCredits)(nil),                             // 126: ddex.ern.v432.DisplayCredits
-	(*DisplaySubTitle)(nil),                            // 127: ddex.ern.v432.DisplaySubTitle
-	(*DisplayTitle)(nil),                               // 128: ddex.ern.v432.DisplayTitle
-	(*EventDate)(nil),                                  // 129: ddex.ern.v432.EventDate
-	(*EventDateTime)(nil),                              // 130: ddex.ern.v432.EventDateTime
-	(*Extent)(nil),                                     // 131: ddex.ern.v432.Extent
-	(*ExternallyLinkedResourceType)(nil),               // 132: ddex.ern.v432.ExternallyLinkedResourceType
-	(*File)(nil),                                       // 133: ddex.ern.v432.File
-	(*Fingerprint)(nil),                                // 134: ddex.ern.v432.Fingerprint
-	(*FingerprintAlgorithmType)(nil),                   // 135: ddex.ern.v432.FingerprintAlgorithmType
-	(*FirstPublicationDate)(nil),                       // 136: ddex.ern.v432.FirstPublicationDate
-	(*FrameRate)(nil),                                  // 137: ddex.ern.v432.FrameRate
-	(*FulfillmentDate)(nil),                            // 138: ddex.ern.v432.FulfillmentDate
-	(*GenreCategory)(nil),                              // 139: ddex.ern.v432.GenreCategory
-	(*GenreCategoryValue)(nil),                         // 140: ddex.ern.v432.GenreCategoryValue
-	(*GenreWithTerritory)(nil),                         // 141: ddex.ern.v432.GenreWithTerritory
-	(*HashSumAlgorithmType)(nil),                       // 142: ddex.ern.v432.HashSumAlgorithmType
-	(*ImageCodecType)(nil),                             // 143: ddex.ern.v432.ImageCodecType
-	(*ImageType)(nil),                                  // 144: ddex.ern.v432.ImageType
-	(*InstrumentType)(nil),                             // 145: ddex.ern.v432.InstrumentType
-	(*IsCredited)(nil),                                 // 146: ddex.ern.v432.IsCredited
-	(*KeywordsWithTerritory)(nil),                      // 147: ddex.ern.v432.KeywordsWithTerritory
-	(*Language)(nil),                                   // 148: ddex.ern.v432.Language
-	(*MarketingComment)(nil),                           // 149: ddex.ern.v432.MarketingComment
-	(*MessageAuditTrail)(nil),                          // 150: ddex.ern.v432.MessageAuditTrail
-	(*MessageAuditTrailEvent)(nil),                     // 151: ddex.ern.v432.MessageAuditTrailEvent
-	(*MessageHeader)(nil),                              // 152: ddex.ern.v432.MessageHeader
-	(*MessagingPartyWithoutCode)(nil),                  // 153: ddex.ern.v432.MessagingPartyWithoutCode
-	(*MusicalWorkId)(nil),                              // 154: ddex.ern.v432.MusicalWorkId
-	(*Name)(nil),                                       // 155: ddex.ern.v432.Name
-	(*OperatingSystemType)(nil),                        // 156: ddex.ern.v432.OperatingSystemType
-	(*PLine)(nil),                                      // 157: ddex.ern.v432.PLine
-	(*ParentalWarningTypeWithStandard)(nil),            // 158: ddex.ern.v432.ParentalWarningTypeWithStandard
-	(*PartyName)(nil),                                  // 159: ddex.ern.v432.PartyName
-	(*PartyNameWithoutCode)(nil),                       // 160: ddex.ern.v432.PartyNameWithoutCode
-	(*PartyRelationshipType)(nil),                      // 161: ddex.ern.v432.PartyRelationshipType
-	(*Percentage)(nil),                                 // 162: ddex.ern.v432.Percentage
-	(*Period)(nil),                                     // 163: ddex.ern.v432.Period
-	(*Prefix)(nil),                                     // 164: ddex.ern.v432.Prefix
-	(*Price)(nil),                                      // 165: ddex.ern.v432.Price
-	(*PriceType)(nil),                                  // 166: ddex.ern.v432.PriceType
-	(*PromotionalCode)(nil),                            // 167: ddex.ern.v432.PromotionalCode
-	(*ProprietaryId)(nil),                              // 168: ddex.ern.v432.ProprietaryId
-	(*Purpose)(nil),                                    // 169: ddex.ern.v432.Purpose
-	(*RatingAgency)(nil),                               // 170: ddex.ern.v432.RatingAgency
-	(*RatingReason)(nil),                               // 171: ddex.ern.v432.RatingReason
-	(*Reason)(nil),                                     // 172: ddex.ern.v432.Reason
-	(*RelatedParty)(nil),                               // 173: ddex.ern.v432.RelatedParty
-	(*ReleaseRelationshipType)(nil),                    // 174: ddex.ern.v432.ReleaseRelationshipType
-	(*ReleaseTypeForReleaseNotification)(nil),          // 175: ddex.ern.v432.ReleaseTypeForReleaseNotification
-	(*ResourceContainedResourceReference)(nil),         // 176: ddex.ern.v432.ResourceContainedResourceReference
-	(*ResourceContainedResourceReferenceList)(nil),     // 177: ddex.ern.v432.ResourceContainedResourceReferenceList
-	(*ResourceContributorRole)(nil),                    // 178: ddex.ern.v432.ResourceContributorRole
-	(*ResourceId)(nil),                                 // 179: ddex.ern.v432.ResourceId
-	(*ResourceProprietaryId)(nil),                      // 180: ddex.ern.v432.ResourceProprietaryId
-	(*RightsClaimPolicyReason)(nil),                    // 181: ddex.ern.v432.RightsClaimPolicyReason
-	(*RightsType)(nil),                                 // 182: ddex.ern.v432.RightsType
-	(*SamplingRate)(nil),                               // 183: ddex.ern.v432.SamplingRate
-	(*SessionType)(nil),                                // 184: ddex.ern.v432.SessionType
-	(*SheetMusicCodecType)(nil),                        // 185: ddex.ern.v432.SheetMusicCodecType
-	(*SheetMusicId)(nil),                               // 186: ddex.ern.v432.SheetMusicId
-	(*SheetMusicType)(nil),                             // 187: ddex.ern.v432.SheetMusicType
-	(*SoftwareType)(nil),                               // 188: ddex.ern.v432.SoftwareType
-	(*SoundRecordingId)(nil),                           // 189: ddex.ern.v432.SoundRecordingId
-	(*SoundRecordingType)(nil),                         // 190: ddex.ern.v432.SoundRecordingType
-	(*SpecialContributorType)(nil),                     // 191: ddex.ern.v432.SpecialContributorType
-	(*SubGenreCategory)(nil),                           // 192: ddex.ern.v432.SubGenreCategory
-	(*SubGenreCategoryValue)(nil),                      // 193: ddex.ern.v432.SubGenreCategoryValue
-	(*TextCodecType)(nil),                              // 194: ddex.ern.v432.TextCodecType
-	(*TextId)(nil),                                     // 195: ddex.ern.v432.TextId
-	(*TextType)(nil),                                   // 196: ddex.ern.v432.TextType
-	(*TextWithFormat)(nil),                             // 197: ddex.ern.v432.TextWithFormat
-	(*TextWithoutTerritory)(nil),                       // 198: ddex.ern.v432.TextWithoutTerritory
-	(*TitleDisplayInformation)(nil),                    // 199: ddex.ern.v432.TitleDisplayInformation
-	(*ValidityPeriod)(nil),                             // 200: ddex.ern.v432.ValidityPeriod
-	(*Venue)(nil),                                      // 201: ddex.ern.v432.Venue
-	(*VersionType)(nil),                                // 202: ddex.ern.v432.VersionType
-	(*VideoCodecType)(nil),                             // 203: ddex.ern.v432.VideoCodecType
-	(*VideoDefinitionType)(nil),                        // 204: ddex.ern.v432.VideoDefinitionType
-	(*VideoId)(nil),                                    // 205: ddex.ern.v432.VideoId
-	(avs.ReleaseProfileVersionId)(0),                   // 206: ddex.avs.ReleaseProfileVersionId
-	(avs.ReleaseProfileVariantVersionId)(0),            // 207: ddex.avs.ReleaseProfileVariantVersionId
-	(avs.CurrentTerritoryCode)(0),                      // 208: ddex.avs.CurrentTerritoryCode
-	(avs.ExpressionType)(0),                            // 209: ddex.avs.ExpressionType
-	(avs.UnitOfConditionValue)(0),                      // 210: ddex.avs.UnitOfConditionValue
-	(avs.ReferenceCreation)(0),                         // 211: ddex.avs.ReferenceCreation
-	(avs.RelationalRelator)(0),                         // 212: ddex.avs.RelationalRelator
-	(avs.MeasurementType)(0),                           // 213: ddex.avs.MeasurementType
-	(avs.CodingType)(0),                                // 214: ddex.avs.CodingType
-	(avs.ContainsAI)(0),                                // 215: ddex.avs.ContainsAI
-	(avs.AllTerritoryCode)(0),                          // 216: ddex.avs.AllTerritoryCode
-	(avs.LinkDescription)(0),                           // 217: ddex.avs.LinkDescription
-	(avs.PriceInformationType)(0),                      // 218: ddex.avs.PriceInformationType
-	(avs.ResourceRelationshipType)(0),                  // 219: ddex.avs.ResourceRelationshipType
-	(avs.LabelType)(0),                                 // 220: ddex.avs.LabelType
-	(avs.RightsControllerRole)(0),                      // 221: ddex.avs.RightsControllerRole
-	(avs.ResourceGroupType)(0),                         // 222: ddex.avs.ResourceGroupType
-	(avs.RightsClaimPolicyType)(0),                     // 223: ddex.avs.RightsClaimPolicyType
-	(avs.CompositeMusicalWorkType)(0),                  // 224: ddex.avs.CompositeMusicalWorkType
-	(avs.EditionType)(0),                               // 225: ddex.avs.EditionType
-	(avs.RecordingMode)(0),                             // 226: ddex.avs.RecordingMode
-	(avs.AdditionalTitleType)(0),                       // 227: ddex.avs.AdditionalTitleType
-	(avs.DeliveryFileType)(0),                          // 228: ddex.avs.DeliveryFileType
-	(avs.ElectroOpticalTransferFunctionType)(0),        // 229: ddex.avs.ElectroOpticalTransferFunctionType
-	(avs.PrimaryColorType)(0),                          // 230: ddex.avs.PrimaryColorType
-	(avs.HdrVideoStaticMetadataType)(0),                // 231: ddex.avs.HdrVideoStaticMetadataType
-	(avs.RightsControllerType)(0),                      // 232: ddex.avs.RightsControllerType
-	(avs.AffiliationType)(0),                           // 233: ddex.avs.AffiliationType
-	(avs.TerritoryCodeTypeIncludingDeprecatedCodes)(0), // 234: ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes
-	(avs.AspectRatioType)(0),                           // 235: ddex.avs.AspectRatioType
-	(avs.UnitOfBitRate)(0),                             // 236: ddex.avs.UnitOfBitRate
-	(avs.TerritoryCodeType)(0),                         // 237: ddex.avs.TerritoryCodeType
-	(avs.BinaryDataType)(0),                            // 238: ddex.avs.BinaryDataType
-	(avs.SubTitleType)(0),                              // 239: ddex.avs.SubTitleType
-	(avs.UnitOfExtent)(0),                              // 240: ddex.avs.UnitOfExtent
-	(avs.UnitOfFrameRate)(0),                           // 241: ddex.avs.UnitOfFrameRate
-	(avs.MessageControlType)(0),                        // 242: ddex.avs.MessageControlType
-	(avs.ParentalWarningStandard)(0),                   // 243: ddex.avs.ParentalWarningStandard
-	(avs.CurrencyCode)(0),                              // 244: ddex.avs.CurrencyCode
-	(avs.UnitOfFrequency)(0),                           // 245: ddex.avs.UnitOfFrequency
-	(avs.TextCodecType)(0),                             // 246: ddex.avs.TextCodecType
+	(*DealTerms)(nil),                              // 22: ddex.ern.v432.DealTerms
+	(*DealTermsTechnicalInstantiation)(nil),        // 23: ddex.ern.v432.DealTermsTechnicalInstantiation
+	(*Deity)(nil),                                  // 24: ddex.ern.v432.Deity
+	(*DelegatedUsageRights)(nil),                   // 25: ddex.ern.v432.DelegatedUsageRights
+	(*DescriptionWithTerritory)(nil),               // 26: ddex.ern.v432.DescriptionWithTerritory
+	(*DetailedResourceContributor)(nil),            // 27: ddex.ern.v432.DetailedResourceContributor
+	(*DiscoverableUseType)(nil),                    // 28: ddex.ern.v432.DiscoverableUseType
+	(*DisplayArtist)(nil),                          // 29: ddex.ern.v432.DisplayArtist
+	(*DisplayTitleText)(nil),                       // 30: ddex.ern.v432.DisplayTitleText
+	(*DistributionChannelPage)(nil),                // 31: ddex.ern.v432.DistributionChannelPage
+	(*EditionContributor)(nil),                     // 32: ddex.ern.v432.EditionContributor
+	(*EventDateTimeWithoutFlags)(nil),              // 33: ddex.ern.v432.EventDateTimeWithoutFlags
+	(*EventDateWithCurrentTerritory)(nil),          // 34: ddex.ern.v432.EventDateWithCurrentTerritory
+	(*EventDateWithDefault)(nil),                   // 35: ddex.ern.v432.EventDateWithDefault
+	(*EventDateWithoutFlags)(nil),                  // 36: ddex.ern.v432.EventDateWithoutFlags
+	(*ExternalResourceLink)(nil),                   // 37: ddex.ern.v432.ExternalResourceLink
+	(*HdrVideoDynamicMetadataType)(nil),            // 38: ddex.ern.v432.HdrVideoDynamicMetadataType
+	(*Image)(nil),                                  // 39: ddex.ern.v432.Image
+	(*LinkedReleaseResourceReference)(nil),         // 40: ddex.ern.v432.LinkedReleaseResourceReference
+	(*LocationAndDateOfSession)(nil),               // 41: ddex.ern.v432.LocationAndDateOfSession
+	(*Party)(nil),                                  // 42: ddex.ern.v432.Party
+	(*PartyList)(nil),                              // 43: ddex.ern.v432.PartyList
+	(*PartyNameWithTerritory)(nil),                 // 44: ddex.ern.v432.PartyNameWithTerritory
+	(*PartyWithRole)(nil),                          // 45: ddex.ern.v432.PartyWithRole
+	(*PeriodWithStartDate)(nil),                    // 46: ddex.ern.v432.PeriodWithStartDate
+	(*PeriodWithoutFlags)(nil),                     // 47: ddex.ern.v432.PeriodWithoutFlags
+	(*PhysicalReturns)(nil),                        // 48: ddex.ern.v432.PhysicalReturns
+	(*PriceInformation)(nil),                       // 49: ddex.ern.v432.PriceInformation
+	(*PurgedRelease)(nil),                          // 50: ddex.ern.v432.PurgedRelease
+	(*Raga)(nil),                                   // 51: ddex.ern.v432.Raga
+	(*RecordingFormat)(nil),                        // 52: ddex.ern.v432.RecordingFormat
+	(*RelatedRelease)(nil),                         // 53: ddex.ern.v432.RelatedRelease
+	(*RelatedResource)(nil),                        // 54: ddex.ern.v432.RelatedResource
+	(*Release)(nil),                                // 55: ddex.ern.v432.Release
+	(*ReleaseAdmin)(nil),                           // 56: ddex.ern.v432.ReleaseAdmin
+	(*ReleaseDeal)(nil),                            // 57: ddex.ern.v432.ReleaseDeal
+	(*ReleaseId)(nil),                              // 58: ddex.ern.v432.ReleaseId
+	(*ReleaseLabelReference)(nil),                  // 59: ddex.ern.v432.ReleaseLabelReference
+	(*ReleaseLabelReferenceWithParty)(nil),         // 60: ddex.ern.v432.ReleaseLabelReferenceWithParty
+	(*ReleaseList)(nil),                            // 61: ddex.ern.v432.ReleaseList
+	(*ReleaseVisibility)(nil),                      // 62: ddex.ern.v432.ReleaseVisibility
+	(*ResourceGroup)(nil),                          // 63: ddex.ern.v432.ResourceGroup
+	(*ResourceGroupContentItem)(nil),               // 64: ddex.ern.v432.ResourceGroupContentItem
+	(*ResourceList)(nil),                           // 65: ddex.ern.v432.ResourceList
+	(*ResourceRightsController)(nil),               // 66: ddex.ern.v432.ResourceRightsController
+	(*ResourceSubGroup)(nil),                       // 67: ddex.ern.v432.ResourceSubGroup
+	(*RightsClaimPolicy)(nil),                      // 68: ddex.ern.v432.RightsClaimPolicy
+	(*Segment)(nil),                                // 69: ddex.ern.v432.Segment
+	(*ServiceException)(nil),                       // 70: ddex.ern.v432.ServiceException
+	(*SheetMusic)(nil),                             // 71: ddex.ern.v432.SheetMusic
+	(*Software)(nil),                               // 72: ddex.ern.v432.Software
+	(*SoundRecording)(nil),                         // 73: ddex.ern.v432.SoundRecording
+	(*SoundRecordingClipDetails)(nil),              // 74: ddex.ern.v432.SoundRecordingClipDetails
+	(*SoundRecordingEdition)(nil),                  // 75: ddex.ern.v432.SoundRecordingEdition
+	(*SupplementalDocumentList)(nil),               // 76: ddex.ern.v432.SupplementalDocumentList
+	(*SynopsisWithTerritory)(nil),                  // 77: ddex.ern.v432.SynopsisWithTerritory
+	(*Tala)(nil),                                   // 78: ddex.ern.v432.Tala
+	(*TechnicalImageDetails)(nil),                  // 79: ddex.ern.v432.TechnicalImageDetails
+	(*TechnicalSheetMusicDetails)(nil),             // 80: ddex.ern.v432.TechnicalSheetMusicDetails
+	(*TechnicalSoftwareDetails)(nil),               // 81: ddex.ern.v432.TechnicalSoftwareDetails
+	(*TechnicalSoundRecordingDetails)(nil),         // 82: ddex.ern.v432.TechnicalSoundRecordingDetails
+	(*TechnicalTextDetails)(nil),                   // 83: ddex.ern.v432.TechnicalTextDetails
+	(*TechnicalVideoDetails)(nil),                  // 84: ddex.ern.v432.TechnicalVideoDetails
+	(*Text)(nil),                                   // 85: ddex.ern.v432.Text
+	(*Timing)(nil),                                 // 86: ddex.ern.v432.Timing
+	(*Title)(nil),                                  // 87: ddex.ern.v432.Title
+	(*TrackRelease)(nil),                           // 88: ddex.ern.v432.TrackRelease
+	(*TrackReleaseVisibility)(nil),                 // 89: ddex.ern.v432.TrackReleaseVisibility
+	(*UseType)(nil),                                // 90: ddex.ern.v432.UseType
+	(*UserInterfaceType)(nil),                      // 91: ddex.ern.v432.UserInterfaceType
+	(*Video)(nil),                                  // 92: ddex.ern.v432.Video
+	(*VideoClipDetails)(nil),                       // 93: ddex.ern.v432.VideoClipDetails
+	(*VideoDeliveryFile)(nil),                      // 94: ddex.ern.v432.VideoDeliveryFile
+	(*VideoEdition)(nil),                           // 95: ddex.ern.v432.VideoEdition
+	(*VideoType)(nil),                              // 96: ddex.ern.v432.VideoType
+	(*WorkRightsController)(nil),                   // 97: ddex.ern.v432.WorkRightsController
+	(*AdministratingRecordCompanyRole)(nil),        // 98: ddex.ern.v432.AdministratingRecordCompanyRole
+	(*Affiliation)(nil),                            // 99: ddex.ern.v432.Affiliation
+	(*AllTerritoryCode)(nil),                       // 100: ddex.ern.v432.AllTerritoryCode
+	(*AspectRatio)(nil),                            // 101: ddex.ern.v432.AspectRatio
+	(*AudioCodecType)(nil),                         // 102: ddex.ern.v432.AudioCodecType
+	(*BitRate)(nil),                                // 103: ddex.ern.v432.BitRate
+	(*CLine)(nil),                                  // 104: ddex.ern.v432.CLine
+	(*CarrierType)(nil),                            // 105: ddex.ern.v432.CarrierType
+	(*CatalogNumber)(nil),                          // 106: ddex.ern.v432.CatalogNumber
+	(*ChapterId)(nil),                              // 107: ddex.ern.v432.ChapterId
+	(*ClipType)(nil),                               // 108: ddex.ern.v432.ClipType
+	(*ContainerFormat)(nil),                        // 109: ddex.ern.v432.ContainerFormat
+	(*Contributor)(nil),                            // 110: ddex.ern.v432.Contributor
+	(*ContributorRole)(nil),                        // 111: ddex.ern.v432.ContributorRole
+	(*ContributorRoleValue)(nil),                   // 112: ddex.ern.v432.ContributorRoleValue
+	(*CourtesyLine)(nil),                           // 113: ddex.ern.v432.CourtesyLine
+	(*CueOrigin)(nil),                              // 114: ddex.ern.v432.CueOrigin
+	(*CueSheetType)(nil),                           // 115: ddex.ern.v432.CueSheetType
+	(*CueThemeType)(nil),                           // 116: ddex.ern.v432.CueThemeType
+	(*CueUseType)(nil),                             // 117: ddex.ern.v432.CueUseType
+	(*CueVisualPerceptionType)(nil),                // 118: ddex.ern.v432.CueVisualPerceptionType
+	(*CueVocalType)(nil),                           // 119: ddex.ern.v432.CueVocalType
+	(*CurrentTerritoryCode)(nil),                   // 120: ddex.ern.v432.CurrentTerritoryCode
+	(*DSP)(nil),                                    // 121: ddex.ern.v432.DSP
+	(*DetailedHashSum)(nil),                        // 122: ddex.ern.v432.DetailedHashSum
+	(*DetailedPartyId)(nil),                        // 123: ddex.ern.v432.DetailedPartyId
+	(*DisplayArtistNameWithOriginalLanguage)(nil),  // 124: ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	(*DisplayArtistRole)(nil),                      // 125: ddex.ern.v432.DisplayArtistRole
+	(*DisplayCredits)(nil),                         // 126: ddex.ern.v432.DisplayCredits
+	(*DisplaySubTitle)(nil),                        // 127: ddex.ern.v432.DisplaySubTitle
+	(*DisplayTitle)(nil),                           // 128: ddex.ern.v432.DisplayTitle
+	(*EventDate)(nil),                              // 129: ddex.ern.v432.EventDate
+	(*EventDateTime)(nil),                          // 130: ddex.ern.v432.EventDateTime
+	(*Extent)(nil),                                 // 131: ddex.ern.v432.Extent
+	(*ExternallyLinkedResourceType)(nil),           // 132: ddex.ern.v432.ExternallyLinkedResourceType
+	(*File)(nil),                                   // 133: ddex.ern.v432.File
+	(*Fingerprint)(nil),                            // 134: ddex.ern.v432.Fingerprint
+	(*FingerprintAlgorithmType)(nil),               // 135: ddex.ern.v432.FingerprintAlgorithmType
+	(*FirstPublicationDate)(nil),                   // 136: ddex.ern.v432.FirstPublicationDate
+	(*FrameRate)(nil),                              // 137: ddex.ern.v432.FrameRate
+	(*FulfillmentDate)(nil),                        // 138: ddex.ern.v432.FulfillmentDate
+	(*GenreCategory)(nil),                          // 139: ddex.ern.v432.GenreCategory
+	(*GenreCategoryValue)(nil),                     // 140: ddex.ern.v432.GenreCategoryValue
+	(*GenreWithTerritory)(nil),                     // 141: ddex.ern.v432.GenreWithTerritory
+	(*HashSumAlgorithmType)(nil),                   // 142: ddex.ern.v432.HashSumAlgorithmType
+	(*ImageCodecType)(nil),                         // 143: ddex.ern.v432.ImageCodecType
+	(*ImageType)(nil),                              // 144: ddex.ern.v432.ImageType
+	(*InstrumentType)(nil),                         // 145: ddex.ern.v432.InstrumentType
+	(*IsCredited)(nil),                             // 146: ddex.ern.v432.IsCredited
+	(*KeywordsWithTerritory)(nil),                  // 147: ddex.ern.v432.KeywordsWithTerritory
+	(*Language)(nil),                               // 148: ddex.ern.v432.Language
+	(*MarketingComment)(nil),                       // 149: ddex.ern.v432.MarketingComment
+	(*MessageAuditTrail)(nil),                      // 150: ddex.ern.v432.MessageAuditTrail
+	(*MessageAuditTrailEvent)(nil),                 // 151: ddex.ern.v432.MessageAuditTrailEvent
+	(*MessageHeader)(nil),                          // 152: ddex.ern.v432.MessageHeader
+	(*MessagingPartyWithoutCode)(nil),              // 153: ddex.ern.v432.MessagingPartyWithoutCode
+	(*MusicalWorkId)(nil),                          // 154: ddex.ern.v432.MusicalWorkId
+	(*Name)(nil),                                   // 155: ddex.ern.v432.Name
+	(*OperatingSystemType)(nil),                    // 156: ddex.ern.v432.OperatingSystemType
+	(*PLine)(nil),                                  // 157: ddex.ern.v432.PLine
+	(*ParentalWarningTypeWithStandard)(nil),        // 158: ddex.ern.v432.ParentalWarningTypeWithStandard
+	(*PartyName)(nil),                              // 159: ddex.ern.v432.PartyName
+	(*PartyNameWithoutCode)(nil),                   // 160: ddex.ern.v432.PartyNameWithoutCode
+	(*PartyRelationshipType)(nil),                  // 161: ddex.ern.v432.PartyRelationshipType
+	(*Percentage)(nil),                             // 162: ddex.ern.v432.Percentage
+	(*Period)(nil),                                 // 163: ddex.ern.v432.Period
+	(*Prefix)(nil),                                 // 164: ddex.ern.v432.Prefix
+	(*Price)(nil),                                  // 165: ddex.ern.v432.Price
+	(*PriceType)(nil),                              // 166: ddex.ern.v432.PriceType
+	(*PromotionalCode)(nil),                        // 167: ddex.ern.v432.PromotionalCode
+	(*ProprietaryId)(nil),                          // 168: ddex.ern.v432.ProprietaryId
+	(*Purpose)(nil),                                // 169: ddex.ern.v432.Purpose
+	(*RatingAgency)(nil),                           // 170: ddex.ern.v432.RatingAgency
+	(*RatingReason)(nil),                           // 171: ddex.ern.v432.RatingReason
+	(*Reason)(nil),                                 // 172: ddex.ern.v432.Reason
+	(*RelatedParty)(nil),                           // 173: ddex.ern.v432.RelatedParty
+	(*ReleaseRelationshipType)(nil),                // 174: ddex.ern.v432.ReleaseRelationshipType
+	(*ReleaseTypeForReleaseNotification)(nil),      // 175: ddex.ern.v432.ReleaseTypeForReleaseNotification
+	(*ResourceContainedResourceReference)(nil),     // 176: ddex.ern.v432.ResourceContainedResourceReference
+	(*ResourceContainedResourceReferenceList)(nil), // 177: ddex.ern.v432.ResourceContainedResourceReferenceList
+	(*ResourceContributorRole)(nil),                // 178: ddex.ern.v432.ResourceContributorRole
+	(*ResourceId)(nil),                             // 179: ddex.ern.v432.ResourceId
+	(*ResourceProprietaryId)(nil),                  // 180: ddex.ern.v432.ResourceProprietaryId
+	(*RightsClaimPolicyReason)(nil),                // 181: ddex.ern.v432.RightsClaimPolicyReason
+	(*RightsType)(nil),                             // 182: ddex.ern.v432.RightsType
+	(*SamplingRate)(nil),                           // 183: ddex.ern.v432.SamplingRate
+	(*SessionType)(nil),                            // 184: ddex.ern.v432.SessionType
+	(*SheetMusicCodecType)(nil),                    // 185: ddex.ern.v432.SheetMusicCodecType
+	(*SheetMusicId)(nil),                           // 186: ddex.ern.v432.SheetMusicId
+	(*SheetMusicType)(nil),                         // 187: ddex.ern.v432.SheetMusicType
+	(*SoftwareType)(nil),                           // 188: ddex.ern.v432.SoftwareType
+	(*SoundRecordingId)(nil),                       // 189: ddex.ern.v432.SoundRecordingId
+	(*SoundRecordingType)(nil),                     // 190: ddex.ern.v432.SoundRecordingType
+	(*SpecialContributorType)(nil),                 // 191: ddex.ern.v432.SpecialContributorType
+	(*SubGenreCategory)(nil),                       // 192: ddex.ern.v432.SubGenreCategory
+	(*SubGenreCategoryValue)(nil),                  // 193: ddex.ern.v432.SubGenreCategoryValue
+	(*TextCodecType)(nil),                          // 194: ddex.ern.v432.TextCodecType
+	(*TextId)(nil),                                 // 195: ddex.ern.v432.TextId
+	(*TextType)(nil),                               // 196: ddex.ern.v432.TextType
+	(*TextWithFormat)(nil),                         // 197: ddex.ern.v432.TextWithFormat
+	(*TextWithoutTerritory)(nil),                   // 198: ddex.ern.v432.TextWithoutTerritory
+	(*TitleDisplayInformation)(nil),                // 199: ddex.ern.v432.TitleDisplayInformation
+	(*ValidityPeriod)(nil),                         // 200: ddex.ern.v432.ValidityPeriod
+	(*Venue)(nil),                                  // 201: ddex.ern.v432.Venue
+	(*VersionType)(nil),                            // 202: ddex.ern.v432.VersionType
+	(*VideoCodecType)(nil),                         // 203: ddex.ern.v432.VideoCodecType
+	(*VideoDefinitionType)(nil),                    // 204: ddex.ern.v432.VideoDefinitionType
+	(*VideoId)(nil),                                // 205: ddex.ern.v432.VideoId
 }
 var file_ddex_ern_v432_v432_proto_depIdxs = []int32{
 	152, // 0: ddex.ern.v432.NewReleaseMessage.message_header:type_name -> ddex.ern.v432.MessageHeader
@@ -19567,553 +19526,463 @@ var file_ddex_ern_v432_v432_proto_depIdxs = []int32{
 	61,  // 6: ddex.ern.v432.NewReleaseMessage.release_list:type_name -> ddex.ern.v432.ReleaseList
 	19,  // 7: ddex.ern.v432.NewReleaseMessage.deal_list:type_name -> ddex.ern.v432.DealList
 	76,  // 8: ddex.ern.v432.NewReleaseMessage.supplemental_document_list:type_name -> ddex.ern.v432.SupplementalDocumentList
-	206, // 9: ddex.ern.v432.NewReleaseMessage.release_profile_version_id:type_name -> ddex.avs.ReleaseProfileVersionId
-	207, // 10: ddex.ern.v432.NewReleaseMessage.release_profile_variant_version_id:type_name -> ddex.avs.ReleaseProfileVariantVersionId
-	152, // 11: ddex.ern.v432.PurgeReleaseMessage.message_header:type_name -> ddex.ern.v432.MessageHeader
-	50,  // 12: ddex.ern.v432.PurgeReleaseMessage.purged_release:type_name -> ddex.ern.v432.PurgedRelease
-	98,  // 13: ddex.ern.v432.AdministratingRecordCompany.role:type_name -> ddex.ern.v432.AdministratingRecordCompanyRole
-	109, // 14: ddex.ern.v432.AudioDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
-	102, // 15: ddex.ern.v432.AudioDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
-	103, // 16: ddex.ern.v432.AudioDeliveryFile.bit_rate:type_name -> ddex.ern.v432.BitRate
-	103, // 17: ddex.ern.v432.AudioDeliveryFile.original_bit_rate:type_name -> ddex.ern.v432.BitRate
-	183, // 18: ddex.ern.v432.AudioDeliveryFile.sampling_rate:type_name -> ddex.ern.v432.SamplingRate
-	183, // 19: ddex.ern.v432.AudioDeliveryFile.original_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
-	133, // 20: ddex.ern.v432.AudioDeliveryFile.file:type_name -> ddex.ern.v432.File
-	134, // 21: ddex.ern.v432.AudioDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	170, // 22: ddex.ern.v432.AvRating.agency:type_name -> ddex.ern.v432.RatingAgency
-	171, // 23: ddex.ern.v432.AvRating.reason:type_name -> ddex.ern.v432.RatingReason
-	208, // 24: ddex.ern.v432.AvRating.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	168, // 25: ddex.ern.v432.Channel.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	107, // 26: ddex.ern.v432.Chapter.chapter_id:type_name -> ddex.ern.v432.ChapterId
-	30,  // 27: ddex.ern.v432.Chapter.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 28: ddex.ern.v432.Chapter.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 29: ddex.ern.v432.Chapter.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 30: ddex.ern.v432.Chapter.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	110, // 31: ddex.ern.v432.Chapter.contributor:type_name -> ddex.ern.v432.Contributor
-	9,   // 32: ddex.ern.v432.Chapter.character:type_name -> ddex.ern.v432.Character
-	7,   // 33: ddex.ern.v432.ChapterList.chapter:type_name -> ddex.ern.v432.Chapter
-	110, // 34: ddex.ern.v432.Character.performer:type_name -> ddex.ern.v432.Contributor
-	108, // 35: ddex.ern.v432.ClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
-	209, // 36: ddex.ern.v432.ClipDetails.expression_type:type_name -> ddex.avs.ExpressionType
-	58,  // 37: ddex.ern.v432.ClipRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	30,  // 38: ddex.ern.v432.ClipRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 39: ddex.ern.v432.ClipRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 40: ddex.ern.v432.ClipRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 41: ddex.ern.v432.ClipRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	60,  // 42: ddex.ern.v432.ClipRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
-	141, // 43: ddex.ern.v432.ClipRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
-	53,  // 44: ddex.ern.v432.ClipRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	210, // 45: ddex.ern.v432.ConditionForRightsClaimPolicy.unit:type_name -> ddex.avs.UnitOfConditionValue
-	211, // 46: ddex.ern.v432.ConditionForRightsClaimPolicy.reference_creation:type_name -> ddex.avs.ReferenceCreation
-	212, // 47: ddex.ern.v432.ConditionForRightsClaimPolicy.relational_relator:type_name -> ddex.avs.RelationalRelator
-	213, // 48: ddex.ern.v432.ConditionForRightsClaimPolicy.measurement_type:type_name -> ddex.avs.MeasurementType
-	69,  // 49: ddex.ern.v432.ConditionForRightsClaimPolicy.segment:type_name -> ddex.ern.v432.Segment
-	70,  // 50: ddex.ern.v432.ConditionForRightsClaimPolicy.service_exception:type_name -> ddex.ern.v432.ServiceException
-	117, // 51: ddex.ern.v432.Cue.cue_use_type:type_name -> ddex.ern.v432.CueUseType
-	116, // 52: ddex.ern.v432.Cue.cue_theme_type:type_name -> ddex.ern.v432.CueThemeType
-	119, // 53: ddex.ern.v432.Cue.cue_vocal_type:type_name -> ddex.ern.v432.CueVocalType
-	118, // 54: ddex.ern.v432.Cue.cue_visual_perception_type:type_name -> ddex.ern.v432.CueVisualPerceptionType
-	114, // 55: ddex.ern.v432.Cue.cue_origin:type_name -> ddex.ern.v432.CueOrigin
-	30,  // 56: ddex.ern.v432.Cue.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 57: ddex.ern.v432.Cue.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 58: ddex.ern.v432.Cue.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 59: ddex.ern.v432.Cue.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	110, // 60: ddex.ern.v432.Cue.contributor:type_name -> ddex.ern.v432.Contributor
-	157, // 61: ddex.ern.v432.Cue.p_line:type_name -> ddex.ern.v432.PLine
-	104, // 62: ddex.ern.v432.Cue.c_line:type_name -> ddex.ern.v432.CLine
-	168, // 63: ddex.ern.v432.CueSheet.cue_sheet_id:type_name -> ddex.ern.v432.ProprietaryId
-	115, // 64: ddex.ern.v432.CueSheet.cue_sheet_type:type_name -> ddex.ern.v432.CueSheetType
-	15,  // 65: ddex.ern.v432.CueSheet.cue:type_name -> ddex.ern.v432.Cue
-	16,  // 66: ddex.ern.v432.CueSheetList.cue_sheet:type_name -> ddex.ern.v432.CueSheet
-	22,  // 67: ddex.ern.v432.Deal.deal_terms:type_name -> ddex.ern.v432.DealTerms
-	21,  // 68: ddex.ern.v432.Deal.deal_technical_resource_details_reference_list:type_name -> ddex.ern.v432.DealTechnicalResourceDetailsReferenceList
-	31,  // 69: ddex.ern.v432.Deal.distribution_channel_page:type_name -> ddex.ern.v432.DistributionChannelPage
-	57,  // 70: ddex.ern.v432.DealList.release_deal:type_name -> ddex.ern.v432.ReleaseDeal
-	62,  // 71: ddex.ern.v432.DealList.release_visibility:type_name -> ddex.ern.v432.ReleaseVisibility
-	89,  // 72: ddex.ern.v432.DealList.track_release_visibility:type_name -> ddex.ern.v432.TrackReleaseVisibility
-	46,  // 73: ddex.ern.v432.DealTerms.validity_period:type_name -> ddex.ern.v432.PeriodWithStartDate
-	12,  // 74: ddex.ern.v432.DealTerms.commercial_model_type:type_name -> ddex.ern.v432.CommercialModelType
-	28,  // 75: ddex.ern.v432.DealTerms.use_type:type_name -> ddex.ern.v432.DiscoverableUseType
-	91,  // 76: ddex.ern.v432.DealTerms.user_interface_type:type_name -> ddex.ern.v432.UserInterfaceType
-	105, // 77: ddex.ern.v432.DealTerms.carrier_type:type_name -> ddex.ern.v432.CarrierType
-	23,  // 78: ddex.ern.v432.DealTerms.technical_instantiation:type_name -> ddex.ern.v432.DealTermsTechnicalInstantiation
-	68,  // 79: ddex.ern.v432.DealTerms.rights_claim_policy:type_name -> ddex.ern.v432.RightsClaimPolicy
-	49,  // 80: ddex.ern.v432.DealTerms.price_information:type_name -> ddex.ern.v432.PriceInformation
-	20,  // 81: ddex.ern.v432.DealTerms.instant_gratification_resource_list:type_name -> ddex.ern.v432.DealResourceReferenceList
-	48,  // 82: ddex.ern.v432.DealTerms.physical_returns:type_name -> ddex.ern.v432.PhysicalReturns
-	204, // 83: ddex.ern.v432.DealTermsTechnicalInstantiation.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
-	214, // 84: ddex.ern.v432.DealTermsTechnicalInstantiation.coding_type:type_name -> ddex.avs.CodingType
-	103, // 85: ddex.ern.v432.DealTermsTechnicalInstantiation.bit_rate:type_name -> ddex.ern.v432.BitRate
-	208, // 86: ddex.ern.v432.Deity.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	90,  // 87: ddex.ern.v432.DelegatedUsageRights.use_type:type_name -> ddex.ern.v432.UseType
-	163, // 88: ddex.ern.v432.DelegatedUsageRights.period_of_rights_delegation:type_name -> ddex.ern.v432.Period
-	100, // 89: ddex.ern.v432.DelegatedUsageRights.territory_of_rights_delegation:type_name -> ddex.ern.v432.AllTerritoryCode
-	208, // 90: ddex.ern.v432.DescriptionWithTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	111, // 91: ddex.ern.v432.DetailedResourceContributor.role:type_name -> ddex.ern.v432.ContributorRole
-	145, // 92: ddex.ern.v432.DetailedResourceContributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
-	126, // 93: ddex.ern.v432.DetailedResourceContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	111, // 94: ddex.ern.v432.DisplayArtist.artistic_role:type_name -> ddex.ern.v432.ContributorRole
-	199, // 95: ddex.ern.v432.DisplayArtist.title_display_information:type_name -> ddex.ern.v432.TitleDisplayInformation
-	126, // 96: ddex.ern.v432.DisplayArtist.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	208, // 97: ddex.ern.v432.DisplayTitleText.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	123, // 98: ddex.ern.v432.DistributionChannelPage.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	155, // 99: ddex.ern.v432.DistributionChannelPage.page_name:type_name -> ddex.ern.v432.Name
-	111, // 100: ddex.ern.v432.EditionContributor.role:type_name -> ddex.ern.v432.ContributorRole
-	215, // 101: ddex.ern.v432.EditionContributor.ai_contribution:type_name -> ddex.avs.ContainsAI
-	146, // 102: ddex.ern.v432.EditionContributor.is_credited:type_name -> ddex.ern.v432.IsCredited
-	126, // 103: ddex.ern.v432.EditionContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	208, // 104: ddex.ern.v432.EventDateTimeWithoutFlags.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	208, // 105: ddex.ern.v432.EventDateWithCurrentTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	216, // 106: ddex.ern.v432.EventDateWithDefault.applicable_territory_code:type_name -> ddex.avs.AllTerritoryCode
-	216, // 107: ddex.ern.v432.EventDateWithoutFlags.applicable_territory_code:type_name -> ddex.avs.AllTerritoryCode
-	47,  // 108: ddex.ern.v432.ExternalResourceLink.validity_period:type_name -> ddex.ern.v432.PeriodWithoutFlags
-	132, // 109: ddex.ern.v432.ExternalResourceLink.externally_linked_resource_type:type_name -> ddex.ern.v432.ExternallyLinkedResourceType
-	144, // 110: ddex.ern.v432.Image.type:type_name -> ddex.ern.v432.ImageType
-	180, // 111: ddex.ern.v432.Image.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
-	30,  // 112: ddex.ern.v432.Image.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 113: ddex.ern.v432.Image.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 114: ddex.ern.v432.Image.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 115: ddex.ern.v432.Image.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	202, // 116: ddex.ern.v432.Image.version_type:type_name -> ddex.ern.v432.VersionType
-	124, // 117: ddex.ern.v432.Image.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	29,  // 118: ddex.ern.v432.Image.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	110, // 119: ddex.ern.v432.Image.contributor:type_name -> ddex.ern.v432.Contributor
-	66,  // 120: ddex.ern.v432.Image.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	97,  // 121: ddex.ern.v432.Image.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	104, // 122: ddex.ern.v432.Image.c_line:type_name -> ddex.ern.v432.CLine
-	113, // 123: ddex.ern.v432.Image.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	36,  // 124: ddex.ern.v432.Image.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	138, // 125: ddex.ern.v432.Image.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	158, // 126: ddex.ern.v432.Image.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	53,  // 127: ddex.ern.v432.Image.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 128: ddex.ern.v432.Image.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	215, // 129: ddex.ern.v432.Image.contains_a_i:type_name -> ddex.avs.ContainsAI
-	26,  // 130: ddex.ern.v432.Image.description:type_name -> ddex.ern.v432.DescriptionWithTerritory
-	79,  // 131: ddex.ern.v432.Image.technical_details:type_name -> ddex.ern.v432.TechnicalImageDetails
-	217, // 132: ddex.ern.v432.LinkedReleaseResourceReference.link_description:type_name -> ddex.avs.LinkDescription
-	184, // 133: ddex.ern.v432.LocationAndDateOfSession.session_type:type_name -> ddex.ern.v432.SessionType
-	163, // 134: ddex.ern.v432.LocationAndDateOfSession.period:type_name -> ddex.ern.v432.Period
-	201, // 135: ddex.ern.v432.LocationAndDateOfSession.venue:type_name -> ddex.ern.v432.Venue
-	197, // 136: ddex.ern.v432.LocationAndDateOfSession.comment:type_name -> ddex.ern.v432.TextWithFormat
-	45,  // 137: ddex.ern.v432.LocationAndDateOfSession.contributor:type_name -> ddex.ern.v432.PartyWithRole
-	99,  // 138: ddex.ern.v432.Party.affiliation:type_name -> ddex.ern.v432.Affiliation
-	173, // 139: ddex.ern.v432.Party.related_party:type_name -> ddex.ern.v432.RelatedParty
-	42,  // 140: ddex.ern.v432.PartyList.party:type_name -> ddex.ern.v432.Party
-	5,   // 141: ddex.ern.v432.PartyList.brand:type_name -> ddex.ern.v432.Brand
-	155, // 142: ddex.ern.v432.PartyNameWithTerritory.full_name:type_name -> ddex.ern.v432.Name
-	155, // 143: ddex.ern.v432.PartyNameWithTerritory.full_name_indexed:type_name -> ddex.ern.v432.Name
-	155, // 144: ddex.ern.v432.PartyNameWithTerritory.names_before_key_name:type_name -> ddex.ern.v432.Name
-	155, // 145: ddex.ern.v432.PartyNameWithTerritory.key_name:type_name -> ddex.ern.v432.Name
-	155, // 146: ddex.ern.v432.PartyNameWithTerritory.names_after_key_name:type_name -> ddex.ern.v432.Name
-	155, // 147: ddex.ern.v432.PartyNameWithTerritory.abbreviated_name:type_name -> ddex.ern.v432.Name
-	208, // 148: ddex.ern.v432.PartyNameWithTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	168, // 149: ddex.ern.v432.PartyWithRole.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	44,  // 150: ddex.ern.v432.PartyWithRole.party_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
-	178, // 151: ddex.ern.v432.PartyWithRole.role:type_name -> ddex.ern.v432.ResourceContributorRole
-	166, // 152: ddex.ern.v432.PriceInformation.price_code:type_name -> ddex.ern.v432.PriceType
-	165, // 153: ddex.ern.v432.PriceInformation.wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
-	165, // 154: ddex.ern.v432.PriceInformation.bulk_order_wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
-	165, // 155: ddex.ern.v432.PriceInformation.suggested_retail_price:type_name -> ddex.ern.v432.Price
-	218, // 156: ddex.ern.v432.PriceInformation.price_type:type_name -> ddex.avs.PriceInformationType
-	58,  // 157: ddex.ern.v432.PurgedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	87,  // 158: ddex.ern.v432.PurgedRelease.title:type_name -> ddex.ern.v432.Title
-	27,  // 159: ddex.ern.v432.PurgedRelease.contributor:type_name -> ddex.ern.v432.DetailedResourceContributor
-	208, // 160: ddex.ern.v432.Raga.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	174, // 161: ddex.ern.v432.RelatedRelease.release_relationship_type:type_name -> ddex.ern.v432.ReleaseRelationshipType
-	58,  // 162: ddex.ern.v432.RelatedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	30,  // 163: ddex.ern.v432.RelatedRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 164: ddex.ern.v432.RelatedRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 165: ddex.ern.v432.RelatedRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 166: ddex.ern.v432.RelatedRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	124, // 167: ddex.ern.v432.RelatedRelease.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	59,  // 168: ddex.ern.v432.RelatedRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReference
-	36,  // 169: ddex.ern.v432.RelatedRelease.release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	36,  // 170: ddex.ern.v432.RelatedRelease.original_release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	219, // 171: ddex.ern.v432.RelatedResource.resource_relationship_type:type_name -> ddex.avs.ResourceRelationshipType
-	86,  // 172: ddex.ern.v432.RelatedResource.timing:type_name -> ddex.ern.v432.Timing
-	175, // 173: ddex.ern.v432.Release.release_type:type_name -> ddex.ern.v432.ReleaseTypeForReleaseNotification
-	58,  // 174: ddex.ern.v432.Release.release_id:type_name -> ddex.ern.v432.ReleaseId
-	30,  // 175: ddex.ern.v432.Release.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 176: ddex.ern.v432.Release.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 177: ddex.ern.v432.Release.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 178: ddex.ern.v432.Release.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	202, // 179: ddex.ern.v432.Release.version_type:type_name -> ddex.ern.v432.VersionType
-	124, // 180: ddex.ern.v432.Release.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	29,  // 181: ddex.ern.v432.Release.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	60,  // 182: ddex.ern.v432.Release.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
-	2,   // 183: ddex.ern.v432.Release.administrating_record_company:type_name -> ddex.ern.v432.AdministratingRecordCompany
-	157, // 184: ddex.ern.v432.Release.p_line:type_name -> ddex.ern.v432.PLine
-	104, // 185: ddex.ern.v432.Release.c_line:type_name -> ddex.ern.v432.CLine
-	113, // 186: ddex.ern.v432.Release.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	141, // 187: ddex.ern.v432.Release.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
-	35,  // 188: ddex.ern.v432.Release.release_date:type_name -> ddex.ern.v432.EventDateWithDefault
-	35,  // 189: ddex.ern.v432.Release.original_release_date:type_name -> ddex.ern.v432.EventDateWithDefault
-	158, // 190: ddex.ern.v432.Release.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	4,   // 191: ddex.ern.v432.Release.av_rating:type_name -> ddex.ern.v432.AvRating
-	53,  // 192: ddex.ern.v432.Release.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 193: ddex.ern.v432.Release.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	63,  // 194: ddex.ern.v432.Release.resource_group:type_name -> ddex.ern.v432.ResourceGroup
-	37,  // 195: ddex.ern.v432.Release.external_resource_link:type_name -> ddex.ern.v432.ExternalResourceLink
-	147, // 196: ddex.ern.v432.Release.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
-	77,  // 197: ddex.ern.v432.Release.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
-	51,  // 198: ddex.ern.v432.Release.raga:type_name -> ddex.ern.v432.Raga
-	78,  // 199: ddex.ern.v432.Release.tala:type_name -> ddex.ern.v432.Tala
-	24,  // 200: ddex.ern.v432.Release.deity:type_name -> ddex.ern.v432.Deity
-	215, // 201: ddex.ern.v432.Release.contains_a_i:type_name -> ddex.avs.ContainsAI
-	149, // 202: ddex.ern.v432.Release.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
-	18,  // 203: ddex.ern.v432.ReleaseDeal.deal:type_name -> ddex.ern.v432.Deal
-	106, // 204: ddex.ern.v432.ReleaseId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	168, // 205: ddex.ern.v432.ReleaseId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	220, // 206: ddex.ern.v432.ReleaseLabelReference.label_type:type_name -> ddex.avs.LabelType
-	208, // 207: ddex.ern.v432.ReleaseLabelReference.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	220, // 208: ddex.ern.v432.ReleaseLabelReferenceWithParty.label_type:type_name -> ddex.avs.LabelType
-	208, // 209: ddex.ern.v432.ReleaseLabelReferenceWithParty.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	55,  // 210: ddex.ern.v432.ReleaseList.release:type_name -> ddex.ern.v432.Release
-	88,  // 211: ddex.ern.v432.ReleaseList.track_release:type_name -> ddex.ern.v432.TrackRelease
-	11,  // 212: ddex.ern.v432.ReleaseList.clip_release:type_name -> ddex.ern.v432.ClipRelease
-	30,  // 213: ddex.ern.v432.ResourceGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 214: ddex.ern.v432.ResourceGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 215: ddex.ern.v432.ResourceGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 216: ddex.ern.v432.ResourceGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	29,  // 217: ddex.ern.v432.ResourceGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	105, // 218: ddex.ern.v432.ResourceGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
-	67,  // 219: ddex.ern.v432.ResourceGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
-	64,  // 220: ddex.ern.v432.ResourceGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
-	40,  // 221: ddex.ern.v432.ResourceGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	40,  // 222: ddex.ern.v432.ResourceGroupContentItem.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	73,  // 223: ddex.ern.v432.ResourceList.sound_recording:type_name -> ddex.ern.v432.SoundRecording
-	92,  // 224: ddex.ern.v432.ResourceList.video:type_name -> ddex.ern.v432.Video
-	39,  // 225: ddex.ern.v432.ResourceList.image:type_name -> ddex.ern.v432.Image
-	85,  // 226: ddex.ern.v432.ResourceList.text:type_name -> ddex.ern.v432.Text
-	71,  // 227: ddex.ern.v432.ResourceList.sheet_music:type_name -> ddex.ern.v432.SheetMusic
-	72,  // 228: ddex.ern.v432.ResourceList.software:type_name -> ddex.ern.v432.Software
-	221, // 229: ddex.ern.v432.ResourceRightsController.rights_control_type:type_name -> ddex.avs.RightsControllerRole
-	25,  // 230: ddex.ern.v432.ResourceRightsController.delegated_usage_rights:type_name -> ddex.ern.v432.DelegatedUsageRights
-	30,  // 231: ddex.ern.v432.ResourceSubGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 232: ddex.ern.v432.ResourceSubGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 233: ddex.ern.v432.ResourceSubGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 234: ddex.ern.v432.ResourceSubGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	29,  // 235: ddex.ern.v432.ResourceSubGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	105, // 236: ddex.ern.v432.ResourceSubGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
-	67,  // 237: ddex.ern.v432.ResourceSubGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
-	64,  // 238: ddex.ern.v432.ResourceSubGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
-	40,  // 239: ddex.ern.v432.ResourceSubGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	222, // 240: ddex.ern.v432.ResourceSubGroup.resource_group_type:type_name -> ddex.avs.ResourceGroupType
-	13,  // 241: ddex.ern.v432.RightsClaimPolicy.condition:type_name -> ddex.ern.v432.ConditionForRightsClaimPolicy
-	223, // 242: ddex.ern.v432.RightsClaimPolicy.rights_claim_policy_type:type_name -> ddex.avs.RightsClaimPolicyType
-	181, // 243: ddex.ern.v432.RightsClaimPolicy.rights_claim_policy_reason:type_name -> ddex.ern.v432.RightsClaimPolicyReason
-	155, // 244: ddex.ern.v432.ServiceException.trading_name:type_name -> ddex.ern.v432.Name
-	6,   // 245: ddex.ern.v432.ServiceException.channel:type_name -> ddex.ern.v432.Channel
-	187, // 246: ddex.ern.v432.SheetMusic.type:type_name -> ddex.ern.v432.SheetMusicType
-	186, // 247: ddex.ern.v432.SheetMusic.resource_id:type_name -> ddex.ern.v432.SheetMusicId
-	154, // 248: ddex.ern.v432.SheetMusic.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	30,  // 249: ddex.ern.v432.SheetMusic.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 250: ddex.ern.v432.SheetMusic.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 251: ddex.ern.v432.SheetMusic.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 252: ddex.ern.v432.SheetMusic.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	202, // 253: ddex.ern.v432.SheetMusic.version_type:type_name -> ddex.ern.v432.VersionType
-	124, // 254: ddex.ern.v432.SheetMusic.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	29,  // 255: ddex.ern.v432.SheetMusic.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	110, // 256: ddex.ern.v432.SheetMusic.contributor:type_name -> ddex.ern.v432.Contributor
-	66,  // 257: ddex.ern.v432.SheetMusic.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	97,  // 258: ddex.ern.v432.SheetMusic.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	104, // 259: ddex.ern.v432.SheetMusic.c_line:type_name -> ddex.ern.v432.CLine
-	113, // 260: ddex.ern.v432.SheetMusic.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	36,  // 261: ddex.ern.v432.SheetMusic.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	138, // 262: ddex.ern.v432.SheetMusic.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	158, // 263: ddex.ern.v432.SheetMusic.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	53,  // 264: ddex.ern.v432.SheetMusic.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 265: ddex.ern.v432.SheetMusic.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	177, // 266: ddex.ern.v432.SheetMusic.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	80,  // 267: ddex.ern.v432.SheetMusic.technical_details:type_name -> ddex.ern.v432.TechnicalSheetMusicDetails
-	188, // 268: ddex.ern.v432.Software.type:type_name -> ddex.ern.v432.SoftwareType
-	180, // 269: ddex.ern.v432.Software.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
-	154, // 270: ddex.ern.v432.Software.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	30,  // 271: ddex.ern.v432.Software.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 272: ddex.ern.v432.Software.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 273: ddex.ern.v432.Software.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 274: ddex.ern.v432.Software.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	202, // 275: ddex.ern.v432.Software.version_type:type_name -> ddex.ern.v432.VersionType
-	124, // 276: ddex.ern.v432.Software.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	29,  // 277: ddex.ern.v432.Software.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	110, // 278: ddex.ern.v432.Software.contributor:type_name -> ddex.ern.v432.Contributor
-	66,  // 279: ddex.ern.v432.Software.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	97,  // 280: ddex.ern.v432.Software.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	157, // 281: ddex.ern.v432.Software.p_line:type_name -> ddex.ern.v432.PLine
-	104, // 282: ddex.ern.v432.Software.c_line:type_name -> ddex.ern.v432.CLine
-	113, // 283: ddex.ern.v432.Software.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	36,  // 284: ddex.ern.v432.Software.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	138, // 285: ddex.ern.v432.Software.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	158, // 286: ddex.ern.v432.Software.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	53,  // 287: ddex.ern.v432.Software.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 288: ddex.ern.v432.Software.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	177, // 289: ddex.ern.v432.Software.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	81,  // 290: ddex.ern.v432.Software.technical_details:type_name -> ddex.ern.v432.TechnicalSoftwareDetails
-	190, // 291: ddex.ern.v432.SoundRecording.type:type_name -> ddex.ern.v432.SoundRecordingType
-	75,  // 292: ddex.ern.v432.SoundRecording.sound_recording_edition:type_name -> ddex.ern.v432.SoundRecordingEdition
-	52,  // 293: ddex.ern.v432.SoundRecording.recording_format:type_name -> ddex.ern.v432.RecordingFormat
-	154, // 294: ddex.ern.v432.SoundRecording.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	30,  // 295: ddex.ern.v432.SoundRecording.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 296: ddex.ern.v432.SoundRecording.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 297: ddex.ern.v432.SoundRecording.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 298: ddex.ern.v432.SoundRecording.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	202, // 299: ddex.ern.v432.SoundRecording.version_type:type_name -> ddex.ern.v432.VersionType
-	124, // 300: ddex.ern.v432.SoundRecording.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	29,  // 301: ddex.ern.v432.SoundRecording.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	110, // 302: ddex.ern.v432.SoundRecording.contributor:type_name -> ddex.ern.v432.Contributor
-	9,   // 303: ddex.ern.v432.SoundRecording.character:type_name -> ddex.ern.v432.Character
-	66,  // 304: ddex.ern.v432.SoundRecording.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	97,  // 305: ddex.ern.v432.SoundRecording.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	113, // 306: ddex.ern.v432.SoundRecording.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	36,  // 307: ddex.ern.v432.SoundRecording.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	36,  // 308: ddex.ern.v432.SoundRecording.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	36,  // 309: ddex.ern.v432.SoundRecording.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	136, // 310: ddex.ern.v432.SoundRecording.first_publication_date:type_name -> ddex.ern.v432.FirstPublicationDate
-	41,  // 311: ddex.ern.v432.SoundRecording.location_and_date_of_session:type_name -> ddex.ern.v432.LocationAndDateOfSession
-	158, // 312: ddex.ern.v432.SoundRecording.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	53,  // 313: ddex.ern.v432.SoundRecording.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 314: ddex.ern.v432.SoundRecording.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	224, // 315: ddex.ern.v432.SoundRecording.composite_musical_work_type:type_name -> ddex.avs.CompositeMusicalWorkType
-	215, // 316: ddex.ern.v432.SoundRecording.contains_a_i:type_name -> ddex.avs.ContainsAI
-	126, // 317: ddex.ern.v432.SoundRecording.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	148, // 318: ddex.ern.v432.SoundRecording.language_of_performance:type_name -> ddex.ern.v432.Language
-	51,  // 319: ddex.ern.v432.SoundRecording.raga:type_name -> ddex.ern.v432.Raga
-	78,  // 320: ddex.ern.v432.SoundRecording.tala:type_name -> ddex.ern.v432.Tala
-	24,  // 321: ddex.ern.v432.SoundRecording.deity:type_name -> ddex.ern.v432.Deity
-	108, // 322: ddex.ern.v432.SoundRecordingClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
-	86,  // 323: ddex.ern.v432.SoundRecordingClipDetails.timing:type_name -> ddex.ern.v432.Timing
-	209, // 324: ddex.ern.v432.SoundRecordingClipDetails.expression_type:type_name -> ddex.avs.ExpressionType
-	3,   // 325: ddex.ern.v432.SoundRecordingClipDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
-	225, // 326: ddex.ern.v432.SoundRecordingEdition.type:type_name -> ddex.avs.EditionType
-	189, // 327: ddex.ern.v432.SoundRecordingEdition.resource_id:type_name -> ddex.ern.v432.SoundRecordingId
-	32,  // 328: ddex.ern.v432.SoundRecordingEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
-	157, // 329: ddex.ern.v432.SoundRecordingEdition.p_line:type_name -> ddex.ern.v432.PLine
-	226, // 330: ddex.ern.v432.SoundRecordingEdition.recording_mode:type_name -> ddex.avs.RecordingMode
-	82,  // 331: ddex.ern.v432.SoundRecordingEdition.technical_details:type_name -> ddex.ern.v432.TechnicalSoundRecordingDetails
-	133, // 332: ddex.ern.v432.SupplementalDocumentList.supplemental_document:type_name -> ddex.ern.v432.File
-	208, // 333: ddex.ern.v432.SynopsisWithTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	208, // 334: ddex.ern.v432.Tala.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	143, // 335: ddex.ern.v432.TechnicalImageDetails.image_codec_type:type_name -> ddex.ern.v432.ImageCodecType
-	131, // 336: ddex.ern.v432.TechnicalImageDetails.image_height:type_name -> ddex.ern.v432.Extent
-	131, // 337: ddex.ern.v432.TechnicalImageDetails.image_width:type_name -> ddex.ern.v432.Extent
-	101, // 338: ddex.ern.v432.TechnicalImageDetails.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
-	10,  // 339: ddex.ern.v432.TechnicalImageDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	133, // 340: ddex.ern.v432.TechnicalImageDetails.file:type_name -> ddex.ern.v432.File
-	134, // 341: ddex.ern.v432.TechnicalImageDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	208, // 342: ddex.ern.v432.TechnicalImageDetails.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	185, // 343: ddex.ern.v432.TechnicalSheetMusicDetails.sheet_music_codec_type:type_name -> ddex.ern.v432.SheetMusicCodecType
-	10,  // 344: ddex.ern.v432.TechnicalSheetMusicDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	133, // 345: ddex.ern.v432.TechnicalSheetMusicDetails.file:type_name -> ddex.ern.v432.File
-	134, // 346: ddex.ern.v432.TechnicalSheetMusicDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	208, // 347: ddex.ern.v432.TechnicalSheetMusicDetails.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	156, // 348: ddex.ern.v432.TechnicalSoftwareDetails.operating_system_type:type_name -> ddex.ern.v432.OperatingSystemType
-	10,  // 349: ddex.ern.v432.TechnicalSoftwareDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	133, // 350: ddex.ern.v432.TechnicalSoftwareDetails.file:type_name -> ddex.ern.v432.File
-	134, // 351: ddex.ern.v432.TechnicalSoftwareDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	208, // 352: ddex.ern.v432.TechnicalSoftwareDetails.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	3,   // 353: ddex.ern.v432.TechnicalSoundRecordingDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
-	74,  // 354: ddex.ern.v432.TechnicalSoundRecordingDetails.clip_details:type_name -> ddex.ern.v432.SoundRecordingClipDetails
-	208, // 355: ddex.ern.v432.TechnicalSoundRecordingDetails.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	194, // 356: ddex.ern.v432.TechnicalTextDetails.text_codec_type:type_name -> ddex.ern.v432.TextCodecType
-	10,  // 357: ddex.ern.v432.TechnicalTextDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	133, // 358: ddex.ern.v432.TechnicalTextDetails.file:type_name -> ddex.ern.v432.File
-	134, // 359: ddex.ern.v432.TechnicalTextDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	208, // 360: ddex.ern.v432.TechnicalTextDetails.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	103, // 361: ddex.ern.v432.TechnicalVideoDetails.overall_bit_rate:type_name -> ddex.ern.v432.BitRate
-	94,  // 362: ddex.ern.v432.TechnicalVideoDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
-	93,  // 363: ddex.ern.v432.TechnicalVideoDetails.clip_details:type_name -> ddex.ern.v432.VideoClipDetails
-	208, // 364: ddex.ern.v432.TechnicalVideoDetails.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	196, // 365: ddex.ern.v432.Text.type:type_name -> ddex.ern.v432.TextType
-	195, // 366: ddex.ern.v432.Text.resource_id:type_name -> ddex.ern.v432.TextId
-	154, // 367: ddex.ern.v432.Text.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	30,  // 368: ddex.ern.v432.Text.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 369: ddex.ern.v432.Text.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 370: ddex.ern.v432.Text.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 371: ddex.ern.v432.Text.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	202, // 372: ddex.ern.v432.Text.version_type:type_name -> ddex.ern.v432.VersionType
-	124, // 373: ddex.ern.v432.Text.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	29,  // 374: ddex.ern.v432.Text.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	110, // 375: ddex.ern.v432.Text.contributor:type_name -> ddex.ern.v432.Contributor
-	66,  // 376: ddex.ern.v432.Text.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	97,  // 377: ddex.ern.v432.Text.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	104, // 378: ddex.ern.v432.Text.c_line:type_name -> ddex.ern.v432.CLine
-	113, // 379: ddex.ern.v432.Text.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	36,  // 380: ddex.ern.v432.Text.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	138, // 381: ddex.ern.v432.Text.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	158, // 382: ddex.ern.v432.Text.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	53,  // 383: ddex.ern.v432.Text.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 384: ddex.ern.v432.Text.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	215, // 385: ddex.ern.v432.Text.contains_a_i:type_name -> ddex.avs.ContainsAI
-	177, // 386: ddex.ern.v432.Text.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	83,  // 387: ddex.ern.v432.Text.technical_details:type_name -> ddex.ern.v432.TechnicalTextDetails
-	148, // 388: ddex.ern.v432.Text.language_of_text:type_name -> ddex.ern.v432.Language
-	227, // 389: ddex.ern.v432.Title.title_type:type_name -> ddex.avs.AdditionalTitleType
-	58,  // 390: ddex.ern.v432.TrackRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	30,  // 391: ddex.ern.v432.TrackRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 392: ddex.ern.v432.TrackRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 393: ddex.ern.v432.TrackRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 394: ddex.ern.v432.TrackRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	40,  // 395: ddex.ern.v432.TrackRelease.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	60,  // 396: ddex.ern.v432.TrackRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
-	141, // 397: ddex.ern.v432.TrackRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
-	53,  // 398: ddex.ern.v432.TrackRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 399: ddex.ern.v432.TrackRelease.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	147, // 400: ddex.ern.v432.TrackRelease.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
-	77,  // 401: ddex.ern.v432.TrackRelease.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
-	149, // 402: ddex.ern.v432.TrackRelease.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
-	96,  // 403: ddex.ern.v432.Video.type:type_name -> ddex.ern.v432.VideoType
-	95,  // 404: ddex.ern.v432.Video.video_edition:type_name -> ddex.ern.v432.VideoEdition
-	52,  // 405: ddex.ern.v432.Video.recording_format:type_name -> ddex.ern.v432.RecordingFormat
-	154, // 406: ddex.ern.v432.Video.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	30,  // 407: ddex.ern.v432.Video.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	128, // 408: ddex.ern.v432.Video.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 409: ddex.ern.v432.Video.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	128, // 410: ddex.ern.v432.Video.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	202, // 411: ddex.ern.v432.Video.version_type:type_name -> ddex.ern.v432.VersionType
-	124, // 412: ddex.ern.v432.Video.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	29,  // 413: ddex.ern.v432.Video.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	110, // 414: ddex.ern.v432.Video.contributor:type_name -> ddex.ern.v432.Contributor
-	9,   // 415: ddex.ern.v432.Video.character:type_name -> ddex.ern.v432.Character
-	66,  // 416: ddex.ern.v432.Video.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	97,  // 417: ddex.ern.v432.Video.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	113, // 418: ddex.ern.v432.Video.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	36,  // 419: ddex.ern.v432.Video.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	36,  // 420: ddex.ern.v432.Video.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	36,  // 421: ddex.ern.v432.Video.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	138, // 422: ddex.ern.v432.Video.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	158, // 423: ddex.ern.v432.Video.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	4,   // 424: ddex.ern.v432.Video.av_rating:type_name -> ddex.ern.v432.AvRating
-	53,  // 425: ddex.ern.v432.Video.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	54,  // 426: ddex.ern.v432.Video.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	224, // 427: ddex.ern.v432.Video.composite_musical_work_type:type_name -> ddex.avs.CompositeMusicalWorkType
-	215, // 428: ddex.ern.v432.Video.contains_a_i:type_name -> ddex.avs.ContainsAI
-	126, // 429: ddex.ern.v432.Video.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	148, // 430: ddex.ern.v432.Video.language_of_performance:type_name -> ddex.ern.v432.Language
-	177, // 431: ddex.ern.v432.Video.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	108, // 432: ddex.ern.v432.VideoClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
-	86,  // 433: ddex.ern.v432.VideoClipDetails.timing:type_name -> ddex.ern.v432.Timing
-	209, // 434: ddex.ern.v432.VideoClipDetails.expression_type:type_name -> ddex.avs.ExpressionType
-	94,  // 435: ddex.ern.v432.VideoClipDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
-	228, // 436: ddex.ern.v432.VideoDeliveryFile.type:type_name -> ddex.avs.DeliveryFileType
-	109, // 437: ddex.ern.v432.VideoDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
-	203, // 438: ddex.ern.v432.VideoDeliveryFile.video_codec_type:type_name -> ddex.ern.v432.VideoCodecType
-	103, // 439: ddex.ern.v432.VideoDeliveryFile.video_bit_rate:type_name -> ddex.ern.v432.BitRate
-	137, // 440: ddex.ern.v432.VideoDeliveryFile.frame_rate:type_name -> ddex.ern.v432.FrameRate
-	131, // 441: ddex.ern.v432.VideoDeliveryFile.image_height:type_name -> ddex.ern.v432.Extent
-	131, // 442: ddex.ern.v432.VideoDeliveryFile.image_width:type_name -> ddex.ern.v432.Extent
-	101, // 443: ddex.ern.v432.VideoDeliveryFile.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
-	14,  // 444: ddex.ern.v432.VideoDeliveryFile.core_area:type_name -> ddex.ern.v432.CoreArea
-	204, // 445: ddex.ern.v432.VideoDeliveryFile.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
-	102, // 446: ddex.ern.v432.VideoDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
-	229, // 447: ddex.ern.v432.VideoDeliveryFile.electro_optical_transfer_function_type:type_name -> ddex.avs.ElectroOpticalTransferFunctionType
-	230, // 448: ddex.ern.v432.VideoDeliveryFile.primary_color_type:type_name -> ddex.avs.PrimaryColorType
-	38,  // 449: ddex.ern.v432.VideoDeliveryFile.hdr_video_dynamic_metadata_type:type_name -> ddex.ern.v432.HdrVideoDynamicMetadataType
-	231, // 450: ddex.ern.v432.VideoDeliveryFile.hdr_video_static_metadata_type:type_name -> ddex.avs.HdrVideoStaticMetadataType
-	103, // 451: ddex.ern.v432.VideoDeliveryFile.audio_bit_rate:type_name -> ddex.ern.v432.BitRate
-	183, // 452: ddex.ern.v432.VideoDeliveryFile.audio_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
-	133, // 453: ddex.ern.v432.VideoDeliveryFile.file:type_name -> ddex.ern.v432.File
-	134, // 454: ddex.ern.v432.VideoDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	225, // 455: ddex.ern.v432.VideoEdition.type:type_name -> ddex.avs.EditionType
-	205, // 456: ddex.ern.v432.VideoEdition.resource_id:type_name -> ddex.ern.v432.VideoId
-	32,  // 457: ddex.ern.v432.VideoEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
-	157, // 458: ddex.ern.v432.VideoEdition.p_line:type_name -> ddex.ern.v432.PLine
-	104, // 459: ddex.ern.v432.VideoEdition.c_line:type_name -> ddex.ern.v432.CLine
-	226, // 460: ddex.ern.v432.VideoEdition.recording_mode:type_name -> ddex.avs.RecordingMode
-	84,  // 461: ddex.ern.v432.VideoEdition.technical_details:type_name -> ddex.ern.v432.TechnicalVideoDetails
-	221, // 462: ddex.ern.v432.WorkRightsController.rights_control_type:type_name -> ddex.avs.RightsControllerRole
-	232, // 463: ddex.ern.v432.WorkRightsController.rights_controller_type:type_name -> ddex.avs.RightsControllerType
-	100, // 464: ddex.ern.v432.WorkRightsController.territory:type_name -> ddex.ern.v432.AllTerritoryCode
-	233, // 465: ddex.ern.v432.Affiliation.type:type_name -> ddex.avs.AffiliationType
-	200, // 466: ddex.ern.v432.Affiliation.validity_period:type_name -> ddex.ern.v432.ValidityPeriod
-	182, // 467: ddex.ern.v432.Affiliation.rights_type:type_name -> ddex.ern.v432.RightsType
-	234, // 468: ddex.ern.v432.AllTerritoryCode.identifier_type:type_name -> ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes
-	235, // 469: ddex.ern.v432.AspectRatio.aspect_ratio_type:type_name -> ddex.avs.AspectRatioType
-	236, // 470: ddex.ern.v432.BitRate.unit_of_measure:type_name -> ddex.avs.UnitOfBitRate
-	208, // 471: ddex.ern.v432.CLine.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	106, // 472: ddex.ern.v432.ChapterId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	168, // 473: ddex.ern.v432.ChapterId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	111, // 474: ddex.ern.v432.Contributor.role:type_name -> ddex.ern.v432.ContributorRole
-	145, // 475: ddex.ern.v432.Contributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
-	215, // 476: ddex.ern.v432.Contributor.ai_contribution:type_name -> ddex.avs.ContainsAI
-	146, // 477: ddex.ern.v432.Contributor.is_credited:type_name -> ddex.ern.v432.IsCredited
-	126, // 478: ddex.ern.v432.Contributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	112, // 479: ddex.ern.v432.ContributorRole.value:type_name -> ddex.ern.v432.ContributorRoleValue
-	145, // 480: ddex.ern.v432.ContributorRole.instrument_type:type_name -> ddex.ern.v432.InstrumentType
-	208, // 481: ddex.ern.v432.CourtesyLine.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	237, // 482: ddex.ern.v432.CurrentTerritoryCode.identifier_type:type_name -> ddex.avs.TerritoryCodeType
-	155, // 483: ddex.ern.v432.DSP.trading_name:type_name -> ddex.ern.v432.Name
-	142, // 484: ddex.ern.v432.DetailedHashSum.algorithm:type_name -> ddex.ern.v432.HashSumAlgorithmType
-	238, // 485: ddex.ern.v432.DetailedHashSum.data_type:type_name -> ddex.avs.BinaryDataType
-	168, // 486: ddex.ern.v432.DetailedPartyId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	208, // 487: ddex.ern.v432.DisplayArtistNameWithOriginalLanguage.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	208, // 488: ddex.ern.v432.DisplayCredits.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	239, // 489: ddex.ern.v432.DisplaySubTitle.sub_title_type:type_name -> ddex.avs.SubTitleType
-	127, // 490: ddex.ern.v432.DisplayTitle.sub_title:type_name -> ddex.ern.v432.DisplaySubTitle
-	208, // 491: ddex.ern.v432.DisplayTitle.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	216, // 492: ddex.ern.v432.EventDate.applicable_territory_code:type_name -> ddex.avs.AllTerritoryCode
-	216, // 493: ddex.ern.v432.EventDateTime.territory_code:type_name -> ddex.avs.AllTerritoryCode
-	240, // 494: ddex.ern.v432.Extent.unit_of_measure:type_name -> ddex.avs.UnitOfExtent
-	122, // 495: ddex.ern.v432.File.hash_sum:type_name -> ddex.ern.v432.DetailedHashSum
-	135, // 496: ddex.ern.v432.Fingerprint.algorithm:type_name -> ddex.ern.v432.FingerprintAlgorithmType
-	208, // 497: ddex.ern.v432.FirstPublicationDate.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	241, // 498: ddex.ern.v432.FrameRate.unit_of_measure:type_name -> ddex.avs.UnitOfFrameRate
-	208, // 499: ddex.ern.v432.FulfillmentDate.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	140, // 500: ddex.ern.v432.GenreCategory.value:type_name -> ddex.ern.v432.GenreCategoryValue
-	198, // 501: ddex.ern.v432.GenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
-	208, // 502: ddex.ern.v432.GenreCategory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	139, // 503: ddex.ern.v432.GenreWithTerritory.genre_category:type_name -> ddex.ern.v432.GenreCategory
-	192, // 504: ddex.ern.v432.GenreWithTerritory.sub_genre_category:type_name -> ddex.ern.v432.SubGenreCategory
-	208, // 505: ddex.ern.v432.GenreWithTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	208, // 506: ddex.ern.v432.KeywordsWithTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	208, // 507: ddex.ern.v432.MarketingComment.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	151, // 508: ddex.ern.v432.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.ern.v432.MessageAuditTrailEvent
-	153, // 509: ddex.ern.v432.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	153, // 510: ddex.ern.v432.MessageHeader.message_sender:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	153, // 511: ddex.ern.v432.MessageHeader.sent_on_behalf_of:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	153, // 512: ddex.ern.v432.MessageHeader.message_recipient:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	153, // 513: ddex.ern.v432.MessageHeader.sent_as_requested_by:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	150, // 514: ddex.ern.v432.MessageHeader.message_audit_trail:type_name -> ddex.ern.v432.MessageAuditTrail
-	242, // 515: ddex.ern.v432.MessageHeader.message_control_type:type_name -> ddex.avs.MessageControlType
-	160, // 516: ddex.ern.v432.MessagingPartyWithoutCode.party_name:type_name -> ddex.ern.v432.PartyNameWithoutCode
-	168, // 517: ddex.ern.v432.MusicalWorkId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	208, // 518: ddex.ern.v432.PLine.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	208, // 519: ddex.ern.v432.ParentalWarningTypeWithStandard.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	243, // 520: ddex.ern.v432.ParentalWarningTypeWithStandard.parental_warning_standard:type_name -> ddex.avs.ParentalWarningStandard
-	155, // 521: ddex.ern.v432.PartyName.full_name:type_name -> ddex.ern.v432.Name
-	155, // 522: ddex.ern.v432.PartyName.full_name_indexed:type_name -> ddex.ern.v432.Name
-	155, // 523: ddex.ern.v432.PartyName.names_before_key_name:type_name -> ddex.ern.v432.Name
-	155, // 524: ddex.ern.v432.PartyName.key_name:type_name -> ddex.ern.v432.Name
-	155, // 525: ddex.ern.v432.PartyName.names_after_key_name:type_name -> ddex.ern.v432.Name
-	155, // 526: ddex.ern.v432.PartyName.abbreviated_name:type_name -> ddex.ern.v432.Name
-	244, // 527: ddex.ern.v432.Price.currency_code:type_name -> ddex.avs.CurrencyCode
-	161, // 528: ddex.ern.v432.RelatedParty.party_relationship_type:type_name -> ddex.ern.v432.PartyRelationshipType
-	169, // 529: ddex.ern.v432.ResourceContainedResourceReference.purpose:type_name -> ddex.ern.v432.Purpose
-	176, // 530: ddex.ern.v432.ResourceContainedResourceReferenceList.resource_contained_resource_reference:type_name -> ddex.ern.v432.ResourceContainedResourceReference
-	106, // 531: ddex.ern.v432.ResourceId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	168, // 532: ddex.ern.v432.ResourceId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	168, // 533: ddex.ern.v432.ResourceProprietaryId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	245, // 534: ddex.ern.v432.SamplingRate.unit_of_measure:type_name -> ddex.avs.UnitOfFrequency
-	168, // 535: ddex.ern.v432.SheetMusicId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	106, // 536: ddex.ern.v432.SoundRecordingId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	168, // 537: ddex.ern.v432.SoundRecordingId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	193, // 538: ddex.ern.v432.SubGenreCategory.value:type_name -> ddex.ern.v432.SubGenreCategoryValue
-	198, // 539: ddex.ern.v432.SubGenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
-	168, // 540: ddex.ern.v432.TextId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	208, // 541: ddex.ern.v432.TextWithFormat.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	246, // 542: ddex.ern.v432.TextWithFormat.format:type_name -> ddex.avs.TextCodecType
-	208, // 543: ddex.ern.v432.TextWithoutTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	246, // 544: ddex.ern.v432.TextWithoutTerritory.format:type_name -> ddex.avs.TextCodecType
-	164, // 545: ddex.ern.v432.TitleDisplayInformation.prefix:type_name -> ddex.ern.v432.Prefix
-	129, // 546: ddex.ern.v432.ValidityPeriod.start_date:type_name -> ddex.ern.v432.EventDate
-	129, // 547: ddex.ern.v432.ValidityPeriod.end_date:type_name -> ddex.ern.v432.EventDate
-	100, // 548: ddex.ern.v432.Venue.territory_code:type_name -> ddex.ern.v432.AllTerritoryCode
-	106, // 549: ddex.ern.v432.VideoId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	168, // 550: ddex.ern.v432.VideoId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	551, // [551:551] is the sub-list for method output_type
-	551, // [551:551] is the sub-list for method input_type
-	551, // [551:551] is the sub-list for extension type_name
-	551, // [551:551] is the sub-list for extension extendee
-	0,   // [0:551] is the sub-list for field type_name
+	152, // 9: ddex.ern.v432.PurgeReleaseMessage.message_header:type_name -> ddex.ern.v432.MessageHeader
+	50,  // 10: ddex.ern.v432.PurgeReleaseMessage.purged_release:type_name -> ddex.ern.v432.PurgedRelease
+	98,  // 11: ddex.ern.v432.AdministratingRecordCompany.role:type_name -> ddex.ern.v432.AdministratingRecordCompanyRole
+	109, // 12: ddex.ern.v432.AudioDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
+	102, // 13: ddex.ern.v432.AudioDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
+	103, // 14: ddex.ern.v432.AudioDeliveryFile.bit_rate:type_name -> ddex.ern.v432.BitRate
+	103, // 15: ddex.ern.v432.AudioDeliveryFile.original_bit_rate:type_name -> ddex.ern.v432.BitRate
+	183, // 16: ddex.ern.v432.AudioDeliveryFile.sampling_rate:type_name -> ddex.ern.v432.SamplingRate
+	183, // 17: ddex.ern.v432.AudioDeliveryFile.original_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
+	133, // 18: ddex.ern.v432.AudioDeliveryFile.file:type_name -> ddex.ern.v432.File
+	134, // 19: ddex.ern.v432.AudioDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	170, // 20: ddex.ern.v432.AvRating.agency:type_name -> ddex.ern.v432.RatingAgency
+	171, // 21: ddex.ern.v432.AvRating.reason:type_name -> ddex.ern.v432.RatingReason
+	168, // 22: ddex.ern.v432.Channel.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	107, // 23: ddex.ern.v432.Chapter.chapter_id:type_name -> ddex.ern.v432.ChapterId
+	30,  // 24: ddex.ern.v432.Chapter.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 25: ddex.ern.v432.Chapter.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 26: ddex.ern.v432.Chapter.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 27: ddex.ern.v432.Chapter.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	110, // 28: ddex.ern.v432.Chapter.contributor:type_name -> ddex.ern.v432.Contributor
+	9,   // 29: ddex.ern.v432.Chapter.character:type_name -> ddex.ern.v432.Character
+	7,   // 30: ddex.ern.v432.ChapterList.chapter:type_name -> ddex.ern.v432.Chapter
+	110, // 31: ddex.ern.v432.Character.performer:type_name -> ddex.ern.v432.Contributor
+	108, // 32: ddex.ern.v432.ClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
+	58,  // 33: ddex.ern.v432.ClipRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 34: ddex.ern.v432.ClipRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 35: ddex.ern.v432.ClipRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 36: ddex.ern.v432.ClipRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 37: ddex.ern.v432.ClipRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	60,  // 38: ddex.ern.v432.ClipRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
+	141, // 39: ddex.ern.v432.ClipRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
+	53,  // 40: ddex.ern.v432.ClipRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	69,  // 41: ddex.ern.v432.ConditionForRightsClaimPolicy.segment:type_name -> ddex.ern.v432.Segment
+	70,  // 42: ddex.ern.v432.ConditionForRightsClaimPolicy.service_exception:type_name -> ddex.ern.v432.ServiceException
+	117, // 43: ddex.ern.v432.Cue.cue_use_type:type_name -> ddex.ern.v432.CueUseType
+	116, // 44: ddex.ern.v432.Cue.cue_theme_type:type_name -> ddex.ern.v432.CueThemeType
+	119, // 45: ddex.ern.v432.Cue.cue_vocal_type:type_name -> ddex.ern.v432.CueVocalType
+	118, // 46: ddex.ern.v432.Cue.cue_visual_perception_type:type_name -> ddex.ern.v432.CueVisualPerceptionType
+	114, // 47: ddex.ern.v432.Cue.cue_origin:type_name -> ddex.ern.v432.CueOrigin
+	30,  // 48: ddex.ern.v432.Cue.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 49: ddex.ern.v432.Cue.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 50: ddex.ern.v432.Cue.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 51: ddex.ern.v432.Cue.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	110, // 52: ddex.ern.v432.Cue.contributor:type_name -> ddex.ern.v432.Contributor
+	157, // 53: ddex.ern.v432.Cue.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 54: ddex.ern.v432.Cue.c_line:type_name -> ddex.ern.v432.CLine
+	168, // 55: ddex.ern.v432.CueSheet.cue_sheet_id:type_name -> ddex.ern.v432.ProprietaryId
+	115, // 56: ddex.ern.v432.CueSheet.cue_sheet_type:type_name -> ddex.ern.v432.CueSheetType
+	15,  // 57: ddex.ern.v432.CueSheet.cue:type_name -> ddex.ern.v432.Cue
+	16,  // 58: ddex.ern.v432.CueSheetList.cue_sheet:type_name -> ddex.ern.v432.CueSheet
+	22,  // 59: ddex.ern.v432.Deal.deal_terms:type_name -> ddex.ern.v432.DealTerms
+	21,  // 60: ddex.ern.v432.Deal.deal_technical_resource_details_reference_list:type_name -> ddex.ern.v432.DealTechnicalResourceDetailsReferenceList
+	31,  // 61: ddex.ern.v432.Deal.distribution_channel_page:type_name -> ddex.ern.v432.DistributionChannelPage
+	57,  // 62: ddex.ern.v432.DealList.release_deal:type_name -> ddex.ern.v432.ReleaseDeal
+	62,  // 63: ddex.ern.v432.DealList.release_visibility:type_name -> ddex.ern.v432.ReleaseVisibility
+	89,  // 64: ddex.ern.v432.DealList.track_release_visibility:type_name -> ddex.ern.v432.TrackReleaseVisibility
+	46,  // 65: ddex.ern.v432.DealTerms.validity_period:type_name -> ddex.ern.v432.PeriodWithStartDate
+	12,  // 66: ddex.ern.v432.DealTerms.commercial_model_type:type_name -> ddex.ern.v432.CommercialModelType
+	28,  // 67: ddex.ern.v432.DealTerms.use_type:type_name -> ddex.ern.v432.DiscoverableUseType
+	91,  // 68: ddex.ern.v432.DealTerms.user_interface_type:type_name -> ddex.ern.v432.UserInterfaceType
+	105, // 69: ddex.ern.v432.DealTerms.carrier_type:type_name -> ddex.ern.v432.CarrierType
+	23,  // 70: ddex.ern.v432.DealTerms.technical_instantiation:type_name -> ddex.ern.v432.DealTermsTechnicalInstantiation
+	68,  // 71: ddex.ern.v432.DealTerms.rights_claim_policy:type_name -> ddex.ern.v432.RightsClaimPolicy
+	49,  // 72: ddex.ern.v432.DealTerms.price_information:type_name -> ddex.ern.v432.PriceInformation
+	20,  // 73: ddex.ern.v432.DealTerms.instant_gratification_resource_list:type_name -> ddex.ern.v432.DealResourceReferenceList
+	48,  // 74: ddex.ern.v432.DealTerms.physical_returns:type_name -> ddex.ern.v432.PhysicalReturns
+	204, // 75: ddex.ern.v432.DealTermsTechnicalInstantiation.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
+	103, // 76: ddex.ern.v432.DealTermsTechnicalInstantiation.bit_rate:type_name -> ddex.ern.v432.BitRate
+	90,  // 77: ddex.ern.v432.DelegatedUsageRights.use_type:type_name -> ddex.ern.v432.UseType
+	163, // 78: ddex.ern.v432.DelegatedUsageRights.period_of_rights_delegation:type_name -> ddex.ern.v432.Period
+	100, // 79: ddex.ern.v432.DelegatedUsageRights.territory_of_rights_delegation:type_name -> ddex.ern.v432.AllTerritoryCode
+	111, // 80: ddex.ern.v432.DetailedResourceContributor.role:type_name -> ddex.ern.v432.ContributorRole
+	145, // 81: ddex.ern.v432.DetailedResourceContributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
+	126, // 82: ddex.ern.v432.DetailedResourceContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	111, // 83: ddex.ern.v432.DisplayArtist.artistic_role:type_name -> ddex.ern.v432.ContributorRole
+	199, // 84: ddex.ern.v432.DisplayArtist.title_display_information:type_name -> ddex.ern.v432.TitleDisplayInformation
+	126, // 85: ddex.ern.v432.DisplayArtist.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	123, // 86: ddex.ern.v432.DistributionChannelPage.party_id:type_name -> ddex.ern.v432.DetailedPartyId
+	155, // 87: ddex.ern.v432.DistributionChannelPage.page_name:type_name -> ddex.ern.v432.Name
+	111, // 88: ddex.ern.v432.EditionContributor.role:type_name -> ddex.ern.v432.ContributorRole
+	146, // 89: ddex.ern.v432.EditionContributor.is_credited:type_name -> ddex.ern.v432.IsCredited
+	126, // 90: ddex.ern.v432.EditionContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	47,  // 91: ddex.ern.v432.ExternalResourceLink.validity_period:type_name -> ddex.ern.v432.PeriodWithoutFlags
+	132, // 92: ddex.ern.v432.ExternalResourceLink.externally_linked_resource_type:type_name -> ddex.ern.v432.ExternallyLinkedResourceType
+	144, // 93: ddex.ern.v432.Image.type:type_name -> ddex.ern.v432.ImageType
+	180, // 94: ddex.ern.v432.Image.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
+	30,  // 95: ddex.ern.v432.Image.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 96: ddex.ern.v432.Image.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 97: ddex.ern.v432.Image.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 98: ddex.ern.v432.Image.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 99: ddex.ern.v432.Image.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 100: ddex.ern.v432.Image.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 101: ddex.ern.v432.Image.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 102: ddex.ern.v432.Image.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 103: ddex.ern.v432.Image.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 104: ddex.ern.v432.Image.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	104, // 105: ddex.ern.v432.Image.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 106: ddex.ern.v432.Image.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 107: ddex.ern.v432.Image.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 108: ddex.ern.v432.Image.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 109: ddex.ern.v432.Image.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 110: ddex.ern.v432.Image.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 111: ddex.ern.v432.Image.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	26,  // 112: ddex.ern.v432.Image.description:type_name -> ddex.ern.v432.DescriptionWithTerritory
+	79,  // 113: ddex.ern.v432.Image.technical_details:type_name -> ddex.ern.v432.TechnicalImageDetails
+	184, // 114: ddex.ern.v432.LocationAndDateOfSession.session_type:type_name -> ddex.ern.v432.SessionType
+	163, // 115: ddex.ern.v432.LocationAndDateOfSession.period:type_name -> ddex.ern.v432.Period
+	201, // 116: ddex.ern.v432.LocationAndDateOfSession.venue:type_name -> ddex.ern.v432.Venue
+	197, // 117: ddex.ern.v432.LocationAndDateOfSession.comment:type_name -> ddex.ern.v432.TextWithFormat
+	45,  // 118: ddex.ern.v432.LocationAndDateOfSession.contributor:type_name -> ddex.ern.v432.PartyWithRole
+	99,  // 119: ddex.ern.v432.Party.affiliation:type_name -> ddex.ern.v432.Affiliation
+	173, // 120: ddex.ern.v432.Party.related_party:type_name -> ddex.ern.v432.RelatedParty
+	42,  // 121: ddex.ern.v432.PartyList.party:type_name -> ddex.ern.v432.Party
+	5,   // 122: ddex.ern.v432.PartyList.brand:type_name -> ddex.ern.v432.Brand
+	155, // 123: ddex.ern.v432.PartyNameWithTerritory.full_name:type_name -> ddex.ern.v432.Name
+	155, // 124: ddex.ern.v432.PartyNameWithTerritory.full_name_indexed:type_name -> ddex.ern.v432.Name
+	155, // 125: ddex.ern.v432.PartyNameWithTerritory.names_before_key_name:type_name -> ddex.ern.v432.Name
+	155, // 126: ddex.ern.v432.PartyNameWithTerritory.key_name:type_name -> ddex.ern.v432.Name
+	155, // 127: ddex.ern.v432.PartyNameWithTerritory.names_after_key_name:type_name -> ddex.ern.v432.Name
+	155, // 128: ddex.ern.v432.PartyNameWithTerritory.abbreviated_name:type_name -> ddex.ern.v432.Name
+	168, // 129: ddex.ern.v432.PartyWithRole.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	44,  // 130: ddex.ern.v432.PartyWithRole.party_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
+	178, // 131: ddex.ern.v432.PartyWithRole.role:type_name -> ddex.ern.v432.ResourceContributorRole
+	166, // 132: ddex.ern.v432.PriceInformation.price_code:type_name -> ddex.ern.v432.PriceType
+	165, // 133: ddex.ern.v432.PriceInformation.wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
+	165, // 134: ddex.ern.v432.PriceInformation.bulk_order_wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
+	165, // 135: ddex.ern.v432.PriceInformation.suggested_retail_price:type_name -> ddex.ern.v432.Price
+	58,  // 136: ddex.ern.v432.PurgedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	87,  // 137: ddex.ern.v432.PurgedRelease.title:type_name -> ddex.ern.v432.Title
+	27,  // 138: ddex.ern.v432.PurgedRelease.contributor:type_name -> ddex.ern.v432.DetailedResourceContributor
+	174, // 139: ddex.ern.v432.RelatedRelease.release_relationship_type:type_name -> ddex.ern.v432.ReleaseRelationshipType
+	58,  // 140: ddex.ern.v432.RelatedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 141: ddex.ern.v432.RelatedRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 142: ddex.ern.v432.RelatedRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 143: ddex.ern.v432.RelatedRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 144: ddex.ern.v432.RelatedRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	124, // 145: ddex.ern.v432.RelatedRelease.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	59,  // 146: ddex.ern.v432.RelatedRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReference
+	36,  // 147: ddex.ern.v432.RelatedRelease.release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 148: ddex.ern.v432.RelatedRelease.original_release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	86,  // 149: ddex.ern.v432.RelatedResource.timing:type_name -> ddex.ern.v432.Timing
+	175, // 150: ddex.ern.v432.Release.release_type:type_name -> ddex.ern.v432.ReleaseTypeForReleaseNotification
+	58,  // 151: ddex.ern.v432.Release.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 152: ddex.ern.v432.Release.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 153: ddex.ern.v432.Release.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 154: ddex.ern.v432.Release.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 155: ddex.ern.v432.Release.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 156: ddex.ern.v432.Release.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 157: ddex.ern.v432.Release.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 158: ddex.ern.v432.Release.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	60,  // 159: ddex.ern.v432.Release.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
+	2,   // 160: ddex.ern.v432.Release.administrating_record_company:type_name -> ddex.ern.v432.AdministratingRecordCompany
+	157, // 161: ddex.ern.v432.Release.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 162: ddex.ern.v432.Release.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 163: ddex.ern.v432.Release.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	141, // 164: ddex.ern.v432.Release.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
+	35,  // 165: ddex.ern.v432.Release.release_date:type_name -> ddex.ern.v432.EventDateWithDefault
+	35,  // 166: ddex.ern.v432.Release.original_release_date:type_name -> ddex.ern.v432.EventDateWithDefault
+	158, // 167: ddex.ern.v432.Release.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	4,   // 168: ddex.ern.v432.Release.av_rating:type_name -> ddex.ern.v432.AvRating
+	53,  // 169: ddex.ern.v432.Release.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 170: ddex.ern.v432.Release.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	63,  // 171: ddex.ern.v432.Release.resource_group:type_name -> ddex.ern.v432.ResourceGroup
+	37,  // 172: ddex.ern.v432.Release.external_resource_link:type_name -> ddex.ern.v432.ExternalResourceLink
+	147, // 173: ddex.ern.v432.Release.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
+	77,  // 174: ddex.ern.v432.Release.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
+	51,  // 175: ddex.ern.v432.Release.raga:type_name -> ddex.ern.v432.Raga
+	78,  // 176: ddex.ern.v432.Release.tala:type_name -> ddex.ern.v432.Tala
+	24,  // 177: ddex.ern.v432.Release.deity:type_name -> ddex.ern.v432.Deity
+	149, // 178: ddex.ern.v432.Release.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
+	18,  // 179: ddex.ern.v432.ReleaseDeal.deal:type_name -> ddex.ern.v432.Deal
+	106, // 180: ddex.ern.v432.ReleaseId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 181: ddex.ern.v432.ReleaseId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	55,  // 182: ddex.ern.v432.ReleaseList.release:type_name -> ddex.ern.v432.Release
+	88,  // 183: ddex.ern.v432.ReleaseList.track_release:type_name -> ddex.ern.v432.TrackRelease
+	11,  // 184: ddex.ern.v432.ReleaseList.clip_release:type_name -> ddex.ern.v432.ClipRelease
+	30,  // 185: ddex.ern.v432.ResourceGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 186: ddex.ern.v432.ResourceGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 187: ddex.ern.v432.ResourceGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 188: ddex.ern.v432.ResourceGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	29,  // 189: ddex.ern.v432.ResourceGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	105, // 190: ddex.ern.v432.ResourceGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
+	67,  // 191: ddex.ern.v432.ResourceGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
+	64,  // 192: ddex.ern.v432.ResourceGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
+	40,  // 193: ddex.ern.v432.ResourceGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	40,  // 194: ddex.ern.v432.ResourceGroupContentItem.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	73,  // 195: ddex.ern.v432.ResourceList.sound_recording:type_name -> ddex.ern.v432.SoundRecording
+	92,  // 196: ddex.ern.v432.ResourceList.video:type_name -> ddex.ern.v432.Video
+	39,  // 197: ddex.ern.v432.ResourceList.image:type_name -> ddex.ern.v432.Image
+	85,  // 198: ddex.ern.v432.ResourceList.text:type_name -> ddex.ern.v432.Text
+	71,  // 199: ddex.ern.v432.ResourceList.sheet_music:type_name -> ddex.ern.v432.SheetMusic
+	72,  // 200: ddex.ern.v432.ResourceList.software:type_name -> ddex.ern.v432.Software
+	25,  // 201: ddex.ern.v432.ResourceRightsController.delegated_usage_rights:type_name -> ddex.ern.v432.DelegatedUsageRights
+	30,  // 202: ddex.ern.v432.ResourceSubGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 203: ddex.ern.v432.ResourceSubGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 204: ddex.ern.v432.ResourceSubGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 205: ddex.ern.v432.ResourceSubGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	29,  // 206: ddex.ern.v432.ResourceSubGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	105, // 207: ddex.ern.v432.ResourceSubGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
+	67,  // 208: ddex.ern.v432.ResourceSubGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
+	64,  // 209: ddex.ern.v432.ResourceSubGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
+	40,  // 210: ddex.ern.v432.ResourceSubGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	13,  // 211: ddex.ern.v432.RightsClaimPolicy.condition:type_name -> ddex.ern.v432.ConditionForRightsClaimPolicy
+	181, // 212: ddex.ern.v432.RightsClaimPolicy.rights_claim_policy_reason:type_name -> ddex.ern.v432.RightsClaimPolicyReason
+	155, // 213: ddex.ern.v432.ServiceException.trading_name:type_name -> ddex.ern.v432.Name
+	6,   // 214: ddex.ern.v432.ServiceException.channel:type_name -> ddex.ern.v432.Channel
+	187, // 215: ddex.ern.v432.SheetMusic.type:type_name -> ddex.ern.v432.SheetMusicType
+	186, // 216: ddex.ern.v432.SheetMusic.resource_id:type_name -> ddex.ern.v432.SheetMusicId
+	154, // 217: ddex.ern.v432.SheetMusic.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 218: ddex.ern.v432.SheetMusic.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 219: ddex.ern.v432.SheetMusic.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 220: ddex.ern.v432.SheetMusic.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 221: ddex.ern.v432.SheetMusic.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 222: ddex.ern.v432.SheetMusic.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 223: ddex.ern.v432.SheetMusic.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 224: ddex.ern.v432.SheetMusic.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 225: ddex.ern.v432.SheetMusic.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 226: ddex.ern.v432.SheetMusic.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 227: ddex.ern.v432.SheetMusic.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	104, // 228: ddex.ern.v432.SheetMusic.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 229: ddex.ern.v432.SheetMusic.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 230: ddex.ern.v432.SheetMusic.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 231: ddex.ern.v432.SheetMusic.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 232: ddex.ern.v432.SheetMusic.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 233: ddex.ern.v432.SheetMusic.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 234: ddex.ern.v432.SheetMusic.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	177, // 235: ddex.ern.v432.SheetMusic.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	80,  // 236: ddex.ern.v432.SheetMusic.technical_details:type_name -> ddex.ern.v432.TechnicalSheetMusicDetails
+	188, // 237: ddex.ern.v432.Software.type:type_name -> ddex.ern.v432.SoftwareType
+	180, // 238: ddex.ern.v432.Software.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
+	154, // 239: ddex.ern.v432.Software.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 240: ddex.ern.v432.Software.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 241: ddex.ern.v432.Software.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 242: ddex.ern.v432.Software.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 243: ddex.ern.v432.Software.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 244: ddex.ern.v432.Software.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 245: ddex.ern.v432.Software.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 246: ddex.ern.v432.Software.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 247: ddex.ern.v432.Software.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 248: ddex.ern.v432.Software.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 249: ddex.ern.v432.Software.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	157, // 250: ddex.ern.v432.Software.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 251: ddex.ern.v432.Software.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 252: ddex.ern.v432.Software.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 253: ddex.ern.v432.Software.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 254: ddex.ern.v432.Software.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 255: ddex.ern.v432.Software.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 256: ddex.ern.v432.Software.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 257: ddex.ern.v432.Software.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	177, // 258: ddex.ern.v432.Software.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	81,  // 259: ddex.ern.v432.Software.technical_details:type_name -> ddex.ern.v432.TechnicalSoftwareDetails
+	190, // 260: ddex.ern.v432.SoundRecording.type:type_name -> ddex.ern.v432.SoundRecordingType
+	75,  // 261: ddex.ern.v432.SoundRecording.sound_recording_edition:type_name -> ddex.ern.v432.SoundRecordingEdition
+	52,  // 262: ddex.ern.v432.SoundRecording.recording_format:type_name -> ddex.ern.v432.RecordingFormat
+	154, // 263: ddex.ern.v432.SoundRecording.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 264: ddex.ern.v432.SoundRecording.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 265: ddex.ern.v432.SoundRecording.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 266: ddex.ern.v432.SoundRecording.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 267: ddex.ern.v432.SoundRecording.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 268: ddex.ern.v432.SoundRecording.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 269: ddex.ern.v432.SoundRecording.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 270: ddex.ern.v432.SoundRecording.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 271: ddex.ern.v432.SoundRecording.contributor:type_name -> ddex.ern.v432.Contributor
+	9,   // 272: ddex.ern.v432.SoundRecording.character:type_name -> ddex.ern.v432.Character
+	66,  // 273: ddex.ern.v432.SoundRecording.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 274: ddex.ern.v432.SoundRecording.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	113, // 275: ddex.ern.v432.SoundRecording.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 276: ddex.ern.v432.SoundRecording.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 277: ddex.ern.v432.SoundRecording.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 278: ddex.ern.v432.SoundRecording.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	136, // 279: ddex.ern.v432.SoundRecording.first_publication_date:type_name -> ddex.ern.v432.FirstPublicationDate
+	41,  // 280: ddex.ern.v432.SoundRecording.location_and_date_of_session:type_name -> ddex.ern.v432.LocationAndDateOfSession
+	158, // 281: ddex.ern.v432.SoundRecording.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 282: ddex.ern.v432.SoundRecording.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 283: ddex.ern.v432.SoundRecording.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	126, // 284: ddex.ern.v432.SoundRecording.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	148, // 285: ddex.ern.v432.SoundRecording.language_of_performance:type_name -> ddex.ern.v432.Language
+	51,  // 286: ddex.ern.v432.SoundRecording.raga:type_name -> ddex.ern.v432.Raga
+	78,  // 287: ddex.ern.v432.SoundRecording.tala:type_name -> ddex.ern.v432.Tala
+	24,  // 288: ddex.ern.v432.SoundRecording.deity:type_name -> ddex.ern.v432.Deity
+	108, // 289: ddex.ern.v432.SoundRecordingClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
+	86,  // 290: ddex.ern.v432.SoundRecordingClipDetails.timing:type_name -> ddex.ern.v432.Timing
+	3,   // 291: ddex.ern.v432.SoundRecordingClipDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
+	189, // 292: ddex.ern.v432.SoundRecordingEdition.resource_id:type_name -> ddex.ern.v432.SoundRecordingId
+	32,  // 293: ddex.ern.v432.SoundRecordingEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
+	157, // 294: ddex.ern.v432.SoundRecordingEdition.p_line:type_name -> ddex.ern.v432.PLine
+	82,  // 295: ddex.ern.v432.SoundRecordingEdition.technical_details:type_name -> ddex.ern.v432.TechnicalSoundRecordingDetails
+	133, // 296: ddex.ern.v432.SupplementalDocumentList.supplemental_document:type_name -> ddex.ern.v432.File
+	143, // 297: ddex.ern.v432.TechnicalImageDetails.image_codec_type:type_name -> ddex.ern.v432.ImageCodecType
+	131, // 298: ddex.ern.v432.TechnicalImageDetails.image_height:type_name -> ddex.ern.v432.Extent
+	131, // 299: ddex.ern.v432.TechnicalImageDetails.image_width:type_name -> ddex.ern.v432.Extent
+	101, // 300: ddex.ern.v432.TechnicalImageDetails.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
+	10,  // 301: ddex.ern.v432.TechnicalImageDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 302: ddex.ern.v432.TechnicalImageDetails.file:type_name -> ddex.ern.v432.File
+	134, // 303: ddex.ern.v432.TechnicalImageDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	185, // 304: ddex.ern.v432.TechnicalSheetMusicDetails.sheet_music_codec_type:type_name -> ddex.ern.v432.SheetMusicCodecType
+	10,  // 305: ddex.ern.v432.TechnicalSheetMusicDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 306: ddex.ern.v432.TechnicalSheetMusicDetails.file:type_name -> ddex.ern.v432.File
+	134, // 307: ddex.ern.v432.TechnicalSheetMusicDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	156, // 308: ddex.ern.v432.TechnicalSoftwareDetails.operating_system_type:type_name -> ddex.ern.v432.OperatingSystemType
+	10,  // 309: ddex.ern.v432.TechnicalSoftwareDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 310: ddex.ern.v432.TechnicalSoftwareDetails.file:type_name -> ddex.ern.v432.File
+	134, // 311: ddex.ern.v432.TechnicalSoftwareDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	3,   // 312: ddex.ern.v432.TechnicalSoundRecordingDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
+	74,  // 313: ddex.ern.v432.TechnicalSoundRecordingDetails.clip_details:type_name -> ddex.ern.v432.SoundRecordingClipDetails
+	194, // 314: ddex.ern.v432.TechnicalTextDetails.text_codec_type:type_name -> ddex.ern.v432.TextCodecType
+	10,  // 315: ddex.ern.v432.TechnicalTextDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 316: ddex.ern.v432.TechnicalTextDetails.file:type_name -> ddex.ern.v432.File
+	134, // 317: ddex.ern.v432.TechnicalTextDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	103, // 318: ddex.ern.v432.TechnicalVideoDetails.overall_bit_rate:type_name -> ddex.ern.v432.BitRate
+	94,  // 319: ddex.ern.v432.TechnicalVideoDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
+	93,  // 320: ddex.ern.v432.TechnicalVideoDetails.clip_details:type_name -> ddex.ern.v432.VideoClipDetails
+	196, // 321: ddex.ern.v432.Text.type:type_name -> ddex.ern.v432.TextType
+	195, // 322: ddex.ern.v432.Text.resource_id:type_name -> ddex.ern.v432.TextId
+	154, // 323: ddex.ern.v432.Text.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 324: ddex.ern.v432.Text.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 325: ddex.ern.v432.Text.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 326: ddex.ern.v432.Text.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 327: ddex.ern.v432.Text.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 328: ddex.ern.v432.Text.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 329: ddex.ern.v432.Text.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 330: ddex.ern.v432.Text.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 331: ddex.ern.v432.Text.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 332: ddex.ern.v432.Text.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 333: ddex.ern.v432.Text.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	104, // 334: ddex.ern.v432.Text.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 335: ddex.ern.v432.Text.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 336: ddex.ern.v432.Text.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 337: ddex.ern.v432.Text.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 338: ddex.ern.v432.Text.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 339: ddex.ern.v432.Text.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 340: ddex.ern.v432.Text.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	177, // 341: ddex.ern.v432.Text.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	83,  // 342: ddex.ern.v432.Text.technical_details:type_name -> ddex.ern.v432.TechnicalTextDetails
+	148, // 343: ddex.ern.v432.Text.language_of_text:type_name -> ddex.ern.v432.Language
+	58,  // 344: ddex.ern.v432.TrackRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 345: ddex.ern.v432.TrackRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 346: ddex.ern.v432.TrackRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 347: ddex.ern.v432.TrackRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 348: ddex.ern.v432.TrackRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	40,  // 349: ddex.ern.v432.TrackRelease.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	60,  // 350: ddex.ern.v432.TrackRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
+	141, // 351: ddex.ern.v432.TrackRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
+	53,  // 352: ddex.ern.v432.TrackRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 353: ddex.ern.v432.TrackRelease.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	147, // 354: ddex.ern.v432.TrackRelease.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
+	77,  // 355: ddex.ern.v432.TrackRelease.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
+	149, // 356: ddex.ern.v432.TrackRelease.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
+	96,  // 357: ddex.ern.v432.Video.type:type_name -> ddex.ern.v432.VideoType
+	95,  // 358: ddex.ern.v432.Video.video_edition:type_name -> ddex.ern.v432.VideoEdition
+	52,  // 359: ddex.ern.v432.Video.recording_format:type_name -> ddex.ern.v432.RecordingFormat
+	154, // 360: ddex.ern.v432.Video.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 361: ddex.ern.v432.Video.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 362: ddex.ern.v432.Video.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 363: ddex.ern.v432.Video.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 364: ddex.ern.v432.Video.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 365: ddex.ern.v432.Video.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 366: ddex.ern.v432.Video.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 367: ddex.ern.v432.Video.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 368: ddex.ern.v432.Video.contributor:type_name -> ddex.ern.v432.Contributor
+	9,   // 369: ddex.ern.v432.Video.character:type_name -> ddex.ern.v432.Character
+	66,  // 370: ddex.ern.v432.Video.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 371: ddex.ern.v432.Video.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	113, // 372: ddex.ern.v432.Video.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 373: ddex.ern.v432.Video.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 374: ddex.ern.v432.Video.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 375: ddex.ern.v432.Video.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 376: ddex.ern.v432.Video.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 377: ddex.ern.v432.Video.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	4,   // 378: ddex.ern.v432.Video.av_rating:type_name -> ddex.ern.v432.AvRating
+	53,  // 379: ddex.ern.v432.Video.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 380: ddex.ern.v432.Video.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	126, // 381: ddex.ern.v432.Video.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	148, // 382: ddex.ern.v432.Video.language_of_performance:type_name -> ddex.ern.v432.Language
+	177, // 383: ddex.ern.v432.Video.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	108, // 384: ddex.ern.v432.VideoClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
+	86,  // 385: ddex.ern.v432.VideoClipDetails.timing:type_name -> ddex.ern.v432.Timing
+	94,  // 386: ddex.ern.v432.VideoClipDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
+	109, // 387: ddex.ern.v432.VideoDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
+	203, // 388: ddex.ern.v432.VideoDeliveryFile.video_codec_type:type_name -> ddex.ern.v432.VideoCodecType
+	103, // 389: ddex.ern.v432.VideoDeliveryFile.video_bit_rate:type_name -> ddex.ern.v432.BitRate
+	137, // 390: ddex.ern.v432.VideoDeliveryFile.frame_rate:type_name -> ddex.ern.v432.FrameRate
+	131, // 391: ddex.ern.v432.VideoDeliveryFile.image_height:type_name -> ddex.ern.v432.Extent
+	131, // 392: ddex.ern.v432.VideoDeliveryFile.image_width:type_name -> ddex.ern.v432.Extent
+	101, // 393: ddex.ern.v432.VideoDeliveryFile.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
+	14,  // 394: ddex.ern.v432.VideoDeliveryFile.core_area:type_name -> ddex.ern.v432.CoreArea
+	204, // 395: ddex.ern.v432.VideoDeliveryFile.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
+	102, // 396: ddex.ern.v432.VideoDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
+	38,  // 397: ddex.ern.v432.VideoDeliveryFile.hdr_video_dynamic_metadata_type:type_name -> ddex.ern.v432.HdrVideoDynamicMetadataType
+	103, // 398: ddex.ern.v432.VideoDeliveryFile.audio_bit_rate:type_name -> ddex.ern.v432.BitRate
+	183, // 399: ddex.ern.v432.VideoDeliveryFile.audio_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
+	133, // 400: ddex.ern.v432.VideoDeliveryFile.file:type_name -> ddex.ern.v432.File
+	134, // 401: ddex.ern.v432.VideoDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	205, // 402: ddex.ern.v432.VideoEdition.resource_id:type_name -> ddex.ern.v432.VideoId
+	32,  // 403: ddex.ern.v432.VideoEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
+	157, // 404: ddex.ern.v432.VideoEdition.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 405: ddex.ern.v432.VideoEdition.c_line:type_name -> ddex.ern.v432.CLine
+	84,  // 406: ddex.ern.v432.VideoEdition.technical_details:type_name -> ddex.ern.v432.TechnicalVideoDetails
+	100, // 407: ddex.ern.v432.WorkRightsController.territory:type_name -> ddex.ern.v432.AllTerritoryCode
+	200, // 408: ddex.ern.v432.Affiliation.validity_period:type_name -> ddex.ern.v432.ValidityPeriod
+	182, // 409: ddex.ern.v432.Affiliation.rights_type:type_name -> ddex.ern.v432.RightsType
+	106, // 410: ddex.ern.v432.ChapterId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 411: ddex.ern.v432.ChapterId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	111, // 412: ddex.ern.v432.Contributor.role:type_name -> ddex.ern.v432.ContributorRole
+	145, // 413: ddex.ern.v432.Contributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
+	146, // 414: ddex.ern.v432.Contributor.is_credited:type_name -> ddex.ern.v432.IsCredited
+	126, // 415: ddex.ern.v432.Contributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	112, // 416: ddex.ern.v432.ContributorRole.value:type_name -> ddex.ern.v432.ContributorRoleValue
+	145, // 417: ddex.ern.v432.ContributorRole.instrument_type:type_name -> ddex.ern.v432.InstrumentType
+	155, // 418: ddex.ern.v432.DSP.trading_name:type_name -> ddex.ern.v432.Name
+	142, // 419: ddex.ern.v432.DetailedHashSum.algorithm:type_name -> ddex.ern.v432.HashSumAlgorithmType
+	168, // 420: ddex.ern.v432.DetailedPartyId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	127, // 421: ddex.ern.v432.DisplayTitle.sub_title:type_name -> ddex.ern.v432.DisplaySubTitle
+	122, // 422: ddex.ern.v432.File.hash_sum:type_name -> ddex.ern.v432.DetailedHashSum
+	135, // 423: ddex.ern.v432.Fingerprint.algorithm:type_name -> ddex.ern.v432.FingerprintAlgorithmType
+	140, // 424: ddex.ern.v432.GenreCategory.value:type_name -> ddex.ern.v432.GenreCategoryValue
+	198, // 425: ddex.ern.v432.GenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
+	139, // 426: ddex.ern.v432.GenreWithTerritory.genre_category:type_name -> ddex.ern.v432.GenreCategory
+	192, // 427: ddex.ern.v432.GenreWithTerritory.sub_genre_category:type_name -> ddex.ern.v432.SubGenreCategory
+	151, // 428: ddex.ern.v432.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.ern.v432.MessageAuditTrailEvent
+	153, // 429: ddex.ern.v432.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 430: ddex.ern.v432.MessageHeader.message_sender:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 431: ddex.ern.v432.MessageHeader.sent_on_behalf_of:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 432: ddex.ern.v432.MessageHeader.message_recipient:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 433: ddex.ern.v432.MessageHeader.sent_as_requested_by:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	150, // 434: ddex.ern.v432.MessageHeader.message_audit_trail:type_name -> ddex.ern.v432.MessageAuditTrail
+	160, // 435: ddex.ern.v432.MessagingPartyWithoutCode.party_name:type_name -> ddex.ern.v432.PartyNameWithoutCode
+	168, // 436: ddex.ern.v432.MusicalWorkId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	155, // 437: ddex.ern.v432.PartyName.full_name:type_name -> ddex.ern.v432.Name
+	155, // 438: ddex.ern.v432.PartyName.full_name_indexed:type_name -> ddex.ern.v432.Name
+	155, // 439: ddex.ern.v432.PartyName.names_before_key_name:type_name -> ddex.ern.v432.Name
+	155, // 440: ddex.ern.v432.PartyName.key_name:type_name -> ddex.ern.v432.Name
+	155, // 441: ddex.ern.v432.PartyName.names_after_key_name:type_name -> ddex.ern.v432.Name
+	155, // 442: ddex.ern.v432.PartyName.abbreviated_name:type_name -> ddex.ern.v432.Name
+	161, // 443: ddex.ern.v432.RelatedParty.party_relationship_type:type_name -> ddex.ern.v432.PartyRelationshipType
+	169, // 444: ddex.ern.v432.ResourceContainedResourceReference.purpose:type_name -> ddex.ern.v432.Purpose
+	176, // 445: ddex.ern.v432.ResourceContainedResourceReferenceList.resource_contained_resource_reference:type_name -> ddex.ern.v432.ResourceContainedResourceReference
+	106, // 446: ddex.ern.v432.ResourceId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 447: ddex.ern.v432.ResourceId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	168, // 448: ddex.ern.v432.ResourceProprietaryId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	168, // 449: ddex.ern.v432.SheetMusicId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	106, // 450: ddex.ern.v432.SoundRecordingId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 451: ddex.ern.v432.SoundRecordingId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	193, // 452: ddex.ern.v432.SubGenreCategory.value:type_name -> ddex.ern.v432.SubGenreCategoryValue
+	198, // 453: ddex.ern.v432.SubGenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
+	168, // 454: ddex.ern.v432.TextId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	164, // 455: ddex.ern.v432.TitleDisplayInformation.prefix:type_name -> ddex.ern.v432.Prefix
+	129, // 456: ddex.ern.v432.ValidityPeriod.start_date:type_name -> ddex.ern.v432.EventDate
+	129, // 457: ddex.ern.v432.ValidityPeriod.end_date:type_name -> ddex.ern.v432.EventDate
+	100, // 458: ddex.ern.v432.Venue.territory_code:type_name -> ddex.ern.v432.AllTerritoryCode
+	106, // 459: ddex.ern.v432.VideoId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 460: ddex.ern.v432.VideoId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	461, // [461:461] is the sub-list for method output_type
+	461, // [461:461] is the sub-list for method input_type
+	461, // [461:461] is the sub-list for extension type_name
+	461, // [461:461] is the sub-list for extension extendee
+	0,   // [0:461] is the sub-list for field type_name
 }
 
 func init() { file_ddex_ern_v432_v432_proto_init() }

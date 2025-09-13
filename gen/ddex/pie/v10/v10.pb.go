@@ -7,7 +7,7 @@
 package v10
 
 import (
-	avs "github.com/alecsavvy/ddex-go/gen/ddex/avs"
+	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1133,7 +1133,7 @@ type Focus struct {
 	// @gotags: xml:"PeriodOfBeingFocus"
 	PeriodOfBeingFocus []*PeriodWithTime `protobuf:"bytes,9,rep,name=period_of_being_focus,json=periodOfBeingFocus,proto3" json:"period_of_being_focus,omitempty" xml:"PeriodOfBeingFocus"`
 	// @gotags: xml:"TerritoryOfBeingFocusTrackDescription"
-	TerritoryOfBeingFocusTrackDescription []avs.CurrentTerritoryCode `protobuf:"varint,10,rep,packed,name=territory_of_being_focus_track_description,json=territoryOfBeingFocusTrackDescription,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"territory_of_being_focus_track_description,omitempty" xml:"TerritoryOfBeingFocusTrackDescription"`
+	TerritoryOfBeingFocusTrackDescription []string `protobuf:"bytes,10,rep,name=territory_of_being_focus_track_description,json=territoryOfBeingFocusTrackDescription,proto3" json:"territory_of_being_focus_track_description,omitempty" xml:"TerritoryOfBeingFocusTrackDescription"`
 	// @gotags: xml:"Comment"
 	Comment []*TextWithoutTerritory `protobuf:"bytes,11,rep,name=comment,proto3" json:"comment,omitempty" xml:"Comment"`
 	// @gotags: xml:"IsDefault,attr"
@@ -1235,7 +1235,7 @@ func (x *Focus) GetPeriodOfBeingFocus() []*PeriodWithTime {
 	return nil
 }
 
-func (x *Focus) GetTerritoryOfBeingFocusTrackDescription() []avs.CurrentTerritoryCode {
+func (x *Focus) GetTerritoryOfBeingFocusTrackDescription() []string {
 	if x != nil {
 		return x.TerritoryOfBeingFocusTrackDescription
 	}
@@ -1918,7 +1918,7 @@ type PartyName struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,19,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,20,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,20,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,21,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"IsCanonical,attr"
@@ -2090,11 +2090,11 @@ func (x *PartyName) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *PartyName) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *PartyName) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *PartyName) GetIsDefault() bool {
@@ -2653,7 +2653,7 @@ type PronunciationForParty struct {
 	// @gotags: xml:"LanguageCode,attr"
 	LanguageCode string `protobuf:"bytes,4,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty" xml:"LanguageCode,attr"`
 	// @gotags: xml:"EncodingType,attr"
-	EncodingType avs.EncodingType `protobuf:"varint,5,opt,name=encoding_type,json=encodingType,proto3,enum=ddex.avs.EncodingType" json:"encoding_type,omitempty" xml:"EncodingType,attr"`
+	EncodingType string `protobuf:"bytes,5,opt,name=encoding_type,json=encodingType,proto3" json:"encoding_type,omitempty" xml:"EncodingType,attr"`
 	// @gotags: xml:"EncodingNamespace,attr"
 	EncodingNamespace string `protobuf:"bytes,6,opt,name=encoding_namespace,json=encodingNamespace,proto3" json:"encoding_namespace,omitempty" xml:"EncodingNamespace,attr"`
 	// @gotags: xml:"EncodingUserDefinedValue,attr"
@@ -2720,11 +2720,11 @@ func (x *PronunciationForParty) GetLanguageCode() string {
 	return ""
 }
 
-func (x *PronunciationForParty) GetEncodingType() avs.EncodingType {
+func (x *PronunciationForParty) GetEncodingType() string {
 	if x != nil {
 		return x.EncodingType
 	}
-	return avs.EncodingType(0)
+	return ""
 }
 
 func (x *PronunciationForParty) GetEncodingNamespace() string {
@@ -2809,7 +2809,7 @@ type RelatedCreationForParty struct {
 	// @gotags: xml:"MetadataSourceReference"
 	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
 	// @gotags: xml:"CreationType"
-	CreationType avs.CreationType `protobuf:"varint,2,opt,name=creation_type,json=creationType,proto3,enum=ddex.avs.CreationType" json:"creation_type,omitempty" xml:"CreationType"`
+	CreationType string `protobuf:"bytes,2,opt,name=creation_type,json=creationType,proto3" json:"creation_type,omitempty" xml:"CreationType"`
 	// @gotags: xml:"Contribution"
 	Contribution *Contribution `protobuf:"bytes,3,opt,name=contribution,proto3" json:"contribution,omitempty" xml:"Contribution"`
 	// @gotags: xml:"RelationshipDescription"
@@ -2865,11 +2865,11 @@ func (x *RelatedCreationForParty) GetMetadataSourceReference() []*MetadataSource
 	return nil
 }
 
-func (x *RelatedCreationForParty) GetCreationType() avs.CreationType {
+func (x *RelatedCreationForParty) GetCreationType() string {
 	if x != nil {
 		return x.CreationType
 	}
-	return avs.CreationType(0)
+	return ""
 }
 
 func (x *RelatedCreationForParty) GetContribution() *Contribution {
@@ -3171,7 +3171,7 @@ type ResourceForRequest struct {
 	// @gotags: xml:"ResourceTitle"
 	ResourceTitle *ResourceTitle `protobuf:"bytes,2,opt,name=resource_title,json=resourceTitle,proto3" json:"resource_title,omitempty" xml:"ResourceTitle"`
 	// @gotags: xml:"ResourceType"
-	ResourceType  avs.ResourceType `protobuf:"varint,3,opt,name=resource_type,json=resourceType,proto3,enum=ddex.avs.ResourceType" json:"resource_type,omitempty" xml:"ResourceType"`
+	ResourceType  string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType,proto3" json:"resource_type,omitempty" xml:"ResourceType"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3220,11 +3220,11 @@ func (x *ResourceForRequest) GetResourceTitle() *ResourceTitle {
 	return nil
 }
 
-func (x *ResourceForRequest) GetResourceType() avs.ResourceType {
+func (x *ResourceForRequest) GetResourceType() string {
 	if x != nil {
 		return x.ResourceType
 	}
-	return avs.ResourceType(0)
+	return ""
 }
 
 type SocialMediaURL struct {
@@ -3234,7 +3234,7 @@ type SocialMediaURL struct {
 	// @gotags: xml:"LanguageCode,attr"
 	LanguageCode string `protobuf:"bytes,2,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty" xml:"LanguageCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -3283,11 +3283,11 @@ func (x *SocialMediaURL) GetLanguageCode() string {
 	return ""
 }
 
-func (x *SocialMediaURL) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *SocialMediaURL) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 type WorkForRequest struct {
@@ -4152,7 +4152,7 @@ func (*Source_Updated) isSource_Choice() {}
 type Text struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"type,attr"
-	Type          avs.TextTypeATOM `protobuf:"varint,1,opt,name=type,proto3,enum=ddex.avs.TextTypeATOM" json:"type,omitempty" xml:"type,attr"`
+	Type          string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty" xml:"type,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4187,11 +4187,11 @@ func (*Text) Descriptor() ([]byte, []int) {
 	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{46}
 }
 
-func (x *Text) GetType() avs.TextTypeATOM {
+func (x *Text) GetType() string {
 	if x != nil {
 		return x.Type
 	}
-	return avs.TextTypeATOM(0)
+	return ""
 }
 
 type URI struct {
@@ -4244,7 +4244,7 @@ type AllTerritoryCode struct {
 	// @gotags: xml:",chardata"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:",chardata"`
 	// @gotags: xml:"IdentifierType,attr"
-	IdentifierType avs.TerritoryCodeTypeIncludingDeprecatedCodes `protobuf:"varint,2,opt,name=identifier_type,json=identifierType,proto3,enum=ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
+	IdentifierType string `protobuf:"bytes,2,opt,name=identifier_type,json=identifierType,proto3" json:"identifier_type,omitempty" xml:"IdentifierType,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -4286,11 +4286,11 @@ func (x *AllTerritoryCode) GetValue() string {
 	return ""
 }
 
-func (x *AllTerritoryCode) GetIdentifierType() avs.TerritoryCodeTypeIncludingDeprecatedCodes {
+func (x *AllTerritoryCode) GetIdentifierType() string {
 	if x != nil {
 		return x.IdentifierType
 	}
-	return avs.TerritoryCodeTypeIncludingDeprecatedCodes(0)
+	return ""
 }
 
 type ArtistType struct {
@@ -4300,7 +4300,7 @@ type ArtistType struct {
 	// @gotags: xml:"Value"
 	Value *ArtistTypeValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
 	// @gotags: xml:"TerritoryOfArtistTypeDescription"
-	TerritoryOfArtistTypeDescription []avs.CurrentTerritoryCode `protobuf:"varint,3,rep,packed,name=territory_of_artist_type_description,json=territoryOfArtistTypeDescription,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"territory_of_artist_type_description,omitempty" xml:"TerritoryOfArtistTypeDescription"`
+	TerritoryOfArtistTypeDescription []string `protobuf:"bytes,3,rep,name=territory_of_artist_type_description,json=territoryOfArtistTypeDescription,proto3" json:"territory_of_artist_type_description,omitempty" xml:"TerritoryOfArtistTypeDescription"`
 	unknownFields                    protoimpl.UnknownFields
 	sizeCache                        protoimpl.SizeCache
 }
@@ -4349,7 +4349,7 @@ func (x *ArtistType) GetValue() *ArtistTypeValue {
 	return nil
 }
 
-func (x *ArtistType) GetTerritoryOfArtistTypeDescription() []avs.CurrentTerritoryCode {
+func (x *ArtistType) GetTerritoryOfArtistTypeDescription() []string {
 	if x != nil {
 		return x.TerritoryOfArtistTypeDescription
 	}
@@ -4696,9 +4696,9 @@ type BiographyText struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"Format,attr"
-	Format avs.TextCodecType `protobuf:"varint,4,opt,name=format,proto3,enum=ddex.avs.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	Format string `protobuf:"bytes,4,opt,name=format,proto3" json:"format,omitempty" xml:"Format,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -4751,18 +4751,18 @@ func (x *BiographyText) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *BiographyText) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *BiographyText) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
-func (x *BiographyText) GetFormat() avs.TextCodecType {
+func (x *BiographyText) GetFormat() string {
 	if x != nil {
 		return x.Format
 	}
-	return avs.TextCodecType(0)
+	return ""
 }
 
 func (x *BiographyText) GetNamespace() string {
@@ -4842,7 +4842,7 @@ type ClassicalPeriod struct {
 	// @gotags: xml:"LanguageAndScriptOfClassicalPeriod"
 	LanguageAndScriptOfClassicalPeriod []string `protobuf:"bytes,3,rep,name=language_and_script_of_classical_period,json=languageAndScriptOfClassicalPeriod,proto3" json:"language_and_script_of_classical_period,omitempty" xml:"LanguageAndScriptOfClassicalPeriod"`
 	// @gotags: xml:"TerritoryOfClassicalPeriodDescription"
-	TerritoryOfClassicalPeriodDescription []avs.CurrentTerritoryCode `protobuf:"varint,4,rep,packed,name=territory_of_classical_period_description,json=territoryOfClassicalPeriodDescription,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"territory_of_classical_period_description,omitempty" xml:"TerritoryOfClassicalPeriodDescription"`
+	TerritoryOfClassicalPeriodDescription []string `protobuf:"bytes,4,rep,name=territory_of_classical_period_description,json=territoryOfClassicalPeriodDescription,proto3" json:"territory_of_classical_period_description,omitempty" xml:"TerritoryOfClassicalPeriodDescription"`
 	unknownFields                         protoimpl.UnknownFields
 	sizeCache                             protoimpl.SizeCache
 }
@@ -4898,7 +4898,7 @@ func (x *ClassicalPeriod) GetLanguageAndScriptOfClassicalPeriod() []string {
 	return nil
 }
 
-func (x *ClassicalPeriod) GetTerritoryOfClassicalPeriodDescription() []avs.CurrentTerritoryCode {
+func (x *ClassicalPeriod) GetTerritoryOfClassicalPeriodDescription() []string {
 	if x != nil {
 		return x.TerritoryOfClassicalPeriodDescription
 	}
@@ -4916,7 +4916,7 @@ type CommentaryNote struct {
 	// @gotags: xml:"LanguageAndScriptOfCommentaryNote"
 	LanguageAndScriptOfCommentaryNote []string `protobuf:"bytes,4,rep,name=language_and_script_of_commentary_note,json=languageAndScriptOfCommentaryNote,proto3" json:"language_and_script_of_commentary_note,omitempty" xml:"LanguageAndScriptOfCommentaryNote"`
 	// @gotags: xml:"TerritoryOfCommentaryNoteDescription"
-	TerritoryOfCommentaryNoteDescription []avs.CurrentTerritoryCode `protobuf:"varint,5,rep,packed,name=territory_of_commentary_note_description,json=territoryOfCommentaryNoteDescription,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"territory_of_commentary_note_description,omitempty" xml:"TerritoryOfCommentaryNoteDescription"`
+	TerritoryOfCommentaryNoteDescription []string `protobuf:"bytes,5,rep,name=territory_of_commentary_note_description,json=territoryOfCommentaryNoteDescription,proto3" json:"territory_of_commentary_note_description,omitempty" xml:"TerritoryOfCommentaryNoteDescription"`
 	// @gotags: xml:"Author"
 	Author        []*PartyDescriptorWithPronunciation `protobuf:"bytes,6,rep,name=author,proto3" json:"author,omitempty" xml:"Author"`
 	unknownFields protoimpl.UnknownFields
@@ -4981,7 +4981,7 @@ func (x *CommentaryNote) GetLanguageAndScriptOfCommentaryNote() []string {
 	return nil
 }
 
-func (x *CommentaryNote) GetTerritoryOfCommentaryNoteDescription() []avs.CurrentTerritoryCode {
+func (x *CommentaryNote) GetTerritoryOfCommentaryNoteDescription() []string {
 	if x != nil {
 		return x.TerritoryOfCommentaryNoteDescription
 	}
@@ -5238,7 +5238,7 @@ type DetailedHashSum struct {
 	// @gotags: xml:"Parameter"
 	Parameter string `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty" xml:"Parameter"`
 	// @gotags: xml:"DataType"
-	DataType avs.BinaryDataType `protobuf:"varint,4,opt,name=data_type,json=dataType,proto3,enum=ddex.avs.BinaryDataType" json:"data_type,omitempty" xml:"DataType"`
+	DataType string `protobuf:"bytes,4,opt,name=data_type,json=dataType,proto3" json:"data_type,omitempty" xml:"DataType"`
 	// @gotags: xml:"HashSumValue"
 	HashSumValue  string `protobuf:"bytes,5,opt,name=hash_sum_value,json=hashSumValue,proto3" json:"hash_sum_value,omitempty" xml:"HashSumValue"`
 	unknownFields protoimpl.UnknownFields
@@ -5296,11 +5296,11 @@ func (x *DetailedHashSum) GetParameter() string {
 	return ""
 }
 
-func (x *DetailedHashSum) GetDataType() avs.BinaryDataType {
+func (x *DetailedHashSum) GetDataType() string {
 	if x != nil {
 		return x.DataType
 	}
-	return avs.BinaryDataType(0)
+	return ""
 }
 
 func (x *DetailedHashSum) GetHashSumValue() string {
@@ -5407,7 +5407,7 @@ type DisplayArtistName struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -5456,11 +5456,11 @@ func (x *DisplayArtistName) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *DisplayArtistName) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DisplayArtistName) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 type DisplayArtistNameWithDefault struct {
@@ -5470,7 +5470,7 @@ type DisplayArtistNameWithDefault struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -5521,11 +5521,11 @@ func (x *DisplayArtistNameWithDefault) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *DisplayArtistNameWithDefault) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DisplayArtistNameWithDefault) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *DisplayArtistNameWithDefault) GetIsDefault() bool {
@@ -5697,7 +5697,7 @@ type DisplayTitle struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,4,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault     bool `protobuf:"varint,5,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -5755,11 +5755,11 @@ func (x *DisplayTitle) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *DisplayTitle) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *DisplayTitle) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *DisplayTitle) GetIsDefault() bool {
@@ -5786,7 +5786,7 @@ type Epoch struct {
 	// @gotags: xml:"LanguageAndScriptOfEpoch"
 	LanguageAndScriptOfEpoch []string `protobuf:"bytes,7,rep,name=language_and_script_of_epoch,json=languageAndScriptOfEpoch,proto3" json:"language_and_script_of_epoch,omitempty" xml:"LanguageAndScriptOfEpoch"`
 	// @gotags: xml:"TerritoryOfEpochDescription"
-	TerritoryOfEpochDescription []avs.CurrentTerritoryCode `protobuf:"varint,8,rep,packed,name=territory_of_epoch_description,json=territoryOfEpochDescription,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"territory_of_epoch_description,omitempty" xml:"TerritoryOfEpochDescription"`
+	TerritoryOfEpochDescription []string `protobuf:"bytes,8,rep,name=territory_of_epoch_description,json=territoryOfEpochDescription,proto3" json:"territory_of_epoch_description,omitempty" xml:"TerritoryOfEpochDescription"`
 	unknownFields               protoimpl.UnknownFields
 	sizeCache                   protoimpl.SizeCache
 }
@@ -5870,7 +5870,7 @@ func (x *Epoch) GetLanguageAndScriptOfEpoch() []string {
 	return nil
 }
 
-func (x *Epoch) GetTerritoryOfEpochDescription() []avs.CurrentTerritoryCode {
+func (x *Epoch) GetTerritoryOfEpochDescription() []string {
 	if x != nil {
 		return x.TerritoryOfEpochDescription
 	}
@@ -5888,7 +5888,7 @@ type EventDate struct {
 	// @gotags: xml:"IsAfter,attr"
 	IsAfter bool `protobuf:"varint,4,opt,name=is_after,json=isAfter,proto3" json:"is_after,omitempty" xml:"IsAfter,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.AllTerritoryCode `protobuf:"varint,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.AllTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,5,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"LocationDescription,attr"
 	LocationDescription string `protobuf:"bytes,6,opt,name=location_description,json=locationDescription,proto3" json:"location_description,omitempty" xml:"LocationDescription,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
@@ -5955,11 +5955,11 @@ func (x *EventDate) GetIsAfter() bool {
 	return false
 }
 
-func (x *EventDate) GetApplicableTerritoryCode() avs.AllTerritoryCode {
+func (x *EventDate) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.AllTerritoryCode(0)
+	return ""
 }
 
 func (x *EventDate) GetLocationDescription() string {
@@ -6346,7 +6346,7 @@ type MessageHeader struct {
 	// @gotags: xml:"MessageAuditTrail"
 	MessageAuditTrail *MessageAuditTrail `protobuf:"bytes,8,opt,name=message_audit_trail,json=messageAuditTrail,proto3" json:"message_audit_trail,omitempty" xml:"MessageAuditTrail"`
 	// @gotags: xml:"MessageControlType"
-	MessageControlType avs.MessageControlType `protobuf:"varint,9,opt,name=message_control_type,json=messageControlType,proto3,enum=ddex.avs.MessageControlType" json:"message_control_type,omitempty" xml:"MessageControlType"`
+	MessageControlType string `protobuf:"bytes,9,opt,name=message_control_type,json=messageControlType,proto3" json:"message_control_type,omitempty" xml:"MessageControlType"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -6437,11 +6437,11 @@ func (x *MessageHeader) GetMessageAuditTrail() *MessageAuditTrail {
 	return nil
 }
 
-func (x *MessageHeader) GetMessageControlType() avs.MessageControlType {
+func (x *MessageHeader) GetMessageControlType() string {
 	if x != nil {
 		return x.MessageControlType
 	}
-	return avs.MessageControlType(0)
+	return ""
 }
 
 type MessagingPartyWithoutCode struct {
@@ -6613,7 +6613,7 @@ type MetadataSourceReference struct {
 	// @gotags: xml:"AssertionDateTime,attr"
 	AssertionDateTime string `protobuf:"bytes,2,opt,name=assertion_date_time,json=assertionDateTime,proto3" json:"assertion_date_time,omitempty" xml:"AssertionDateTime,attr"`
 	// @gotags: xml:"Status,attr"
-	Status avs.AssertionStatus `protobuf:"varint,3,opt,name=status,proto3,enum=ddex.avs.AssertionStatus" json:"status,omitempty" xml:"Status,attr"`
+	Status string `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty" xml:"Status,attr"`
 	// @gotags: xml:"Weight,attr"
 	Weight        string `protobuf:"bytes,4,opt,name=weight,proto3" json:"weight,omitempty" xml:"Weight,attr"`
 	unknownFields protoimpl.UnknownFields
@@ -6664,11 +6664,11 @@ func (x *MetadataSourceReference) GetAssertionDateTime() string {
 	return ""
 }
 
-func (x *MetadataSourceReference) GetStatus() avs.AssertionStatus {
+func (x *MetadataSourceReference) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
-	return avs.AssertionStatus(0)
+	return ""
 }
 
 func (x *MetadataSourceReference) GetWeight() string {
@@ -7088,7 +7088,7 @@ type PartyNameWithPronunciation struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,9,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,9,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -7179,11 +7179,11 @@ func (x *PartyNameWithPronunciation) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *PartyNameWithPronunciation) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *PartyNameWithPronunciation) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 type PartyNameWithoutCode struct {
@@ -7411,7 +7411,7 @@ type Pronunciation struct {
 	// @gotags: xml:"LanguageCode,attr"
 	LanguageCode string `protobuf:"bytes,3,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty" xml:"LanguageCode,attr"`
 	// @gotags: xml:"EncodingType,attr"
-	EncodingType avs.EncodingType `protobuf:"varint,4,opt,name=encoding_type,json=encodingType,proto3,enum=ddex.avs.EncodingType" json:"encoding_type,omitempty" xml:"EncodingType,attr"`
+	EncodingType string `protobuf:"bytes,4,opt,name=encoding_type,json=encodingType,proto3" json:"encoding_type,omitempty" xml:"EncodingType,attr"`
 	// @gotags: xml:"EncodingNamespace,attr"
 	EncodingNamespace string `protobuf:"bytes,5,opt,name=encoding_namespace,json=encodingNamespace,proto3" json:"encoding_namespace,omitempty" xml:"EncodingNamespace,attr"`
 	// @gotags: xml:"EncodingUserDefinedValue,attr"
@@ -7471,11 +7471,11 @@ func (x *Pronunciation) GetLanguageCode() string {
 	return ""
 }
 
-func (x *Pronunciation) GetEncodingType() avs.EncodingType {
+func (x *Pronunciation) GetEncodingType() string {
 	if x != nil {
 		return x.EncodingType
 	}
-	return avs.EncodingType(0)
+	return ""
 }
 
 func (x *Pronunciation) GetEncodingNamespace() string {
@@ -8282,11 +8282,11 @@ type TextWithFormat struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"Format,attr"
-	Format avs.TextCodecType `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.avs.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	Format string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty" xml:"Format,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -8339,11 +8339,11 @@ func (x *TextWithFormat) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TextWithFormat) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TextWithFormat) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TextWithFormat) GetIsDefault() bool {
@@ -8353,11 +8353,11 @@ func (x *TextWithFormat) GetIsDefault() bool {
 	return false
 }
 
-func (x *TextWithFormat) GetFormat() avs.TextCodecType {
+func (x *TextWithFormat) GetFormat() string {
 	if x != nil {
 		return x.Format
 	}
-	return avs.TextCodecType(0)
+	return ""
 }
 
 func (x *TextWithFormat) GetNamespace() string {
@@ -8381,11 +8381,11 @@ type TextWithoutTerritory struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,2,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode avs.CurrentTerritoryCode `protobuf:"varint,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3,enum=ddex.avs.CurrentTerritoryCode" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,3,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	// @gotags: xml:"IsDefault,attr"
 	IsDefault bool `protobuf:"varint,4,opt,name=is_default,json=isDefault,proto3" json:"is_default,omitempty" xml:"IsDefault,attr"`
 	// @gotags: xml:"Format,attr"
-	Format avs.TextCodecType `protobuf:"varint,5,opt,name=format,proto3,enum=ddex.avs.TextCodecType" json:"format,omitempty" xml:"Format,attr"`
+	Format string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty" xml:"Format,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,6,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -8438,11 +8438,11 @@ func (x *TextWithoutTerritory) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TextWithoutTerritory) GetApplicableTerritoryCode() avs.CurrentTerritoryCode {
+func (x *TextWithoutTerritory) GetApplicableTerritoryCode() string {
 	if x != nil {
 		return x.ApplicableTerritoryCode
 	}
-	return avs.CurrentTerritoryCode(0)
+	return ""
 }
 
 func (x *TextWithoutTerritory) GetIsDefault() bool {
@@ -8452,11 +8452,11 @@ func (x *TextWithoutTerritory) GetIsDefault() bool {
 	return false
 }
 
-func (x *TextWithoutTerritory) GetFormat() avs.TextCodecType {
+func (x *TextWithoutTerritory) GetFormat() string {
 	if x != nil {
 		return x.Format
 	}
-	return avs.TextCodecType(0)
+	return ""
 }
 
 func (x *TextWithoutTerritory) GetNamespace() string {
@@ -8536,7 +8536,7 @@ type TitleWithPronunciation struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"TitleType,attr"
-	TitleType avs.TitleType `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.avs.TitleType" json:"title_type,omitempty" xml:"TitleType,attr"`
+	TitleType string `protobuf:"bytes,4,opt,name=title_type,json=titleType,proto3" json:"title_type,omitempty" xml:"TitleType,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -8596,11 +8596,11 @@ func (x *TitleWithPronunciation) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TitleWithPronunciation) GetTitleType() avs.TitleType {
+func (x *TitleWithPronunciation) GetTitleType() string {
 	if x != nil {
 		return x.TitleType
 	}
-	return avs.TitleType(0)
+	return ""
 }
 
 func (x *TitleWithPronunciation) GetNamespace() string {
@@ -8626,7 +8626,7 @@ type TitleWithUDV struct {
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,3,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"TitleType,attr"
-	TitleType avs.TitleType `protobuf:"varint,4,opt,name=title_type,json=titleType,proto3,enum=ddex.avs.TitleType" json:"title_type,omitempty" xml:"TitleType,attr"`
+	TitleType string `protobuf:"bytes,4,opt,name=title_type,json=titleType,proto3" json:"title_type,omitempty" xml:"TitleType,attr"`
 	// @gotags: xml:"Namespace,attr"
 	Namespace string `protobuf:"bytes,5,opt,name=namespace,proto3" json:"namespace,omitempty" xml:"Namespace,attr"`
 	// @gotags: xml:"UserDefinedValue,attr"
@@ -8686,11 +8686,11 @@ func (x *TitleWithUDV) GetLanguageAndScriptCode() string {
 	return ""
 }
 
-func (x *TitleWithUDV) GetTitleType() avs.TitleType {
+func (x *TitleWithUDV) GetTitleType() string {
 	if x != nil {
 		return x.TitleType
 	}
-	return avs.TitleType(0)
+	return ""
 }
 
 func (x *TitleWithUDV) GetNamespace() string {
@@ -9145,7 +9145,7 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\tEventType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xfa\x06\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xda\x06\n" +
 	"\x05Focus\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12>\n" +
 	"\vfocus_track\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ResourceSummaryR\n" +
@@ -9157,9 +9157,9 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x0edisplay_artist\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\rdisplayArtist\x12F\n" +
 	"\x06writer\x18\a \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06writer\x12'\n" +
 	"\x0fsequence_number\x18\b \x01(\x05R\x0esequenceNumber\x12O\n" +
-	"\x15period_of_being_focus\x18\t \x03(\v2\x1c.ddex.pie.v10.PeriodWithTimeR\x12periodOfBeingFocus\x12y\n" +
+	"\x15period_of_being_focus\x18\t \x03(\v2\x1c.ddex.pie.v10.PeriodWithTimeR\x12periodOfBeingFocus\x12Y\n" +
 	"*territory_of_being_focus_track_description\x18\n" +
-	" \x03(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR%territoryOfBeingFocusTrackDescription\x12<\n" +
+	" \x03(\tR%territoryOfBeingFocusTrackDescription\x12<\n" +
 	"\acomment\x18\v \x03(\v2\".ddex.pie.v10.TextWithoutTerritoryR\acomment\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\f \x01(\bR\tisDefault\"\xc2\x01\n" +
@@ -9213,7 +9213,7 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\n" +
 	"party_name\x18\x02 \x01(\tR\tpartyName\"6\n" +
 	"\tPartyList\x12)\n" +
-	"\x05party\x18\x01 \x03(\v2\x13.ddex.pie.v10.PartyR\x05party\"\x85\f\n" +
+	"\x05party\x18\x01 \x03(\v2\x13.ddex.pie.v10.PartyR\x05party\"\xe5\v\n" +
 	"\tPartyName\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12-\n" +
 	"\aname_id\x18\x02 \x03(\v2\x14.ddex.pie.v10.NameIdR\x06nameId\x12C\n" +
@@ -9235,8 +9235,8 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x10abbreviated_name\x18\x10 \x03(\v2 .ddex.pie.v10.NameWithScriptCodeR\x0fabbreviatedName\x12E\n" +
 	"\x0fvalidity_period\x18\x11 \x03(\v2\x1c.ddex.pie.v10.ValidityPeriodR\x0evalidityPeriod\x12P\n" +
 	"\x10related_creation\x18\x12 \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyR\x0frelatedCreation\x127\n" +
-	"\x18language_and_script_code\x18\x13 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x14 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x13 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x14 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x15 \x01(\bR\tisDefault\x12!\n" +
 	"\fis_canonical\x18\x16 \x01(\bR\visCanonical\"\xf8\x03\n" +
@@ -9274,22 +9274,22 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xa5\x01\n" +
 	"\vPrimaryRole\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x123\n" +
-	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ContributorRoleR\x05value\"\xcb\x02\n" +
+	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ContributorRoleR\x05value\"\xb3\x02\n" +
 	"\x15PronunciationForParty\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12!\n" +
 	"\fis_canonical\x18\x02 \x01(\bR\visCanonical\x12)\n" +
 	"\x10is_mispronounced\x18\x03 \x01(\bR\x0fisMispronounced\x12#\n" +
-	"\rlanguage_code\x18\x04 \x01(\tR\flanguageCode\x12;\n" +
-	"\rencoding_type\x18\x05 \x01(\x0e2\x16.ddex.avs.EncodingTypeR\fencodingType\x12-\n" +
+	"\rlanguage_code\x18\x04 \x01(\tR\flanguageCode\x12#\n" +
+	"\rencoding_type\x18\x05 \x01(\tR\fencodingType\x12-\n" +
 	"\x12encoding_namespace\x18\x06 \x01(\tR\x11encodingNamespace\x12=\n" +
 	"\x1bencoding_user_defined_value\x18\a \x01(\tR\x18encodingUserDefinedValue\"w\n" +
 	"\x13ReasonForNameChange\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x85\x04\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xed\x03\n" +
 	"\x17RelatedCreationForParty\x12a\n" +
-	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12;\n" +
-	"\rcreation_type\x18\x02 \x01(\x0e2\x16.ddex.avs.CreationTypeR\fcreationType\x12>\n" +
+	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12#\n" +
+	"\rcreation_type\x18\x02 \x01(\tR\fcreationType\x12>\n" +
 	"\fcontribution\x18\x03 \x01(\v2\x1a.ddex.pie.v10.ContributionR\fcontribution\x12T\n" +
 	"\x18relationship_description\x18\x04 \x03(\v2\x19.ddex.pie.v10.DescriptionR\x17relationshipDescription\x12\x1a\n" +
 	"\bcontract\x18\x05 \x01(\tR\bcontract\x12\x19\n" +
@@ -9315,16 +9315,16 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x04role\x18\x01 \x03(\v2\x1d.ddex.pie.v10.ContributorRoleR\x04role\x129\n" +
 	"\arelease\x18\x02 \x03(\v2\x1f.ddex.pie.v10.ReleaseForRequestR\arelease\x12<\n" +
 	"\bresource\x18\x03 \x03(\v2 .ddex.pie.v10.ResourceForRequestR\bresource\x120\n" +
-	"\x04work\x18\x04 \x03(\v2\x1c.ddex.pie.v10.WorkForRequestR\x04work\"\xdb\x01\n" +
+	"\x04work\x18\x04 \x03(\v2\x1c.ddex.pie.v10.WorkForRequestR\x04work\"\xc3\x01\n" +
 	"\x12ResourceForRequest\x12D\n" +
 	"\vresource_id\x18\x01 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagR\n" +
 	"resourceId\x12B\n" +
-	"\x0eresource_title\x18\x02 \x01(\v2\x1b.ddex.pie.v10.ResourceTitleR\rresourceTitle\x12;\n" +
-	"\rresource_type\x18\x03 \x01(\x0e2\x16.ddex.avs.ResourceTypeR\fresourceType\"\xa7\x01\n" +
+	"\x0eresource_title\x18\x02 \x01(\v2\x1b.ddex.pie.v10.ResourceTitleR\rresourceTitle\x12#\n" +
+	"\rresource_type\x18\x03 \x01(\tR\fresourceType\"\x87\x01\n" +
 	"\x0eSocialMediaURL\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12#\n" +
-	"\rlanguage_code\x18\x02 \x01(\tR\flanguageCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\x89\x01\n" +
+	"\rlanguage_code\x18\x02 \x01(\tR\flanguageCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\"\x89\x01\n" +
 	"\x0eWorkForRequest\x12?\n" +
 	"\awork_id\x18\x01 \x01(\v2&.ddex.pie.v10.MusicalWorkIdWithoutFlagR\x06workId\x126\n" +
 	"\n" +
@@ -9374,19 +9374,19 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	" \x01(\v2\x12.ddex.pie.v10.TextH\x00R\bsubtitle\x12*\n" +
 	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x05title\x122\n" +
 	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdatedB\b\n" +
-	"\x06choice\"2\n" +
-	"\x04Text\x12*\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x16.ddex.avs.TextTypeATOMR\x04type\"\x1b\n" +
+	"\x06choice\"\x1a\n" +
+	"\x04Text\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\tR\x04type\"\x1b\n" +
 	"\x03URI\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\"\x86\x01\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"Q\n" +
 	"\x10AllTerritoryCode\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12\\\n" +
-	"\x0fidentifier_type\x18\x02 \x01(\x0e23.ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodesR\x0eidentifierType\"\x94\x02\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12'\n" +
+	"\x0fidentifier_type\x18\x02 \x01(\tR\x0eidentifierType\"\xf4\x01\n" +
 	"\n" +
 	"ArtistType\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x123\n" +
-	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ArtistTypeValueR\x05value\x12n\n" +
-	"$territory_of_artist_type_description\x18\x03 \x03(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR territoryOfArtistTypeDescription\"s\n" +
+	"\x05value\x18\x02 \x01(\v2\x1d.ddex.pie.v10.ArtistTypeValueR\x05value\x12N\n" +
+	"$territory_of_artist_type_description\x18\x03 \x03(\tR territoryOfArtistTypeDescription\"s\n" +
 	"\x0fArtistTypeValue\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -9412,28 +9412,28 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\tBiography\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12/\n" +
 	"\x04text\x18\x02 \x03(\v2\x1b.ddex.pie.v10.BiographyTextR\x04text\x12F\n" +
-	"\x06author\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06author\"\xb7\x02\n" +
+	"\x06author\x18\x03 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06author\"\xfe\x01\n" +
 	"\rBiographyText\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12/\n" +
-	"\x06format\x18\x04 \x01(\x0e2\x17.ddex.avs.TextCodecTypeR\x06format\x12\x1c\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x16\n" +
+	"\x06format\x18\x04 \x01(\tR\x06format\x12\x1c\n" +
 	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
 	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\"C\n" +
 	"\rCatalogNumber\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
-	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"\xf2\x02\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"\xd2\x02\n" +
 	"\x0fClassicalPeriod\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12-\n" +
 	"\x04name\x18\x02 \x01(\v2\x19.ddex.pie.v10.PeriodValueR\x04name\x12S\n" +
-	"'language_and_script_of_classical_period\x18\x03 \x03(\tR\"languageAndScriptOfClassicalPeriod\x12x\n" +
-	")territory_of_classical_period_description\x18\x04 \x03(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR%territoryOfClassicalPeriodDescription\"\x92\x04\n" +
+	"'language_and_script_of_classical_period\x18\x03 \x03(\tR\"languageAndScriptOfClassicalPeriod\x12X\n" +
+	")territory_of_classical_period_description\x18\x04 \x03(\tR%territoryOfClassicalPeriodDescription\"\xf2\x03\n" +
 	"\x0eCommentaryNote\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x126\n" +
 	"\x04text\x18\x02 \x03(\v2\".ddex.pie.v10.TextWithoutTerritoryR\x04text\x12R\n" +
 	"\x14commentary_note_type\x18\x03 \x03(\v2 .ddex.pie.v10.CommentaryNoteTypeR\x12commentaryNoteType\x12Q\n" +
-	"&language_and_script_of_commentary_note\x18\x04 \x03(\tR!languageAndScriptOfCommentaryNote\x12v\n" +
-	"(territory_of_commentary_note_description\x18\x05 \x03(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR$territoryOfCommentaryNoteDescription\x12F\n" +
+	"&language_and_script_of_commentary_note\x18\x04 \x03(\tR!languageAndScriptOfCommentaryNote\x12V\n" +
+	"(territory_of_commentary_note_description\x18\x05 \x03(\tR$territoryOfCommentaryNoteDescription\x12F\n" +
 	"\x06author\x18\x06 \x03(\v2..ddex.pie.v10.PartyDescriptorWithPronunciationR\x06author\"v\n" +
 	"\x12CommentaryNoteType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
@@ -9448,12 +9448,12 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\"\\\n" +
 	"\vDescription\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xe8\x01\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xce\x01\n" +
 	"\x0fDetailedHashSum\x12@\n" +
 	"\talgorithm\x18\x01 \x01(\v2\".ddex.pie.v10.HashSumAlgorithmTypeR\talgorithm\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
-	"\tparameter\x18\x03 \x01(\tR\tparameter\x125\n" +
-	"\tdata_type\x18\x04 \x01(\x0e2\x18.ddex.avs.BinaryDataTypeR\bdataType\x12$\n" +
+	"\tparameter\x18\x03 \x01(\tR\tparameter\x12\x1b\n" +
+	"\tdata_type\x18\x04 \x01(\tR\bdataType\x12$\n" +
 	"\x0ehash_sum_value\x18\x05 \x01(\tR\fhashSumValue\"\xe9\x01\n" +
 	"\x0fDetailedPartyId\x12\x15\n" +
 	"\ai_s_n_i\x18\x01 \x01(\tR\x04iSNI\x12\x15\n" +
@@ -9461,15 +9461,15 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x0fipi_name_number\x18\x03 \x01(\tR\ripiNameNumber\x12\x12\n" +
 	"\x05i_p_n\x18\x04 \x01(\tR\x03iPN\x12(\n" +
 	"\x10cisac_society_id\x18\x05 \x01(\tR\x0ecisacSocietyId\x12B\n" +
-	"\x0eproprietary_id\x18\x06 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\"\xbe\x01\n" +
+	"\x0eproprietary_id\x18\x06 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\"\x9e\x01\n" +
 	"\x11DisplayArtistName\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xe8\x01\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\"\xc8\x01\n" +
 	"\x1cDisplayArtistNameWithDefault\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
 	"is_default\x18\x04 \x01(\bR\tisDefault\"\xa7\x01\n" +
 	"\"DisplayArtistNameWithPronunciation\x12>\n" +
@@ -9482,15 +9482,15 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x15is_displayed_in_title\x18\x04 \x01(\bR\x12isDisplayedInTitle\x12\x1c\n" +
 	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
 	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\x12$\n" +
-	"\x0esub_title_type\x18\a \x01(\tR\fsubTitleType\"\xb6\x02\n" +
+	"\x0esub_title_type\x18\a \x01(\tR\fsubTitleType\"\x96\x02\n" +
 	"\fDisplayTitle\x126\n" +
 	"\n" +
 	"title_text\x18\x01 \x01(\v2\x17.ddex.pie.v10.TitleTextR\ttitleText\x12:\n" +
 	"\tsub_title\x18\x02 \x03(\v2\x1d.ddex.pie.v10.DisplaySubTitleR\bsubTitle\x127\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x04 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x04 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x05 \x01(\bR\tisDefault\"\xbc\x04\n" +
+	"is_default\x18\x05 \x01(\bR\tisDefault\"\x9c\x04\n" +
 	"\x05Epoch\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12(\n" +
 	"\x05value\x18\x02 \x03(\v2\x12.ddex.pie.v10.NameR\x05value\x12U\n" +
@@ -9499,14 +9499,14 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\n" +
 	"start_date\x18\x05 \x01(\v2\x12.ddex.pie.v10.DateR\tstartDate\x12-\n" +
 	"\bend_date\x18\x06 \x01(\v2\x12.ddex.pie.v10.DateR\aendDate\x12>\n" +
-	"\x1clanguage_and_script_of_epoch\x18\a \x03(\tR\x18languageAndScriptOfEpoch\x12c\n" +
-	"\x1eterritory_of_epoch_description\x18\b \x03(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x1bterritoryOfEpochDescription\"\xc4\x02\n" +
+	"\x1clanguage_and_script_of_epoch\x18\a \x03(\tR\x18languageAndScriptOfEpoch\x12C\n" +
+	"\x1eterritory_of_epoch_description\x18\b \x03(\tR\x1bterritoryOfEpochDescription\"\xa8\x02\n" +
 	"\tEventDate\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
 	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12\x1b\n" +
 	"\tis_before\x18\x03 \x01(\bR\bisBefore\x12\x19\n" +
-	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12V\n" +
-	"\x19applicable_territory_code\x18\x05 \x01(\x0e2\x1a.ddex.avs.AllTerritoryCodeR\x17applicableTerritoryCode\x121\n" +
+	"\bis_after\x18\x04 \x01(\bR\aisAfter\x12:\n" +
+	"\x19applicable_territory_code\x18\x05 \x01(\tR\x17applicableTerritoryCode\x121\n" +
 	"\x14location_description\x18\x06 \x01(\tR\x13locationDescription\x127\n" +
 	"\x18language_and_script_code\x18\a \x01(\tR\x15languageAndScriptCode\"q\n" +
 	"\x04File\x12\x12\n" +
@@ -9530,7 +9530,7 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x19message_audit_trail_event\x18\x01 \x03(\v2$.ddex.pie.v10.MessageAuditTrailEventR\x16messageAuditTrailEvent\"\x9c\x01\n" +
 	"\x16MessageAuditTrailEvent\x12e\n" +
 	"\x1amessaging_party_descriptor\x18\x01 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeR\x18messagingPartyDescriptor\x12\x1b\n" +
-	"\tdate_time\x18\x02 \x01(\tR\bdateTime\"\xdc\x04\n" +
+	"\tdate_time\x18\x02 \x01(\tR\bdateTime\"\xbe\x04\n" +
 	"\rMessageHeader\x12*\n" +
 	"\x11message_thread_id\x18\x01 \x01(\tR\x0fmessageThreadId\x12\x1d\n" +
 	"\n" +
@@ -9540,8 +9540,8 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x11sent_on_behalf_of\x18\x05 \x01(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeR\x0esentOnBehalfOf\x12T\n" +
 	"\x11message_recipient\x18\x06 \x03(\v2'.ddex.pie.v10.MessagingPartyWithoutCodeR\x10messageRecipient\x129\n" +
 	"\x19message_created_date_time\x18\a \x01(\tR\x16messageCreatedDateTime\x12O\n" +
-	"\x13message_audit_trail\x18\b \x01(\v2\x1f.ddex.pie.v10.MessageAuditTrailR\x11messageAuditTrail\x12N\n" +
-	"\x14message_control_type\x18\t \x01(\x0e2\x1c.ddex.avs.MessageControlTypeR\x12messageControlType\"\x9c\x01\n" +
+	"\x13message_audit_trail\x18\b \x01(\v2\x1f.ddex.pie.v10.MessageAuditTrailR\x11messageAuditTrail\x120\n" +
+	"\x14message_control_type\x18\t \x01(\tR\x12messageControlType\"\x9c\x01\n" +
 	"\x19MessagingPartyWithoutCode\x12\x19\n" +
 	"\bparty_id\x18\x01 \x01(\tR\apartyId\x12A\n" +
 	"\n" +
@@ -9551,11 +9551,11 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x10source_reference\x18\x01 \x01(\tR\x0fsourceReference\x12R\n" +
 	"\x14metadata_source_type\x18\x02 \x01(\v2 .ddex.pie.v10.MetadataSourceTypeR\x12metadataSourceType\"[\n" +
 	"\x12MetadataSourceList\x12E\n" +
-	"\x0fmetadata_source\x18\x01 \x03(\v2\x1c.ddex.pie.v10.MetadataSourceR\x0emetadataSource\"\xaa\x01\n" +
+	"\x0fmetadata_source\x18\x01 \x03(\v2\x1c.ddex.pie.v10.MetadataSourceR\x0emetadataSource\"\x8f\x01\n" +
 	"\x17MetadataSourceReference\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12.\n" +
-	"\x13assertion_date_time\x18\x02 \x01(\tR\x11assertionDateTime\x121\n" +
-	"\x06status\x18\x03 \x01(\x0e2\x19.ddex.avs.AssertionStatusR\x06status\x12\x16\n" +
+	"\x13assertion_date_time\x18\x02 \x01(\tR\x11assertionDateTime\x12\x16\n" +
+	"\x06status\x18\x03 \x01(\tR\x06status\x12\x16\n" +
 	"\x06weight\x18\x04 \x01(\tR\x06weight\"v\n" +
 	"\x12MetadataSourceType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
@@ -9581,7 +9581,7 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"h\n" +
 	" PartyDescriptorWithPronunciation\x12:\n" +
 	"\bparty_id\x18\x01 \x01(\v2\x1d.ddex.pie.v10.DetailedPartyIdH\x00R\apartyIdB\b\n" +
-	"\x06choice\"\xc1\x06\n" +
+	"\x06choice\"\xa1\x06\n" +
 	"\x1aPartyNameWithPronunciation\x12M\n" +
 	"\tfull_name\x18\x01 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\bfullName\x12o\n" +
 	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x18fullNameAsciiTranscribed\x12\\\n" +
@@ -9590,8 +9590,8 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\bkey_name\x18\x05 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\akeyName\x12a\n" +
 	"\x14names_after_key_name\x18\x06 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x11namesAfterKeyName\x12[\n" +
 	"\x10abbreviated_name\x18\a \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\x0fabbreviatedName\x127\n" +
-	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\t \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\"\xc8\x02\n" +
+	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\t \x01(\tR\x17applicableTerritoryCode\"\xc8\x02\n" +
 	"\x14PartyNameWithoutCode\x12\x1b\n" +
 	"\tfull_name\x18\x01 \x01(\tR\bfullName\x12=\n" +
 	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\tR\x18fullNameAsciiTranscribed\x12*\n" +
@@ -9606,12 +9606,12 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\\\n" +
 	"\x0ePeriodWithTime\x12&\n" +
 	"\x0fstart_date_time\x18\x01 \x01(\tR\rstartDateTime\x12\"\n" +
-	"\rend_date_time\x18\x02 \x01(\tR\vendDateTime\"\x98\x02\n" +
+	"\rend_date_time\x18\x02 \x01(\tR\vendDateTime\"\x80\x02\n" +
 	"\rPronunciation\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12!\n" +
 	"\fis_canonical\x18\x02 \x01(\bR\visCanonical\x12#\n" +
-	"\rlanguage_code\x18\x03 \x01(\tR\flanguageCode\x12;\n" +
-	"\rencoding_type\x18\x04 \x01(\x0e2\x16.ddex.avs.EncodingTypeR\fencodingType\x12-\n" +
+	"\rlanguage_code\x18\x03 \x01(\tR\flanguageCode\x12#\n" +
+	"\rencoding_type\x18\x04 \x01(\tR\fencodingType\x12-\n" +
 	"\x12encoding_namespace\x18\x05 \x01(\tR\x11encodingNamespace\x12=\n" +
 	"\x1bencoding_user_defined_value\x18\x06 \x01(\tR\x18encodingUserDefinedValue\"C\n" +
 	"\rProprietaryId\x12\x14\n" +
@@ -9669,44 +9669,44 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"F\n" +
 	"\bSubTitle\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12$\n" +
-	"\x0esub_title_type\x18\x02 \x01(\tR\fsubTitleType\"\xd7\x02\n" +
+	"\x0esub_title_type\x18\x02 \x01(\tR\fsubTitleType\"\x9e\x02\n" +
 	"\x0eTextWithFormat\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\x12/\n" +
-	"\x06format\x18\x05 \x01(\x0e2\x17.ddex.avs.TextCodecTypeR\x06format\x12\x1c\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x12\x16\n" +
+	"\x06format\x18\x05 \x01(\tR\x06format\x12\x1c\n" +
 	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xdd\x02\n" +
+	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"\xa4\x02\n" +
 	"\x14TextWithoutTerritory\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
-	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12Z\n" +
-	"\x19applicable_territory_code\x18\x03 \x01(\x0e2\x1e.ddex.avs.CurrentTerritoryCodeR\x17applicableTerritoryCode\x12\x1d\n" +
+	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
+	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\x12/\n" +
-	"\x06format\x18\x05 \x01(\x0e2\x17.ddex.avs.TextCodecTypeR\x06format\x12\x1c\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\x12\x16\n" +
+	"\x06format\x18\x05 \x01(\tR\x06format\x12\x1c\n" +
 	"\tnamespace\x18\x06 \x01(\tR\tnamespace\x12,\n" +
 	"\x12user_defined_value\x18\a \x01(\tR\x10userDefinedValue\"d\n" +
 	"\tTitleText\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12A\n" +
-	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"\xbf\x02\n" +
+	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"\xaa\x02\n" +
 	"\x16TitleWithPronunciation\x126\n" +
 	"\n" +
 	"title_text\x18\x01 \x01(\v2\x17.ddex.pie.v10.TitleTextR\ttitleText\x124\n" +
 	"\tsub_title\x18\x02 \x01(\v2\x17.ddex.pie.v10.TitleTextR\bsubTitle\x127\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x122\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
 	"\n" +
-	"title_type\x18\x04 \x01(\x0e2\x13.ddex.avs.TitleTypeR\ttitleType\x12\x1c\n" +
+	"title_type\x18\x04 \x01(\tR\ttitleType\x12\x1c\n" +
 	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\"\x9b\x02\n" +
+	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\"\x86\x02\n" +
 	"\fTitleWithUDV\x12\x1d\n" +
 	"\n" +
 	"title_text\x18\x01 \x01(\tR\ttitleText\x123\n" +
 	"\tsub_title\x18\x02 \x03(\v2\x16.ddex.pie.v10.SubTitleR\bsubTitle\x127\n" +
-	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x122\n" +
+	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
 	"\n" +
-	"title_type\x18\x04 \x01(\x0e2\x13.ddex.avs.TitleTypeR\ttitleType\x12\x1c\n" +
+	"title_type\x18\x04 \x01(\tR\ttitleType\x12\x1c\n" +
 	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12,\n" +
 	"\x12user_defined_value\x18\x06 \x01(\tR\x10userDefinedValue\"|\n" +
 	"\x0eValidityPeriod\x126\n" +
@@ -9750,133 +9750,121 @@ func file_ddex_pie_v10_v10_proto_rawDescGZIP() []byte {
 
 var file_ddex_pie_v10_v10_proto_msgTypes = make([]protoimpl.MessageInfo, 115)
 var file_ddex_pie_v10_v10_proto_goTypes = []any{
-	(*PieMessage)(nil),                                 // 0: ddex.pie.v10.PieMessage
-	(*PieRequestMessage)(nil),                          // 1: ddex.pie.v10.PieRequestMessage
-	(*Feed)(nil),                                       // 2: ddex.pie.v10.Feed
-	(*Contribution)(nil),                               // 3: ddex.pie.v10.Contribution
-	(*CreationDescription)(nil),                        // 4: ddex.pie.v10.CreationDescription
-	(*DetailedPartyIdForParty)(nil),                    // 5: ddex.pie.v10.DetailedPartyIdForParty
-	(*Entry)(nil),                                      // 6: ddex.pie.v10.Entry
-	(*Event)(nil),                                      // 7: ddex.pie.v10.Event
-	(*EventType)(nil),                                  // 8: ddex.pie.v10.EventType
-	(*Focus)(nil),                                      // 9: ddex.pie.v10.Focus
-	(*Gender)(nil),                                     // 10: ddex.pie.v10.Gender
-	(*GenderValue)(nil),                                // 11: ddex.pie.v10.GenderValue
-	(*NameWithPronunciation)(nil),                      // 12: ddex.pie.v10.NameWithPronunciation
-	(*NameWithScriptCode)(nil),                         // 13: ddex.pie.v10.NameWithScriptCode
-	(*Nationality)(nil),                                // 14: ddex.pie.v10.Nationality
-	(*Party)(nil),                                      // 15: ddex.pie.v10.Party
-	(*PartyDescriptorForEntry)(nil),                    // 16: ddex.pie.v10.PartyDescriptorForEntry
-	(*PartyList)(nil),                                  // 17: ddex.pie.v10.PartyList
-	(*PartyName)(nil),                                  // 18: ddex.pie.v10.PartyName
-	(*PartyNameForRequest)(nil),                        // 19: ddex.pie.v10.PartyNameForRequest
-	(*PartyNameFormat)(nil),                            // 20: ddex.pie.v10.PartyNameFormat
-	(*PartyNamePurpose)(nil),                           // 21: ddex.pie.v10.PartyNamePurpose
-	(*PartyNameType)(nil),                              // 22: ddex.pie.v10.PartyNameType
-	(*PartyRelationshipType)(nil),                      // 23: ddex.pie.v10.PartyRelationshipType
-	(*PartyType)(nil),                                  // 24: ddex.pie.v10.PartyType
-	(*PartyTypeValue)(nil),                             // 25: ddex.pie.v10.PartyTypeValue
-	(*PrimaryRole)(nil),                                // 26: ddex.pie.v10.PrimaryRole
-	(*PronunciationForParty)(nil),                      // 27: ddex.pie.v10.PronunciationForParty
-	(*ReasonForNameChange)(nil),                        // 28: ddex.pie.v10.ReasonForNameChange
-	(*RelatedCreationForParty)(nil),                    // 29: ddex.pie.v10.RelatedCreationForParty
-	(*RelatedParty)(nil),                               // 30: ddex.pie.v10.RelatedParty
-	(*ReleaseForRequest)(nil),                          // 31: ddex.pie.v10.ReleaseForRequest
-	(*RequestedParty)(nil),                             // 32: ddex.pie.v10.RequestedParty
-	(*ResourceForRequest)(nil),                         // 33: ddex.pie.v10.ResourceForRequest
-	(*SocialMediaURL)(nil),                             // 34: ddex.pie.v10.SocialMediaURL
-	(*WorkForRequest)(nil),                             // 35: ddex.pie.v10.WorkForRequest
-	(*Category)(nil),                                   // 36: ddex.pie.v10.Category
-	(*Content)(nil),                                    // 37: ddex.pie.v10.Content
-	(*DateTime)(nil),                                   // 38: ddex.pie.v10.DateTime
-	(*Generator)(nil),                                  // 39: ddex.pie.v10.Generator
-	(*Icon)(nil),                                       // 40: ddex.pie.v10.Icon
-	(*Id)(nil),                                         // 41: ddex.pie.v10.Id
-	(*Link)(nil),                                       // 42: ddex.pie.v10.Link
-	(*Logo)(nil),                                       // 43: ddex.pie.v10.Logo
-	(*Person)(nil),                                     // 44: ddex.pie.v10.Person
-	(*Source)(nil),                                     // 45: ddex.pie.v10.Source
-	(*Text)(nil),                                       // 46: ddex.pie.v10.Text
-	(*URI)(nil),                                        // 47: ddex.pie.v10.URI
-	(*AllTerritoryCode)(nil),                           // 48: ddex.pie.v10.AllTerritoryCode
-	(*ArtistType)(nil),                                 // 49: ddex.pie.v10.ArtistType
-	(*ArtistTypeValue)(nil),                            // 50: ddex.pie.v10.ArtistTypeValue
-	(*ArtisticInfluence)(nil),                          // 51: ddex.pie.v10.ArtisticInfluence
-	(*Award)(nil),                                      // 52: ddex.pie.v10.Award
-	(*Biography)(nil),                                  // 53: ddex.pie.v10.Biography
-	(*BiographyText)(nil),                              // 54: ddex.pie.v10.BiographyText
-	(*CatalogNumber)(nil),                              // 55: ddex.pie.v10.CatalogNumber
-	(*ClassicalPeriod)(nil),                            // 56: ddex.pie.v10.ClassicalPeriod
-	(*CommentaryNote)(nil),                             // 57: ddex.pie.v10.CommentaryNote
-	(*CommentaryNoteType)(nil),                         // 58: ddex.pie.v10.CommentaryNoteType
-	(*ContributorRole)(nil),                            // 59: ddex.pie.v10.ContributorRole
-	(*Date)(nil),                                       // 60: ddex.pie.v10.Date
-	(*Description)(nil),                                // 61: ddex.pie.v10.Description
-	(*DetailedHashSum)(nil),                            // 62: ddex.pie.v10.DetailedHashSum
-	(*DetailedPartyId)(nil),                            // 63: ddex.pie.v10.DetailedPartyId
-	(*DisplayArtistName)(nil),                          // 64: ddex.pie.v10.DisplayArtistName
-	(*DisplayArtistNameWithDefault)(nil),               // 65: ddex.pie.v10.DisplayArtistNameWithDefault
-	(*DisplayArtistNameWithPronunciation)(nil),         // 66: ddex.pie.v10.DisplayArtistNameWithPronunciation
-	(*DisplaySubTitle)(nil),                            // 67: ddex.pie.v10.DisplaySubTitle
-	(*DisplayTitle)(nil),                               // 68: ddex.pie.v10.DisplayTitle
-	(*Epoch)(nil),                                      // 69: ddex.pie.v10.Epoch
-	(*EventDate)(nil),                                  // 70: ddex.pie.v10.EventDate
-	(*File)(nil),                                       // 71: ddex.pie.v10.File
-	(*HashSumAlgorithmType)(nil),                       // 72: ddex.pie.v10.HashSumAlgorithmType
-	(*Image)(nil),                                      // 73: ddex.pie.v10.Image
-	(*ImageType)(nil),                                  // 74: ddex.pie.v10.ImageType
-	(*MessageAuditTrail)(nil),                          // 75: ddex.pie.v10.MessageAuditTrail
-	(*MessageAuditTrailEvent)(nil),                     // 76: ddex.pie.v10.MessageAuditTrailEvent
-	(*MessageHeader)(nil),                              // 77: ddex.pie.v10.MessageHeader
-	(*MessagingPartyWithoutCode)(nil),                  // 78: ddex.pie.v10.MessagingPartyWithoutCode
-	(*MetadataSource)(nil),                             // 79: ddex.pie.v10.MetadataSource
-	(*MetadataSourceList)(nil),                         // 80: ddex.pie.v10.MetadataSourceList
-	(*MetadataSourceReference)(nil),                    // 81: ddex.pie.v10.MetadataSourceReference
-	(*MetadataSourceType)(nil),                         // 82: ddex.pie.v10.MetadataSourceType
-	(*MusicalWorkIdWithoutFlag)(nil),                   // 83: ddex.pie.v10.MusicalWorkIdWithoutFlag
-	(*Name)(nil),                                       // 84: ddex.pie.v10.Name
-	(*NameId)(nil),                                     // 85: ddex.pie.v10.NameId
-	(*NameWithPronunciationAndScriptCode)(nil),         // 86: ddex.pie.v10.NameWithPronunciationAndScriptCode
-	(*PartyDescriptorWithPronunciation)(nil),           // 87: ddex.pie.v10.PartyDescriptorWithPronunciation
-	(*PartyNameWithPronunciation)(nil),                 // 88: ddex.pie.v10.PartyNameWithPronunciation
-	(*PartyNameWithoutCode)(nil),                       // 89: ddex.pie.v10.PartyNameWithoutCode
-	(*PeriodValue)(nil),                                // 90: ddex.pie.v10.PeriodValue
-	(*PeriodWithTime)(nil),                             // 91: ddex.pie.v10.PeriodWithTime
-	(*Pronunciation)(nil),                              // 92: ddex.pie.v10.Pronunciation
-	(*ProprietaryId)(nil),                              // 93: ddex.pie.v10.ProprietaryId
-	(*RelatedCreation)(nil),                            // 94: ddex.pie.v10.RelatedCreation
-	(*Release)(nil),                                    // 95: ddex.pie.v10.Release
-	(*ReleaseId)(nil),                                  // 96: ddex.pie.v10.ReleaseId
-	(*ReleaseSummary)(nil),                             // 97: ddex.pie.v10.ReleaseSummary
-	(*ReleaseTitle)(nil),                               // 98: ddex.pie.v10.ReleaseTitle
-	(*Resource)(nil),                                   // 99: ddex.pie.v10.Resource
-	(*ResourceIdWithoutFlag)(nil),                      // 100: ddex.pie.v10.ResourceIdWithoutFlag
-	(*ResourceSummary)(nil),                            // 101: ddex.pie.v10.ResourceSummary
-	(*ResourceTitle)(nil),                              // 102: ddex.pie.v10.ResourceTitle
-	(*SubTitle)(nil),                                   // 103: ddex.pie.v10.SubTitle
-	(*TextWithFormat)(nil),                             // 104: ddex.pie.v10.TextWithFormat
-	(*TextWithoutTerritory)(nil),                       // 105: ddex.pie.v10.TextWithoutTerritory
-	(*TitleText)(nil),                                  // 106: ddex.pie.v10.TitleText
-	(*TitleWithPronunciation)(nil),                     // 107: ddex.pie.v10.TitleWithPronunciation
-	(*TitleWithUDV)(nil),                               // 108: ddex.pie.v10.TitleWithUDV
-	(*ValidityPeriod)(nil),                             // 109: ddex.pie.v10.ValidityPeriod
-	(*VocalRegister)(nil),                              // 110: ddex.pie.v10.VocalRegister
-	(*VocalRegisterValue)(nil),                         // 111: ddex.pie.v10.VocalRegisterValue
-	(*Work)(nil),                                       // 112: ddex.pie.v10.Work
-	(*WorkSummary)(nil),                                // 113: ddex.pie.v10.WorkSummary
-	(*WorkTitle)(nil),                                  // 114: ddex.pie.v10.WorkTitle
-	(avs.CurrentTerritoryCode)(0),                      // 115: ddex.avs.CurrentTerritoryCode
-	(avs.EncodingType)(0),                              // 116: ddex.avs.EncodingType
-	(avs.CreationType)(0),                              // 117: ddex.avs.CreationType
-	(avs.ResourceType)(0),                              // 118: ddex.avs.ResourceType
-	(avs.TextTypeATOM)(0),                              // 119: ddex.avs.TextTypeATOM
-	(avs.TerritoryCodeTypeIncludingDeprecatedCodes)(0), // 120: ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes
-	(avs.TextCodecType)(0),                             // 121: ddex.avs.TextCodecType
-	(avs.BinaryDataType)(0),                            // 122: ddex.avs.BinaryDataType
-	(avs.AllTerritoryCode)(0),                          // 123: ddex.avs.AllTerritoryCode
-	(avs.MessageControlType)(0),                        // 124: ddex.avs.MessageControlType
-	(avs.AssertionStatus)(0),                           // 125: ddex.avs.AssertionStatus
-	(avs.TitleType)(0),                                 // 126: ddex.avs.TitleType
+	(*PieMessage)(nil),                         // 0: ddex.pie.v10.PieMessage
+	(*PieRequestMessage)(nil),                  // 1: ddex.pie.v10.PieRequestMessage
+	(*Feed)(nil),                               // 2: ddex.pie.v10.Feed
+	(*Contribution)(nil),                       // 3: ddex.pie.v10.Contribution
+	(*CreationDescription)(nil),                // 4: ddex.pie.v10.CreationDescription
+	(*DetailedPartyIdForParty)(nil),            // 5: ddex.pie.v10.DetailedPartyIdForParty
+	(*Entry)(nil),                              // 6: ddex.pie.v10.Entry
+	(*Event)(nil),                              // 7: ddex.pie.v10.Event
+	(*EventType)(nil),                          // 8: ddex.pie.v10.EventType
+	(*Focus)(nil),                              // 9: ddex.pie.v10.Focus
+	(*Gender)(nil),                             // 10: ddex.pie.v10.Gender
+	(*GenderValue)(nil),                        // 11: ddex.pie.v10.GenderValue
+	(*NameWithPronunciation)(nil),              // 12: ddex.pie.v10.NameWithPronunciation
+	(*NameWithScriptCode)(nil),                 // 13: ddex.pie.v10.NameWithScriptCode
+	(*Nationality)(nil),                        // 14: ddex.pie.v10.Nationality
+	(*Party)(nil),                              // 15: ddex.pie.v10.Party
+	(*PartyDescriptorForEntry)(nil),            // 16: ddex.pie.v10.PartyDescriptorForEntry
+	(*PartyList)(nil),                          // 17: ddex.pie.v10.PartyList
+	(*PartyName)(nil),                          // 18: ddex.pie.v10.PartyName
+	(*PartyNameForRequest)(nil),                // 19: ddex.pie.v10.PartyNameForRequest
+	(*PartyNameFormat)(nil),                    // 20: ddex.pie.v10.PartyNameFormat
+	(*PartyNamePurpose)(nil),                   // 21: ddex.pie.v10.PartyNamePurpose
+	(*PartyNameType)(nil),                      // 22: ddex.pie.v10.PartyNameType
+	(*PartyRelationshipType)(nil),              // 23: ddex.pie.v10.PartyRelationshipType
+	(*PartyType)(nil),                          // 24: ddex.pie.v10.PartyType
+	(*PartyTypeValue)(nil),                     // 25: ddex.pie.v10.PartyTypeValue
+	(*PrimaryRole)(nil),                        // 26: ddex.pie.v10.PrimaryRole
+	(*PronunciationForParty)(nil),              // 27: ddex.pie.v10.PronunciationForParty
+	(*ReasonForNameChange)(nil),                // 28: ddex.pie.v10.ReasonForNameChange
+	(*RelatedCreationForParty)(nil),            // 29: ddex.pie.v10.RelatedCreationForParty
+	(*RelatedParty)(nil),                       // 30: ddex.pie.v10.RelatedParty
+	(*ReleaseForRequest)(nil),                  // 31: ddex.pie.v10.ReleaseForRequest
+	(*RequestedParty)(nil),                     // 32: ddex.pie.v10.RequestedParty
+	(*ResourceForRequest)(nil),                 // 33: ddex.pie.v10.ResourceForRequest
+	(*SocialMediaURL)(nil),                     // 34: ddex.pie.v10.SocialMediaURL
+	(*WorkForRequest)(nil),                     // 35: ddex.pie.v10.WorkForRequest
+	(*Category)(nil),                           // 36: ddex.pie.v10.Category
+	(*Content)(nil),                            // 37: ddex.pie.v10.Content
+	(*DateTime)(nil),                           // 38: ddex.pie.v10.DateTime
+	(*Generator)(nil),                          // 39: ddex.pie.v10.Generator
+	(*Icon)(nil),                               // 40: ddex.pie.v10.Icon
+	(*Id)(nil),                                 // 41: ddex.pie.v10.Id
+	(*Link)(nil),                               // 42: ddex.pie.v10.Link
+	(*Logo)(nil),                               // 43: ddex.pie.v10.Logo
+	(*Person)(nil),                             // 44: ddex.pie.v10.Person
+	(*Source)(nil),                             // 45: ddex.pie.v10.Source
+	(*Text)(nil),                               // 46: ddex.pie.v10.Text
+	(*URI)(nil),                                // 47: ddex.pie.v10.URI
+	(*AllTerritoryCode)(nil),                   // 48: ddex.pie.v10.AllTerritoryCode
+	(*ArtistType)(nil),                         // 49: ddex.pie.v10.ArtistType
+	(*ArtistTypeValue)(nil),                    // 50: ddex.pie.v10.ArtistTypeValue
+	(*ArtisticInfluence)(nil),                  // 51: ddex.pie.v10.ArtisticInfluence
+	(*Award)(nil),                              // 52: ddex.pie.v10.Award
+	(*Biography)(nil),                          // 53: ddex.pie.v10.Biography
+	(*BiographyText)(nil),                      // 54: ddex.pie.v10.BiographyText
+	(*CatalogNumber)(nil),                      // 55: ddex.pie.v10.CatalogNumber
+	(*ClassicalPeriod)(nil),                    // 56: ddex.pie.v10.ClassicalPeriod
+	(*CommentaryNote)(nil),                     // 57: ddex.pie.v10.CommentaryNote
+	(*CommentaryNoteType)(nil),                 // 58: ddex.pie.v10.CommentaryNoteType
+	(*ContributorRole)(nil),                    // 59: ddex.pie.v10.ContributorRole
+	(*Date)(nil),                               // 60: ddex.pie.v10.Date
+	(*Description)(nil),                        // 61: ddex.pie.v10.Description
+	(*DetailedHashSum)(nil),                    // 62: ddex.pie.v10.DetailedHashSum
+	(*DetailedPartyId)(nil),                    // 63: ddex.pie.v10.DetailedPartyId
+	(*DisplayArtistName)(nil),                  // 64: ddex.pie.v10.DisplayArtistName
+	(*DisplayArtistNameWithDefault)(nil),       // 65: ddex.pie.v10.DisplayArtistNameWithDefault
+	(*DisplayArtistNameWithPronunciation)(nil), // 66: ddex.pie.v10.DisplayArtistNameWithPronunciation
+	(*DisplaySubTitle)(nil),                    // 67: ddex.pie.v10.DisplaySubTitle
+	(*DisplayTitle)(nil),                       // 68: ddex.pie.v10.DisplayTitle
+	(*Epoch)(nil),                              // 69: ddex.pie.v10.Epoch
+	(*EventDate)(nil),                          // 70: ddex.pie.v10.EventDate
+	(*File)(nil),                               // 71: ddex.pie.v10.File
+	(*HashSumAlgorithmType)(nil),               // 72: ddex.pie.v10.HashSumAlgorithmType
+	(*Image)(nil),                              // 73: ddex.pie.v10.Image
+	(*ImageType)(nil),                          // 74: ddex.pie.v10.ImageType
+	(*MessageAuditTrail)(nil),                  // 75: ddex.pie.v10.MessageAuditTrail
+	(*MessageAuditTrailEvent)(nil),             // 76: ddex.pie.v10.MessageAuditTrailEvent
+	(*MessageHeader)(nil),                      // 77: ddex.pie.v10.MessageHeader
+	(*MessagingPartyWithoutCode)(nil),          // 78: ddex.pie.v10.MessagingPartyWithoutCode
+	(*MetadataSource)(nil),                     // 79: ddex.pie.v10.MetadataSource
+	(*MetadataSourceList)(nil),                 // 80: ddex.pie.v10.MetadataSourceList
+	(*MetadataSourceReference)(nil),            // 81: ddex.pie.v10.MetadataSourceReference
+	(*MetadataSourceType)(nil),                 // 82: ddex.pie.v10.MetadataSourceType
+	(*MusicalWorkIdWithoutFlag)(nil),           // 83: ddex.pie.v10.MusicalWorkIdWithoutFlag
+	(*Name)(nil),                               // 84: ddex.pie.v10.Name
+	(*NameId)(nil),                             // 85: ddex.pie.v10.NameId
+	(*NameWithPronunciationAndScriptCode)(nil), // 86: ddex.pie.v10.NameWithPronunciationAndScriptCode
+	(*PartyDescriptorWithPronunciation)(nil),   // 87: ddex.pie.v10.PartyDescriptorWithPronunciation
+	(*PartyNameWithPronunciation)(nil),         // 88: ddex.pie.v10.PartyNameWithPronunciation
+	(*PartyNameWithoutCode)(nil),               // 89: ddex.pie.v10.PartyNameWithoutCode
+	(*PeriodValue)(nil),                        // 90: ddex.pie.v10.PeriodValue
+	(*PeriodWithTime)(nil),                     // 91: ddex.pie.v10.PeriodWithTime
+	(*Pronunciation)(nil),                      // 92: ddex.pie.v10.Pronunciation
+	(*ProprietaryId)(nil),                      // 93: ddex.pie.v10.ProprietaryId
+	(*RelatedCreation)(nil),                    // 94: ddex.pie.v10.RelatedCreation
+	(*Release)(nil),                            // 95: ddex.pie.v10.Release
+	(*ReleaseId)(nil),                          // 96: ddex.pie.v10.ReleaseId
+	(*ReleaseSummary)(nil),                     // 97: ddex.pie.v10.ReleaseSummary
+	(*ReleaseTitle)(nil),                       // 98: ddex.pie.v10.ReleaseTitle
+	(*Resource)(nil),                           // 99: ddex.pie.v10.Resource
+	(*ResourceIdWithoutFlag)(nil),              // 100: ddex.pie.v10.ResourceIdWithoutFlag
+	(*ResourceSummary)(nil),                    // 101: ddex.pie.v10.ResourceSummary
+	(*ResourceTitle)(nil),                      // 102: ddex.pie.v10.ResourceTitle
+	(*SubTitle)(nil),                           // 103: ddex.pie.v10.SubTitle
+	(*TextWithFormat)(nil),                     // 104: ddex.pie.v10.TextWithFormat
+	(*TextWithoutTerritory)(nil),               // 105: ddex.pie.v10.TextWithoutTerritory
+	(*TitleText)(nil),                          // 106: ddex.pie.v10.TitleText
+	(*TitleWithPronunciation)(nil),             // 107: ddex.pie.v10.TitleWithPronunciation
+	(*TitleWithUDV)(nil),                       // 108: ddex.pie.v10.TitleWithUDV
+	(*ValidityPeriod)(nil),                     // 109: ddex.pie.v10.ValidityPeriod
+	(*VocalRegister)(nil),                      // 110: ddex.pie.v10.VocalRegister
+	(*VocalRegisterValue)(nil),                 // 111: ddex.pie.v10.VocalRegisterValue
+	(*Work)(nil),                               // 112: ddex.pie.v10.Work
+	(*WorkSummary)(nil),                        // 113: ddex.pie.v10.WorkSummary
+	(*WorkTitle)(nil),                          // 114: ddex.pie.v10.WorkTitle
 }
 var file_ddex_pie_v10_v10_proto_depIdxs = []int32{
 	77,  // 0: ddex.pie.v10.PieMessage.message_header:type_name -> ddex.pie.v10.MessageHeader
@@ -9927,220 +9915,191 @@ var file_ddex_pie_v10_v10_proto_depIdxs = []int32{
 	87,  // 45: ddex.pie.v10.Focus.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
 	87,  // 46: ddex.pie.v10.Focus.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
 	91,  // 47: ddex.pie.v10.Focus.period_of_being_focus:type_name -> ddex.pie.v10.PeriodWithTime
-	115, // 48: ddex.pie.v10.Focus.territory_of_being_focus_track_description:type_name -> ddex.avs.CurrentTerritoryCode
-	105, // 49: ddex.pie.v10.Focus.comment:type_name -> ddex.pie.v10.TextWithoutTerritory
-	81,  // 50: ddex.pie.v10.Gender.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	11,  // 51: ddex.pie.v10.Gender.value:type_name -> ddex.pie.v10.GenderValue
-	27,  // 52: ddex.pie.v10.NameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
-	84,  // 53: ddex.pie.v10.NameWithScriptCode.name:type_name -> ddex.pie.v10.Name
-	27,  // 54: ddex.pie.v10.NameWithScriptCode.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
-	81,  // 55: ddex.pie.v10.Nationality.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	48,  // 56: ddex.pie.v10.Nationality.value:type_name -> ddex.pie.v10.AllTerritoryCode
-	5,   // 57: ddex.pie.v10.Party.party_id:type_name -> ddex.pie.v10.DetailedPartyIdForParty
-	18,  // 58: ddex.pie.v10.Party.party_name:type_name -> ddex.pie.v10.PartyName
-	24,  // 59: ddex.pie.v10.Party.party_type:type_name -> ddex.pie.v10.PartyType
-	7,   // 60: ddex.pie.v10.Party.event:type_name -> ddex.pie.v10.Event
-	30,  // 61: ddex.pie.v10.Party.related_party:type_name -> ddex.pie.v10.RelatedParty
-	29,  // 62: ddex.pie.v10.Party.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
-	10,  // 63: ddex.pie.v10.Party.gender:type_name -> ddex.pie.v10.Gender
-	14,  // 64: ddex.pie.v10.Party.nationality:type_name -> ddex.pie.v10.Nationality
-	26,  // 65: ddex.pie.v10.Party.primary_role:type_name -> ddex.pie.v10.PrimaryRole
-	110, // 66: ddex.pie.v10.Party.vocal_register:type_name -> ddex.pie.v10.VocalRegister
-	9,   // 67: ddex.pie.v10.Party.focus:type_name -> ddex.pie.v10.Focus
-	49,  // 68: ddex.pie.v10.Party.artist_type:type_name -> ddex.pie.v10.ArtistType
-	56,  // 69: ddex.pie.v10.Party.classical_period:type_name -> ddex.pie.v10.ClassicalPeriod
-	69,  // 70: ddex.pie.v10.Party.epoch:type_name -> ddex.pie.v10.Epoch
-	51,  // 71: ddex.pie.v10.Party.artistic_influence:type_name -> ddex.pie.v10.ArtisticInfluence
-	52,  // 72: ddex.pie.v10.Party.award:type_name -> ddex.pie.v10.Award
-	53,  // 73: ddex.pie.v10.Party.biography:type_name -> ddex.pie.v10.Biography
-	73,  // 74: ddex.pie.v10.Party.image:type_name -> ddex.pie.v10.Image
-	34,  // 75: ddex.pie.v10.Party.social_media_u_r_l:type_name -> ddex.pie.v10.SocialMediaURL
-	57,  // 76: ddex.pie.v10.Party.commentary_note:type_name -> ddex.pie.v10.CommentaryNote
-	63,  // 77: ddex.pie.v10.PartyDescriptorForEntry.party_id:type_name -> ddex.pie.v10.DetailedPartyId
-	15,  // 78: ddex.pie.v10.PartyList.party:type_name -> ddex.pie.v10.Party
-	81,  // 79: ddex.pie.v10.PartyName.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	85,  // 80: ddex.pie.v10.PartyName.name_id:type_name -> ddex.pie.v10.NameId
-	22,  // 81: ddex.pie.v10.PartyName.party_name_type:type_name -> ddex.pie.v10.PartyNameType
-	28,  // 82: ddex.pie.v10.PartyName.reason_for_name_change:type_name -> ddex.pie.v10.ReasonForNameChange
-	21,  // 83: ddex.pie.v10.PartyName.party_name_purpose:type_name -> ddex.pie.v10.PartyNamePurpose
-	20,  // 84: ddex.pie.v10.PartyName.party_name_format:type_name -> ddex.pie.v10.PartyNameFormat
-	13,  // 85: ddex.pie.v10.PartyName.full_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	12,  // 86: ddex.pie.v10.PartyName.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciation
-	13,  // 87: ddex.pie.v10.PartyName.full_name_indexed:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 88: ddex.pie.v10.PartyName.names_before_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 89: ddex.pie.v10.PartyName.key_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 90: ddex.pie.v10.PartyName.names_after_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 91: ddex.pie.v10.PartyName.short_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 92: ddex.pie.v10.PartyName.abbreviated_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	109, // 93: ddex.pie.v10.PartyName.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
-	29,  // 94: ddex.pie.v10.PartyName.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
-	115, // 95: ddex.pie.v10.PartyName.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	84,  // 96: ddex.pie.v10.PartyNameForRequest.full_name:type_name -> ddex.pie.v10.Name
-	84,  // 97: ddex.pie.v10.PartyNameForRequest.full_name_indexed:type_name -> ddex.pie.v10.Name
-	84,  // 98: ddex.pie.v10.PartyNameForRequest.names_before_key_name:type_name -> ddex.pie.v10.Name
-	84,  // 99: ddex.pie.v10.PartyNameForRequest.key_name:type_name -> ddex.pie.v10.Name
-	84,  // 100: ddex.pie.v10.PartyNameForRequest.names_after_key_name:type_name -> ddex.pie.v10.Name
-	84,  // 101: ddex.pie.v10.PartyNameForRequest.abbreviated_name:type_name -> ddex.pie.v10.Name
-	81,  // 102: ddex.pie.v10.PartyType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	25,  // 103: ddex.pie.v10.PartyType.value:type_name -> ddex.pie.v10.PartyTypeValue
-	81,  // 104: ddex.pie.v10.PrimaryRole.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	59,  // 105: ddex.pie.v10.PrimaryRole.value:type_name -> ddex.pie.v10.ContributorRole
-	116, // 106: ddex.pie.v10.PronunciationForParty.encoding_type:type_name -> ddex.avs.EncodingType
-	81,  // 107: ddex.pie.v10.RelatedCreationForParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	117, // 108: ddex.pie.v10.RelatedCreationForParty.creation_type:type_name -> ddex.avs.CreationType
-	3,   // 109: ddex.pie.v10.RelatedCreationForParty.contribution:type_name -> ddex.pie.v10.Contribution
-	61,  // 110: ddex.pie.v10.RelatedCreationForParty.relationship_description:type_name -> ddex.pie.v10.Description
-	81,  // 111: ddex.pie.v10.RelatedParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	23,  // 112: ddex.pie.v10.RelatedParty.party_relationship_type:type_name -> ddex.pie.v10.PartyRelationshipType
-	61,  // 113: ddex.pie.v10.RelatedParty.description:type_name -> ddex.pie.v10.Description
-	109, // 114: ddex.pie.v10.RelatedParty.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
-	29,  // 115: ddex.pie.v10.RelatedParty.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
-	96,  // 116: ddex.pie.v10.ReleaseForRequest.release_id:type_name -> ddex.pie.v10.ReleaseId
-	98,  // 117: ddex.pie.v10.ReleaseForRequest.release_title:type_name -> ddex.pie.v10.ReleaseTitle
-	59,  // 118: ddex.pie.v10.RequestedParty.role:type_name -> ddex.pie.v10.ContributorRole
-	31,  // 119: ddex.pie.v10.RequestedParty.release:type_name -> ddex.pie.v10.ReleaseForRequest
-	33,  // 120: ddex.pie.v10.RequestedParty.resource:type_name -> ddex.pie.v10.ResourceForRequest
-	35,  // 121: ddex.pie.v10.RequestedParty.work:type_name -> ddex.pie.v10.WorkForRequest
-	100, // 122: ddex.pie.v10.ResourceForRequest.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
-	102, // 123: ddex.pie.v10.ResourceForRequest.resource_title:type_name -> ddex.pie.v10.ResourceTitle
-	118, // 124: ddex.pie.v10.ResourceForRequest.resource_type:type_name -> ddex.avs.ResourceType
-	115, // 125: ddex.pie.v10.SocialMediaURL.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	83,  // 126: ddex.pie.v10.WorkForRequest.work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
-	114, // 127: ddex.pie.v10.WorkForRequest.work_title:type_name -> ddex.pie.v10.WorkTitle
-	47,  // 128: ddex.pie.v10.Person.uri:type_name -> ddex.pie.v10.URI
-	44,  // 129: ddex.pie.v10.Source.author:type_name -> ddex.pie.v10.Person
-	36,  // 130: ddex.pie.v10.Source.category:type_name -> ddex.pie.v10.Category
-	44,  // 131: ddex.pie.v10.Source.contributor:type_name -> ddex.pie.v10.Person
-	39,  // 132: ddex.pie.v10.Source.generator:type_name -> ddex.pie.v10.Generator
-	40,  // 133: ddex.pie.v10.Source.icon:type_name -> ddex.pie.v10.Icon
-	41,  // 134: ddex.pie.v10.Source.id:type_name -> ddex.pie.v10.Id
-	42,  // 135: ddex.pie.v10.Source.link:type_name -> ddex.pie.v10.Link
-	43,  // 136: ddex.pie.v10.Source.logo:type_name -> ddex.pie.v10.Logo
-	46,  // 137: ddex.pie.v10.Source.rights:type_name -> ddex.pie.v10.Text
-	46,  // 138: ddex.pie.v10.Source.subtitle:type_name -> ddex.pie.v10.Text
-	46,  // 139: ddex.pie.v10.Source.title:type_name -> ddex.pie.v10.Text
-	38,  // 140: ddex.pie.v10.Source.updated:type_name -> ddex.pie.v10.DateTime
-	119, // 141: ddex.pie.v10.Text.type:type_name -> ddex.avs.TextTypeATOM
-	120, // 142: ddex.pie.v10.AllTerritoryCode.identifier_type:type_name -> ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes
-	81,  // 143: ddex.pie.v10.ArtistType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	50,  // 144: ddex.pie.v10.ArtistType.value:type_name -> ddex.pie.v10.ArtistTypeValue
-	115, // 145: ddex.pie.v10.ArtistType.territory_of_artist_type_description:type_name -> ddex.avs.CurrentTerritoryCode
-	81,  // 146: ddex.pie.v10.ArtisticInfluence.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	87,  // 147: ddex.pie.v10.ArtisticInfluence.party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	112, // 148: ddex.pie.v10.ArtisticInfluence.work:type_name -> ddex.pie.v10.Work
-	99,  // 149: ddex.pie.v10.ArtisticInfluence.resource:type_name -> ddex.pie.v10.Resource
-	95,  // 150: ddex.pie.v10.ArtisticInfluence.release:type_name -> ddex.pie.v10.Release
-	104, // 151: ddex.pie.v10.ArtisticInfluence.description:type_name -> ddex.pie.v10.TextWithFormat
-	81,  // 152: ddex.pie.v10.Award.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	87,  // 153: ddex.pie.v10.Award.awarding_body:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	87,  // 154: ddex.pie.v10.Award.awarded_party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	86,  // 155: ddex.pie.v10.Award.award_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	70,  // 156: ddex.pie.v10.Award.date:type_name -> ddex.pie.v10.EventDate
-	104, // 157: ddex.pie.v10.Award.comment:type_name -> ddex.pie.v10.TextWithFormat
-	81,  // 158: ddex.pie.v10.Biography.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	54,  // 159: ddex.pie.v10.Biography.text:type_name -> ddex.pie.v10.BiographyText
-	87,  // 160: ddex.pie.v10.Biography.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	115, // 161: ddex.pie.v10.BiographyText.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	121, // 162: ddex.pie.v10.BiographyText.format:type_name -> ddex.avs.TextCodecType
-	81,  // 163: ddex.pie.v10.ClassicalPeriod.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	90,  // 164: ddex.pie.v10.ClassicalPeriod.name:type_name -> ddex.pie.v10.PeriodValue
-	115, // 165: ddex.pie.v10.ClassicalPeriod.territory_of_classical_period_description:type_name -> ddex.avs.CurrentTerritoryCode
-	81,  // 166: ddex.pie.v10.CommentaryNote.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	105, // 167: ddex.pie.v10.CommentaryNote.text:type_name -> ddex.pie.v10.TextWithoutTerritory
-	58,  // 168: ddex.pie.v10.CommentaryNote.commentary_note_type:type_name -> ddex.pie.v10.CommentaryNoteType
-	115, // 169: ddex.pie.v10.CommentaryNote.territory_of_commentary_note_description:type_name -> ddex.avs.CurrentTerritoryCode
-	87,  // 170: ddex.pie.v10.CommentaryNote.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	72,  // 171: ddex.pie.v10.DetailedHashSum.algorithm:type_name -> ddex.pie.v10.HashSumAlgorithmType
-	122, // 172: ddex.pie.v10.DetailedHashSum.data_type:type_name -> ddex.avs.BinaryDataType
-	93,  // 173: ddex.pie.v10.DetailedPartyId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	115, // 174: ddex.pie.v10.DisplayArtistName.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	115, // 175: ddex.pie.v10.DisplayArtistNameWithDefault.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	65,  // 176: ddex.pie.v10.DisplayArtistNameWithPronunciation.name:type_name -> ddex.pie.v10.DisplayArtistNameWithDefault
-	92,  // 177: ddex.pie.v10.DisplayArtistNameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	92,  // 178: ddex.pie.v10.DisplaySubTitle.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	106, // 179: ddex.pie.v10.DisplayTitle.title_text:type_name -> ddex.pie.v10.TitleText
-	67,  // 180: ddex.pie.v10.DisplayTitle.sub_title:type_name -> ddex.pie.v10.DisplaySubTitle
-	115, // 181: ddex.pie.v10.DisplayTitle.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	81,  // 182: ddex.pie.v10.Epoch.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	84,  // 183: ddex.pie.v10.Epoch.value:type_name -> ddex.pie.v10.Name
-	87,  // 184: ddex.pie.v10.Epoch.related_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	94,  // 185: ddex.pie.v10.Epoch.related_creation:type_name -> ddex.pie.v10.RelatedCreation
-	60,  // 186: ddex.pie.v10.Epoch.start_date:type_name -> ddex.pie.v10.Date
-	60,  // 187: ddex.pie.v10.Epoch.end_date:type_name -> ddex.pie.v10.Date
-	115, // 188: ddex.pie.v10.Epoch.territory_of_epoch_description:type_name -> ddex.avs.CurrentTerritoryCode
-	123, // 189: ddex.pie.v10.EventDate.applicable_territory_code:type_name -> ddex.avs.AllTerritoryCode
-	62,  // 190: ddex.pie.v10.File.hash_sum:type_name -> ddex.pie.v10.DetailedHashSum
-	81,  // 191: ddex.pie.v10.Image.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	71,  // 192: ddex.pie.v10.Image.file:type_name -> ddex.pie.v10.File
-	74,  // 193: ddex.pie.v10.Image.image_type:type_name -> ddex.pie.v10.ImageType
-	76,  // 194: ddex.pie.v10.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.pie.v10.MessageAuditTrailEvent
-	78,  // 195: ddex.pie.v10.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	78,  // 196: ddex.pie.v10.MessageHeader.message_sender:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	78,  // 197: ddex.pie.v10.MessageHeader.sent_on_behalf_of:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	78,  // 198: ddex.pie.v10.MessageHeader.message_recipient:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	75,  // 199: ddex.pie.v10.MessageHeader.message_audit_trail:type_name -> ddex.pie.v10.MessageAuditTrail
-	124, // 200: ddex.pie.v10.MessageHeader.message_control_type:type_name -> ddex.avs.MessageControlType
-	89,  // 201: ddex.pie.v10.MessagingPartyWithoutCode.party_name:type_name -> ddex.pie.v10.PartyNameWithoutCode
-	82,  // 202: ddex.pie.v10.MetadataSource.metadata_source_type:type_name -> ddex.pie.v10.MetadataSourceType
-	79,  // 203: ddex.pie.v10.MetadataSourceList.metadata_source:type_name -> ddex.pie.v10.MetadataSource
-	125, // 204: ddex.pie.v10.MetadataSourceReference.status:type_name -> ddex.avs.AssertionStatus
-	93,  // 205: ddex.pie.v10.MusicalWorkIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	93,  // 206: ddex.pie.v10.NameId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	84,  // 207: ddex.pie.v10.NameWithPronunciationAndScriptCode.name:type_name -> ddex.pie.v10.Name
-	92,  // 208: ddex.pie.v10.NameWithPronunciationAndScriptCode.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	63,  // 209: ddex.pie.v10.PartyDescriptorWithPronunciation.party_id:type_name -> ddex.pie.v10.DetailedPartyId
-	86,  // 210: ddex.pie.v10.PartyNameWithPronunciation.full_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 211: ddex.pie.v10.PartyNameWithPronunciation.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 212: ddex.pie.v10.PartyNameWithPronunciation.full_name_indexed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 213: ddex.pie.v10.PartyNameWithPronunciation.names_before_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 214: ddex.pie.v10.PartyNameWithPronunciation.key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 215: ddex.pie.v10.PartyNameWithPronunciation.names_after_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 216: ddex.pie.v10.PartyNameWithPronunciation.abbreviated_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	115, // 217: ddex.pie.v10.PartyNameWithPronunciation.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	116, // 218: ddex.pie.v10.Pronunciation.encoding_type:type_name -> ddex.avs.EncodingType
-	107, // 219: ddex.pie.v10.RelatedCreation.title:type_name -> ddex.pie.v10.TitleWithPronunciation
-	98,  // 220: ddex.pie.v10.Release.release_title:type_name -> ddex.pie.v10.ReleaseTitle
-	66,  // 221: ddex.pie.v10.Release.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 222: ddex.pie.v10.Release.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	55,  // 223: ddex.pie.v10.ReleaseId.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
-	93,  // 224: ddex.pie.v10.ReleaseId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	96,  // 225: ddex.pie.v10.ReleaseSummary.release_id:type_name -> ddex.pie.v10.ReleaseId
-	68,  // 226: ddex.pie.v10.ReleaseSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
-	66,  // 227: ddex.pie.v10.ReleaseSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 228: ddex.pie.v10.ReleaseSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	102, // 229: ddex.pie.v10.Resource.resource_title:type_name -> ddex.pie.v10.ResourceTitle
-	66,  // 230: ddex.pie.v10.Resource.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 231: ddex.pie.v10.Resource.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	55,  // 232: ddex.pie.v10.ResourceIdWithoutFlag.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
-	93,  // 233: ddex.pie.v10.ResourceIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	100, // 234: ddex.pie.v10.ResourceSummary.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
-	68,  // 235: ddex.pie.v10.ResourceSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
-	66,  // 236: ddex.pie.v10.ResourceSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 237: ddex.pie.v10.ResourceSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	115, // 238: ddex.pie.v10.TextWithFormat.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	121, // 239: ddex.pie.v10.TextWithFormat.format:type_name -> ddex.avs.TextCodecType
-	115, // 240: ddex.pie.v10.TextWithoutTerritory.applicable_territory_code:type_name -> ddex.avs.CurrentTerritoryCode
-	121, // 241: ddex.pie.v10.TextWithoutTerritory.format:type_name -> ddex.avs.TextCodecType
-	92,  // 242: ddex.pie.v10.TitleText.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	106, // 243: ddex.pie.v10.TitleWithPronunciation.title_text:type_name -> ddex.pie.v10.TitleText
-	106, // 244: ddex.pie.v10.TitleWithPronunciation.sub_title:type_name -> ddex.pie.v10.TitleText
-	126, // 245: ddex.pie.v10.TitleWithPronunciation.title_type:type_name -> ddex.avs.TitleType
-	103, // 246: ddex.pie.v10.TitleWithUDV.sub_title:type_name -> ddex.pie.v10.SubTitle
-	126, // 247: ddex.pie.v10.TitleWithUDV.title_type:type_name -> ddex.avs.TitleType
-	70,  // 248: ddex.pie.v10.ValidityPeriod.start_date:type_name -> ddex.pie.v10.EventDate
-	70,  // 249: ddex.pie.v10.ValidityPeriod.end_date:type_name -> ddex.pie.v10.EventDate
-	81,  // 250: ddex.pie.v10.VocalRegister.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	111, // 251: ddex.pie.v10.VocalRegister.value:type_name -> ddex.pie.v10.VocalRegisterValue
-	114, // 252: ddex.pie.v10.Work.work_title:type_name -> ddex.pie.v10.WorkTitle
-	87,  // 253: ddex.pie.v10.Work.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	83,  // 254: ddex.pie.v10.WorkSummary.musical_work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
-	107, // 255: ddex.pie.v10.WorkSummary.work_title:type_name -> ddex.pie.v10.TitleWithPronunciation
-	87,  // 256: ddex.pie.v10.WorkSummary.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	257, // [257:257] is the sub-list for method output_type
-	257, // [257:257] is the sub-list for method input_type
-	257, // [257:257] is the sub-list for extension type_name
-	257, // [257:257] is the sub-list for extension extendee
-	0,   // [0:257] is the sub-list for field type_name
+	105, // 48: ddex.pie.v10.Focus.comment:type_name -> ddex.pie.v10.TextWithoutTerritory
+	81,  // 49: ddex.pie.v10.Gender.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	11,  // 50: ddex.pie.v10.Gender.value:type_name -> ddex.pie.v10.GenderValue
+	27,  // 51: ddex.pie.v10.NameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
+	84,  // 52: ddex.pie.v10.NameWithScriptCode.name:type_name -> ddex.pie.v10.Name
+	27,  // 53: ddex.pie.v10.NameWithScriptCode.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
+	81,  // 54: ddex.pie.v10.Nationality.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	48,  // 55: ddex.pie.v10.Nationality.value:type_name -> ddex.pie.v10.AllTerritoryCode
+	5,   // 56: ddex.pie.v10.Party.party_id:type_name -> ddex.pie.v10.DetailedPartyIdForParty
+	18,  // 57: ddex.pie.v10.Party.party_name:type_name -> ddex.pie.v10.PartyName
+	24,  // 58: ddex.pie.v10.Party.party_type:type_name -> ddex.pie.v10.PartyType
+	7,   // 59: ddex.pie.v10.Party.event:type_name -> ddex.pie.v10.Event
+	30,  // 60: ddex.pie.v10.Party.related_party:type_name -> ddex.pie.v10.RelatedParty
+	29,  // 61: ddex.pie.v10.Party.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
+	10,  // 62: ddex.pie.v10.Party.gender:type_name -> ddex.pie.v10.Gender
+	14,  // 63: ddex.pie.v10.Party.nationality:type_name -> ddex.pie.v10.Nationality
+	26,  // 64: ddex.pie.v10.Party.primary_role:type_name -> ddex.pie.v10.PrimaryRole
+	110, // 65: ddex.pie.v10.Party.vocal_register:type_name -> ddex.pie.v10.VocalRegister
+	9,   // 66: ddex.pie.v10.Party.focus:type_name -> ddex.pie.v10.Focus
+	49,  // 67: ddex.pie.v10.Party.artist_type:type_name -> ddex.pie.v10.ArtistType
+	56,  // 68: ddex.pie.v10.Party.classical_period:type_name -> ddex.pie.v10.ClassicalPeriod
+	69,  // 69: ddex.pie.v10.Party.epoch:type_name -> ddex.pie.v10.Epoch
+	51,  // 70: ddex.pie.v10.Party.artistic_influence:type_name -> ddex.pie.v10.ArtisticInfluence
+	52,  // 71: ddex.pie.v10.Party.award:type_name -> ddex.pie.v10.Award
+	53,  // 72: ddex.pie.v10.Party.biography:type_name -> ddex.pie.v10.Biography
+	73,  // 73: ddex.pie.v10.Party.image:type_name -> ddex.pie.v10.Image
+	34,  // 74: ddex.pie.v10.Party.social_media_u_r_l:type_name -> ddex.pie.v10.SocialMediaURL
+	57,  // 75: ddex.pie.v10.Party.commentary_note:type_name -> ddex.pie.v10.CommentaryNote
+	63,  // 76: ddex.pie.v10.PartyDescriptorForEntry.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	15,  // 77: ddex.pie.v10.PartyList.party:type_name -> ddex.pie.v10.Party
+	81,  // 78: ddex.pie.v10.PartyName.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	85,  // 79: ddex.pie.v10.PartyName.name_id:type_name -> ddex.pie.v10.NameId
+	22,  // 80: ddex.pie.v10.PartyName.party_name_type:type_name -> ddex.pie.v10.PartyNameType
+	28,  // 81: ddex.pie.v10.PartyName.reason_for_name_change:type_name -> ddex.pie.v10.ReasonForNameChange
+	21,  // 82: ddex.pie.v10.PartyName.party_name_purpose:type_name -> ddex.pie.v10.PartyNamePurpose
+	20,  // 83: ddex.pie.v10.PartyName.party_name_format:type_name -> ddex.pie.v10.PartyNameFormat
+	13,  // 84: ddex.pie.v10.PartyName.full_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	12,  // 85: ddex.pie.v10.PartyName.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciation
+	13,  // 86: ddex.pie.v10.PartyName.full_name_indexed:type_name -> ddex.pie.v10.NameWithScriptCode
+	13,  // 87: ddex.pie.v10.PartyName.names_before_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	13,  // 88: ddex.pie.v10.PartyName.key_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	13,  // 89: ddex.pie.v10.PartyName.names_after_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	13,  // 90: ddex.pie.v10.PartyName.short_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	13,  // 91: ddex.pie.v10.PartyName.abbreviated_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	109, // 92: ddex.pie.v10.PartyName.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
+	29,  // 93: ddex.pie.v10.PartyName.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
+	84,  // 94: ddex.pie.v10.PartyNameForRequest.full_name:type_name -> ddex.pie.v10.Name
+	84,  // 95: ddex.pie.v10.PartyNameForRequest.full_name_indexed:type_name -> ddex.pie.v10.Name
+	84,  // 96: ddex.pie.v10.PartyNameForRequest.names_before_key_name:type_name -> ddex.pie.v10.Name
+	84,  // 97: ddex.pie.v10.PartyNameForRequest.key_name:type_name -> ddex.pie.v10.Name
+	84,  // 98: ddex.pie.v10.PartyNameForRequest.names_after_key_name:type_name -> ddex.pie.v10.Name
+	84,  // 99: ddex.pie.v10.PartyNameForRequest.abbreviated_name:type_name -> ddex.pie.v10.Name
+	81,  // 100: ddex.pie.v10.PartyType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	25,  // 101: ddex.pie.v10.PartyType.value:type_name -> ddex.pie.v10.PartyTypeValue
+	81,  // 102: ddex.pie.v10.PrimaryRole.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	59,  // 103: ddex.pie.v10.PrimaryRole.value:type_name -> ddex.pie.v10.ContributorRole
+	81,  // 104: ddex.pie.v10.RelatedCreationForParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	3,   // 105: ddex.pie.v10.RelatedCreationForParty.contribution:type_name -> ddex.pie.v10.Contribution
+	61,  // 106: ddex.pie.v10.RelatedCreationForParty.relationship_description:type_name -> ddex.pie.v10.Description
+	81,  // 107: ddex.pie.v10.RelatedParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	23,  // 108: ddex.pie.v10.RelatedParty.party_relationship_type:type_name -> ddex.pie.v10.PartyRelationshipType
+	61,  // 109: ddex.pie.v10.RelatedParty.description:type_name -> ddex.pie.v10.Description
+	109, // 110: ddex.pie.v10.RelatedParty.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
+	29,  // 111: ddex.pie.v10.RelatedParty.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
+	96,  // 112: ddex.pie.v10.ReleaseForRequest.release_id:type_name -> ddex.pie.v10.ReleaseId
+	98,  // 113: ddex.pie.v10.ReleaseForRequest.release_title:type_name -> ddex.pie.v10.ReleaseTitle
+	59,  // 114: ddex.pie.v10.RequestedParty.role:type_name -> ddex.pie.v10.ContributorRole
+	31,  // 115: ddex.pie.v10.RequestedParty.release:type_name -> ddex.pie.v10.ReleaseForRequest
+	33,  // 116: ddex.pie.v10.RequestedParty.resource:type_name -> ddex.pie.v10.ResourceForRequest
+	35,  // 117: ddex.pie.v10.RequestedParty.work:type_name -> ddex.pie.v10.WorkForRequest
+	100, // 118: ddex.pie.v10.ResourceForRequest.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
+	102, // 119: ddex.pie.v10.ResourceForRequest.resource_title:type_name -> ddex.pie.v10.ResourceTitle
+	83,  // 120: ddex.pie.v10.WorkForRequest.work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
+	114, // 121: ddex.pie.v10.WorkForRequest.work_title:type_name -> ddex.pie.v10.WorkTitle
+	47,  // 122: ddex.pie.v10.Person.uri:type_name -> ddex.pie.v10.URI
+	44,  // 123: ddex.pie.v10.Source.author:type_name -> ddex.pie.v10.Person
+	36,  // 124: ddex.pie.v10.Source.category:type_name -> ddex.pie.v10.Category
+	44,  // 125: ddex.pie.v10.Source.contributor:type_name -> ddex.pie.v10.Person
+	39,  // 126: ddex.pie.v10.Source.generator:type_name -> ddex.pie.v10.Generator
+	40,  // 127: ddex.pie.v10.Source.icon:type_name -> ddex.pie.v10.Icon
+	41,  // 128: ddex.pie.v10.Source.id:type_name -> ddex.pie.v10.Id
+	42,  // 129: ddex.pie.v10.Source.link:type_name -> ddex.pie.v10.Link
+	43,  // 130: ddex.pie.v10.Source.logo:type_name -> ddex.pie.v10.Logo
+	46,  // 131: ddex.pie.v10.Source.rights:type_name -> ddex.pie.v10.Text
+	46,  // 132: ddex.pie.v10.Source.subtitle:type_name -> ddex.pie.v10.Text
+	46,  // 133: ddex.pie.v10.Source.title:type_name -> ddex.pie.v10.Text
+	38,  // 134: ddex.pie.v10.Source.updated:type_name -> ddex.pie.v10.DateTime
+	81,  // 135: ddex.pie.v10.ArtistType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	50,  // 136: ddex.pie.v10.ArtistType.value:type_name -> ddex.pie.v10.ArtistTypeValue
+	81,  // 137: ddex.pie.v10.ArtisticInfluence.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	87,  // 138: ddex.pie.v10.ArtisticInfluence.party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	112, // 139: ddex.pie.v10.ArtisticInfluence.work:type_name -> ddex.pie.v10.Work
+	99,  // 140: ddex.pie.v10.ArtisticInfluence.resource:type_name -> ddex.pie.v10.Resource
+	95,  // 141: ddex.pie.v10.ArtisticInfluence.release:type_name -> ddex.pie.v10.Release
+	104, // 142: ddex.pie.v10.ArtisticInfluence.description:type_name -> ddex.pie.v10.TextWithFormat
+	81,  // 143: ddex.pie.v10.Award.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	87,  // 144: ddex.pie.v10.Award.awarding_body:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	87,  // 145: ddex.pie.v10.Award.awarded_party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	86,  // 146: ddex.pie.v10.Award.award_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	70,  // 147: ddex.pie.v10.Award.date:type_name -> ddex.pie.v10.EventDate
+	104, // 148: ddex.pie.v10.Award.comment:type_name -> ddex.pie.v10.TextWithFormat
+	81,  // 149: ddex.pie.v10.Biography.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	54,  // 150: ddex.pie.v10.Biography.text:type_name -> ddex.pie.v10.BiographyText
+	87,  // 151: ddex.pie.v10.Biography.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	81,  // 152: ddex.pie.v10.ClassicalPeriod.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	90,  // 153: ddex.pie.v10.ClassicalPeriod.name:type_name -> ddex.pie.v10.PeriodValue
+	81,  // 154: ddex.pie.v10.CommentaryNote.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	105, // 155: ddex.pie.v10.CommentaryNote.text:type_name -> ddex.pie.v10.TextWithoutTerritory
+	58,  // 156: ddex.pie.v10.CommentaryNote.commentary_note_type:type_name -> ddex.pie.v10.CommentaryNoteType
+	87,  // 157: ddex.pie.v10.CommentaryNote.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	72,  // 158: ddex.pie.v10.DetailedHashSum.algorithm:type_name -> ddex.pie.v10.HashSumAlgorithmType
+	93,  // 159: ddex.pie.v10.DetailedPartyId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	65,  // 160: ddex.pie.v10.DisplayArtistNameWithPronunciation.name:type_name -> ddex.pie.v10.DisplayArtistNameWithDefault
+	92,  // 161: ddex.pie.v10.DisplayArtistNameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	92,  // 162: ddex.pie.v10.DisplaySubTitle.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	106, // 163: ddex.pie.v10.DisplayTitle.title_text:type_name -> ddex.pie.v10.TitleText
+	67,  // 164: ddex.pie.v10.DisplayTitle.sub_title:type_name -> ddex.pie.v10.DisplaySubTitle
+	81,  // 165: ddex.pie.v10.Epoch.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	84,  // 166: ddex.pie.v10.Epoch.value:type_name -> ddex.pie.v10.Name
+	87,  // 167: ddex.pie.v10.Epoch.related_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	94,  // 168: ddex.pie.v10.Epoch.related_creation:type_name -> ddex.pie.v10.RelatedCreation
+	60,  // 169: ddex.pie.v10.Epoch.start_date:type_name -> ddex.pie.v10.Date
+	60,  // 170: ddex.pie.v10.Epoch.end_date:type_name -> ddex.pie.v10.Date
+	62,  // 171: ddex.pie.v10.File.hash_sum:type_name -> ddex.pie.v10.DetailedHashSum
+	81,  // 172: ddex.pie.v10.Image.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	71,  // 173: ddex.pie.v10.Image.file:type_name -> ddex.pie.v10.File
+	74,  // 174: ddex.pie.v10.Image.image_type:type_name -> ddex.pie.v10.ImageType
+	76,  // 175: ddex.pie.v10.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.pie.v10.MessageAuditTrailEvent
+	78,  // 176: ddex.pie.v10.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	78,  // 177: ddex.pie.v10.MessageHeader.message_sender:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	78,  // 178: ddex.pie.v10.MessageHeader.sent_on_behalf_of:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	78,  // 179: ddex.pie.v10.MessageHeader.message_recipient:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	75,  // 180: ddex.pie.v10.MessageHeader.message_audit_trail:type_name -> ddex.pie.v10.MessageAuditTrail
+	89,  // 181: ddex.pie.v10.MessagingPartyWithoutCode.party_name:type_name -> ddex.pie.v10.PartyNameWithoutCode
+	82,  // 182: ddex.pie.v10.MetadataSource.metadata_source_type:type_name -> ddex.pie.v10.MetadataSourceType
+	79,  // 183: ddex.pie.v10.MetadataSourceList.metadata_source:type_name -> ddex.pie.v10.MetadataSource
+	93,  // 184: ddex.pie.v10.MusicalWorkIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	93,  // 185: ddex.pie.v10.NameId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	84,  // 186: ddex.pie.v10.NameWithPronunciationAndScriptCode.name:type_name -> ddex.pie.v10.Name
+	92,  // 187: ddex.pie.v10.NameWithPronunciationAndScriptCode.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	63,  // 188: ddex.pie.v10.PartyDescriptorWithPronunciation.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	86,  // 189: ddex.pie.v10.PartyNameWithPronunciation.full_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	86,  // 190: ddex.pie.v10.PartyNameWithPronunciation.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	86,  // 191: ddex.pie.v10.PartyNameWithPronunciation.full_name_indexed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	86,  // 192: ddex.pie.v10.PartyNameWithPronunciation.names_before_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	86,  // 193: ddex.pie.v10.PartyNameWithPronunciation.key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	86,  // 194: ddex.pie.v10.PartyNameWithPronunciation.names_after_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	86,  // 195: ddex.pie.v10.PartyNameWithPronunciation.abbreviated_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	107, // 196: ddex.pie.v10.RelatedCreation.title:type_name -> ddex.pie.v10.TitleWithPronunciation
+	98,  // 197: ddex.pie.v10.Release.release_title:type_name -> ddex.pie.v10.ReleaseTitle
+	66,  // 198: ddex.pie.v10.Release.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	87,  // 199: ddex.pie.v10.Release.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	55,  // 200: ddex.pie.v10.ReleaseId.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
+	93,  // 201: ddex.pie.v10.ReleaseId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	96,  // 202: ddex.pie.v10.ReleaseSummary.release_id:type_name -> ddex.pie.v10.ReleaseId
+	68,  // 203: ddex.pie.v10.ReleaseSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
+	66,  // 204: ddex.pie.v10.ReleaseSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	87,  // 205: ddex.pie.v10.ReleaseSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	102, // 206: ddex.pie.v10.Resource.resource_title:type_name -> ddex.pie.v10.ResourceTitle
+	66,  // 207: ddex.pie.v10.Resource.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	87,  // 208: ddex.pie.v10.Resource.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	55,  // 209: ddex.pie.v10.ResourceIdWithoutFlag.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
+	93,  // 210: ddex.pie.v10.ResourceIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	100, // 211: ddex.pie.v10.ResourceSummary.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
+	68,  // 212: ddex.pie.v10.ResourceSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
+	66,  // 213: ddex.pie.v10.ResourceSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	87,  // 214: ddex.pie.v10.ResourceSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	92,  // 215: ddex.pie.v10.TitleText.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	106, // 216: ddex.pie.v10.TitleWithPronunciation.title_text:type_name -> ddex.pie.v10.TitleText
+	106, // 217: ddex.pie.v10.TitleWithPronunciation.sub_title:type_name -> ddex.pie.v10.TitleText
+	103, // 218: ddex.pie.v10.TitleWithUDV.sub_title:type_name -> ddex.pie.v10.SubTitle
+	70,  // 219: ddex.pie.v10.ValidityPeriod.start_date:type_name -> ddex.pie.v10.EventDate
+	70,  // 220: ddex.pie.v10.ValidityPeriod.end_date:type_name -> ddex.pie.v10.EventDate
+	81,  // 221: ddex.pie.v10.VocalRegister.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	111, // 222: ddex.pie.v10.VocalRegister.value:type_name -> ddex.pie.v10.VocalRegisterValue
+	114, // 223: ddex.pie.v10.Work.work_title:type_name -> ddex.pie.v10.WorkTitle
+	87,  // 224: ddex.pie.v10.Work.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	83,  // 225: ddex.pie.v10.WorkSummary.musical_work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
+	107, // 226: ddex.pie.v10.WorkSummary.work_title:type_name -> ddex.pie.v10.TitleWithPronunciation
+	87,  // 227: ddex.pie.v10.WorkSummary.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	228, // [228:228] is the sub-list for method output_type
+	228, // [228:228] is the sub-list for method input_type
+	228, // [228:228] is the sub-list for extension type_name
+	228, // [228:228] is the sub-list for extension extendee
+	0,   // [0:228] is the sub-list for field type_name
 }
 
 func init() { file_ddex_pie_v10_v10_proto_init() }
