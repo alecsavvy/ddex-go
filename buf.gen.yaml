@@ -1,0 +1,19 @@
+version: v2
+managed:
+  enabled: true
+plugins:
+  # Generate Go code from protobuf
+  - remote: buf.build/protocolbuffers/go
+    out: gen
+    opt:
+      - paths=source_relative
+  # Generate Go gRPC code
+  - remote: buf.build/grpc/go
+    out: gen  
+    opt:
+      - paths=source_relative
+  # Add XML tags using protoc-gen-gotag (run separately)
+  # - local: protoc-gen-gotag
+  #   out: gen
+  #   opt:
+  #     - paths=source_relative

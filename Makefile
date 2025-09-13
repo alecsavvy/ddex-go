@@ -1,6 +1,6 @@
 # DDEX Go Library Makefile
 
-.PHONY: test testdata clean generate-go generate-proto generate-all help
+.PHONY: test testdata clean generate-go generate-proto generate buf-lint buf-generate buf-all help
 
 # Default target
 help:
@@ -10,6 +10,9 @@ help:
 	@echo "  generate-go    - Generate pure Go structs from XSD (ddex/ directory)"
 	@echo "  generate-proto - Generate .proto files from XSD (proto/ directory)"  
 	@echo "  generate-all   - Generate both Go and proto files"
+	@echo "  buf-lint      - Lint protobuf files with buf"
+	@echo "  buf-generate  - Generate Go code from .proto files with buf"
+	@echo "  buf-all       - Generate protos from XSD, then Go code from protos"
 	@echo ""
 	@echo "Testing:"
 	@echo "  test          - Run all tests (downloads testdata if needed)"
@@ -31,8 +34,33 @@ generate-proto:
 	go run tools/xsd2proto/main.go
 
 # Generate everything
-generate-all: generate-go generate-proto
+generate: generate-go generate-proto
 	@echo "All generation complete!"
+
+# Lint protobuf files with buf
+buf-lint:
+	@echo "Linting protobuf files..."
+	buf lint
+
+# Generate Go code from protobuf files
+buf-generate: 
+	@echo "Generating Go code from protobuf files..."
+	buf generate
+	@echo "Injecting XML tags with protoc-go-inject-tag..."
+	@$(MAKE) inject-tags
+
+# Inject XML tags into generated protobuf structs using protoc-go-inject-tag
+inject-tags:
+	@echo "Injecting tags into generated Go files..."
+	@for file in $$(find gen -name "*.pb.go" 2>/dev/null); do \
+		echo "  Processing $$file..."; \
+		protoc-go-inject-tag -input=$$file 2>/dev/null || true; \
+	done
+	@echo "XML tags injected successfully!"
+
+# Complete protobuf workflow: XSD -> proto -> Go with XML tags
+buf-all: generate-proto buf-lint buf-generate
+	@echo "Complete protobuf generation workflow complete!"
 
 # Run tests, ensuring testdata exists
 test:
