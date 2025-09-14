@@ -80,9 +80,19 @@ generate-enum-strings:
 buf-all: generate-proto buf-lint buf-generate
 	@echo "Complete protobuf generation workflow complete!"
 
-# Run tests, ensuring testdata exists
+# Run all tests including comprehensive validation
 test:
 	go test -v ./...
+
+# Run comprehensive tests against DDEX samples
+test-comprehensive:
+	go test -v -run TestConformance ./...
+	go test -v -run TestRoundTrip ./...
+	go test -v -run TestFieldCompleteness ./...
+
+# Run performance benchmarks
+benchmark:
+	go test -bench=. -benchmem ./...
 
 # Test roundtrip compatibility between pure Go and proto-generated Go
 test-roundtrip:
