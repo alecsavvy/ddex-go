@@ -4,9 +4,10 @@ This directory contains Protocol Buffer definitions generated from DDEX XSD sche
 
 ## Structure
 
-- `ernv432/` - ERN v4.3.2 .proto files with XML tag annotations
-- `meadv11/` - MEAD v1.1 .proto files with XML tag annotations
-- `piev10/` - PIE v1.0 .proto files with XML tag annotations
+- `ddex/avs/` - Shared Allowed Value Sets (enums) used across all DDEX specifications
+- `ddex/ern/v432/` - ERN v4.3.2 .proto files with XML tag annotations
+- `ddex/mead/v11/` - MEAD v1.1 .proto files with XML tag annotations  
+- `ddex/pie/v10/` - PIE v1.0 .proto files with XML tag annotations
 
 ## Features
 
@@ -17,4 +18,8 @@ Each .proto file includes:
 
 ## Generation
 
-These files are generated using `tools/xsd2proto` which converts XSD schemas to protobuf with appropriate XML tags.
+Generated using:
+- `tools/xsd2proto` - Converts XSD schemas to protobuf with namespace-aware imports
+- XML tag annotations via `[(tagger.tags)]` for XML compatibility  
+
+Run `make generate-proto` to regenerate from XSD schemas.

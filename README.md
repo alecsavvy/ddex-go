@@ -31,7 +31,7 @@ import (
     "os"
     
     "github.com/alecsavvy/ddex-go"
-    "github.com/alecsavvy/ddex-go/ernv432"
+    ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
 )
 
 func main() {
@@ -75,9 +75,16 @@ func main() {
 For convenience, the main package exports versioned type aliases:
 
 ```go
-type NewReleaseMessageV432 = ernv432.NewReleaseMessage
+// ERN v4.3.2 - Main message types
+type NewReleaseMessageV432   = ernv432.NewReleaseMessage
+type PurgeReleaseMessageV432 = ernv432.PurgeReleaseMessage
+
+// MEAD v1.1 types
 type MeadMessageV11 = meadv11.MeadMessage
-type PieMessageV10 = piev10.PieMessage
+
+// PIE v1.0 types
+type PieMessageV10        = piev10.PieMessage
+type PieRequestMessageV10 = piev10.PieRequestMessage
 ```
 
 ## Examples
@@ -88,13 +95,13 @@ The `examples/` directory contains tools for testing DDEX file parsing with both
 
 #### Using Pure Go Structs (XSD-generated)
 ```bash
-# Parse with XSD-generated Go structs
+# Parse with XSD-generated Go structs (ddex/ package)
 go run examples/xsd/main.go -file path/to/your/ddex-file.xml
 ```
 
 #### Using Protocol Buffer Structs (with XML tags)
 ```bash
-# Parse with protobuf-generated Go structs that include XML unmarshaling
+# Parse with protobuf-generated Go structs that include XML unmarshaling (gen/ package)
 go run examples/proto/main.go -file path/to/your/ddex-file.xml
 ```
 
@@ -116,7 +123,7 @@ Both examples will automatically detect the message type (ERN, MEAD, or PIE) and
 make test
 ```
 
-This will automatically download DDEX sample files and run comprehensive unmarshaling tests.
+This runs comprehensive unmarshaling tests for all supported DDEX message types.
 
 **Note on Test Data:**
 - **ERN test files** are official DDEX sample files downloaded directly from the DDEX consortium
@@ -124,23 +131,30 @@ This will automatically download DDEX sample files and run comprehensive unmarsh
 
 ### Regenerating Code
 
-The Go structs are generated from official DDEX XSD schemas using [xgen](https://github.com/xuri/xgen):
+The repository provides two approaches for generating Go structs from DDEX XSD schemas:
 
 ```bash
+# Generate everything (both pure Go and protobuf approaches)
 make generate
+
+# Generate only pure Go structs from XSD
+make generate-go
+
+# Generate only protobuf definitions and Go code
+make generate-proto generate-proto-go
 ```
 
 ### Manual Commands
 
 ```bash
-# Download test data only
-make testdata
-
-# Run tests without downloading
+# Run tests without generation
 go test -v ./...
 
 # Clean generated files and test data  
 make clean
+
+# See all available targets
+make help
 ```
 
 ## Repository Structure
@@ -171,11 +185,13 @@ ddex-go/
 │   └── xsd2proto/          # XSD to Proto converter with namespace-aware imports
 │
 ├── examples/                # Usage examples and documentation
-│   ├── proto/              # Example using protobuf-generated structs
-│   └── xsd/                # Example using XSD-generated structs
+│   ├── proto/              # Example using protobuf-generated structs (gen/)
+│   └── xsd/                # Example using XSD-generated structs (ddex/)
 │
-└── test/                    # Validation and compatibility tests
-    └── roundtrip/          # Compare XML output between ddex/ and gen/
+└── xsd/                     # Original DDEX XSD schema files
+    ├── ernv432/            # ERN v4.3.2 XSD files
+    ├── meadv11/            # MEAD v1.1 XSD files
+    └── piev10/             # PIE v1.0 XSD files
 ```
 
 ## Two Approaches
@@ -187,10 +203,11 @@ ddex-go/
 - Lightweight, no external dependencies
 
 ### 2. Protocol Buffer Package (`gen/`)
-- Generated from `.proto` files with XML tag annotations
+- Generated from `.proto` files with XML tag annotations  
 - Supports both binary Protocol Buffer and XML serialization
 - Compatible with gRPC and ConnectRPC
 - Enables efficient binary serialization while maintaining XML compatibility
+- Includes shared `avs/` package for common enum types across all DDEX specifications
 
 ## License
 
