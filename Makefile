@@ -34,8 +34,8 @@ generate-proto-go:
 	buf generate
 	@echo "Injecting XML tags with protoc-go-inject-tag..."
 	@$(MAKE) inject-tags
-	@echo "Generating string conversion methods for enums..."
-	@$(MAKE) generate-enum-strings
+	@echo "Generating Go extensions (enums and XML methods)..."
+	@$(MAKE) generate-go-extensions
 
 # Generate everything
 generate: generate-proto generate-proto-go
@@ -52,8 +52,8 @@ buf-generate:
 	buf generate
 	@echo "Injecting XML tags with protoc-go-inject-tag..."
 	@$(MAKE) inject-tags
-	@echo "Generating string conversion methods for enums..."
-	@$(MAKE) generate-enum-strings
+	@echo "Generating Go extensions (enums and XML methods)..."
+	@$(MAKE) generate-go-extensions
 
 # Inject XML tags into generated protobuf structs using protoc-go-inject-tag
 inject-tags:
@@ -64,11 +64,11 @@ inject-tags:
 	done
 	@echo "XML tags injected successfully!"
 
-# Generate string conversion methods for enum types
-generate-enum-strings:
-	@echo "Generating enum_strings.go files for enum string conversion..."
-	go run tools/generate-enum-strings/main.go
-	@echo "Enum string generation complete!"
+# Generate Go extensions (enum strings and XML marshaling methods)
+generate-go-extensions:
+	@echo "Generating enum_strings.go and XML files for Go extensions..."
+	go run tools/generate-go-extensions/main.go
+	@echo "Go extensions generation complete!"
 
 # Complete protobuf workflow: XSD -> proto -> Go with XML tags
 buf-all: generate-proto buf-lint buf-generate
