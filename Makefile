@@ -67,7 +67,7 @@ inject-tags:
 # Generate string conversion methods for enum types
 generate-enum-strings:
 	@echo "Generating enum_strings.go files for enum string conversion..."
-	go run tools/generate-enum-strings.go
+	go run tools/generate-enum-strings/main.go
 	@echo "Enum string generation complete!"
 
 # Complete protobuf workflow: XSD -> proto -> Go with XML tags
