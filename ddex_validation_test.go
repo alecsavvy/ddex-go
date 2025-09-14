@@ -8,7 +8,6 @@ import (
 	"strings"
 	"testing"
 
-	ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
 	meadv11 "github.com/alecsavvy/ddex-go/gen/ddex/mead/v11"
 	piev10 "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10"
 	"github.com/beevik/etree"
@@ -29,7 +28,6 @@ type DOMComparison struct {
 
 // TestXMLRoundTripIntegrity validates that XML → Proto → XML preserves all data
 func TestXMLRoundTripIntegrity(t *testing.T) {
-	t.Skip()
 	testCases := []struct {
 		name    string
 		xmlPath string
@@ -130,16 +128,21 @@ func performRoundTripValidation(xmlPath string, msgType string) *DOMComparison {
 
 	switch msgType {
 	case "ERN":
-		var msg ernv432.NewReleaseMessage
-		if err := xml.Unmarshal(originalXML, &msg); err != nil {
-			comparison.Success = false
-			return comparison
-		}
-		marshaledXML, err = xml.MarshalIndent(&msg, "", "  ")
+		// Use the new versioning system to auto-detect and parse
+		msg, version, err := ParseERN(originalXML)
 		if err != nil {
 			comparison.Success = false
 			return comparison
 		}
+
+		marshaledXML, err = xml.MarshalIndent(msg, "", "  ")
+		if err != nil {
+			comparison.Success = false
+			return comparison
+		}
+
+		// Log detected version for debugging
+		fmt.Printf("Detected ERN version: %s\n", version)
 
 	case "MEAD":
 		var msg meadv11.MeadMessage
@@ -348,13 +351,15 @@ func TestFieldCoverageReport(t *testing.T) {
 	originalPaths := collectAllPaths(originalDoc.Root(), "")
 	sort.Strings(originalPaths)
 
-	// Unmarshal and marshal
-	var msg ernv432.NewReleaseMessage
-	if err := xml.Unmarshal(originalXML, &msg); err != nil {
-		t.Fatal("Failed to unmarshal")
+	// Unmarshal and marshal using new versioning system
+	msg, version, err := ParseERN(originalXML)
+	if err != nil {
+		t.Fatal("Failed to unmarshal:", err)
 	}
 
-	marshaledXML, err := xml.MarshalIndent(&msg, "", "  ")
+	t.Logf("Detected ERN version: %s", version)
+
+	marshaledXML, err := xml.MarshalIndent(msg, "", "  ")
 	if err != nil {
 		t.Fatal("Failed to marshal")
 	}
