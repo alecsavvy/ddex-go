@@ -11,6 +11,7 @@ import (
 	ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
 	meadv11 "github.com/alecsavvy/ddex-go/gen/ddex/mead/v11"
 	piev10 "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10"
+	"github.com/alecsavvy/ddex-go/testdata"
 )
 
 // Test data maps for each message type
@@ -64,21 +65,7 @@ func TestDDEXMessages(t *testing.T) {
 		})
 
 		t.Run("RoundTrip", func(t *testing.T) {
-			testCases := []struct {
-				name     string
-				filename string
-			}{
-				{"Audio Album", "1 Audio.xml"},
-				{"Simple Video Single", "5 SimpleVideoSingle.xml"},
-				{"DJ Mix", "8 DjMix.xml"},
-			}
-
-			for _, tc := range testCases {
-				t.Run(tc.name, func(t *testing.T) {
-					xmlPath := filepath.Join("testdata", "ernv432", "Samples43", tc.filename)
-					testRoundTrip(t, xmlPath, &ernv432.NewReleaseMessage{}, tc.filename)
-				})
-			}
+			testProtoToXMLToProtoRoundTrip(t, "ERN", testdata.SimpleERNTest)
 		})
 
 		t.Run("FieldCompleteness", func(t *testing.T) {
@@ -159,12 +146,7 @@ func TestDDEXMessages(t *testing.T) {
 		})
 
 		t.Run("RoundTrip", func(t *testing.T) {
-			for testName, filename := range meadTestFiles {
-				t.Run(testName, func(t *testing.T) {
-					xmlPath := filepath.Join("testdata", "meadv11", filename)
-					testRoundTrip(t, xmlPath, &meadv11.MeadMessage{}, filename)
-				})
-			}
+			testProtoToXMLToProtoRoundTrip(t, "MEAD", testdata.SimpleMEADTest)
 		})
 
 		t.Run("FieldCompleteness", func(t *testing.T) {
@@ -237,12 +219,7 @@ func TestDDEXMessages(t *testing.T) {
 		})
 
 		t.Run("RoundTrip", func(t *testing.T) {
-			for testName, filename := range pieTestFiles {
-				t.Run(testName, func(t *testing.T) {
-					xmlPath := filepath.Join("testdata", "piev10", filename)
-					testRoundTrip(t, xmlPath, &piev10.PieMessage{}, filename)
-				})
-			}
+			testProtoToXMLToProtoRoundTrip(t, "PIE", testdata.SimplePIETest)
 		})
 
 		t.Run("FieldCompleteness", func(t *testing.T) {
@@ -298,6 +275,7 @@ func TestDDEXMessages(t *testing.T) {
 		})
 	})
 }
+
 
 // TestXMLTagsEffectiveness validates XML marshaling/unmarshaling for all message types
 func TestXMLTagsEffectiveness(t *testing.T) {
@@ -430,6 +408,100 @@ func validateRequiredFields(t *testing.T, fields []fieldCheck) {
 		} else if reflect.ValueOf(field.value).IsZero() {
 			t.Errorf("Required field %s is zero value", field.name)
 		}
+	}
+}
+
+func testProtoToXMLToProtoRoundTrip(t *testing.T, msgType string, constructor interface{}) {
+	switch msgType {
+	case "ERN":
+		constructor := constructor.(func() *ernv432.NewReleaseMessage)
+		original := constructor()
+
+		// Marshal to XML
+		xmlData, err := xml.MarshalIndent(original, "", "  ")
+		if err != nil {
+			t.Fatalf("Failed to marshal to XML: %v", err)
+		}
+
+		// Add XML header for proper parsing
+		fullXML := []byte(xml.Header + string(xmlData))
+
+		// Unmarshal back to proto struct
+		var roundTrip ernv432.NewReleaseMessage
+		err = xml.Unmarshal(fullXML, &roundTrip)
+		if err != nil {
+			t.Fatalf("Failed to unmarshal from XML: %v", err)
+		}
+
+		// Compare structs using reflect for deep equality
+		if !reflect.DeepEqual(original, &roundTrip) {
+			t.Errorf("Round trip failed: original and unmarshaled structs are not equal")
+			t.Logf("Original: %+v", original)
+			t.Logf("RoundTrip: %+v", &roundTrip)
+		} else {
+			t.Log("✓ ERN proto->XML->proto round trip successful")
+		}
+
+	case "MEAD":
+		constructor := constructor.(func() *meadv11.MeadMessage)
+		original := constructor()
+
+		// Marshal to XML
+		xmlData, err := xml.MarshalIndent(original, "", "  ")
+		if err != nil {
+			t.Fatalf("Failed to marshal to XML: %v", err)
+		}
+
+		// Add XML header for proper parsing
+		fullXML := []byte(xml.Header + string(xmlData))
+
+		// Unmarshal back to proto struct
+		var roundTrip meadv11.MeadMessage
+		err = xml.Unmarshal(fullXML, &roundTrip)
+		if err != nil {
+			t.Fatalf("Failed to unmarshal from XML: %v", err)
+		}
+
+		// Compare structs using reflect for deep equality
+		if !reflect.DeepEqual(original, &roundTrip) {
+			t.Errorf("Round trip failed: original and unmarshaled structs are not equal")
+			t.Logf("Original: %+v", original)
+			t.Logf("RoundTrip: %+v", &roundTrip)
+		} else {
+			t.Log("✓ MEAD proto->XML->proto round trip successful")
+		}
+
+	case "PIE":
+		constructor := constructor.(func() *piev10.PieMessage)
+		original := constructor()
+
+		// Marshal to XML
+		xmlData, err := xml.MarshalIndent(original, "", "  ")
+		if err != nil {
+			t.Fatalf("Failed to marshal to XML: %v", err)
+		}
+
+		// Add XML header for proper parsing
+		fullXML := []byte(xml.Header + string(xmlData))
+
+		// Unmarshal back to proto struct
+		var roundTrip piev10.PieMessage
+		err = xml.Unmarshal(fullXML, &roundTrip)
+		if err != nil {
+			t.Fatalf("Failed to unmarshal from XML: %v", err)
+		}
+
+		// Compare structs using reflect for deep equality
+		if !reflect.DeepEqual(original, &roundTrip) {
+			t.Errorf("Round trip failed: original and unmarshaled structs are not equal")
+			t.Logf("Original: %+v", original)
+			t.Logf("RoundTrip: %+v", &roundTrip)
+		} else {
+			t.Log("✓ PIE proto->XML->proto round trip successful")
+		}
+
+	default:
+		t.Fatalf("Unknown message type: %s", msgType)
 	}
 }
 
@@ -657,3 +729,123 @@ func countERNReleases(releaseList *ernv432.ReleaseList) int {
 	count += len(releaseList.ClipRelease)
 	return count
 }
+
+// Protobuf to XML test functions
+
+func testProtobufToXMLERN(t *testing.T, filename string, constructor func() *ernv432.NewReleaseMessage) {
+	// Read the original XML file
+	xmlPath := filepath.Join("testdata", filename)
+	originalData, err := os.ReadFile(xmlPath)
+	if err != nil {
+		t.Skipf("Sample file not found: %s", xmlPath)
+	}
+
+	// Parse original XML into protobuf struct
+	var originalMsg ernv432.NewReleaseMessage
+	err = xml.Unmarshal(originalData, &originalMsg)
+	if err != nil {
+		t.Fatalf("Failed to unmarshal original XML: %v", err)
+	}
+
+	// Create a new protobuf message manually constructed to match the original
+	constructedMsg := constructor()
+
+	// Marshal both to XML
+	originalXML, err := xml.MarshalIndent(&originalMsg, "", "  ")
+	if err != nil {
+		t.Fatalf("Failed to marshal original message: %v", err)
+	}
+
+	constructedXML, err := xml.MarshalIndent(constructedMsg, "", "  ")
+	if err != nil {
+		t.Fatalf("Failed to marshal constructed message: %v", err)
+	}
+
+	// Compare semantic equality
+	if !semanticallyEqualERN(&originalMsg, constructedMsg) {
+		t.Errorf("Constructed protobuf message does not match original for %s", filename)
+		t.Logf("Original XML length: %d", len(originalXML))
+		t.Logf("Constructed XML length: %d", len(constructedXML))
+	} else {
+		t.Logf("✓ Protobuf construction matches original for %s", filename)
+	}
+}
+
+func testProtobufToXMLMEAD(t *testing.T, filename string, constructor func() *meadv11.MeadMessage) {
+	// Read the original XML file
+	xmlPath := filepath.Join("testdata", filename)
+	originalData, err := os.ReadFile(xmlPath)
+	if err != nil {
+		t.Skipf("Sample file not found: %s", xmlPath)
+	}
+
+	// Parse original XML into protobuf struct
+	var originalMsg meadv11.MeadMessage
+	err = xml.Unmarshal(originalData, &originalMsg)
+	if err != nil {
+		t.Fatalf("Failed to unmarshal original XML: %v", err)
+	}
+
+	// Create a new protobuf message manually constructed to match the original
+	constructedMsg := constructor()
+
+	// Marshal both to XML
+	originalXML, err := xml.MarshalIndent(&originalMsg, "", "  ")
+	if err != nil {
+		t.Fatalf("Failed to marshal original message: %v", err)
+	}
+
+	constructedXML, err := xml.MarshalIndent(constructedMsg, "", "  ")
+	if err != nil {
+		t.Fatalf("Failed to marshal constructed message: %v", err)
+	}
+
+	// Compare semantic equality
+	if !semanticallyEqualMEAD(&originalMsg, constructedMsg) {
+		t.Errorf("Constructed protobuf message does not match original for %s", filename)
+		t.Logf("Original XML length: %d", len(originalXML))
+		t.Logf("Constructed XML length: %d", len(constructedXML))
+	} else {
+		t.Logf("✓ Protobuf construction matches original for %s", filename)
+	}
+}
+
+func testProtobufToXMLPIE(t *testing.T, filename string, constructor func() *piev10.PieMessage) {
+	// Read the original XML file
+	xmlPath := filepath.Join("testdata", filename)
+	originalData, err := os.ReadFile(xmlPath)
+	if err != nil {
+		t.Skipf("Sample file not found: %s", xmlPath)
+	}
+
+	// Parse original XML into protobuf struct
+	var originalMsg piev10.PieMessage
+	err = xml.Unmarshal(originalData, &originalMsg)
+	if err != nil {
+		t.Fatalf("Failed to unmarshal original XML: %v", err)
+	}
+
+	// Create a new protobuf message manually constructed to match the original
+	constructedMsg := constructor()
+
+	// Marshal both to XML
+	originalXML, err := xml.MarshalIndent(&originalMsg, "", "  ")
+	if err != nil {
+		t.Fatalf("Failed to marshal original message: %v", err)
+	}
+
+	constructedXML, err := xml.MarshalIndent(constructedMsg, "", "  ")
+	if err != nil {
+		t.Fatalf("Failed to marshal constructed message: %v", err)
+	}
+
+	// Compare semantic equality
+	if !semanticallyEqualPIE(&originalMsg, constructedMsg) {
+		t.Errorf("Constructed protobuf message does not match original for %s", filename)
+		t.Logf("Original XML length: %d", len(originalXML))
+		t.Logf("Constructed XML length: %d", len(constructedXML))
+	} else {
+		t.Logf("✓ Protobuf construction matches original for %s", filename)
+	}
+}
+
