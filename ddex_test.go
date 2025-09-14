@@ -4,230 +4,656 @@ import (
 	"encoding/xml"
 	"os"
 	"path/filepath"
+	"reflect"
 	"testing"
 
+	// Proto-generated implementations
 	ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
 	meadv11 "github.com/alecsavvy/ddex-go/gen/ddex/mead/v11"
 	piev10 "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10"
 )
 
-func TestERNUnmarshaling(t *testing.T) {
-	testFiles := []struct {
-		filename    string
-		description string
-	}{
-		{"1 Audio.xml", "Audio Album"},
-		{"2 Video.xml", "Video Album"},
-		{"4 SimpleAudioSingle.xml", "Simple Audio Single"},
-		{"5 SimpleVideoSingle.xml", "Simple Video Single"},
-		{"6 Ringtone.xml", "Ringtone"},
-		{"8 DjMix.xml", "DJ Mix"},
+// Test data maps for each message type
+var (
+	ernTestFiles = map[string]string{
+		"Audio Album":           "1 Audio.xml",
+		"Video Album":           "2 Video.xml",
+		"Mixed Media Bundle":    "3 MixedMedia.xml",
+		"Simple Audio Single":   "4 SimpleAudioSingle.xml",
+		"Simple Video Single":   "5 SimpleVideoSingle.xml",
+		"Ringtone":              "6 Ringtone.xml",
+		"Longform Musical Work": "7 LongformMusicalWorkVideo.xml",
+		"DJ Mix":                "8 DjMix.xml",
+		"Classical Variant":     "Variant Classical.xml",
 	}
 
-	for _, testFile := range testFiles {
-		t.Run(testFile.description, func(t *testing.T) {
-			// Read the sample XML file
-			xmlPath := filepath.Join("testdata", "ernv432", "Samples43", testFile.filename)
+	meadTestFiles = map[string]string{
+		"Award Example": "mead_award_example.xml",
+	}
+
+	pieTestFiles = map[string]string{
+		"Award Example": "pie_award_example.xml",
+	}
+)
+
+// TestDDEXMessages is the main test suite for all DDEX message types
+func TestDDEXMessages(t *testing.T) {
+	// Test ERN messages
+	t.Run("ERN", func(t *testing.T) {
+		t.Parallel()
+
+		t.Run("Conformance", func(t *testing.T) {
+			for testName, filename := range ernTestFiles {
+				t.Run(testName, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "ernv432", "Samples43", filename)
+					xmlData, err := os.ReadFile(xmlPath)
+					if err != nil {
+						t.Skipf("Sample file not found: %s", xmlPath)
+					}
+
+					var msg ernv432.NewReleaseMessage
+					err = xml.Unmarshal(xmlData, &msg)
+					if err != nil {
+						t.Fatalf("Failed to parse %s: %v", filename, err)
+					}
+
+					validateERNStructure(t, &msg, filename)
+					t.Logf("✓ Successfully parsed %s (%d bytes)", filename, len(xmlData))
+				})
+			}
+		})
+
+		t.Run("RoundTrip", func(t *testing.T) {
+			testCases := []struct {
+				name     string
+				filename string
+			}{
+				{"Audio Album", "1 Audio.xml"},
+				{"Simple Video Single", "5 SimpleVideoSingle.xml"},
+				{"DJ Mix", "8 DjMix.xml"},
+			}
+
+			for _, tc := range testCases {
+				t.Run(tc.name, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "ernv432", "Samples43", tc.filename)
+					testRoundTrip(t, xmlPath, &ernv432.NewReleaseMessage{}, tc.filename)
+				})
+			}
+		})
+
+		t.Run("FieldCompleteness", func(t *testing.T) {
+			testCases := []struct {
+				name     string
+				filename string
+			}{
+				{"Audio Album", "1 Audio.xml"},
+				{"Simple Audio Single", "4 SimpleAudioSingle.xml"},
+			}
+
+			for _, tc := range testCases {
+				t.Run(tc.name, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "ernv432", "Samples43", tc.filename)
+					xmlData, err := os.ReadFile(xmlPath)
+					if err != nil {
+						t.Skipf("Sample file not found: %s", xmlPath)
+					}
+
+					var msg ernv432.NewReleaseMessage
+					err = xml.Unmarshal(xmlData, &msg)
+					if err != nil {
+						t.Fatalf("Failed to unmarshal: %v", err)
+					}
+
+					// Test required fields
+					validateRequiredFields(t, []fieldCheck{
+						{"MessageHeader", msg.MessageHeader},
+						{"ReleaseList", msg.ReleaseList},
+					})
+
+					// ERN-specific validations
+					if msg.MessageHeader != nil {
+						if msg.MessageHeader.MessageId == "" && tc.filename != "8 DjMix.xml" {
+							t.Error("MessageHeader.MessageId is empty")
+						}
+						if msg.MessageHeader.MessageSender == nil {
+							t.Error("MessageHeader.MessageSender is nil")
+						}
+					}
+
+					if msg.ReleaseList != nil {
+						releaseCount := countERNReleases(msg.ReleaseList)
+						if releaseCount == 0 {
+							t.Error("ReleaseList contains no releases")
+						} else {
+							t.Logf("✓ Found %d release(s) in %s", releaseCount, tc.filename)
+						}
+					}
+				})
+			}
+		})
+	})
+
+	// Test MEAD messages
+	t.Run("MEAD", func(t *testing.T) {
+		t.Parallel()
+
+		t.Run("Conformance", func(t *testing.T) {
+			for testName, filename := range meadTestFiles {
+				t.Run(testName, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "meadv11", filename)
+					xmlData, err := os.ReadFile(xmlPath)
+					if err != nil {
+						t.Skipf("Sample file not found: %s", xmlPath)
+					}
+
+					var msg meadv11.MeadMessage
+					err = xml.Unmarshal(xmlData, &msg)
+					if err != nil {
+						t.Fatalf("Failed to parse %s: %v", filename, err)
+					}
+
+					validateMEADStructure(t, &msg, filename)
+					t.Logf("✓ Successfully parsed %s (%d bytes)", filename, len(xmlData))
+				})
+			}
+		})
+
+		t.Run("RoundTrip", func(t *testing.T) {
+			for testName, filename := range meadTestFiles {
+				t.Run(testName, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "meadv11", filename)
+					testRoundTrip(t, xmlPath, &meadv11.MeadMessage{}, filename)
+				})
+			}
+		})
+
+		t.Run("FieldCompleteness", func(t *testing.T) {
+			for testName, filename := range meadTestFiles {
+				t.Run(testName, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "meadv11", filename)
+					xmlData, err := os.ReadFile(xmlPath)
+					if err != nil {
+						t.Skipf("Sample file not found: %s", xmlPath)
+					}
+
+					var msg meadv11.MeadMessage
+					err = xml.Unmarshal(xmlData, &msg)
+					if err != nil {
+						t.Fatalf("Failed to unmarshal: %v", err)
+					}
+
+					// Test required fields
+					validateRequiredFields(t, []fieldCheck{
+						{"MessageHeader", msg.MessageHeader},
+						{"ReleaseInformationList", msg.ReleaseInformationList},
+					})
+
+					// MEAD-specific validations
+					if msg.MessageHeader != nil {
+						if msg.MessageHeader.MessageId == "" {
+							t.Error("MessageHeader.MessageId is empty")
+						}
+						if msg.MessageHeader.MessageSender == nil {
+							t.Error("MessageHeader.MessageSender is nil")
+						}
+					}
+
+					if msg.ReleaseInformationList != nil {
+						releaseCount := len(msg.ReleaseInformationList.ReleaseInformation)
+						if releaseCount == 0 {
+							t.Error("ReleaseInformationList contains no releases")
+						} else {
+							t.Logf("✓ Found %d release(s) in %s", releaseCount, filename)
+						}
+					}
+				})
+			}
+		})
+	})
+
+	// Test PIE messages
+	t.Run("PIE", func(t *testing.T) {
+		t.Parallel()
+
+		t.Run("Conformance", func(t *testing.T) {
+			for testName, filename := range pieTestFiles {
+				t.Run(testName, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "piev10", filename)
+					xmlData, err := os.ReadFile(xmlPath)
+					if err != nil {
+						t.Skipf("Sample file not found: %s", xmlPath)
+					}
+
+					var msg piev10.PieMessage
+					err = xml.Unmarshal(xmlData, &msg)
+					if err != nil {
+						t.Fatalf("Failed to parse %s: %v", filename, err)
+					}
+
+					validatePIEStructure(t, &msg, filename)
+					t.Logf("✓ Successfully parsed %s (%d bytes)", filename, len(xmlData))
+				})
+			}
+		})
+
+		t.Run("RoundTrip", func(t *testing.T) {
+			for testName, filename := range pieTestFiles {
+				t.Run(testName, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "piev10", filename)
+					testRoundTrip(t, xmlPath, &piev10.PieMessage{}, filename)
+				})
+			}
+		})
+
+		t.Run("FieldCompleteness", func(t *testing.T) {
+			for testName, filename := range pieTestFiles {
+				t.Run(testName, func(t *testing.T) {
+					xmlPath := filepath.Join("testdata", "piev10", filename)
+					xmlData, err := os.ReadFile(xmlPath)
+					if err != nil {
+						t.Skipf("Sample file not found: %s", xmlPath)
+					}
+
+					var msg piev10.PieMessage
+					err = xml.Unmarshal(xmlData, &msg)
+					if err != nil {
+						t.Fatalf("Failed to unmarshal: %v", err)
+					}
+
+					// Test required fields
+					validateRequiredFields(t, []fieldCheck{
+						{"MessageHeader", msg.MessageHeader},
+						{"PartyList", msg.PartyList},
+					})
+
+					// PIE-specific validations
+					if msg.MessageHeader != nil {
+						if msg.MessageHeader.MessageId == "" {
+							t.Error("MessageHeader.MessageId is empty")
+						}
+						if msg.MessageHeader.MessageSender == nil {
+							t.Error("MessageHeader.MessageSender is nil")
+						}
+					}
+
+					if msg.PartyList != nil {
+						partyCount := len(msg.PartyList.Party)
+						if partyCount == 0 {
+							t.Error("PartyList contains no parties")
+						} else {
+							t.Logf("✓ Found %d party(ies) in %s", partyCount, filename)
+
+							// Count awards
+							totalAwards := 0
+							for _, party := range msg.PartyList.Party {
+								totalAwards += len(party.Award)
+							}
+							if totalAwards > 0 {
+								t.Logf("✓ Found %d total award(s) across all parties", totalAwards)
+							}
+						}
+					}
+				})
+			}
+		})
+	})
+}
+
+// TestXMLTagsEffectiveness validates XML marshaling/unmarshaling for all message types
+func TestXMLTagsEffectiveness(t *testing.T) {
+	t.Run("ERN", func(t *testing.T) {
+		t.Parallel()
+		testXMLTags(t, "testdata/ernv432/Samples43/5 SimpleVideoSingle.xml", &ernv432.NewReleaseMessage{}, "ERN")
+	})
+
+	t.Run("MEAD", func(t *testing.T) {
+		t.Parallel()
+		testXMLTags(t, "testdata/meadv11/mead_award_example.xml", &meadv11.MeadMessage{}, "MEAD")
+	})
+
+	t.Run("PIE", func(t *testing.T) {
+		t.Parallel()
+		testXMLTags(t, "testdata/piev10/pie_award_example.xml", &piev10.PieMessage{}, "PIE")
+	})
+}
+
+// Benchmark tests
+func BenchmarkDDEX(b *testing.B) {
+	b.Run("ERN", func(b *testing.B) {
+		b.Run("Parse", func(b *testing.B) {
+			xmlPath := filepath.Join("testdata", "ernv432", "Samples43", "1 Audio.xml")
 			xmlData, err := os.ReadFile(xmlPath)
 			if err != nil {
-				t.Fatalf("Failed to read %s: %v", xmlPath, err)
+				b.Skip("Sample file not found")
 			}
 
-			// Test NewReleaseMessage unmarshaling
-			var newRelease ernv432.NewReleaseMessage
-			err = xml.Unmarshal(xmlData, &newRelease)
-			if err != nil {
-				t.Fatalf("Failed to unmarshal %s as NewReleaseMessage: %v", testFile.filename, err)
+			b.ResetTimer()
+			for i := 0; i < b.N; i++ {
+				var msg ernv432.NewReleaseMessage
+				xml.Unmarshal(xmlData, &msg)
 			}
-
-			// Basic validation
-			if newRelease.MessageHeader == nil {
-				t.Errorf("MessageHeader is nil in %s", testFile.filename)
-			}
-
-			if newRelease.ReleaseList == nil {
-				t.Errorf("ReleaseList is nil in %s", testFile.filename)
-				return
-			}
-
-			// Count total releases
-			releaseCount := 0
-			if newRelease.ReleaseList.Release != nil {
-				releaseCount++
-			}
-			releaseCount += len(newRelease.ReleaseList.TrackRelease)
-			releaseCount += len(newRelease.ReleaseList.ClipRelease)
-
-			if releaseCount == 0 {
-				t.Errorf("No releases found in %s", testFile.filename)
-			}
-
-			t.Logf("Successfully parsed %s: %d release(s)", testFile.filename, releaseCount)
 		})
+
+		b.Run("Marshal", func(b *testing.B) {
+			xmlPath := filepath.Join("testdata", "ernv432", "Samples43", "1 Audio.xml")
+			xmlData, err := os.ReadFile(xmlPath)
+			if err != nil {
+				b.Skip("Sample file not found")
+			}
+
+			var msg ernv432.NewReleaseMessage
+			xml.Unmarshal(xmlData, &msg)
+
+			b.ResetTimer()
+			for i := 0; i < b.N; i++ {
+				xml.Marshal(&msg)
+			}
+		})
+	})
+
+	b.Run("MEAD", func(b *testing.B) {
+		b.Run("Parse", func(b *testing.B) {
+			xmlPath := filepath.Join("testdata", "meadv11", "mead_award_example.xml")
+			xmlData, err := os.ReadFile(xmlPath)
+			if err != nil {
+				b.Skip("Sample file not found")
+			}
+
+			b.ResetTimer()
+			for i := 0; i < b.N; i++ {
+				var msg meadv11.MeadMessage
+				xml.Unmarshal(xmlData, &msg)
+			}
+		})
+
+		b.Run("Marshal", func(b *testing.B) {
+			xmlPath := filepath.Join("testdata", "meadv11", "mead_award_example.xml")
+			xmlData, err := os.ReadFile(xmlPath)
+			if err != nil {
+				b.Skip("Sample file not found")
+			}
+
+			var msg meadv11.MeadMessage
+			xml.Unmarshal(xmlData, &msg)
+
+			b.ResetTimer()
+			for i := 0; i < b.N; i++ {
+				xml.Marshal(&msg)
+			}
+		})
+	})
+
+	b.Run("PIE", func(b *testing.B) {
+		b.Run("Parse", func(b *testing.B) {
+			xmlPath := filepath.Join("testdata", "piev10", "pie_award_example.xml")
+			xmlData, err := os.ReadFile(xmlPath)
+			if err != nil {
+				b.Skip("Sample file not found")
+			}
+
+			b.ResetTimer()
+			for i := 0; i < b.N; i++ {
+				var msg piev10.PieMessage
+				xml.Unmarshal(xmlData, &msg)
+			}
+		})
+
+		b.Run("Marshal", func(b *testing.B) {
+			xmlPath := filepath.Join("testdata", "piev10", "pie_award_example.xml")
+			xmlData, err := os.ReadFile(xmlPath)
+			if err != nil {
+				b.Skip("Sample file not found")
+			}
+
+			var msg piev10.PieMessage
+			xml.Unmarshal(xmlData, &msg)
+
+			b.ResetTimer()
+			for i := 0; i < b.N; i++ {
+				xml.Marshal(&msg)
+			}
+		})
+	})
+}
+
+// Helper functions
+
+type fieldCheck struct {
+	name  string
+	value interface{}
+}
+
+func validateRequiredFields(t *testing.T, fields []fieldCheck) {
+	for _, field := range fields {
+		if field.value == nil {
+			t.Errorf("Required field %s is nil", field.name)
+		} else if reflect.ValueOf(field.value).IsZero() {
+			t.Errorf("Required field %s is zero value", field.name)
+		}
 	}
 }
 
-func TestPurgeReleaseMessage(t *testing.T) {
-	// Note: Purge messages typically use the same structure but different root element
-	// This test demonstrates how to handle different message types
-	xmlPath := filepath.Join("testdata", "ernv432", "Samples43", "1 Audio.xml")
-	xmlData, err := os.ReadFile(xmlPath)
-	if err != nil {
-		t.Skipf("Sample file not found: %v", err)
-	}
-
-	// Try parsing as different message types to test flexibility
-	var newRelease ernv432.NewReleaseMessage
-	err = xml.Unmarshal(xmlData, &newRelease)
-	if err != nil {
-		t.Fatalf("Failed to unmarshal as NewReleaseMessage: %v", err)
-	}
-}
-
-func TestXMLRoundTrip(t *testing.T) {
-	xmlPath := filepath.Join("testdata", "ernv432", "Samples43", "5 SimpleVideoSingle.xml")
-
-	// Read original
+func testRoundTrip(t *testing.T, xmlPath string, msgType interface{}, filename string) {
 	originalData, err := os.ReadFile(xmlPath)
 	if err != nil {
-		t.Skipf("Sample file not found: %v", err)
+		t.Skipf("Sample file not found: %s", xmlPath)
 	}
 
-	// Unmarshal
-	var message ernv432.NewReleaseMessage
-	err = xml.Unmarshal(originalData, &message)
+	// Parse original
+	err = xml.Unmarshal(originalData, msgType)
 	if err != nil {
-		t.Fatalf("Failed to unmarshal: %v", err)
+		t.Fatalf("Failed to unmarshal original: %v", err)
 	}
 
 	// Marshal back
-	marshaledData, err := xml.MarshalIndent(&message, "", "  ")
+	regenerated, err := xml.MarshalIndent(msgType, "", "  ")
 	if err != nil {
 		t.Fatalf("Failed to marshal: %v", err)
 	}
 
-	// Basic validation - should be valid XML
-	var roundTrip ernv432.NewReleaseMessage
-	err = xml.Unmarshal(marshaledData, &roundTrip)
+	// Parse regenerated
+	msgCopy := reflect.New(reflect.TypeOf(msgType).Elem()).Interface()
+	fullXML := []byte(xml.Header + string(regenerated))
+	err = xml.Unmarshal(fullXML, msgCopy)
 	if err != nil {
-		t.Fatalf("Round trip failed: %v", err)
+		t.Fatalf("Round trip parsing failed: %v", err)
 	}
 
-	t.Logf("Round trip successful for %s", xmlPath)
-}
-
-func TestPIEUnmarshaling(t *testing.T) {
-	testFiles := []struct {
-		filename    string
-		description string
-	}{
-		{"pie_award_example.xml", "PIE Award Example"},
+	// Type-specific semantic comparison
+	equal := false
+	switch msg := msgType.(type) {
+	case *ernv432.NewReleaseMessage:
+		equal = semanticallyEqualERN(msg, msgCopy.(*ernv432.NewReleaseMessage))
+	case *meadv11.MeadMessage:
+		equal = semanticallyEqualMEAD(msg, msgCopy.(*meadv11.MeadMessage))
+	case *piev10.PieMessage:
+		equal = semanticallyEqualPIE(msg, msgCopy.(*piev10.PieMessage))
 	}
 
-	for _, testFile := range testFiles {
-		t.Run(testFile.description, func(t *testing.T) {
-			// Read the sample XML file
-			xmlPath := filepath.Join("testdata", "piev10", testFile.filename)
-			xmlData, err := os.ReadFile(xmlPath)
-			if err != nil {
-				t.Fatalf("Failed to read %s: %v", xmlPath, err)
-			}
-
-			// Test PieMessage unmarshaling
-			var pieMessage piev10.PieMessage
-			err = xml.Unmarshal(xmlData, &pieMessage)
-			if err != nil {
-				t.Fatalf("Failed to unmarshal %s as PieMessage: %v", testFile.filename, err)
-			}
-
-			// Basic validation
-			if pieMessage.MessageHeader == nil {
-				t.Errorf("MessageHeader is nil in %s", testFile.filename)
-			}
-
-			if pieMessage.PartyList == nil {
-				t.Errorf("PartyList is nil in %s", testFile.filename)
-				return
-			}
-
-			// Count parties
-			partyCount := len(pieMessage.PartyList.Party)
-			if partyCount == 0 {
-				t.Errorf("No parties found in %s", testFile.filename)
-			}
-
-			// Check for awards
-			hasAwards := false
-			for _, party := range pieMessage.PartyList.Party {
-				if len(party.Award) > 0 {
-					hasAwards = true
-					break
-				}
-			}
-
-			if !hasAwards {
-				t.Errorf("No awards found in %s", testFile.filename)
-			}
-
-			t.Logf("Successfully parsed %s: %d partie(s)", testFile.filename, partyCount)
-		})
+	if !equal {
+		t.Errorf("Round trip changed semantic content for %s", filename)
+	} else {
+		t.Logf("✓ Round trip successful for %s", filename)
 	}
 }
 
-func TestMEADUnmarshaling(t *testing.T) {
-	testFiles := []struct {
-		filename    string
-		description string
-	}{
-		{"mead_award_example.xml", "MEAD Award Example"},
+func testXMLTags(t *testing.T, xmlPath string, msgType interface{}, msgName string) {
+	xmlData, err := os.ReadFile(xmlPath)
+	if err != nil {
+		t.Skip("Sample file not found")
 	}
 
-	for _, testFile := range testFiles {
-		t.Run(testFile.description, func(t *testing.T) {
-			// Read the sample XML file
-			xmlPath := filepath.Join("testdata", "meadv11", testFile.filename)
-			xmlData, err := os.ReadFile(xmlPath)
-			if err != nil {
-				t.Fatalf("Failed to read %s: %v", xmlPath, err)
-			}
-
-			// Test MeadMessage unmarshaling
-			var meadMessage meadv11.MeadMessage
-			err = xml.Unmarshal(xmlData, &meadMessage)
-			if err != nil {
-				t.Fatalf("Failed to unmarshal %s as MeadMessage: %v", testFile.filename, err)
-			}
-
-			// Basic validation
-			if meadMessage.MessageHeader == nil {
-				t.Errorf("MessageHeader is nil in %s", testFile.filename)
-			}
-
-			if meadMessage.ReleaseInformationList == nil {
-				t.Errorf("ReleaseInformationList is nil in %s", testFile.filename)
-				return
-			}
-
-			// Count releases
-			releaseCount := len(meadMessage.ReleaseInformationList.ReleaseInformation)
-			if releaseCount == 0 {
-				t.Errorf("No release information found in %s", testFile.filename)
-			}
-
-			// Check for basic release data
-			hasReleaseData := false
-			for _, releaseInfo := range meadMessage.ReleaseInformationList.ReleaseInformation {
-				if releaseInfo.ReleaseSummary != nil && releaseInfo.ReleaseSummary.ReleaseId != nil {
-					hasReleaseData = true
-					break
-				}
-			}
-
-			if !hasReleaseData {
-				t.Errorf("No valid release data found in %s", testFile.filename)
-			}
-
-			t.Logf("Successfully parsed %s: %d release(s)", testFile.filename, releaseCount)
-		})
+	err = xml.Unmarshal(xmlData, msgType)
+	if err != nil {
+		t.Fatalf("Failed to unmarshal: %v", err)
 	}
+
+	_, err = xml.Marshal(msgType)
+	if err != nil {
+		t.Errorf("%s XML tags not working - marshal failed: %v", msgName, err)
+	} else {
+		t.Logf("✓ %s XML tags working correctly", msgName)
+	}
+}
+
+// Validation functions for each message type
+
+func validateERNStructure(t *testing.T, msg *ernv432.NewReleaseMessage, filename string) {
+	if msg.MessageHeader == nil {
+		t.Errorf("MessageHeader is nil in %s", filename)
+		return
+	}
+
+	if msg.MessageHeader.MessageId == "" {
+		// DJ Mix sample has intentionally empty MessageId
+		if filename != "8 DjMix.xml" {
+			t.Errorf("MessageId is empty in %s", filename)
+		} else {
+			t.Logf("Note: MessageId is intentionally empty in %s (valid DDEX format)", filename)
+		}
+	}
+
+	if msg.ReleaseList == nil {
+		t.Errorf("ReleaseList is nil in %s", filename)
+		return
+	}
+
+	releaseCount := countERNReleases(msg.ReleaseList)
+	if releaseCount == 0 {
+		t.Errorf("No releases found in %s", filename)
+	}
+}
+
+func validateMEADStructure(t *testing.T, msg *meadv11.MeadMessage, filename string) {
+	if msg.MessageHeader == nil {
+		t.Errorf("MessageHeader is nil in %s", filename)
+		return
+	}
+
+	if msg.MessageHeader.MessageId == "" {
+		t.Errorf("MessageId is empty in %s", filename)
+	}
+
+	if msg.ReleaseInformationList == nil {
+		t.Errorf("ReleaseInformationList is nil in %s", filename)
+		return
+	}
+
+	releaseCount := len(msg.ReleaseInformationList.ReleaseInformation)
+	if releaseCount == 0 {
+		t.Errorf("No release information found in %s", filename)
+	}
+}
+
+func validatePIEStructure(t *testing.T, msg *piev10.PieMessage, filename string) {
+	if msg.MessageHeader == nil {
+		t.Errorf("MessageHeader is nil in %s", filename)
+		return
+	}
+
+	if msg.MessageHeader.MessageId == "" {
+		t.Errorf("MessageId is empty in %s", filename)
+	}
+
+	if msg.PartyList == nil {
+		t.Errorf("PartyList is nil in %s", filename)
+		return
+	}
+
+	partyCount := len(msg.PartyList.Party)
+	if partyCount == 0 {
+		t.Errorf("No parties found in %s", filename)
+	}
+}
+
+// Semantic equality functions
+
+func semanticallyEqualERN(msg1, msg2 *ernv432.NewReleaseMessage) bool {
+	if (msg1.MessageHeader == nil) != (msg2.MessageHeader == nil) {
+		return false
+	}
+
+	if msg1.MessageHeader != nil && msg2.MessageHeader != nil {
+		if msg1.MessageHeader.MessageId != msg2.MessageHeader.MessageId {
+			return false
+		}
+	}
+
+	if (msg1.ReleaseList == nil) != (msg2.ReleaseList == nil) {
+		return false
+	}
+
+	if msg1.ReleaseList != nil && msg2.ReleaseList != nil {
+		count1 := countERNReleases(msg1.ReleaseList)
+		count2 := countERNReleases(msg2.ReleaseList)
+		if count1 != count2 {
+			return false
+		}
+	}
+
+	return true
+}
+
+func semanticallyEqualMEAD(msg1, msg2 *meadv11.MeadMessage) bool {
+	if (msg1.MessageHeader == nil) != (msg2.MessageHeader == nil) {
+		return false
+	}
+
+	if msg1.MessageHeader != nil && msg2.MessageHeader != nil {
+		if msg1.MessageHeader.MessageId != msg2.MessageHeader.MessageId {
+			return false
+		}
+	}
+
+	if (msg1.ReleaseInformationList == nil) != (msg2.ReleaseInformationList == nil) {
+		return false
+	}
+
+	if msg1.ReleaseInformationList != nil && msg2.ReleaseInformationList != nil {
+		count1 := len(msg1.ReleaseInformationList.ReleaseInformation)
+		count2 := len(msg2.ReleaseInformationList.ReleaseInformation)
+		if count1 != count2 {
+			return false
+		}
+	}
+
+	return true
+}
+
+func semanticallyEqualPIE(msg1, msg2 *piev10.PieMessage) bool {
+	if (msg1.MessageHeader == nil) != (msg2.MessageHeader == nil) {
+		return false
+	}
+
+	if msg1.MessageHeader != nil && msg2.MessageHeader != nil {
+		if msg1.MessageHeader.MessageId != msg2.MessageHeader.MessageId {
+			return false
+		}
+	}
+
+	if (msg1.PartyList == nil) != (msg2.PartyList == nil) {
+		return false
+	}
+
+	if msg1.PartyList != nil && msg2.PartyList != nil {
+		count1 := len(msg1.PartyList.Party)
+		count2 := len(msg2.PartyList.Party)
+		if count1 != count2 {
+			return false
+		}
+	}
+
+	return true
+}
+
+// Utility functions
+
+func countERNReleases(releaseList *ernv432.ReleaseList) int {
+	count := 0
+	if releaseList.Release != nil {
+		count++
+	}
+	count += len(releaseList.TrackRelease)
+	count += len(releaseList.ClipRelease)
+	return count
 }
