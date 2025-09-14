@@ -1,33 +1,27 @@
 # DDEX Go Library Makefile
 
-.PHONY: test testdata clean generate-go generate-proto generate-proto-go generate buf-lint buf-generate buf-all help
+.PHONY: test testdata clean generate-proto generate-proto-go generate buf-lint buf-generate buf-all help
 
 # Default target
 help:
 	@echo "DDEX Go Library - Makefile targets:"
 	@echo ""
 	@echo "Generation:"
-	@echo "  generate-go    - Generate pure Go structs from XSD (ddex/ directory)"
-	@echo "  generate-proto - Generate .proto files from XSD (proto/ directory)"  
+	@echo "  generate-proto - Generate .proto files from XSD (proto/ directory)"
 	@echo "  generate-proto-go - Generate Go structs from .proto files (gen/ directory)"
-	@echo "  generate       - Generate both Go and proto files"
+	@echo "  generate       - Generate proto files and Go code"
 	@echo "  buf-lint      - Lint protobuf files with buf"
 	@echo "  buf-generate  - Generate Go code from .proto files with buf"
 	@echo "  buf-all       - Generate protos from XSD, then Go code from protos"
 	@echo ""
 	@echo "Testing:"
 	@echo "  test          - Run all tests (downloads testdata if needed)"
-	@echo "  test-roundtrip - Test XML roundtrip between ddex/ and gen/"
+	@echo "  test-roundtrip - Test XML roundtrip compatibility"
 	@echo "  testdata      - Download DDEX sample files"
 	@echo ""
 	@echo "Maintenance:"
 	@echo "  clean         - Clean generated files and test data"
 	@echo "  testdata-refresh - Force re-download test data"
-
-# Generate pure Go structs from XSD
-generate-go:
-	@echo "Generating pure Go structs from XSD..."
-	go run tools/xsd2go/main.go
 
 # Generate proto files from XSD
 generate-proto:
@@ -44,7 +38,7 @@ generate-proto-go:
 	@$(MAKE) generate-enum-strings
 
 # Generate everything
-generate: generate-go generate-proto generate-proto-go
+generate: generate-proto generate-proto-go
 	@echo "All generation complete!"
 
 # Lint protobuf files with buf
@@ -100,7 +94,6 @@ test-roundtrip:
 
 # Clean up generated files and test data
 clean:
-	rm -rf ddex/ernv* ddex/meadv* ddex/piev*
 	rm -rf gen/ernv* gen/meadv* gen/piev*  
 	rm -rf proto/ernv*/*.proto proto/meadv*/*.proto proto/piev*/*.proto
 	rm -rf testdata/

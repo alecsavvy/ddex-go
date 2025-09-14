@@ -8,7 +8,7 @@ DDEX is a consortium of leading media companies, music licensing organizations, 
 
 ## Features
 
-This library provides Go structs and unmarshaling support for:
+This library provides Go structs with both Protocol Buffer and XML serialization support for:
 
 - **ERN v4.3.2** (Electronic Release Notification) - For communicating music release information
 - **MEAD v1.1** (Media Enrichment and Description) - For enriching media metadata
@@ -29,7 +29,7 @@ import (
     "encoding/xml"
     "fmt"
     "os"
-    
+
     "github.com/alecsavvy/ddex-go"
     ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
 )
@@ -50,7 +50,17 @@ func main() {
 
     // Access structured data
     fmt.Printf("Message ID: %s\n", release.MessageHeader.MessageId)
-    
+
+    // Convert back to XML with proper header
+    regeneratedXML, err := xml.MarshalIndent(&release, "", "  ")
+    if err != nil {
+        panic(err)
+    }
+
+    // Add XML declaration for complete DDEX document
+    fullXML := xml.Header + string(regeneratedXML)
+    fmt.Println(fullXML)
+
     // Or use type aliases for convenience
     var typedRelease ddex.NewReleaseMessageV432 = release
     fmt.Printf("Release Count: %d\n", len(typedRelease.ReleaseList.TrackRelease))
@@ -91,15 +101,8 @@ type PieRequestMessageV10 = piev10.PieRequestMessage
 
 ### Manual Testing with Real DDEX Files
 
-The `examples/` directory contains tools for testing DDEX file parsing with both pure Go and protobuf-generated structs:
+The `examples/` directory contains tools for testing DDEX file parsing:
 
-#### Using Pure Go Structs (XSD-generated)
-```bash
-# Parse with XSD-generated Go structs (ddex/ package)
-go run examples/xsd/main.go -file path/to/your/ddex-file.xml
-```
-
-#### Using Protocol Buffer Structs (with XML tags)
 ```bash
 # Parse with protobuf-generated Go structs that include XML unmarshaling (gen/ package)
 go run examples/proto/main.go -file path/to/your/ddex-file.xml
@@ -113,7 +116,7 @@ mkdir test-files
 go run examples/proto/main.go -file test-files/sample.xml
 ```
 
-Both examples will automatically detect the message type (ERN, MEAD, or PIE) and dump the parsed structure using `spew.Dump()` for easy inspection.
+The example will automatically detect the message type (ERN, MEAD, or PIE) and dump the parsed structure using `spew.Dump()` for easy inspection.
 
 ## Development
 
@@ -134,11 +137,8 @@ This runs comprehensive unmarshaling tests for all supported DDEX message types.
 The repository provides two approaches for generating Go structs from DDEX XSD schemas:
 
 ```bash
-# Generate everything (both pure Go and protobuf approaches)
+# Generate everything
 make generate
-
-# Generate only pure Go structs from XSD
-make generate-go
 
 # Generate only protobuf definitions and Go code
 make generate-proto generate-proto-go
@@ -161,11 +161,6 @@ make help
 
 ```
 ddex-go/
-├── ddex/                    # Pure Go DDEX structs (generated from XSD)
-│   ├── ernv432/            # ERN v4.3.2 - Electronic Release Notification
-│   ├── meadv11/            # MEAD v1.1 - Media Enrichment and Description
-│   └── piev10/             # PIE v1.0 - Party Identification and Enrichment
-│
 ├── proto/                   # Protocol Buffer definitions with XML tags
 │   └── ddex/               # Namespace-aware proto organization
 │       ├── avs/            # Allowed Value Sets (enums shared across specs)
@@ -181,12 +176,10 @@ ddex-go/
 │       └── pie/v10/        # PIE Go code with protobuf + XML support
 │
 ├── tools/                   # Generation and conversion tools
-│   ├── xsd2go/             # XSD to Go generator (using xgen)
 │   └── xsd2proto/          # XSD to Proto converter with namespace-aware imports
 │
 ├── examples/                # Usage examples and documentation
-│   ├── proto/              # Example using protobuf-generated structs (gen/)
-│   └── xsd/                # Example using XSD-generated structs (ddex/)
+│   └── proto/              # Example using protobuf-generated structs (gen/)
 │
 └── xsd/                     # Original DDEX XSD schema files
     ├── ernv432/            # ERN v4.3.2 XSD files
@@ -194,20 +187,14 @@ ddex-go/
     └── piev10/             # PIE v1.0 XSD files
 ```
 
-## Two Approaches
+## Protocol Buffer Implementation
 
-### 1. Pure XML Package (`ddex/`)
-- Generated directly from DDEX XSD schemas using xgen
-- Native Go XML marshaling/unmarshaling
-- Full DDEX XSD compliance
-- Lightweight, no external dependencies
-
-### 2. Protocol Buffer Package (`gen/`)
-- Generated from `.proto` files with XML tag annotations  
-- Supports both binary Protocol Buffer and XML serialization
-- Compatible with gRPC and ConnectRPC
-- Enables efficient binary serialization while maintaining XML compatibility
-- Includes shared `avs/` package for common enum types across all DDEX specifications
+The library uses Protocol Buffer definitions with XML tag annotations to provide:
+- Both binary Protocol Buffer and XML serialization support
+- Full compatibility with gRPC and ConnectRPC
+- Efficient binary serialization while maintaining XML compatibility
+- Shared `avs/` package for common enum types across all DDEX specifications
+- Complete bidirectional conversion between proto structs and valid DDEX XML
 
 ## License
 
