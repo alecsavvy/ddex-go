@@ -22,9 +22,14 @@ var specs = []struct {
 	version  string
 	mainFile string
 }{
+	// Process AVS versions first so they're available for imports
+	{"avs", "latest", "allowed-value-sets.xsd"},
+	{"avs", "20200108", "avs_20200108.xsd"},
+	// Then process the main specs
 	{"ern", "432", "release-notification.xsd"},
 	{"mead", "11", "media-enrichment-and-description.xsd"},
 	{"pie", "10", "party-identification-and-enrichment.xsd"},
+	{"ern", "383", "release-notification.xsd"},
 }
 
 //
@@ -126,6 +131,9 @@ type NamespaceBundle struct {
 	// Cross-namespace dependencies discovered via xs:import
 	// and via seeing qname types with foreign prefixes (best-effort).
 	Imports map[string]struct{} // set of targetNamespace strings
+
+	// Track AVS version context for this namespace
+	AVSVersion string // e.g. "20200108" or "" for current
 }
 
 // Graph loader state
@@ -135,6 +143,8 @@ type loadState struct {
 	nsBundles map[string]*NamespaceBundle
 	// file path → schema's ns (helpful for relative includes)
 	fileToNS map[string]string
+	// Track AVS version context per namespace
+	avsVersionContext map[string]string // ns -> avs version
 }
 
 func newLoadState() *loadState {
@@ -142,6 +152,7 @@ func newLoadState() *loadState {
 		visitedFiles: make(map[string]struct{}),
 		nsBundles:    make(map[string]*NamespaceBundle),
 		fileToNS:     make(map[string]string),
+		avsVersionContext: make(map[string]string),
 	}
 }
 
@@ -174,16 +185,27 @@ func main() {
 }
 
 func validateSchemas(spec struct{ name, version, mainFile string }) error {
-	schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
-	if _, err := os.Stat(schemasDir); os.IsNotExist(err) {
-		return fmt.Errorf("schema directory %s does not exist", schemasDir)
+	var entry string
+
+	// Handle AVS specs differently - they're in xsd/ root
+	if spec.name == "avs" {
+		entry = filepath.Join("xsd", spec.mainFile)
+	} else {
+		schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
+		if _, err := os.Stat(schemasDir); os.IsNotExist(err) {
+			return fmt.Errorf("schema directory %s does not exist", schemasDir)
+		}
+		entry = filepath.Join(schemasDir, spec.mainFile)
 	}
 
-	entry := filepath.Join(schemasDir, spec.mainFile)
 	if _, err := os.Stat(entry); os.IsNotExist(err) {
-		alt := filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_"))
-		if _, err2 := os.Stat(alt); os.IsNotExist(err2) {
-			return fmt.Errorf("main schema not found; tried %s and %s", entry, alt)
+		if spec.name != "avs" {
+			alt := filepath.Join(filepath.Dir(entry), strings.ReplaceAll(spec.mainFile, "-", "_"))
+			if _, err2 := os.Stat(alt); os.IsNotExist(err2) {
+				return fmt.Errorf("main schema not found; tried %s and %s", entry, alt)
+			}
+		} else {
+			return fmt.Errorf("AVS schema not found: %s", entry)
 		}
 	}
 	return nil
@@ -196,10 +218,17 @@ func validateSchemas(spec struct{ name, version, mainFile string }) error {
 //
 
 func convertSpec(spec struct{ name, version, mainFile string }) error {
-	schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
-	entryPath := filepath.Join(schemasDir, spec.mainFile)
-	if _, err := os.Stat(entryPath); os.IsNotExist(err) {
-		entryPath = filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_"))
+	var entryPath string
+
+	// Handle AVS specs differently - they're in xsd/ root
+	if spec.name == "avs" {
+		entryPath = filepath.Join("xsd", spec.mainFile)
+	} else {
+		schemasDir := filepath.Join("xsd", spec.name+"v"+spec.version)
+		entryPath = filepath.Join(schemasDir, spec.mainFile)
+		if _, err := os.Stat(entryPath); os.IsNotExist(err) {
+			entryPath = filepath.Join(schemasDir, strings.ReplaceAll(spec.mainFile, "-", "_"))
+		}
 	}
 
 	st := newLoadState()
@@ -224,8 +253,9 @@ func convertSpec(spec struct{ name, version, mainFile string }) error {
 	// Pre-compute package + file paths for imports
 	pkgs := make(map[string]protoPkgInfo) // ns → info
 	for _, ns := range namespaces {
-		pkg := namespaceToProtoPackage(ns, spec)
-		goPkg := namespaceToGoPackage(ns, spec)
+		bundle := st.nsBundles[ns]
+		pkg := namespaceToProtoPackage(ns, bundle, spec)
+		goPkg := namespaceToGoPackage(ns, bundle, spec)
 		path := packageToPath(pkg)
 		pkgs[ns] = protoPkgInfo{pkgName: pkg, goPackage: goPkg, filePath: path}
 	}
@@ -241,7 +271,7 @@ func convertSpec(spec struct{ name, version, mainFile string }) error {
 		}
 
 		// Build file content
-		content, err := generateProtoForBundle(b, info.pkgName, info.goPackage, pkgs)
+		content, err := generateProtoForBundle(b, info.pkgName, info.goPackage, pkgs, st.avsVersionContext)
 		if err != nil {
 			return fmt.Errorf("generate for ns %s: %w", ns, err)
 		}
@@ -291,6 +321,7 @@ func loadSchemaGraph(st *loadState, filePath string) error {
 		b = &NamespaceBundle{
 			TargetNamespace: schema.TargetNamespace,
 			Imports:         make(map[string]struct{}),
+			AVSVersion:      "", // will be set when we process imports
 		}
 		st.nsBundles[schema.TargetNamespace] = b
 	}
@@ -300,10 +331,16 @@ func loadSchemaGraph(st *loadState, filePath string) error {
 	b.ComplexTypes = append(b.ComplexTypes, schema.ComplexTypes...)
 	b.SimpleTypes = append(b.SimpleTypes, schema.SimpleTypes...)
 
-	// Track declared imports by namespace
+	// Track declared imports by namespace and detect AVS version context
 	for _, imp := range schema.Imports {
 		if imp.Namespace != "" && imp.Namespace != schema.TargetNamespace {
 			b.Imports[imp.Namespace] = struct{}{}
+
+			// Detect which AVS version this schema imports
+			if imp.Namespace == "http://ddex.net/xml/avs/avs" || imp.Namespace == "http://ddex.net/xml/allowed-value-sets" {
+				avsVersion := detectAVSVersion(imp.SchemaLocation)
+				st.avsVersionContext[schema.TargetNamespace] = avsVersion
+			}
 		}
 	}
 
@@ -324,6 +361,12 @@ func loadSchemaGraph(st *loadState, filePath string) error {
 		if imp.SchemaLocation == "" {
 			continue
 		}
+
+		// Skip processing AVS imports since we handle them explicitly as separate specs
+		if imp.Namespace == "http://ddex.net/xml/avs/avs" || imp.Namespace == "http://ddex.net/xml/allowed-value-sets" {
+			continue
+		}
+
 		next := filepath.Join(baseDir, imp.SchemaLocation)
 		// If the imported file has a different targetNamespace, it will get its own bundle.
 		if err := loadSchemaGraph(st, next); err != nil {
@@ -332,6 +375,28 @@ func loadSchemaGraph(st *loadState, filePath string) error {
 	}
 
 	return nil
+}
+
+// detectAVSVersion extracts version from AVS schema location
+func detectAVSVersion(schemaLocation string) string {
+	// Look for patterns like "avs_20200108.xsd"
+	if strings.Contains(schemaLocation, "avs_") {
+		// Extract date pattern: avs_YYYYMMDD.xsd
+		parts := strings.Split(schemaLocation, "avs_")
+		if len(parts) >= 2 {
+			datePart := strings.Split(parts[1], ".")[0]
+			// Validate it looks like a date (8 digits)
+			if len(datePart) == 8 {
+				for _, r := range datePart {
+					if r < '0' || r > '9' {
+						return "" // current/latest
+					}
+				}
+				return datePart
+			}
+		}
+	}
+	return "" // current/latest version
 }
 
 //
@@ -345,6 +410,7 @@ func generateProtoForBundle(
 	packageName string,
 	goPackage string,
 	all map[string]protoPkgInfo,
+	avsVersionContext map[string]string,
 ) (string, error) {
 
 	var sb strings.Builder
@@ -362,7 +428,20 @@ func generateProtoForBundle(
 		if ns == b.TargetNamespace {
 			continue
 		}
-		if info, ok := all[ns]; ok {
+
+		// Handle AVS import version mapping
+		if ns == "http://ddex.net/xml/avs/avs" || ns == "http://ddex.net/xml/allowed-value-sets" {
+			avsVersion := avsVersionContext[b.TargetNamespace]
+
+			// Default to latest if no specific version detected
+			if avsVersion == "" {
+				avsVersion = "latest"
+			}
+
+			// Construct the versioned import path directly
+			versionedPath := fmt.Sprintf("ddex/avs/v%s/v%s.proto", avsVersion, avsVersion)
+			deps = append(deps, versionedPath)
+		} else if info, ok := all[ns]; ok {
 			deps = append(deps, info.filePath)
 		}
 	}
@@ -442,11 +521,12 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkg
 	builder.WriteString(fmt.Sprintf("message %s {\n", messageName))
 
 	fieldNum := 1
+	usedFieldNames := make(map[string]int) // track used field names and their counts
 
 	// sequence → fields
 	if complexType.Sequence != nil {
 		for _, element := range complexType.Sequence.Elements {
-			field, err := generateField(element, fieldNum, allPkgs)
+			field, err := generateFieldWithDedup(element, fieldNum, allPkgs, usedFieldNames)
 			if err != nil {
 				return "", fmt.Errorf("failed to generate field for element %s: %v", element.Name, err)
 			}
@@ -459,7 +539,7 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkg
 	if complexType.Choice != nil && len(complexType.Choice.Elements) > 0 {
 		builder.WriteString("  oneof choice {\n")
 		for _, element := range complexType.Choice.Elements {
-			field, err := generateChoiceField(element, fieldNum, allPkgs)
+			field, err := generateChoiceFieldWithDedup(element, fieldNum, allPkgs, usedFieldNames)
 			if err != nil {
 				return "", fmt.Errorf("failed to generate choice field for element %s: %v", element.Name, err)
 			}
@@ -473,12 +553,13 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkg
 	if complexType.SimpleContent != nil && complexType.SimpleContent.Extension != nil {
 		// chardata value
 		injectComment := "  // @gotags: xml:\",chardata\""
-		builder.WriteString(fmt.Sprintf("%s\n  string value = %d;\n", injectComment, fieldNum))
+		fieldName := getUniqueFieldName("value", usedFieldNames)
+		builder.WriteString(fmt.Sprintf("%s\n  string %s = %d;\n", injectComment, fieldName, fieldNum))
 		fieldNum++
 
 		// attributes
 		for _, attr := range complexType.SimpleContent.Extension.Attributes {
-			field := generateAttributeField(attr, fieldNum, allPkgs)
+			field := generateAttributeFieldWithDedup(attr, fieldNum, allPkgs, usedFieldNames)
 			builder.WriteString(field + "\n")
 			fieldNum++
 		}
@@ -486,13 +567,72 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkg
 
 	// attributes on the complexType itself
 	for _, attr := range complexType.Attributes {
-		field := generateAttributeField(attr, fieldNum, allPkgs)
+		field := generateAttributeFieldWithDedup(attr, fieldNum, allPkgs, usedFieldNames)
 		builder.WriteString(field + "\n")
 		fieldNum++
 	}
 
 	builder.WriteString("}")
 	return builder.String(), nil
+}
+
+// getUniqueFieldName ensures field names are unique within a message by adding suffixes
+func getUniqueFieldName(baseName string, usedFieldNames map[string]int) string {
+	if count, exists := usedFieldNames[baseName]; exists {
+		count++
+		usedFieldNames[baseName] = count
+		return fmt.Sprintf("%s_%d", baseName, count)
+	}
+	usedFieldNames[baseName] = 0
+	return baseName
+}
+
+// generateFieldWithDedup generates a field with deduplication
+func generateFieldWithDedup(element XSDElement, fieldNum int, allPkgs map[string]protoPkgInfo, usedFieldNames map[string]int) (string, error) {
+	fieldName := getUniqueFieldName(toProtoFieldName(element.Name), usedFieldNames)
+
+	// Type mapping
+	fieldType := "string" // default
+	if element.Type != "" {
+		fieldType = xsdTypeToProto(element.Type, allPkgs)
+	}
+
+	// Cardinality
+	repeated := ""
+	if element.MaxOccurs == "unbounded" {
+		repeated = "repeated "
+	}
+
+	// gotags for xml element name
+	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s\"", element.Name)
+
+	return fmt.Sprintf("%s\n  %s%s %s = %d;", injectComment, repeated, fieldType, fieldName, fieldNum), nil
+}
+
+// generateChoiceFieldWithDedup generates a choice field with deduplication
+func generateChoiceFieldWithDedup(element XSDElement, fieldNum int, allPkgs map[string]protoPkgInfo, usedFieldNames map[string]int) (string, error) {
+	fieldName := getUniqueFieldName(toProtoFieldName(element.Name), usedFieldNames)
+
+	fieldType := "string"
+	if element.Type != "" {
+		fieldType = xsdTypeToProto(element.Type, allPkgs)
+	}
+
+	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s\"", element.Name)
+	return fmt.Sprintf("%s\n    %s %s = %d;", injectComment, fieldType, fieldName, fieldNum), nil
+}
+
+// generateAttributeFieldWithDedup generates an attribute field with deduplication
+func generateAttributeFieldWithDedup(attr XSDAttribute, fieldNum int, allPkgs map[string]protoPkgInfo, usedFieldNames map[string]int) string {
+	fieldName := getUniqueFieldName(toProtoFieldName(attr.Name), usedFieldNames)
+
+	fieldType := "string"
+	if attr.Type != "" {
+		fieldType = xsdTypeToProto(attr.Type, allPkgs)
+	}
+
+	injectComment := fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", attr.Name)
+	return fmt.Sprintf("%s\n  %s %s = %d;", injectComment, fieldType, fieldName, fieldNum)
 }
 
 func generateField(element XSDElement, fieldNum int, allPkgs map[string]protoPkgInfo) (string, error) {
@@ -546,18 +686,31 @@ func generateEnum(simpleType XSDSimpleType) string {
 	enumName := strings.ReplaceAll(toProtoMessageName(simpleType.Name), "_", "")
 	builder.WriteString(fmt.Sprintf("enum %s {\n", enumName))
 
-	enumPrefix := toProtoFieldName(simpleType.Name)
-	enumPrefix = strings.ToUpper(enumPrefix)
+	// Use the full enum name as prefix to avoid collisions between different enums
+	enumPrefix := strings.ToUpper(toProtoFieldName(simpleType.Name))
+	// Clean up any double underscores
 	for strings.Contains(enumPrefix, "__") {
 		enumPrefix = strings.ReplaceAll(enumPrefix, "__", "_")
 	}
 
 	builder.WriteString(fmt.Sprintf("  %s_UNSPECIFIED = 0;\n", enumPrefix))
 
-	for i, enum := range simpleType.Restriction.Enumerations {
+	// Deduplicate enum values to avoid conflicts within the same enum
+	seenValues := make(map[string]struct{})
+	valueIndex := 1
+
+	for _, enum := range simpleType.Restriction.Enumerations {
 		rawValue := toProtoEnumValue(enum.Value)
 		enumValue := enumPrefix + "_" + rawValue
-		builder.WriteString(fmt.Sprintf("  %s = %d;\n", enumValue, i+1))
+
+		// Skip if we've already seen this enum value
+		if _, exists := seenValues[enumValue]; exists {
+			continue
+		}
+		seenValues[enumValue] = struct{}{}
+
+		builder.WriteString(fmt.Sprintf("  %s = %d;\n", enumValue, valueIndex))
+		valueIndex++
 	}
 
 	builder.WriteString("}")
@@ -573,7 +726,7 @@ func generateEnum(simpleType XSDSimpleType) string {
 func xsdTypeToProto(xsdType string, allPkgs map[string]protoPkgInfo) string {
 	originalType := xsdType
 	var prefix string
-	
+
 	// Extract prefix if present (xs:, avs:, ern:, etc.)
 	if idx := strings.Index(xsdType, ":"); idx != -1 {
 		prefix = xsdType[:idx]
@@ -605,7 +758,7 @@ func xsdTypeToProto(xsdType string, allPkgs map[string]protoPkgInfo) string {
 			// for type safety when developers want to use them programmatically.
 			return "string"
 		}
-		
+
 		// For other prefixes, try to map to known packages
 		if prefix != "" && prefix != "xs" {
 			// Look for a namespace that might match this prefix
@@ -616,7 +769,7 @@ func xsdTypeToProto(xsdType string, allPkgs map[string]protoPkgInfo) string {
 				}
 			}
 		}
-		
+
 		// Assume custom type → Proto message in local package
 		if xsdType != originalType {
 			log.Printf("Unmapped XSD type: %s (original: %s) -> treating as custom message", xsdType, originalType)
@@ -701,7 +854,7 @@ func toPosixPath(p string) string {
 //	ddex.xml/mead/11 → "ddex.mead.v11"
 //	ddex.xml/pie/10 → "ddex.pie.v10"
 //	ddex.xml/avs/avs → "ddex.avs"
-func namespaceToProtoPackage(ns string, spec struct{ name, version, mainFile string }) string {
+func namespaceToProtoPackage(ns string, bundle *NamespaceBundle, spec struct{ name, version, mainFile string }) string {
 	host, pathParts := splitNS(ns)
 
 	// DDEX-friendly mapping
@@ -710,6 +863,10 @@ func namespaceToProtoPackage(ns string, spec struct{ name, version, mainFile str
 		if pathParts[1] == "avs" ||
 			pathParts[1] == "allowed-value-sets" ||
 			pathParts[1] == "allowed_value_sets" {
+			// All AVS specs get versioned packages now
+			if spec.name == "avs" {
+				return fmt.Sprintf("ddex.avs.v%s", spec.version)
+			}
 			return "ddex.avs"
 		}
 		// Normal versioned families: /xml/{ern|mead|pie}/{digits}
@@ -744,9 +901,9 @@ func looksLikeEntry(ns string, spec struct{ name, version, mainFile string }) bo
 	return parts[1] == spec.name && isDigits(parts[2]) && parts[2] == stripLeadingV(spec.version)
 }
 
-func namespaceToGoPackage(ns string, spec struct{ name, version, mainFile string }) string {
+func namespaceToGoPackage(ns string, bundle *NamespaceBundle, spec struct{ name, version, mainFile string }) string {
 	// Put Go package paths under your repo. Mirror the proto package path as directories.
-	pkg := namespaceToProtoPackage(ns, spec)
+	pkg := namespaceToProtoPackage(ns, bundle, spec)
 	path := strings.ReplaceAll(pkg, ".", "/")
 	return "github.com/alecsavvy/ddex-go/gen/" + path
 }

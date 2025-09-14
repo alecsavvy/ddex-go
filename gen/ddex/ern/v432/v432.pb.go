@@ -7,7 +7,7 @@
 package v432
 
 import (
-	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs"
+	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs/vlatest"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -17810,7 +17810,7 @@ var File_ddex_ern_v432_v432_proto protoreflect.FileDescriptor
 
 const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\n" +
-	"\x18ddex/ern/v432/v432.proto\x12\rddex.ern.v432\x1a\x12ddex/avs/avs.proto\"\xdb\x06\n" +
+	"\x18ddex/ern/v432/v432.proto\x12\rddex.ern.v432\x1a\x1eddex/avs/vlatest/vlatest.proto\"\xdb\x06\n" +
 	"\x11NewReleaseMessage\x12C\n" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderR\rmessageHeader\x12@\n" +
 	"\rrelease_admin\x18\x02 \x03(\v2\x1b.ddex.ern.v432.ReleaseAdminR\freleaseAdmin\x127\n" +

@@ -6,7 +6,7 @@ option go_package = "github.com/alecsavvy/ddex-go/gen/ddex/mead/v11";
 
 // Target namespace: http://ddex.net/xml/mead/11
 
-import "ddex/avs/avs.proto";
+import "ddex/avs/vlatest/vlatest.proto";
 
 message MeadMessage {
   // @gotags: xml:"MessageHeader"

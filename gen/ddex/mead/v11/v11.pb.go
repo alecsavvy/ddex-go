@@ -7,7 +7,7 @@
 package v11
 
 import (
-	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs"
+	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs/vlatest"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -11952,7 +11952,7 @@ var File_ddex_mead_v11_v11_proto protoreflect.FileDescriptor
 
 const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\n" +
-	"\x17ddex/mead/v11/v11.proto\x12\rddex.mead.v11\x1a\x12ddex/avs/avs.proto\"\xcc\x04\n" +
+	"\x17ddex/mead/v11/v11.proto\x12\rddex.mead.v11\x1a\x1eddex/avs/vlatest/vlatest.proto\"\xcc\x04\n" +
 	"\vMeadMessage\x12C\n" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.mead.v11.MessageHeaderR\rmessageHeader\x12'\n" +
 	"\x0fsubscription_id\x18\x02 \x01(\tR\x0esubscriptionId\x12S\n" +

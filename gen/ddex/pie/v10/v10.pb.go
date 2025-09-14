@@ -7,7 +7,7 @@
 package v10
 
 import (
-	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs"
+	_ "github.com/alecsavvy/ddex-go/gen/ddex/avs/vlatest"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -9071,7 +9071,7 @@ var File_ddex_pie_v10_v10_proto protoreflect.FileDescriptor
 
 const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\n" +
-	"\x16ddex/pie/v10/v10.proto\x12\fddex.pie.v10\x1a\x12ddex/avs/avs.proto\"\xbb\x02\n" +
+	"\x16ddex/pie/v10/v10.proto\x12\fddex.pie.v10\x1a\x1eddex/avs/vlatest/vlatest.proto\"\xbb\x02\n" +
 	"\n" +
 	"PieMessage\x12B\n" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1b.ddex.pie.v10.MessageHeaderR\rmessageHeader\x12R\n" +

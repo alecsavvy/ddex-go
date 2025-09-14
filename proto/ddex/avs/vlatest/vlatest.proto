@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package ddex.avs;
+package ddex.avs.vlatest;
 
-option go_package = "github.com/alecsavvy/ddex-go/gen/ddex/avs";
+option go_package = "github.com/alecsavvy/ddex-go/gen/ddex/avs/vlatest";
 
 // Target namespace: http://ddex.net/xml/allowed-value-sets
 

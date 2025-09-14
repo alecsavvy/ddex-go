@@ -6,7 +6,7 @@ option go_package = "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10";
 
 // Target namespace: http://ddex.net/xml/pie/10
 
-import "ddex/avs/avs.proto";
+import "ddex/avs/vlatest/vlatest.proto";
 
 message PieMessage {
   // @gotags: xml:"MessageHeader"

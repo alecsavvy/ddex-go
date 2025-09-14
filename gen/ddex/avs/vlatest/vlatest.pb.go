@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.9
 // 	protoc        (unknown)
-// source: ddex/avs/avs.proto
+// source: ddex/avs/vlatest/vlatest.proto
 
-package avs
+package vlatest
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -195,11 +195,11 @@ func (x Activity) String() string {
 }
 
 func (Activity) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[0].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[0].Descriptor()
 }
 
 func (Activity) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[0]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[0]
 }
 
 func (x Activity) Number() protoreflect.EnumNumber {
@@ -208,7 +208,7 @@ func (x Activity) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Activity.Descriptor instead.
 func (Activity) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{0}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{0}
 }
 
 type AdditionalContributorRole int32
@@ -241,11 +241,11 @@ func (x AdditionalContributorRole) String() string {
 }
 
 func (AdditionalContributorRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[1].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[1].Descriptor()
 }
 
 func (AdditionalContributorRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[1]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[1]
 }
 
 func (x AdditionalContributorRole) Number() protoreflect.EnumNumber {
@@ -254,7 +254,7 @@ func (x AdditionalContributorRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AdditionalContributorRole.Descriptor instead.
 func (AdditionalContributorRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{1}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{1}
 }
 
 type AdditionalRightsClaimStatus int32
@@ -287,11 +287,11 @@ func (x AdditionalRightsClaimStatus) String() string {
 }
 
 func (AdditionalRightsClaimStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[2].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[2].Descriptor()
 }
 
 func (AdditionalRightsClaimStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[2]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[2]
 }
 
 func (x AdditionalRightsClaimStatus) Number() protoreflect.EnumNumber {
@@ -300,7 +300,7 @@ func (x AdditionalRightsClaimStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AdditionalRightsClaimStatus.Descriptor instead.
 func (AdditionalRightsClaimStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{2}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{2}
 }
 
 type AdditionalTitleType int32
@@ -354,11 +354,11 @@ func (x AdditionalTitleType) String() string {
 }
 
 func (AdditionalTitleType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[3].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[3].Descriptor()
 }
 
 func (AdditionalTitleType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[3]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[3]
 }
 
 func (x AdditionalTitleType) Number() protoreflect.EnumNumber {
@@ -367,7 +367,7 @@ func (x AdditionalTitleType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AdditionalTitleType.Descriptor instead.
 func (AdditionalTitleType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{3}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{3}
 }
 
 type AdditionalVideoType int32
@@ -418,11 +418,11 @@ func (x AdditionalVideoType) String() string {
 }
 
 func (AdditionalVideoType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[4].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[4].Descriptor()
 }
 
 func (AdditionalVideoType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[4]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[4]
 }
 
 func (x AdditionalVideoType) Number() protoreflect.EnumNumber {
@@ -431,7 +431,7 @@ func (x AdditionalVideoType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AdditionalVideoType.Descriptor instead.
 func (AdditionalVideoType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{4}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{4}
 }
 
 type AdministratingRecordCompanyRole int32
@@ -476,11 +476,11 @@ func (x AdministratingRecordCompanyRole) String() string {
 }
 
 func (AdministratingRecordCompanyRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[5].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[5].Descriptor()
 }
 
 func (AdministratingRecordCompanyRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[5]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[5]
 }
 
 func (x AdministratingRecordCompanyRole) Number() protoreflect.EnumNumber {
@@ -489,7 +489,7 @@ func (x AdministratingRecordCompanyRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AdministratingRecordCompanyRole.Descriptor instead.
 func (AdministratingRecordCompanyRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{5}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{5}
 }
 
 type AffiliationType int32
@@ -534,11 +534,11 @@ func (x AffiliationType) String() string {
 }
 
 func (AffiliationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[6].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[6].Descriptor()
 }
 
 func (AffiliationType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[6]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[6]
 }
 
 func (x AffiliationType) Number() protoreflect.EnumNumber {
@@ -547,7 +547,7 @@ func (x AffiliationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AffiliationType.Descriptor instead.
 func (AffiliationType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{6}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{6}
 }
 
 type AllIsoTerritoryCode int32
@@ -1438,11 +1438,11 @@ func (x AllIsoTerritoryCode) String() string {
 }
 
 func (AllIsoTerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[7].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[7].Descriptor()
 }
 
 func (AllIsoTerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[7]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[7]
 }
 
 func (x AllIsoTerritoryCode) Number() protoreflect.EnumNumber {
@@ -1451,7 +1451,7 @@ func (x AllIsoTerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AllIsoTerritoryCode.Descriptor instead.
 func (AllIsoTerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{7}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{7}
 }
 
 type AllTerritoryCode int32
@@ -3083,11 +3083,11 @@ func (x AllTerritoryCode) String() string {
 }
 
 func (AllTerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[8].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[8].Descriptor()
 }
 
 func (AllTerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[8]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[8]
 }
 
 func (x AllTerritoryCode) Number() protoreflect.EnumNumber {
@@ -3096,7 +3096,7 @@ func (x AllTerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AllTerritoryCode.Descriptor instead.
 func (AllTerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{8}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{8}
 }
 
 type AllTerritoryCodeNoWorldwide int32
@@ -4725,11 +4725,11 @@ func (x AllTerritoryCodeNoWorldwide) String() string {
 }
 
 func (AllTerritoryCodeNoWorldwide) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[9].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[9].Descriptor()
 }
 
 func (AllTerritoryCodeNoWorldwide) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[9]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[9]
 }
 
 func (x AllTerritoryCodeNoWorldwide) Number() protoreflect.EnumNumber {
@@ -4738,7 +4738,7 @@ func (x AllTerritoryCodeNoWorldwide) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AllTerritoryCodeNoWorldwide.Descriptor instead.
 func (AllTerritoryCodeNoWorldwide) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{9}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{9}
 }
 
 type ArAcknowledgementStatus int32
@@ -4783,11 +4783,11 @@ func (x ArAcknowledgementStatus) String() string {
 }
 
 func (ArAcknowledgementStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[10].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[10].Descriptor()
 }
 
 func (ArAcknowledgementStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[10]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[10]
 }
 
 func (x ArAcknowledgementStatus) Number() protoreflect.EnumNumber {
@@ -4796,7 +4796,7 @@ func (x ArAcknowledgementStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ArAcknowledgementStatus.Descriptor instead.
 func (ArAcknowledgementStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{10}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{10}
 }
 
 type ArActionType int32
@@ -4859,11 +4859,11 @@ func (x ArActionType) String() string {
 }
 
 func (ArActionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[11].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[11].Descriptor()
 }
 
 func (ArActionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[11]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[11]
 }
 
 func (x ArActionType) Number() protoreflect.EnumNumber {
@@ -4872,7 +4872,7 @@ func (x ArActionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ArActionType.Descriptor instead.
 func (ArActionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{11}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{11}
 }
 
 type ArtistRole int32
@@ -4959,11 +4959,11 @@ func (x ArtistRole) String() string {
 }
 
 func (ArtistRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[12].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[12].Descriptor()
 }
 
 func (ArtistRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[12]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[12]
 }
 
 func (x ArtistRole) Number() protoreflect.EnumNumber {
@@ -4972,7 +4972,7 @@ func (x ArtistRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ArtistRole.Descriptor instead.
 func (ArtistRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{12}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{12}
 }
 
 type ArtistType int32
@@ -5101,11 +5101,11 @@ func (x ArtistType) String() string {
 }
 
 func (ArtistType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[13].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[13].Descriptor()
 }
 
 func (ArtistType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[13]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[13]
 }
 
 func (x ArtistType) Number() protoreflect.EnumNumber {
@@ -5114,7 +5114,7 @@ func (x ArtistType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ArtistType.Descriptor instead.
 func (ArtistType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{13}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{13}
 }
 
 type AspectRatioType int32
@@ -5153,11 +5153,11 @@ func (x AspectRatioType) String() string {
 }
 
 func (AspectRatioType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[14].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[14].Descriptor()
 }
 
 func (AspectRatioType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[14]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[14]
 }
 
 func (x AspectRatioType) Number() protoreflect.EnumNumber {
@@ -5166,7 +5166,7 @@ func (x AspectRatioType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AspectRatioType.Descriptor instead.
 func (AspectRatioType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{14}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{14}
 }
 
 type AsserterType int32
@@ -5214,11 +5214,11 @@ func (x AsserterType) String() string {
 }
 
 func (AsserterType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[15].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[15].Descriptor()
 }
 
 func (AsserterType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[15]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[15]
 }
 
 func (x AsserterType) Number() protoreflect.EnumNumber {
@@ -5227,7 +5227,7 @@ func (x AsserterType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AsserterType.Descriptor instead.
 func (AsserterType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{15}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{15}
 }
 
 type AssertionStatus int32
@@ -5260,11 +5260,11 @@ func (x AssertionStatus) String() string {
 }
 
 func (AssertionStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[16].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[16].Descriptor()
 }
 
 func (AssertionStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[16]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[16]
 }
 
 func (x AssertionStatus) Number() protoreflect.EnumNumber {
@@ -5273,7 +5273,7 @@ func (x AssertionStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AssertionStatus.Descriptor instead.
 func (AssertionStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{16}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{16}
 }
 
 type AudioCodecType int32
@@ -5378,11 +5378,11 @@ func (x AudioCodecType) String() string {
 }
 
 func (AudioCodecType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[17].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[17].Descriptor()
 }
 
 func (AudioCodecType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[17]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[17]
 }
 
 func (x AudioCodecType) Number() protoreflect.EnumNumber {
@@ -5391,7 +5391,7 @@ func (x AudioCodecType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AudioCodecType.Descriptor instead.
 func (AudioCodecType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{17}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{17}
 }
 
 type AudioVisualType int32
@@ -5619,11 +5619,11 @@ func (x AudioVisualType) String() string {
 }
 
 func (AudioVisualType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[18].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[18].Descriptor()
 }
 
 func (AudioVisualType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[18]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[18]
 }
 
 func (x AudioVisualType) Number() protoreflect.EnumNumber {
@@ -5632,7 +5632,7 @@ func (x AudioVisualType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AudioVisualType.Descriptor instead.
 func (AudioVisualType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{18}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{18}
 }
 
 type BasisForRevenueAllocation int32
@@ -5689,11 +5689,11 @@ func (x BasisForRevenueAllocation) String() string {
 }
 
 func (BasisForRevenueAllocation) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[19].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[19].Descriptor()
 }
 
 func (BasisForRevenueAllocation) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[19]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[19]
 }
 
 func (x BasisForRevenueAllocation) Number() protoreflect.EnumNumber {
@@ -5702,7 +5702,7 @@ func (x BasisForRevenueAllocation) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use BasisForRevenueAllocation.Descriptor instead.
 func (BasisForRevenueAllocation) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{19}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{19}
 }
 
 type BinaryDataType int32
@@ -5738,11 +5738,11 @@ func (x BinaryDataType) String() string {
 }
 
 func (BinaryDataType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[20].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[20].Descriptor()
 }
 
 func (BinaryDataType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[20]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[20]
 }
 
 func (x BinaryDataType) Number() protoreflect.EnumNumber {
@@ -5751,7 +5751,7 @@ func (x BinaryDataType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use BinaryDataType.Descriptor instead.
 func (BinaryDataType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{20}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{20}
 }
 
 type Blockchain int32
@@ -5787,11 +5787,11 @@ func (x Blockchain) String() string {
 }
 
 func (Blockchain) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[21].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[21].Descriptor()
 }
 
 func (Blockchain) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[21]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[21]
 }
 
 func (x Blockchain) Number() protoreflect.EnumNumber {
@@ -5800,7 +5800,7 @@ func (x Blockchain) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Blockchain.Descriptor instead.
 func (Blockchain) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{21}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{21}
 }
 
 type BusinessMusicalWorkContributorRole int32
@@ -5863,11 +5863,11 @@ func (x BusinessMusicalWorkContributorRole) String() string {
 }
 
 func (BusinessMusicalWorkContributorRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[22].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[22].Descriptor()
 }
 
 func (BusinessMusicalWorkContributorRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[22]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[22]
 }
 
 func (x BusinessMusicalWorkContributorRole) Number() protoreflect.EnumNumber {
@@ -5876,7 +5876,7 @@ func (x BusinessMusicalWorkContributorRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use BusinessMusicalWorkContributorRole.Descriptor instead.
 func (BusinessMusicalWorkContributorRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{22}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{22}
 }
 
 type CarrierType int32
@@ -6242,11 +6242,11 @@ func (x CarrierType) String() string {
 }
 
 func (CarrierType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[23].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[23].Descriptor()
 }
 
 func (CarrierType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[23]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[23]
 }
 
 func (x CarrierType) Number() protoreflect.EnumNumber {
@@ -6255,7 +6255,7 @@ func (x CarrierType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CarrierType.Descriptor instead.
 func (CarrierType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{23}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{23}
 }
 
 type CatalogTransferAcknowledgementStatus int32
@@ -6291,11 +6291,11 @@ func (x CatalogTransferAcknowledgementStatus) String() string {
 }
 
 func (CatalogTransferAcknowledgementStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[24].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[24].Descriptor()
 }
 
 func (CatalogTransferAcknowledgementStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[24]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[24]
 }
 
 func (x CatalogTransferAcknowledgementStatus) Number() protoreflect.EnumNumber {
@@ -6304,7 +6304,7 @@ func (x CatalogTransferAcknowledgementStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CatalogTransferAcknowledgementStatus.Descriptor instead.
 func (CatalogTransferAcknowledgementStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{24}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{24}
 }
 
 type CatalogTransferStatus int32
@@ -6343,11 +6343,11 @@ func (x CatalogTransferStatus) String() string {
 }
 
 func (CatalogTransferStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[25].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[25].Descriptor()
 }
 
 func (CatalogTransferStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[25]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[25]
 }
 
 func (x CatalogTransferStatus) Number() protoreflect.EnumNumber {
@@ -6356,7 +6356,7 @@ func (x CatalogTransferStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CatalogTransferStatus.Descriptor instead.
 func (CatalogTransferStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{25}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{25}
 }
 
 type CatalogTransferType int32
@@ -6392,11 +6392,11 @@ func (x CatalogTransferType) String() string {
 }
 
 func (CatalogTransferType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[26].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[26].Descriptor()
 }
 
 func (CatalogTransferType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[26]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[26]
 }
 
 func (x CatalogTransferType) Number() protoreflect.EnumNumber {
@@ -6405,7 +6405,7 @@ func (x CatalogTransferType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CatalogTransferType.Descriptor instead.
 func (CatalogTransferType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{26}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{26}
 }
 
 type CdProtectionType int32
@@ -6459,11 +6459,11 @@ func (x CdProtectionType) String() string {
 }
 
 func (CdProtectionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[27].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[27].Descriptor()
 }
 
 func (CdProtectionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[27]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[27]
 }
 
 func (x CdProtectionType) Number() protoreflect.EnumNumber {
@@ -6472,7 +6472,7 @@ func (x CdProtectionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CdProtectionType.Descriptor instead.
 func (CdProtectionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{27}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{27}
 }
 
 type CharacterType int32
@@ -6511,11 +6511,11 @@ func (x CharacterType) String() string {
 }
 
 func (CharacterType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[28].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[28].Descriptor()
 }
 
 func (CharacterType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[28]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[28]
 }
 
 func (x CharacterType) Number() protoreflect.EnumNumber {
@@ -6524,7 +6524,7 @@ func (x CharacterType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CharacterType.Descriptor instead.
 func (CharacterType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{28}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{28}
 }
 
 type ClaimBasis int32
@@ -6563,11 +6563,11 @@ func (x ClaimBasis) String() string {
 }
 
 func (ClaimBasis) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[29].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[29].Descriptor()
 }
 
 func (ClaimBasis) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[29]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[29]
 }
 
 func (x ClaimBasis) Number() protoreflect.EnumNumber {
@@ -6576,7 +6576,7 @@ func (x ClaimBasis) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ClaimBasis.Descriptor instead.
 func (ClaimBasis) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{29}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{29}
 }
 
 type ClaimImpact int32
@@ -6612,11 +6612,11 @@ func (x ClaimImpact) String() string {
 }
 
 func (ClaimImpact) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[30].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[30].Descriptor()
 }
 
 func (ClaimImpact) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[30]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[30]
 }
 
 func (x ClaimImpact) Number() protoreflect.EnumNumber {
@@ -6625,7 +6625,7 @@ func (x ClaimImpact) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ClaimImpact.Descriptor instead.
 func (ClaimImpact) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{30}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{30}
 }
 
 type ClaimStatus int32
@@ -6679,11 +6679,11 @@ func (x ClaimStatus) String() string {
 }
 
 func (ClaimStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[31].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[31].Descriptor()
 }
 
 func (ClaimStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[31]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[31]
 }
 
 func (x ClaimStatus) Number() protoreflect.EnumNumber {
@@ -6692,7 +6692,7 @@ func (x ClaimStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ClaimStatus.Descriptor instead.
 func (ClaimStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{31}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{31}
 }
 
 type ClassifiedGenre int32
@@ -6773,11 +6773,11 @@ func (x ClassifiedGenre) String() string {
 }
 
 func (ClassifiedGenre) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[32].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[32].Descriptor()
 }
 
 func (ClassifiedGenre) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[32]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[32]
 }
 
 func (x ClassifiedGenre) Number() protoreflect.EnumNumber {
@@ -6786,7 +6786,7 @@ func (x ClassifiedGenre) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ClassifiedGenre.Descriptor instead.
 func (ClassifiedGenre) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{32}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{32}
 }
 
 type ClipType int32
@@ -6825,11 +6825,11 @@ func (x ClipType) String() string {
 }
 
 func (ClipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[33].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[33].Descriptor()
 }
 
 func (ClipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[33]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[33]
 }
 
 func (x ClipType) Number() protoreflect.EnumNumber {
@@ -6838,7 +6838,7 @@ func (x ClipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ClipType.Descriptor instead.
 func (ClipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{33}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{33}
 }
 
 type CodingType int32
@@ -6874,11 +6874,11 @@ func (x CodingType) String() string {
 }
 
 func (CodingType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[34].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[34].Descriptor()
 }
 
 func (CodingType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[34]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[34]
 }
 
 func (x CodingType) Number() protoreflect.EnumNumber {
@@ -6887,7 +6887,7 @@ func (x CodingType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CodingType.Descriptor instead.
 func (CodingType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{34}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{34}
 }
 
 type CollectionMandateType int32
@@ -6923,11 +6923,11 @@ func (x CollectionMandateType) String() string {
 }
 
 func (CollectionMandateType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[35].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[35].Descriptor()
 }
 
 func (CollectionMandateType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[35]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[35]
 }
 
 func (x CollectionMandateType) Number() protoreflect.EnumNumber {
@@ -6936,7 +6936,7 @@ func (x CollectionMandateType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CollectionMandateType.Descriptor instead.
 func (CollectionMandateType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{35}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{35}
 }
 
 type CommentaryNoteType int32
@@ -6969,11 +6969,11 @@ func (x CommentaryNoteType) String() string {
 }
 
 func (CommentaryNoteType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[36].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[36].Descriptor()
 }
 
 func (CommentaryNoteType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[36]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[36]
 }
 
 func (x CommentaryNoteType) Number() protoreflect.EnumNumber {
@@ -6982,7 +6982,7 @@ func (x CommentaryNoteType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CommentaryNoteType.Descriptor instead.
 func (CommentaryNoteType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{36}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{36}
 }
 
 type CommercialModelType int32
@@ -7042,11 +7042,11 @@ func (x CommercialModelType) String() string {
 }
 
 func (CommercialModelType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[37].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[37].Descriptor()
 }
 
 func (CommercialModelType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[37]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[37]
 }
 
 func (x CommercialModelType) Number() protoreflect.EnumNumber {
@@ -7055,7 +7055,7 @@ func (x CommercialModelType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CommercialModelType.Descriptor instead.
 func (CommercialModelType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{37}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{37}
 }
 
 type CommercialModelTypeERN int32
@@ -7109,11 +7109,11 @@ func (x CommercialModelTypeERN) String() string {
 }
 
 func (CommercialModelTypeERN) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[38].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[38].Descriptor()
 }
 
 func (CommercialModelTypeERN) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[38]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[38]
 }
 
 func (x CommercialModelTypeERN) Number() protoreflect.EnumNumber {
@@ -7122,7 +7122,7 @@ func (x CommercialModelTypeERN) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CommercialModelTypeERN.Descriptor instead.
 func (CommercialModelTypeERN) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{38}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{38}
 }
 
 type CommercialModelTypeMWNL int32
@@ -7161,11 +7161,11 @@ func (x CommercialModelTypeMWNL) String() string {
 }
 
 func (CommercialModelTypeMWNL) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[39].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[39].Descriptor()
 }
 
 func (CommercialModelTypeMWNL) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[39]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[39]
 }
 
 func (x CommercialModelTypeMWNL) Number() protoreflect.EnumNumber {
@@ -7174,7 +7174,7 @@ func (x CommercialModelTypeMWNL) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CommercialModelTypeMWNL.Descriptor instead.
 func (CommercialModelTypeMWNL) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{39}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{39}
 }
 
 type CompilationType int32
@@ -7213,11 +7213,11 @@ func (x CompilationType) String() string {
 }
 
 func (CompilationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[40].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[40].Descriptor()
 }
 
 func (CompilationType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[40]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[40]
 }
 
 func (x CompilationType) Number() protoreflect.EnumNumber {
@@ -7226,7 +7226,7 @@ func (x CompilationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CompilationType.Descriptor instead.
 func (CompilationType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{40}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{40}
 }
 
 type CompositeMusicalWorkType int32
@@ -7265,11 +7265,11 @@ func (x CompositeMusicalWorkType) String() string {
 }
 
 func (CompositeMusicalWorkType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[41].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[41].Descriptor()
 }
 
 func (CompositeMusicalWorkType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[41]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[41]
 }
 
 func (x CompositeMusicalWorkType) Number() protoreflect.EnumNumber {
@@ -7278,7 +7278,7 @@ func (x CompositeMusicalWorkType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CompositeMusicalWorkType.Descriptor instead.
 func (CompositeMusicalWorkType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{41}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{41}
 }
 
 type Confidentiality int32
@@ -7314,11 +7314,11 @@ func (x Confidentiality) String() string {
 }
 
 func (Confidentiality) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[42].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[42].Descriptor()
 }
 
 func (Confidentiality) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[42]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[42]
 }
 
 func (x Confidentiality) Number() protoreflect.EnumNumber {
@@ -7327,7 +7327,7 @@ func (x Confidentiality) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Confidentiality.Descriptor instead.
 func (Confidentiality) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{42}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{42}
 }
 
 type ConsumerEngagementAnomalyType int32
@@ -7366,11 +7366,11 @@ func (x ConsumerEngagementAnomalyType) String() string {
 }
 
 func (ConsumerEngagementAnomalyType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[43].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[43].Descriptor()
 }
 
 func (ConsumerEngagementAnomalyType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[43]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[43]
 }
 
 func (x ConsumerEngagementAnomalyType) Number() protoreflect.EnumNumber {
@@ -7379,7 +7379,7 @@ func (x ConsumerEngagementAnomalyType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ConsumerEngagementAnomalyType.Descriptor instead.
 func (ConsumerEngagementAnomalyType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{43}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{43}
 }
 
 type ContainerFormat int32
@@ -7436,11 +7436,11 @@ func (x ContainerFormat) String() string {
 }
 
 func (ContainerFormat) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[44].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[44].Descriptor()
 }
 
 func (ContainerFormat) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[44]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[44]
 }
 
 func (x ContainerFormat) Number() protoreflect.EnumNumber {
@@ -7449,7 +7449,7 @@ func (x ContainerFormat) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ContainerFormat.Descriptor instead.
 func (ContainerFormat) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{44}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{44}
 }
 
 type ContainsAI int32
@@ -7488,11 +7488,11 @@ func (x ContainsAI) String() string {
 }
 
 func (ContainsAI) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[45].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[45].Descriptor()
 }
 
 func (ContainsAI) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[45]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[45]
 }
 
 func (x ContainsAI) Number() protoreflect.EnumNumber {
@@ -7501,7 +7501,7 @@ func (x ContainsAI) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ContainsAI.Descriptor instead.
 func (ContainsAI) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{45}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{45}
 }
 
 type ContributorClaimStatus int32
@@ -7552,11 +7552,11 @@ func (x ContributorClaimStatus) String() string {
 }
 
 func (ContributorClaimStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[46].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[46].Descriptor()
 }
 
 func (ContributorClaimStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[46]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[46]
 }
 
 func (x ContributorClaimStatus) Number() protoreflect.EnumNumber {
@@ -7565,7 +7565,7 @@ func (x ContributorClaimStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ContributorClaimStatus.Descriptor instead.
 func (ContributorClaimStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{46}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{46}
 }
 
 type ContributorRole int32
@@ -8525,11 +8525,11 @@ func (x ContributorRole) String() string {
 }
 
 func (ContributorRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[47].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[47].Descriptor()
 }
 
 func (ContributorRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[47]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[47]
 }
 
 func (x ContributorRole) Number() protoreflect.EnumNumber {
@@ -8538,7 +8538,7 @@ func (x ContributorRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ContributorRole.Descriptor instead.
 func (ContributorRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{47}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{47}
 }
 
 type ContributorRoleRDR int32
@@ -9366,11 +9366,11 @@ func (x ContributorRoleRDR) String() string {
 }
 
 func (ContributorRoleRDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[48].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[48].Descriptor()
 }
 
 func (ContributorRoleRDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[48]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[48]
 }
 
 func (x ContributorRoleRDR) Number() protoreflect.EnumNumber {
@@ -9379,7 +9379,7 @@ func (x ContributorRoleRDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ContributorRoleRDR.Descriptor instead.
 func (ContributorRoleRDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{48}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{48}
 }
 
 type CreationType int32
@@ -9418,11 +9418,11 @@ func (x CreationType) String() string {
 }
 
 func (CreationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[49].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[49].Descriptor()
 }
 
 func (CreationType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[49]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[49]
 }
 
 func (x CreationType) Number() protoreflect.EnumNumber {
@@ -9431,7 +9431,7 @@ func (x CreationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CreationType.Descriptor instead.
 func (CreationType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{49}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{49}
 }
 
 type CreativeMusicalWorkContributorRole int32
@@ -9566,11 +9566,11 @@ func (x CreativeMusicalWorkContributorRole) String() string {
 }
 
 func (CreativeMusicalWorkContributorRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[50].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[50].Descriptor()
 }
 
 func (CreativeMusicalWorkContributorRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[50]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[50]
 }
 
 func (x CreativeMusicalWorkContributorRole) Number() protoreflect.EnumNumber {
@@ -9579,7 +9579,7 @@ func (x CreativeMusicalWorkContributorRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CreativeMusicalWorkContributorRole.Descriptor instead.
 func (CreativeMusicalWorkContributorRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{50}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{50}
 }
 
 type CtProposedActionType int32
@@ -9615,11 +9615,11 @@ func (x CtProposedActionType) String() string {
 }
 
 func (CtProposedActionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[51].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[51].Descriptor()
 }
 
 func (CtProposedActionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[51]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[51]
 }
 
 func (x CtProposedActionType) Number() protoreflect.EnumNumber {
@@ -9628,7 +9628,7 @@ func (x CtProposedActionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CtProposedActionType.Descriptor instead.
 func (CtProposedActionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{51}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{51}
 }
 
 type CueOrigin int32
@@ -9673,11 +9673,11 @@ func (x CueOrigin) String() string {
 }
 
 func (CueOrigin) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[52].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[52].Descriptor()
 }
 
 func (CueOrigin) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[52]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[52]
 }
 
 func (x CueOrigin) Number() protoreflect.EnumNumber {
@@ -9686,7 +9686,7 @@ func (x CueOrigin) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CueOrigin.Descriptor instead.
 func (CueOrigin) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{52}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{52}
 }
 
 type CueSheetType int32
@@ -9731,11 +9731,11 @@ func (x CueSheetType) String() string {
 }
 
 func (CueSheetType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[53].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[53].Descriptor()
 }
 
 func (CueSheetType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[53]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[53]
 }
 
 func (x CueSheetType) Number() protoreflect.EnumNumber {
@@ -9744,7 +9744,7 @@ func (x CueSheetType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CueSheetType.Descriptor instead.
 func (CueSheetType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{53}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{53}
 }
 
 type CueUseType int32
@@ -9804,11 +9804,11 @@ func (x CueUseType) String() string {
 }
 
 func (CueUseType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[54].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[54].Descriptor()
 }
 
 func (CueUseType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[54]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[54]
 }
 
 func (x CueUseType) Number() protoreflect.EnumNumber {
@@ -9817,7 +9817,7 @@ func (x CueUseType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CueUseType.Descriptor instead.
 func (CueUseType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{54}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{54}
 }
 
 type CueUseTypeMWDR int32
@@ -9862,11 +9862,11 @@ func (x CueUseTypeMWDR) String() string {
 }
 
 func (CueUseTypeMWDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[55].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[55].Descriptor()
 }
 
 func (CueUseTypeMWDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[55]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[55]
 }
 
 func (x CueUseTypeMWDR) Number() protoreflect.EnumNumber {
@@ -9875,7 +9875,7 @@ func (x CueUseTypeMWDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CueUseTypeMWDR.Descriptor instead.
 func (CueUseTypeMWDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{55}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{55}
 }
 
 type CurrencyCode int32
@@ -10439,11 +10439,11 @@ func (x CurrencyCode) String() string {
 }
 
 func (CurrencyCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[56].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[56].Descriptor()
 }
 
 func (CurrencyCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[56]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[56]
 }
 
 func (x CurrencyCode) Number() protoreflect.EnumNumber {
@@ -10452,7 +10452,7 @@ func (x CurrencyCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CurrencyCode.Descriptor instead.
 func (CurrencyCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{56}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{56}
 }
 
 type CurrentTerritoryCode int32
@@ -11991,11 +11991,11 @@ func (x CurrentTerritoryCode) String() string {
 }
 
 func (CurrentTerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[57].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[57].Descriptor()
 }
 
 func (CurrentTerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[57]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[57]
 }
 
 func (x CurrentTerritoryCode) Number() protoreflect.EnumNumber {
@@ -12004,7 +12004,7 @@ func (x CurrentTerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use CurrentTerritoryCode.Descriptor instead.
 func (CurrentTerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{57}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{57}
 }
 
 type DanceStyle int32
@@ -12235,11 +12235,11 @@ func (x DanceStyle) String() string {
 }
 
 func (DanceStyle) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[58].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[58].Descriptor()
 }
 
 func (DanceStyle) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[58]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[58]
 }
 
 func (x DanceStyle) Number() protoreflect.EnumNumber {
@@ -12248,7 +12248,7 @@ func (x DanceStyle) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DanceStyle.Descriptor instead.
 func (DanceStyle) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{58}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{58}
 }
 
 type DataCarrierFormat int32
@@ -12413,11 +12413,11 @@ func (x DataCarrierFormat) String() string {
 }
 
 func (DataCarrierFormat) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[59].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[59].Descriptor()
 }
 
 func (DataCarrierFormat) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[59]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[59]
 }
 
 func (x DataCarrierFormat) Number() protoreflect.EnumNumber {
@@ -12426,7 +12426,7 @@ func (x DataCarrierFormat) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DataCarrierFormat.Descriptor instead.
 func (DataCarrierFormat) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{59}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{59}
 }
 
 type DataCarrierType int32
@@ -13125,11 +13125,11 @@ func (x DataCarrierType) String() string {
 }
 
 func (DataCarrierType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[60].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[60].Descriptor()
 }
 
 func (DataCarrierType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[60]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[60]
 }
 
 func (x DataCarrierType) Number() protoreflect.EnumNumber {
@@ -13138,7 +13138,7 @@ func (x DataCarrierType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DataCarrierType.Descriptor instead.
 func (DataCarrierType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{60}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{60}
 }
 
 type DdexTerritoryCode int32
@@ -13174,11 +13174,11 @@ func (x DdexTerritoryCode) String() string {
 }
 
 func (DdexTerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[61].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[61].Descriptor()
 }
 
 func (DdexTerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[61]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[61]
 }
 
 func (x DdexTerritoryCode) Number() protoreflect.EnumNumber {
@@ -13187,7 +13187,7 @@ func (x DdexTerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DdexTerritoryCode.Descriptor instead.
 func (DdexTerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{61}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{61}
 }
 
 type DdexTerritoryCodeNoWorldwide int32
@@ -13220,11 +13220,11 @@ func (x DdexTerritoryCodeNoWorldwide) String() string {
 }
 
 func (DdexTerritoryCodeNoWorldwide) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[62].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[62].Descriptor()
 }
 
 func (DdexTerritoryCodeNoWorldwide) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[62]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[62]
 }
 
 func (x DdexTerritoryCodeNoWorldwide) Number() protoreflect.EnumNumber {
@@ -13233,7 +13233,7 @@ func (x DdexTerritoryCodeNoWorldwide) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DdexTerritoryCodeNoWorldwide.Descriptor instead.
 func (DdexTerritoryCodeNoWorldwide) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{62}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{62}
 }
 
 type DeliveryFileType int32
@@ -13275,11 +13275,11 @@ func (x DeliveryFileType) String() string {
 }
 
 func (DeliveryFileType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[63].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[63].Descriptor()
 }
 
 func (DeliveryFileType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[63]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[63]
 }
 
 func (x DeliveryFileType) Number() protoreflect.EnumNumber {
@@ -13288,7 +13288,7 @@ func (x DeliveryFileType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DeliveryFileType.Descriptor instead.
 func (DeliveryFileType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{63}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{63}
 }
 
 type DeprecatedCurrencyCode int32
@@ -13366,11 +13366,11 @@ func (x DeprecatedCurrencyCode) String() string {
 }
 
 func (DeprecatedCurrencyCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[64].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[64].Descriptor()
 }
 
 func (DeprecatedCurrencyCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[64]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[64]
 }
 
 func (x DeprecatedCurrencyCode) Number() protoreflect.EnumNumber {
@@ -13379,7 +13379,7 @@ func (x DeprecatedCurrencyCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DeprecatedCurrencyCode.Descriptor instead.
 func (DeprecatedCurrencyCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{64}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{64}
 }
 
 type DeprecatedIsoTerritoryCode int32
@@ -13502,11 +13502,11 @@ func (x DeprecatedIsoTerritoryCode) String() string {
 }
 
 func (DeprecatedIsoTerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[65].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[65].Descriptor()
 }
 
 func (DeprecatedIsoTerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[65]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[65]
 }
 
 func (x DeprecatedIsoTerritoryCode) Number() protoreflect.EnumNumber {
@@ -13515,7 +13515,7 @@ func (x DeprecatedIsoTerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DeprecatedIsoTerritoryCode.Descriptor instead.
 func (DeprecatedIsoTerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{65}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{65}
 }
 
 type DeprecatedReleaseType int32
@@ -13548,11 +13548,11 @@ func (x DeprecatedReleaseType) String() string {
 }
 
 func (DeprecatedReleaseType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[66].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[66].Descriptor()
 }
 
 func (DeprecatedReleaseType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[66]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[66]
 }
 
 func (x DeprecatedReleaseType) Number() protoreflect.EnumNumber {
@@ -13561,7 +13561,7 @@ func (x DeprecatedReleaseType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DeprecatedReleaseType.Descriptor instead.
 func (DeprecatedReleaseType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{66}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{66}
 }
 
 type DigitizationMode int32
@@ -13603,11 +13603,11 @@ func (x DigitizationMode) String() string {
 }
 
 func (DigitizationMode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[67].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[67].Descriptor()
 }
 
 func (DigitizationMode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[67]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[67]
 }
 
 func (x DigitizationMode) Number() protoreflect.EnumNumber {
@@ -13616,7 +13616,7 @@ func (x DigitizationMode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DigitizationMode.Descriptor instead.
 func (DigitizationMode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{67}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{67}
 }
 
 type DiscrepancyType int32
@@ -13673,11 +13673,11 @@ func (x DiscrepancyType) String() string {
 }
 
 func (DiscrepancyType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[68].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[68].Descriptor()
 }
 
 func (DiscrepancyType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[68]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[68]
 }
 
 func (x DiscrepancyType) Number() protoreflect.EnumNumber {
@@ -13686,7 +13686,7 @@ func (x DiscrepancyType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DiscrepancyType.Descriptor instead.
 func (DiscrepancyType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{68}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{68}
 }
 
 type DisplayArtistRole int32
@@ -13734,11 +13734,11 @@ func (x DisplayArtistRole) String() string {
 }
 
 func (DisplayArtistRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[69].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[69].Descriptor()
 }
 
 func (DisplayArtistRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[69]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[69]
 }
 
 func (x DisplayArtistRole) Number() protoreflect.EnumNumber {
@@ -13747,7 +13747,7 @@ func (x DisplayArtistRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DisplayArtistRole.Descriptor instead.
 func (DisplayArtistRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{69}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{69}
 }
 
 type DisplayArtistRoleRDR int32
@@ -13798,11 +13798,11 @@ func (x DisplayArtistRoleRDR) String() string {
 }
 
 func (DisplayArtistRoleRDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[70].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[70].Descriptor()
 }
 
 func (DisplayArtistRoleRDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[70]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[70]
 }
 
 func (x DisplayArtistRoleRDR) Number() protoreflect.EnumNumber {
@@ -13811,7 +13811,7 @@ func (x DisplayArtistRoleRDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DisplayArtistRoleRDR.Descriptor instead.
 func (DisplayArtistRoleRDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{70}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{70}
 }
 
 type DistributionChannelType int32
@@ -13889,11 +13889,11 @@ func (x DistributionChannelType) String() string {
 }
 
 func (DistributionChannelType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[71].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[71].Descriptor()
 }
 
 func (DistributionChannelType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[71]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[71]
 }
 
 func (x DistributionChannelType) Number() protoreflect.EnumNumber {
@@ -13902,7 +13902,7 @@ func (x DistributionChannelType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DistributionChannelType.Descriptor instead.
 func (DistributionChannelType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{71}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{71}
 }
 
 type DistributionClass int32
@@ -13947,11 +13947,11 @@ func (x DistributionClass) String() string {
 }
 
 func (DistributionClass) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[72].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[72].Descriptor()
 }
 
 func (DistributionClass) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[72]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[72]
 }
 
 func (x DistributionClass) Number() protoreflect.EnumNumber {
@@ -13960,7 +13960,7 @@ func (x DistributionClass) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DistributionClass.Descriptor instead.
 func (DistributionClass) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{72}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{72}
 }
 
 type DocumentTypeLoD int32
@@ -13996,11 +13996,11 @@ func (x DocumentTypeLoD) String() string {
 }
 
 func (DocumentTypeLoD) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[73].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[73].Descriptor()
 }
 
 func (DocumentTypeLoD) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[73]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[73]
 }
 
 func (x DocumentTypeLoD) Number() protoreflect.EnumNumber {
@@ -14009,7 +14009,7 @@ func (x DocumentTypeLoD) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DocumentTypeLoD.Descriptor instead.
 func (DocumentTypeLoD) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{73}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{73}
 }
 
 type DocumentTypeMWL int32
@@ -14048,11 +14048,11 @@ func (x DocumentTypeMWL) String() string {
 }
 
 func (DocumentTypeMWL) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[74].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[74].Descriptor()
 }
 
 func (DocumentTypeMWL) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[74]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[74]
 }
 
 func (x DocumentTypeMWL) Number() protoreflect.EnumNumber {
@@ -14061,7 +14061,7 @@ func (x DocumentTypeMWL) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DocumentTypeMWL.Descriptor instead.
 func (DocumentTypeMWL) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{74}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{74}
 }
 
 type DpidStatus int32
@@ -14100,11 +14100,11 @@ func (x DpidStatus) String() string {
 }
 
 func (DpidStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[75].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[75].Descriptor()
 }
 
 func (DpidStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[75]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[75]
 }
 
 func (x DpidStatus) Number() protoreflect.EnumNumber {
@@ -14113,7 +14113,7 @@ func (x DpidStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DpidStatus.Descriptor instead.
 func (DpidStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{75}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{75}
 }
 
 type DrmEnforcementType int32
@@ -14149,11 +14149,11 @@ func (x DrmEnforcementType) String() string {
 }
 
 func (DrmEnforcementType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[76].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[76].Descriptor()
 }
 
 func (DrmEnforcementType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[76]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[76]
 }
 
 func (x DrmEnforcementType) Number() protoreflect.EnumNumber {
@@ -14162,7 +14162,7 @@ func (x DrmEnforcementType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DrmEnforcementType.Descriptor instead.
 func (DrmEnforcementType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{76}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{76}
 }
 
 type EditionType int32
@@ -14198,11 +14198,11 @@ func (x EditionType) String() string {
 }
 
 func (EditionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[77].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[77].Descriptor()
 }
 
 func (EditionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[77]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[77]
 }
 
 func (x EditionType) Number() protoreflect.EnumNumber {
@@ -14211,7 +14211,7 @@ func (x EditionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EditionType.Descriptor instead.
 func (EditionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{77}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{77}
 }
 
 type ElectroOpticalTransferFunctionType int32
@@ -14247,11 +14247,11 @@ func (x ElectroOpticalTransferFunctionType) String() string {
 }
 
 func (ElectroOpticalTransferFunctionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[78].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[78].Descriptor()
 }
 
 func (ElectroOpticalTransferFunctionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[78]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[78]
 }
 
 func (x ElectroOpticalTransferFunctionType) Number() protoreflect.EnumNumber {
@@ -14260,7 +14260,7 @@ func (x ElectroOpticalTransferFunctionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ElectroOpticalTransferFunctionType.Descriptor instead.
 func (ElectroOpticalTransferFunctionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{78}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{78}
 }
 
 type ElementConfiguration int32
@@ -14440,11 +14440,11 @@ func (x ElementConfiguration) String() string {
 }
 
 func (ElementConfiguration) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[79].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[79].Descriptor()
 }
 
 func (ElementConfiguration) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[79]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[79]
 }
 
 func (x ElementConfiguration) Number() protoreflect.EnumNumber {
@@ -14453,7 +14453,7 @@ func (x ElementConfiguration) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ElementConfiguration.Descriptor instead.
 func (ElementConfiguration) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{79}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{79}
 }
 
 type ElementDesignation int32
@@ -14513,11 +14513,11 @@ func (x ElementDesignation) String() string {
 }
 
 func (ElementDesignation) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[80].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[80].Descriptor()
 }
 
 func (ElementDesignation) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[80]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[80]
 }
 
 func (x ElementDesignation) Number() protoreflect.EnumNumber {
@@ -14526,7 +14526,7 @@ func (x ElementDesignation) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ElementDesignation.Descriptor instead.
 func (ElementDesignation) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{80}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{80}
 }
 
 type EncodingType int32
@@ -14562,11 +14562,11 @@ func (x EncodingType) String() string {
 }
 
 func (EncodingType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[81].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[81].Descriptor()
 }
 
 func (EncodingType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[81]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[81]
 }
 
 func (x EncodingType) Number() protoreflect.EnumNumber {
@@ -14575,7 +14575,7 @@ func (x EncodingType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EncodingType.Descriptor instead.
 func (EncodingType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{81}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{81}
 }
 
 type EquipmentManufacturer int32
@@ -14608,11 +14608,11 @@ func (x EquipmentManufacturer) String() string {
 }
 
 func (EquipmentManufacturer) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[82].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[82].Descriptor()
 }
 
 func (EquipmentManufacturer) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[82]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[82]
 }
 
 func (x EquipmentManufacturer) Number() protoreflect.EnumNumber {
@@ -14621,7 +14621,7 @@ func (x EquipmentManufacturer) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EquipmentManufacturer.Descriptor instead.
 func (EquipmentManufacturer) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{82}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{82}
 }
 
 type EquipmentModel int32
@@ -14654,11 +14654,11 @@ func (x EquipmentModel) String() string {
 }
 
 func (EquipmentModel) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[83].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[83].Descriptor()
 }
 
 func (EquipmentModel) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[83]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[83]
 }
 
 func (x EquipmentModel) Number() protoreflect.EnumNumber {
@@ -14667,7 +14667,7 @@ func (x EquipmentModel) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EquipmentModel.Descriptor instead.
 func (EquipmentModel) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{83}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{83}
 }
 
 type EquipmentType int32
@@ -14718,11 +14718,11 @@ func (x EquipmentType) String() string {
 }
 
 func (EquipmentType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[84].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[84].Descriptor()
 }
 
 func (EquipmentType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[84]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[84]
 }
 
 func (x EquipmentType) Number() protoreflect.EnumNumber {
@@ -14731,7 +14731,7 @@ func (x EquipmentType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EquipmentType.Descriptor instead.
 func (EquipmentType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{84}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{84}
 }
 
 type ErnMessageType int32
@@ -14764,11 +14764,11 @@ func (x ErnMessageType) String() string {
 }
 
 func (ErnMessageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[85].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[85].Descriptor()
 }
 
 func (ErnMessageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[85]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[85]
 }
 
 func (x ErnMessageType) Number() protoreflect.EnumNumber {
@@ -14777,7 +14777,7 @@ func (x ErnMessageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ErnMessageType.Descriptor instead.
 func (ErnMessageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{85}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{85}
 }
 
 type ErnTestMessageType int32
@@ -14813,11 +14813,11 @@ func (x ErnTestMessageType) String() string {
 }
 
 func (ErnTestMessageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[86].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[86].Descriptor()
 }
 
 func (ErnTestMessageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[86]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[86]
 }
 
 func (x ErnTestMessageType) Number() protoreflect.EnumNumber {
@@ -14826,7 +14826,7 @@ func (x ErnTestMessageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ErnTestMessageType.Descriptor instead.
 func (ErnTestMessageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{86}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{86}
 }
 
 type ErncFileStatus int32
@@ -14919,11 +14919,11 @@ func (x ErncFileStatus) String() string {
 }
 
 func (ErncFileStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[87].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[87].Descriptor()
 }
 
 func (ErncFileStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[87]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[87]
 }
 
 func (x ErncFileStatus) Number() protoreflect.EnumNumber {
@@ -14932,7 +14932,7 @@ func (x ErncFileStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ErncFileStatus.Descriptor instead.
 func (ErncFileStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{87}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{87}
 }
 
 type ErncProposedActionType int32
@@ -14977,11 +14977,11 @@ func (x ErncProposedActionType) String() string {
 }
 
 func (ErncProposedActionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[88].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[88].Descriptor()
 }
 
 func (ErncProposedActionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[88]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[88]
 }
 
 func (x ErncProposedActionType) Number() protoreflect.EnumNumber {
@@ -14990,7 +14990,7 @@ func (x ErncProposedActionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ErncProposedActionType.Descriptor instead.
 func (ErncProposedActionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{88}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{88}
 }
 
 type ErrorSeverity int32
@@ -15029,11 +15029,11 @@ func (x ErrorSeverity) String() string {
 }
 
 func (ErrorSeverity) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[89].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[89].Descriptor()
 }
 
 func (ErrorSeverity) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[89]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[89]
 }
 
 func (x ErrorSeverity) Number() protoreflect.EnumNumber {
@@ -15042,7 +15042,7 @@ func (x ErrorSeverity) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ErrorSeverity.Descriptor instead.
 func (ErrorSeverity) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{89}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{89}
 }
 
 type ErrorType int32
@@ -15081,11 +15081,11 @@ func (x ErrorType) String() string {
 }
 
 func (ErrorType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[90].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[90].Descriptor()
 }
 
 func (ErrorType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[90]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[90]
 }
 
 func (x ErrorType) Number() protoreflect.EnumNumber {
@@ -15094,7 +15094,7 @@ func (x ErrorType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ErrorType.Descriptor instead.
 func (ErrorType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{90}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{90}
 }
 
 type EventType int32
@@ -15151,11 +15151,11 @@ func (x EventType) String() string {
 }
 
 func (EventType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[91].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[91].Descriptor()
 }
 
 func (EventType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[91]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[91]
 }
 
 func (x EventType) Number() protoreflect.EnumNumber {
@@ -15164,7 +15164,7 @@ func (x EventType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EventType.Descriptor instead.
 func (EventType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{91}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{91}
 }
 
 type ExceptionReason int32
@@ -15206,11 +15206,11 @@ func (x ExceptionReason) String() string {
 }
 
 func (ExceptionReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[92].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[92].Descriptor()
 }
 
 func (ExceptionReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[92]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[92]
 }
 
 func (x ExceptionReason) Number() protoreflect.EnumNumber {
@@ -15219,7 +15219,7 @@ func (x ExceptionReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ExceptionReason.Descriptor instead.
 func (ExceptionReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{92}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{92}
 }
 
 type ExpressionType int32
@@ -15255,11 +15255,11 @@ func (x ExpressionType) String() string {
 }
 
 func (ExpressionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[93].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[93].Descriptor()
 }
 
 func (ExpressionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[93]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[93]
 }
 
 func (x ExpressionType) Number() protoreflect.EnumNumber {
@@ -15268,7 +15268,7 @@ func (x ExpressionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ExpressionType.Descriptor instead.
 func (ExpressionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{93}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{93}
 }
 
 type ExternallyLinkedResourceType int32
@@ -15319,11 +15319,11 @@ func (x ExternallyLinkedResourceType) String() string {
 }
 
 func (ExternallyLinkedResourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[94].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[94].Descriptor()
 }
 
 func (ExternallyLinkedResourceType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[94]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[94]
 }
 
 func (x ExternallyLinkedResourceType) Number() protoreflect.EnumNumber {
@@ -15332,7 +15332,7 @@ func (x ExternallyLinkedResourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ExternallyLinkedResourceType.Descriptor instead.
 func (ExternallyLinkedResourceType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{94}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{94}
 }
 
 type FileType int32
@@ -15854,11 +15854,11 @@ func (x FileType) String() string {
 }
 
 func (FileType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[95].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[95].Descriptor()
 }
 
 func (FileType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[95]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[95]
 }
 
 func (x FileType) Number() protoreflect.EnumNumber {
@@ -15867,7 +15867,7 @@ func (x FileType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use FileType.Descriptor instead.
 func (FileType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{95}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{95}
 }
 
 type FingerprintAlgorithmType int32
@@ -15903,11 +15903,11 @@ func (x FingerprintAlgorithmType) String() string {
 }
 
 func (FingerprintAlgorithmType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[96].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[96].Descriptor()
 }
 
 func (FingerprintAlgorithmType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[96]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[96]
 }
 
 func (x FingerprintAlgorithmType) Number() protoreflect.EnumNumber {
@@ -15916,7 +15916,7 @@ func (x FingerprintAlgorithmType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use FingerprintAlgorithmType.Descriptor instead.
 func (FingerprintAlgorithmType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{96}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{96}
 }
 
 type Form int32
@@ -16195,11 +16195,11 @@ func (x Form) String() string {
 }
 
 func (Form) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[97].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[97].Descriptor()
 }
 
 func (Form) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[97]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[97]
 }
 
 func (x Form) Number() protoreflect.EnumNumber {
@@ -16208,7 +16208,7 @@ func (x Form) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Form.Descriptor instead.
 func (Form) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{97}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{97}
 }
 
 type FrameRate int32
@@ -16250,11 +16250,11 @@ func (x FrameRate) String() string {
 }
 
 func (FrameRate) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[98].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[98].Descriptor()
 }
 
 func (FrameRate) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[98]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[98]
 }
 
 func (x FrameRate) Number() protoreflect.EnumNumber {
@@ -16263,7 +16263,7 @@ func (x FrameRate) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use FrameRate.Descriptor instead.
 func (FrameRate) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{98}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{98}
 }
 
 type Gender int32
@@ -16305,11 +16305,11 @@ func (x Gender) String() string {
 }
 
 func (Gender) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[99].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[99].Descriptor()
 }
 
 func (Gender) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[99]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[99]
 }
 
 func (x Gender) Number() protoreflect.EnumNumber {
@@ -16318,7 +16318,7 @@ func (x Gender) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Gender.Descriptor instead.
 func (Gender) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{99}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{99}
 }
 
 type GenderPIE int32
@@ -16372,11 +16372,11 @@ func (x GenderPIE) String() string {
 }
 
 func (GenderPIE) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[100].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[100].Descriptor()
 }
 
 func (GenderPIE) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[100]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[100]
 }
 
 func (x GenderPIE) Number() protoreflect.EnumNumber {
@@ -16385,7 +16385,7 @@ func (x GenderPIE) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use GenderPIE.Descriptor instead.
 func (GenderPIE) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{100}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{100}
 }
 
 type GoverningAgreementType int32
@@ -16421,11 +16421,11 @@ func (x GoverningAgreementType) String() string {
 }
 
 func (GoverningAgreementType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[101].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[101].Descriptor()
 }
 
 func (GoverningAgreementType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[101]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[101]
 }
 
 func (x GoverningAgreementType) Number() protoreflect.EnumNumber {
@@ -16434,7 +16434,7 @@ func (x GoverningAgreementType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use GoverningAgreementType.Descriptor instead.
 func (GoverningAgreementType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{101}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{101}
 }
 
 type HashSumAlgorithmType int32
@@ -16512,11 +16512,11 @@ func (x HashSumAlgorithmType) String() string {
 }
 
 func (HashSumAlgorithmType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[102].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[102].Descriptor()
 }
 
 func (HashSumAlgorithmType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[102]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[102]
 }
 
 func (x HashSumAlgorithmType) Number() protoreflect.EnumNumber {
@@ -16525,7 +16525,7 @@ func (x HashSumAlgorithmType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use HashSumAlgorithmType.Descriptor instead.
 func (HashSumAlgorithmType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{102}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{102}
 }
 
 type HdrVideoDynamicMetadataType int32
@@ -16561,11 +16561,11 @@ func (x HdrVideoDynamicMetadataType) String() string {
 }
 
 func (HdrVideoDynamicMetadataType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[103].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[103].Descriptor()
 }
 
 func (HdrVideoDynamicMetadataType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[103]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[103]
 }
 
 func (x HdrVideoDynamicMetadataType) Number() protoreflect.EnumNumber {
@@ -16574,7 +16574,7 @@ func (x HdrVideoDynamicMetadataType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use HdrVideoDynamicMetadataType.Descriptor instead.
 func (HdrVideoDynamicMetadataType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{103}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{103}
 }
 
 type HdrVideoStaticMetadataType int32
@@ -16610,11 +16610,11 @@ func (x HdrVideoStaticMetadataType) String() string {
 }
 
 func (HdrVideoStaticMetadataType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[104].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[104].Descriptor()
 }
 
 func (HdrVideoStaticMetadataType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[104]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[104]
 }
 
 func (x HdrVideoStaticMetadataType) Number() protoreflect.EnumNumber {
@@ -16623,7 +16623,7 @@ func (x HdrVideoStaticMetadataType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use HdrVideoStaticMetadataType.Descriptor instead.
 func (HdrVideoStaticMetadataType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{104}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{104}
 }
 
 type ImageCodecType int32
@@ -16674,11 +16674,11 @@ func (x ImageCodecType) String() string {
 }
 
 func (ImageCodecType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[105].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[105].Descriptor()
 }
 
 func (ImageCodecType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[105]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[105]
 }
 
 func (x ImageCodecType) Number() protoreflect.EnumNumber {
@@ -16687,7 +16687,7 @@ func (x ImageCodecType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ImageCodecType.Descriptor instead.
 func (ImageCodecType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{105}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{105}
 }
 
 type ImageType int32
@@ -16768,11 +16768,11 @@ func (x ImageType) String() string {
 }
 
 func (ImageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[106].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[106].Descriptor()
 }
 
 func (ImageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[106]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[106]
 }
 
 func (x ImageType) Number() protoreflect.EnumNumber {
@@ -16781,7 +16781,7 @@ func (x ImageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ImageType.Descriptor instead.
 func (ImageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{106}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{106}
 }
 
 type InstrumentManufacturer int32
@@ -16814,11 +16814,11 @@ func (x InstrumentManufacturer) String() string {
 }
 
 func (InstrumentManufacturer) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[107].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[107].Descriptor()
 }
 
 func (InstrumentManufacturer) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[107]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[107]
 }
 
 func (x InstrumentManufacturer) Number() protoreflect.EnumNumber {
@@ -16827,7 +16827,7 @@ func (x InstrumentManufacturer) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use InstrumentManufacturer.Descriptor instead.
 func (InstrumentManufacturer) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{107}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{107}
 }
 
 type InstrumentModel int32
@@ -16860,11 +16860,11 @@ func (x InstrumentModel) String() string {
 }
 
 func (InstrumentModel) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[108].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[108].Descriptor()
 }
 
 func (InstrumentModel) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[108]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[108]
 }
 
 func (x InstrumentModel) Number() protoreflect.EnumNumber {
@@ -16873,7 +16873,7 @@ func (x InstrumentModel) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use InstrumentModel.Descriptor instead.
 func (InstrumentModel) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{108}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{108}
 }
 
 type InstrumentType int32
@@ -19075,11 +19075,11 @@ func (x InstrumentType) String() string {
 }
 
 func (InstrumentType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[109].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[109].Descriptor()
 }
 
 func (InstrumentType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[109]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[109]
 }
 
 func (x InstrumentType) Number() protoreflect.EnumNumber {
@@ -19088,7 +19088,7 @@ func (x InstrumentType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use InstrumentType.Descriptor instead.
 func (InstrumentType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{109}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{109}
 }
 
 type Intensity int32
@@ -19130,11 +19130,11 @@ func (x Intensity) String() string {
 }
 
 func (Intensity) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[110].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[110].Descriptor()
 }
 
 func (Intensity) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[110]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[110]
 }
 
 func (x Intensity) Number() protoreflect.EnumNumber {
@@ -19143,7 +19143,7 @@ func (x Intensity) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Intensity.Descriptor instead.
 func (Intensity) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{110}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{110}
 }
 
 type Iso31661TerritoryCode int32
@@ -19926,11 +19926,11 @@ func (x Iso31661TerritoryCode) String() string {
 }
 
 func (Iso31661TerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[111].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[111].Descriptor()
 }
 
 func (Iso31661TerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[111]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[111]
 }
 
 func (x Iso31661TerritoryCode) Number() protoreflect.EnumNumber {
@@ -19939,7 +19939,7 @@ func (x Iso31661TerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Iso31661TerritoryCode.Descriptor instead.
 func (Iso31661TerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{111}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{111}
 }
 
 type Iso639Part12LanguageCode int32
@@ -22015,11 +22015,11 @@ func (x Iso639Part12LanguageCode) String() string {
 }
 
 func (Iso639Part12LanguageCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[112].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[112].Descriptor()
 }
 
 func (Iso639Part12LanguageCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[112]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[112]
 }
 
 func (x Iso639Part12LanguageCode) Number() protoreflect.EnumNumber {
@@ -22028,7 +22028,7 @@ func (x Iso639Part12LanguageCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Iso639Part12LanguageCode.Descriptor instead.
 func (Iso639Part12LanguageCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{112}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{112}
 }
 
 type Iso639Part3LanguageCode int32
@@ -22103,11 +22103,11 @@ func (x Iso639Part3LanguageCode) String() string {
 }
 
 func (Iso639Part3LanguageCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[113].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[113].Descriptor()
 }
 
 func (Iso639Part3LanguageCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[113]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[113]
 }
 
 func (x Iso639Part3LanguageCode) Number() protoreflect.EnumNumber {
@@ -22116,7 +22116,7 @@ func (x Iso639Part3LanguageCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Iso639Part3LanguageCode.Descriptor instead.
 func (Iso639Part3LanguageCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{113}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{113}
 }
 
 type IsoCurrencyCode int32
@@ -22632,11 +22632,11 @@ func (x IsoCurrencyCode) String() string {
 }
 
 func (IsoCurrencyCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[114].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[114].Descriptor()
 }
 
 func (IsoCurrencyCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[114]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[114]
 }
 
 func (x IsoCurrencyCode) Number() protoreflect.EnumNumber {
@@ -22645,7 +22645,7 @@ func (x IsoCurrencyCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use IsoCurrencyCode.Descriptor instead.
 func (IsoCurrencyCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{114}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{114}
 }
 
 type IsoLanguageCode int32
@@ -24766,11 +24766,11 @@ func (x IsoLanguageCode) String() string {
 }
 
 func (IsoLanguageCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[115].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[115].Descriptor()
 }
 
 func (IsoLanguageCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[115]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[115]
 }
 
 func (x IsoLanguageCode) Number() protoreflect.EnumNumber {
@@ -24779,7 +24779,7 @@ func (x IsoLanguageCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use IsoLanguageCode.Descriptor instead.
 func (IsoLanguageCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{115}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{115}
 }
 
 type IsoTerritoryCode int32
@@ -25571,11 +25571,11 @@ func (x IsoTerritoryCode) String() string {
 }
 
 func (IsoTerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[116].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[116].Descriptor()
 }
 
 func (IsoTerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[116]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[116]
 }
 
 func (x IsoTerritoryCode) Number() protoreflect.EnumNumber {
@@ -25584,7 +25584,7 @@ func (x IsoTerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use IsoTerritoryCode.Descriptor instead.
 func (IsoTerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{116}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{116}
 }
 
 type IswcStatus int32
@@ -25623,11 +25623,11 @@ func (x IswcStatus) String() string {
 }
 
 func (IswcStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[117].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[117].Descriptor()
 }
 
 func (IswcStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[117]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[117]
 }
 
 func (x IswcStatus) Number() protoreflect.EnumNumber {
@@ -25636,7 +25636,7 @@ func (x IswcStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use IswcStatus.Descriptor instead.
 func (IswcStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{117}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{117}
 }
 
 type LabelNameType int32
@@ -25672,11 +25672,11 @@ func (x LabelNameType) String() string {
 }
 
 func (LabelNameType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[118].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[118].Descriptor()
 }
 
 func (LabelNameType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[118]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[118]
 }
 
 func (x LabelNameType) Number() protoreflect.EnumNumber {
@@ -25685,7 +25685,7 @@ func (x LabelNameType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LabelNameType.Descriptor instead.
 func (LabelNameType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{118}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{118}
 }
 
 type LabelType int32
@@ -25721,11 +25721,11 @@ func (x LabelType) String() string {
 }
 
 func (LabelType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[119].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[119].Descriptor()
 }
 
 func (LabelType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[119]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[119]
 }
 
 func (x LabelType) Number() protoreflect.EnumNumber {
@@ -25734,7 +25734,7 @@ func (x LabelType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LabelType.Descriptor instead.
 func (LabelType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{119}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{119}
 }
 
 type LanguageLocalizationType int32
@@ -25776,11 +25776,11 @@ func (x LanguageLocalizationType) String() string {
 }
 
 func (LanguageLocalizationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[120].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[120].Descriptor()
 }
 
 func (LanguageLocalizationType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[120]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[120]
 }
 
 func (x LanguageLocalizationType) Number() protoreflect.EnumNumber {
@@ -25789,7 +25789,7 @@ func (x LanguageLocalizationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LanguageLocalizationType.Descriptor instead.
 func (LanguageLocalizationType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{120}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{120}
 }
 
 type LicenseRecord int32
@@ -25828,11 +25828,11 @@ func (x LicenseRecord) String() string {
 }
 
 func (LicenseRecord) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[121].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[121].Descriptor()
 }
 
 func (LicenseRecord) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[121]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[121]
 }
 
 func (x LicenseRecord) Number() protoreflect.EnumNumber {
@@ -25841,7 +25841,7 @@ func (x LicenseRecord) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LicenseRecord.Descriptor instead.
 func (LicenseRecord) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{121}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{121}
 }
 
 type LicenseRefusalReason int32
@@ -25877,11 +25877,11 @@ func (x LicenseRefusalReason) String() string {
 }
 
 func (LicenseRefusalReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[122].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[122].Descriptor()
 }
 
 func (LicenseRefusalReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[122]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[122]
 }
 
 func (x LicenseRefusalReason) Number() protoreflect.EnumNumber {
@@ -25890,7 +25890,7 @@ func (x LicenseRefusalReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LicenseRefusalReason.Descriptor instead.
 func (LicenseRefusalReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{122}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{122}
 }
 
 type LicenseRejectionReason int32
@@ -25956,11 +25956,11 @@ func (x LicenseRejectionReason) String() string {
 }
 
 func (LicenseRejectionReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[123].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[123].Descriptor()
 }
 
 func (LicenseRejectionReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[123]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[123]
 }
 
 func (x LicenseRejectionReason) Number() protoreflect.EnumNumber {
@@ -25969,7 +25969,7 @@ func (x LicenseRejectionReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LicenseRejectionReason.Descriptor instead.
 func (LicenseRejectionReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{123}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{123}
 }
 
 type LinkAcknowledgementStatus int32
@@ -26011,11 +26011,11 @@ func (x LinkAcknowledgementStatus) String() string {
 }
 
 func (LinkAcknowledgementStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[124].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[124].Descriptor()
 }
 
 func (LinkAcknowledgementStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[124]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[124]
 }
 
 func (x LinkAcknowledgementStatus) Number() protoreflect.EnumNumber {
@@ -26024,7 +26024,7 @@ func (x LinkAcknowledgementStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LinkAcknowledgementStatus.Descriptor instead.
 func (LinkAcknowledgementStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{124}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{124}
 }
 
 type LinkDescription int32
@@ -26078,11 +26078,11 @@ func (x LinkDescription) String() string {
 }
 
 func (LinkDescription) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[125].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[125].Descriptor()
 }
 
 func (LinkDescription) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[125]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[125]
 }
 
 func (x LinkDescription) Number() protoreflect.EnumNumber {
@@ -26091,7 +26091,7 @@ func (x LinkDescription) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LinkDescription.Descriptor instead.
 func (LinkDescription) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{125}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{125}
 }
 
 type LyricsType int32
@@ -26151,11 +26151,11 @@ func (x LyricsType) String() string {
 }
 
 func (LyricsType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[126].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[126].Descriptor()
 }
 
 func (LyricsType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[126]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[126]
 }
 
 func (x LyricsType) Number() protoreflect.EnumNumber {
@@ -26164,7 +26164,7 @@ func (x LyricsType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use LyricsType.Descriptor instead.
 func (LyricsType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{126}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{126}
 }
 
 type MeasurementType int32
@@ -26206,11 +26206,11 @@ func (x MeasurementType) String() string {
 }
 
 func (MeasurementType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[127].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[127].Descriptor()
 }
 
 func (MeasurementType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[127]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[127]
 }
 
 func (x MeasurementType) Number() protoreflect.EnumNumber {
@@ -26219,7 +26219,7 @@ func (x MeasurementType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MeasurementType.Descriptor instead.
 func (MeasurementType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{127}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{127}
 }
 
 type MembershipType int32
@@ -26258,11 +26258,11 @@ func (x MembershipType) String() string {
 }
 
 func (MembershipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[128].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[128].Descriptor()
 }
 
 func (MembershipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[128]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[128]
 }
 
 func (x MembershipType) Number() protoreflect.EnumNumber {
@@ -26271,7 +26271,7 @@ func (x MembershipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MembershipType.Descriptor instead.
 func (MembershipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{128}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{128}
 }
 
 type MessageActionType int32
@@ -26319,11 +26319,11 @@ func (x MessageActionType) String() string {
 }
 
 func (MessageActionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[129].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[129].Descriptor()
 }
 
 func (MessageActionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[129]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[129]
 }
 
 func (x MessageActionType) Number() protoreflect.EnumNumber {
@@ -26332,7 +26332,7 @@ func (x MessageActionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageActionType.Descriptor instead.
 func (MessageActionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{129}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{129}
 }
 
 type MessageControlType int32
@@ -26368,11 +26368,11 @@ func (x MessageControlType) String() string {
 }
 
 func (MessageControlType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[130].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[130].Descriptor()
 }
 
 func (MessageControlType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[130]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[130]
 }
 
 func (x MessageControlType) Number() protoreflect.EnumNumber {
@@ -26381,7 +26381,7 @@ func (x MessageControlType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageControlType.Descriptor instead.
 func (MessageControlType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{130}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{130}
 }
 
 type MessagePurpose int32
@@ -26420,11 +26420,11 @@ func (x MessagePurpose) String() string {
 }
 
 func (MessagePurpose) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[131].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[131].Descriptor()
 }
 
 func (MessagePurpose) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[131]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[131]
 }
 
 func (x MessagePurpose) Number() protoreflect.EnumNumber {
@@ -26433,7 +26433,7 @@ func (x MessagePurpose) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessagePurpose.Descriptor instead.
 func (MessagePurpose) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{131}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{131}
 }
 
 type MessageType int32
@@ -26490,11 +26490,11 @@ func (x MessageType) String() string {
 }
 
 func (MessageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[132].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[132].Descriptor()
 }
 
 func (MessageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[132]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[132]
 }
 
 func (x MessageType) Number() protoreflect.EnumNumber {
@@ -26503,7 +26503,7 @@ func (x MessageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageType.Descriptor instead.
 func (MessageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{132}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{132}
 }
 
 type MetadataSourceType int32
@@ -26545,11 +26545,11 @@ func (x MetadataSourceType) String() string {
 }
 
 func (MetadataSourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[133].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[133].Descriptor()
 }
 
 func (MetadataSourceType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[133]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[133]
 }
 
 func (x MetadataSourceType) Number() protoreflect.EnumNumber {
@@ -26558,7 +26558,7 @@ func (x MetadataSourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MetadataSourceType.Descriptor instead.
 func (MetadataSourceType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{133}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{133}
 }
 
 type MissingLinkReason int32
@@ -26597,11 +26597,11 @@ func (x MissingLinkReason) String() string {
 }
 
 func (MissingLinkReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[134].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[134].Descriptor()
 }
 
 func (MissingLinkReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[134]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[134]
 }
 
 func (x MissingLinkReason) Number() protoreflect.EnumNumber {
@@ -26610,7 +26610,7 @@ func (x MissingLinkReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MissingLinkReason.Descriptor instead.
 func (MissingLinkReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{134}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{134}
 }
 
 type Mode int32
@@ -26643,11 +26643,11 @@ func (x Mode) String() string {
 }
 
 func (Mode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[135].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[135].Descriptor()
 }
 
 func (Mode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[135]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[135]
 }
 
 func (x Mode) Number() protoreflect.EnumNumber {
@@ -26656,7 +26656,7 @@ func (x Mode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Mode.Descriptor instead.
 func (Mode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{135}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{135}
 }
 
 type Mood int32
@@ -26770,11 +26770,11 @@ func (x Mood) String() string {
 }
 
 func (Mood) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[136].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[136].Descriptor()
 }
 
 func (Mood) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[136]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[136]
 }
 
 func (x Mood) Number() protoreflect.EnumNumber {
@@ -26783,7 +26783,7 @@ func (x Mood) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Mood.Descriptor instead.
 func (Mood) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{136}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{136}
 }
 
 type MoodOrThemeType int32
@@ -26822,11 +26822,11 @@ func (x MoodOrThemeType) String() string {
 }
 
 func (MoodOrThemeType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[137].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[137].Descriptor()
 }
 
 func (MoodOrThemeType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[137]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[137]
 }
 
 func (x MoodOrThemeType) Number() protoreflect.EnumNumber {
@@ -26835,7 +26835,7 @@ func (x MoodOrThemeType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MoodOrThemeType.Descriptor instead.
 func (MoodOrThemeType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{137}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{137}
 }
 
 type MusicalWorkContributorRole int32
@@ -27003,11 +27003,11 @@ func (x MusicalWorkContributorRole) String() string {
 }
 
 func (MusicalWorkContributorRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[138].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[138].Descriptor()
 }
 
 func (MusicalWorkContributorRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[138]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[138]
 }
 
 func (x MusicalWorkContributorRole) Number() protoreflect.EnumNumber {
@@ -27016,7 +27016,7 @@ func (x MusicalWorkContributorRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MusicalWorkContributorRole.Descriptor instead.
 func (MusicalWorkContributorRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{138}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{138}
 }
 
 type MusicalWorkType int32
@@ -27142,11 +27142,11 @@ func (x MusicalWorkType) String() string {
 }
 
 func (MusicalWorkType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[139].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[139].Descriptor()
 }
 
 func (MusicalWorkType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[139]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[139]
 }
 
 func (x MusicalWorkType) Number() protoreflect.EnumNumber {
@@ -27155,7 +27155,7 @@ func (x MusicalWorkType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MusicalWorkType.Descriptor instead.
 func (MusicalWorkType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{139}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{139}
 }
 
 type MwnlFileStatus int32
@@ -27191,11 +27191,11 @@ func (x MwnlFileStatus) String() string {
 }
 
 func (MwnlFileStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[140].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[140].Descriptor()
 }
 
 func (MwnlFileStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[140]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[140]
 }
 
 func (x MwnlFileStatus) Number() protoreflect.EnumNumber {
@@ -27204,7 +27204,7 @@ func (x MwnlFileStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MwnlFileStatus.Descriptor instead.
 func (MwnlFileStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{140}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{140}
 }
 
 type MwnlProposedActionType int32
@@ -27240,11 +27240,11 @@ func (x MwnlProposedActionType) String() string {
 }
 
 func (MwnlProposedActionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[141].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[141].Descriptor()
 }
 
 func (MwnlProposedActionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[141]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[141]
 }
 
 func (x MwnlProposedActionType) Number() protoreflect.EnumNumber {
@@ -27253,7 +27253,7 @@ func (x MwnlProposedActionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MwnlProposedActionType.Descriptor instead.
 func (MwnlProposedActionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{141}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{141}
 }
 
 type NewStudioRole int32
@@ -27760,11 +27760,11 @@ func (x NewStudioRole) String() string {
 }
 
 func (NewStudioRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[142].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[142].Descriptor()
 }
 
 func (NewStudioRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[142]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[142]
 }
 
 func (x NewStudioRole) Number() protoreflect.EnumNumber {
@@ -27773,7 +27773,7 @@ func (x NewStudioRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NewStudioRole.Descriptor instead.
 func (NewStudioRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{142}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{142}
 }
 
 type NftConfirmationStatus int32
@@ -27809,11 +27809,11 @@ func (x NftConfirmationStatus) String() string {
 }
 
 func (NftConfirmationStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[143].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[143].Descriptor()
 }
 
 func (NftConfirmationStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[143]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[143]
 }
 
 func (x NftConfirmationStatus) Number() protoreflect.EnumNumber {
@@ -27822,7 +27822,7 @@ func (x NftConfirmationStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NftConfirmationStatus.Descriptor instead.
 func (NftConfirmationStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{143}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{143}
 }
 
 type OperatingSystemType int32
@@ -27864,11 +27864,11 @@ func (x OperatingSystemType) String() string {
 }
 
 func (OperatingSystemType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[144].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[144].Descriptor()
 }
 
 func (OperatingSystemType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[144]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[144]
 }
 
 func (x OperatingSystemType) Number() protoreflect.EnumNumber {
@@ -27877,7 +27877,7 @@ func (x OperatingSystemType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use OperatingSystemType.Descriptor instead.
 func (OperatingSystemType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{144}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{144}
 }
 
 type OriginalPurpose int32
@@ -27925,11 +27925,11 @@ func (x OriginalPurpose) String() string {
 }
 
 func (OriginalPurpose) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[145].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[145].Descriptor()
 }
 
 func (OriginalPurpose) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[145]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[145]
 }
 
 func (x OriginalPurpose) Number() protoreflect.EnumNumber {
@@ -27938,7 +27938,7 @@ func (x OriginalPurpose) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use OriginalPurpose.Descriptor instead.
 func (OriginalPurpose) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{145}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{145}
 }
 
 type PLineType int32
@@ -27974,11 +27974,11 @@ func (x PLineType) String() string {
 }
 
 func (PLineType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[146].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[146].Descriptor()
 }
 
 func (PLineType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[146]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[146]
 }
 
 func (x PLineType) Number() protoreflect.EnumNumber {
@@ -27987,7 +27987,7 @@ func (x PLineType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PLineType.Descriptor instead.
 func (PLineType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{146}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{146}
 }
 
 type ParentalWarningStandard int32
@@ -28023,11 +28023,11 @@ func (x ParentalWarningStandard) String() string {
 }
 
 func (ParentalWarningStandard) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[147].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[147].Descriptor()
 }
 
 func (ParentalWarningStandard) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[147]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[147]
 }
 
 func (x ParentalWarningStandard) Number() protoreflect.EnumNumber {
@@ -28036,7 +28036,7 @@ func (x ParentalWarningStandard) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ParentalWarningStandard.Descriptor instead.
 func (ParentalWarningStandard) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{147}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{147}
 }
 
 type ParentalWarningType int32
@@ -28084,11 +28084,11 @@ func (x ParentalWarningType) String() string {
 }
 
 func (ParentalWarningType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[148].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[148].Descriptor()
 }
 
 func (ParentalWarningType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[148]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[148]
 }
 
 func (x ParentalWarningType) Number() protoreflect.EnumNumber {
@@ -28097,7 +28097,7 @@ func (x ParentalWarningType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ParentalWarningType.Descriptor instead.
 func (ParentalWarningType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{148}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{148}
 }
 
 type PartyNameFormat int32
@@ -28145,11 +28145,11 @@ func (x PartyNameFormat) String() string {
 }
 
 func (PartyNameFormat) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[149].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[149].Descriptor()
 }
 
 func (PartyNameFormat) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[149]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[149]
 }
 
 func (x PartyNameFormat) Number() protoreflect.EnumNumber {
@@ -28158,7 +28158,7 @@ func (x PartyNameFormat) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PartyNameFormat.Descriptor instead.
 func (PartyNameFormat) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{149}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{149}
 }
 
 type PartyNamePurpose int32
@@ -28212,11 +28212,11 @@ func (x PartyNamePurpose) String() string {
 }
 
 func (PartyNamePurpose) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[150].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[150].Descriptor()
 }
 
 func (PartyNamePurpose) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[150]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[150]
 }
 
 func (x PartyNamePurpose) Number() protoreflect.EnumNumber {
@@ -28225,7 +28225,7 @@ func (x PartyNamePurpose) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PartyNamePurpose.Descriptor instead.
 func (PartyNamePurpose) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{150}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{150}
 }
 
 type PartyNameType int32
@@ -28276,11 +28276,11 @@ func (x PartyNameType) String() string {
 }
 
 func (PartyNameType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[151].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[151].Descriptor()
 }
 
 func (PartyNameType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[151]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[151]
 }
 
 func (x PartyNameType) Number() protoreflect.EnumNumber {
@@ -28289,7 +28289,7 @@ func (x PartyNameType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PartyNameType.Descriptor instead.
 func (PartyNameType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{151}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{151}
 }
 
 type PartyRelationshipType int32
@@ -28340,11 +28340,11 @@ func (x PartyRelationshipType) String() string {
 }
 
 func (PartyRelationshipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[152].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[152].Descriptor()
 }
 
 func (PartyRelationshipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[152]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[152]
 }
 
 func (x PartyRelationshipType) Number() protoreflect.EnumNumber {
@@ -28353,7 +28353,7 @@ func (x PartyRelationshipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PartyRelationshipType.Descriptor instead.
 func (PartyRelationshipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{152}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{152}
 }
 
 type PartyRelationshipTypePIE int32
@@ -28470,11 +28470,11 @@ func (x PartyRelationshipTypePIE) String() string {
 }
 
 func (PartyRelationshipTypePIE) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[153].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[153].Descriptor()
 }
 
 func (PartyRelationshipTypePIE) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[153]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[153]
 }
 
 func (x PartyRelationshipTypePIE) Number() protoreflect.EnumNumber {
@@ -28483,7 +28483,7 @@ func (x PartyRelationshipTypePIE) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PartyRelationshipTypePIE.Descriptor instead.
 func (PartyRelationshipTypePIE) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{153}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{153}
 }
 
 type PartyRole int32
@@ -28555,11 +28555,11 @@ func (x PartyRole) String() string {
 }
 
 func (PartyRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[154].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[154].Descriptor()
 }
 
 func (PartyRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[154]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[154]
 }
 
 func (x PartyRole) Number() protoreflect.EnumNumber {
@@ -28568,7 +28568,7 @@ func (x PartyRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PartyRole.Descriptor instead.
 func (PartyRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{154}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{154}
 }
 
 type PartyType int32
@@ -28634,11 +28634,11 @@ func (x PartyType) String() string {
 }
 
 func (PartyType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[155].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[155].Descriptor()
 }
 
 func (PartyType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[155]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[155]
 }
 
 func (x PartyType) Number() protoreflect.EnumNumber {
@@ -28647,7 +28647,7 @@ func (x PartyType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PartyType.Descriptor instead.
 func (PartyType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{155}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{155}
 }
 
 type PendingReason int32
@@ -28686,11 +28686,11 @@ func (x PendingReason) String() string {
 }
 
 func (PendingReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[156].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[156].Descriptor()
 }
 
 func (PendingReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[156]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[156]
 }
 
 func (x PendingReason) Number() protoreflect.EnumNumber {
@@ -28699,7 +28699,7 @@ func (x PendingReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PendingReason.Descriptor instead.
 func (PendingReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{156}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{156}
 }
 
 type PercentageType int32
@@ -28747,11 +28747,11 @@ func (x PercentageType) String() string {
 }
 
 func (PercentageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[157].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[157].Descriptor()
 }
 
 func (PercentageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[157]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[157]
 }
 
 func (x PercentageType) Number() protoreflect.EnumNumber {
@@ -28760,7 +28760,7 @@ func (x PercentageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PercentageType.Descriptor instead.
 func (PercentageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{157}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{157}
 }
 
 type Period int32
@@ -28847,11 +28847,11 @@ func (x Period) String() string {
 }
 
 func (Period) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[158].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[158].Descriptor()
 }
 
 func (Period) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[158]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[158]
 }
 
 func (x Period) Number() protoreflect.EnumNumber {
@@ -28860,7 +28860,7 @@ func (x Period) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Period.Descriptor instead.
 func (Period) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{158}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{158}
 }
 
 type PhysicalCarrierType int32
@@ -28923,11 +28923,11 @@ func (x PhysicalCarrierType) String() string {
 }
 
 func (PhysicalCarrierType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[159].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[159].Descriptor()
 }
 
 func (PhysicalCarrierType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[159]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[159]
 }
 
 func (x PhysicalCarrierType) Number() protoreflect.EnumNumber {
@@ -28936,7 +28936,7 @@ func (x PhysicalCarrierType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PhysicalCarrierType.Descriptor instead.
 func (PhysicalCarrierType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{159}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{159}
 }
 
 type PriceInformationType int32
@@ -28975,11 +28975,11 @@ func (x PriceInformationType) String() string {
 }
 
 func (PriceInformationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[160].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[160].Descriptor()
 }
 
 func (PriceInformationType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[160]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[160]
 }
 
 func (x PriceInformationType) Number() protoreflect.EnumNumber {
@@ -28988,7 +28988,7 @@ func (x PriceInformationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PriceInformationType.Descriptor instead.
 func (PriceInformationType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{160}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{160}
 }
 
 type PrimaryColorType int32
@@ -29027,11 +29027,11 @@ func (x PrimaryColorType) String() string {
 }
 
 func (PrimaryColorType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[161].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[161].Descriptor()
 }
 
 func (PrimaryColorType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[161]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[161]
 }
 
 func (x PrimaryColorType) Number() protoreflect.EnumNumber {
@@ -29040,7 +29040,7 @@ func (x PrimaryColorType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use PrimaryColorType.Descriptor instead.
 func (PrimaryColorType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{161}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{161}
 }
 
 type ProductType int32
@@ -29088,11 +29088,11 @@ func (x ProductType) String() string {
 }
 
 func (ProductType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[162].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[162].Descriptor()
 }
 
 func (ProductType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[162]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[162]
 }
 
 func (x ProductType) Number() protoreflect.EnumNumber {
@@ -29101,7 +29101,7 @@ func (x ProductType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ProductType.Descriptor instead.
 func (ProductType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{162}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{162}
 }
 
 type ProfileId int32
@@ -29167,11 +29167,11 @@ func (x ProfileId) String() string {
 }
 
 func (ProfileId) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[163].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[163].Descriptor()
 }
 
 func (ProfileId) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[163]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[163]
 }
 
 func (x ProfileId) Number() protoreflect.EnumNumber {
@@ -29180,7 +29180,7 @@ func (x ProfileId) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ProfileId.Descriptor instead.
 func (ProfileId) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{163}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{163}
 }
 
 type ProfileIdCDM int32
@@ -29228,11 +29228,11 @@ func (x ProfileIdCDM) String() string {
 }
 
 func (ProfileIdCDM) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[164].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[164].Descriptor()
 }
 
 func (ProfileIdCDM) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[164]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[164]
 }
 
 func (x ProfileIdCDM) Number() protoreflect.EnumNumber {
@@ -29241,7 +29241,7 @@ func (x ProfileIdCDM) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ProfileIdCDM.Descriptor instead.
 func (ProfileIdCDM) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{164}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{164}
 }
 
 type ProfileIdMWDR int32
@@ -29283,11 +29283,11 @@ func (x ProfileIdMWDR) String() string {
 }
 
 func (ProfileIdMWDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[165].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[165].Descriptor()
 }
 
 func (ProfileIdMWDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[165]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[165]
 }
 
 func (x ProfileIdMWDR) Number() protoreflect.EnumNumber {
@@ -29296,7 +29296,7 @@ func (x ProfileIdMWDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ProfileIdMWDR.Descriptor instead.
 func (ProfileIdMWDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{165}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{165}
 }
 
 type ProfileType int32
@@ -29332,11 +29332,11 @@ func (x ProfileType) String() string {
 }
 
 func (ProfileType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[166].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[166].Descriptor()
 }
 
 func (ProfileType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[166]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[166]
 }
 
 func (x ProfileType) Number() protoreflect.EnumNumber {
@@ -29345,7 +29345,7 @@ func (x ProfileType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ProfileType.Descriptor instead.
 func (ProfileType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{166}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{166}
 }
 
 type Purpose int32
@@ -29396,11 +29396,11 @@ func (x Purpose) String() string {
 }
 
 func (Purpose) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[167].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[167].Descriptor()
 }
 
 func (Purpose) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[167]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[167]
 }
 
 func (x Purpose) Number() protoreflect.EnumNumber {
@@ -29409,7 +29409,7 @@ func (x Purpose) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Purpose.Descriptor instead.
 func (Purpose) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{167}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{167}
 }
 
 type RatingAgency int32
@@ -29703,11 +29703,11 @@ func (x RatingAgency) String() string {
 }
 
 func (RatingAgency) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[168].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[168].Descriptor()
 }
 
 func (RatingAgency) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[168]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[168]
 }
 
 func (x RatingAgency) Number() protoreflect.EnumNumber {
@@ -29716,7 +29716,7 @@ func (x RatingAgency) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RatingAgency.Descriptor instead.
 func (RatingAgency) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{168}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{168}
 }
 
 type RatingReason int32
@@ -29803,11 +29803,11 @@ func (x RatingReason) String() string {
 }
 
 func (RatingReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[169].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[169].Descriptor()
 }
 
 func (RatingReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[169]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[169]
 }
 
 func (x RatingReason) Number() protoreflect.EnumNumber {
@@ -29816,7 +29816,7 @@ func (x RatingReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RatingReason.Descriptor instead.
 func (RatingReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{169}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{169}
 }
 
 type RdrMessageType int32
@@ -29876,11 +29876,11 @@ func (x RdrMessageType) String() string {
 }
 
 func (RdrMessageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[170].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[170].Descriptor()
 }
 
 func (RdrMessageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[170]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[170]
 }
 
 func (x RdrMessageType) Number() protoreflect.EnumNumber {
@@ -29889,7 +29889,7 @@ func (x RdrMessageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RdrMessageType.Descriptor instead.
 func (RdrMessageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{170}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{170}
 }
 
 type RdrcBatchStatus int32
@@ -29925,11 +29925,11 @@ func (x RdrcBatchStatus) String() string {
 }
 
 func (RdrcBatchStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[171].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[171].Descriptor()
 }
 
 func (RdrcBatchStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[171]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[171]
 }
 
 func (x RdrcBatchStatus) Number() protoreflect.EnumNumber {
@@ -29938,7 +29938,7 @@ func (x RdrcBatchStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RdrcBatchStatus.Descriptor instead.
 func (RdrcBatchStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{171}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{171}
 }
 
 type RdrcFileStatus int32
@@ -29980,11 +29980,11 @@ func (x RdrcFileStatus) String() string {
 }
 
 func (RdrcFileStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[172].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[172].Descriptor()
 }
 
 func (RdrcFileStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[172]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[172]
 }
 
 func (x RdrcFileStatus) Number() protoreflect.EnumNumber {
@@ -29993,7 +29993,7 @@ func (x RdrcFileStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RdrcFileStatus.Descriptor instead.
 func (RdrcFileStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{172}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{172}
 }
 
 type ReasonForNameChange int32
@@ -30038,11 +30038,11 @@ func (x ReasonForNameChange) String() string {
 }
 
 func (ReasonForNameChange) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[173].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[173].Descriptor()
 }
 
 func (ReasonForNameChange) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[173]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[173]
 }
 
 func (x ReasonForNameChange) Number() protoreflect.EnumNumber {
@@ -30051,7 +30051,7 @@ func (x ReasonForNameChange) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReasonForNameChange.Descriptor instead.
 func (ReasonForNameChange) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{173}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{173}
 }
 
 type RecipientRevenueType int32
@@ -30090,11 +30090,11 @@ func (x RecipientRevenueType) String() string {
 }
 
 func (RecipientRevenueType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[174].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[174].Descriptor()
 }
 
 func (RecipientRevenueType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[174]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[174]
 }
 
 func (x RecipientRevenueType) Number() protoreflect.EnumNumber {
@@ -30103,7 +30103,7 @@ func (x RecipientRevenueType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RecipientRevenueType.Descriptor instead.
 func (RecipientRevenueType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{174}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{174}
 }
 
 type RecipientRevenueTypeRDR int32
@@ -30142,11 +30142,11 @@ func (x RecipientRevenueTypeRDR) String() string {
 }
 
 func (RecipientRevenueTypeRDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[175].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[175].Descriptor()
 }
 
 func (RecipientRevenueTypeRDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[175]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[175]
 }
 
 func (x RecipientRevenueTypeRDR) Number() protoreflect.EnumNumber {
@@ -30155,7 +30155,7 @@ func (x RecipientRevenueTypeRDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RecipientRevenueTypeRDR.Descriptor instead.
 func (RecipientRevenueTypeRDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{175}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{175}
 }
 
 type RecordingFormat int32
@@ -30455,11 +30455,11 @@ func (x RecordingFormat) String() string {
 }
 
 func (RecordingFormat) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[176].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[176].Descriptor()
 }
 
 func (RecordingFormat) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[176]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[176]
 }
 
 func (x RecordingFormat) Number() protoreflect.EnumNumber {
@@ -30468,7 +30468,7 @@ func (x RecordingFormat) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RecordingFormat.Descriptor instead.
 func (RecordingFormat) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{176}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{176}
 }
 
 type RecordingMode int32
@@ -30531,11 +30531,11 @@ func (x RecordingMode) String() string {
 }
 
 func (RecordingMode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[177].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[177].Descriptor()
 }
 
 func (RecordingMode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[177]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[177]
 }
 
 func (x RecordingMode) Number() protoreflect.EnumNumber {
@@ -30544,7 +30544,7 @@ func (x RecordingMode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RecordingMode.Descriptor instead.
 func (RecordingMode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{177}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{177}
 }
 
 type ReferenceCreation int32
@@ -30580,11 +30580,11 @@ func (x ReferenceCreation) String() string {
 }
 
 func (ReferenceCreation) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[178].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[178].Descriptor()
 }
 
 func (ReferenceCreation) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[178]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[178]
 }
 
 func (x ReferenceCreation) Number() protoreflect.EnumNumber {
@@ -30593,7 +30593,7 @@ func (x ReferenceCreation) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReferenceCreation.Descriptor instead.
 func (ReferenceCreation) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{178}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{178}
 }
 
 type ReferenceUnit int32
@@ -30629,11 +30629,11 @@ func (x ReferenceUnit) String() string {
 }
 
 func (ReferenceUnit) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[179].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[179].Descriptor()
 }
 
 func (ReferenceUnit) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[179]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[179]
 }
 
 func (x ReferenceUnit) Number() protoreflect.EnumNumber {
@@ -30642,7 +30642,7 @@ func (x ReferenceUnit) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReferenceUnit.Descriptor instead.
 func (ReferenceUnit) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{179}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{179}
 }
 
 type RegistrationStatus int32
@@ -30690,11 +30690,11 @@ func (x RegistrationStatus) String() string {
 }
 
 func (RegistrationStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[180].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[180].Descriptor()
 }
 
 func (RegistrationStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[180]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[180]
 }
 
 func (x RegistrationStatus) Number() protoreflect.EnumNumber {
@@ -30703,7 +30703,7 @@ func (x RegistrationStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RegistrationStatus.Descriptor instead.
 func (RegistrationStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{180}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{180}
 }
 
 type RejectionReason int32
@@ -30745,11 +30745,11 @@ func (x RejectionReason) String() string {
 }
 
 func (RejectionReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[181].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[181].Descriptor()
 }
 
 func (RejectionReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[181]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[181]
 }
 
 func (x RejectionReason) Number() protoreflect.EnumNumber {
@@ -30758,7 +30758,7 @@ func (x RejectionReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RejectionReason.Descriptor instead.
 func (RejectionReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{181}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{181}
 }
 
 type RelatedResourceType int32
@@ -30836,11 +30836,11 @@ func (x RelatedResourceType) String() string {
 }
 
 func (RelatedResourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[182].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[182].Descriptor()
 }
 
 func (RelatedResourceType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[182]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[182]
 }
 
 func (x RelatedResourceType) Number() protoreflect.EnumNumber {
@@ -30849,7 +30849,7 @@ func (x RelatedResourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RelatedResourceType.Descriptor instead.
 func (RelatedResourceType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{182}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{182}
 }
 
 type RelationalRelator int32
@@ -30897,11 +30897,11 @@ func (x RelationalRelator) String() string {
 }
 
 func (RelationalRelator) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[183].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[183].Descriptor()
 }
 
 func (RelationalRelator) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[183]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[183]
 }
 
 func (x RelationalRelator) Number() protoreflect.EnumNumber {
@@ -30910,7 +30910,7 @@ func (x RelationalRelator) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RelationalRelator.Descriptor instead.
 func (RelationalRelator) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{183}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{183}
 }
 
 type ReleaseProfileVariantVersionId int32
@@ -30949,11 +30949,11 @@ func (x ReleaseProfileVariantVersionId) String() string {
 }
 
 func (ReleaseProfileVariantVersionId) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[184].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[184].Descriptor()
 }
 
 func (ReleaseProfileVariantVersionId) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[184]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[184]
 }
 
 func (x ReleaseProfileVariantVersionId) Number() protoreflect.EnumNumber {
@@ -30962,7 +30962,7 @@ func (x ReleaseProfileVariantVersionId) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseProfileVariantVersionId.Descriptor instead.
 func (ReleaseProfileVariantVersionId) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{184}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{184}
 }
 
 type ReleaseProfileVersionId int32
@@ -31016,11 +31016,11 @@ func (x ReleaseProfileVersionId) String() string {
 }
 
 func (ReleaseProfileVersionId) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[185].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[185].Descriptor()
 }
 
 func (ReleaseProfileVersionId) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[185]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[185]
 }
 
 func (x ReleaseProfileVersionId) Number() protoreflect.EnumNumber {
@@ -31029,7 +31029,7 @@ func (x ReleaseProfileVersionId) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseProfileVersionId.Descriptor instead.
 func (ReleaseProfileVersionId) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{185}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{185}
 }
 
 type ReleaseRelationshipType int32
@@ -31143,11 +31143,11 @@ func (x ReleaseRelationshipType) String() string {
 }
 
 func (ReleaseRelationshipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[186].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[186].Descriptor()
 }
 
 func (ReleaseRelationshipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[186]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[186]
 }
 
 func (x ReleaseRelationshipType) Number() protoreflect.EnumNumber {
@@ -31156,7 +31156,7 @@ func (x ReleaseRelationshipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseRelationshipType.Descriptor instead.
 func (ReleaseRelationshipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{186}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{186}
 }
 
 type ReleaseResourceType int32
@@ -31192,11 +31192,11 @@ func (x ReleaseResourceType) String() string {
 }
 
 func (ReleaseResourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[187].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[187].Descriptor()
 }
 
 func (ReleaseResourceType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[187]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[187]
 }
 
 func (x ReleaseResourceType) Number() protoreflect.EnumNumber {
@@ -31205,7 +31205,7 @@ func (x ReleaseResourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseResourceType.Descriptor instead.
 func (ReleaseResourceType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{187}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{187}
 }
 
 type ReleaseType int32
@@ -31385,11 +31385,11 @@ func (x ReleaseType) String() string {
 }
 
 func (ReleaseType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[188].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[188].Descriptor()
 }
 
 func (ReleaseType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[188]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[188]
 }
 
 func (x ReleaseType) Number() protoreflect.EnumNumber {
@@ -31398,7 +31398,7 @@ func (x ReleaseType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseType.Descriptor instead.
 func (ReleaseType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{188}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{188}
 }
 
 type ReleaseTypeDSR int32
@@ -31638,11 +31638,11 @@ func (x ReleaseTypeDSR) String() string {
 }
 
 func (ReleaseTypeDSR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[189].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[189].Descriptor()
 }
 
 func (ReleaseTypeDSR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[189]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[189]
 }
 
 func (x ReleaseTypeDSR) Number() protoreflect.EnumNumber {
@@ -31651,7 +31651,7 @@ func (x ReleaseTypeDSR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseTypeDSR.Descriptor instead.
 func (ReleaseTypeDSR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{189}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{189}
 }
 
 type ReleaseTypeERN4 int32
@@ -31828,11 +31828,11 @@ func (x ReleaseTypeERN4) String() string {
 }
 
 func (ReleaseTypeERN4) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[190].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[190].Descriptor()
 }
 
 func (ReleaseTypeERN4) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[190]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[190]
 }
 
 func (x ReleaseTypeERN4) Number() protoreflect.EnumNumber {
@@ -31841,7 +31841,7 @@ func (x ReleaseTypeERN4) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseTypeERN4.Descriptor instead.
 func (ReleaseTypeERN4) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{190}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{190}
 }
 
 type ReleaseTypeMCNOTIF int32
@@ -31892,11 +31892,11 @@ func (x ReleaseTypeMCNOTIF) String() string {
 }
 
 func (ReleaseTypeMCNOTIF) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[191].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[191].Descriptor()
 }
 
 func (ReleaseTypeMCNOTIF) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[191]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[191]
 }
 
 func (x ReleaseTypeMCNOTIF) Number() protoreflect.EnumNumber {
@@ -31905,7 +31905,7 @@ func (x ReleaseTypeMCNOTIF) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReleaseTypeMCNOTIF.Descriptor instead.
 func (ReleaseTypeMCNOTIF) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{191}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{191}
 }
 
 type ReportMessageType int32
@@ -31947,11 +31947,11 @@ func (x ReportMessageType) String() string {
 }
 
 func (ReportMessageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[192].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[192].Descriptor()
 }
 
 func (ReportMessageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[192]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[192]
 }
 
 func (x ReportMessageType) Number() protoreflect.EnumNumber {
@@ -31960,7 +31960,7 @@ func (x ReportMessageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReportMessageType.Descriptor instead.
 func (ReportMessageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{192}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{192}
 }
 
 type RequestMessagePurpose int32
@@ -31999,11 +31999,11 @@ func (x RequestMessagePurpose) String() string {
 }
 
 func (RequestMessagePurpose) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[193].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[193].Descriptor()
 }
 
 func (RequestMessagePurpose) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[193]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[193]
 }
 
 func (x RequestMessagePurpose) Number() protoreflect.EnumNumber {
@@ -32012,7 +32012,7 @@ func (x RequestMessagePurpose) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RequestMessagePurpose.Descriptor instead.
 func (RequestMessagePurpose) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{193}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{193}
 }
 
 type RequestReason int32
@@ -32078,11 +32078,11 @@ func (x RequestReason) String() string {
 }
 
 func (RequestReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[194].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[194].Descriptor()
 }
 
 func (RequestReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[194]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[194]
 }
 
 func (x RequestReason) Number() protoreflect.EnumNumber {
@@ -32091,7 +32091,7 @@ func (x RequestReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RequestReason.Descriptor instead.
 func (RequestReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{194}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{194}
 }
 
 type ResourceContributorRole int32
@@ -32919,11 +32919,11 @@ func (x ResourceContributorRole) String() string {
 }
 
 func (ResourceContributorRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[195].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[195].Descriptor()
 }
 
 func (ResourceContributorRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[195]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[195]
 }
 
 func (x ResourceContributorRole) Number() protoreflect.EnumNumber {
@@ -32932,7 +32932,7 @@ func (x ResourceContributorRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceContributorRole.Descriptor instead.
 func (ResourceContributorRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{195}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{195}
 }
 
 type ResourceGroupType int32
@@ -32977,11 +32977,11 @@ func (x ResourceGroupType) String() string {
 }
 
 func (ResourceGroupType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[196].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[196].Descriptor()
 }
 
 func (ResourceGroupType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[196]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[196]
 }
 
 func (x ResourceGroupType) Number() protoreflect.EnumNumber {
@@ -32990,7 +32990,7 @@ func (x ResourceGroupType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceGroupType.Descriptor instead.
 func (ResourceGroupType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{196}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{196}
 }
 
 type ResourceRelationshipType int32
@@ -33071,11 +33071,11 @@ func (x ResourceRelationshipType) String() string {
 }
 
 func (ResourceRelationshipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[197].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[197].Descriptor()
 }
 
 func (ResourceRelationshipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[197]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[197]
 }
 
 func (x ResourceRelationshipType) Number() protoreflect.EnumNumber {
@@ -33084,7 +33084,7 @@ func (x ResourceRelationshipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceRelationshipType.Descriptor instead.
 func (ResourceRelationshipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{197}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{197}
 }
 
 type ResourceType int32
@@ -33138,11 +33138,11 @@ func (x ResourceType) String() string {
 }
 
 func (ResourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[198].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[198].Descriptor()
 }
 
 func (ResourceType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[198]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[198]
 }
 
 func (x ResourceType) Number() protoreflect.EnumNumber {
@@ -33151,7 +33151,7 @@ func (x ResourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceType.Descriptor instead.
 func (ResourceType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{198}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{198}
 }
 
 type ResourceTypeCustomSet int32
@@ -33187,11 +33187,11 @@ func (x ResourceTypeCustomSet) String() string {
 }
 
 func (ResourceTypeCustomSet) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[199].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[199].Descriptor()
 }
 
 func (ResourceTypeCustomSet) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[199]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[199]
 }
 
 func (x ResourceTypeCustomSet) Number() protoreflect.EnumNumber {
@@ -33200,7 +33200,7 @@ func (x ResourceTypeCustomSet) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceTypeCustomSet.Descriptor instead.
 func (ResourceTypeCustomSet) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{199}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{199}
 }
 
 type ResourceTypeMCNOTIF int32
@@ -33239,11 +33239,11 @@ func (x ResourceTypeMCNOTIF) String() string {
 }
 
 func (ResourceTypeMCNOTIF) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[200].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[200].Descriptor()
 }
 
 func (ResourceTypeMCNOTIF) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[200]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[200]
 }
 
 func (x ResourceTypeMCNOTIF) Number() protoreflect.EnumNumber {
@@ -33252,7 +33252,7 @@ func (x ResourceTypeMCNOTIF) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceTypeMCNOTIF.Descriptor instead.
 func (ResourceTypeMCNOTIF) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{200}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{200}
 }
 
 type ResourceTypeRDR int32
@@ -33294,11 +33294,11 @@ func (x ResourceTypeRDR) String() string {
 }
 
 func (ResourceTypeRDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[201].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[201].Descriptor()
 }
 
 func (ResourceTypeRDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[201]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[201]
 }
 
 func (x ResourceTypeRDR) Number() protoreflect.EnumNumber {
@@ -33307,7 +33307,7 @@ func (x ResourceTypeRDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceTypeRDR.Descriptor instead.
 func (ResourceTypeRDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{201}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{201}
 }
 
 type ResourceWorkRelationshipType int32
@@ -33352,11 +33352,11 @@ func (x ResourceWorkRelationshipType) String() string {
 }
 
 func (ResourceWorkRelationshipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[202].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[202].Descriptor()
 }
 
 func (ResourceWorkRelationshipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[202]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[202]
 }
 
 func (x ResourceWorkRelationshipType) Number() protoreflect.EnumNumber {
@@ -33365,7 +33365,7 @@ func (x ResourceWorkRelationshipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceWorkRelationshipType.Descriptor instead.
 func (ResourceWorkRelationshipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{202}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{202}
 }
 
 type ResponseType int32
@@ -33407,11 +33407,11 @@ func (x ResponseType) String() string {
 }
 
 func (ResponseType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[203].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[203].Descriptor()
 }
 
 func (ResponseType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[203]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[203]
 }
 
 func (x ResponseType) Number() protoreflect.EnumNumber {
@@ -33420,7 +33420,7 @@ func (x ResponseType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResponseType.Descriptor instead.
 func (ResponseType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{203}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{203}
 }
 
 type RevenueAllocationType int32
@@ -33462,11 +33462,11 @@ func (x RevenueAllocationType) String() string {
 }
 
 func (RevenueAllocationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[204].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[204].Descriptor()
 }
 
 func (RevenueAllocationType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[204]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[204]
 }
 
 func (x RevenueAllocationType) Number() protoreflect.EnumNumber {
@@ -33475,7 +33475,7 @@ func (x RevenueAllocationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RevenueAllocationType.Descriptor instead.
 func (RevenueAllocationType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{204}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{204}
 }
 
 type RevenueSourceType int32
@@ -33520,11 +33520,11 @@ func (x RevenueSourceType) String() string {
 }
 
 func (RevenueSourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[205].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[205].Descriptor()
 }
 
 func (RevenueSourceType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[205]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[205]
 }
 
 func (x RevenueSourceType) Number() protoreflect.EnumNumber {
@@ -33533,7 +33533,7 @@ func (x RevenueSourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RevenueSourceType.Descriptor instead.
 func (RevenueSourceType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{205}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{205}
 }
 
 type RevocationReason int32
@@ -33578,11 +33578,11 @@ func (x RevocationReason) String() string {
 }
 
 func (RevocationReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[206].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[206].Descriptor()
 }
 
 func (RevocationReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[206]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[206]
 }
 
 func (x RevocationReason) Number() protoreflect.EnumNumber {
@@ -33591,7 +33591,7 @@ func (x RevocationReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RevocationReason.Descriptor instead.
 func (RevocationReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{206}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{206}
 }
 
 type RhythmStyle int32
@@ -33678,11 +33678,11 @@ func (x RhythmStyle) String() string {
 }
 
 func (RhythmStyle) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[207].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[207].Descriptor()
 }
 
 func (RhythmStyle) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[207]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[207]
 }
 
 func (x RhythmStyle) Number() protoreflect.EnumNumber {
@@ -33691,7 +33691,7 @@ func (x RhythmStyle) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RhythmStyle.Descriptor instead.
 func (RhythmStyle) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{207}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{207}
 }
 
 type RightShareType int32
@@ -33736,11 +33736,11 @@ func (x RightShareType) String() string {
 }
 
 func (RightShareType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[208].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[208].Descriptor()
 }
 
 func (RightShareType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[208]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[208]
 }
 
 func (x RightShareType) Number() protoreflect.EnumNumber {
@@ -33749,7 +33749,7 @@ func (x RightShareType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightShareType.Descriptor instead.
 func (RightShareType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{208}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{208}
 }
 
 type RightShareTypeMWDR int32
@@ -33791,11 +33791,11 @@ func (x RightShareTypeMWDR) String() string {
 }
 
 func (RightShareTypeMWDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[209].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[209].Descriptor()
 }
 
 func (RightShareTypeMWDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[209]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[209]
 }
 
 func (x RightShareTypeMWDR) Number() protoreflect.EnumNumber {
@@ -33804,7 +33804,7 @@ func (x RightShareTypeMWDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightShareTypeMWDR.Descriptor instead.
 func (RightShareTypeMWDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{209}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{209}
 }
 
 type RightsClaimPolicyReason int32
@@ -33843,11 +33843,11 @@ func (x RightsClaimPolicyReason) String() string {
 }
 
 func (RightsClaimPolicyReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[210].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[210].Descriptor()
 }
 
 func (RightsClaimPolicyReason) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[210]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[210]
 }
 
 func (x RightsClaimPolicyReason) Number() protoreflect.EnumNumber {
@@ -33856,7 +33856,7 @@ func (x RightsClaimPolicyReason) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsClaimPolicyReason.Descriptor instead.
 func (RightsClaimPolicyReason) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{210}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{210}
 }
 
 type RightsClaimPolicyType int32
@@ -33895,11 +33895,11 @@ func (x RightsClaimPolicyType) String() string {
 }
 
 func (RightsClaimPolicyType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[211].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[211].Descriptor()
 }
 
 func (RightsClaimPolicyType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[211]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[211]
 }
 
 func (x RightsClaimPolicyType) Number() protoreflect.EnumNumber {
@@ -33908,7 +33908,7 @@ func (x RightsClaimPolicyType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsClaimPolicyType.Descriptor instead.
 func (RightsClaimPolicyType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{211}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{211}
 }
 
 type RightsClaimStatus int32
@@ -33956,11 +33956,11 @@ func (x RightsClaimStatus) String() string {
 }
 
 func (RightsClaimStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[212].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[212].Descriptor()
 }
 
 func (RightsClaimStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[212]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[212]
 }
 
 func (x RightsClaimStatus) Number() protoreflect.EnumNumber {
@@ -33969,7 +33969,7 @@ func (x RightsClaimStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsClaimStatus.Descriptor instead.
 func (RightsClaimStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{212}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{212}
 }
 
 type RightsControlType int32
@@ -34014,11 +34014,11 @@ func (x RightsControlType) String() string {
 }
 
 func (RightsControlType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[213].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[213].Descriptor()
 }
 
 func (RightsControlType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[213]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[213]
 }
 
 func (x RightsControlType) Number() protoreflect.EnumNumber {
@@ -34027,7 +34027,7 @@ func (x RightsControlType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsControlType.Descriptor instead.
 func (RightsControlType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{213}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{213}
 }
 
 type RightsControllerRole int32
@@ -34078,11 +34078,11 @@ func (x RightsControllerRole) String() string {
 }
 
 func (RightsControllerRole) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[214].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[214].Descriptor()
 }
 
 func (RightsControllerRole) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[214]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[214]
 }
 
 func (x RightsControllerRole) Number() protoreflect.EnumNumber {
@@ -34091,7 +34091,7 @@ func (x RightsControllerRole) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsControllerRole.Descriptor instead.
 func (RightsControllerRole) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{214}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{214}
 }
 
 type RightsControllerType int32
@@ -34130,11 +34130,11 @@ func (x RightsControllerType) String() string {
 }
 
 func (RightsControllerType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[215].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[215].Descriptor()
 }
 
 func (RightsControllerType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[215]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[215]
 }
 
 func (x RightsControllerType) Number() protoreflect.EnumNumber {
@@ -34143,7 +34143,7 @@ func (x RightsControllerType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsControllerType.Descriptor instead.
 func (RightsControllerType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{215}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{215}
 }
 
 type RightsCoverage int32
@@ -34194,11 +34194,11 @@ func (x RightsCoverage) String() string {
 }
 
 func (RightsCoverage) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[216].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[216].Descriptor()
 }
 
 func (RightsCoverage) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[216]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[216]
 }
 
 func (x RightsCoverage) Number() protoreflect.EnumNumber {
@@ -34207,7 +34207,7 @@ func (x RightsCoverage) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsCoverage.Descriptor instead.
 func (RightsCoverage) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{216}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{216}
 }
 
 type RightsCoverageMWDR int32
@@ -34261,11 +34261,11 @@ func (x RightsCoverageMWDR) String() string {
 }
 
 func (RightsCoverageMWDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[217].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[217].Descriptor()
 }
 
 func (RightsCoverageMWDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[217]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[217]
 }
 
 func (x RightsCoverageMWDR) Number() protoreflect.EnumNumber {
@@ -34274,7 +34274,7 @@ func (x RightsCoverageMWDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsCoverageMWDR.Descriptor instead.
 func (RightsCoverageMWDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{217}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{217}
 }
 
 type RightsStatementProfile int32
@@ -34310,11 +34310,11 @@ func (x RightsStatementProfile) String() string {
 }
 
 func (RightsStatementProfile) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[218].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[218].Descriptor()
 }
 
 func (RightsStatementProfile) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[218]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[218]
 }
 
 func (x RightsStatementProfile) Number() protoreflect.EnumNumber {
@@ -34323,7 +34323,7 @@ func (x RightsStatementProfile) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RightsStatementProfile.Descriptor instead.
 func (RightsStatementProfile) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{218}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{218}
 }
 
 type RinFileStatus int32
@@ -34359,11 +34359,11 @@ func (x RinFileStatus) String() string {
 }
 
 func (RinFileStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[219].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[219].Descriptor()
 }
 
 func (RinFileStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[219]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[219]
 }
 
 func (x RinFileStatus) Number() protoreflect.EnumNumber {
@@ -34372,7 +34372,7 @@ func (x RinFileStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RinFileStatus.Descriptor instead.
 func (RinFileStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{219}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{219}
 }
 
 type RinMessageType int32
@@ -34405,11 +34405,11 @@ func (x RinMessageType) String() string {
 }
 
 func (RinMessageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[220].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[220].Descriptor()
 }
 
 func (RinMessageType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[220]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[220]
 }
 
 func (x RinMessageType) Number() protoreflect.EnumNumber {
@@ -34418,7 +34418,7 @@ func (x RinMessageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RinMessageType.Descriptor instead.
 func (RinMessageType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{220}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{220}
 }
 
 type RinProposedActionType int32
@@ -34454,11 +34454,11 @@ func (x RinProposedActionType) String() string {
 }
 
 func (RinProposedActionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[221].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[221].Descriptor()
 }
 
 func (RinProposedActionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[221]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[221]
 }
 
 func (x RinProposedActionType) Number() protoreflect.EnumNumber {
@@ -34467,7 +34467,7 @@ func (x RinProposedActionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RinProposedActionType.Descriptor instead.
 func (RinProposedActionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{221}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{221}
 }
 
 type RootChordNote int32
@@ -34536,11 +34536,11 @@ func (x RootChordNote) String() string {
 }
 
 func (RootChordNote) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[222].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[222].Descriptor()
 }
 
 func (RootChordNote) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[222]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[222]
 }
 
 func (x RootChordNote) Number() protoreflect.EnumNumber {
@@ -34549,7 +34549,7 @@ func (x RootChordNote) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RootChordNote.Descriptor instead.
 func (RootChordNote) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{222}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{222}
 }
 
 type RootChordQuality int32
@@ -34627,11 +34627,11 @@ func (x RootChordQuality) String() string {
 }
 
 func (RootChordQuality) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[223].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[223].Descriptor()
 }
 
 func (RootChordQuality) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[223]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[223]
 }
 
 func (x RootChordQuality) Number() protoreflect.EnumNumber {
@@ -34640,7 +34640,7 @@ func (x RootChordQuality) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RootChordQuality.Descriptor instead.
 func (RootChordQuality) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{223}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{223}
 }
 
 type RoyaltyRateCalculationType int32
@@ -34691,11 +34691,11 @@ func (x RoyaltyRateCalculationType) String() string {
 }
 
 func (RoyaltyRateCalculationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[224].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[224].Descriptor()
 }
 
 func (RoyaltyRateCalculationType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[224]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[224]
 }
 
 func (x RoyaltyRateCalculationType) Number() protoreflect.EnumNumber {
@@ -34704,7 +34704,7 @@ func (x RoyaltyRateCalculationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RoyaltyRateCalculationType.Descriptor instead.
 func (RoyaltyRateCalculationType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{224}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{224}
 }
 
 type RoyaltyRateType int32
@@ -34740,11 +34740,11 @@ func (x RoyaltyRateType) String() string {
 }
 
 func (RoyaltyRateType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[225].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[225].Descriptor()
 }
 
 func (RoyaltyRateType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[225]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[225]
 }
 
 func (x RoyaltyRateType) Number() protoreflect.EnumNumber {
@@ -34753,7 +34753,7 @@ func (x RoyaltyRateType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use RoyaltyRateType.Descriptor instead.
 func (RoyaltyRateType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{225}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{225}
 }
 
 type SessionType int32
@@ -34840,11 +34840,11 @@ func (x SessionType) String() string {
 }
 
 func (SessionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[226].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[226].Descriptor()
 }
 
 func (SessionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[226]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[226]
 }
 
 func (x SessionType) Number() protoreflect.EnumNumber {
@@ -34853,7 +34853,7 @@ func (x SessionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SessionType.Descriptor instead.
 func (SessionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{226}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{226}
 }
 
 type SheetMusicCodecType int32
@@ -34886,11 +34886,11 @@ func (x SheetMusicCodecType) String() string {
 }
 
 func (SheetMusicCodecType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[227].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[227].Descriptor()
 }
 
 func (SheetMusicCodecType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[227]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[227]
 }
 
 func (x SheetMusicCodecType) Number() protoreflect.EnumNumber {
@@ -34899,7 +34899,7 @@ func (x SheetMusicCodecType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SheetMusicCodecType.Descriptor instead.
 func (SheetMusicCodecType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{227}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{227}
 }
 
 type SheetMusicType int32
@@ -34932,11 +34932,11 @@ func (x SheetMusicType) String() string {
 }
 
 func (SheetMusicType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[228].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[228].Descriptor()
 }
 
 func (SheetMusicType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[228]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[228]
 }
 
 func (x SheetMusicType) Number() protoreflect.EnumNumber {
@@ -34945,7 +34945,7 @@ func (x SheetMusicType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SheetMusicType.Descriptor instead.
 func (SheetMusicType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{228}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{228}
 }
 
 type SoftwareType int32
@@ -34993,11 +34993,11 @@ func (x SoftwareType) String() string {
 }
 
 func (SoftwareType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[229].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[229].Descriptor()
 }
 
 func (SoftwareType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[229]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[229]
 }
 
 func (x SoftwareType) Number() protoreflect.EnumNumber {
@@ -35006,7 +35006,7 @@ func (x SoftwareType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SoftwareType.Descriptor instead.
 func (SoftwareType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{229}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{229}
 }
 
 type SoundRecordingType int32
@@ -35063,11 +35063,11 @@ func (x SoundRecordingType) String() string {
 }
 
 func (SoundRecordingType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[230].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[230].Descriptor()
 }
 
 func (SoundRecordingType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[230]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[230]
 }
 
 func (x SoundRecordingType) Number() protoreflect.EnumNumber {
@@ -35076,7 +35076,7 @@ func (x SoundRecordingType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SoundRecordingType.Descriptor instead.
 func (SoundRecordingType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{230}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{230}
 }
 
 type SpecialContributorType int32
@@ -35118,11 +35118,11 @@ func (x SpecialContributorType) String() string {
 }
 
 func (SpecialContributorType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[231].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[231].Descriptor()
 }
 
 func (SpecialContributorType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[231]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[231]
 }
 
 func (x SpecialContributorType) Number() protoreflect.EnumNumber {
@@ -35131,7 +35131,7 @@ func (x SpecialContributorType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SpecialContributorType.Descriptor instead.
 func (SpecialContributorType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{231}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{231}
 }
 
 type Status int32
@@ -35191,11 +35191,11 @@ func (x Status) String() string {
 }
 
 func (Status) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[232].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[232].Descriptor()
 }
 
 func (Status) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[232]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[232]
 }
 
 func (x Status) Number() protoreflect.EnumNumber {
@@ -35204,7 +35204,7 @@ func (x Status) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Status.Descriptor instead.
 func (Status) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{232}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{232}
 }
 
 type SubGenre int32
@@ -36683,11 +36683,11 @@ func (x SubGenre) String() string {
 }
 
 func (SubGenre) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[233].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[233].Descriptor()
 }
 
 func (SubGenre) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[233]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[233]
 }
 
 func (x SubGenre) Number() protoreflect.EnumNumber {
@@ -36696,7 +36696,7 @@ func (x SubGenre) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SubGenre.Descriptor instead.
 func (SubGenre) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{233}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{233}
 }
 
 type SubTitleType int32
@@ -36732,11 +36732,11 @@ func (x SubTitleType) String() string {
 }
 
 func (SubTitleType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[234].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[234].Descriptor()
 }
 
 func (SubTitleType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[234]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[234]
 }
 
 func (x SubTitleType) Number() protoreflect.EnumNumber {
@@ -36745,7 +36745,7 @@ func (x SubTitleType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SubTitleType.Descriptor instead.
 func (SubTitleType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{234}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{234}
 }
 
 type SummaryType int32
@@ -36781,11 +36781,11 @@ func (x SummaryType) String() string {
 }
 
 func (SummaryType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[235].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[235].Descriptor()
 }
 
 func (SummaryType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[235]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[235]
 }
 
 func (x SummaryType) Number() protoreflect.EnumNumber {
@@ -36794,7 +36794,7 @@ func (x SummaryType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SummaryType.Descriptor instead.
 func (SummaryType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{235}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{235}
 }
 
 type SupplyChainStatus int32
@@ -36866,11 +36866,11 @@ func (x SupplyChainStatus) String() string {
 }
 
 func (SupplyChainStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[236].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[236].Descriptor()
 }
 
 func (SupplyChainStatus) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[236]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[236]
 }
 
 func (x SupplyChainStatus) Number() protoreflect.EnumNumber {
@@ -36879,7 +36879,7 @@ func (x SupplyChainStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SupplyChainStatus.Descriptor instead.
 func (SupplyChainStatus) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{236}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{236}
 }
 
 type Tempo int32
@@ -36975,11 +36975,11 @@ func (x Tempo) String() string {
 }
 
 func (Tempo) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[237].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[237].Descriptor()
 }
 
 func (Tempo) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[237]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[237]
 }
 
 func (x Tempo) Number() protoreflect.EnumNumber {
@@ -36988,7 +36988,7 @@ func (x Tempo) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Tempo.Descriptor instead.
 func (Tempo) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{237}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{237}
 }
 
 type TerritoryCode int32
@@ -37780,11 +37780,11 @@ func (x TerritoryCode) String() string {
 }
 
 func (TerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[238].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[238].Descriptor()
 }
 
 func (TerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[238]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[238]
 }
 
 func (x TerritoryCode) Number() protoreflect.EnumNumber {
@@ -37793,7 +37793,7 @@ func (x TerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TerritoryCode.Descriptor instead.
 func (TerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{238}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{238}
 }
 
 type TerritoryCodeType int32
@@ -37829,11 +37829,11 @@ func (x TerritoryCodeType) String() string {
 }
 
 func (TerritoryCodeType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[239].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[239].Descriptor()
 }
 
 func (TerritoryCodeType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[239]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[239]
 }
 
 func (x TerritoryCodeType) Number() protoreflect.EnumNumber {
@@ -37842,7 +37842,7 @@ func (x TerritoryCodeType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TerritoryCodeType.Descriptor instead.
 func (TerritoryCodeType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{239}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{239}
 }
 
 type TerritoryCodeTypeIncludingDeprecatedCodes int32
@@ -37881,11 +37881,11 @@ func (x TerritoryCodeTypeIncludingDeprecatedCodes) String() string {
 }
 
 func (TerritoryCodeTypeIncludingDeprecatedCodes) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[240].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[240].Descriptor()
 }
 
 func (TerritoryCodeTypeIncludingDeprecatedCodes) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[240]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[240]
 }
 
 func (x TerritoryCodeTypeIncludingDeprecatedCodes) Number() protoreflect.EnumNumber {
@@ -37894,7 +37894,7 @@ func (x TerritoryCodeTypeIncludingDeprecatedCodes) Number() protoreflect.EnumNum
 
 // Deprecated: Use TerritoryCodeTypeIncludingDeprecatedCodes.Descriptor instead.
 func (TerritoryCodeTypeIncludingDeprecatedCodes) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{240}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{240}
 }
 
 type TextCodecType int32
@@ -37996,11 +37996,11 @@ func (x TextCodecType) String() string {
 }
 
 func (TextCodecType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[241].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[241].Descriptor()
 }
 
 func (TextCodecType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[241]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[241]
 }
 
 func (x TextCodecType) Number() protoreflect.EnumNumber {
@@ -38009,7 +38009,7 @@ func (x TextCodecType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TextCodecType.Descriptor instead.
 func (TextCodecType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{241}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{241}
 }
 
 type TextMusicRelationshipType int32
@@ -38051,11 +38051,11 @@ func (x TextMusicRelationshipType) String() string {
 }
 
 func (TextMusicRelationshipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[242].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[242].Descriptor()
 }
 
 func (TextMusicRelationshipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[242]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[242]
 }
 
 func (x TextMusicRelationshipType) Number() protoreflect.EnumNumber {
@@ -38064,7 +38064,7 @@ func (x TextMusicRelationshipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TextMusicRelationshipType.Descriptor instead.
 func (TextMusicRelationshipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{242}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{242}
 }
 
 type TextType int32
@@ -38124,11 +38124,11 @@ func (x TextType) String() string {
 }
 
 func (TextType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[243].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[243].Descriptor()
 }
 
 func (TextType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[243]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[243]
 }
 
 func (x TextType) Number() protoreflect.EnumNumber {
@@ -38137,7 +38137,7 @@ func (x TextType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TextType.Descriptor instead.
 func (TextType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{243}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{243}
 }
 
 type TextTypeATOM int32
@@ -38176,11 +38176,11 @@ func (x TextTypeATOM) String() string {
 }
 
 func (TextTypeATOM) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[244].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[244].Descriptor()
 }
 
 func (TextTypeATOM) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[244]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[244]
 }
 
 func (x TextTypeATOM) Number() protoreflect.EnumNumber {
@@ -38189,7 +38189,7 @@ func (x TextTypeATOM) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TextTypeATOM.Descriptor instead.
 func (TextTypeATOM) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{244}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{244}
 }
 
 type Theme int32
@@ -42155,11 +42155,11 @@ func (x Theme) String() string {
 }
 
 func (Theme) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[245].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[245].Descriptor()
 }
 
 func (Theme) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[245]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[245]
 }
 
 func (x Theme) Number() protoreflect.EnumNumber {
@@ -42168,7 +42168,7 @@ func (x Theme) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Theme.Descriptor instead.
 func (Theme) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{245}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{245}
 }
 
 type ThemeType int32
@@ -42216,11 +42216,11 @@ func (x ThemeType) String() string {
 }
 
 func (ThemeType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[246].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[246].Descriptor()
 }
 
 func (ThemeType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[246]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[246]
 }
 
 func (x ThemeType) Number() protoreflect.EnumNumber {
@@ -42229,7 +42229,7 @@ func (x ThemeType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ThemeType.Descriptor instead.
 func (ThemeType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{246}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{246}
 }
 
 type TimecodeType int32
@@ -42271,11 +42271,11 @@ func (x TimecodeType) String() string {
 }
 
 func (TimecodeType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[247].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[247].Descriptor()
 }
 
 func (TimecodeType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[247]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[247]
 }
 
 func (x TimecodeType) Number() protoreflect.EnumNumber {
@@ -42284,7 +42284,7 @@ func (x TimecodeType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TimecodeType.Descriptor instead.
 func (TimecodeType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{247}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{247}
 }
 
 type TisTerritoryCode int32
@@ -43055,11 +43055,11 @@ func (x TisTerritoryCode) String() string {
 }
 
 func (TisTerritoryCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[248].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[248].Descriptor()
 }
 
 func (TisTerritoryCode) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[248]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[248]
 }
 
 func (x TisTerritoryCode) Number() protoreflect.EnumNumber {
@@ -43068,7 +43068,7 @@ func (x TisTerritoryCode) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TisTerritoryCode.Descriptor instead.
 func (TisTerritoryCode) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{248}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{248}
 }
 
 type TitleType int32
@@ -43152,11 +43152,11 @@ func (x TitleType) String() string {
 }
 
 func (TitleType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[249].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[249].Descriptor()
 }
 
 func (TitleType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[249]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[249]
 }
 
 func (x TitleType) Number() protoreflect.EnumNumber {
@@ -43165,7 +43165,7 @@ func (x TitleType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TitleType.Descriptor instead.
 func (TitleType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{249}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{249}
 }
 
 type TransferCategory int32
@@ -43294,11 +43294,11 @@ func (x TransferCategory) String() string {
 }
 
 func (TransferCategory) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[250].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[250].Descriptor()
 }
 
 func (TransferCategory) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[250]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[250]
 }
 
 func (x TransferCategory) Number() protoreflect.EnumNumber {
@@ -43307,7 +43307,7 @@ func (x TransferCategory) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TransferCategory.Descriptor instead.
 func (TransferCategory) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{250}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{250}
 }
 
 type TransferType int32
@@ -43352,11 +43352,11 @@ func (x TransferType) String() string {
 }
 
 func (TransferType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[251].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[251].Descriptor()
 }
 
 func (TransferType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[251]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[251]
 }
 
 func (x TransferType) Number() protoreflect.EnumNumber {
@@ -43365,7 +43365,7 @@ func (x TransferType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TransferType.Descriptor instead.
 func (TransferType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{251}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{251}
 }
 
 type UnitOfBitRate int32
@@ -43407,11 +43407,11 @@ func (x UnitOfBitRate) String() string {
 }
 
 func (UnitOfBitRate) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[252].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[252].Descriptor()
 }
 
 func (UnitOfBitRate) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[252]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[252]
 }
 
 func (x UnitOfBitRate) Number() protoreflect.EnumNumber {
@@ -43420,7 +43420,7 @@ func (x UnitOfBitRate) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitOfBitRate.Descriptor instead.
 func (UnitOfBitRate) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{252}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{252}
 }
 
 type UnitOfConditionValue int32
@@ -43465,11 +43465,11 @@ func (x UnitOfConditionValue) String() string {
 }
 
 func (UnitOfConditionValue) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[253].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[253].Descriptor()
 }
 
 func (UnitOfConditionValue) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[253]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[253]
 }
 
 func (x UnitOfConditionValue) Number() protoreflect.EnumNumber {
@@ -43478,7 +43478,7 @@ func (x UnitOfConditionValue) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitOfConditionValue.Descriptor instead.
 func (UnitOfConditionValue) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{253}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{253}
 }
 
 type UnitOfCuePoints int32
@@ -43514,11 +43514,11 @@ func (x UnitOfCuePoints) String() string {
 }
 
 func (UnitOfCuePoints) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[254].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[254].Descriptor()
 }
 
 func (UnitOfCuePoints) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[254]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[254]
 }
 
 func (x UnitOfCuePoints) Number() protoreflect.EnumNumber {
@@ -43527,7 +43527,7 @@ func (x UnitOfCuePoints) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitOfCuePoints.Descriptor instead.
 func (UnitOfCuePoints) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{254}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{254}
 }
 
 type UnitOfDuration int32
@@ -43569,11 +43569,11 @@ func (x UnitOfDuration) String() string {
 }
 
 func (UnitOfDuration) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[255].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[255].Descriptor()
 }
 
 func (UnitOfDuration) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[255]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[255]
 }
 
 func (x UnitOfDuration) Number() protoreflect.EnumNumber {
@@ -43582,7 +43582,7 @@ func (x UnitOfDuration) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitOfDuration.Descriptor instead.
 func (UnitOfDuration) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{255}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{255}
 }
 
 type UnitOfExtent int32
@@ -43627,11 +43627,11 @@ func (x UnitOfExtent) String() string {
 }
 
 func (UnitOfExtent) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[256].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[256].Descriptor()
 }
 
 func (UnitOfExtent) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[256]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[256]
 }
 
 func (x UnitOfExtent) Number() protoreflect.EnumNumber {
@@ -43640,7 +43640,7 @@ func (x UnitOfExtent) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitOfExtent.Descriptor instead.
 func (UnitOfExtent) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{256}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{256}
 }
 
 type UnitOfFrameRate int32
@@ -43676,11 +43676,11 @@ func (x UnitOfFrameRate) String() string {
 }
 
 func (UnitOfFrameRate) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[257].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[257].Descriptor()
 }
 
 func (UnitOfFrameRate) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[257]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[257]
 }
 
 func (x UnitOfFrameRate) Number() protoreflect.EnumNumber {
@@ -43689,7 +43689,7 @@ func (x UnitOfFrameRate) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitOfFrameRate.Descriptor instead.
 func (UnitOfFrameRate) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{257}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{257}
 }
 
 type UnitOfFrequency int32
@@ -43731,11 +43731,11 @@ func (x UnitOfFrequency) String() string {
 }
 
 func (UnitOfFrequency) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[258].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[258].Descriptor()
 }
 
 func (UnitOfFrequency) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[258]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[258]
 }
 
 func (x UnitOfFrequency) Number() protoreflect.EnumNumber {
@@ -43744,7 +43744,7 @@ func (x UnitOfFrequency) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitOfFrequency.Descriptor instead.
 func (UnitOfFrequency) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{258}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{258}
 }
 
 type UnitTypeForRevenueAllocation int32
@@ -43789,11 +43789,11 @@ func (x UnitTypeForRevenueAllocation) String() string {
 }
 
 func (UnitTypeForRevenueAllocation) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[259].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[259].Descriptor()
 }
 
 func (UnitTypeForRevenueAllocation) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[259]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[259]
 }
 
 func (x UnitTypeForRevenueAllocation) Number() protoreflect.EnumNumber {
@@ -43802,7 +43802,7 @@ func (x UnitTypeForRevenueAllocation) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UnitTypeForRevenueAllocation.Descriptor instead.
 func (UnitTypeForRevenueAllocation) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{259}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{259}
 }
 
 type UseType int32
@@ -44006,11 +44006,11 @@ func (x UseType) String() string {
 }
 
 func (UseType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[260].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[260].Descriptor()
 }
 
 func (UseType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[260]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[260]
 }
 
 func (x UseType) Number() protoreflect.EnumNumber {
@@ -44019,7 +44019,7 @@ func (x UseType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UseType.Descriptor instead.
 func (UseType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{260}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{260}
 }
 
 type UseTypeAR int32
@@ -44061,11 +44061,11 @@ func (x UseTypeAR) String() string {
 }
 
 func (UseTypeAR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[261].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[261].Descriptor()
 }
 
 func (UseTypeAR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[261]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[261]
 }
 
 func (x UseTypeAR) Number() protoreflect.EnumNumber {
@@ -44074,7 +44074,7 @@ func (x UseTypeAR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UseTypeAR.Descriptor instead.
 func (UseTypeAR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{261}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{261}
 }
 
 type UseTypeBWARM int32
@@ -44269,11 +44269,11 @@ func (x UseTypeBWARM) String() string {
 }
 
 func (UseTypeBWARM) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[262].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[262].Descriptor()
 }
 
 func (UseTypeBWARM) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[262]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[262]
 }
 
 func (x UseTypeBWARM) Number() protoreflect.EnumNumber {
@@ -44282,7 +44282,7 @@ func (x UseTypeBWARM) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UseTypeBWARM.Descriptor instead.
 func (UseTypeBWARM) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{262}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{262}
 }
 
 type UseTypeDSR int32
@@ -44474,11 +44474,11 @@ func (x UseTypeDSR) String() string {
 }
 
 func (UseTypeDSR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[263].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[263].Descriptor()
 }
 
 func (UseTypeDSR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[263]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[263]
 }
 
 func (x UseTypeDSR) Number() protoreflect.EnumNumber {
@@ -44487,7 +44487,7 @@ func (x UseTypeDSR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UseTypeDSR.Descriptor instead.
 func (UseTypeDSR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{263}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{263}
 }
 
 type UseTypeERN int32
@@ -44685,11 +44685,11 @@ func (x UseTypeERN) String() string {
 }
 
 func (UseTypeERN) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[264].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[264].Descriptor()
 }
 
 func (UseTypeERN) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[264]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[264]
 }
 
 func (x UseTypeERN) Number() protoreflect.EnumNumber {
@@ -44698,7 +44698,7 @@ func (x UseTypeERN) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UseTypeERN.Descriptor instead.
 func (UseTypeERN) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{264}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{264}
 }
 
 type UseTypeMWNL int32
@@ -44740,11 +44740,11 @@ func (x UseTypeMWNL) String() string {
 }
 
 func (UseTypeMWNL) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[265].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[265].Descriptor()
 }
 
 func (UseTypeMWNL) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[265]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[265]
 }
 
 func (x UseTypeMWNL) Number() protoreflect.EnumNumber {
@@ -44753,7 +44753,7 @@ func (x UseTypeMWNL) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UseTypeMWNL.Descriptor instead.
 func (UseTypeMWNL) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{265}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{265}
 }
 
 type UseTypeRDR int32
@@ -44900,11 +44900,11 @@ func (x UseTypeRDR) String() string {
 }
 
 func (UseTypeRDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[266].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[266].Descriptor()
 }
 
 func (UseTypeRDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[266]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[266]
 }
 
 func (x UseTypeRDR) Number() protoreflect.EnumNumber {
@@ -44913,7 +44913,7 @@ func (x UseTypeRDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UseTypeRDR.Descriptor instead.
 func (UseTypeRDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{266}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{266}
 }
 
 type UserInterfaceType int32
@@ -44985,11 +44985,11 @@ func (x UserInterfaceType) String() string {
 }
 
 func (UserInterfaceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[267].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[267].Descriptor()
 }
 
 func (UserInterfaceType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[267]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[267]
 }
 
 func (x UserInterfaceType) Number() protoreflect.EnumNumber {
@@ -44998,7 +44998,7 @@ func (x UserInterfaceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UserInterfaceType.Descriptor instead.
 func (UserInterfaceType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{267}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{267}
 }
 
 type UserInterfaceTypeERN int32
@@ -45064,11 +45064,11 @@ func (x UserInterfaceTypeERN) String() string {
 }
 
 func (UserInterfaceTypeERN) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[268].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[268].Descriptor()
 }
 
 func (UserInterfaceTypeERN) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[268]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[268]
 }
 
 func (x UserInterfaceTypeERN) Number() protoreflect.EnumNumber {
@@ -45077,7 +45077,7 @@ func (x UserInterfaceTypeERN) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UserInterfaceTypeERN.Descriptor instead.
 func (UserInterfaceTypeERN) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{268}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{268}
 }
 
 type VersionType int32
@@ -45158,11 +45158,11 @@ func (x VersionType) String() string {
 }
 
 func (VersionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[269].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[269].Descriptor()
 }
 
 func (VersionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[269]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[269]
 }
 
 func (x VersionType) Number() protoreflect.EnumNumber {
@@ -45171,7 +45171,7 @@ func (x VersionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VersionType.Descriptor instead.
 func (VersionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{269}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{269}
 }
 
 type VersionTypeMWDR int32
@@ -45273,11 +45273,11 @@ func (x VersionTypeMWDR) String() string {
 }
 
 func (VersionTypeMWDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[270].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[270].Descriptor()
 }
 
 func (VersionTypeMWDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[270]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[270]
 }
 
 func (x VersionTypeMWDR) Number() protoreflect.EnumNumber {
@@ -45286,7 +45286,7 @@ func (x VersionTypeMWDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VersionTypeMWDR.Descriptor instead.
 func (VersionTypeMWDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{270}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{270}
 }
 
 type VideoCodecType int32
@@ -45370,11 +45370,11 @@ func (x VideoCodecType) String() string {
 }
 
 func (VideoCodecType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[271].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[271].Descriptor()
 }
 
 func (VideoCodecType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[271]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[271]
 }
 
 func (x VideoCodecType) Number() protoreflect.EnumNumber {
@@ -45383,7 +45383,7 @@ func (x VideoCodecType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VideoCodecType.Descriptor instead.
 func (VideoCodecType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{271}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{271}
 }
 
 type VideoDefinitionType int32
@@ -45422,11 +45422,11 @@ func (x VideoDefinitionType) String() string {
 }
 
 func (VideoDefinitionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[272].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[272].Descriptor()
 }
 
 func (VideoDefinitionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[272]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[272]
 }
 
 func (x VideoDefinitionType) Number() protoreflect.EnumNumber {
@@ -45435,7 +45435,7 @@ func (x VideoDefinitionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VideoDefinitionType.Descriptor instead.
 func (VideoDefinitionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{272}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{272}
 }
 
 type VideoDefinitionTypeDSR int32
@@ -45471,11 +45471,11 @@ func (x VideoDefinitionTypeDSR) String() string {
 }
 
 func (VideoDefinitionTypeDSR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[273].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[273].Descriptor()
 }
 
 func (VideoDefinitionTypeDSR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[273]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[273]
 }
 
 func (x VideoDefinitionTypeDSR) Number() protoreflect.EnumNumber {
@@ -45484,7 +45484,7 @@ func (x VideoDefinitionTypeDSR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VideoDefinitionTypeDSR.Descriptor instead.
 func (VideoDefinitionTypeDSR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{273}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{273}
 }
 
 type VideoType int32
@@ -45721,11 +45721,11 @@ func (x VideoType) String() string {
 }
 
 func (VideoType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[274].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[274].Descriptor()
 }
 
 func (VideoType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[274]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[274]
 }
 
 func (x VideoType) Number() protoreflect.EnumNumber {
@@ -45734,7 +45734,7 @@ func (x VideoType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VideoType.Descriptor instead.
 func (VideoType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{274}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{274}
 }
 
 type VideoTypeDSR int32
@@ -45950,11 +45950,11 @@ func (x VideoTypeDSR) String() string {
 }
 
 func (VideoTypeDSR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[275].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[275].Descriptor()
 }
 
 func (VideoTypeDSR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[275]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[275]
 }
 
 func (x VideoTypeDSR) Number() protoreflect.EnumNumber {
@@ -45963,7 +45963,7 @@ func (x VideoTypeDSR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VideoTypeDSR.Descriptor instead.
 func (VideoTypeDSR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{275}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{275}
 }
 
 type VideoTypeERN43 int32
@@ -46014,11 +46014,11 @@ func (x VideoTypeERN43) String() string {
 }
 
 func (VideoTypeERN43) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[276].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[276].Descriptor()
 }
 
 func (VideoTypeERN43) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[276]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[276]
 }
 
 func (x VideoTypeERN43) Number() protoreflect.EnumNumber {
@@ -46027,7 +46027,7 @@ func (x VideoTypeERN43) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VideoTypeERN43.Descriptor instead.
 func (VideoTypeERN43) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{276}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{276}
 }
 
 type VisualPerceptionType int32
@@ -46066,11 +46066,11 @@ func (x VisualPerceptionType) String() string {
 }
 
 func (VisualPerceptionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[277].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[277].Descriptor()
 }
 
 func (VisualPerceptionType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[277]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[277]
 }
 
 func (x VisualPerceptionType) Number() protoreflect.EnumNumber {
@@ -46079,7 +46079,7 @@ func (x VisualPerceptionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VisualPerceptionType.Descriptor instead.
 func (VisualPerceptionType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{277}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{277}
 }
 
 type VocalRegister int32
@@ -46163,11 +46163,11 @@ func (x VocalRegister) String() string {
 }
 
 func (VocalRegister) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[278].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[278].Descriptor()
 }
 
 func (VocalRegister) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[278]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[278]
 }
 
 func (x VocalRegister) Number() protoreflect.EnumNumber {
@@ -46176,7 +46176,7 @@ func (x VocalRegister) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VocalRegister.Descriptor instead.
 func (VocalRegister) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{278}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{278}
 }
 
 type VocalType int32
@@ -46215,11 +46215,11 @@ func (x VocalType) String() string {
 }
 
 func (VocalType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[279].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[279].Descriptor()
 }
 
 func (VocalType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[279]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[279]
 }
 
 func (x VocalType) Number() protoreflect.EnumNumber {
@@ -46228,7 +46228,7 @@ func (x VocalType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use VocalType.Descriptor instead.
 func (VocalType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{279}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{279}
 }
 
 type WorkPart int32
@@ -46267,11 +46267,11 @@ func (x WorkPart) String() string {
 }
 
 func (WorkPart) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[280].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[280].Descriptor()
 }
 
 func (WorkPart) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[280]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[280]
 }
 
 func (x WorkPart) Number() protoreflect.EnumNumber {
@@ -46280,7 +46280,7 @@ func (x WorkPart) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WorkPart.Descriptor instead.
 func (WorkPart) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{280}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{280}
 }
 
 type WorkRelationshipType int32
@@ -46328,11 +46328,11 @@ func (x WorkRelationshipType) String() string {
 }
 
 func (WorkRelationshipType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[281].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[281].Descriptor()
 }
 
 func (WorkRelationshipType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[281]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[281]
 }
 
 func (x WorkRelationshipType) Number() protoreflect.EnumNumber {
@@ -46341,7 +46341,7 @@ func (x WorkRelationshipType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WorkRelationshipType.Descriptor instead.
 func (WorkRelationshipType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{281}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{281}
 }
 
 type WorkRelationshipTypeMWDR int32
@@ -46383,11 +46383,11 @@ func (x WorkRelationshipTypeMWDR) String() string {
 }
 
 func (WorkRelationshipTypeMWDR) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[282].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[282].Descriptor()
 }
 
 func (WorkRelationshipTypeMWDR) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[282]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[282]
 }
 
 func (x WorkRelationshipTypeMWDR) Number() protoreflect.EnumNumber {
@@ -46396,7 +46396,7 @@ func (x WorkRelationshipTypeMWDR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WorkRelationshipTypeMWDR.Descriptor instead.
 func (WorkRelationshipTypeMWDR) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{282}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{282}
 }
 
 type WorkType int32
@@ -46432,11 +46432,11 @@ func (x WorkType) String() string {
 }
 
 func (WorkType) Descriptor() protoreflect.EnumDescriptor {
-	return file_ddex_avs_avs_proto_enumTypes[283].Descriptor()
+	return file_ddex_avs_vlatest_vlatest_proto_enumTypes[283].Descriptor()
 }
 
 func (WorkType) Type() protoreflect.EnumType {
-	return &file_ddex_avs_avs_proto_enumTypes[283]
+	return &file_ddex_avs_vlatest_vlatest_proto_enumTypes[283]
 }
 
 func (x WorkType) Number() protoreflect.EnumNumber {
@@ -46445,14 +46445,14 @@ func (x WorkType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WorkType.Descriptor instead.
 func (WorkType) EnumDescriptor() ([]byte, []int) {
-	return file_ddex_avs_avs_proto_rawDescGZIP(), []int{283}
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP(), []int{283}
 }
 
-var File_ddex_avs_avs_proto protoreflect.FileDescriptor
+var File_ddex_avs_vlatest_vlatest_proto protoreflect.FileDescriptor
 
-const file_ddex_avs_avs_proto_rawDesc = "" +
+const file_ddex_avs_vlatest_vlatest_proto_rawDesc = "" +
 	"\n" +
-	"\x12ddex/avs/avs.proto\x12\bddex.avs*\xb7\b\n" +
+	"\x1eddex/avs/vlatest/vlatest.proto\x12\x10ddex.avs.vlatest*\xb7\b\n" +
 	"\bActivity\x12\x18\n" +
 	"\x14ACTIVITY_UNSPECIFIED\x10\x00\x12\x13\n" +
 	"\x0fACTIVITY_AFRAID\x10\x01\x12\x12\n" +
@@ -58751,309 +58751,309 @@ const file_ddex_avs_avs_proto_rawDesc = "" +
 	"\bWorkType\x12\x19\n" +
 	"\x15WORK_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17WORK_TYPE_GRAPHICALWORK\x10\x01\x12\x1a\n" +
-	"\x16WORK_TYPE_LITERARYWORK\x10\x02B\x84\x01\n" +
-	"\fcom.ddex.avsB\bAvsProtoP\x01Z)github.com/alecsavvy/ddex-go/gen/ddex/avs\xa2\x02\x03DAX\xaa\x02\bDdex.Avs\xca\x02\bDdex\\Avs\xe2\x02\x14Ddex\\Avs\\GPBMetadata\xea\x02\tDdex::Avsb\x06proto3"
+	"\x16WORK_TYPE_LITERARYWORK\x10\x02B\xb9\x01\n" +
+	"\x14com.ddex.avs.vlatestB\fVlatestProtoP\x01Z1github.com/alecsavvy/ddex-go/gen/ddex/avs/vlatest\xa2\x02\x03DAV\xaa\x02\x10Ddex.Avs.Vlatest\xca\x02\x10Ddex\\Avs\\Vlatest\xe2\x02\x1cDdex\\Avs\\Vlatest\\GPBMetadata\xea\x02\x12Ddex::Avs::Vlatestb\x06proto3"
 
 var (
-	file_ddex_avs_avs_proto_rawDescOnce sync.Once
-	file_ddex_avs_avs_proto_rawDescData []byte
+	file_ddex_avs_vlatest_vlatest_proto_rawDescOnce sync.Once
+	file_ddex_avs_vlatest_vlatest_proto_rawDescData []byte
 )
 
-func file_ddex_avs_avs_proto_rawDescGZIP() []byte {
-	file_ddex_avs_avs_proto_rawDescOnce.Do(func() {
-		file_ddex_avs_avs_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_ddex_avs_avs_proto_rawDesc), len(file_ddex_avs_avs_proto_rawDesc)))
+func file_ddex_avs_vlatest_vlatest_proto_rawDescGZIP() []byte {
+	file_ddex_avs_vlatest_vlatest_proto_rawDescOnce.Do(func() {
+		file_ddex_avs_vlatest_vlatest_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_ddex_avs_vlatest_vlatest_proto_rawDesc), len(file_ddex_avs_vlatest_vlatest_proto_rawDesc)))
 	})
-	return file_ddex_avs_avs_proto_rawDescData
+	return file_ddex_avs_vlatest_vlatest_proto_rawDescData
 }
 
-var file_ddex_avs_avs_proto_enumTypes = make([]protoimpl.EnumInfo, 284)
-var file_ddex_avs_avs_proto_goTypes = []any{
-	(Activity)(0),                                  // 0: ddex.avs.Activity
-	(AdditionalContributorRole)(0),                 // 1: ddex.avs.AdditionalContributorRole
-	(AdditionalRightsClaimStatus)(0),               // 2: ddex.avs.AdditionalRightsClaimStatus
-	(AdditionalTitleType)(0),                       // 3: ddex.avs.AdditionalTitleType
-	(AdditionalVideoType)(0),                       // 4: ddex.avs.AdditionalVideoType
-	(AdministratingRecordCompanyRole)(0),           // 5: ddex.avs.AdministratingRecordCompanyRole
-	(AffiliationType)(0),                           // 6: ddex.avs.AffiliationType
-	(AllIsoTerritoryCode)(0),                       // 7: ddex.avs.AllIsoTerritoryCode
-	(AllTerritoryCode)(0),                          // 8: ddex.avs.AllTerritoryCode
-	(AllTerritoryCodeNoWorldwide)(0),               // 9: ddex.avs.AllTerritoryCodeNoWorldwide
-	(ArAcknowledgementStatus)(0),                   // 10: ddex.avs.ArAcknowledgementStatus
-	(ArActionType)(0),                              // 11: ddex.avs.ArActionType
-	(ArtistRole)(0),                                // 12: ddex.avs.ArtistRole
-	(ArtistType)(0),                                // 13: ddex.avs.ArtistType
-	(AspectRatioType)(0),                           // 14: ddex.avs.AspectRatioType
-	(AsserterType)(0),                              // 15: ddex.avs.AsserterType
-	(AssertionStatus)(0),                           // 16: ddex.avs.AssertionStatus
-	(AudioCodecType)(0),                            // 17: ddex.avs.AudioCodecType
-	(AudioVisualType)(0),                           // 18: ddex.avs.AudioVisualType
-	(BasisForRevenueAllocation)(0),                 // 19: ddex.avs.BasisForRevenueAllocation
-	(BinaryDataType)(0),                            // 20: ddex.avs.BinaryDataType
-	(Blockchain)(0),                                // 21: ddex.avs.Blockchain
-	(BusinessMusicalWorkContributorRole)(0),        // 22: ddex.avs.BusinessMusicalWorkContributorRole
-	(CarrierType)(0),                               // 23: ddex.avs.CarrierType
-	(CatalogTransferAcknowledgementStatus)(0),      // 24: ddex.avs.CatalogTransferAcknowledgementStatus
-	(CatalogTransferStatus)(0),                     // 25: ddex.avs.CatalogTransferStatus
-	(CatalogTransferType)(0),                       // 26: ddex.avs.CatalogTransferType
-	(CdProtectionType)(0),                          // 27: ddex.avs.CdProtectionType
-	(CharacterType)(0),                             // 28: ddex.avs.CharacterType
-	(ClaimBasis)(0),                                // 29: ddex.avs.ClaimBasis
-	(ClaimImpact)(0),                               // 30: ddex.avs.ClaimImpact
-	(ClaimStatus)(0),                               // 31: ddex.avs.ClaimStatus
-	(ClassifiedGenre)(0),                           // 32: ddex.avs.ClassifiedGenre
-	(ClipType)(0),                                  // 33: ddex.avs.ClipType
-	(CodingType)(0),                                // 34: ddex.avs.CodingType
-	(CollectionMandateType)(0),                     // 35: ddex.avs.CollectionMandateType
-	(CommentaryNoteType)(0),                        // 36: ddex.avs.CommentaryNoteType
-	(CommercialModelType)(0),                       // 37: ddex.avs.CommercialModelType
-	(CommercialModelTypeERN)(0),                    // 38: ddex.avs.CommercialModelTypeERN
-	(CommercialModelTypeMWNL)(0),                   // 39: ddex.avs.CommercialModelTypeMWNL
-	(CompilationType)(0),                           // 40: ddex.avs.CompilationType
-	(CompositeMusicalWorkType)(0),                  // 41: ddex.avs.CompositeMusicalWorkType
-	(Confidentiality)(0),                           // 42: ddex.avs.Confidentiality
-	(ConsumerEngagementAnomalyType)(0),             // 43: ddex.avs.ConsumerEngagementAnomalyType
-	(ContainerFormat)(0),                           // 44: ddex.avs.ContainerFormat
-	(ContainsAI)(0),                                // 45: ddex.avs.ContainsAI
-	(ContributorClaimStatus)(0),                    // 46: ddex.avs.ContributorClaimStatus
-	(ContributorRole)(0),                           // 47: ddex.avs.ContributorRole
-	(ContributorRoleRDR)(0),                        // 48: ddex.avs.ContributorRoleRDR
-	(CreationType)(0),                              // 49: ddex.avs.CreationType
-	(CreativeMusicalWorkContributorRole)(0),        // 50: ddex.avs.CreativeMusicalWorkContributorRole
-	(CtProposedActionType)(0),                      // 51: ddex.avs.CtProposedActionType
-	(CueOrigin)(0),                                 // 52: ddex.avs.CueOrigin
-	(CueSheetType)(0),                              // 53: ddex.avs.CueSheetType
-	(CueUseType)(0),                                // 54: ddex.avs.CueUseType
-	(CueUseTypeMWDR)(0),                            // 55: ddex.avs.CueUseTypeMWDR
-	(CurrencyCode)(0),                              // 56: ddex.avs.CurrencyCode
-	(CurrentTerritoryCode)(0),                      // 57: ddex.avs.CurrentTerritoryCode
-	(DanceStyle)(0),                                // 58: ddex.avs.DanceStyle
-	(DataCarrierFormat)(0),                         // 59: ddex.avs.DataCarrierFormat
-	(DataCarrierType)(0),                           // 60: ddex.avs.DataCarrierType
-	(DdexTerritoryCode)(0),                         // 61: ddex.avs.DdexTerritoryCode
-	(DdexTerritoryCodeNoWorldwide)(0),              // 62: ddex.avs.DdexTerritoryCodeNoWorldwide
-	(DeliveryFileType)(0),                          // 63: ddex.avs.DeliveryFileType
-	(DeprecatedCurrencyCode)(0),                    // 64: ddex.avs.DeprecatedCurrencyCode
-	(DeprecatedIsoTerritoryCode)(0),                // 65: ddex.avs.DeprecatedIsoTerritoryCode
-	(DeprecatedReleaseType)(0),                     // 66: ddex.avs.DeprecatedReleaseType
-	(DigitizationMode)(0),                          // 67: ddex.avs.DigitizationMode
-	(DiscrepancyType)(0),                           // 68: ddex.avs.DiscrepancyType
-	(DisplayArtistRole)(0),                         // 69: ddex.avs.DisplayArtistRole
-	(DisplayArtistRoleRDR)(0),                      // 70: ddex.avs.DisplayArtistRoleRDR
-	(DistributionChannelType)(0),                   // 71: ddex.avs.DistributionChannelType
-	(DistributionClass)(0),                         // 72: ddex.avs.DistributionClass
-	(DocumentTypeLoD)(0),                           // 73: ddex.avs.DocumentTypeLoD
-	(DocumentTypeMWL)(0),                           // 74: ddex.avs.DocumentTypeMWL
-	(DpidStatus)(0),                                // 75: ddex.avs.DpidStatus
-	(DrmEnforcementType)(0),                        // 76: ddex.avs.DrmEnforcementType
-	(EditionType)(0),                               // 77: ddex.avs.EditionType
-	(ElectroOpticalTransferFunctionType)(0),        // 78: ddex.avs.ElectroOpticalTransferFunctionType
-	(ElementConfiguration)(0),                      // 79: ddex.avs.ElementConfiguration
-	(ElementDesignation)(0),                        // 80: ddex.avs.ElementDesignation
-	(EncodingType)(0),                              // 81: ddex.avs.EncodingType
-	(EquipmentManufacturer)(0),                     // 82: ddex.avs.EquipmentManufacturer
-	(EquipmentModel)(0),                            // 83: ddex.avs.EquipmentModel
-	(EquipmentType)(0),                             // 84: ddex.avs.EquipmentType
-	(ErnMessageType)(0),                            // 85: ddex.avs.ErnMessageType
-	(ErnTestMessageType)(0),                        // 86: ddex.avs.ErnTestMessageType
-	(ErncFileStatus)(0),                            // 87: ddex.avs.ErncFileStatus
-	(ErncProposedActionType)(0),                    // 88: ddex.avs.ErncProposedActionType
-	(ErrorSeverity)(0),                             // 89: ddex.avs.ErrorSeverity
-	(ErrorType)(0),                                 // 90: ddex.avs.ErrorType
-	(EventType)(0),                                 // 91: ddex.avs.EventType
-	(ExceptionReason)(0),                           // 92: ddex.avs.ExceptionReason
-	(ExpressionType)(0),                            // 93: ddex.avs.ExpressionType
-	(ExternallyLinkedResourceType)(0),              // 94: ddex.avs.ExternallyLinkedResourceType
-	(FileType)(0),                                  // 95: ddex.avs.FileType
-	(FingerprintAlgorithmType)(0),                  // 96: ddex.avs.FingerprintAlgorithmType
-	(Form)(0),                                      // 97: ddex.avs.Form
-	(FrameRate)(0),                                 // 98: ddex.avs.FrameRate
-	(Gender)(0),                                    // 99: ddex.avs.Gender
-	(GenderPIE)(0),                                 // 100: ddex.avs.GenderPIE
-	(GoverningAgreementType)(0),                    // 101: ddex.avs.GoverningAgreementType
-	(HashSumAlgorithmType)(0),                      // 102: ddex.avs.HashSumAlgorithmType
-	(HdrVideoDynamicMetadataType)(0),               // 103: ddex.avs.HdrVideoDynamicMetadataType
-	(HdrVideoStaticMetadataType)(0),                // 104: ddex.avs.HdrVideoStaticMetadataType
-	(ImageCodecType)(0),                            // 105: ddex.avs.ImageCodecType
-	(ImageType)(0),                                 // 106: ddex.avs.ImageType
-	(InstrumentManufacturer)(0),                    // 107: ddex.avs.InstrumentManufacturer
-	(InstrumentModel)(0),                           // 108: ddex.avs.InstrumentModel
-	(InstrumentType)(0),                            // 109: ddex.avs.InstrumentType
-	(Intensity)(0),                                 // 110: ddex.avs.Intensity
-	(Iso31661TerritoryCode)(0),                     // 111: ddex.avs.Iso31661TerritoryCode
-	(Iso639Part12LanguageCode)(0),                  // 112: ddex.avs.Iso639Part12LanguageCode
-	(Iso639Part3LanguageCode)(0),                   // 113: ddex.avs.Iso639Part3LanguageCode
-	(IsoCurrencyCode)(0),                           // 114: ddex.avs.IsoCurrencyCode
-	(IsoLanguageCode)(0),                           // 115: ddex.avs.IsoLanguageCode
-	(IsoTerritoryCode)(0),                          // 116: ddex.avs.IsoTerritoryCode
-	(IswcStatus)(0),                                // 117: ddex.avs.IswcStatus
-	(LabelNameType)(0),                             // 118: ddex.avs.LabelNameType
-	(LabelType)(0),                                 // 119: ddex.avs.LabelType
-	(LanguageLocalizationType)(0),                  // 120: ddex.avs.LanguageLocalizationType
-	(LicenseRecord)(0),                             // 121: ddex.avs.LicenseRecord
-	(LicenseRefusalReason)(0),                      // 122: ddex.avs.LicenseRefusalReason
-	(LicenseRejectionReason)(0),                    // 123: ddex.avs.LicenseRejectionReason
-	(LinkAcknowledgementStatus)(0),                 // 124: ddex.avs.LinkAcknowledgementStatus
-	(LinkDescription)(0),                           // 125: ddex.avs.LinkDescription
-	(LyricsType)(0),                                // 126: ddex.avs.LyricsType
-	(MeasurementType)(0),                           // 127: ddex.avs.MeasurementType
-	(MembershipType)(0),                            // 128: ddex.avs.MembershipType
-	(MessageActionType)(0),                         // 129: ddex.avs.MessageActionType
-	(MessageControlType)(0),                        // 130: ddex.avs.MessageControlType
-	(MessagePurpose)(0),                            // 131: ddex.avs.MessagePurpose
-	(MessageType)(0),                               // 132: ddex.avs.MessageType
-	(MetadataSourceType)(0),                        // 133: ddex.avs.MetadataSourceType
-	(MissingLinkReason)(0),                         // 134: ddex.avs.MissingLinkReason
-	(Mode)(0),                                      // 135: ddex.avs.Mode
-	(Mood)(0),                                      // 136: ddex.avs.Mood
-	(MoodOrThemeType)(0),                           // 137: ddex.avs.MoodOrThemeType
-	(MusicalWorkContributorRole)(0),                // 138: ddex.avs.MusicalWorkContributorRole
-	(MusicalWorkType)(0),                           // 139: ddex.avs.MusicalWorkType
-	(MwnlFileStatus)(0),                            // 140: ddex.avs.MwnlFileStatus
-	(MwnlProposedActionType)(0),                    // 141: ddex.avs.MwnlProposedActionType
-	(NewStudioRole)(0),                             // 142: ddex.avs.NewStudioRole
-	(NftConfirmationStatus)(0),                     // 143: ddex.avs.NftConfirmationStatus
-	(OperatingSystemType)(0),                       // 144: ddex.avs.OperatingSystemType
-	(OriginalPurpose)(0),                           // 145: ddex.avs.OriginalPurpose
-	(PLineType)(0),                                 // 146: ddex.avs.PLineType
-	(ParentalWarningStandard)(0),                   // 147: ddex.avs.ParentalWarningStandard
-	(ParentalWarningType)(0),                       // 148: ddex.avs.ParentalWarningType
-	(PartyNameFormat)(0),                           // 149: ddex.avs.PartyNameFormat
-	(PartyNamePurpose)(0),                          // 150: ddex.avs.PartyNamePurpose
-	(PartyNameType)(0),                             // 151: ddex.avs.PartyNameType
-	(PartyRelationshipType)(0),                     // 152: ddex.avs.PartyRelationshipType
-	(PartyRelationshipTypePIE)(0),                  // 153: ddex.avs.PartyRelationshipTypePIE
-	(PartyRole)(0),                                 // 154: ddex.avs.PartyRole
-	(PartyType)(0),                                 // 155: ddex.avs.PartyType
-	(PendingReason)(0),                             // 156: ddex.avs.PendingReason
-	(PercentageType)(0),                            // 157: ddex.avs.PercentageType
-	(Period)(0),                                    // 158: ddex.avs.Period
-	(PhysicalCarrierType)(0),                       // 159: ddex.avs.PhysicalCarrierType
-	(PriceInformationType)(0),                      // 160: ddex.avs.PriceInformationType
-	(PrimaryColorType)(0),                          // 161: ddex.avs.PrimaryColorType
-	(ProductType)(0),                               // 162: ddex.avs.ProductType
-	(ProfileId)(0),                                 // 163: ddex.avs.ProfileId
-	(ProfileIdCDM)(0),                              // 164: ddex.avs.ProfileIdCDM
-	(ProfileIdMWDR)(0),                             // 165: ddex.avs.ProfileIdMWDR
-	(ProfileType)(0),                               // 166: ddex.avs.ProfileType
-	(Purpose)(0),                                   // 167: ddex.avs.Purpose
-	(RatingAgency)(0),                              // 168: ddex.avs.RatingAgency
-	(RatingReason)(0),                              // 169: ddex.avs.RatingReason
-	(RdrMessageType)(0),                            // 170: ddex.avs.RdrMessageType
-	(RdrcBatchStatus)(0),                           // 171: ddex.avs.RdrcBatchStatus
-	(RdrcFileStatus)(0),                            // 172: ddex.avs.RdrcFileStatus
-	(ReasonForNameChange)(0),                       // 173: ddex.avs.ReasonForNameChange
-	(RecipientRevenueType)(0),                      // 174: ddex.avs.RecipientRevenueType
-	(RecipientRevenueTypeRDR)(0),                   // 175: ddex.avs.RecipientRevenueTypeRDR
-	(RecordingFormat)(0),                           // 176: ddex.avs.RecordingFormat
-	(RecordingMode)(0),                             // 177: ddex.avs.RecordingMode
-	(ReferenceCreation)(0),                         // 178: ddex.avs.ReferenceCreation
-	(ReferenceUnit)(0),                             // 179: ddex.avs.ReferenceUnit
-	(RegistrationStatus)(0),                        // 180: ddex.avs.RegistrationStatus
-	(RejectionReason)(0),                           // 181: ddex.avs.RejectionReason
-	(RelatedResourceType)(0),                       // 182: ddex.avs.RelatedResourceType
-	(RelationalRelator)(0),                         // 183: ddex.avs.RelationalRelator
-	(ReleaseProfileVariantVersionId)(0),            // 184: ddex.avs.ReleaseProfileVariantVersionId
-	(ReleaseProfileVersionId)(0),                   // 185: ddex.avs.ReleaseProfileVersionId
-	(ReleaseRelationshipType)(0),                   // 186: ddex.avs.ReleaseRelationshipType
-	(ReleaseResourceType)(0),                       // 187: ddex.avs.ReleaseResourceType
-	(ReleaseType)(0),                               // 188: ddex.avs.ReleaseType
-	(ReleaseTypeDSR)(0),                            // 189: ddex.avs.ReleaseTypeDSR
-	(ReleaseTypeERN4)(0),                           // 190: ddex.avs.ReleaseTypeERN4
-	(ReleaseTypeMCNOTIF)(0),                        // 191: ddex.avs.ReleaseTypeMCNOTIF
-	(ReportMessageType)(0),                         // 192: ddex.avs.ReportMessageType
-	(RequestMessagePurpose)(0),                     // 193: ddex.avs.RequestMessagePurpose
-	(RequestReason)(0),                             // 194: ddex.avs.RequestReason
-	(ResourceContributorRole)(0),                   // 195: ddex.avs.ResourceContributorRole
-	(ResourceGroupType)(0),                         // 196: ddex.avs.ResourceGroupType
-	(ResourceRelationshipType)(0),                  // 197: ddex.avs.ResourceRelationshipType
-	(ResourceType)(0),                              // 198: ddex.avs.ResourceType
-	(ResourceTypeCustomSet)(0),                     // 199: ddex.avs.ResourceTypeCustomSet
-	(ResourceTypeMCNOTIF)(0),                       // 200: ddex.avs.ResourceTypeMCNOTIF
-	(ResourceTypeRDR)(0),                           // 201: ddex.avs.ResourceTypeRDR
-	(ResourceWorkRelationshipType)(0),              // 202: ddex.avs.ResourceWorkRelationshipType
-	(ResponseType)(0),                              // 203: ddex.avs.ResponseType
-	(RevenueAllocationType)(0),                     // 204: ddex.avs.RevenueAllocationType
-	(RevenueSourceType)(0),                         // 205: ddex.avs.RevenueSourceType
-	(RevocationReason)(0),                          // 206: ddex.avs.RevocationReason
-	(RhythmStyle)(0),                               // 207: ddex.avs.RhythmStyle
-	(RightShareType)(0),                            // 208: ddex.avs.RightShareType
-	(RightShareTypeMWDR)(0),                        // 209: ddex.avs.RightShareTypeMWDR
-	(RightsClaimPolicyReason)(0),                   // 210: ddex.avs.RightsClaimPolicyReason
-	(RightsClaimPolicyType)(0),                     // 211: ddex.avs.RightsClaimPolicyType
-	(RightsClaimStatus)(0),                         // 212: ddex.avs.RightsClaimStatus
-	(RightsControlType)(0),                         // 213: ddex.avs.RightsControlType
-	(RightsControllerRole)(0),                      // 214: ddex.avs.RightsControllerRole
-	(RightsControllerType)(0),                      // 215: ddex.avs.RightsControllerType
-	(RightsCoverage)(0),                            // 216: ddex.avs.RightsCoverage
-	(RightsCoverageMWDR)(0),                        // 217: ddex.avs.RightsCoverageMWDR
-	(RightsStatementProfile)(0),                    // 218: ddex.avs.RightsStatementProfile
-	(RinFileStatus)(0),                             // 219: ddex.avs.RinFileStatus
-	(RinMessageType)(0),                            // 220: ddex.avs.RinMessageType
-	(RinProposedActionType)(0),                     // 221: ddex.avs.RinProposedActionType
-	(RootChordNote)(0),                             // 222: ddex.avs.RootChordNote
-	(RootChordQuality)(0),                          // 223: ddex.avs.RootChordQuality
-	(RoyaltyRateCalculationType)(0),                // 224: ddex.avs.RoyaltyRateCalculationType
-	(RoyaltyRateType)(0),                           // 225: ddex.avs.RoyaltyRateType
-	(SessionType)(0),                               // 226: ddex.avs.SessionType
-	(SheetMusicCodecType)(0),                       // 227: ddex.avs.SheetMusicCodecType
-	(SheetMusicType)(0),                            // 228: ddex.avs.SheetMusicType
-	(SoftwareType)(0),                              // 229: ddex.avs.SoftwareType
-	(SoundRecordingType)(0),                        // 230: ddex.avs.SoundRecordingType
-	(SpecialContributorType)(0),                    // 231: ddex.avs.SpecialContributorType
-	(Status)(0),                                    // 232: ddex.avs.Status
-	(SubGenre)(0),                                  // 233: ddex.avs.SubGenre
-	(SubTitleType)(0),                              // 234: ddex.avs.SubTitleType
-	(SummaryType)(0),                               // 235: ddex.avs.SummaryType
-	(SupplyChainStatus)(0),                         // 236: ddex.avs.SupplyChainStatus
-	(Tempo)(0),                                     // 237: ddex.avs.Tempo
-	(TerritoryCode)(0),                             // 238: ddex.avs.TerritoryCode
-	(TerritoryCodeType)(0),                         // 239: ddex.avs.TerritoryCodeType
-	(TerritoryCodeTypeIncludingDeprecatedCodes)(0), // 240: ddex.avs.TerritoryCodeTypeIncludingDeprecatedCodes
-	(TextCodecType)(0),                             // 241: ddex.avs.TextCodecType
-	(TextMusicRelationshipType)(0),                 // 242: ddex.avs.TextMusicRelationshipType
-	(TextType)(0),                                  // 243: ddex.avs.TextType
-	(TextTypeATOM)(0),                              // 244: ddex.avs.TextTypeATOM
-	(Theme)(0),                                     // 245: ddex.avs.Theme
-	(ThemeType)(0),                                 // 246: ddex.avs.ThemeType
-	(TimecodeType)(0),                              // 247: ddex.avs.TimecodeType
-	(TisTerritoryCode)(0),                          // 248: ddex.avs.TisTerritoryCode
-	(TitleType)(0),                                 // 249: ddex.avs.TitleType
-	(TransferCategory)(0),                          // 250: ddex.avs.TransferCategory
-	(TransferType)(0),                              // 251: ddex.avs.TransferType
-	(UnitOfBitRate)(0),                             // 252: ddex.avs.UnitOfBitRate
-	(UnitOfConditionValue)(0),                      // 253: ddex.avs.UnitOfConditionValue
-	(UnitOfCuePoints)(0),                           // 254: ddex.avs.UnitOfCuePoints
-	(UnitOfDuration)(0),                            // 255: ddex.avs.UnitOfDuration
-	(UnitOfExtent)(0),                              // 256: ddex.avs.UnitOfExtent
-	(UnitOfFrameRate)(0),                           // 257: ddex.avs.UnitOfFrameRate
-	(UnitOfFrequency)(0),                           // 258: ddex.avs.UnitOfFrequency
-	(UnitTypeForRevenueAllocation)(0),              // 259: ddex.avs.UnitTypeForRevenueAllocation
-	(UseType)(0),                                   // 260: ddex.avs.UseType
-	(UseTypeAR)(0),                                 // 261: ddex.avs.UseTypeAR
-	(UseTypeBWARM)(0),                              // 262: ddex.avs.UseTypeBWARM
-	(UseTypeDSR)(0),                                // 263: ddex.avs.UseTypeDSR
-	(UseTypeERN)(0),                                // 264: ddex.avs.UseTypeERN
-	(UseTypeMWNL)(0),                               // 265: ddex.avs.UseTypeMWNL
-	(UseTypeRDR)(0),                                // 266: ddex.avs.UseTypeRDR
-	(UserInterfaceType)(0),                         // 267: ddex.avs.UserInterfaceType
-	(UserInterfaceTypeERN)(0),                      // 268: ddex.avs.UserInterfaceTypeERN
-	(VersionType)(0),                               // 269: ddex.avs.VersionType
-	(VersionTypeMWDR)(0),                           // 270: ddex.avs.VersionTypeMWDR
-	(VideoCodecType)(0),                            // 271: ddex.avs.VideoCodecType
-	(VideoDefinitionType)(0),                       // 272: ddex.avs.VideoDefinitionType
-	(VideoDefinitionTypeDSR)(0),                    // 273: ddex.avs.VideoDefinitionTypeDSR
-	(VideoType)(0),                                 // 274: ddex.avs.VideoType
-	(VideoTypeDSR)(0),                              // 275: ddex.avs.VideoTypeDSR
-	(VideoTypeERN43)(0),                            // 276: ddex.avs.VideoTypeERN43
-	(VisualPerceptionType)(0),                      // 277: ddex.avs.VisualPerceptionType
-	(VocalRegister)(0),                             // 278: ddex.avs.VocalRegister
-	(VocalType)(0),                                 // 279: ddex.avs.VocalType
-	(WorkPart)(0),                                  // 280: ddex.avs.WorkPart
-	(WorkRelationshipType)(0),                      // 281: ddex.avs.WorkRelationshipType
-	(WorkRelationshipTypeMWDR)(0),                  // 282: ddex.avs.WorkRelationshipTypeMWDR
-	(WorkType)(0),                                  // 283: ddex.avs.WorkType
+var file_ddex_avs_vlatest_vlatest_proto_enumTypes = make([]protoimpl.EnumInfo, 284)
+var file_ddex_avs_vlatest_vlatest_proto_goTypes = []any{
+	(Activity)(0),                                  // 0: ddex.avs.vlatest.Activity
+	(AdditionalContributorRole)(0),                 // 1: ddex.avs.vlatest.AdditionalContributorRole
+	(AdditionalRightsClaimStatus)(0),               // 2: ddex.avs.vlatest.AdditionalRightsClaimStatus
+	(AdditionalTitleType)(0),                       // 3: ddex.avs.vlatest.AdditionalTitleType
+	(AdditionalVideoType)(0),                       // 4: ddex.avs.vlatest.AdditionalVideoType
+	(AdministratingRecordCompanyRole)(0),           // 5: ddex.avs.vlatest.AdministratingRecordCompanyRole
+	(AffiliationType)(0),                           // 6: ddex.avs.vlatest.AffiliationType
+	(AllIsoTerritoryCode)(0),                       // 7: ddex.avs.vlatest.AllIsoTerritoryCode
+	(AllTerritoryCode)(0),                          // 8: ddex.avs.vlatest.AllTerritoryCode
+	(AllTerritoryCodeNoWorldwide)(0),               // 9: ddex.avs.vlatest.AllTerritoryCodeNoWorldwide
+	(ArAcknowledgementStatus)(0),                   // 10: ddex.avs.vlatest.ArAcknowledgementStatus
+	(ArActionType)(0),                              // 11: ddex.avs.vlatest.ArActionType
+	(ArtistRole)(0),                                // 12: ddex.avs.vlatest.ArtistRole
+	(ArtistType)(0),                                // 13: ddex.avs.vlatest.ArtistType
+	(AspectRatioType)(0),                           // 14: ddex.avs.vlatest.AspectRatioType
+	(AsserterType)(0),                              // 15: ddex.avs.vlatest.AsserterType
+	(AssertionStatus)(0),                           // 16: ddex.avs.vlatest.AssertionStatus
+	(AudioCodecType)(0),                            // 17: ddex.avs.vlatest.AudioCodecType
+	(AudioVisualType)(0),                           // 18: ddex.avs.vlatest.AudioVisualType
+	(BasisForRevenueAllocation)(0),                 // 19: ddex.avs.vlatest.BasisForRevenueAllocation
+	(BinaryDataType)(0),                            // 20: ddex.avs.vlatest.BinaryDataType
+	(Blockchain)(0),                                // 21: ddex.avs.vlatest.Blockchain
+	(BusinessMusicalWorkContributorRole)(0),        // 22: ddex.avs.vlatest.BusinessMusicalWorkContributorRole
+	(CarrierType)(0),                               // 23: ddex.avs.vlatest.CarrierType
+	(CatalogTransferAcknowledgementStatus)(0),      // 24: ddex.avs.vlatest.CatalogTransferAcknowledgementStatus
+	(CatalogTransferStatus)(0),                     // 25: ddex.avs.vlatest.CatalogTransferStatus
+	(CatalogTransferType)(0),                       // 26: ddex.avs.vlatest.CatalogTransferType
+	(CdProtectionType)(0),                          // 27: ddex.avs.vlatest.CdProtectionType
+	(CharacterType)(0),                             // 28: ddex.avs.vlatest.CharacterType
+	(ClaimBasis)(0),                                // 29: ddex.avs.vlatest.ClaimBasis
+	(ClaimImpact)(0),                               // 30: ddex.avs.vlatest.ClaimImpact
+	(ClaimStatus)(0),                               // 31: ddex.avs.vlatest.ClaimStatus
+	(ClassifiedGenre)(0),                           // 32: ddex.avs.vlatest.ClassifiedGenre
+	(ClipType)(0),                                  // 33: ddex.avs.vlatest.ClipType
+	(CodingType)(0),                                // 34: ddex.avs.vlatest.CodingType
+	(CollectionMandateType)(0),                     // 35: ddex.avs.vlatest.CollectionMandateType
+	(CommentaryNoteType)(0),                        // 36: ddex.avs.vlatest.CommentaryNoteType
+	(CommercialModelType)(0),                       // 37: ddex.avs.vlatest.CommercialModelType
+	(CommercialModelTypeERN)(0),                    // 38: ddex.avs.vlatest.CommercialModelTypeERN
+	(CommercialModelTypeMWNL)(0),                   // 39: ddex.avs.vlatest.CommercialModelTypeMWNL
+	(CompilationType)(0),                           // 40: ddex.avs.vlatest.CompilationType
+	(CompositeMusicalWorkType)(0),                  // 41: ddex.avs.vlatest.CompositeMusicalWorkType
+	(Confidentiality)(0),                           // 42: ddex.avs.vlatest.Confidentiality
+	(ConsumerEngagementAnomalyType)(0),             // 43: ddex.avs.vlatest.ConsumerEngagementAnomalyType
+	(ContainerFormat)(0),                           // 44: ddex.avs.vlatest.ContainerFormat
+	(ContainsAI)(0),                                // 45: ddex.avs.vlatest.ContainsAI
+	(ContributorClaimStatus)(0),                    // 46: ddex.avs.vlatest.ContributorClaimStatus
+	(ContributorRole)(0),                           // 47: ddex.avs.vlatest.ContributorRole
+	(ContributorRoleRDR)(0),                        // 48: ddex.avs.vlatest.ContributorRoleRDR
+	(CreationType)(0),                              // 49: ddex.avs.vlatest.CreationType
+	(CreativeMusicalWorkContributorRole)(0),        // 50: ddex.avs.vlatest.CreativeMusicalWorkContributorRole
+	(CtProposedActionType)(0),                      // 51: ddex.avs.vlatest.CtProposedActionType
+	(CueOrigin)(0),                                 // 52: ddex.avs.vlatest.CueOrigin
+	(CueSheetType)(0),                              // 53: ddex.avs.vlatest.CueSheetType
+	(CueUseType)(0),                                // 54: ddex.avs.vlatest.CueUseType
+	(CueUseTypeMWDR)(0),                            // 55: ddex.avs.vlatest.CueUseTypeMWDR
+	(CurrencyCode)(0),                              // 56: ddex.avs.vlatest.CurrencyCode
+	(CurrentTerritoryCode)(0),                      // 57: ddex.avs.vlatest.CurrentTerritoryCode
+	(DanceStyle)(0),                                // 58: ddex.avs.vlatest.DanceStyle
+	(DataCarrierFormat)(0),                         // 59: ddex.avs.vlatest.DataCarrierFormat
+	(DataCarrierType)(0),                           // 60: ddex.avs.vlatest.DataCarrierType
+	(DdexTerritoryCode)(0),                         // 61: ddex.avs.vlatest.DdexTerritoryCode
+	(DdexTerritoryCodeNoWorldwide)(0),              // 62: ddex.avs.vlatest.DdexTerritoryCodeNoWorldwide
+	(DeliveryFileType)(0),                          // 63: ddex.avs.vlatest.DeliveryFileType
+	(DeprecatedCurrencyCode)(0),                    // 64: ddex.avs.vlatest.DeprecatedCurrencyCode
+	(DeprecatedIsoTerritoryCode)(0),                // 65: ddex.avs.vlatest.DeprecatedIsoTerritoryCode
+	(DeprecatedReleaseType)(0),                     // 66: ddex.avs.vlatest.DeprecatedReleaseType
+	(DigitizationMode)(0),                          // 67: ddex.avs.vlatest.DigitizationMode
+	(DiscrepancyType)(0),                           // 68: ddex.avs.vlatest.DiscrepancyType
+	(DisplayArtistRole)(0),                         // 69: ddex.avs.vlatest.DisplayArtistRole
+	(DisplayArtistRoleRDR)(0),                      // 70: ddex.avs.vlatest.DisplayArtistRoleRDR
+	(DistributionChannelType)(0),                   // 71: ddex.avs.vlatest.DistributionChannelType
+	(DistributionClass)(0),                         // 72: ddex.avs.vlatest.DistributionClass
+	(DocumentTypeLoD)(0),                           // 73: ddex.avs.vlatest.DocumentTypeLoD
+	(DocumentTypeMWL)(0),                           // 74: ddex.avs.vlatest.DocumentTypeMWL
+	(DpidStatus)(0),                                // 75: ddex.avs.vlatest.DpidStatus
+	(DrmEnforcementType)(0),                        // 76: ddex.avs.vlatest.DrmEnforcementType
+	(EditionType)(0),                               // 77: ddex.avs.vlatest.EditionType
+	(ElectroOpticalTransferFunctionType)(0),        // 78: ddex.avs.vlatest.ElectroOpticalTransferFunctionType
+	(ElementConfiguration)(0),                      // 79: ddex.avs.vlatest.ElementConfiguration
+	(ElementDesignation)(0),                        // 80: ddex.avs.vlatest.ElementDesignation
+	(EncodingType)(0),                              // 81: ddex.avs.vlatest.EncodingType
+	(EquipmentManufacturer)(0),                     // 82: ddex.avs.vlatest.EquipmentManufacturer
+	(EquipmentModel)(0),                            // 83: ddex.avs.vlatest.EquipmentModel
+	(EquipmentType)(0),                             // 84: ddex.avs.vlatest.EquipmentType
+	(ErnMessageType)(0),                            // 85: ddex.avs.vlatest.ErnMessageType
+	(ErnTestMessageType)(0),                        // 86: ddex.avs.vlatest.ErnTestMessageType
+	(ErncFileStatus)(0),                            // 87: ddex.avs.vlatest.ErncFileStatus
+	(ErncProposedActionType)(0),                    // 88: ddex.avs.vlatest.ErncProposedActionType
+	(ErrorSeverity)(0),                             // 89: ddex.avs.vlatest.ErrorSeverity
+	(ErrorType)(0),                                 // 90: ddex.avs.vlatest.ErrorType
+	(EventType)(0),                                 // 91: ddex.avs.vlatest.EventType
+	(ExceptionReason)(0),                           // 92: ddex.avs.vlatest.ExceptionReason
+	(ExpressionType)(0),                            // 93: ddex.avs.vlatest.ExpressionType
+	(ExternallyLinkedResourceType)(0),              // 94: ddex.avs.vlatest.ExternallyLinkedResourceType
+	(FileType)(0),                                  // 95: ddex.avs.vlatest.FileType
+	(FingerprintAlgorithmType)(0),                  // 96: ddex.avs.vlatest.FingerprintAlgorithmType
+	(Form)(0),                                      // 97: ddex.avs.vlatest.Form
+	(FrameRate)(0),                                 // 98: ddex.avs.vlatest.FrameRate
+	(Gender)(0),                                    // 99: ddex.avs.vlatest.Gender
+	(GenderPIE)(0),                                 // 100: ddex.avs.vlatest.GenderPIE
+	(GoverningAgreementType)(0),                    // 101: ddex.avs.vlatest.GoverningAgreementType
+	(HashSumAlgorithmType)(0),                      // 102: ddex.avs.vlatest.HashSumAlgorithmType
+	(HdrVideoDynamicMetadataType)(0),               // 103: ddex.avs.vlatest.HdrVideoDynamicMetadataType
+	(HdrVideoStaticMetadataType)(0),                // 104: ddex.avs.vlatest.HdrVideoStaticMetadataType
+	(ImageCodecType)(0),                            // 105: ddex.avs.vlatest.ImageCodecType
+	(ImageType)(0),                                 // 106: ddex.avs.vlatest.ImageType
+	(InstrumentManufacturer)(0),                    // 107: ddex.avs.vlatest.InstrumentManufacturer
+	(InstrumentModel)(0),                           // 108: ddex.avs.vlatest.InstrumentModel
+	(InstrumentType)(0),                            // 109: ddex.avs.vlatest.InstrumentType
+	(Intensity)(0),                                 // 110: ddex.avs.vlatest.Intensity
+	(Iso31661TerritoryCode)(0),                     // 111: ddex.avs.vlatest.Iso31661TerritoryCode
+	(Iso639Part12LanguageCode)(0),                  // 112: ddex.avs.vlatest.Iso639Part12LanguageCode
+	(Iso639Part3LanguageCode)(0),                   // 113: ddex.avs.vlatest.Iso639Part3LanguageCode
+	(IsoCurrencyCode)(0),                           // 114: ddex.avs.vlatest.IsoCurrencyCode
+	(IsoLanguageCode)(0),                           // 115: ddex.avs.vlatest.IsoLanguageCode
+	(IsoTerritoryCode)(0),                          // 116: ddex.avs.vlatest.IsoTerritoryCode
+	(IswcStatus)(0),                                // 117: ddex.avs.vlatest.IswcStatus
+	(LabelNameType)(0),                             // 118: ddex.avs.vlatest.LabelNameType
+	(LabelType)(0),                                 // 119: ddex.avs.vlatest.LabelType
+	(LanguageLocalizationType)(0),                  // 120: ddex.avs.vlatest.LanguageLocalizationType
+	(LicenseRecord)(0),                             // 121: ddex.avs.vlatest.LicenseRecord
+	(LicenseRefusalReason)(0),                      // 122: ddex.avs.vlatest.LicenseRefusalReason
+	(LicenseRejectionReason)(0),                    // 123: ddex.avs.vlatest.LicenseRejectionReason
+	(LinkAcknowledgementStatus)(0),                 // 124: ddex.avs.vlatest.LinkAcknowledgementStatus
+	(LinkDescription)(0),                           // 125: ddex.avs.vlatest.LinkDescription
+	(LyricsType)(0),                                // 126: ddex.avs.vlatest.LyricsType
+	(MeasurementType)(0),                           // 127: ddex.avs.vlatest.MeasurementType
+	(MembershipType)(0),                            // 128: ddex.avs.vlatest.MembershipType
+	(MessageActionType)(0),                         // 129: ddex.avs.vlatest.MessageActionType
+	(MessageControlType)(0),                        // 130: ddex.avs.vlatest.MessageControlType
+	(MessagePurpose)(0),                            // 131: ddex.avs.vlatest.MessagePurpose
+	(MessageType)(0),                               // 132: ddex.avs.vlatest.MessageType
+	(MetadataSourceType)(0),                        // 133: ddex.avs.vlatest.MetadataSourceType
+	(MissingLinkReason)(0),                         // 134: ddex.avs.vlatest.MissingLinkReason
+	(Mode)(0),                                      // 135: ddex.avs.vlatest.Mode
+	(Mood)(0),                                      // 136: ddex.avs.vlatest.Mood
+	(MoodOrThemeType)(0),                           // 137: ddex.avs.vlatest.MoodOrThemeType
+	(MusicalWorkContributorRole)(0),                // 138: ddex.avs.vlatest.MusicalWorkContributorRole
+	(MusicalWorkType)(0),                           // 139: ddex.avs.vlatest.MusicalWorkType
+	(MwnlFileStatus)(0),                            // 140: ddex.avs.vlatest.MwnlFileStatus
+	(MwnlProposedActionType)(0),                    // 141: ddex.avs.vlatest.MwnlProposedActionType
+	(NewStudioRole)(0),                             // 142: ddex.avs.vlatest.NewStudioRole
+	(NftConfirmationStatus)(0),                     // 143: ddex.avs.vlatest.NftConfirmationStatus
+	(OperatingSystemType)(0),                       // 144: ddex.avs.vlatest.OperatingSystemType
+	(OriginalPurpose)(0),                           // 145: ddex.avs.vlatest.OriginalPurpose
+	(PLineType)(0),                                 // 146: ddex.avs.vlatest.PLineType
+	(ParentalWarningStandard)(0),                   // 147: ddex.avs.vlatest.ParentalWarningStandard
+	(ParentalWarningType)(0),                       // 148: ddex.avs.vlatest.ParentalWarningType
+	(PartyNameFormat)(0),                           // 149: ddex.avs.vlatest.PartyNameFormat
+	(PartyNamePurpose)(0),                          // 150: ddex.avs.vlatest.PartyNamePurpose
+	(PartyNameType)(0),                             // 151: ddex.avs.vlatest.PartyNameType
+	(PartyRelationshipType)(0),                     // 152: ddex.avs.vlatest.PartyRelationshipType
+	(PartyRelationshipTypePIE)(0),                  // 153: ddex.avs.vlatest.PartyRelationshipTypePIE
+	(PartyRole)(0),                                 // 154: ddex.avs.vlatest.PartyRole
+	(PartyType)(0),                                 // 155: ddex.avs.vlatest.PartyType
+	(PendingReason)(0),                             // 156: ddex.avs.vlatest.PendingReason
+	(PercentageType)(0),                            // 157: ddex.avs.vlatest.PercentageType
+	(Period)(0),                                    // 158: ddex.avs.vlatest.Period
+	(PhysicalCarrierType)(0),                       // 159: ddex.avs.vlatest.PhysicalCarrierType
+	(PriceInformationType)(0),                      // 160: ddex.avs.vlatest.PriceInformationType
+	(PrimaryColorType)(0),                          // 161: ddex.avs.vlatest.PrimaryColorType
+	(ProductType)(0),                               // 162: ddex.avs.vlatest.ProductType
+	(ProfileId)(0),                                 // 163: ddex.avs.vlatest.ProfileId
+	(ProfileIdCDM)(0),                              // 164: ddex.avs.vlatest.ProfileIdCDM
+	(ProfileIdMWDR)(0),                             // 165: ddex.avs.vlatest.ProfileIdMWDR
+	(ProfileType)(0),                               // 166: ddex.avs.vlatest.ProfileType
+	(Purpose)(0),                                   // 167: ddex.avs.vlatest.Purpose
+	(RatingAgency)(0),                              // 168: ddex.avs.vlatest.RatingAgency
+	(RatingReason)(0),                              // 169: ddex.avs.vlatest.RatingReason
+	(RdrMessageType)(0),                            // 170: ddex.avs.vlatest.RdrMessageType
+	(RdrcBatchStatus)(0),                           // 171: ddex.avs.vlatest.RdrcBatchStatus
+	(RdrcFileStatus)(0),                            // 172: ddex.avs.vlatest.RdrcFileStatus
+	(ReasonForNameChange)(0),                       // 173: ddex.avs.vlatest.ReasonForNameChange
+	(RecipientRevenueType)(0),                      // 174: ddex.avs.vlatest.RecipientRevenueType
+	(RecipientRevenueTypeRDR)(0),                   // 175: ddex.avs.vlatest.RecipientRevenueTypeRDR
+	(RecordingFormat)(0),                           // 176: ddex.avs.vlatest.RecordingFormat
+	(RecordingMode)(0),                             // 177: ddex.avs.vlatest.RecordingMode
+	(ReferenceCreation)(0),                         // 178: ddex.avs.vlatest.ReferenceCreation
+	(ReferenceUnit)(0),                             // 179: ddex.avs.vlatest.ReferenceUnit
+	(RegistrationStatus)(0),                        // 180: ddex.avs.vlatest.RegistrationStatus
+	(RejectionReason)(0),                           // 181: ddex.avs.vlatest.RejectionReason
+	(RelatedResourceType)(0),                       // 182: ddex.avs.vlatest.RelatedResourceType
+	(RelationalRelator)(0),                         // 183: ddex.avs.vlatest.RelationalRelator
+	(ReleaseProfileVariantVersionId)(0),            // 184: ddex.avs.vlatest.ReleaseProfileVariantVersionId
+	(ReleaseProfileVersionId)(0),                   // 185: ddex.avs.vlatest.ReleaseProfileVersionId
+	(ReleaseRelationshipType)(0),                   // 186: ddex.avs.vlatest.ReleaseRelationshipType
+	(ReleaseResourceType)(0),                       // 187: ddex.avs.vlatest.ReleaseResourceType
+	(ReleaseType)(0),                               // 188: ddex.avs.vlatest.ReleaseType
+	(ReleaseTypeDSR)(0),                            // 189: ddex.avs.vlatest.ReleaseTypeDSR
+	(ReleaseTypeERN4)(0),                           // 190: ddex.avs.vlatest.ReleaseTypeERN4
+	(ReleaseTypeMCNOTIF)(0),                        // 191: ddex.avs.vlatest.ReleaseTypeMCNOTIF
+	(ReportMessageType)(0),                         // 192: ddex.avs.vlatest.ReportMessageType
+	(RequestMessagePurpose)(0),                     // 193: ddex.avs.vlatest.RequestMessagePurpose
+	(RequestReason)(0),                             // 194: ddex.avs.vlatest.RequestReason
+	(ResourceContributorRole)(0),                   // 195: ddex.avs.vlatest.ResourceContributorRole
+	(ResourceGroupType)(0),                         // 196: ddex.avs.vlatest.ResourceGroupType
+	(ResourceRelationshipType)(0),                  // 197: ddex.avs.vlatest.ResourceRelationshipType
+	(ResourceType)(0),                              // 198: ddex.avs.vlatest.ResourceType
+	(ResourceTypeCustomSet)(0),                     // 199: ddex.avs.vlatest.ResourceTypeCustomSet
+	(ResourceTypeMCNOTIF)(0),                       // 200: ddex.avs.vlatest.ResourceTypeMCNOTIF
+	(ResourceTypeRDR)(0),                           // 201: ddex.avs.vlatest.ResourceTypeRDR
+	(ResourceWorkRelationshipType)(0),              // 202: ddex.avs.vlatest.ResourceWorkRelationshipType
+	(ResponseType)(0),                              // 203: ddex.avs.vlatest.ResponseType
+	(RevenueAllocationType)(0),                     // 204: ddex.avs.vlatest.RevenueAllocationType
+	(RevenueSourceType)(0),                         // 205: ddex.avs.vlatest.RevenueSourceType
+	(RevocationReason)(0),                          // 206: ddex.avs.vlatest.RevocationReason
+	(RhythmStyle)(0),                               // 207: ddex.avs.vlatest.RhythmStyle
+	(RightShareType)(0),                            // 208: ddex.avs.vlatest.RightShareType
+	(RightShareTypeMWDR)(0),                        // 209: ddex.avs.vlatest.RightShareTypeMWDR
+	(RightsClaimPolicyReason)(0),                   // 210: ddex.avs.vlatest.RightsClaimPolicyReason
+	(RightsClaimPolicyType)(0),                     // 211: ddex.avs.vlatest.RightsClaimPolicyType
+	(RightsClaimStatus)(0),                         // 212: ddex.avs.vlatest.RightsClaimStatus
+	(RightsControlType)(0),                         // 213: ddex.avs.vlatest.RightsControlType
+	(RightsControllerRole)(0),                      // 214: ddex.avs.vlatest.RightsControllerRole
+	(RightsControllerType)(0),                      // 215: ddex.avs.vlatest.RightsControllerType
+	(RightsCoverage)(0),                            // 216: ddex.avs.vlatest.RightsCoverage
+	(RightsCoverageMWDR)(0),                        // 217: ddex.avs.vlatest.RightsCoverageMWDR
+	(RightsStatementProfile)(0),                    // 218: ddex.avs.vlatest.RightsStatementProfile
+	(RinFileStatus)(0),                             // 219: ddex.avs.vlatest.RinFileStatus
+	(RinMessageType)(0),                            // 220: ddex.avs.vlatest.RinMessageType
+	(RinProposedActionType)(0),                     // 221: ddex.avs.vlatest.RinProposedActionType
+	(RootChordNote)(0),                             // 222: ddex.avs.vlatest.RootChordNote
+	(RootChordQuality)(0),                          // 223: ddex.avs.vlatest.RootChordQuality
+	(RoyaltyRateCalculationType)(0),                // 224: ddex.avs.vlatest.RoyaltyRateCalculationType
+	(RoyaltyRateType)(0),                           // 225: ddex.avs.vlatest.RoyaltyRateType
+	(SessionType)(0),                               // 226: ddex.avs.vlatest.SessionType
+	(SheetMusicCodecType)(0),                       // 227: ddex.avs.vlatest.SheetMusicCodecType
+	(SheetMusicType)(0),                            // 228: ddex.avs.vlatest.SheetMusicType
+	(SoftwareType)(0),                              // 229: ddex.avs.vlatest.SoftwareType
+	(SoundRecordingType)(0),                        // 230: ddex.avs.vlatest.SoundRecordingType
+	(SpecialContributorType)(0),                    // 231: ddex.avs.vlatest.SpecialContributorType
+	(Status)(0),                                    // 232: ddex.avs.vlatest.Status
+	(SubGenre)(0),                                  // 233: ddex.avs.vlatest.SubGenre
+	(SubTitleType)(0),                              // 234: ddex.avs.vlatest.SubTitleType
+	(SummaryType)(0),                               // 235: ddex.avs.vlatest.SummaryType
+	(SupplyChainStatus)(0),                         // 236: ddex.avs.vlatest.SupplyChainStatus
+	(Tempo)(0),                                     // 237: ddex.avs.vlatest.Tempo
+	(TerritoryCode)(0),                             // 238: ddex.avs.vlatest.TerritoryCode
+	(TerritoryCodeType)(0),                         // 239: ddex.avs.vlatest.TerritoryCodeType
+	(TerritoryCodeTypeIncludingDeprecatedCodes)(0), // 240: ddex.avs.vlatest.TerritoryCodeTypeIncludingDeprecatedCodes
+	(TextCodecType)(0),                             // 241: ddex.avs.vlatest.TextCodecType
+	(TextMusicRelationshipType)(0),                 // 242: ddex.avs.vlatest.TextMusicRelationshipType
+	(TextType)(0),                                  // 243: ddex.avs.vlatest.TextType
+	(TextTypeATOM)(0),                              // 244: ddex.avs.vlatest.TextTypeATOM
+	(Theme)(0),                                     // 245: ddex.avs.vlatest.Theme
+	(ThemeType)(0),                                 // 246: ddex.avs.vlatest.ThemeType
+	(TimecodeType)(0),                              // 247: ddex.avs.vlatest.TimecodeType
+	(TisTerritoryCode)(0),                          // 248: ddex.avs.vlatest.TisTerritoryCode
+	(TitleType)(0),                                 // 249: ddex.avs.vlatest.TitleType
+	(TransferCategory)(0),                          // 250: ddex.avs.vlatest.TransferCategory
+	(TransferType)(0),                              // 251: ddex.avs.vlatest.TransferType
+	(UnitOfBitRate)(0),                             // 252: ddex.avs.vlatest.UnitOfBitRate
+	(UnitOfConditionValue)(0),                      // 253: ddex.avs.vlatest.UnitOfConditionValue
+	(UnitOfCuePoints)(0),                           // 254: ddex.avs.vlatest.UnitOfCuePoints
+	(UnitOfDuration)(0),                            // 255: ddex.avs.vlatest.UnitOfDuration
+	(UnitOfExtent)(0),                              // 256: ddex.avs.vlatest.UnitOfExtent
+	(UnitOfFrameRate)(0),                           // 257: ddex.avs.vlatest.UnitOfFrameRate
+	(UnitOfFrequency)(0),                           // 258: ddex.avs.vlatest.UnitOfFrequency
+	(UnitTypeForRevenueAllocation)(0),              // 259: ddex.avs.vlatest.UnitTypeForRevenueAllocation
+	(UseType)(0),                                   // 260: ddex.avs.vlatest.UseType
+	(UseTypeAR)(0),                                 // 261: ddex.avs.vlatest.UseTypeAR
+	(UseTypeBWARM)(0),                              // 262: ddex.avs.vlatest.UseTypeBWARM
+	(UseTypeDSR)(0),                                // 263: ddex.avs.vlatest.UseTypeDSR
+	(UseTypeERN)(0),                                // 264: ddex.avs.vlatest.UseTypeERN
+	(UseTypeMWNL)(0),                               // 265: ddex.avs.vlatest.UseTypeMWNL
+	(UseTypeRDR)(0),                                // 266: ddex.avs.vlatest.UseTypeRDR
+	(UserInterfaceType)(0),                         // 267: ddex.avs.vlatest.UserInterfaceType
+	(UserInterfaceTypeERN)(0),                      // 268: ddex.avs.vlatest.UserInterfaceTypeERN
+	(VersionType)(0),                               // 269: ddex.avs.vlatest.VersionType
+	(VersionTypeMWDR)(0),                           // 270: ddex.avs.vlatest.VersionTypeMWDR
+	(VideoCodecType)(0),                            // 271: ddex.avs.vlatest.VideoCodecType
+	(VideoDefinitionType)(0),                       // 272: ddex.avs.vlatest.VideoDefinitionType
+	(VideoDefinitionTypeDSR)(0),                    // 273: ddex.avs.vlatest.VideoDefinitionTypeDSR
+	(VideoType)(0),                                 // 274: ddex.avs.vlatest.VideoType
+	(VideoTypeDSR)(0),                              // 275: ddex.avs.vlatest.VideoTypeDSR
+	(VideoTypeERN43)(0),                            // 276: ddex.avs.vlatest.VideoTypeERN43
+	(VisualPerceptionType)(0),                      // 277: ddex.avs.vlatest.VisualPerceptionType
+	(VocalRegister)(0),                             // 278: ddex.avs.vlatest.VocalRegister
+	(VocalType)(0),                                 // 279: ddex.avs.vlatest.VocalType
+	(WorkPart)(0),                                  // 280: ddex.avs.vlatest.WorkPart
+	(WorkRelationshipType)(0),                      // 281: ddex.avs.vlatest.WorkRelationshipType
+	(WorkRelationshipTypeMWDR)(0),                  // 282: ddex.avs.vlatest.WorkRelationshipTypeMWDR
+	(WorkType)(0),                                  // 283: ddex.avs.vlatest.WorkType
 }
-var file_ddex_avs_avs_proto_depIdxs = []int32{
+var file_ddex_avs_vlatest_vlatest_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -59061,26 +59061,26 @@ var file_ddex_avs_avs_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_ddex_avs_avs_proto_init() }
-func file_ddex_avs_avs_proto_init() {
-	if File_ddex_avs_avs_proto != nil {
+func init() { file_ddex_avs_vlatest_vlatest_proto_init() }
+func file_ddex_avs_vlatest_vlatest_proto_init() {
+	if File_ddex_avs_vlatest_vlatest_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ddex_avs_avs_proto_rawDesc), len(file_ddex_avs_avs_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ddex_avs_vlatest_vlatest_proto_rawDesc), len(file_ddex_avs_vlatest_vlatest_proto_rawDesc)),
 			NumEnums:      284,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_ddex_avs_avs_proto_goTypes,
-		DependencyIndexes: file_ddex_avs_avs_proto_depIdxs,
-		EnumInfos:         file_ddex_avs_avs_proto_enumTypes,
+		GoTypes:           file_ddex_avs_vlatest_vlatest_proto_goTypes,
+		DependencyIndexes: file_ddex_avs_vlatest_vlatest_proto_depIdxs,
+		EnumInfos:         file_ddex_avs_vlatest_vlatest_proto_enumTypes,
 	}.Build()
-	File_ddex_avs_avs_proto = out.File
-	file_ddex_avs_avs_proto_goTypes = nil
-	file_ddex_avs_avs_proto_depIdxs = nil
+	File_ddex_avs_vlatest_vlatest_proto = out.File
+	file_ddex_avs_vlatest_vlatest_proto_goTypes = nil
+	file_ddex_avs_vlatest_vlatest_proto_depIdxs = nil
 }
