@@ -23,6 +23,7 @@ type DOMComparison struct {
 	MissingAttributes   []string
 	ValueMismatches     []string
 	ExtraElements       []string
+	MarshaledParseable  bool // Can the marshaled XML be parsed back successfully
 	Success             bool
 }
 
@@ -53,6 +54,11 @@ func TestXMLRoundTripIntegrity(t *testing.T) {
 				comparison.ElementsOriginal, comparison.ElementsMarshaled)
 			t.Logf("Attributes: Original=%d, Marshaled=%d",
 				comparison.AttributesOriginal, comparison.AttributesMarshaled)
+
+			// Check if marshaled XML can be parsed back
+			if !comparison.MarshaledParseable {
+				t.Errorf("Marshaled XML cannot be parsed back successfully")
+			}
 
 			// Check for issues
 			if len(comparison.MissingElements) > 0 {
@@ -107,6 +113,7 @@ func performRoundTripValidation(xmlPath string, msgType string) *DOMComparison {
 		MissingAttributes: []string{},
 		ValueMismatches:   []string{},
 		ExtraElements:     []string{},
+		MarshaledParseable: true,
 		Success:           true,
 	}
 
@@ -185,10 +192,43 @@ func performRoundTripValidation(xmlPath string, msgType string) *DOMComparison {
 	// Compare the two DOM trees
 	compareDOMTrees(originalDoc.Root(), marshaledDoc.Root(), "", comparison)
 
+	// Test what actually matters: can we parse the marshaled XML back?
+	switch msgType {
+	case "ERN":
+		// Test 1: Can ParseERN detect version from marshaled XML?
+		version, err := DetectERNVersion(marshaledXML)
+		if err != nil || version == "" {
+			comparison.MarshaledParseable = false
+			fmt.Printf("Version detection failed on marshaled XML: %v\n", err)
+		} else {
+			// Test 2: Can we parse the marshaled XML back successfully?
+			_, _, err = ParseERN(marshaledXML)
+			if err != nil {
+				comparison.MarshaledParseable = false
+				fmt.Printf("Failed to parse marshaled XML back to proto: %v\n", err)
+			}
+		}
+
+	case "MEAD":
+		var msg2 meadv11.MeadMessage
+		if err := xml.Unmarshal(marshaledXML, &msg2); err != nil {
+			comparison.MarshaledParseable = false
+			fmt.Printf("Failed to unmarshal MEAD XML: %v\n", err)
+		}
+
+	case "PIE":
+		var msg2 piev10.PieMessage
+		if err := xml.Unmarshal(marshaledXML, &msg2); err != nil {
+			comparison.MarshaledParseable = false
+			fmt.Printf("Failed to unmarshal PIE XML: %v\n", err)
+		}
+	}
+
 	// Set success based on critical issues
 	if len(comparison.MissingElements) > 0 ||
 		len(comparison.MissingAttributes) > 0 ||
-		len(comparison.ValueMismatches) > 0 {
+		len(comparison.ValueMismatches) > 0 ||
+		!comparison.MarshaledParseable {
 		comparison.Success = false
 	}
 

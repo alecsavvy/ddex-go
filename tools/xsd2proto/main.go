@@ -646,20 +646,20 @@ func generateComplexTypeMessageWithNamespace(name string, complexType *XSDComple
 
 		if namespacePrefix != "" {
 			// Add the namespace prefix attribute (e.g., xmlns:ern)
-			injectComment := fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", namespacePrefix)
+			injectComment := fmt.Sprintf("  // @gotags: xml:\"xmlns:%s,attr\"", namespacePrefix)
 			field := fmt.Sprintf("%s\n  string xmlns_%s = %d;", injectComment, namespacePrefix, fieldNum)
 			builder.WriteString(field + "\n")
 			fieldNum++
 		}
 
 		// Add XSI namespace attribute
-		injectComment := fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", "xsi")
+		injectComment := fmt.Sprintf("  // @gotags: xml:\"xmlns:xsi,attr\"")
 		field := fmt.Sprintf("%s\n  string xmlns_xsi = %d;", injectComment, fieldNum)
 		builder.WriteString(field + "\n")
 		fieldNum++
 
-		// Add schema location attribute
-		injectComment = fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", "schemaLocation")
+		// Add schema location attribute (this one needs xsi: prefix, not xmlns:)
+		injectComment = fmt.Sprintf("  // @gotags: xml:\"xsi:schemaLocation,attr\"")
 		field = fmt.Sprintf("%s\n  string xsi_schema_location = %d;", injectComment, fieldNum)
 		builder.WriteString(field + "\n")
 		fieldNum++

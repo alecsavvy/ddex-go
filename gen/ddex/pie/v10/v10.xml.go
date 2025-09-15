@@ -4,8 +4,27 @@ package v10
 
 import "encoding/xml"
 
+// Package-level namespace constants
+const (
+	Namespace       = "http://ddex.net/xml/pie/10"
+	NamespacePrefix = "pie"
+	SchemaLocation  = "http://ddex.net/xml/pie/10 http://ddex.net/xml/pie/10/party-identification-and-enrichment.xsd"
+	NamespaceXSI    = "http://www.w3.org/2001/XMLSchema-instance"
+)
+
 // MarshalXML implements xml.Marshaler for PieMessage
 func (m *PieMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	// Set default namespace values if empty
+	if m.XmlnsPie == "" {
+		m.XmlnsPie = Namespace
+	}
+	if m.XmlnsXsi == "" {
+		m.XmlnsXsi = NamespaceXSI
+	}
+	if m.XsiSchemaLocation == "" {
+		m.XsiSchemaLocation = SchemaLocation
+	}
+
 	// Create an alias type to avoid infinite recursion
 	type alias PieMessage
 	return e.EncodeElement((*alias)(m), start)
@@ -20,6 +39,17 @@ func (m *PieMessage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error 
 
 // MarshalXML implements xml.Marshaler for PieRequestMessage
 func (m *PieRequestMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	// Set default namespace values if empty
+	if m.XmlnsPie == "" {
+		m.XmlnsPie = Namespace
+	}
+	if m.XmlnsXsi == "" {
+		m.XmlnsXsi = NamespaceXSI
+	}
+	if m.XsiSchemaLocation == "" {
+		m.XsiSchemaLocation = SchemaLocation
+	}
+
 	// Create an alias type to avoid infinite recursion
 	type alias PieRequestMessage
 	return e.EncodeElement((*alias)(m), start)

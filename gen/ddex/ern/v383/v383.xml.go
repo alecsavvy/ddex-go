@@ -4,8 +4,27 @@ package v383
 
 import "encoding/xml"
 
+// Package-level namespace constants
+const (
+	Namespace       = "http://ddex.net/xml/ern/383"
+	NamespacePrefix = "ern"
+	SchemaLocation  = "http://ddex.net/xml/ern/383 http://ddex.net/xml/ern/383/release-notification.xsd"
+	NamespaceXSI    = "http://www.w3.org/2001/XMLSchema-instance"
+)
+
 // MarshalXML implements xml.Marshaler for NewReleaseMessage
 func (m *NewReleaseMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	// Set default namespace values if empty
+	if m.XmlnsErn == "" {
+		m.XmlnsErn = Namespace
+	}
+	if m.XmlnsXsi == "" {
+		m.XmlnsXsi = NamespaceXSI
+	}
+	if m.XsiSchemaLocation == "" {
+		m.XsiSchemaLocation = SchemaLocation
+	}
+
 	// Create an alias type to avoid infinite recursion
 	type alias NewReleaseMessage
 	return e.EncodeElement((*alias)(m), start)
@@ -34,6 +53,17 @@ func (m *CatalogListMessage) UnmarshalXML(d *xml.Decoder, start xml.StartElement
 
 // MarshalXML implements xml.Marshaler for PurgeReleaseMessage
 func (m *PurgeReleaseMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	// Set default namespace values if empty
+	if m.XmlnsErn == "" {
+		m.XmlnsErn = Namespace
+	}
+	if m.XmlnsXsi == "" {
+		m.XmlnsXsi = NamespaceXSI
+	}
+	if m.XsiSchemaLocation == "" {
+		m.XsiSchemaLocation = SchemaLocation
+	}
+
 	// Create an alias type to avoid infinite recursion
 	type alias PurgeReleaseMessage
 	return e.EncodeElement((*alias)(m), start)

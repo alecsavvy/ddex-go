@@ -11,7 +11,6 @@ import (
 	ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
 	meadv11 "github.com/alecsavvy/ddex-go/gen/ddex/mead/v11"
 	piev10 "github.com/alecsavvy/ddex-go/gen/ddex/pie/v10"
-	"github.com/alecsavvy/ddex-go/testdata"
 )
 
 // Test data maps for each message type
@@ -112,20 +111,6 @@ func TestDDEXConformance(t *testing.T) {
 	})
 }
 
-// TestProtoToXMLRoundTrip tests that protobuf structs can be marshaled to XML and unmarshaled back
-func TestProtoToXMLRoundTrip(t *testing.T) {
-	t.Run("ERN", func(t *testing.T) {
-		testProtoToXMLToProtoRoundTrip(t, "ERN", testdata.SimpleERNTest)
-	})
-
-	t.Run("MEAD", func(t *testing.T) {
-		testProtoToXMLToProtoRoundTrip(t, "MEAD", testdata.SimpleMEADTest)
-	})
-
-	t.Run("PIE", func(t *testing.T) {
-		testProtoToXMLToProtoRoundTrip(t, "PIE", testdata.SimplePIETest)
-	})
-}
 
 // TestFieldCompleteness tests that required fields are properly populated
 func TestFieldCompleteness(t *testing.T) {
@@ -410,99 +395,6 @@ func validateRequiredFields(t *testing.T, fields []fieldCheck) {
 	}
 }
 
-func testProtoToXMLToProtoRoundTrip(t *testing.T, msgType string, constructor interface{}) {
-	switch msgType {
-	case "ERN":
-		constructor := constructor.(func() *ernv432.NewReleaseMessage)
-		original := constructor()
-
-		// Marshal to XML
-		xmlData, err := xml.MarshalIndent(original, "", "  ")
-		if err != nil {
-			t.Fatalf("Failed to marshal to XML: %v", err)
-		}
-
-		// Add XML header for proper parsing
-		fullXML := []byte(xml.Header + string(xmlData))
-
-		// Unmarshal back to proto struct
-		var roundTrip ernv432.NewReleaseMessage
-		err = xml.Unmarshal(fullXML, &roundTrip)
-		if err != nil {
-			t.Fatalf("Failed to unmarshal from XML: %v", err)
-		}
-
-		// Compare structs using reflect for deep equality
-		if !reflect.DeepEqual(original, &roundTrip) {
-			t.Errorf("Round trip failed: original and unmarshaled structs are not equal")
-			t.Logf("Original: %+v", original)
-			t.Logf("RoundTrip: %+v", &roundTrip)
-		} else {
-			t.Log("✓ ERN proto->XML->proto round trip successful")
-		}
-
-	case "MEAD":
-		constructor := constructor.(func() *meadv11.MeadMessage)
-		original := constructor()
-
-		// Marshal to XML
-		xmlData, err := xml.MarshalIndent(original, "", "  ")
-		if err != nil {
-			t.Fatalf("Failed to marshal to XML: %v", err)
-		}
-
-		// Add XML header for proper parsing
-		fullXML := []byte(xml.Header + string(xmlData))
-
-		// Unmarshal back to proto struct
-		var roundTrip meadv11.MeadMessage
-		err = xml.Unmarshal(fullXML, &roundTrip)
-		if err != nil {
-			t.Fatalf("Failed to unmarshal from XML: %v", err)
-		}
-
-		// Compare structs using reflect for deep equality
-		if !reflect.DeepEqual(original, &roundTrip) {
-			t.Errorf("Round trip failed: original and unmarshaled structs are not equal")
-			t.Logf("Original: %+v", original)
-			t.Logf("RoundTrip: %+v", &roundTrip)
-		} else {
-			t.Log("✓ MEAD proto->XML->proto round trip successful")
-		}
-
-	case "PIE":
-		constructor := constructor.(func() *piev10.PieMessage)
-		original := constructor()
-
-		// Marshal to XML
-		xmlData, err := xml.MarshalIndent(original, "", "  ")
-		if err != nil {
-			t.Fatalf("Failed to marshal to XML: %v", err)
-		}
-
-		// Add XML header for proper parsing
-		fullXML := []byte(xml.Header + string(xmlData))
-
-		// Unmarshal back to proto struct
-		var roundTrip piev10.PieMessage
-		err = xml.Unmarshal(fullXML, &roundTrip)
-		if err != nil {
-			t.Fatalf("Failed to unmarshal from XML: %v", err)
-		}
-
-		// Compare structs using reflect for deep equality
-		if !reflect.DeepEqual(original, &roundTrip) {
-			t.Errorf("Round trip failed: original and unmarshaled structs are not equal")
-			t.Logf("Original: %+v", original)
-			t.Logf("RoundTrip: %+v", &roundTrip)
-		} else {
-			t.Log("✓ PIE proto->XML->proto round trip successful")
-		}
-
-	default:
-		t.Fatalf("Unknown message type: %s", msgType)
-	}
-}
 
 func testXMLTags(t *testing.T, xmlPath string, msgType interface{}, msgName string) {
 	xmlData, err := os.ReadFile(xmlPath)

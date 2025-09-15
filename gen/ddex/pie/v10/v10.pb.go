@@ -34,12 +34,12 @@ type PieMessage struct {
 	AvsVersionId string `protobuf:"bytes,4,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,5,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	// @gotags: xml:"pie,attr"
-	XmlnsPie string `protobuf:"bytes,6,opt,name=xmlns_pie,json=xmlnsPie,proto3" json:"xmlns_pie,omitempty" xml:"pie,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,7,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,8,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:pie,attr"
+	XmlnsPie string `protobuf:"bytes,6,opt,name=xmlns_pie,json=xmlnsPie,proto3" json:"xmlns_pie,omitempty" xml:"xmlns:pie,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,7,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,8,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -140,12 +140,12 @@ type PieRequestMessage struct {
 	AvsVersionId string `protobuf:"bytes,3,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	// @gotags: xml:"pie,attr"
-	XmlnsPie string `protobuf:"bytes,5,opt,name=xmlns_pie,json=xmlnsPie,proto3" json:"xmlns_pie,omitempty" xml:"pie,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,6,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,7,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:pie,attr"
+	XmlnsPie string `protobuf:"bytes,5,opt,name=xmlns_pie,json=xmlnsPie,proto3" json:"xmlns_pie,omitempty" xml:"xmlns:pie,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,6,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,7,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -257,12 +257,12 @@ type Feed struct {
 	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3" json:"updated,omitempty" xml:"updated"`
 	// @gotags: xml:"entry"
 	Entry []*Entry `protobuf:"bytes,13,rep,name=entry,proto3" json:"entry,omitempty" xml:"entry"`
-	// @gotags: xml:"pie,attr"
-	XmlnsPie string `protobuf:"bytes,14,opt,name=xmlns_pie,json=xmlnsPie,proto3" json:"xmlns_pie,omitempty" xml:"pie,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,15,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,16,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:pie,attr"
+	XmlnsPie string `protobuf:"bytes,14,opt,name=xmlns_pie,json=xmlnsPie,proto3" json:"xmlns_pie,omitempty" xml:"xmlns:pie,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,15,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,16,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }

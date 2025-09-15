@@ -4,8 +4,27 @@ package v11
 
 import "encoding/xml"
 
+// Package-level namespace constants
+const (
+	Namespace       = "http://ddex.net/xml/mead/11"
+	NamespacePrefix = "mead"
+	SchemaLocation  = "http://ddex.net/xml/mead/11 http://ddex.net/xml/mead/11/media-enrichment-and-description.xsd"
+	NamespaceXSI    = "http://www.w3.org/2001/XMLSchema-instance"
+)
+
 // MarshalXML implements xml.Marshaler for MeadMessage
 func (m *MeadMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	// Set default namespace values if empty
+	if m.XmlnsMead == "" {
+		m.XmlnsMead = Namespace
+	}
+	if m.XmlnsXsi == "" {
+		m.XmlnsXsi = NamespaceXSI
+	}
+	if m.XsiSchemaLocation == "" {
+		m.XsiSchemaLocation = SchemaLocation
+	}
+
 	// Create an alias type to avoid infinite recursion
 	type alias MeadMessage
 	return e.EncodeElement((*alias)(m), start)

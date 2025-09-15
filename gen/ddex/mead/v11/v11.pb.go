@@ -40,12 +40,12 @@ type MeadMessage struct {
 	AvsVersionId string `protobuf:"bytes,7,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	// @gotags: xml:"mead,attr"
-	XmlnsMead string `protobuf:"bytes,9,opt,name=xmlns_mead,json=xmlnsMead,proto3" json:"xmlns_mead,omitempty" xml:"mead,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,10,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,11,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:mead,attr"
+	XmlnsMead string `protobuf:"bytes,9,opt,name=xmlns_mead,json=xmlnsMead,proto3" json:"xmlns_mead,omitempty" xml:"xmlns:mead,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,10,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,11,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -185,12 +185,12 @@ type Feed struct {
 	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3" json:"updated,omitempty" xml:"updated"`
 	// @gotags: xml:"entry"
 	Entry []*Entry `protobuf:"bytes,13,rep,name=entry,proto3" json:"entry,omitempty" xml:"entry"`
-	// @gotags: xml:"mead,attr"
-	XmlnsMead string `protobuf:"bytes,14,opt,name=xmlns_mead,json=xmlnsMead,proto3" json:"xmlns_mead,omitempty" xml:"mead,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,15,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,16,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:mead,attr"
+	XmlnsMead string `protobuf:"bytes,14,opt,name=xmlns_mead,json=xmlnsMead,proto3" json:"xmlns_mead,omitempty" xml:"xmlns:mead,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,15,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,16,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }

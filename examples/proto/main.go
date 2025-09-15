@@ -16,13 +16,16 @@ import (
 
 func main() {
 	var filePath string
+	var outputPath string
 	flag.StringVar(&filePath, "file", "", "Path to DDEX XML file")
+	flag.StringVar(&outputPath, "output", "", "Optional: Path to output XML file after proto conversion")
 	flag.Parse()
 
 	if filePath == "" {
-		fmt.Println("Usage: go run main.go -file <path-to-ddex-file>")
+		fmt.Println("Usage: go run main.go -file <path-to-ddex-file> [-output <output-file>]")
 		fmt.Println("\nExample:")
 		fmt.Println("  go run main.go -file ../../test-files/sample.xml")
+		fmt.Println("  go run main.go -file ../../test-files/sample.xml -output output.xml")
 		os.Exit(1)
 	}
 
@@ -39,6 +42,20 @@ func main() {
 	if err := xml.Unmarshal(data, &newRelease); err == nil && newRelease.MessageHeader != nil {
 		fmt.Println("✓ Parsed as ERN v4.3.2 NewReleaseMessage (protobuf)")
 		spew.Dump(&newRelease)
+
+		if outputPath != "" {
+			output, err := xml.MarshalIndent(&newRelease, "", "  ")
+			if err != nil {
+				log.Printf("Failed to marshal back to XML: %v", err)
+			} else {
+				output = append([]byte(xml.Header), output...)
+				if err := os.WriteFile(outputPath, output, 0644); err != nil {
+					log.Printf("Failed to write output file: %v", err)
+				} else {
+					fmt.Printf("\n✓ Written to %s\n", outputPath)
+				}
+			}
+		}
 		return
 	}
 
@@ -47,6 +64,20 @@ func main() {
 	if err := xml.Unmarshal(data, &purgeRelease); err == nil && purgeRelease.MessageHeader != nil {
 		fmt.Println("✓ Parsed as ERN v4.3.2 PurgeReleaseMessage (protobuf)")
 		spew.Dump(&purgeRelease)
+
+		if outputPath != "" {
+			output, err := xml.MarshalIndent(&purgeRelease, "", "  ")
+			if err != nil {
+				log.Printf("Failed to marshal back to XML: %v", err)
+			} else {
+				output = append([]byte(xml.Header), output...)
+				if err := os.WriteFile(outputPath, output, 0644); err != nil {
+					log.Printf("Failed to write output file: %v", err)
+				} else {
+					fmt.Printf("\n✓ Written to %s\n", outputPath)
+				}
+			}
+		}
 		return
 	}
 
@@ -55,6 +86,20 @@ func main() {
 	if err := xml.Unmarshal(data, &mead); err == nil && mead.MessageHeader != nil {
 		fmt.Println("✓ Parsed as MEAD v1.1 MeadMessage (protobuf)")
 		spew.Dump(&mead)
+
+		if outputPath != "" {
+			output, err := xml.MarshalIndent(&mead, "", "  ")
+			if err != nil {
+				log.Printf("Failed to marshal back to XML: %v", err)
+			} else {
+				output = append([]byte(xml.Header), output...)
+				if err := os.WriteFile(outputPath, output, 0644); err != nil {
+					log.Printf("Failed to write output file: %v", err)
+				} else {
+					fmt.Printf("\n✓ Written to %s\n", outputPath)
+				}
+			}
+		}
 		return
 	}
 
@@ -63,6 +108,20 @@ func main() {
 	if err := xml.Unmarshal(data, &pie); err == nil && pie.MessageHeader != nil {
 		fmt.Println("✓ Parsed as PIE v1.0 PieMessage (protobuf)")
 		spew.Dump(&pie)
+
+		if outputPath != "" {
+			output, err := xml.MarshalIndent(&pie, "", "  ")
+			if err != nil {
+				log.Printf("Failed to marshal back to XML: %v", err)
+			} else {
+				output = append([]byte(xml.Header), output...)
+				if err := os.WriteFile(outputPath, output, 0644); err != nil {
+					log.Printf("Failed to write output file: %v", err)
+				} else {
+					fmt.Printf("\n✓ Written to %s\n", outputPath)
+				}
+			}
+		}
 		return
 	}
 
@@ -71,6 +130,20 @@ func main() {
 	if err := xml.Unmarshal(data, &pieRequest); err == nil && pieRequest.MessageHeader != nil {
 		fmt.Println("✓ Parsed as PIE v1.0 PieRequestMessage (protobuf)")
 		spew.Dump(&pieRequest)
+
+		if outputPath != "" {
+			output, err := xml.MarshalIndent(&pieRequest, "", "  ")
+			if err != nil {
+				log.Printf("Failed to marshal back to XML: %v", err)
+			} else {
+				output = append([]byte(xml.Header), output...)
+				if err := os.WriteFile(outputPath, output, 0644); err != nil {
+					log.Printf("Failed to write output file: %v", err)
+				} else {
+					fmt.Printf("\n✓ Written to %s\n", outputPath)
+				}
+			}
+		}
 		return
 	}
 

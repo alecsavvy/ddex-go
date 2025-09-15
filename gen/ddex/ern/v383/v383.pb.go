@@ -98,12 +98,12 @@ type NewReleaseMessage struct {
 	ReleaseProfileVersionId string `protobuf:"bytes,13,opt,name=release_profile_version_id,json=releaseProfileVersionId,proto3" json:"release_profile_version_id,omitempty" xml:"ReleaseProfileVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,14,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	// @gotags: xml:"ern,attr"
-	XmlnsErn string `protobuf:"bytes,15,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"ern,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,16,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,17,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:ern,attr"
+	XmlnsErn string `protobuf:"bytes,15,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"xmlns:ern,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,16,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,17,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -273,12 +273,12 @@ type CatalogListMessage struct {
 	ReleaseProfileVersionId string `protobuf:"bytes,6,opt,name=release_profile_version_id,json=releaseProfileVersionId,proto3" json:"release_profile_version_id,omitempty" xml:"ReleaseProfileVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,7,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	// @gotags: xml:"ern,attr"
-	XmlnsErn string `protobuf:"bytes,8,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"ern,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,9,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,10,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:ern,attr"
+	XmlnsErn string `protobuf:"bytes,8,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"xmlns:ern,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,9,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,10,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -393,12 +393,12 @@ type PurgeReleaseMessage struct {
 	MessageSchemaVersionId string `protobuf:"bytes,3,opt,name=message_schema_version_id,json=messageSchemaVersionId,proto3" json:"message_schema_version_id,omitempty" xml:"MessageSchemaVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	// @gotags: xml:"ern,attr"
-	XmlnsErn string `protobuf:"bytes,5,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"ern,attr"`
-	// @gotags: xml:"xsi,attr"
-	XmlnsXsi string `protobuf:"bytes,6,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
-	// @gotags: xml:"schemaLocation,attr"
-	XsiSchemaLocation string `protobuf:"bytes,7,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	// @gotags: xml:"xmlns:ern,attr"
+	XmlnsErn string `protobuf:"bytes,5,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"xmlns:ern,attr"`
+	// @gotags: xml:"xmlns:xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,6,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xmlns:xsi,attr"`
+	// @gotags: xml:"xsi:schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,7,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"xsi:schemaLocation,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }

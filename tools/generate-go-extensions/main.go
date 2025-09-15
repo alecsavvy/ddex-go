@@ -173,7 +173,7 @@ func generateEnumStringsFile(packageDir, packageName string, enums []EnumInfo) e
 
 // generatePackageXMLFile creates a single XML file for all messages in a package
 func generatePackageXMLFile(packageDir, packageName string, messages []MessageInfo) error {
-	content := generatePackageXMLContent(packageName, messages)
+	content := generatePackageXMLContent(packageDir, packageName, messages)
 
 	xmlFileName := packageName + ".xml.go"
 	xmlPath := filepath.Join(packageDir, xmlFileName)
@@ -204,8 +204,66 @@ func generateEnumStringsContent(packageName string, enums []EnumInfo) string {
 	return sb.String()
 }
 
+// NamespaceInfo holds namespace configuration for a package
+type NamespaceInfo struct {
+	Namespace       string
+	NamespacePrefix string
+	SchemaFile      string
+}
+
+// deriveNamespaceInfo extracts namespace info from package directory path
+func deriveNamespaceInfo(packageDir string) *NamespaceInfo {
+	// packageDir is something like "gen/ddex/ern/v432"
+	// We want to extract: ddex type (ern/mead/pie), version (432/43/11/10)
+
+	parts := strings.Split(filepath.Clean(packageDir), string(filepath.Separator))
+	if len(parts) < 4 {
+		return nil // Not a DDEX package
+	}
+
+	// Look for the ddex directory and extract type/version
+	ddexIndex := -1
+	for i, part := range parts {
+		if part == "ddex" {
+			ddexIndex = i
+			break
+		}
+	}
+
+	if ddexIndex == -1 || ddexIndex+2 >= len(parts) {
+		return nil // Not found or not enough parts
+	}
+
+	messageType := parts[ddexIndex+1] // ern, mead, pie
+	version := parts[ddexIndex+2]     // v432, v43, v11, etc.
+
+	// Remove 'v' prefix from version
+	versionNumber := strings.TrimPrefix(version, "v")
+
+	info := &NamespaceInfo{
+		NamespacePrefix: messageType,
+	}
+
+	// Set namespace and schema file based on type
+	switch messageType {
+	case "ern":
+		info.Namespace = fmt.Sprintf("http://ddex.net/xml/ern/%s", versionNumber)
+		info.SchemaFile = "release-notification.xsd"
+	case "mead":
+		info.Namespace = fmt.Sprintf("http://ddex.net/xml/mead/%s", versionNumber)
+		info.SchemaFile = "media-enrichment-and-description.xsd"
+	case "pie":
+		info.Namespace = fmt.Sprintf("http://ddex.net/xml/pie/%s", versionNumber)
+		info.SchemaFile = "party-identification-and-enrichment.xsd"
+	default:
+		return nil
+	}
+
+	return info
+}
+
 // generatePackageXMLContent creates the content for a package XML file
-func generatePackageXMLContent(packageName string, messages []MessageInfo) string {
+func generatePackageXMLContent(packageDir, packageName string, messages []MessageInfo) string {
 	var sb strings.Builder
 
 	// Package header
@@ -213,12 +271,24 @@ func generatePackageXMLContent(packageName string, messages []MessageInfo) strin
 	sb.WriteString(fmt.Sprintf("package %s\n\n", packageName))
 	sb.WriteString("import \"encoding/xml\"\n\n")
 
+	// Derive namespace info from package path
+	nsInfo := deriveNamespaceInfo(packageDir)
+	if nsInfo != nil {
+		sb.WriteString("// Package-level namespace constants\n")
+		sb.WriteString("const (\n")
+		sb.WriteString(fmt.Sprintf("\tNamespace = \"%s\"\n", nsInfo.Namespace))
+		sb.WriteString(fmt.Sprintf("\tNamespacePrefix = \"%s\"\n", nsInfo.NamespacePrefix))
+		sb.WriteString(fmt.Sprintf("\tSchemaLocation = \"%s %s/%s\"\n", nsInfo.Namespace, nsInfo.Namespace, nsInfo.SchemaFile))
+		sb.WriteString("\tNamespaceXSI = \"http://www.w3.org/2001/XMLSchema-instance\"\n")
+		sb.WriteString(")\n\n")
+	}
+
 	// Generate XML marshaling methods for all messages in the package
 	for i, message := range messages {
 		if i > 0 {
 			sb.WriteString("\n\n")
 		}
-		sb.WriteString(generateXMLMarshalingMethods(message))
+		sb.WriteString(generateXMLMarshalingMethods(message, nsInfo))
 	}
 
 	return sb.String()
@@ -299,12 +369,32 @@ func generateEnumParser(enum EnumInfo) string {
 }
 
 // generateXMLMarshalingMethods creates MarshalXML and UnmarshalXML methods for message types
-func generateXMLMarshalingMethods(message MessageInfo) string {
+func generateXMLMarshalingMethods(message MessageInfo, nsInfo *NamespaceInfo) string {
 	var sb strings.Builder
 
 	// Generate MarshalXML method
 	sb.WriteString(fmt.Sprintf("// MarshalXML implements xml.Marshaler for %s\n", message.Name))
 	sb.WriteString(fmt.Sprintf("func (m *%s) MarshalXML(e *xml.Encoder, start xml.StartElement) error {\n", message.Name))
+
+	// Add namespace population for root message types if we have namespace info
+	if nsInfo != nil && isRootMessage(message.Name) {
+		sb.WriteString("\t// Set default namespace values if empty\n")
+
+		// Generate field name based on prefix (XmlnsErn, XmlnsMead, XmlnsPie)
+		fieldName := fmt.Sprintf("Xmlns%s", strings.Title(nsInfo.NamespacePrefix))
+		sb.WriteString(fmt.Sprintf("\tif m.%s == \"\" {\n", fieldName))
+		sb.WriteString("\t\tm." + fieldName + " = Namespace\n")
+		sb.WriteString("\t}\n")
+
+		sb.WriteString("\tif m.XmlnsXsi == \"\" {\n")
+		sb.WriteString("\t\tm.XmlnsXsi = NamespaceXSI\n")
+		sb.WriteString("\t}\n")
+
+		sb.WriteString("\tif m.XsiSchemaLocation == \"\" {\n")
+		sb.WriteString("\t\tm.XsiSchemaLocation = SchemaLocation\n")
+		sb.WriteString("\t}\n\n")
+	}
+
 	sb.WriteString("\t// Create an alias type to avoid infinite recursion\n")
 	sb.WriteString(fmt.Sprintf("\ttype alias %s\n", message.Name))
 	sb.WriteString("\treturn e.EncodeElement((*alias)(m), start)\n")
@@ -319,4 +409,14 @@ func generateXMLMarshalingMethods(message MessageInfo) string {
 	sb.WriteString("}")
 
 	return sb.String()
+}
+
+// isRootMessage determines if a message type is a root message that needs namespace handling
+func isRootMessage(messageName string) bool {
+	switch messageName {
+	case "NewReleaseMessage", "PurgeReleaseMessage", "MeadMessage", "PieMessage", "PieRequestMessage":
+		return true
+	default:
+		return false
+	}
 }

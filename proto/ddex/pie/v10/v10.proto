@@ -19,11 +19,11 @@ message PieMessage {
   string avs_version_id = 4;
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 5;
-  // @gotags: xml:"pie,attr"
+  // @gotags: xml:"xmlns:pie,attr"
   string xmlns_pie = 6;
-  // @gotags: xml:"xsi,attr"
+  // @gotags: xml:"xmlns:xsi,attr"
   string xmlns_xsi = 7;
-  // @gotags: xml:"schemaLocation,attr"
+  // @gotags: xml:"xsi:schemaLocation,attr"
   string xsi_schema_location = 8;
 }
 
@@ -36,11 +36,11 @@ message PieRequestMessage {
   string avs_version_id = 3;
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 4;
-  // @gotags: xml:"pie,attr"
+  // @gotags: xml:"xmlns:pie,attr"
   string xmlns_pie = 5;
-  // @gotags: xml:"xsi,attr"
+  // @gotags: xml:"xmlns:xsi,attr"
   string xmlns_xsi = 6;
-  // @gotags: xml:"schemaLocation,attr"
+  // @gotags: xml:"xsi:schemaLocation,attr"
   string xsi_schema_location = 7;
 }
 
@@ -71,11 +71,11 @@ message Feed {
   ddex.pie.v10.DateTime updated = 12;
   // @gotags: xml:"entry"
   repeated ddex.pie.v10.Entry entry = 13;
-  // @gotags: xml:"pie,attr"
+  // @gotags: xml:"xmlns:pie,attr"
   string xmlns_pie = 14;
-  // @gotags: xml:"xsi,attr"
+  // @gotags: xml:"xmlns:xsi,attr"
   string xmlns_xsi = 15;
-  // @gotags: xml:"schemaLocation,attr"
+  // @gotags: xml:"xsi:schemaLocation,attr"
   string xsi_schema_location = 16;
 }
 
