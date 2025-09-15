@@ -37,6 +37,12 @@ message NewReleaseMessage {
   string release_profile_version_id = 13;
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 14;
+  // @gotags: xml:"ern,attr"
+  string xmlns_ern = 15;
+  // @gotags: xml:"xsi,attr"
+  string xmlns_xsi = 16;
+  // @gotags: xml:"schemaLocation,attr"
+  string xsi_schema_location = 17;
 }
 
 message CatalogListMessage {
@@ -54,6 +60,12 @@ message CatalogListMessage {
   string release_profile_version_id = 6;
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 7;
+  // @gotags: xml:"ern,attr"
+  string xmlns_ern = 8;
+  // @gotags: xml:"xsi,attr"
+  string xmlns_xsi = 9;
+  // @gotags: xml:"schemaLocation,attr"
+  string xsi_schema_location = 10;
 }
 
 message PurgeReleaseMessage {
@@ -65,6 +77,12 @@ message PurgeReleaseMessage {
   string message_schema_version_id = 3;
   // @gotags: xml:"LanguageAndScriptCode,attr"
   string language_and_script_code = 4;
+  // @gotags: xml:"ern,attr"
+  string xmlns_ern = 5;
+  // @gotags: xml:"xsi,attr"
+  string xmlns_xsi = 6;
+  // @gotags: xml:"schemaLocation,attr"
+  string xsi_schema_location = 7;
 }
 
 message CatalogItem {

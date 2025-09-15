@@ -40,8 +40,14 @@ type MeadMessage struct {
 	AvsVersionId string `protobuf:"bytes,7,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,8,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	// @gotags: xml:"mead,attr"
+	XmlnsMead string `protobuf:"bytes,9,opt,name=xmlns_mead,json=xmlnsMead,proto3" json:"xmlns_mead,omitempty" xml:"mead,attr"`
+	// @gotags: xml:"xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,10,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
+	// @gotags: xml:"schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,11,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *MeadMessage) Reset() {
@@ -130,6 +136,27 @@ func (x *MeadMessage) GetLanguageAndScriptCode() string {
 	return ""
 }
 
+func (x *MeadMessage) GetXmlnsMead() string {
+	if x != nil {
+		return x.XmlnsMead
+	}
+	return ""
+}
+
+func (x *MeadMessage) GetXmlnsXsi() string {
+	if x != nil {
+		return x.XmlnsXsi
+	}
+	return ""
+}
+
+func (x *MeadMessage) GetXsiSchemaLocation() string {
+	if x != nil {
+		return x.XsiSchemaLocation
+	}
+	return ""
+}
+
 type Feed struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"author"
@@ -157,9 +184,15 @@ type Feed struct {
 	// @gotags: xml:"updated"
 	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3" json:"updated,omitempty" xml:"updated"`
 	// @gotags: xml:"entry"
-	Entry         []*Entry `protobuf:"bytes,13,rep,name=entry,proto3" json:"entry,omitempty" xml:"entry"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	Entry []*Entry `protobuf:"bytes,13,rep,name=entry,proto3" json:"entry,omitempty" xml:"entry"`
+	// @gotags: xml:"mead,attr"
+	XmlnsMead string `protobuf:"bytes,14,opt,name=xmlns_mead,json=xmlnsMead,proto3" json:"xmlns_mead,omitempty" xml:"mead,attr"`
+	// @gotags: xml:"xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,15,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
+	// @gotags: xml:"schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,16,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *Feed) Reset() {
@@ -281,6 +314,27 @@ func (x *Feed) GetEntry() []*Entry {
 		return x.Entry
 	}
 	return nil
+}
+
+func (x *Feed) GetXmlnsMead() string {
+	if x != nil {
+		return x.XmlnsMead
+	}
+	return ""
+}
+
+func (x *Feed) GetXmlnsXsi() string {
+	if x != nil {
+		return x.XmlnsXsi
+	}
+	return ""
+}
+
+func (x *Feed) GetXsiSchemaLocation() string {
+	if x != nil {
+		return x.XsiSchemaLocation
+	}
+	return ""
 }
 
 type AbsolutePitch struct {
@@ -11861,7 +11915,7 @@ var File_ddex_mead_v11_v11_proto protoreflect.FileDescriptor
 
 const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\n" +
-	"\x17ddex/mead/v11/v11.proto\x12\rddex.mead.v11\x1a\x1eddex/avs/vlatest/vlatest.proto\"\xcc\x04\n" +
+	"\x17ddex/mead/v11/v11.proto\x12\rddex.mead.v11\x1a\x1eddex/avs/vlatest/vlatest.proto\"\xb8\x05\n" +
 	"\vMeadMessage\x12C\n" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.mead.v11.MessageHeaderR\rmessageHeader\x12'\n" +
 	"\x0fsubscription_id\x18\x02 \x01(\tR\x0esubscriptionId\x12S\n" +
@@ -11870,7 +11924,12 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x19resource_information_list\x18\x05 \x01(\v2&.ddex.mead.v11.ResourceInformationListR\x17resourceInformationList\x12_\n" +
 	"\x18release_information_list\x18\x06 \x01(\v2%.ddex.mead.v11.ReleaseInformationListR\x16releaseInformationList\x12$\n" +
 	"\x0eavs_version_id\x18\a \x01(\tR\favsVersionId\x127\n" +
-	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\"\xe1\x04\n" +
+	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\x12\x1d\n" +
+	"\n" +
+	"xmlns_mead\x18\t \x01(\tR\txmlnsMead\x12\x1b\n" +
+	"\txmlns_xsi\x18\n" +
+	" \x01(\tR\bxmlnsXsi\x12.\n" +
+	"\x13xsi_schema_location\x18\v \x01(\tR\x11xsiSchemaLocation\"\xcd\x05\n" +
 	"\x04Feed\x12-\n" +
 	"\x06author\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\x06author\x123\n" +
 	"\bcategory\x18\x02 \x03(\v2\x17.ddex.mead.v11.CategoryR\bcategory\x127\n" +
@@ -11885,7 +11944,11 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	" \x01(\v2\x13.ddex.mead.v11.TextR\bsubtitle\x12)\n" +
 	"\x05title\x18\v \x01(\v2\x13.ddex.mead.v11.TextR\x05title\x121\n" +
 	"\aupdated\x18\f \x01(\v2\x17.ddex.mead.v11.DateTimeR\aupdated\x12*\n" +
-	"\x05entry\x18\r \x03(\v2\x14.ddex.mead.v11.EntryR\x05entry\"\xc4\x01\n" +
+	"\x05entry\x18\r \x03(\v2\x14.ddex.mead.v11.EntryR\x05entry\x12\x1d\n" +
+	"\n" +
+	"xmlns_mead\x18\x0e \x01(\tR\txmlnsMead\x12\x1b\n" +
+	"\txmlns_xsi\x18\x0f \x01(\tR\bxmlnsXsi\x12.\n" +
+	"\x13xsi_schema_location\x18\x10 \x01(\tR\x11xsiSchemaLocation\"\xc4\x01\n" +
 	"\rAbsolutePitch\x12b\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2&.ddex.mead.v11.MetadataSourceReferenceR\x17metadataSourceReference\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\x129\n" +

@@ -50,8 +50,14 @@ type NewReleaseMessage struct {
 	AvsVersionId string `protobuf:"bytes,12,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,13,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	// @gotags: xml:"ern,attr"
+	XmlnsErn string `protobuf:"bytes,14,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"ern,attr"`
+	// @gotags: xml:"xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,15,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
+	// @gotags: xml:"schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,16,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *NewReleaseMessage) Reset() {
@@ -175,6 +181,27 @@ func (x *NewReleaseMessage) GetLanguageAndScriptCode() string {
 	return ""
 }
 
+func (x *NewReleaseMessage) GetXmlnsErn() string {
+	if x != nil {
+		return x.XmlnsErn
+	}
+	return ""
+}
+
+func (x *NewReleaseMessage) GetXmlnsXsi() string {
+	if x != nil {
+		return x.XmlnsXsi
+	}
+	return ""
+}
+
+func (x *NewReleaseMessage) GetXsiSchemaLocation() string {
+	if x != nil {
+		return x.XsiSchemaLocation
+	}
+	return ""
+}
+
 type PurgeReleaseMessage struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"MessageHeader"
@@ -185,8 +212,14 @@ type PurgeReleaseMessage struct {
 	AvsVersionId string `protobuf:"bytes,3,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
 	LanguageAndScriptCode string `protobuf:"bytes,4,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	// @gotags: xml:"ern,attr"
+	XmlnsErn string `protobuf:"bytes,5,opt,name=xmlns_ern,json=xmlnsErn,proto3" json:"xmlns_ern,omitempty" xml:"ern,attr"`
+	// @gotags: xml:"xsi,attr"
+	XmlnsXsi string `protobuf:"bytes,6,opt,name=xmlns_xsi,json=xmlnsXsi,proto3" json:"xmlns_xsi,omitempty" xml:"xsi,attr"`
+	// @gotags: xml:"schemaLocation,attr"
+	XsiSchemaLocation string `protobuf:"bytes,7,opt,name=xsi_schema_location,json=xsiSchemaLocation,proto3" json:"xsi_schema_location,omitempty" xml:"schemaLocation,attr"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *PurgeReleaseMessage) Reset() {
@@ -243,6 +276,27 @@ func (x *PurgeReleaseMessage) GetAvsVersionId() string {
 func (x *PurgeReleaseMessage) GetLanguageAndScriptCode() string {
 	if x != nil {
 		return x.LanguageAndScriptCode
+	}
+	return ""
+}
+
+func (x *PurgeReleaseMessage) GetXmlnsErn() string {
+	if x != nil {
+		return x.XmlnsErn
+	}
+	return ""
+}
+
+func (x *PurgeReleaseMessage) GetXmlnsXsi() string {
+	if x != nil {
+		return x.XmlnsXsi
+	}
+	return ""
+}
+
+func (x *PurgeReleaseMessage) GetXsiSchemaLocation() string {
+	if x != nil {
+		return x.XsiSchemaLocation
 	}
 	return ""
 }
@@ -18440,7 +18494,7 @@ var File_ddex_ern_v432_v432_proto protoreflect.FileDescriptor
 
 const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\n" +
-	"\x18ddex/ern/v432/v432.proto\x12\rddex.ern.v432\x1a\x1eddex/avs/vlatest/vlatest.proto\"\xdb\x06\n" +
+	"\x18ddex/ern/v432/v432.proto\x12\rddex.ern.v432\x1a\x1eddex/avs/vlatest/vlatest.proto\"\xc5\a\n" +
 	"\x11NewReleaseMessage\x12C\n" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderR\rmessageHeader\x12@\n" +
 	"\rrelease_admin\x18\x02 \x03(\v2\x1b.ddex.ern.v432.ReleaseAdminR\freleaseAdmin\x127\n" +
@@ -18456,12 +18510,18 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	" \x01(\tR\x17releaseProfileVersionId\x12J\n" +
 	"\"release_profile_variant_version_id\x18\v \x01(\tR\x1ereleaseProfileVariantVersionId\x12$\n" +
 	"\x0eavs_version_id\x18\f \x01(\tR\favsVersionId\x127\n" +
-	"\x18language_and_script_code\x18\r \x01(\tR\x15languageAndScriptCode\"\xfe\x01\n" +
+	"\x18language_and_script_code\x18\r \x01(\tR\x15languageAndScriptCode\x12\x1b\n" +
+	"\txmlns_ern\x18\x0e \x01(\tR\bxmlnsErn\x12\x1b\n" +
+	"\txmlns_xsi\x18\x0f \x01(\tR\bxmlnsXsi\x12.\n" +
+	"\x13xsi_schema_location\x18\x10 \x01(\tR\x11xsiSchemaLocation\"\xe8\x02\n" +
 	"\x13PurgeReleaseMessage\x12C\n" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1c.ddex.ern.v432.MessageHeaderR\rmessageHeader\x12C\n" +
 	"\x0epurged_release\x18\x02 \x01(\v2\x1c.ddex.ern.v432.PurgedReleaseR\rpurgedRelease\x12$\n" +
 	"\x0eavs_version_id\x18\x03 \x01(\tR\favsVersionId\x127\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\"\xa6\x01\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\x12\x1b\n" +
+	"\txmlns_ern\x18\x05 \x01(\tR\bxmlnsErn\x12\x1b\n" +
+	"\txmlns_xsi\x18\x06 \x01(\tR\bxmlnsXsi\x12.\n" +
+	"\x13xsi_schema_location\x18\a \x01(\tR\x11xsiSchemaLocation\"\xa6\x01\n" +
 	"\x1bAdministratingRecordCompany\x12C\n" +
 	"\x1erecord_company_party_reference\x18\x01 \x01(\tR\x1brecordCompanyPartyReference\x12B\n" +
 	"\x04role\x18\x02 \x01(\v2..ddex.ern.v432.AdministratingRecordCompanyRoleR\x04role\"\xab\x06\n" +

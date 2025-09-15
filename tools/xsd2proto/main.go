@@ -465,7 +465,7 @@ func generateProtoForBundle(
 		if el.ComplexType != nil {
 			name := toProtoMessageName(el.Name)
 			if _, exists := generated[name]; !exists {
-				msg, wrapperTypes, err := generateComplexTypeMessage(el.Name, el.ComplexType, all)
+				msg, wrapperTypes, err := generateComplexTypeMessageWithNamespace(el.Name, el.ComplexType, all, b.TargetNamespace, true)
 				if err != nil {
 					return "", err
 				}
@@ -570,9 +570,12 @@ type WrapperType struct {
 }
 
 func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkgs map[string]protoPkgInfo) (string, []WrapperType, error) {
+	return generateComplexTypeMessageWithNamespace(name, complexType, allPkgs, "", false)
+}
+
+func generateComplexTypeMessageWithNamespace(name string, complexType *XSDComplexType, allPkgs map[string]protoPkgInfo, targetNamespace string, isRootElement bool) (string, []WrapperType, error) {
 	var wrapperTypes []WrapperType
 	var builder strings.Builder
-
 
 	messageName := toProtoMessageName(name)
 	builder.WriteString(fmt.Sprintf("message %s {\n", messageName))
@@ -635,8 +638,55 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkg
 		fieldNum++
 	}
 
+	// Add namespace attributes for root elements
+	if isRootElement && targetNamespace != "" {
+		// Extract namespace prefix from target namespace URL
+		// e.g., "http://ddex.net/xml/ern/43" -> "ern"
+		namespacePrefix := extractNamespacePrefix(targetNamespace)
+
+		if namespacePrefix != "" {
+			// Add the namespace prefix attribute (e.g., xmlns:ern)
+			injectComment := fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", namespacePrefix)
+			field := fmt.Sprintf("%s\n  string xmlns_%s = %d;", injectComment, namespacePrefix, fieldNum)
+			builder.WriteString(field + "\n")
+			fieldNum++
+		}
+
+		// Add XSI namespace attribute
+		injectComment := fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", "xsi")
+		field := fmt.Sprintf("%s\n  string xmlns_xsi = %d;", injectComment, fieldNum)
+		builder.WriteString(field + "\n")
+		fieldNum++
+
+		// Add schema location attribute
+		injectComment = fmt.Sprintf("  // @gotags: xml:\"%s,attr\"", "schemaLocation")
+		field = fmt.Sprintf("%s\n  string xsi_schema_location = %d;", injectComment, fieldNum)
+		builder.WriteString(field + "\n")
+		fieldNum++
+	}
+
 	builder.WriteString("}")
 	return builder.String(), wrapperTypes, nil
+}
+
+// extractNamespacePrefix extracts the namespace prefix from a target namespace URL
+// e.g., "http://ddex.net/xml/ern/43" -> "ern"
+// e.g., "http://ddex.net/xml/mead/11" -> "mead"
+// e.g., "http://ddex.net/xml/pie/10" -> "pie"
+func extractNamespacePrefix(targetNamespace string) string {
+	// Handle DDEX namespace patterns
+	if strings.Contains(targetNamespace, "ddex.net/xml/") {
+		// Extract the part after "/xml/"
+		parts := strings.Split(targetNamespace, "/xml/")
+		if len(parts) >= 2 {
+			// Get the schema type (e.g., "ern/43" -> "ern")
+			schemaParts := strings.Split(parts[1], "/")
+			if len(schemaParts) >= 1 {
+				return schemaParts[0]
+			}
+		}
+	}
+	return ""
 }
 
 // getUniqueFieldName ensures field names are unique within a message by adding suffixes
