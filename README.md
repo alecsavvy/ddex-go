@@ -4,8 +4,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/alecsavvy/ddex-go)](https://goreportcard.com/report/github.com/alecsavvy/ddex-go)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/alecsavvy/ddex-go/workflows/CI/badge.svg)](https://github.com/alecsavvy/ddex-go/actions)
-[![PR Quality](https://github.com/alecsavvy/ddex-go/workflows/PR%20Quality%20Checks/badge.svg)](https://github.com/alecsavvy/ddex-go/actions)
-[![codecov](https://codecov.io/gh/alecsavvy/ddex-go/branch/main/graph/badge.svg)](https://codecov.io/gh/alecsavvy/ddex-go)
 
 A comprehensive Go implementation of DDEX (Digital Data Exchange) standards with native XML support and Protocol Buffer/JSON serialization.
 

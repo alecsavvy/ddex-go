@@ -7,4 +7,4 @@ require (
 	google.golang.org/protobuf v1.36.9
 )
 
-require github.com/beevik/etree v1.6.0 // indirect
+require github.com/beevik/etree v1.6.0
