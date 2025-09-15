@@ -177,22 +177,8 @@ func (x *PieRequestMessage) GetLanguageAndScriptCode() string {
 
 type Feed struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*Feed_Author
-	//	*Feed_Category
-	//	*Feed_Contributor
-	//	*Feed_Generator
-	//	*Feed_Icon
-	//	*Feed_Id
-	//	*Feed_Link
-	//	*Feed_Logo
-	//	*Feed_Rights
-	//	*Feed_Subtitle
-	//	*Feed_Title
-	//	*Feed_Updated
-	//	*Feed_Entry
-	Choice        isFeed_Choice `protobuf_oneof:"choice"`
+	// Choice wrapper for XSD choice
+	Choice        []*FeedChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -227,224 +213,283 @@ func (*Feed) Descriptor() ([]byte, []int) {
 	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *Feed) GetChoice() isFeed_Choice {
+func (x *Feed) GetChoice() []*FeedChoice {
 	if x != nil {
 		return x.Choice
 	}
 	return nil
 }
 
-func (x *Feed) GetAuthor() *Person {
+type FeedChoice struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*FeedChoice_AuthorOption
+	//	*FeedChoice_CategoryOption
+	//	*FeedChoice_ContributorOption
+	//	*FeedChoice_Generator
+	//	*FeedChoice_Icon
+	//	*FeedChoice_Id
+	//	*FeedChoice_LinkOption
+	//	*FeedChoice_Logo
+	//	*FeedChoice_Rights
+	//	*FeedChoice_Subtitle
+	//	*FeedChoice_Title
+	//	*FeedChoice_Updated
+	//	*FeedChoice_EntryOption
+	Choice        isFeedChoice_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FeedChoice) Reset() {
+	*x = FeedChoice{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FeedChoice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FeedChoice) ProtoMessage() {}
+
+func (x *FeedChoice) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[3]
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Author); ok {
-			return x.Author
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FeedChoice.ProtoReflect.Descriptor instead.
+func (*FeedChoice) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *FeedChoice) GetChoice() isFeedChoice_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *FeedChoice) GetAuthorOption() *FeedChoice_Option1 {
+	if x != nil {
+		if x, ok := x.Choice.(*FeedChoice_AuthorOption); ok {
+			return x.AuthorOption
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetCategory() *Category {
+func (x *FeedChoice) GetCategoryOption() *FeedChoice_Option2 {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Category); ok {
-			return x.Category
+		if x, ok := x.Choice.(*FeedChoice_CategoryOption); ok {
+			return x.CategoryOption
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetContributor() *Person {
+func (x *FeedChoice) GetContributorOption() *FeedChoice_Option3 {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Contributor); ok {
-			return x.Contributor
+		if x, ok := x.Choice.(*FeedChoice_ContributorOption); ok {
+			return x.ContributorOption
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetGenerator() *Generator {
+func (x *FeedChoice) GetGenerator() *Generator {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Generator); ok {
+		if x, ok := x.Choice.(*FeedChoice_Generator); ok {
 			return x.Generator
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetIcon() *Icon {
+func (x *FeedChoice) GetIcon() *Icon {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Icon); ok {
+		if x, ok := x.Choice.(*FeedChoice_Icon); ok {
 			return x.Icon
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetId() *Id {
+func (x *FeedChoice) GetId() *Id {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Id); ok {
+		if x, ok := x.Choice.(*FeedChoice_Id); ok {
 			return x.Id
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetLink() *Link {
+func (x *FeedChoice) GetLinkOption() *FeedChoice_Option4 {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Link); ok {
-			return x.Link
+		if x, ok := x.Choice.(*FeedChoice_LinkOption); ok {
+			return x.LinkOption
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetLogo() *Logo {
+func (x *FeedChoice) GetLogo() *Logo {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Logo); ok {
+		if x, ok := x.Choice.(*FeedChoice_Logo); ok {
 			return x.Logo
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetRights() *Text {
+func (x *FeedChoice) GetRights() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Rights); ok {
+		if x, ok := x.Choice.(*FeedChoice_Rights); ok {
 			return x.Rights
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetSubtitle() *Text {
+func (x *FeedChoice) GetSubtitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Subtitle); ok {
+		if x, ok := x.Choice.(*FeedChoice_Subtitle); ok {
 			return x.Subtitle
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetTitle() *Text {
+func (x *FeedChoice) GetTitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Title); ok {
+		if x, ok := x.Choice.(*FeedChoice_Title); ok {
 			return x.Title
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetUpdated() *DateTime {
+func (x *FeedChoice) GetUpdated() *DateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Updated); ok {
+		if x, ok := x.Choice.(*FeedChoice_Updated); ok {
 			return x.Updated
 		}
 	}
 	return nil
 }
 
-func (x *Feed) GetEntry() *Entry {
+func (x *FeedChoice) GetEntryOption() *FeedChoice_Option5 {
 	if x != nil {
-		if x, ok := x.Choice.(*Feed_Entry); ok {
-			return x.Entry
+		if x, ok := x.Choice.(*FeedChoice_EntryOption); ok {
+			return x.EntryOption
 		}
 	}
 	return nil
 }
 
-type isFeed_Choice interface {
-	isFeed_Choice()
+type isFeedChoice_Choice interface {
+	isFeedChoice_Choice()
 }
 
-type Feed_Author struct {
+type FeedChoice_AuthorOption struct {
 	// @gotags: xml:"author"
-	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof" xml:"author"`
+	AuthorOption *FeedChoice_Option1 `protobuf:"bytes,1,opt,name=author_option,json=authorOption,proto3,oneof" xml:"author"`
 }
 
-type Feed_Category struct {
+type FeedChoice_CategoryOption struct {
 	// @gotags: xml:"category"
-	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof" xml:"category"`
+	CategoryOption *FeedChoice_Option2 `protobuf:"bytes,2,opt,name=category_option,json=categoryOption,proto3,oneof" xml:"category"`
 }
 
-type Feed_Contributor struct {
+type FeedChoice_ContributorOption struct {
 	// @gotags: xml:"contributor"
-	Contributor *Person `protobuf:"bytes,3,opt,name=contributor,proto3,oneof" xml:"contributor"`
+	ContributorOption *FeedChoice_Option3 `protobuf:"bytes,3,opt,name=contributor_option,json=contributorOption,proto3,oneof" xml:"contributor"`
 }
 
-type Feed_Generator struct {
+type FeedChoice_Generator struct {
 	// @gotags: xml:"generator"
 	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof" xml:"generator"`
 }
 
-type Feed_Icon struct {
+type FeedChoice_Icon struct {
 	// @gotags: xml:"icon"
 	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof" xml:"icon"`
 }
 
-type Feed_Id struct {
+type FeedChoice_Id struct {
 	// @gotags: xml:"id"
 	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof" xml:"id"`
 }
 
-type Feed_Link struct {
+type FeedChoice_LinkOption struct {
 	// @gotags: xml:"link"
-	Link *Link `protobuf:"bytes,7,opt,name=link,proto3,oneof" xml:"link"`
+	LinkOption *FeedChoice_Option4 `protobuf:"bytes,7,opt,name=link_option,json=linkOption,proto3,oneof" xml:"link"`
 }
 
-type Feed_Logo struct {
+type FeedChoice_Logo struct {
 	// @gotags: xml:"logo"
 	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof" xml:"logo"`
 }
 
-type Feed_Rights struct {
+type FeedChoice_Rights struct {
 	// @gotags: xml:"rights"
 	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof" xml:"rights"`
 }
 
-type Feed_Subtitle struct {
+type FeedChoice_Subtitle struct {
 	// @gotags: xml:"subtitle"
 	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof" xml:"subtitle"`
 }
 
-type Feed_Title struct {
+type FeedChoice_Title struct {
 	// @gotags: xml:"title"
 	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
 }
 
-type Feed_Updated struct {
+type FeedChoice_Updated struct {
 	// @gotags: xml:"updated"
 	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
 }
 
-type Feed_Entry struct {
+type FeedChoice_EntryOption struct {
 	// @gotags: xml:"entry"
-	Entry *Entry `protobuf:"bytes,13,opt,name=entry,proto3,oneof" xml:"entry"`
+	EntryOption *FeedChoice_Option5 `protobuf:"bytes,13,opt,name=entry_option,json=entryOption,proto3,oneof" xml:"entry"`
 }
 
-func (*Feed_Author) isFeed_Choice() {}
+func (*FeedChoice_AuthorOption) isFeedChoice_Choice() {}
 
-func (*Feed_Category) isFeed_Choice() {}
+func (*FeedChoice_CategoryOption) isFeedChoice_Choice() {}
 
-func (*Feed_Contributor) isFeed_Choice() {}
+func (*FeedChoice_ContributorOption) isFeedChoice_Choice() {}
 
-func (*Feed_Generator) isFeed_Choice() {}
+func (*FeedChoice_Generator) isFeedChoice_Choice() {}
 
-func (*Feed_Icon) isFeed_Choice() {}
+func (*FeedChoice_Icon) isFeedChoice_Choice() {}
 
-func (*Feed_Id) isFeed_Choice() {}
+func (*FeedChoice_Id) isFeedChoice_Choice() {}
 
-func (*Feed_Link) isFeed_Choice() {}
+func (*FeedChoice_LinkOption) isFeedChoice_Choice() {}
 
-func (*Feed_Logo) isFeed_Choice() {}
+func (*FeedChoice_Logo) isFeedChoice_Choice() {}
 
-func (*Feed_Rights) isFeed_Choice() {}
+func (*FeedChoice_Rights) isFeedChoice_Choice() {}
 
-func (*Feed_Subtitle) isFeed_Choice() {}
+func (*FeedChoice_Subtitle) isFeedChoice_Choice() {}
 
-func (*Feed_Title) isFeed_Choice() {}
+func (*FeedChoice_Title) isFeedChoice_Choice() {}
 
-func (*Feed_Updated) isFeed_Choice() {}
+func (*FeedChoice_Updated) isFeedChoice_Choice() {}
 
-func (*Feed_Entry) isFeed_Choice() {}
+func (*FeedChoice_EntryOption) isFeedChoice_Choice() {}
 
 type Contribution struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -464,7 +509,7 @@ type Contribution struct {
 
 func (x *Contribution) Reset() {
 	*x = Contribution{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[3]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -476,7 +521,7 @@ func (x *Contribution) String() string {
 func (*Contribution) ProtoMessage() {}
 
 func (x *Contribution) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[3]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -489,7 +534,7 @@ func (x *Contribution) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Contribution.ProtoReflect.Descriptor instead.
 func (*Contribution) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{3}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Contribution) GetRole() []*ContributorRole {
@@ -541,7 +586,7 @@ type CreationDescription struct {
 
 func (x *CreationDescription) Reset() {
 	*x = CreationDescription{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[4]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -553,7 +598,7 @@ func (x *CreationDescription) String() string {
 func (*CreationDescription) ProtoMessage() {}
 
 func (x *CreationDescription) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[4]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -566,7 +611,7 @@ func (x *CreationDescription) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreationDescription.ProtoReflect.Descriptor instead.
 func (*CreationDescription) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{4}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CreationDescription) GetTitle() []*TitleWithUDV {
@@ -612,7 +657,7 @@ type DetailedPartyIdForParty struct {
 
 func (x *DetailedPartyIdForParty) Reset() {
 	*x = DetailedPartyIdForParty{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[5]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -624,7 +669,7 @@ func (x *DetailedPartyIdForParty) String() string {
 func (*DetailedPartyIdForParty) ProtoMessage() {}
 
 func (x *DetailedPartyIdForParty) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[5]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -637,7 +682,7 @@ func (x *DetailedPartyIdForParty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedPartyIdForParty.ProtoReflect.Descriptor instead.
 func (*DetailedPartyIdForParty) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{5}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DetailedPartyIdForParty) GetISNI() string {
@@ -691,32 +736,17 @@ func (x *DetailedPartyIdForParty) GetIsDeprecated() bool {
 
 type Entry struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*Entry_Author
-	//	*Entry_Category
-	//	*Entry_Content
-	//	*Entry_Contributor
-	//	*Entry_Id
-	//	*Entry_Link
-	//	*Entry_Published
-	//	*Entry_Rights
-	//	*Entry_Source
-	//	*Entry_Summary
-	//	*Entry_Title
-	//	*Entry_Updated
-	//	*Entry_SubscriptionId
-	//	*Entry_Party
-	Choice isEntry_Choice `protobuf_oneof:"choice"`
+	// Choice wrapper for XSD choice
+	Choice []*EntryChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
 	// @gotags: xml:"AvsVersionId,attr"
-	AvsVersionId  string `protobuf:"bytes,15,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
+	AvsVersionId  string `protobuf:"bytes,2,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Entry) Reset() {
 	*x = Entry{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[6]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -728,7 +758,7 @@ func (x *Entry) String() string {
 func (*Entry) ProtoMessage() {}
 
 func (x *Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[6]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -741,138 +771,12 @@ func (x *Entry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Entry.ProtoReflect.Descriptor instead.
 func (*Entry) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{6}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *Entry) GetChoice() isEntry_Choice {
+func (x *Entry) GetChoice() []*EntryChoice {
 	if x != nil {
 		return x.Choice
-	}
-	return nil
-}
-
-func (x *Entry) GetAuthor() *Person {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Author); ok {
-			return x.Author
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetCategory() *Category {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Category); ok {
-			return x.Category
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetContent() *Content {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Content); ok {
-			return x.Content
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetContributor() *Person {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Contributor); ok {
-			return x.Contributor
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetId() *Id {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Id); ok {
-			return x.Id
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetLink() *Link {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Link); ok {
-			return x.Link
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetPublished() *DateTime {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Published); ok {
-			return x.Published
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetRights() *Text {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Rights); ok {
-			return x.Rights
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetSource() *Source {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Source); ok {
-			return x.Source
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetSummary() *Text {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Summary); ok {
-			return x.Summary
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetTitle() *Text {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Title); ok {
-			return x.Title
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetUpdated() *DateTime {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Updated); ok {
-			return x.Updated
-		}
-	}
-	return nil
-}
-
-func (x *Entry) GetSubscriptionId() string {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_SubscriptionId); ok {
-			return x.SubscriptionId
-		}
-	}
-	return ""
-}
-
-func (x *Entry) GetParty() *PartyDescriptorForEntry {
-	if x != nil {
-		if x, ok := x.Choice.(*Entry_Party); ok {
-			return x.Party
-		}
 	}
 	return nil
 }
@@ -884,107 +788,293 @@ func (x *Entry) GetAvsVersionId() string {
 	return ""
 }
 
-type isEntry_Choice interface {
-	isEntry_Choice()
+type EntryChoice struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*EntryChoice_AuthorOption
+	//	*EntryChoice_CategoryOption
+	//	*EntryChoice_Content
+	//	*EntryChoice_ContributorOption
+	//	*EntryChoice_Id
+	//	*EntryChoice_LinkOption
+	//	*EntryChoice_Published
+	//	*EntryChoice_Rights
+	//	*EntryChoice_Source
+	//	*EntryChoice_Summary
+	//	*EntryChoice_Title
+	//	*EntryChoice_Updated
+	//	*EntryChoice_SubscriptionId
+	//	*EntryChoice_Party
+	Choice        isEntryChoice_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
-type Entry_Author struct {
+func (x *EntryChoice) Reset() {
+	*x = EntryChoice{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EntryChoice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EntryChoice) ProtoMessage() {}
+
+func (x *EntryChoice) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EntryChoice.ProtoReflect.Descriptor instead.
+func (*EntryChoice) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *EntryChoice) GetChoice() isEntryChoice_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetAuthorOption() *EntryChoice_Option1 {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_AuthorOption); ok {
+			return x.AuthorOption
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetCategoryOption() *EntryChoice_Option2 {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_CategoryOption); ok {
+			return x.CategoryOption
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetContent() *Content {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Content); ok {
+			return x.Content
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetContributorOption() *EntryChoice_Option3 {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_ContributorOption); ok {
+			return x.ContributorOption
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetId() *Id {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Id); ok {
+			return x.Id
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetLinkOption() *EntryChoice_Option4 {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_LinkOption); ok {
+			return x.LinkOption
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetPublished() *DateTime {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Published); ok {
+			return x.Published
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetRights() *Text {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Rights); ok {
+			return x.Rights
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetSource() *Source {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Source); ok {
+			return x.Source
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetSummary() *Text {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Summary); ok {
+			return x.Summary
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetTitle() *Text {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Title); ok {
+			return x.Title
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetUpdated() *DateTime {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Updated); ok {
+			return x.Updated
+		}
+	}
+	return nil
+}
+
+func (x *EntryChoice) GetSubscriptionId() string {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_SubscriptionId); ok {
+			return x.SubscriptionId
+		}
+	}
+	return ""
+}
+
+func (x *EntryChoice) GetParty() *PartyDescriptorForEntry {
+	if x != nil {
+		if x, ok := x.Choice.(*EntryChoice_Party); ok {
+			return x.Party
+		}
+	}
+	return nil
+}
+
+type isEntryChoice_Choice interface {
+	isEntryChoice_Choice()
+}
+
+type EntryChoice_AuthorOption struct {
 	// @gotags: xml:"author"
-	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof" xml:"author"`
+	AuthorOption *EntryChoice_Option1 `protobuf:"bytes,1,opt,name=author_option,json=authorOption,proto3,oneof" xml:"author"`
 }
 
-type Entry_Category struct {
+type EntryChoice_CategoryOption struct {
 	// @gotags: xml:"category"
-	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof" xml:"category"`
+	CategoryOption *EntryChoice_Option2 `protobuf:"bytes,2,opt,name=category_option,json=categoryOption,proto3,oneof" xml:"category"`
 }
 
-type Entry_Content struct {
+type EntryChoice_Content struct {
 	// @gotags: xml:"content"
 	Content *Content `protobuf:"bytes,3,opt,name=content,proto3,oneof" xml:"content"`
 }
 
-type Entry_Contributor struct {
+type EntryChoice_ContributorOption struct {
 	// @gotags: xml:"contributor"
-	Contributor *Person `protobuf:"bytes,4,opt,name=contributor,proto3,oneof" xml:"contributor"`
+	ContributorOption *EntryChoice_Option3 `protobuf:"bytes,4,opt,name=contributor_option,json=contributorOption,proto3,oneof" xml:"contributor"`
 }
 
-type Entry_Id struct {
+type EntryChoice_Id struct {
 	// @gotags: xml:"id"
 	Id *Id `protobuf:"bytes,5,opt,name=id,proto3,oneof" xml:"id"`
 }
 
-type Entry_Link struct {
+type EntryChoice_LinkOption struct {
 	// @gotags: xml:"link"
-	Link *Link `protobuf:"bytes,6,opt,name=link,proto3,oneof" xml:"link"`
+	LinkOption *EntryChoice_Option4 `protobuf:"bytes,6,opt,name=link_option,json=linkOption,proto3,oneof" xml:"link"`
 }
 
-type Entry_Published struct {
+type EntryChoice_Published struct {
 	// @gotags: xml:"published"
 	Published *DateTime `protobuf:"bytes,7,opt,name=published,proto3,oneof" xml:"published"`
 }
 
-type Entry_Rights struct {
+type EntryChoice_Rights struct {
 	// @gotags: xml:"rights"
 	Rights *Text `protobuf:"bytes,8,opt,name=rights,proto3,oneof" xml:"rights"`
 }
 
-type Entry_Source struct {
+type EntryChoice_Source struct {
 	// @gotags: xml:"source"
 	Source *Source `protobuf:"bytes,9,opt,name=source,proto3,oneof" xml:"source"`
 }
 
-type Entry_Summary struct {
+type EntryChoice_Summary struct {
 	// @gotags: xml:"summary"
 	Summary *Text `protobuf:"bytes,10,opt,name=summary,proto3,oneof" xml:"summary"`
 }
 
-type Entry_Title struct {
+type EntryChoice_Title struct {
 	// @gotags: xml:"title"
 	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
 }
 
-type Entry_Updated struct {
+type EntryChoice_Updated struct {
 	// @gotags: xml:"updated"
 	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
 }
 
-type Entry_SubscriptionId struct {
+type EntryChoice_SubscriptionId struct {
 	// @gotags: xml:"SubscriptionId"
 	SubscriptionId string `protobuf:"bytes,13,opt,name=subscription_id,json=subscriptionId,proto3,oneof" xml:"SubscriptionId"`
 }
 
-type Entry_Party struct {
+type EntryChoice_Party struct {
 	// @gotags: xml:"Party"
 	Party *PartyDescriptorForEntry `protobuf:"bytes,14,opt,name=party,proto3,oneof" xml:"Party"`
 }
 
-func (*Entry_Author) isEntry_Choice() {}
+func (*EntryChoice_AuthorOption) isEntryChoice_Choice() {}
 
-func (*Entry_Category) isEntry_Choice() {}
+func (*EntryChoice_CategoryOption) isEntryChoice_Choice() {}
 
-func (*Entry_Content) isEntry_Choice() {}
+func (*EntryChoice_Content) isEntryChoice_Choice() {}
 
-func (*Entry_Contributor) isEntry_Choice() {}
+func (*EntryChoice_ContributorOption) isEntryChoice_Choice() {}
 
-func (*Entry_Id) isEntry_Choice() {}
+func (*EntryChoice_Id) isEntryChoice_Choice() {}
 
-func (*Entry_Link) isEntry_Choice() {}
+func (*EntryChoice_LinkOption) isEntryChoice_Choice() {}
 
-func (*Entry_Published) isEntry_Choice() {}
+func (*EntryChoice_Published) isEntryChoice_Choice() {}
 
-func (*Entry_Rights) isEntry_Choice() {}
+func (*EntryChoice_Rights) isEntryChoice_Choice() {}
 
-func (*Entry_Source) isEntry_Choice() {}
+func (*EntryChoice_Source) isEntryChoice_Choice() {}
 
-func (*Entry_Summary) isEntry_Choice() {}
+func (*EntryChoice_Summary) isEntryChoice_Choice() {}
 
-func (*Entry_Title) isEntry_Choice() {}
+func (*EntryChoice_Title) isEntryChoice_Choice() {}
 
-func (*Entry_Updated) isEntry_Choice() {}
+func (*EntryChoice_Updated) isEntryChoice_Choice() {}
 
-func (*Entry_SubscriptionId) isEntry_Choice() {}
+func (*EntryChoice_SubscriptionId) isEntryChoice_Choice() {}
 
-func (*Entry_Party) isEntry_Choice() {}
+func (*EntryChoice_Party) isEntryChoice_Choice() {}
 
 type Event struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -994,13 +1084,15 @@ type Event struct {
 	EventType *EventType `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty" xml:"EventType"`
 	// @gotags: xml:"EventDescription"
 	EventDescription []*Description `protobuf:"bytes,3,rep,name=event_description,json=eventDescription,proto3" json:"event_description,omitempty" xml:"EventDescription"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	// Choice wrapper for XSD choice within sequence
+	Choice        *EventChoice4 `protobuf:"bytes,4,opt,name=choice,proto3" json:"choice,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[7]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1012,7 +1104,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[7]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1025,7 +1117,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{7}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *Event) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1049,6 +1141,96 @@ func (x *Event) GetEventDescription() []*Description {
 	return nil
 }
 
+func (x *Event) GetChoice() *EventChoice4 {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+type EventChoice4 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*EventChoice4_Date
+	//	*EventChoice4_Sequence_1
+	Choice        isEventChoice4_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EventChoice4) Reset() {
+	*x = EventChoice4{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EventChoice4) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EventChoice4) ProtoMessage() {}
+
+func (x *EventChoice4) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EventChoice4.ProtoReflect.Descriptor instead.
+func (*EventChoice4) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *EventChoice4) GetChoice() isEventChoice4_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *EventChoice4) GetDate() *EventDate {
+	if x != nil {
+		if x, ok := x.Choice.(*EventChoice4_Date); ok {
+			return x.Date
+		}
+	}
+	return nil
+}
+
+func (x *EventChoice4) GetSequence_1() *EventChoice4_Option1 {
+	if x != nil {
+		if x, ok := x.Choice.(*EventChoice4_Sequence_1); ok {
+			return x.Sequence_1
+		}
+	}
+	return nil
+}
+
+type isEventChoice4_Choice interface {
+	isEventChoice4_Choice()
+}
+
+type EventChoice4_Date struct {
+	// @gotags: xml:"Date"
+	Date *EventDate `protobuf:"bytes,1,opt,name=date,proto3,oneof" xml:"Date"`
+}
+
+type EventChoice4_Sequence_1 struct {
+	Sequence_1 *EventChoice4_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
+}
+
+func (*EventChoice4_Date) isEventChoice4_Choice() {}
+
+func (*EventChoice4_Sequence_1) isEventChoice4_Choice() {}
+
 type EventType struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:",chardata"
@@ -1063,7 +1245,7 @@ type EventType struct {
 
 func (x *EventType) Reset() {
 	*x = EventType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[8]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1075,7 +1257,7 @@ func (x *EventType) String() string {
 func (*EventType) ProtoMessage() {}
 
 func (x *EventType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[8]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1088,7 +1270,7 @@ func (x *EventType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventType.ProtoReflect.Descriptor instead.
 func (*EventType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{8}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *EventType) GetValue() string {
@@ -1144,7 +1326,7 @@ type Focus struct {
 
 func (x *Focus) Reset() {
 	*x = Focus{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[9]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1156,7 +1338,7 @@ func (x *Focus) String() string {
 func (*Focus) ProtoMessage() {}
 
 func (x *Focus) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[9]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1169,7 +1351,7 @@ func (x *Focus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Focus.ProtoReflect.Descriptor instead.
 func (*Focus) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{9}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *Focus) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1270,7 +1452,7 @@ type Gender struct {
 
 func (x *Gender) Reset() {
 	*x = Gender{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[10]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1282,7 +1464,7 @@ func (x *Gender) String() string {
 func (*Gender) ProtoMessage() {}
 
 func (x *Gender) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[10]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1295,7 +1477,7 @@ func (x *Gender) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Gender.ProtoReflect.Descriptor instead.
 func (*Gender) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{10}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *Gender) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1333,7 +1515,7 @@ type GenderValue struct {
 
 func (x *GenderValue) Reset() {
 	*x = GenderValue{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[11]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1345,7 +1527,7 @@ func (x *GenderValue) String() string {
 func (*GenderValue) ProtoMessage() {}
 
 func (x *GenderValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[11]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1358,7 +1540,7 @@ func (x *GenderValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenderValue.ProtoReflect.Descriptor instead.
 func (*GenderValue) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{11}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GenderValue) GetValue() string {
@@ -1394,7 +1576,7 @@ type NameWithPronunciation struct {
 
 func (x *NameWithPronunciation) Reset() {
 	*x = NameWithPronunciation{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[12]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1406,7 +1588,7 @@ func (x *NameWithPronunciation) String() string {
 func (*NameWithPronunciation) ProtoMessage() {}
 
 func (x *NameWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[12]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1419,7 +1601,7 @@ func (x *NameWithPronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NameWithPronunciation.ProtoReflect.Descriptor instead.
 func (*NameWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{12}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *NameWithPronunciation) GetName() string {
@@ -1448,7 +1630,7 @@ type NameWithScriptCode struct {
 
 func (x *NameWithScriptCode) Reset() {
 	*x = NameWithScriptCode{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[13]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1460,7 +1642,7 @@ func (x *NameWithScriptCode) String() string {
 func (*NameWithScriptCode) ProtoMessage() {}
 
 func (x *NameWithScriptCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[13]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1473,7 +1655,7 @@ func (x *NameWithScriptCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NameWithScriptCode.ProtoReflect.Descriptor instead.
 func (*NameWithScriptCode) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{13}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *NameWithScriptCode) GetName() *Name {
@@ -1502,7 +1684,7 @@ type Nationality struct {
 
 func (x *Nationality) Reset() {
 	*x = Nationality{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[14]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1514,7 +1696,7 @@ func (x *Nationality) String() string {
 func (*Nationality) ProtoMessage() {}
 
 func (x *Nationality) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[14]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1527,7 +1709,7 @@ func (x *Nationality) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Nationality.ProtoReflect.Descriptor instead.
 func (*Nationality) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{14}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *Nationality) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1596,7 +1778,7 @@ type Party struct {
 
 func (x *Party) Reset() {
 	*x = Party{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[15]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1608,7 +1790,7 @@ func (x *Party) String() string {
 func (*Party) ProtoMessage() {}
 
 func (x *Party) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[15]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1621,7 +1803,7 @@ func (x *Party) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Party.ProtoReflect.Descriptor instead.
 func (*Party) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{15}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *Party) GetPartyReference() string {
@@ -1790,7 +1972,7 @@ type PartyDescriptorForEntry struct {
 
 func (x *PartyDescriptorForEntry) Reset() {
 	*x = PartyDescriptorForEntry{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[16]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1802,7 +1984,7 @@ func (x *PartyDescriptorForEntry) String() string {
 func (*PartyDescriptorForEntry) ProtoMessage() {}
 
 func (x *PartyDescriptorForEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[16]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1815,7 +1997,7 @@ func (x *PartyDescriptorForEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyDescriptorForEntry.ProtoReflect.Descriptor instead.
 func (*PartyDescriptorForEntry) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{16}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *PartyDescriptorForEntry) GetPartyId() *DetailedPartyId {
@@ -1842,7 +2024,7 @@ type PartyList struct {
 
 func (x *PartyList) Reset() {
 	*x = PartyList{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[17]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1854,7 +2036,7 @@ func (x *PartyList) String() string {
 func (*PartyList) ProtoMessage() {}
 
 func (x *PartyList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[17]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1867,7 +2049,7 @@ func (x *PartyList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyList.ProtoReflect.Descriptor instead.
 func (*PartyList) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{17}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *PartyList) GetParty() []*Party {
@@ -1929,7 +2111,7 @@ type PartyName struct {
 
 func (x *PartyName) Reset() {
 	*x = PartyName{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[18]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1941,7 +2123,7 @@ func (x *PartyName) String() string {
 func (*PartyName) ProtoMessage() {}
 
 func (x *PartyName) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[18]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1954,7 +2136,7 @@ func (x *PartyName) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyName.ProtoReflect.Descriptor instead.
 func (*PartyName) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{18}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *PartyName) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2135,7 +2317,7 @@ type PartyNameForRequest struct {
 
 func (x *PartyNameForRequest) Reset() {
 	*x = PartyNameForRequest{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[19]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2147,7 +2329,7 @@ func (x *PartyNameForRequest) String() string {
 func (*PartyNameForRequest) ProtoMessage() {}
 
 func (x *PartyNameForRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[19]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2160,7 +2342,7 @@ func (x *PartyNameForRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameForRequest.ProtoReflect.Descriptor instead.
 func (*PartyNameForRequest) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{19}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *PartyNameForRequest) GetFullName() *Name {
@@ -2233,7 +2415,7 @@ type PartyNameFormat struct {
 
 func (x *PartyNameFormat) Reset() {
 	*x = PartyNameFormat{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[20]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2245,7 +2427,7 @@ func (x *PartyNameFormat) String() string {
 func (*PartyNameFormat) ProtoMessage() {}
 
 func (x *PartyNameFormat) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[20]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2258,7 +2440,7 @@ func (x *PartyNameFormat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameFormat.ProtoReflect.Descriptor instead.
 func (*PartyNameFormat) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{20}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *PartyNameFormat) GetValue() string {
@@ -2296,7 +2478,7 @@ type PartyNamePurpose struct {
 
 func (x *PartyNamePurpose) Reset() {
 	*x = PartyNamePurpose{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[21]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2308,7 +2490,7 @@ func (x *PartyNamePurpose) String() string {
 func (*PartyNamePurpose) ProtoMessage() {}
 
 func (x *PartyNamePurpose) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[21]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2321,7 +2503,7 @@ func (x *PartyNamePurpose) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNamePurpose.ProtoReflect.Descriptor instead.
 func (*PartyNamePurpose) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{21}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *PartyNamePurpose) GetValue() string {
@@ -2359,7 +2541,7 @@ type PartyNameType struct {
 
 func (x *PartyNameType) Reset() {
 	*x = PartyNameType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[22]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2371,7 +2553,7 @@ func (x *PartyNameType) String() string {
 func (*PartyNameType) ProtoMessage() {}
 
 func (x *PartyNameType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[22]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2384,7 +2566,7 @@ func (x *PartyNameType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameType.ProtoReflect.Descriptor instead.
 func (*PartyNameType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{22}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *PartyNameType) GetValue() string {
@@ -2422,7 +2604,7 @@ type PartyRelationshipType struct {
 
 func (x *PartyRelationshipType) Reset() {
 	*x = PartyRelationshipType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[23]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2434,7 +2616,7 @@ func (x *PartyRelationshipType) String() string {
 func (*PartyRelationshipType) ProtoMessage() {}
 
 func (x *PartyRelationshipType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[23]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2447,7 +2629,7 @@ func (x *PartyRelationshipType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyRelationshipType.ProtoReflect.Descriptor instead.
 func (*PartyRelationshipType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{23}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *PartyRelationshipType) GetValue() string {
@@ -2483,7 +2665,7 @@ type PartyType struct {
 
 func (x *PartyType) Reset() {
 	*x = PartyType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[24]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2495,7 +2677,7 @@ func (x *PartyType) String() string {
 func (*PartyType) ProtoMessage() {}
 
 func (x *PartyType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[24]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2508,7 +2690,7 @@ func (x *PartyType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyType.ProtoReflect.Descriptor instead.
 func (*PartyType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{24}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *PartyType) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2539,7 +2721,7 @@ type PartyTypeValue struct {
 
 func (x *PartyTypeValue) Reset() {
 	*x = PartyTypeValue{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[25]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2551,7 +2733,7 @@ func (x *PartyTypeValue) String() string {
 func (*PartyTypeValue) ProtoMessage() {}
 
 func (x *PartyTypeValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[25]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2564,7 +2746,7 @@ func (x *PartyTypeValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyTypeValue.ProtoReflect.Descriptor instead.
 func (*PartyTypeValue) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{25}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *PartyTypeValue) GetValue() string {
@@ -2600,7 +2782,7 @@ type PrimaryRole struct {
 
 func (x *PrimaryRole) Reset() {
 	*x = PrimaryRole{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[26]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2612,7 +2794,7 @@ func (x *PrimaryRole) String() string {
 func (*PrimaryRole) ProtoMessage() {}
 
 func (x *PrimaryRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[26]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2625,7 +2807,7 @@ func (x *PrimaryRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrimaryRole.ProtoReflect.Descriptor instead.
 func (*PrimaryRole) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{26}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *PrimaryRole) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2664,7 +2846,7 @@ type PronunciationForParty struct {
 
 func (x *PronunciationForParty) Reset() {
 	*x = PronunciationForParty{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[27]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2676,7 +2858,7 @@ func (x *PronunciationForParty) String() string {
 func (*PronunciationForParty) ProtoMessage() {}
 
 func (x *PronunciationForParty) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[27]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2689,7 +2871,7 @@ func (x *PronunciationForParty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PronunciationForParty.ProtoReflect.Descriptor instead.
 func (*PronunciationForParty) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{27}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *PronunciationForParty) GetValue() string {
@@ -2755,7 +2937,7 @@ type ReasonForNameChange struct {
 
 func (x *ReasonForNameChange) Reset() {
 	*x = ReasonForNameChange{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[28]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2767,7 +2949,7 @@ func (x *ReasonForNameChange) String() string {
 func (*ReasonForNameChange) ProtoMessage() {}
 
 func (x *ReasonForNameChange) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[28]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2780,7 +2962,7 @@ func (x *ReasonForNameChange) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReasonForNameChange.ProtoReflect.Descriptor instead.
 func (*ReasonForNameChange) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{28}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *ReasonForNameChange) GetValue() string {
@@ -2816,21 +2998,23 @@ type RelatedCreationForParty struct {
 	RelationshipDescription []*Description `protobuf:"bytes,4,rep,name=relationship_description,json=relationshipDescription,proto3" json:"relationship_description,omitempty" xml:"RelationshipDescription"`
 	// @gotags: xml:"Contract"
 	Contract string `protobuf:"bytes,5,opt,name=contract,proto3" json:"contract,omitempty" xml:"Contract"`
+	// Choice wrapper for XSD choice within sequence
+	Choice *RelatedCreationForPartyChoice6 `protobuf:"bytes,6,opt,name=choice,proto3" json:"choice,omitempty"`
 	// @gotags: xml:"IsFalse,attr"
-	IsFalse bool `protobuf:"varint,6,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty" xml:"IsFalse,attr"`
+	IsFalse bool `protobuf:"varint,7,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty" xml:"IsFalse,attr"`
 	// @gotags: xml:"IsConfidential,attr"
-	IsConfidential bool `protobuf:"varint,7,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty" xml:"IsConfidential,attr"`
+	IsConfidential bool `protobuf:"varint,8,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty" xml:"IsConfidential,attr"`
 	// @gotags: xml:"IsFirstCreation,attr"
-	IsFirstCreation bool `protobuf:"varint,8,opt,name=is_first_creation,json=isFirstCreation,proto3" json:"is_first_creation,omitempty" xml:"IsFirstCreation,attr"`
+	IsFirstCreation bool `protobuf:"varint,9,opt,name=is_first_creation,json=isFirstCreation,proto3" json:"is_first_creation,omitempty" xml:"IsFirstCreation,attr"`
 	// @gotags: xml:"IsLastCreation,attr"
-	IsLastCreation bool `protobuf:"varint,9,opt,name=is_last_creation,json=isLastCreation,proto3" json:"is_last_creation,omitempty" xml:"IsLastCreation,attr"`
+	IsLastCreation bool `protobuf:"varint,10,opt,name=is_last_creation,json=isLastCreation,proto3" json:"is_last_creation,omitempty" xml:"IsLastCreation,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *RelatedCreationForParty) Reset() {
 	*x = RelatedCreationForParty{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[29]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2842,7 +3026,7 @@ func (x *RelatedCreationForParty) String() string {
 func (*RelatedCreationForParty) ProtoMessage() {}
 
 func (x *RelatedCreationForParty) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[29]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2855,7 +3039,7 @@ func (x *RelatedCreationForParty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedCreationForParty.ProtoReflect.Descriptor instead.
 func (*RelatedCreationForParty) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{29}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *RelatedCreationForParty) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2893,6 +3077,13 @@ func (x *RelatedCreationForParty) GetContract() string {
 	return ""
 }
 
+func (x *RelatedCreationForParty) GetChoice() *RelatedCreationForPartyChoice6 {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
 func (x *RelatedCreationForParty) GetIsFalse() bool {
 	if x != nil {
 		return x.IsFalse
@@ -2921,6 +3112,125 @@ func (x *RelatedCreationForParty) GetIsLastCreation() bool {
 	return false
 }
 
+type RelatedCreationForPartyChoice6 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*RelatedCreationForPartyChoice6_ReleaseId
+	//	*RelatedCreationForPartyChoice6_ResourceId
+	//	*RelatedCreationForPartyChoice6_MusicalWorkId
+	//	*RelatedCreationForPartyChoice6_CreationDescription
+	Choice        isRelatedCreationForPartyChoice6_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RelatedCreationForPartyChoice6) Reset() {
+	*x = RelatedCreationForPartyChoice6{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RelatedCreationForPartyChoice6) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RelatedCreationForPartyChoice6) ProtoMessage() {}
+
+func (x *RelatedCreationForPartyChoice6) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RelatedCreationForPartyChoice6.ProtoReflect.Descriptor instead.
+func (*RelatedCreationForPartyChoice6) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *RelatedCreationForPartyChoice6) GetChoice() isRelatedCreationForPartyChoice6_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *RelatedCreationForPartyChoice6) GetReleaseId() *ReleaseId {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedCreationForPartyChoice6_ReleaseId); ok {
+			return x.ReleaseId
+		}
+	}
+	return nil
+}
+
+func (x *RelatedCreationForPartyChoice6) GetResourceId() *ResourceIdWithoutFlag {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedCreationForPartyChoice6_ResourceId); ok {
+			return x.ResourceId
+		}
+	}
+	return nil
+}
+
+func (x *RelatedCreationForPartyChoice6) GetMusicalWorkId() *MusicalWorkIdWithoutFlag {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedCreationForPartyChoice6_MusicalWorkId); ok {
+			return x.MusicalWorkId
+		}
+	}
+	return nil
+}
+
+func (x *RelatedCreationForPartyChoice6) GetCreationDescription() *CreationDescription {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedCreationForPartyChoice6_CreationDescription); ok {
+			return x.CreationDescription
+		}
+	}
+	return nil
+}
+
+type isRelatedCreationForPartyChoice6_Choice interface {
+	isRelatedCreationForPartyChoice6_Choice()
+}
+
+type RelatedCreationForPartyChoice6_ReleaseId struct {
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3,oneof" xml:"ReleaseId"`
+}
+
+type RelatedCreationForPartyChoice6_ResourceId struct {
+	// @gotags: xml:"ResourceId"
+	ResourceId *ResourceIdWithoutFlag `protobuf:"bytes,2,opt,name=resource_id,json=resourceId,proto3,oneof" xml:"ResourceId"`
+}
+
+type RelatedCreationForPartyChoice6_MusicalWorkId struct {
+	// @gotags: xml:"MusicalWorkId"
+	MusicalWorkId *MusicalWorkIdWithoutFlag `protobuf:"bytes,3,opt,name=musical_work_id,json=musicalWorkId,proto3,oneof" xml:"MusicalWorkId"`
+}
+
+type RelatedCreationForPartyChoice6_CreationDescription struct {
+	// @gotags: xml:"CreationDescription"
+	CreationDescription *CreationDescription `protobuf:"bytes,4,opt,name=creation_description,json=creationDescription,proto3,oneof" xml:"CreationDescription"`
+}
+
+func (*RelatedCreationForPartyChoice6_ReleaseId) isRelatedCreationForPartyChoice6_Choice() {}
+
+func (*RelatedCreationForPartyChoice6_ResourceId) isRelatedCreationForPartyChoice6_Choice() {}
+
+func (*RelatedCreationForPartyChoice6_MusicalWorkId) isRelatedCreationForPartyChoice6_Choice() {}
+
+func (*RelatedCreationForPartyChoice6_CreationDescription) isRelatedCreationForPartyChoice6_Choice() {
+}
+
 type RelatedParty struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"MetadataSourceReference"
@@ -2937,17 +3247,19 @@ type RelatedParty struct {
 	ValidityPeriod []*ValidityPeriod `protobuf:"bytes,6,rep,name=validity_period,json=validityPeriod,proto3" json:"validity_period,omitempty" xml:"ValidityPeriod"`
 	// @gotags: xml:"RelatedCreation"
 	RelatedCreation []*RelatedCreationForParty `protobuf:"bytes,7,rep,name=related_creation,json=relatedCreation,proto3" json:"related_creation,omitempty" xml:"RelatedCreation"`
+	// Choice wrapper for XSD choice within sequence
+	Choice *RelatedPartyChoice8 `protobuf:"bytes,8,opt,name=choice,proto3" json:"choice,omitempty"`
 	// @gotags: xml:"IsFalse,attr"
-	IsFalse bool `protobuf:"varint,8,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty" xml:"IsFalse,attr"`
+	IsFalse bool `protobuf:"varint,9,opt,name=is_false,json=isFalse,proto3" json:"is_false,omitempty" xml:"IsFalse,attr"`
 	// @gotags: xml:"IsConfidential,attr"
-	IsConfidential bool `protobuf:"varint,9,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty" xml:"IsConfidential,attr"`
+	IsConfidential bool `protobuf:"varint,10,opt,name=is_confidential,json=isConfidential,proto3" json:"is_confidential,omitempty" xml:"IsConfidential,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *RelatedParty) Reset() {
 	*x = RelatedParty{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[30]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2959,7 +3271,7 @@ func (x *RelatedParty) String() string {
 func (*RelatedParty) ProtoMessage() {}
 
 func (x *RelatedParty) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[30]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2972,7 +3284,7 @@ func (x *RelatedParty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedParty.ProtoReflect.Descriptor instead.
 func (*RelatedParty) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{30}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *RelatedParty) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -3024,6 +3336,13 @@ func (x *RelatedParty) GetRelatedCreation() []*RelatedCreationForParty {
 	return nil
 }
 
+func (x *RelatedParty) GetChoice() *RelatedPartyChoice8 {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
 func (x *RelatedParty) GetIsFalse() bool {
 	if x != nil {
 		return x.IsFalse
@@ -3038,6 +3357,89 @@ func (x *RelatedParty) GetIsConfidential() bool {
 	return false
 }
 
+type RelatedPartyChoice8 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*RelatedPartyChoice8_PartyRelatedPartyReference
+	//	*RelatedPartyChoice8_Sequence_1
+	Choice        isRelatedPartyChoice8_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RelatedPartyChoice8) Reset() {
+	*x = RelatedPartyChoice8{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RelatedPartyChoice8) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RelatedPartyChoice8) ProtoMessage() {}
+
+func (x *RelatedPartyChoice8) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RelatedPartyChoice8.ProtoReflect.Descriptor instead.
+func (*RelatedPartyChoice8) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *RelatedPartyChoice8) GetChoice() isRelatedPartyChoice8_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *RelatedPartyChoice8) GetPartyRelatedPartyReference() string {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedPartyChoice8_PartyRelatedPartyReference); ok {
+			return x.PartyRelatedPartyReference
+		}
+	}
+	return ""
+}
+
+func (x *RelatedPartyChoice8) GetSequence_1() *RelatedPartyChoice8_Option1 {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedPartyChoice8_Sequence_1); ok {
+			return x.Sequence_1
+		}
+	}
+	return nil
+}
+
+type isRelatedPartyChoice8_Choice interface {
+	isRelatedPartyChoice8_Choice()
+}
+
+type RelatedPartyChoice8_PartyRelatedPartyReference struct {
+	// @gotags: xml:"PartyRelatedPartyReference"
+	PartyRelatedPartyReference string `protobuf:"bytes,1,opt,name=party_related_party_reference,json=partyRelatedPartyReference,proto3,oneof" xml:"PartyRelatedPartyReference"`
+}
+
+type RelatedPartyChoice8_Sequence_1 struct {
+	Sequence_1 *RelatedPartyChoice8_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
+}
+
+func (*RelatedPartyChoice8_PartyRelatedPartyReference) isRelatedPartyChoice8_Choice() {}
+
+func (*RelatedPartyChoice8_Sequence_1) isRelatedPartyChoice8_Choice() {}
+
 type ReleaseForRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"ReleaseId"
@@ -3050,7 +3452,7 @@ type ReleaseForRequest struct {
 
 func (x *ReleaseForRequest) Reset() {
 	*x = ReleaseForRequest{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[31]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3062,7 +3464,7 @@ func (x *ReleaseForRequest) String() string {
 func (*ReleaseForRequest) ProtoMessage() {}
 
 func (x *ReleaseForRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[31]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3075,7 +3477,7 @@ func (x *ReleaseForRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseForRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseForRequest) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{31}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *ReleaseForRequest) GetReleaseId() *ReleaseId {
@@ -3101,14 +3503,16 @@ type RequestedParty struct {
 	// @gotags: xml:"Resource"
 	Resource []*ResourceForRequest `protobuf:"bytes,3,rep,name=resource,proto3" json:"resource,omitempty" xml:"Resource"`
 	// @gotags: xml:"Work"
-	Work          []*WorkForRequest `protobuf:"bytes,4,rep,name=work,proto3" json:"work,omitempty" xml:"Work"`
+	Work []*WorkForRequest `protobuf:"bytes,4,rep,name=work,proto3" json:"work,omitempty" xml:"Work"`
+	// Choice wrapper for XSD choice within sequence
+	Choice        *RequestedPartyChoice5 `protobuf:"bytes,5,opt,name=choice,proto3" json:"choice,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RequestedParty) Reset() {
 	*x = RequestedParty{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[32]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3120,7 +3524,7 @@ func (x *RequestedParty) String() string {
 func (*RequestedParty) ProtoMessage() {}
 
 func (x *RequestedParty) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[32]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3133,7 +3537,7 @@ func (x *RequestedParty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestedParty.ProtoReflect.Descriptor instead.
 func (*RequestedParty) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{32}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *RequestedParty) GetRole() []*ContributorRole {
@@ -3164,6 +3568,97 @@ func (x *RequestedParty) GetWork() []*WorkForRequest {
 	return nil
 }
 
+func (x *RequestedParty) GetChoice() *RequestedPartyChoice5 {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+type RequestedPartyChoice5 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*RequestedPartyChoice5_PartyId
+	//	*RequestedPartyChoice5_PartyName
+	Choice        isRequestedPartyChoice5_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequestedPartyChoice5) Reset() {
+	*x = RequestedPartyChoice5{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequestedPartyChoice5) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestedPartyChoice5) ProtoMessage() {}
+
+func (x *RequestedPartyChoice5) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestedPartyChoice5.ProtoReflect.Descriptor instead.
+func (*RequestedPartyChoice5) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *RequestedPartyChoice5) GetChoice() isRequestedPartyChoice5_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *RequestedPartyChoice5) GetPartyId() *DetailedPartyId {
+	if x != nil {
+		if x, ok := x.Choice.(*RequestedPartyChoice5_PartyId); ok {
+			return x.PartyId
+		}
+	}
+	return nil
+}
+
+func (x *RequestedPartyChoice5) GetPartyName() *PartyNameForRequest {
+	if x != nil {
+		if x, ok := x.Choice.(*RequestedPartyChoice5_PartyName); ok {
+			return x.PartyName
+		}
+	}
+	return nil
+}
+
+type isRequestedPartyChoice5_Choice interface {
+	isRequestedPartyChoice5_Choice()
+}
+
+type RequestedPartyChoice5_PartyId struct {
+	// @gotags: xml:"PartyId"
+	PartyId *DetailedPartyId `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3,oneof" xml:"PartyId"`
+}
+
+type RequestedPartyChoice5_PartyName struct {
+	// @gotags: xml:"PartyName"
+	PartyName *PartyNameForRequest `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3,oneof" xml:"PartyName"`
+}
+
+func (*RequestedPartyChoice5_PartyId) isRequestedPartyChoice5_Choice() {}
+
+func (*RequestedPartyChoice5_PartyName) isRequestedPartyChoice5_Choice() {}
+
 type ResourceForRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"ResourceId"
@@ -3178,7 +3673,7 @@ type ResourceForRequest struct {
 
 func (x *ResourceForRequest) Reset() {
 	*x = ResourceForRequest{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[33]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3190,7 +3685,7 @@ func (x *ResourceForRequest) String() string {
 func (*ResourceForRequest) ProtoMessage() {}
 
 func (x *ResourceForRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[33]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3203,7 +3698,7 @@ func (x *ResourceForRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceForRequest.ProtoReflect.Descriptor instead.
 func (*ResourceForRequest) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{33}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *ResourceForRequest) GetResourceId() *ResourceIdWithoutFlag {
@@ -3241,7 +3736,7 @@ type SocialMediaURL struct {
 
 func (x *SocialMediaURL) Reset() {
 	*x = SocialMediaURL{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[34]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3253,7 +3748,7 @@ func (x *SocialMediaURL) String() string {
 func (*SocialMediaURL) ProtoMessage() {}
 
 func (x *SocialMediaURL) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[34]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3266,7 +3761,7 @@ func (x *SocialMediaURL) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SocialMediaURL.ProtoReflect.Descriptor instead.
 func (*SocialMediaURL) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{34}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *SocialMediaURL) GetValue() string {
@@ -3302,7 +3797,7 @@ type WorkForRequest struct {
 
 func (x *WorkForRequest) Reset() {
 	*x = WorkForRequest{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[35]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3314,7 +3809,7 @@ func (x *WorkForRequest) String() string {
 func (*WorkForRequest) ProtoMessage() {}
 
 func (x *WorkForRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[35]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3327,7 +3822,7 @@ func (x *WorkForRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkForRequest.ProtoReflect.Descriptor instead.
 func (*WorkForRequest) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{35}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *WorkForRequest) GetWorkId() *MusicalWorkIdWithoutFlag {
@@ -3358,7 +3853,7 @@ type Category struct {
 
 func (x *Category) Reset() {
 	*x = Category{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[36]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3370,7 +3865,7 @@ func (x *Category) String() string {
 func (*Category) ProtoMessage() {}
 
 func (x *Category) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[36]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3383,7 +3878,7 @@ func (x *Category) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Category.ProtoReflect.Descriptor instead.
 func (*Category) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{36}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *Category) GetTerm() string {
@@ -3419,7 +3914,7 @@ type Content struct {
 
 func (x *Content) Reset() {
 	*x = Content{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[37]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3431,7 +3926,7 @@ func (x *Content) String() string {
 func (*Content) ProtoMessage() {}
 
 func (x *Content) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[37]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3444,7 +3939,7 @@ func (x *Content) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Content.ProtoReflect.Descriptor instead.
 func (*Content) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{37}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *Content) GetType() string {
@@ -3471,7 +3966,7 @@ type DateTime struct {
 
 func (x *DateTime) Reset() {
 	*x = DateTime{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[38]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3483,7 +3978,7 @@ func (x *DateTime) String() string {
 func (*DateTime) ProtoMessage() {}
 
 func (x *DateTime) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[38]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3496,7 +3991,7 @@ func (x *DateTime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DateTime.ProtoReflect.Descriptor instead.
 func (*DateTime) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{38}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *DateTime) GetValue() string {
@@ -3520,7 +4015,7 @@ type Generator struct {
 
 func (x *Generator) Reset() {
 	*x = Generator{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[39]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3532,7 +4027,7 @@ func (x *Generator) String() string {
 func (*Generator) ProtoMessage() {}
 
 func (x *Generator) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[39]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3545,7 +4040,7 @@ func (x *Generator) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Generator.ProtoReflect.Descriptor instead.
 func (*Generator) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{39}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *Generator) GetValue() string {
@@ -3579,7 +4074,7 @@ type Icon struct {
 
 func (x *Icon) Reset() {
 	*x = Icon{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[40]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3591,7 +4086,7 @@ func (x *Icon) String() string {
 func (*Icon) ProtoMessage() {}
 
 func (x *Icon) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[40]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3604,7 +4099,7 @@ func (x *Icon) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Icon.ProtoReflect.Descriptor instead.
 func (*Icon) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{40}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *Icon) GetValue() string {
@@ -3624,7 +4119,7 @@ type Id struct {
 
 func (x *Id) Reset() {
 	*x = Id{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[41]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3636,7 +4131,7 @@ func (x *Id) String() string {
 func (*Id) ProtoMessage() {}
 
 func (x *Id) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[41]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3649,7 +4144,7 @@ func (x *Id) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Id.ProtoReflect.Descriptor instead.
 func (*Id) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{41}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *Id) GetValue() string {
@@ -3679,7 +4174,7 @@ type Link struct {
 
 func (x *Link) Reset() {
 	*x = Link{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[42]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3691,7 +4186,7 @@ func (x *Link) String() string {
 func (*Link) ProtoMessage() {}
 
 func (x *Link) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[42]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3704,7 +4199,7 @@ func (x *Link) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Link.ProtoReflect.Descriptor instead.
 func (*Link) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{42}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *Link) GetHref() string {
@@ -3759,7 +4254,7 @@ type Logo struct {
 
 func (x *Logo) Reset() {
 	*x = Logo{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[43]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3771,7 +4266,7 @@ func (x *Logo) String() string {
 func (*Logo) ProtoMessage() {}
 
 func (x *Logo) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[43]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3784,7 +4279,7 @@ func (x *Logo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Logo.ProtoReflect.Descriptor instead.
 func (*Logo) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{43}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *Logo) GetValue() string {
@@ -3796,19 +4291,15 @@ func (x *Logo) GetValue() string {
 
 type Person struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*Person_Name
-	//	*Person_Uri
-	//	*Person_Email
-	Choice        isPerson_Choice `protobuf_oneof:"choice"`
+	// Choice wrapper for XSD choice
+	Choice        []*PersonChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Person) Reset() {
 	*x = Person{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[44]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3820,7 +4311,7 @@ func (x *Person) String() string {
 func (*Person) ProtoMessage() {}
 
 func (x *Person) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[44]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3833,92 +4324,128 @@ func (x *Person) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Person.ProtoReflect.Descriptor instead.
 func (*Person) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{44}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{50}
 }
 
-func (x *Person) GetChoice() isPerson_Choice {
+func (x *Person) GetChoice() []*PersonChoice {
 	if x != nil {
 		return x.Choice
 	}
 	return nil
 }
 
-func (x *Person) GetName() string {
+type PersonChoice struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*PersonChoice_Name
+	//	*PersonChoice_Uri
+	//	*PersonChoice_Email
+	Choice        isPersonChoice_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PersonChoice) Reset() {
+	*x = PersonChoice{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PersonChoice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PersonChoice) ProtoMessage() {}
+
+func (x *PersonChoice) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[51]
 	if x != nil {
-		if x, ok := x.Choice.(*Person_Name); ok {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PersonChoice.ProtoReflect.Descriptor instead.
+func (*PersonChoice) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *PersonChoice) GetChoice() isPersonChoice_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *PersonChoice) GetName() string {
+	if x != nil {
+		if x, ok := x.Choice.(*PersonChoice_Name); ok {
 			return x.Name
 		}
 	}
 	return ""
 }
 
-func (x *Person) GetUri() *URI {
+func (x *PersonChoice) GetUri() *URI {
 	if x != nil {
-		if x, ok := x.Choice.(*Person_Uri); ok {
+		if x, ok := x.Choice.(*PersonChoice_Uri); ok {
 			return x.Uri
 		}
 	}
 	return nil
 }
 
-func (x *Person) GetEmail() string {
+func (x *PersonChoice) GetEmail() string {
 	if x != nil {
-		if x, ok := x.Choice.(*Person_Email); ok {
+		if x, ok := x.Choice.(*PersonChoice_Email); ok {
 			return x.Email
 		}
 	}
 	return ""
 }
 
-type isPerson_Choice interface {
-	isPerson_Choice()
+type isPersonChoice_Choice interface {
+	isPersonChoice_Choice()
 }
 
-type Person_Name struct {
+type PersonChoice_Name struct {
 	// @gotags: xml:"name"
 	Name string `protobuf:"bytes,1,opt,name=name,proto3,oneof" xml:"name"`
 }
 
-type Person_Uri struct {
+type PersonChoice_Uri struct {
 	// @gotags: xml:"uri"
 	Uri *URI `protobuf:"bytes,2,opt,name=uri,proto3,oneof" xml:"uri"`
 }
 
-type Person_Email struct {
+type PersonChoice_Email struct {
 	// @gotags: xml:"email"
 	Email string `protobuf:"bytes,3,opt,name=email,proto3,oneof" xml:"email"`
 }
 
-func (*Person_Name) isPerson_Choice() {}
+func (*PersonChoice_Name) isPersonChoice_Choice() {}
 
-func (*Person_Uri) isPerson_Choice() {}
+func (*PersonChoice_Uri) isPersonChoice_Choice() {}
 
-func (*Person_Email) isPerson_Choice() {}
+func (*PersonChoice_Email) isPersonChoice_Choice() {}
 
 type Source struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*Source_Author
-	//	*Source_Category
-	//	*Source_Contributor
-	//	*Source_Generator
-	//	*Source_Icon
-	//	*Source_Id
-	//	*Source_Link
-	//	*Source_Logo
-	//	*Source_Rights
-	//	*Source_Subtitle
-	//	*Source_Title
-	//	*Source_Updated
-	Choice        isSource_Choice `protobuf_oneof:"choice"`
+	// Choice wrapper for XSD choice
+	Choice        []*SourceChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Source) Reset() {
 	*x = Source{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[45]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3930,7 +4457,7 @@ func (x *Source) String() string {
 func (*Source) ProtoMessage() {}
 
 func (x *Source) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[45]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3943,211 +4470,269 @@ func (x *Source) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Source.ProtoReflect.Descriptor instead.
 func (*Source) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{45}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{52}
 }
 
-func (x *Source) GetChoice() isSource_Choice {
+func (x *Source) GetChoice() []*SourceChoice {
 	if x != nil {
 		return x.Choice
 	}
 	return nil
 }
 
-func (x *Source) GetAuthor() *Person {
+type SourceChoice struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*SourceChoice_AuthorOption
+	//	*SourceChoice_CategoryOption
+	//	*SourceChoice_ContributorOption
+	//	*SourceChoice_Generator
+	//	*SourceChoice_Icon
+	//	*SourceChoice_Id
+	//	*SourceChoice_LinkOption
+	//	*SourceChoice_Logo
+	//	*SourceChoice_Rights
+	//	*SourceChoice_Subtitle
+	//	*SourceChoice_Title
+	//	*SourceChoice_Updated
+	Choice        isSourceChoice_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SourceChoice) Reset() {
+	*x = SourceChoice{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SourceChoice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SourceChoice) ProtoMessage() {}
+
+func (x *SourceChoice) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[53]
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Author); ok {
-			return x.Author
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SourceChoice.ProtoReflect.Descriptor instead.
+func (*SourceChoice) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *SourceChoice) GetChoice() isSourceChoice_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *SourceChoice) GetAuthorOption() *SourceChoice_Option1 {
+	if x != nil {
+		if x, ok := x.Choice.(*SourceChoice_AuthorOption); ok {
+			return x.AuthorOption
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetCategory() *Category {
+func (x *SourceChoice) GetCategoryOption() *SourceChoice_Option2 {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Category); ok {
-			return x.Category
+		if x, ok := x.Choice.(*SourceChoice_CategoryOption); ok {
+			return x.CategoryOption
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetContributor() *Person {
+func (x *SourceChoice) GetContributorOption() *SourceChoice_Option3 {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Contributor); ok {
-			return x.Contributor
+		if x, ok := x.Choice.(*SourceChoice_ContributorOption); ok {
+			return x.ContributorOption
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetGenerator() *Generator {
+func (x *SourceChoice) GetGenerator() *Generator {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Generator); ok {
+		if x, ok := x.Choice.(*SourceChoice_Generator); ok {
 			return x.Generator
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetIcon() *Icon {
+func (x *SourceChoice) GetIcon() *Icon {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Icon); ok {
+		if x, ok := x.Choice.(*SourceChoice_Icon); ok {
 			return x.Icon
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetId() *Id {
+func (x *SourceChoice) GetId() *Id {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Id); ok {
+		if x, ok := x.Choice.(*SourceChoice_Id); ok {
 			return x.Id
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetLink() *Link {
+func (x *SourceChoice) GetLinkOption() *SourceChoice_Option4 {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Link); ok {
-			return x.Link
+		if x, ok := x.Choice.(*SourceChoice_LinkOption); ok {
+			return x.LinkOption
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetLogo() *Logo {
+func (x *SourceChoice) GetLogo() *Logo {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Logo); ok {
+		if x, ok := x.Choice.(*SourceChoice_Logo); ok {
 			return x.Logo
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetRights() *Text {
+func (x *SourceChoice) GetRights() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Rights); ok {
+		if x, ok := x.Choice.(*SourceChoice_Rights); ok {
 			return x.Rights
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetSubtitle() *Text {
+func (x *SourceChoice) GetSubtitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Subtitle); ok {
+		if x, ok := x.Choice.(*SourceChoice_Subtitle); ok {
 			return x.Subtitle
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetTitle() *Text {
+func (x *SourceChoice) GetTitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Title); ok {
+		if x, ok := x.Choice.(*SourceChoice_Title); ok {
 			return x.Title
 		}
 	}
 	return nil
 }
 
-func (x *Source) GetUpdated() *DateTime {
+func (x *SourceChoice) GetUpdated() *DateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*Source_Updated); ok {
+		if x, ok := x.Choice.(*SourceChoice_Updated); ok {
 			return x.Updated
 		}
 	}
 	return nil
 }
 
-type isSource_Choice interface {
-	isSource_Choice()
+type isSourceChoice_Choice interface {
+	isSourceChoice_Choice()
 }
 
-type Source_Author struct {
+type SourceChoice_AuthorOption struct {
 	// @gotags: xml:"author"
-	Author *Person `protobuf:"bytes,1,opt,name=author,proto3,oneof" xml:"author"`
+	AuthorOption *SourceChoice_Option1 `protobuf:"bytes,1,opt,name=author_option,json=authorOption,proto3,oneof" xml:"author"`
 }
 
-type Source_Category struct {
+type SourceChoice_CategoryOption struct {
 	// @gotags: xml:"category"
-	Category *Category `protobuf:"bytes,2,opt,name=category,proto3,oneof" xml:"category"`
+	CategoryOption *SourceChoice_Option2 `protobuf:"bytes,2,opt,name=category_option,json=categoryOption,proto3,oneof" xml:"category"`
 }
 
-type Source_Contributor struct {
+type SourceChoice_ContributorOption struct {
 	// @gotags: xml:"contributor"
-	Contributor *Person `protobuf:"bytes,3,opt,name=contributor,proto3,oneof" xml:"contributor"`
+	ContributorOption *SourceChoice_Option3 `protobuf:"bytes,3,opt,name=contributor_option,json=contributorOption,proto3,oneof" xml:"contributor"`
 }
 
-type Source_Generator struct {
+type SourceChoice_Generator struct {
 	// @gotags: xml:"generator"
 	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof" xml:"generator"`
 }
 
-type Source_Icon struct {
+type SourceChoice_Icon struct {
 	// @gotags: xml:"icon"
 	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof" xml:"icon"`
 }
 
-type Source_Id struct {
+type SourceChoice_Id struct {
 	// @gotags: xml:"id"
 	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof" xml:"id"`
 }
 
-type Source_Link struct {
+type SourceChoice_LinkOption struct {
 	// @gotags: xml:"link"
-	Link *Link `protobuf:"bytes,7,opt,name=link,proto3,oneof" xml:"link"`
+	LinkOption *SourceChoice_Option4 `protobuf:"bytes,7,opt,name=link_option,json=linkOption,proto3,oneof" xml:"link"`
 }
 
-type Source_Logo struct {
+type SourceChoice_Logo struct {
 	// @gotags: xml:"logo"
 	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof" xml:"logo"`
 }
 
-type Source_Rights struct {
+type SourceChoice_Rights struct {
 	// @gotags: xml:"rights"
 	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof" xml:"rights"`
 }
 
-type Source_Subtitle struct {
+type SourceChoice_Subtitle struct {
 	// @gotags: xml:"subtitle"
 	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof" xml:"subtitle"`
 }
 
-type Source_Title struct {
+type SourceChoice_Title struct {
 	// @gotags: xml:"title"
 	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
 }
 
-type Source_Updated struct {
+type SourceChoice_Updated struct {
 	// @gotags: xml:"updated"
 	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
 }
 
-func (*Source_Author) isSource_Choice() {}
+func (*SourceChoice_AuthorOption) isSourceChoice_Choice() {}
 
-func (*Source_Category) isSource_Choice() {}
+func (*SourceChoice_CategoryOption) isSourceChoice_Choice() {}
 
-func (*Source_Contributor) isSource_Choice() {}
+func (*SourceChoice_ContributorOption) isSourceChoice_Choice() {}
 
-func (*Source_Generator) isSource_Choice() {}
+func (*SourceChoice_Generator) isSourceChoice_Choice() {}
 
-func (*Source_Icon) isSource_Choice() {}
+func (*SourceChoice_Icon) isSourceChoice_Choice() {}
 
-func (*Source_Id) isSource_Choice() {}
+func (*SourceChoice_Id) isSourceChoice_Choice() {}
 
-func (*Source_Link) isSource_Choice() {}
+func (*SourceChoice_LinkOption) isSourceChoice_Choice() {}
 
-func (*Source_Logo) isSource_Choice() {}
+func (*SourceChoice_Logo) isSourceChoice_Choice() {}
 
-func (*Source_Rights) isSource_Choice() {}
+func (*SourceChoice_Rights) isSourceChoice_Choice() {}
 
-func (*Source_Subtitle) isSource_Choice() {}
+func (*SourceChoice_Subtitle) isSourceChoice_Choice() {}
 
-func (*Source_Title) isSource_Choice() {}
+func (*SourceChoice_Title) isSourceChoice_Choice() {}
 
-func (*Source_Updated) isSource_Choice() {}
+func (*SourceChoice_Updated) isSourceChoice_Choice() {}
 
 type Text struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -4159,7 +4744,7 @@ type Text struct {
 
 func (x *Text) Reset() {
 	*x = Text{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[46]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4171,7 +4756,7 @@ func (x *Text) String() string {
 func (*Text) ProtoMessage() {}
 
 func (x *Text) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[46]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4184,7 +4769,7 @@ func (x *Text) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Text.ProtoReflect.Descriptor instead.
 func (*Text) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{46}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *Text) GetType() string {
@@ -4204,7 +4789,7 @@ type URI struct {
 
 func (x *URI) Reset() {
 	*x = URI{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[47]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4216,7 +4801,7 @@ func (x *URI) String() string {
 func (*URI) ProtoMessage() {}
 
 func (x *URI) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[47]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4229,7 +4814,7 @@ func (x *URI) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use URI.ProtoReflect.Descriptor instead.
 func (*URI) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{47}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *URI) GetValue() string {
@@ -4251,7 +4836,7 @@ type AllTerritoryCode struct {
 
 func (x *AllTerritoryCode) Reset() {
 	*x = AllTerritoryCode{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[48]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4263,7 +4848,7 @@ func (x *AllTerritoryCode) String() string {
 func (*AllTerritoryCode) ProtoMessage() {}
 
 func (x *AllTerritoryCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[48]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4276,7 +4861,7 @@ func (x *AllTerritoryCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AllTerritoryCode.ProtoReflect.Descriptor instead.
 func (*AllTerritoryCode) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{48}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *AllTerritoryCode) GetValue() string {
@@ -4307,7 +4892,7 @@ type ArtistType struct {
 
 func (x *ArtistType) Reset() {
 	*x = ArtistType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[49]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4319,7 +4904,7 @@ func (x *ArtistType) String() string {
 func (*ArtistType) ProtoMessage() {}
 
 func (x *ArtistType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[49]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4332,7 +4917,7 @@ func (x *ArtistType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ArtistType.ProtoReflect.Descriptor instead.
 func (*ArtistType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{49}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *ArtistType) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -4370,7 +4955,7 @@ type ArtistTypeValue struct {
 
 func (x *ArtistTypeValue) Reset() {
 	*x = ArtistTypeValue{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[50]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4382,7 +4967,7 @@ func (x *ArtistTypeValue) String() string {
 func (*ArtistTypeValue) ProtoMessage() {}
 
 func (x *ArtistTypeValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[50]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4395,7 +4980,7 @@ func (x *ArtistTypeValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ArtistTypeValue.ProtoReflect.Descriptor instead.
 func (*ArtistTypeValue) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{50}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *ArtistTypeValue) GetValue() string {
@@ -4443,7 +5028,7 @@ type ArtisticInfluence struct {
 
 func (x *ArtisticInfluence) Reset() {
 	*x = ArtisticInfluence{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[51]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4455,7 +5040,7 @@ func (x *ArtisticInfluence) String() string {
 func (*ArtisticInfluence) ProtoMessage() {}
 
 func (x *ArtisticInfluence) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[51]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4468,7 +5053,7 @@ func (x *ArtisticInfluence) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ArtisticInfluence.ProtoReflect.Descriptor instead.
 func (*ArtisticInfluence) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{51}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *ArtisticInfluence) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -4549,7 +5134,7 @@ type Award struct {
 
 func (x *Award) Reset() {
 	*x = Award{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[52]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4561,7 +5146,7 @@ func (x *Award) String() string {
 func (*Award) ProtoMessage() {}
 
 func (x *Award) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[52]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4574,7 +5159,7 @@ func (x *Award) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Award.ProtoReflect.Descriptor instead.
 func (*Award) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{52}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *Award) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -4640,7 +5225,7 @@ type Biography struct {
 
 func (x *Biography) Reset() {
 	*x = Biography{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[53]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4652,7 +5237,7 @@ func (x *Biography) String() string {
 func (*Biography) ProtoMessage() {}
 
 func (x *Biography) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[53]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4665,7 +5250,7 @@ func (x *Biography) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Biography.ProtoReflect.Descriptor instead.
 func (*Biography) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{53}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *Biography) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -4709,7 +5294,7 @@ type BiographyText struct {
 
 func (x *BiographyText) Reset() {
 	*x = BiographyText{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[54]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4721,7 +5306,7 @@ func (x *BiographyText) String() string {
 func (*BiographyText) ProtoMessage() {}
 
 func (x *BiographyText) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[54]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4734,7 +5319,7 @@ func (x *BiographyText) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BiographyText.ProtoReflect.Descriptor instead.
 func (*BiographyText) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{54}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *BiographyText) GetValue() string {
@@ -4791,7 +5376,7 @@ type CatalogNumber struct {
 
 func (x *CatalogNumber) Reset() {
 	*x = CatalogNumber{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[55]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4803,7 +5388,7 @@ func (x *CatalogNumber) String() string {
 func (*CatalogNumber) ProtoMessage() {}
 
 func (x *CatalogNumber) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[55]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4816,7 +5401,7 @@ func (x *CatalogNumber) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CatalogNumber.ProtoReflect.Descriptor instead.
 func (*CatalogNumber) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{55}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *CatalogNumber) GetValue() string {
@@ -4849,7 +5434,7 @@ type ClassicalPeriod struct {
 
 func (x *ClassicalPeriod) Reset() {
 	*x = ClassicalPeriod{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[56]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4861,7 +5446,7 @@ func (x *ClassicalPeriod) String() string {
 func (*ClassicalPeriod) ProtoMessage() {}
 
 func (x *ClassicalPeriod) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[56]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4874,7 +5459,7 @@ func (x *ClassicalPeriod) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClassicalPeriod.ProtoReflect.Descriptor instead.
 func (*ClassicalPeriod) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{56}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *ClassicalPeriod) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -4925,7 +5510,7 @@ type CommentaryNote struct {
 
 func (x *CommentaryNote) Reset() {
 	*x = CommentaryNote{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[57]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4937,7 +5522,7 @@ func (x *CommentaryNote) String() string {
 func (*CommentaryNote) ProtoMessage() {}
 
 func (x *CommentaryNote) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[57]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4950,7 +5535,7 @@ func (x *CommentaryNote) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommentaryNote.ProtoReflect.Descriptor instead.
 func (*CommentaryNote) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{57}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *CommentaryNote) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5009,7 +5594,7 @@ type CommentaryNoteType struct {
 
 func (x *CommentaryNoteType) Reset() {
 	*x = CommentaryNoteType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[58]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5021,7 +5606,7 @@ func (x *CommentaryNoteType) String() string {
 func (*CommentaryNoteType) ProtoMessage() {}
 
 func (x *CommentaryNoteType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[58]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5034,7 +5619,7 @@ func (x *CommentaryNoteType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommentaryNoteType.ProtoReflect.Descriptor instead.
 func (*CommentaryNoteType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{58}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *CommentaryNoteType) GetValue() string {
@@ -5072,7 +5657,7 @@ type ContributorRole struct {
 
 func (x *ContributorRole) Reset() {
 	*x = ContributorRole{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[59]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5084,7 +5669,7 @@ func (x *ContributorRole) String() string {
 func (*ContributorRole) ProtoMessage() {}
 
 func (x *ContributorRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[59]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5097,7 +5682,7 @@ func (x *ContributorRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContributorRole.ProtoReflect.Descriptor instead.
 func (*ContributorRole) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{59}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *ContributorRole) GetValue() string {
@@ -5133,7 +5718,7 @@ type Date struct {
 
 func (x *Date) Reset() {
 	*x = Date{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[60]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5145,7 +5730,7 @@ func (x *Date) String() string {
 func (*Date) ProtoMessage() {}
 
 func (x *Date) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[60]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5158,7 +5743,7 @@ func (x *Date) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Date.ProtoReflect.Descriptor instead.
 func (*Date) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{60}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *Date) GetValue() string {
@@ -5187,7 +5772,7 @@ type Description struct {
 
 func (x *Description) Reset() {
 	*x = Description{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[61]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5199,7 +5784,7 @@ func (x *Description) String() string {
 func (*Description) ProtoMessage() {}
 
 func (x *Description) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[61]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5212,7 +5797,7 @@ func (x *Description) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Description.ProtoReflect.Descriptor instead.
 func (*Description) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{61}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *Description) GetValue() string {
@@ -5247,7 +5832,7 @@ type DetailedHashSum struct {
 
 func (x *DetailedHashSum) Reset() {
 	*x = DetailedHashSum{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[62]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5259,7 +5844,7 @@ func (x *DetailedHashSum) String() string {
 func (*DetailedHashSum) ProtoMessage() {}
 
 func (x *DetailedHashSum) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[62]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5272,7 +5857,7 @@ func (x *DetailedHashSum) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedHashSum.ProtoReflect.Descriptor instead.
 func (*DetailedHashSum) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{62}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *DetailedHashSum) GetAlgorithm() *HashSumAlgorithmType {
@@ -5330,7 +5915,7 @@ type DetailedPartyId struct {
 
 func (x *DetailedPartyId) Reset() {
 	*x = DetailedPartyId{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[63]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5342,7 +5927,7 @@ func (x *DetailedPartyId) String() string {
 func (*DetailedPartyId) ProtoMessage() {}
 
 func (x *DetailedPartyId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[63]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5355,7 +5940,7 @@ func (x *DetailedPartyId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedPartyId.ProtoReflect.Descriptor instead.
 func (*DetailedPartyId) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{63}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *DetailedPartyId) GetISNI() string {
@@ -5414,7 +5999,7 @@ type DisplayArtistName struct {
 
 func (x *DisplayArtistName) Reset() {
 	*x = DisplayArtistName{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[64]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5426,7 +6011,7 @@ func (x *DisplayArtistName) String() string {
 func (*DisplayArtistName) ProtoMessage() {}
 
 func (x *DisplayArtistName) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[64]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5439,7 +6024,7 @@ func (x *DisplayArtistName) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayArtistName.ProtoReflect.Descriptor instead.
 func (*DisplayArtistName) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{64}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *DisplayArtistName) GetValue() string {
@@ -5479,7 +6064,7 @@ type DisplayArtistNameWithDefault struct {
 
 func (x *DisplayArtistNameWithDefault) Reset() {
 	*x = DisplayArtistNameWithDefault{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[65]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5491,7 +6076,7 @@ func (x *DisplayArtistNameWithDefault) String() string {
 func (*DisplayArtistNameWithDefault) ProtoMessage() {}
 
 func (x *DisplayArtistNameWithDefault) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[65]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5504,7 +6089,7 @@ func (x *DisplayArtistNameWithDefault) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayArtistNameWithDefault.ProtoReflect.Descriptor instead.
 func (*DisplayArtistNameWithDefault) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{65}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *DisplayArtistNameWithDefault) GetValue() string {
@@ -5547,7 +6132,7 @@ type DisplayArtistNameWithPronunciation struct {
 
 func (x *DisplayArtistNameWithPronunciation) Reset() {
 	*x = DisplayArtistNameWithPronunciation{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[66]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5559,7 +6144,7 @@ func (x *DisplayArtistNameWithPronunciation) String() string {
 func (*DisplayArtistNameWithPronunciation) ProtoMessage() {}
 
 func (x *DisplayArtistNameWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[66]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5572,7 +6157,7 @@ func (x *DisplayArtistNameWithPronunciation) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use DisplayArtistNameWithPronunciation.ProtoReflect.Descriptor instead.
 func (*DisplayArtistNameWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{66}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *DisplayArtistNameWithPronunciation) GetName() *DisplayArtistNameWithDefault {
@@ -5611,7 +6196,7 @@ type DisplaySubTitle struct {
 
 func (x *DisplaySubTitle) Reset() {
 	*x = DisplaySubTitle{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[67]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5623,7 +6208,7 @@ func (x *DisplaySubTitle) String() string {
 func (*DisplaySubTitle) ProtoMessage() {}
 
 func (x *DisplaySubTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[67]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5636,7 +6221,7 @@ func (x *DisplaySubTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplaySubTitle.ProtoReflect.Descriptor instead.
 func (*DisplaySubTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{67}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *DisplaySubTitle) GetTitle() string {
@@ -5706,7 +6291,7 @@ type DisplayTitle struct {
 
 func (x *DisplayTitle) Reset() {
 	*x = DisplayTitle{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[68]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5718,7 +6303,7 @@ func (x *DisplayTitle) String() string {
 func (*DisplayTitle) ProtoMessage() {}
 
 func (x *DisplayTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[68]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5731,7 +6316,7 @@ func (x *DisplayTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayTitle.ProtoReflect.Descriptor instead.
 func (*DisplayTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{68}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *DisplayTitle) GetTitleText() *TitleText {
@@ -5793,7 +6378,7 @@ type Epoch struct {
 
 func (x *Epoch) Reset() {
 	*x = Epoch{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[69]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5805,7 +6390,7 @@ func (x *Epoch) String() string {
 func (*Epoch) ProtoMessage() {}
 
 func (x *Epoch) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[69]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5818,7 +6403,7 @@ func (x *Epoch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Epoch.ProtoReflect.Descriptor instead.
 func (*Epoch) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{69}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *Epoch) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5899,7 +6484,7 @@ type EventDate struct {
 
 func (x *EventDate) Reset() {
 	*x = EventDate{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[70]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5911,7 +6496,7 @@ func (x *EventDate) String() string {
 func (*EventDate) ProtoMessage() {}
 
 func (x *EventDate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[70]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5924,7 +6509,7 @@ func (x *EventDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDate.ProtoReflect.Descriptor instead.
 func (*EventDate) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{70}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *EventDate) GetValue() string {
@@ -5990,7 +6575,7 @@ type File struct {
 
 func (x *File) Reset() {
 	*x = File{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[71]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6002,7 +6587,7 @@ func (x *File) String() string {
 func (*File) ProtoMessage() {}
 
 func (x *File) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[71]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6015,7 +6600,7 @@ func (x *File) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use File.ProtoReflect.Descriptor instead.
 func (*File) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{71}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *File) GetURI() string {
@@ -6053,7 +6638,7 @@ type HashSumAlgorithmType struct {
 
 func (x *HashSumAlgorithmType) Reset() {
 	*x = HashSumAlgorithmType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[72]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6065,7 +6650,7 @@ func (x *HashSumAlgorithmType) String() string {
 func (*HashSumAlgorithmType) ProtoMessage() {}
 
 func (x *HashSumAlgorithmType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[72]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6078,7 +6663,7 @@ func (x *HashSumAlgorithmType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashSumAlgorithmType.ProtoReflect.Descriptor instead.
 func (*HashSumAlgorithmType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{72}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *HashSumAlgorithmType) GetValue() string {
@@ -6116,7 +6701,7 @@ type Image struct {
 
 func (x *Image) Reset() {
 	*x = Image{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[73]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6128,7 +6713,7 @@ func (x *Image) String() string {
 func (*Image) ProtoMessage() {}
 
 func (x *Image) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[73]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6141,7 +6726,7 @@ func (x *Image) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Image.ProtoReflect.Descriptor instead.
 func (*Image) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{73}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *Image) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -6179,7 +6764,7 @@ type ImageType struct {
 
 func (x *ImageType) Reset() {
 	*x = ImageType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[74]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6191,7 +6776,7 @@ func (x *ImageType) String() string {
 func (*ImageType) ProtoMessage() {}
 
 func (x *ImageType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[74]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6204,7 +6789,7 @@ func (x *ImageType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ImageType.ProtoReflect.Descriptor instead.
 func (*ImageType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{74}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *ImageType) GetValue() string {
@@ -6238,7 +6823,7 @@ type MessageAuditTrail struct {
 
 func (x *MessageAuditTrail) Reset() {
 	*x = MessageAuditTrail{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[75]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6250,7 +6835,7 @@ func (x *MessageAuditTrail) String() string {
 func (*MessageAuditTrail) ProtoMessage() {}
 
 func (x *MessageAuditTrail) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[75]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6263,7 +6848,7 @@ func (x *MessageAuditTrail) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAuditTrail.ProtoReflect.Descriptor instead.
 func (*MessageAuditTrail) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{75}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *MessageAuditTrail) GetMessageAuditTrailEvent() []*MessageAuditTrailEvent {
@@ -6285,7 +6870,7 @@ type MessageAuditTrailEvent struct {
 
 func (x *MessageAuditTrailEvent) Reset() {
 	*x = MessageAuditTrailEvent{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[76]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6297,7 +6882,7 @@ func (x *MessageAuditTrailEvent) String() string {
 func (*MessageAuditTrailEvent) ProtoMessage() {}
 
 func (x *MessageAuditTrailEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[76]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6310,7 +6895,7 @@ func (x *MessageAuditTrailEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAuditTrailEvent.ProtoReflect.Descriptor instead.
 func (*MessageAuditTrailEvent) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{76}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *MessageAuditTrailEvent) GetMessagingPartyDescriptor() *MessagingPartyWithoutCode {
@@ -6353,7 +6938,7 @@ type MessageHeader struct {
 
 func (x *MessageHeader) Reset() {
 	*x = MessageHeader{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[77]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6365,7 +6950,7 @@ func (x *MessageHeader) String() string {
 func (*MessageHeader) ProtoMessage() {}
 
 func (x *MessageHeader) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[77]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6378,7 +6963,7 @@ func (x *MessageHeader) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageHeader.ProtoReflect.Descriptor instead.
 func (*MessageHeader) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{77}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *MessageHeader) GetMessageThreadId() string {
@@ -6458,7 +7043,7 @@ type MessagingPartyWithoutCode struct {
 
 func (x *MessagingPartyWithoutCode) Reset() {
 	*x = MessagingPartyWithoutCode{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[78]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6470,7 +7055,7 @@ func (x *MessagingPartyWithoutCode) String() string {
 func (*MessagingPartyWithoutCode) ProtoMessage() {}
 
 func (x *MessagingPartyWithoutCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[78]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6483,7 +7068,7 @@ func (x *MessagingPartyWithoutCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessagingPartyWithoutCode.ProtoReflect.Descriptor instead.
 func (*MessagingPartyWithoutCode) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{78}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *MessagingPartyWithoutCode) GetPartyId() string {
@@ -6513,13 +7098,15 @@ type MetadataSource struct {
 	SourceReference string `protobuf:"bytes,1,opt,name=source_reference,json=sourceReference,proto3" json:"source_reference,omitempty" xml:"SourceReference"`
 	// @gotags: xml:"MetadataSourceType"
 	MetadataSourceType *MetadataSourceType `protobuf:"bytes,2,opt,name=metadata_source_type,json=metadataSourceType,proto3" json:"metadata_source_type,omitempty" xml:"MetadataSourceType"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	// Choice wrapper for XSD choice within sequence
+	Choice        *MetadataSourceChoice3 `protobuf:"bytes,3,opt,name=choice,proto3" json:"choice,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MetadataSource) Reset() {
 	*x = MetadataSource{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[79]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6531,7 +7118,7 @@ func (x *MetadataSource) String() string {
 func (*MetadataSource) ProtoMessage() {}
 
 func (x *MetadataSource) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[79]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6544,7 +7131,7 @@ func (x *MetadataSource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSource.ProtoReflect.Descriptor instead.
 func (*MetadataSource) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{79}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *MetadataSource) GetSourceReference() string {
@@ -6561,6 +7148,96 @@ func (x *MetadataSource) GetMetadataSourceType() *MetadataSourceType {
 	return nil
 }
 
+func (x *MetadataSource) GetChoice() *MetadataSourceChoice3 {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+type MetadataSourceChoice3 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*MetadataSourceChoice3_PartyIdOption
+	//	*MetadataSourceChoice3_Sequence_1
+	Choice        isMetadataSourceChoice3_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MetadataSourceChoice3) Reset() {
+	*x = MetadataSourceChoice3{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MetadataSourceChoice3) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MetadataSourceChoice3) ProtoMessage() {}
+
+func (x *MetadataSourceChoice3) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MetadataSourceChoice3.ProtoReflect.Descriptor instead.
+func (*MetadataSourceChoice3) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *MetadataSourceChoice3) GetChoice() isMetadataSourceChoice3_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *MetadataSourceChoice3) GetPartyIdOption() *MetadataSourceChoice3_Option2 {
+	if x != nil {
+		if x, ok := x.Choice.(*MetadataSourceChoice3_PartyIdOption); ok {
+			return x.PartyIdOption
+		}
+	}
+	return nil
+}
+
+func (x *MetadataSourceChoice3) GetSequence_1() *MetadataSourceChoice3_Option1 {
+	if x != nil {
+		if x, ok := x.Choice.(*MetadataSourceChoice3_Sequence_1); ok {
+			return x.Sequence_1
+		}
+	}
+	return nil
+}
+
+type isMetadataSourceChoice3_Choice interface {
+	isMetadataSourceChoice3_Choice()
+}
+
+type MetadataSourceChoice3_PartyIdOption struct {
+	// @gotags: xml:"PartyId"
+	PartyIdOption *MetadataSourceChoice3_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
+}
+
+type MetadataSourceChoice3_Sequence_1 struct {
+	Sequence_1 *MetadataSourceChoice3_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
+}
+
+func (*MetadataSourceChoice3_PartyIdOption) isMetadataSourceChoice3_Choice() {}
+
+func (*MetadataSourceChoice3_Sequence_1) isMetadataSourceChoice3_Choice() {}
+
 type MetadataSourceList struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"MetadataSource"
@@ -6571,7 +7248,7 @@ type MetadataSourceList struct {
 
 func (x *MetadataSourceList) Reset() {
 	*x = MetadataSourceList{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[80]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6583,7 +7260,7 @@ func (x *MetadataSourceList) String() string {
 func (*MetadataSourceList) ProtoMessage() {}
 
 func (x *MetadataSourceList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[80]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6596,7 +7273,7 @@ func (x *MetadataSourceList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSourceList.ProtoReflect.Descriptor instead.
 func (*MetadataSourceList) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{80}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *MetadataSourceList) GetMetadataSource() []*MetadataSource {
@@ -6622,7 +7299,7 @@ type MetadataSourceReference struct {
 
 func (x *MetadataSourceReference) Reset() {
 	*x = MetadataSourceReference{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[81]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6634,7 +7311,7 @@ func (x *MetadataSourceReference) String() string {
 func (*MetadataSourceReference) ProtoMessage() {}
 
 func (x *MetadataSourceReference) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[81]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6647,7 +7324,7 @@ func (x *MetadataSourceReference) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSourceReference.ProtoReflect.Descriptor instead.
 func (*MetadataSourceReference) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{81}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *MetadataSourceReference) GetValue() string {
@@ -6692,7 +7369,7 @@ type MetadataSourceType struct {
 
 func (x *MetadataSourceType) Reset() {
 	*x = MetadataSourceType{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[82]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6704,7 +7381,7 @@ func (x *MetadataSourceType) String() string {
 func (*MetadataSourceType) ProtoMessage() {}
 
 func (x *MetadataSourceType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[82]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6717,7 +7394,7 @@ func (x *MetadataSourceType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSourceType.ProtoReflect.Descriptor instead.
 func (*MetadataSourceType) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{82}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *MetadataSourceType) GetValue() string {
@@ -6757,7 +7434,7 @@ type MusicalWorkIdWithoutFlag struct {
 
 func (x *MusicalWorkIdWithoutFlag) Reset() {
 	*x = MusicalWorkIdWithoutFlag{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[83]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6769,7 +7446,7 @@ func (x *MusicalWorkIdWithoutFlag) String() string {
 func (*MusicalWorkIdWithoutFlag) ProtoMessage() {}
 
 func (x *MusicalWorkIdWithoutFlag) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[83]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6782,7 +7459,7 @@ func (x *MusicalWorkIdWithoutFlag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MusicalWorkIdWithoutFlag.ProtoReflect.Descriptor instead.
 func (*MusicalWorkIdWithoutFlag) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{83}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *MusicalWorkIdWithoutFlag) GetISWC() string {
@@ -6825,7 +7502,7 @@ type Name struct {
 
 func (x *Name) Reset() {
 	*x = Name{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[84]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6837,7 +7514,7 @@ func (x *Name) String() string {
 func (*Name) ProtoMessage() {}
 
 func (x *Name) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[84]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6850,7 +7527,7 @@ func (x *Name) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Name.ProtoReflect.Descriptor instead.
 func (*Name) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{84}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *Name) GetValue() string {
@@ -6885,7 +7562,7 @@ type NameId struct {
 
 func (x *NameId) Reset() {
 	*x = NameId{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[85]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6897,7 +7574,7 @@ func (x *NameId) String() string {
 func (*NameId) ProtoMessage() {}
 
 func (x *NameId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[85]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6910,7 +7587,7 @@ func (x *NameId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NameId.ProtoReflect.Descriptor instead.
 func (*NameId) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{85}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *NameId) GetISNI() string {
@@ -6960,7 +7637,7 @@ type NameWithPronunciationAndScriptCode struct {
 
 func (x *NameWithPronunciationAndScriptCode) Reset() {
 	*x = NameWithPronunciationAndScriptCode{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[86]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6972,7 +7649,7 @@ func (x *NameWithPronunciationAndScriptCode) String() string {
 func (*NameWithPronunciationAndScriptCode) ProtoMessage() {}
 
 func (x *NameWithPronunciationAndScriptCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[86]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6985,7 +7662,7 @@ func (x *NameWithPronunciationAndScriptCode) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use NameWithPronunciationAndScriptCode.ProtoReflect.Descriptor instead.
 func (*NameWithPronunciationAndScriptCode) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{86}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *NameWithPronunciationAndScriptCode) GetName() *Name {
@@ -7004,17 +7681,15 @@ func (x *NameWithPronunciationAndScriptCode) GetPronunciation() []*Pronunciation
 
 type PartyDescriptorWithPronunciation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PartyDescriptorWithPronunciation_PartyId
-	Choice        isPartyDescriptorWithPronunciation_Choice `protobuf_oneof:"choice"`
+	// Choice wrapper for XSD choice
+	Choice        *PartyDescriptorWithPronunciationChoice `protobuf:"bytes,1,opt,name=choice,proto3" json:"choice,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PartyDescriptorWithPronunciation) Reset() {
 	*x = PartyDescriptorWithPronunciation{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[87]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7026,7 +7701,7 @@ func (x *PartyDescriptorWithPronunciation) String() string {
 func (*PartyDescriptorWithPronunciation) ProtoMessage() {}
 
 func (x *PartyDescriptorWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[87]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7039,35 +7714,100 @@ func (x *PartyDescriptorWithPronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyDescriptorWithPronunciation.ProtoReflect.Descriptor instead.
 func (*PartyDescriptorWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{87}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{96}
 }
 
-func (x *PartyDescriptorWithPronunciation) GetChoice() isPartyDescriptorWithPronunciation_Choice {
+func (x *PartyDescriptorWithPronunciation) GetChoice() *PartyDescriptorWithPronunciationChoice {
 	if x != nil {
 		return x.Choice
 	}
 	return nil
 }
 
-func (x *PartyDescriptorWithPronunciation) GetPartyId() *DetailedPartyId {
+type PartyDescriptorWithPronunciationChoice struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*PartyDescriptorWithPronunciationChoice_PartyIdOption
+	//	*PartyDescriptorWithPronunciationChoice_Sequence_1
+	Choice        isPartyDescriptorWithPronunciationChoice_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PartyDescriptorWithPronunciationChoice) Reset() {
+	*x = PartyDescriptorWithPronunciationChoice{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PartyDescriptorWithPronunciationChoice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PartyDescriptorWithPronunciationChoice) ProtoMessage() {}
+
+func (x *PartyDescriptorWithPronunciationChoice) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[97]
 	if x != nil {
-		if x, ok := x.Choice.(*PartyDescriptorWithPronunciation_PartyId); ok {
-			return x.PartyId
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PartyDescriptorWithPronunciationChoice.ProtoReflect.Descriptor instead.
+func (*PartyDescriptorWithPronunciationChoice) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *PartyDescriptorWithPronunciationChoice) GetChoice() isPartyDescriptorWithPronunciationChoice_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *PartyDescriptorWithPronunciationChoice) GetPartyIdOption() *PartyDescriptorWithPronunciationChoice_Option2 {
+	if x != nil {
+		if x, ok := x.Choice.(*PartyDescriptorWithPronunciationChoice_PartyIdOption); ok {
+			return x.PartyIdOption
 		}
 	}
 	return nil
 }
 
-type isPartyDescriptorWithPronunciation_Choice interface {
-	isPartyDescriptorWithPronunciation_Choice()
+func (x *PartyDescriptorWithPronunciationChoice) GetSequence_1() *PartyDescriptorWithPronunciationChoice_Option1 {
+	if x != nil {
+		if x, ok := x.Choice.(*PartyDescriptorWithPronunciationChoice_Sequence_1); ok {
+			return x.Sequence_1
+		}
+	}
+	return nil
 }
 
-type PartyDescriptorWithPronunciation_PartyId struct {
+type isPartyDescriptorWithPronunciationChoice_Choice interface {
+	isPartyDescriptorWithPronunciationChoice_Choice()
+}
+
+type PartyDescriptorWithPronunciationChoice_PartyIdOption struct {
 	// @gotags: xml:"PartyId"
-	PartyId *DetailedPartyId `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3,oneof" xml:"PartyId"`
+	PartyIdOption *PartyDescriptorWithPronunciationChoice_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
 }
 
-func (*PartyDescriptorWithPronunciation_PartyId) isPartyDescriptorWithPronunciation_Choice() {}
+type PartyDescriptorWithPronunciationChoice_Sequence_1 struct {
+	Sequence_1 *PartyDescriptorWithPronunciationChoice_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
+}
+
+func (*PartyDescriptorWithPronunciationChoice_PartyIdOption) isPartyDescriptorWithPronunciationChoice_Choice() {
+}
+
+func (*PartyDescriptorWithPronunciationChoice_Sequence_1) isPartyDescriptorWithPronunciationChoice_Choice() {
+}
 
 type PartyNameWithPronunciation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -7095,7 +7835,7 @@ type PartyNameWithPronunciation struct {
 
 func (x *PartyNameWithPronunciation) Reset() {
 	*x = PartyNameWithPronunciation{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[88]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7107,7 +7847,7 @@ func (x *PartyNameWithPronunciation) String() string {
 func (*PartyNameWithPronunciation) ProtoMessage() {}
 
 func (x *PartyNameWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[88]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7120,7 +7860,7 @@ func (x *PartyNameWithPronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameWithPronunciation.ProtoReflect.Descriptor instead.
 func (*PartyNameWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{88}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *PartyNameWithPronunciation) GetFullName() *NameWithPronunciationAndScriptCode {
@@ -7208,7 +7948,7 @@ type PartyNameWithoutCode struct {
 
 func (x *PartyNameWithoutCode) Reset() {
 	*x = PartyNameWithoutCode{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[89]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7220,7 +7960,7 @@ func (x *PartyNameWithoutCode) String() string {
 func (*PartyNameWithoutCode) ProtoMessage() {}
 
 func (x *PartyNameWithoutCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[89]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7233,7 +7973,7 @@ func (x *PartyNameWithoutCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameWithoutCode.ProtoReflect.Descriptor instead.
 func (*PartyNameWithoutCode) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{89}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *PartyNameWithoutCode) GetFullName() string {
@@ -7299,7 +8039,7 @@ type PeriodValue struct {
 
 func (x *PeriodValue) Reset() {
 	*x = PeriodValue{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[90]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7311,7 +8051,7 @@ func (x *PeriodValue) String() string {
 func (*PeriodValue) ProtoMessage() {}
 
 func (x *PeriodValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[90]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7324,7 +8064,7 @@ func (x *PeriodValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeriodValue.ProtoReflect.Descriptor instead.
 func (*PeriodValue) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{90}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *PeriodValue) GetValue() string {
@@ -7360,7 +8100,7 @@ type PeriodWithTime struct {
 
 func (x *PeriodWithTime) Reset() {
 	*x = PeriodWithTime{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[91]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7372,7 +8112,7 @@ func (x *PeriodWithTime) String() string {
 func (*PeriodWithTime) ProtoMessage() {}
 
 func (x *PeriodWithTime) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[91]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7385,7 +8125,7 @@ func (x *PeriodWithTime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeriodWithTime.ProtoReflect.Descriptor instead.
 func (*PeriodWithTime) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{91}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *PeriodWithTime) GetStartDateTime() string {
@@ -7422,7 +8162,7 @@ type Pronunciation struct {
 
 func (x *Pronunciation) Reset() {
 	*x = Pronunciation{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[92]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7434,7 +8174,7 @@ func (x *Pronunciation) String() string {
 func (*Pronunciation) ProtoMessage() {}
 
 func (x *Pronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[92]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7447,7 +8187,7 @@ func (x *Pronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Pronunciation.ProtoReflect.Descriptor instead.
 func (*Pronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{92}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *Pronunciation) GetValue() string {
@@ -7504,7 +8244,7 @@ type ProprietaryId struct {
 
 func (x *ProprietaryId) Reset() {
 	*x = ProprietaryId{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[93]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7516,7 +8256,7 @@ func (x *ProprietaryId) String() string {
 func (*ProprietaryId) ProtoMessage() {}
 
 func (x *ProprietaryId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[93]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7529,7 +8269,7 @@ func (x *ProprietaryId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProprietaryId.ProtoReflect.Descriptor instead.
 func (*ProprietaryId) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{93}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *ProprietaryId) GetValue() string {
@@ -7549,14 +8289,16 @@ func (x *ProprietaryId) GetNamespace() string {
 type RelatedCreation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Title"
-	Title         *TitleWithPronunciation `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" xml:"Title"`
+	Title *TitleWithPronunciation `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" xml:"Title"`
+	// Choice wrapper for XSD choice within sequence
+	Choice        *RelatedCreationChoice2 `protobuf:"bytes,2,opt,name=choice,proto3" json:"choice,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RelatedCreation) Reset() {
 	*x = RelatedCreation{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[94]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7568,7 +8310,7 @@ func (x *RelatedCreation) String() string {
 func (*RelatedCreation) ProtoMessage() {}
 
 func (x *RelatedCreation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[94]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7581,7 +8323,7 @@ func (x *RelatedCreation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedCreation.ProtoReflect.Descriptor instead.
 func (*RelatedCreation) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{94}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *RelatedCreation) GetTitle() *TitleWithPronunciation {
@@ -7590,6 +8332,114 @@ func (x *RelatedCreation) GetTitle() *TitleWithPronunciation {
 	}
 	return nil
 }
+
+func (x *RelatedCreation) GetChoice() *RelatedCreationChoice2 {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+type RelatedCreationChoice2 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Choice:
+	//
+	//	*RelatedCreationChoice2_ReleaseId
+	//	*RelatedCreationChoice2_ResourceId
+	//	*RelatedCreationChoice2_MusicalWorkId
+	Choice        isRelatedCreationChoice2_Choice `protobuf_oneof:"choice"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RelatedCreationChoice2) Reset() {
+	*x = RelatedCreationChoice2{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RelatedCreationChoice2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RelatedCreationChoice2) ProtoMessage() {}
+
+func (x *RelatedCreationChoice2) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RelatedCreationChoice2.ProtoReflect.Descriptor instead.
+func (*RelatedCreationChoice2) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *RelatedCreationChoice2) GetChoice() isRelatedCreationChoice2_Choice {
+	if x != nil {
+		return x.Choice
+	}
+	return nil
+}
+
+func (x *RelatedCreationChoice2) GetReleaseId() *ReleaseId {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedCreationChoice2_ReleaseId); ok {
+			return x.ReleaseId
+		}
+	}
+	return nil
+}
+
+func (x *RelatedCreationChoice2) GetResourceId() *ResourceIdWithoutFlag {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedCreationChoice2_ResourceId); ok {
+			return x.ResourceId
+		}
+	}
+	return nil
+}
+
+func (x *RelatedCreationChoice2) GetMusicalWorkId() *MusicalWorkIdWithoutFlag {
+	if x != nil {
+		if x, ok := x.Choice.(*RelatedCreationChoice2_MusicalWorkId); ok {
+			return x.MusicalWorkId
+		}
+	}
+	return nil
+}
+
+type isRelatedCreationChoice2_Choice interface {
+	isRelatedCreationChoice2_Choice()
+}
+
+type RelatedCreationChoice2_ReleaseId struct {
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3,oneof" xml:"ReleaseId"`
+}
+
+type RelatedCreationChoice2_ResourceId struct {
+	// @gotags: xml:"ResourceId"
+	ResourceId *ResourceIdWithoutFlag `protobuf:"bytes,2,opt,name=resource_id,json=resourceId,proto3,oneof" xml:"ResourceId"`
+}
+
+type RelatedCreationChoice2_MusicalWorkId struct {
+	// @gotags: xml:"MusicalWorkId"
+	MusicalWorkId *MusicalWorkIdWithoutFlag `protobuf:"bytes,3,opt,name=musical_work_id,json=musicalWorkId,proto3,oneof" xml:"MusicalWorkId"`
+}
+
+func (*RelatedCreationChoice2_ReleaseId) isRelatedCreationChoice2_Choice() {}
+
+func (*RelatedCreationChoice2_ResourceId) isRelatedCreationChoice2_Choice() {}
+
+func (*RelatedCreationChoice2_MusicalWorkId) isRelatedCreationChoice2_Choice() {}
 
 type Release struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -7611,7 +8461,7 @@ type Release struct {
 
 func (x *Release) Reset() {
 	*x = Release{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[95]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7623,7 +8473,7 @@ func (x *Release) String() string {
 func (*Release) ProtoMessage() {}
 
 func (x *Release) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[95]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7636,7 +8486,7 @@ func (x *Release) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Release.ProtoReflect.Descriptor instead.
 func (*Release) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{95}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *Release) GetGRid() string {
@@ -7699,7 +8549,7 @@ type ReleaseId struct {
 
 func (x *ReleaseId) Reset() {
 	*x = ReleaseId{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[96]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7711,7 +8561,7 @@ func (x *ReleaseId) String() string {
 func (*ReleaseId) ProtoMessage() {}
 
 func (x *ReleaseId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[96]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7724,7 +8574,7 @@ func (x *ReleaseId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseId.ProtoReflect.Descriptor instead.
 func (*ReleaseId) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{96}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *ReleaseId) GetGRid() string {
@@ -7778,7 +8628,7 @@ type ReleaseSummary struct {
 
 func (x *ReleaseSummary) Reset() {
 	*x = ReleaseSummary{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[97]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7790,7 +8640,7 @@ func (x *ReleaseSummary) String() string {
 func (*ReleaseSummary) ProtoMessage() {}
 
 func (x *ReleaseSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[97]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7803,7 +8653,7 @@ func (x *ReleaseSummary) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseSummary.ProtoReflect.Descriptor instead.
 func (*ReleaseSummary) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{97}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *ReleaseSummary) GetReleaseId() *ReleaseId {
@@ -7846,7 +8696,7 @@ type ReleaseTitle struct {
 
 func (x *ReleaseTitle) Reset() {
 	*x = ReleaseTitle{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[98]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7858,7 +8708,7 @@ func (x *ReleaseTitle) String() string {
 func (*ReleaseTitle) ProtoMessage() {}
 
 func (x *ReleaseTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[98]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7871,7 +8721,7 @@ func (x *ReleaseTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseTitle.ProtoReflect.Descriptor instead.
 func (*ReleaseTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{98}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *ReleaseTitle) GetValue() string {
@@ -7908,7 +8758,7 @@ type Resource struct {
 
 func (x *Resource) Reset() {
 	*x = Resource{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[99]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7920,7 +8770,7 @@ func (x *Resource) String() string {
 func (*Resource) ProtoMessage() {}
 
 func (x *Resource) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[99]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7933,7 +8783,7 @@ func (x *Resource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Resource.ProtoReflect.Descriptor instead.
 func (*Resource) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{99}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *Resource) GetISRC() string {
@@ -8004,7 +8854,7 @@ type ResourceIdWithoutFlag struct {
 
 func (x *ResourceIdWithoutFlag) Reset() {
 	*x = ResourceIdWithoutFlag{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[100]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8016,7 +8866,7 @@ func (x *ResourceIdWithoutFlag) String() string {
 func (*ResourceIdWithoutFlag) ProtoMessage() {}
 
 func (x *ResourceIdWithoutFlag) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[100]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8029,7 +8879,7 @@ func (x *ResourceIdWithoutFlag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceIdWithoutFlag.ProtoReflect.Descriptor instead.
 func (*ResourceIdWithoutFlag) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{100}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *ResourceIdWithoutFlag) GetISRC() string {
@@ -8111,7 +8961,7 @@ type ResourceSummary struct {
 
 func (x *ResourceSummary) Reset() {
 	*x = ResourceSummary{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[101]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8123,7 +8973,7 @@ func (x *ResourceSummary) String() string {
 func (*ResourceSummary) ProtoMessage() {}
 
 func (x *ResourceSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[101]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8136,7 +8986,7 @@ func (x *ResourceSummary) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceSummary.ProtoReflect.Descriptor instead.
 func (*ResourceSummary) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{101}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *ResourceSummary) GetResourceId() *ResourceIdWithoutFlag {
@@ -8179,7 +9029,7 @@ type ResourceTitle struct {
 
 func (x *ResourceTitle) Reset() {
 	*x = ResourceTitle{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[102]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8191,7 +9041,7 @@ func (x *ResourceTitle) String() string {
 func (*ResourceTitle) ProtoMessage() {}
 
 func (x *ResourceTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[102]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8204,7 +9054,7 @@ func (x *ResourceTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceTitle.ProtoReflect.Descriptor instead.
 func (*ResourceTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{102}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *ResourceTitle) GetValue() string {
@@ -8233,7 +9083,7 @@ type SubTitle struct {
 
 func (x *SubTitle) Reset() {
 	*x = SubTitle{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[103]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8245,7 +9095,7 @@ func (x *SubTitle) String() string {
 func (*SubTitle) ProtoMessage() {}
 
 func (x *SubTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[103]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8258,7 +9108,7 @@ func (x *SubTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SubTitle.ProtoReflect.Descriptor instead.
 func (*SubTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{103}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *SubTitle) GetValue() string {
@@ -8297,7 +9147,7 @@ type TextWithFormat struct {
 
 func (x *TextWithFormat) Reset() {
 	*x = TextWithFormat{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[104]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8309,7 +9159,7 @@ func (x *TextWithFormat) String() string {
 func (*TextWithFormat) ProtoMessage() {}
 
 func (x *TextWithFormat) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[104]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8322,7 +9172,7 @@ func (x *TextWithFormat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextWithFormat.ProtoReflect.Descriptor instead.
 func (*TextWithFormat) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{104}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *TextWithFormat) GetValue() string {
@@ -8396,7 +9246,7 @@ type TextWithoutTerritory struct {
 
 func (x *TextWithoutTerritory) Reset() {
 	*x = TextWithoutTerritory{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[105]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8408,7 +9258,7 @@ func (x *TextWithoutTerritory) String() string {
 func (*TextWithoutTerritory) ProtoMessage() {}
 
 func (x *TextWithoutTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[105]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8421,7 +9271,7 @@ func (x *TextWithoutTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextWithoutTerritory.ProtoReflect.Descriptor instead.
 func (*TextWithoutTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{105}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *TextWithoutTerritory) GetValue() string {
@@ -8485,7 +9335,7 @@ type TitleText struct {
 
 func (x *TitleText) Reset() {
 	*x = TitleText{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[106]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8497,7 +9347,7 @@ func (x *TitleText) String() string {
 func (*TitleText) ProtoMessage() {}
 
 func (x *TitleText) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[106]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8510,7 +9360,7 @@ func (x *TitleText) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TitleText.ProtoReflect.Descriptor instead.
 func (*TitleText) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{106}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *TitleText) GetTitle() string {
@@ -8547,7 +9397,7 @@ type TitleWithPronunciation struct {
 
 func (x *TitleWithPronunciation) Reset() {
 	*x = TitleWithPronunciation{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[107]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8559,7 +9409,7 @@ func (x *TitleWithPronunciation) String() string {
 func (*TitleWithPronunciation) ProtoMessage() {}
 
 func (x *TitleWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[107]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8572,7 +9422,7 @@ func (x *TitleWithPronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TitleWithPronunciation.ProtoReflect.Descriptor instead.
 func (*TitleWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{107}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *TitleWithPronunciation) GetTitleText() *TitleText {
@@ -8637,7 +9487,7 @@ type TitleWithUDV struct {
 
 func (x *TitleWithUDV) Reset() {
 	*x = TitleWithUDV{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[108]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8649,7 +9499,7 @@ func (x *TitleWithUDV) String() string {
 func (*TitleWithUDV) ProtoMessage() {}
 
 func (x *TitleWithUDV) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[108]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8662,7 +9512,7 @@ func (x *TitleWithUDV) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TitleWithUDV.ProtoReflect.Descriptor instead.
 func (*TitleWithUDV) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{108}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *TitleWithUDV) GetTitleText() string {
@@ -8719,7 +9569,7 @@ type ValidityPeriod struct {
 
 func (x *ValidityPeriod) Reset() {
 	*x = ValidityPeriod{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[109]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8731,7 +9581,7 @@ func (x *ValidityPeriod) String() string {
 func (*ValidityPeriod) ProtoMessage() {}
 
 func (x *ValidityPeriod) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[109]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8744,7 +9594,7 @@ func (x *ValidityPeriod) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidityPeriod.ProtoReflect.Descriptor instead.
 func (*ValidityPeriod) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{109}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *ValidityPeriod) GetStartDate() *EventDate {
@@ -8773,7 +9623,7 @@ type VocalRegister struct {
 
 func (x *VocalRegister) Reset() {
 	*x = VocalRegister{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[110]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8785,7 +9635,7 @@ func (x *VocalRegister) String() string {
 func (*VocalRegister) ProtoMessage() {}
 
 func (x *VocalRegister) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[110]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8798,7 +9648,7 @@ func (x *VocalRegister) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VocalRegister.ProtoReflect.Descriptor instead.
 func (*VocalRegister) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{110}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *VocalRegister) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -8829,7 +9679,7 @@ type VocalRegisterValue struct {
 
 func (x *VocalRegisterValue) Reset() {
 	*x = VocalRegisterValue{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[111]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8841,7 +9691,7 @@ func (x *VocalRegisterValue) String() string {
 func (*VocalRegisterValue) ProtoMessage() {}
 
 func (x *VocalRegisterValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[111]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8854,7 +9704,7 @@ func (x *VocalRegisterValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VocalRegisterValue.ProtoReflect.Descriptor instead.
 func (*VocalRegisterValue) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{111}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *VocalRegisterValue) GetValue() string {
@@ -8894,7 +9744,7 @@ type Work struct {
 
 func (x *Work) Reset() {
 	*x = Work{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[112]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8906,7 +9756,7 @@ func (x *Work) String() string {
 func (*Work) ProtoMessage() {}
 
 func (x *Work) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[112]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8919,7 +9769,7 @@ func (x *Work) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Work.ProtoReflect.Descriptor instead.
 func (*Work) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{112}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *Work) GetISWC() string {
@@ -8964,7 +9814,7 @@ type WorkSummary struct {
 
 func (x *WorkSummary) Reset() {
 	*x = WorkSummary{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[113]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8976,7 +9826,7 @@ func (x *WorkSummary) String() string {
 func (*WorkSummary) ProtoMessage() {}
 
 func (x *WorkSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[113]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8989,7 +9839,7 @@ func (x *WorkSummary) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkSummary.ProtoReflect.Descriptor instead.
 func (*WorkSummary) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{113}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *WorkSummary) GetMusicalWorkId() *MusicalWorkIdWithoutFlag {
@@ -9025,7 +9875,7 @@ type WorkTitle struct {
 
 func (x *WorkTitle) Reset() {
 	*x = WorkTitle{}
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[114]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9037,7 +9887,7 @@ func (x *WorkTitle) String() string {
 func (*WorkTitle) ProtoMessage() {}
 
 func (x *WorkTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_pie_v10_v10_proto_msgTypes[114]
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9050,7 +9900,7 @@ func (x *WorkTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkTitle.ProtoReflect.Descriptor instead.
 func (*WorkTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{114}
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *WorkTitle) GetValue() string {
@@ -9065,6 +9915,897 @@ func (x *WorkTitle) GetLanguageAndScriptCode() string {
 		return x.LanguageAndScriptCode
 	}
 	return ""
+}
+
+type FeedChoice_Option1 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"author"
+	Author        []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FeedChoice_Option1) Reset() {
+	*x = FeedChoice_Option1{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FeedChoice_Option1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FeedChoice_Option1) ProtoMessage() {}
+
+func (x *FeedChoice_Option1) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FeedChoice_Option1.ProtoReflect.Descriptor instead.
+func (*FeedChoice_Option1) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{3, 0}
+}
+
+func (x *FeedChoice_Option1) GetAuthor() []*Person {
+	if x != nil {
+		return x.Author
+	}
+	return nil
+}
+
+type FeedChoice_Option2 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"category"
+	Category      []*Category `protobuf:"bytes,1,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FeedChoice_Option2) Reset() {
+	*x = FeedChoice_Option2{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FeedChoice_Option2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FeedChoice_Option2) ProtoMessage() {}
+
+func (x *FeedChoice_Option2) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FeedChoice_Option2.ProtoReflect.Descriptor instead.
+func (*FeedChoice_Option2) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{3, 1}
+}
+
+func (x *FeedChoice_Option2) GetCategory() []*Category {
+	if x != nil {
+		return x.Category
+	}
+	return nil
+}
+
+type FeedChoice_Option3 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"contributor"
+	Contributor   []*Person `protobuf:"bytes,1,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FeedChoice_Option3) Reset() {
+	*x = FeedChoice_Option3{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FeedChoice_Option3) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FeedChoice_Option3) ProtoMessage() {}
+
+func (x *FeedChoice_Option3) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FeedChoice_Option3.ProtoReflect.Descriptor instead.
+func (*FeedChoice_Option3) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{3, 2}
+}
+
+func (x *FeedChoice_Option3) GetContributor() []*Person {
+	if x != nil {
+		return x.Contributor
+	}
+	return nil
+}
+
+type FeedChoice_Option4 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"link"
+	Link          []*Link `protobuf:"bytes,1,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FeedChoice_Option4) Reset() {
+	*x = FeedChoice_Option4{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FeedChoice_Option4) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FeedChoice_Option4) ProtoMessage() {}
+
+func (x *FeedChoice_Option4) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FeedChoice_Option4.ProtoReflect.Descriptor instead.
+func (*FeedChoice_Option4) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{3, 3}
+}
+
+func (x *FeedChoice_Option4) GetLink() []*Link {
+	if x != nil {
+		return x.Link
+	}
+	return nil
+}
+
+type FeedChoice_Option5 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"entry"
+	Entry         []*Entry `protobuf:"bytes,1,rep,name=entry,proto3" json:"entry,omitempty" xml:"entry"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FeedChoice_Option5) Reset() {
+	*x = FeedChoice_Option5{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FeedChoice_Option5) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FeedChoice_Option5) ProtoMessage() {}
+
+func (x *FeedChoice_Option5) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FeedChoice_Option5.ProtoReflect.Descriptor instead.
+func (*FeedChoice_Option5) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{3, 4}
+}
+
+func (x *FeedChoice_Option5) GetEntry() []*Entry {
+	if x != nil {
+		return x.Entry
+	}
+	return nil
+}
+
+type EntryChoice_Option1 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"author"
+	Author        []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EntryChoice_Option1) Reset() {
+	*x = EntryChoice_Option1{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EntryChoice_Option1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EntryChoice_Option1) ProtoMessage() {}
+
+func (x *EntryChoice_Option1) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EntryChoice_Option1.ProtoReflect.Descriptor instead.
+func (*EntryChoice_Option1) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{8, 0}
+}
+
+func (x *EntryChoice_Option1) GetAuthor() []*Person {
+	if x != nil {
+		return x.Author
+	}
+	return nil
+}
+
+type EntryChoice_Option2 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"category"
+	Category      []*Category `protobuf:"bytes,1,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EntryChoice_Option2) Reset() {
+	*x = EntryChoice_Option2{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EntryChoice_Option2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EntryChoice_Option2) ProtoMessage() {}
+
+func (x *EntryChoice_Option2) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EntryChoice_Option2.ProtoReflect.Descriptor instead.
+func (*EntryChoice_Option2) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{8, 1}
+}
+
+func (x *EntryChoice_Option2) GetCategory() []*Category {
+	if x != nil {
+		return x.Category
+	}
+	return nil
+}
+
+type EntryChoice_Option3 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"contributor"
+	Contributor   []*Person `protobuf:"bytes,1,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EntryChoice_Option3) Reset() {
+	*x = EntryChoice_Option3{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EntryChoice_Option3) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EntryChoice_Option3) ProtoMessage() {}
+
+func (x *EntryChoice_Option3) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EntryChoice_Option3.ProtoReflect.Descriptor instead.
+func (*EntryChoice_Option3) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{8, 2}
+}
+
+func (x *EntryChoice_Option3) GetContributor() []*Person {
+	if x != nil {
+		return x.Contributor
+	}
+	return nil
+}
+
+type EntryChoice_Option4 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"link"
+	Link          []*Link `protobuf:"bytes,1,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EntryChoice_Option4) Reset() {
+	*x = EntryChoice_Option4{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EntryChoice_Option4) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EntryChoice_Option4) ProtoMessage() {}
+
+func (x *EntryChoice_Option4) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EntryChoice_Option4.ProtoReflect.Descriptor instead.
+func (*EntryChoice_Option4) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{8, 3}
+}
+
+func (x *EntryChoice_Option4) GetLink() []*Link {
+	if x != nil {
+		return x.Link
+	}
+	return nil
+}
+
+type EventChoice4_Option1 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"StartDate"
+	StartDate *EventDate `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate       *EventDate `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EventChoice4_Option1) Reset() {
+	*x = EventChoice4_Option1{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EventChoice4_Option1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EventChoice4_Option1) ProtoMessage() {}
+
+func (x *EventChoice4_Option1) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EventChoice4_Option1.ProtoReflect.Descriptor instead.
+func (*EventChoice4_Option1) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{10, 0}
+}
+
+func (x *EventChoice4_Option1) GetStartDate() *EventDate {
+	if x != nil {
+		return x.StartDate
+	}
+	return nil
+}
+
+func (x *EventChoice4_Option1) GetEndDate() *EventDate {
+	if x != nil {
+		return x.EndDate
+	}
+	return nil
+}
+
+type RelatedPartyChoice8_Option1 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyId"
+	PartyId *DetailedPartyIdForParty `protobuf:"bytes,1,opt,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName     *PartyName `protobuf:"bytes,2,opt,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RelatedPartyChoice8_Option1) Reset() {
+	*x = RelatedPartyChoice8_Option1{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RelatedPartyChoice8_Option1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RelatedPartyChoice8_Option1) ProtoMessage() {}
+
+func (x *RelatedPartyChoice8_Option1) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RelatedPartyChoice8_Option1.ProtoReflect.Descriptor instead.
+func (*RelatedPartyChoice8_Option1) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{35, 0}
+}
+
+func (x *RelatedPartyChoice8_Option1) GetPartyId() *DetailedPartyIdForParty {
+	if x != nil {
+		return x.PartyId
+	}
+	return nil
+}
+
+func (x *RelatedPartyChoice8_Option1) GetPartyName() *PartyName {
+	if x != nil {
+		return x.PartyName
+	}
+	return nil
+}
+
+type SourceChoice_Option1 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"author"
+	Author        []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SourceChoice_Option1) Reset() {
+	*x = SourceChoice_Option1{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SourceChoice_Option1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SourceChoice_Option1) ProtoMessage() {}
+
+func (x *SourceChoice_Option1) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SourceChoice_Option1.ProtoReflect.Descriptor instead.
+func (*SourceChoice_Option1) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{53, 0}
+}
+
+func (x *SourceChoice_Option1) GetAuthor() []*Person {
+	if x != nil {
+		return x.Author
+	}
+	return nil
+}
+
+type SourceChoice_Option2 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"category"
+	Category      []*Category `protobuf:"bytes,1,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SourceChoice_Option2) Reset() {
+	*x = SourceChoice_Option2{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SourceChoice_Option2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SourceChoice_Option2) ProtoMessage() {}
+
+func (x *SourceChoice_Option2) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SourceChoice_Option2.ProtoReflect.Descriptor instead.
+func (*SourceChoice_Option2) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{53, 1}
+}
+
+func (x *SourceChoice_Option2) GetCategory() []*Category {
+	if x != nil {
+		return x.Category
+	}
+	return nil
+}
+
+type SourceChoice_Option3 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"contributor"
+	Contributor   []*Person `protobuf:"bytes,1,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SourceChoice_Option3) Reset() {
+	*x = SourceChoice_Option3{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SourceChoice_Option3) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SourceChoice_Option3) ProtoMessage() {}
+
+func (x *SourceChoice_Option3) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SourceChoice_Option3.ProtoReflect.Descriptor instead.
+func (*SourceChoice_Option3) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{53, 2}
+}
+
+func (x *SourceChoice_Option3) GetContributor() []*Person {
+	if x != nil {
+		return x.Contributor
+	}
+	return nil
+}
+
+type SourceChoice_Option4 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"link"
+	Link          []*Link `protobuf:"bytes,1,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SourceChoice_Option4) Reset() {
+	*x = SourceChoice_Option4{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SourceChoice_Option4) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SourceChoice_Option4) ProtoMessage() {}
+
+func (x *SourceChoice_Option4) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SourceChoice_Option4.ProtoReflect.Descriptor instead.
+func (*SourceChoice_Option4) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{53, 3}
+}
+
+func (x *SourceChoice_Option4) GetLink() []*Link {
+	if x != nil {
+		return x.Link
+	}
+	return nil
+}
+
+type MetadataSourceChoice3_Option1 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyName"
+	PartyName []*PartyNameWithPronunciation `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
+	// @gotags: xml:"PartyId"
+	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MetadataSourceChoice3_Option1) Reset() {
+	*x = MetadataSourceChoice3_Option1{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MetadataSourceChoice3_Option1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MetadataSourceChoice3_Option1) ProtoMessage() {}
+
+func (x *MetadataSourceChoice3_Option1) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MetadataSourceChoice3_Option1.ProtoReflect.Descriptor instead.
+func (*MetadataSourceChoice3_Option1) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{88, 0}
+}
+
+func (x *MetadataSourceChoice3_Option1) GetPartyName() []*PartyNameWithPronunciation {
+	if x != nil {
+		return x.PartyName
+	}
+	return nil
+}
+
+func (x *MetadataSourceChoice3_Option1) GetPartyId() []*DetailedPartyId {
+	if x != nil {
+		return x.PartyId
+	}
+	return nil
+}
+
+type MetadataSourceChoice3_Option2 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyId"
+	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MetadataSourceChoice3_Option2) Reset() {
+	*x = MetadataSourceChoice3_Option2{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MetadataSourceChoice3_Option2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MetadataSourceChoice3_Option2) ProtoMessage() {}
+
+func (x *MetadataSourceChoice3_Option2) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MetadataSourceChoice3_Option2.ProtoReflect.Descriptor instead.
+func (*MetadataSourceChoice3_Option2) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{88, 1}
+}
+
+func (x *MetadataSourceChoice3_Option2) GetPartyId() []*DetailedPartyId {
+	if x != nil {
+		return x.PartyId
+	}
+	return nil
+}
+
+type PartyDescriptorWithPronunciationChoice_Option1 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyName"
+	PartyName []*PartyNameWithPronunciation `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
+	// @gotags: xml:"PartyId"
+	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option1) Reset() {
+	*x = PartyDescriptorWithPronunciationChoice_Option1{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PartyDescriptorWithPronunciationChoice_Option1) ProtoMessage() {}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option1) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PartyDescriptorWithPronunciationChoice_Option1.ProtoReflect.Descriptor instead.
+func (*PartyDescriptorWithPronunciationChoice_Option1) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{97, 0}
+}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option1) GetPartyName() []*PartyNameWithPronunciation {
+	if x != nil {
+		return x.PartyName
+	}
+	return nil
+}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option1) GetPartyId() []*DetailedPartyId {
+	if x != nil {
+		return x.PartyId
+	}
+	return nil
+}
+
+type PartyDescriptorWithPronunciationChoice_Option2 struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// @gotags: xml:"PartyId"
+	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option2) Reset() {
+	*x = PartyDescriptorWithPronunciationChoice_Option2{}
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PartyDescriptorWithPronunciationChoice_Option2) ProtoMessage() {}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option2) ProtoReflect() protoreflect.Message {
+	mi := &file_ddex_pie_v10_v10_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PartyDescriptorWithPronunciationChoice_Option2.ProtoReflect.Descriptor instead.
+func (*PartyDescriptorWithPronunciationChoice_Option2) Descriptor() ([]byte, []int) {
+	return file_ddex_pie_v10_v10_proto_rawDescGZIP(), []int{97, 1}
+}
+
+func (x *PartyDescriptorWithPronunciationChoice_Option2) GetPartyId() []*DetailedPartyId {
+	if x != nil {
+		return x.PartyId
+	}
+	return nil
 }
 
 var File_ddex_pie_v10_v10_proto protoreflect.FileDescriptor
@@ -9084,22 +10825,36 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x0emessage_header\x18\x01 \x01(\v2\x1b.ddex.pie.v10.MessageHeaderR\rmessageHeader\x12E\n" +
 	"\x0frequested_party\x18\x02 \x03(\v2\x1c.ddex.pie.v10.RequestedPartyR\x0erequestedParty\x12$\n" +
 	"\x0eavs_version_id\x18\x03 \x01(\tR\favsVersionId\x127\n" +
-	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\"\xf8\x04\n" +
-	"\x04Feed\x12.\n" +
-	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\x06author\x124\n" +
-	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryH\x00R\bcategory\x128\n" +
-	"\vcontributor\x18\x03 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\vcontributor\x127\n" +
+	"\x18language_and_script_code\x18\x04 \x01(\tR\x15languageAndScriptCode\"8\n" +
+	"\x04Feed\x120\n" +
+	"\x06choice\x18\x01 \x03(\v2\x18.ddex.pie.v10.FeedChoiceR\x06choice\"\xa0\b\n" +
+	"\n" +
+	"FeedChoice\x12G\n" +
+	"\rauthor_option\x18\x01 \x01(\v2 .ddex.pie.v10.FeedChoice.Option1H\x00R\fauthorOption\x12K\n" +
+	"\x0fcategory_option\x18\x02 \x01(\v2 .ddex.pie.v10.FeedChoice.Option2H\x00R\x0ecategoryOption\x12Q\n" +
+	"\x12contributor_option\x18\x03 \x01(\v2 .ddex.pie.v10.FeedChoice.Option3H\x00R\x11contributorOption\x127\n" +
 	"\tgenerator\x18\x04 \x01(\v2\x17.ddex.pie.v10.GeneratorH\x00R\tgenerator\x12(\n" +
 	"\x04icon\x18\x05 \x01(\v2\x12.ddex.pie.v10.IconH\x00R\x04icon\x12\"\n" +
-	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12(\n" +
-	"\x04link\x18\a \x01(\v2\x12.ddex.pie.v10.LinkH\x00R\x04link\x12(\n" +
+	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12C\n" +
+	"\vlink_option\x18\a \x01(\v2 .ddex.pie.v10.FeedChoice.Option4H\x00R\n" +
+	"linkOption\x12(\n" +
 	"\x04logo\x18\b \x01(\v2\x12.ddex.pie.v10.LogoH\x00R\x04logo\x12,\n" +
 	"\x06rights\x18\t \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x06rights\x120\n" +
 	"\bsubtitle\x18\n" +
 	" \x01(\v2\x12.ddex.pie.v10.TextH\x00R\bsubtitle\x12*\n" +
 	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x05title\x122\n" +
-	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdated\x12+\n" +
-	"\x05entry\x18\r \x01(\v2\x13.ddex.pie.v10.EntryH\x00R\x05entryB\b\n" +
+	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdated\x12E\n" +
+	"\fentry_option\x18\r \x01(\v2 .ddex.pie.v10.FeedChoice.Option5H\x00R\ventryOption\x1a7\n" +
+	"\aOption1\x12,\n" +
+	"\x06author\x18\x01 \x03(\v2\x14.ddex.pie.v10.PersonR\x06author\x1a=\n" +
+	"\aOption2\x122\n" +
+	"\bcategory\x18\x01 \x03(\v2\x16.ddex.pie.v10.CategoryR\bcategory\x1aA\n" +
+	"\aOption3\x126\n" +
+	"\vcontributor\x18\x01 \x03(\v2\x14.ddex.pie.v10.PersonR\vcontributor\x1a1\n" +
+	"\aOption4\x12&\n" +
+	"\x04link\x18\x01 \x03(\v2\x12.ddex.pie.v10.LinkR\x04link\x1a4\n" +
+	"\aOption5\x12)\n" +
+	"\x05entry\x18\x01 \x03(\v2\x13.ddex.pie.v10.EntryR\x05entryB\b\n" +
 	"\x06choice\"\xa6\x02\n" +
 	"\fContribution\x121\n" +
 	"\x04role\x18\x01 \x03(\v2\x1d.ddex.pie.v10.ContributorRoleR\x04role\x12&\n" +
@@ -9118,14 +10873,18 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x05i_p_n\x18\x04 \x01(\tR\x03iPN\x12(\n" +
 	"\x10cisac_society_id\x18\x05 \x01(\tR\x0ecisacSocietyId\x12B\n" +
 	"\x0eproprietary_id\x18\x06 \x03(\v2\x1b.ddex.pie.v10.ProprietaryIdR\rproprietaryId\x12#\n" +
-	"\ris_deprecated\x18\a \x01(\bR\fisDeprecated\"\xe8\x05\n" +
-	"\x05Entry\x12.\n" +
-	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\x06author\x124\n" +
-	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryH\x00R\bcategory\x121\n" +
-	"\acontent\x18\x03 \x01(\v2\x15.ddex.pie.v10.ContentH\x00R\acontent\x128\n" +
-	"\vcontributor\x18\x04 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\vcontributor\x12\"\n" +
-	"\x02id\x18\x05 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12(\n" +
-	"\x04link\x18\x06 \x01(\v2\x12.ddex.pie.v10.LinkH\x00R\x04link\x126\n" +
+	"\ris_deprecated\x18\a \x01(\bR\fisDeprecated\"`\n" +
+	"\x05Entry\x121\n" +
+	"\x06choice\x18\x01 \x03(\v2\x19.ddex.pie.v10.EntryChoiceR\x06choice\x12$\n" +
+	"\x0eavs_version_id\x18\x02 \x01(\tR\favsVersionId\"\x9e\b\n" +
+	"\vEntryChoice\x12H\n" +
+	"\rauthor_option\x18\x01 \x01(\v2!.ddex.pie.v10.EntryChoice.Option1H\x00R\fauthorOption\x12L\n" +
+	"\x0fcategory_option\x18\x02 \x01(\v2!.ddex.pie.v10.EntryChoice.Option2H\x00R\x0ecategoryOption\x121\n" +
+	"\acontent\x18\x03 \x01(\v2\x15.ddex.pie.v10.ContentH\x00R\acontent\x12R\n" +
+	"\x12contributor_option\x18\x04 \x01(\v2!.ddex.pie.v10.EntryChoice.Option3H\x00R\x11contributorOption\x12\"\n" +
+	"\x02id\x18\x05 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12D\n" +
+	"\vlink_option\x18\x06 \x01(\v2!.ddex.pie.v10.EntryChoice.Option4H\x00R\n" +
+	"linkOption\x126\n" +
 	"\tpublished\x18\a \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\tpublished\x12,\n" +
 	"\x06rights\x18\b \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x06rights\x12.\n" +
 	"\x06source\x18\t \x01(\v2\x14.ddex.pie.v10.SourceH\x00R\x06source\x12.\n" +
@@ -9134,14 +10893,31 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x05title\x122\n" +
 	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdated\x12)\n" +
 	"\x0fsubscription_id\x18\r \x01(\tH\x00R\x0esubscriptionId\x12=\n" +
-	"\x05party\x18\x0e \x01(\v2%.ddex.pie.v10.PartyDescriptorForEntryH\x00R\x05party\x12$\n" +
-	"\x0eavs_version_id\x18\x0f \x01(\tR\favsVersionIdB\b\n" +
-	"\x06choice\"\xea\x01\n" +
+	"\x05party\x18\x0e \x01(\v2%.ddex.pie.v10.PartyDescriptorForEntryH\x00R\x05party\x1a7\n" +
+	"\aOption1\x12,\n" +
+	"\x06author\x18\x01 \x03(\v2\x14.ddex.pie.v10.PersonR\x06author\x1a=\n" +
+	"\aOption2\x122\n" +
+	"\bcategory\x18\x01 \x03(\v2\x16.ddex.pie.v10.CategoryR\bcategory\x1aA\n" +
+	"\aOption3\x126\n" +
+	"\vcontributor\x18\x01 \x03(\v2\x14.ddex.pie.v10.PersonR\vcontributor\x1a1\n" +
+	"\aOption4\x12&\n" +
+	"\x04link\x18\x01 \x03(\v2\x12.ddex.pie.v10.LinkR\x04linkB\b\n" +
+	"\x06choice\"\x9e\x02\n" +
 	"\x05Event\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x126\n" +
 	"\n" +
 	"event_type\x18\x02 \x01(\v2\x17.ddex.pie.v10.EventTypeR\teventType\x12F\n" +
-	"\x11event_description\x18\x03 \x03(\v2\x19.ddex.pie.v10.DescriptionR\x10eventDescription\"m\n" +
+	"\x11event_description\x18\x03 \x03(\v2\x19.ddex.pie.v10.DescriptionR\x10eventDescription\x122\n" +
+	"\x06choice\x18\x04 \x01(\v2\x1a.ddex.pie.v10.EventChoice4R\x06choice\"\x83\x02\n" +
+	"\fEventChoice4\x12-\n" +
+	"\x04date\x18\x01 \x01(\v2\x17.ddex.pie.v10.EventDateH\x00R\x04date\x12C\n" +
+	"\n" +
+	"sequence_1\x18\x02 \x01(\v2\".ddex.pie.v10.EventChoice4.Option1H\x00R\tsequence1\x1au\n" +
+	"\aOption1\x126\n" +
+	"\n" +
+	"start_date\x18\x01 \x01(\v2\x17.ddex.pie.v10.EventDateR\tstartDate\x122\n" +
+	"\bend_date\x18\x02 \x01(\v2\x17.ddex.pie.v10.EventDateR\aendDateB\b\n" +
+	"\x06choice\"m\n" +
 	"\tEventType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -9286,17 +11062,27 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x13ReasonForNameChange\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xed\x03\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xb3\x04\n" +
 	"\x17RelatedCreationForParty\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12#\n" +
 	"\rcreation_type\x18\x02 \x01(\tR\fcreationType\x12>\n" +
 	"\fcontribution\x18\x03 \x01(\v2\x1a.ddex.pie.v10.ContributionR\fcontribution\x12T\n" +
 	"\x18relationship_description\x18\x04 \x03(\v2\x19.ddex.pie.v10.DescriptionR\x17relationshipDescription\x12\x1a\n" +
-	"\bcontract\x18\x05 \x01(\tR\bcontract\x12\x19\n" +
-	"\bis_false\x18\x06 \x01(\bR\aisFalse\x12'\n" +
-	"\x0fis_confidential\x18\a \x01(\bR\x0eisConfidential\x12*\n" +
-	"\x11is_first_creation\x18\b \x01(\bR\x0fisFirstCreation\x12(\n" +
-	"\x10is_last_creation\x18\t \x01(\bR\x0eisLastCreation\"\xaf\x04\n" +
+	"\bcontract\x18\x05 \x01(\tR\bcontract\x12D\n" +
+	"\x06choice\x18\x06 \x01(\v2,.ddex.pie.v10.RelatedCreationForPartyChoice6R\x06choice\x12\x19\n" +
+	"\bis_false\x18\a \x01(\bR\aisFalse\x12'\n" +
+	"\x0fis_confidential\x18\b \x01(\bR\x0eisConfidential\x12*\n" +
+	"\x11is_first_creation\x18\t \x01(\bR\x0fisFirstCreation\x12(\n" +
+	"\x10is_last_creation\x18\n" +
+	" \x01(\bR\x0eisLastCreation\"\xd6\x02\n" +
+	"\x1eRelatedCreationForPartyChoice6\x128\n" +
+	"\n" +
+	"release_id\x18\x01 \x01(\v2\x17.ddex.pie.v10.ReleaseIdH\x00R\treleaseId\x12F\n" +
+	"\vresource_id\x18\x02 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagH\x00R\n" +
+	"resourceId\x12P\n" +
+	"\x0fmusical_work_id\x18\x03 \x01(\v2&.ddex.pie.v10.MusicalWorkIdWithoutFlagH\x00R\rmusicalWorkId\x12V\n" +
+	"\x14creation_description\x18\x04 \x01(\v2!.ddex.pie.v10.CreationDescriptionH\x00R\x13creationDescriptionB\b\n" +
+	"\x06choice\"\xea\x04\n" +
 	"\fRelatedParty\x12a\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2%.ddex.pie.v10.MetadataSourceReferenceR\x17metadataSourceReference\x12[\n" +
 	"\x17party_relationship_type\x18\x02 \x01(\v2#.ddex.pie.v10.PartyRelationshipTypeR\x15partyRelationshipType\x12)\n" +
@@ -9304,18 +11090,35 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\vdescription\x18\x04 \x03(\v2\x19.ddex.pie.v10.DescriptionR\vdescription\x12\x1a\n" +
 	"\bcontract\x18\x05 \x01(\tR\bcontract\x12E\n" +
 	"\x0fvalidity_period\x18\x06 \x03(\v2\x1c.ddex.pie.v10.ValidityPeriodR\x0evalidityPeriod\x12P\n" +
-	"\x10related_creation\x18\a \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyR\x0frelatedCreation\x12\x19\n" +
-	"\bis_false\x18\b \x01(\bR\aisFalse\x12'\n" +
-	"\x0fis_confidential\x18\t \x01(\bR\x0eisConfidential\"\x8c\x01\n" +
+	"\x10related_creation\x18\a \x03(\v2%.ddex.pie.v10.RelatedCreationForPartyR\x0frelatedCreation\x129\n" +
+	"\x06choice\x18\b \x01(\v2!.ddex.pie.v10.RelatedPartyChoice8R\x06choice\x12\x19\n" +
+	"\bis_false\x18\t \x01(\bR\aisFalse\x12'\n" +
+	"\x0fis_confidential\x18\n" +
+	" \x01(\bR\x0eisConfidential\"\xb6\x02\n" +
+	"\x13RelatedPartyChoice8\x12C\n" +
+	"\x1dparty_related_party_reference\x18\x01 \x01(\tH\x00R\x1apartyRelatedPartyReference\x12J\n" +
+	"\n" +
+	"sequence_1\x18\x02 \x01(\v2).ddex.pie.v10.RelatedPartyChoice8.Option1H\x00R\tsequence1\x1a\x83\x01\n" +
+	"\aOption1\x12@\n" +
+	"\bparty_id\x18\x01 \x01(\v2%.ddex.pie.v10.DetailedPartyIdForPartyR\apartyId\x126\n" +
+	"\n" +
+	"party_name\x18\x02 \x01(\v2\x17.ddex.pie.v10.PartyNameR\tpartyNameB\b\n" +
+	"\x06choice\"\x8c\x01\n" +
 	"\x11ReleaseForRequest\x126\n" +
 	"\n" +
 	"release_id\x18\x01 \x01(\v2\x17.ddex.pie.v10.ReleaseIdR\treleaseId\x12?\n" +
-	"\rrelease_title\x18\x02 \x01(\v2\x1a.ddex.pie.v10.ReleaseTitleR\freleaseTitle\"\xee\x01\n" +
+	"\rrelease_title\x18\x02 \x01(\v2\x1a.ddex.pie.v10.ReleaseTitleR\freleaseTitle\"\xab\x02\n" +
 	"\x0eRequestedParty\x121\n" +
 	"\x04role\x18\x01 \x03(\v2\x1d.ddex.pie.v10.ContributorRoleR\x04role\x129\n" +
 	"\arelease\x18\x02 \x03(\v2\x1f.ddex.pie.v10.ReleaseForRequestR\arelease\x12<\n" +
 	"\bresource\x18\x03 \x03(\v2 .ddex.pie.v10.ResourceForRequestR\bresource\x120\n" +
-	"\x04work\x18\x04 \x03(\v2\x1c.ddex.pie.v10.WorkForRequestR\x04work\"\xc3\x01\n" +
+	"\x04work\x18\x04 \x03(\v2\x1c.ddex.pie.v10.WorkForRequestR\x04work\x12;\n" +
+	"\x06choice\x18\x05 \x01(\v2#.ddex.pie.v10.RequestedPartyChoice5R\x06choice\"\xa1\x01\n" +
+	"\x15RequestedPartyChoice5\x12:\n" +
+	"\bparty_id\x18\x01 \x01(\v2\x1d.ddex.pie.v10.DetailedPartyIdH\x00R\apartyId\x12B\n" +
+	"\n" +
+	"party_name\x18\x02 \x01(\v2!.ddex.pie.v10.PartyNameForRequestH\x00R\tpartyNameB\b\n" +
+	"\x06choice\"\xc3\x01\n" +
 	"\x12ResourceForRequest\x12D\n" +
 	"\vresource_id\x18\x01 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagR\n" +
 	"resourceId\x12B\n" +
@@ -9354,26 +11157,39 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x05title\x18\x05 \x01(\tR\x05title\x12\x16\n" +
 	"\x06length\x18\x06 \x01(\x05R\x06length\"\x1c\n" +
 	"\x04Logo\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\"g\n" +
-	"\x06Person\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"<\n" +
+	"\x06Person\x122\n" +
+	"\x06choice\x18\x01 \x03(\v2\x1a.ddex.pie.v10.PersonChoiceR\x06choice\"m\n" +
+	"\fPersonChoice\x12\x14\n" +
 	"\x04name\x18\x01 \x01(\tH\x00R\x04name\x12%\n" +
 	"\x03uri\x18\x02 \x01(\v2\x11.ddex.pie.v10.URIH\x00R\x03uri\x12\x16\n" +
 	"\x05email\x18\x03 \x01(\tH\x00R\x05emailB\b\n" +
-	"\x06choice\"\xcd\x04\n" +
-	"\x06Source\x12.\n" +
-	"\x06author\x18\x01 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\x06author\x124\n" +
-	"\bcategory\x18\x02 \x01(\v2\x16.ddex.pie.v10.CategoryH\x00R\bcategory\x128\n" +
-	"\vcontributor\x18\x03 \x01(\v2\x14.ddex.pie.v10.PersonH\x00R\vcontributor\x127\n" +
+	"\x06choice\"<\n" +
+	"\x06Source\x122\n" +
+	"\x06choice\x18\x01 \x03(\v2\x1a.ddex.pie.v10.SourceChoiceR\x06choice\"\xad\a\n" +
+	"\fSourceChoice\x12I\n" +
+	"\rauthor_option\x18\x01 \x01(\v2\".ddex.pie.v10.SourceChoice.Option1H\x00R\fauthorOption\x12M\n" +
+	"\x0fcategory_option\x18\x02 \x01(\v2\".ddex.pie.v10.SourceChoice.Option2H\x00R\x0ecategoryOption\x12S\n" +
+	"\x12contributor_option\x18\x03 \x01(\v2\".ddex.pie.v10.SourceChoice.Option3H\x00R\x11contributorOption\x127\n" +
 	"\tgenerator\x18\x04 \x01(\v2\x17.ddex.pie.v10.GeneratorH\x00R\tgenerator\x12(\n" +
 	"\x04icon\x18\x05 \x01(\v2\x12.ddex.pie.v10.IconH\x00R\x04icon\x12\"\n" +
-	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12(\n" +
-	"\x04link\x18\a \x01(\v2\x12.ddex.pie.v10.LinkH\x00R\x04link\x12(\n" +
+	"\x02id\x18\x06 \x01(\v2\x10.ddex.pie.v10.IdH\x00R\x02id\x12E\n" +
+	"\vlink_option\x18\a \x01(\v2\".ddex.pie.v10.SourceChoice.Option4H\x00R\n" +
+	"linkOption\x12(\n" +
 	"\x04logo\x18\b \x01(\v2\x12.ddex.pie.v10.LogoH\x00R\x04logo\x12,\n" +
 	"\x06rights\x18\t \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x06rights\x120\n" +
 	"\bsubtitle\x18\n" +
 	" \x01(\v2\x12.ddex.pie.v10.TextH\x00R\bsubtitle\x12*\n" +
 	"\x05title\x18\v \x01(\v2\x12.ddex.pie.v10.TextH\x00R\x05title\x122\n" +
-	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdatedB\b\n" +
+	"\aupdated\x18\f \x01(\v2\x16.ddex.pie.v10.DateTimeH\x00R\aupdated\x1a7\n" +
+	"\aOption1\x12,\n" +
+	"\x06author\x18\x01 \x03(\v2\x14.ddex.pie.v10.PersonR\x06author\x1a=\n" +
+	"\aOption2\x122\n" +
+	"\bcategory\x18\x01 \x03(\v2\x16.ddex.pie.v10.CategoryR\bcategory\x1aA\n" +
+	"\aOption3\x126\n" +
+	"\vcontributor\x18\x01 \x03(\v2\x14.ddex.pie.v10.PersonR\vcontributor\x1a1\n" +
+	"\aOption4\x12&\n" +
+	"\x04link\x18\x01 \x03(\v2\x12.ddex.pie.v10.LinkR\x04linkB\b\n" +
 	"\x06choice\"\x1a\n" +
 	"\x04Text\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\"\x1b\n" +
@@ -9546,10 +11362,22 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\bparty_id\x18\x01 \x01(\tR\apartyId\x12A\n" +
 	"\n" +
 	"party_name\x18\x02 \x01(\v2\".ddex.pie.v10.PartyNameWithoutCodeR\tpartyName\x12!\n" +
-	"\ftrading_name\x18\x03 \x01(\tR\vtradingName\"\x8f\x01\n" +
+	"\ftrading_name\x18\x03 \x01(\tR\vtradingName\"\xcc\x01\n" +
 	"\x0eMetadataSource\x12)\n" +
 	"\x10source_reference\x18\x01 \x01(\tR\x0fsourceReference\x12R\n" +
-	"\x14metadata_source_type\x18\x02 \x01(\v2 .ddex.pie.v10.MetadataSourceTypeR\x12metadataSourceType\"[\n" +
+	"\x14metadata_source_type\x18\x02 \x01(\v2 .ddex.pie.v10.MetadataSourceTypeR\x12metadataSourceType\x12;\n" +
+	"\x06choice\x18\x03 \x01(\v2#.ddex.pie.v10.MetadataSourceChoice3R\x06choice\"\x9a\x03\n" +
+	"\x15MetadataSourceChoice3\x12U\n" +
+	"\x0fparty_id_option\x18\x01 \x01(\v2+.ddex.pie.v10.MetadataSourceChoice3.Option2H\x00R\rpartyIdOption\x12L\n" +
+	"\n" +
+	"sequence_1\x18\x02 \x01(\v2+.ddex.pie.v10.MetadataSourceChoice3.Option1H\x00R\tsequence1\x1a\x8c\x01\n" +
+	"\aOption1\x12G\n" +
+	"\n" +
+	"party_name\x18\x01 \x03(\v2(.ddex.pie.v10.PartyNameWithPronunciationR\tpartyName\x128\n" +
+	"\bparty_id\x18\x02 \x03(\v2\x1d.ddex.pie.v10.DetailedPartyIdR\apartyId\x1aC\n" +
+	"\aOption2\x128\n" +
+	"\bparty_id\x18\x01 \x03(\v2\x1d.ddex.pie.v10.DetailedPartyIdR\apartyIdB\b\n" +
+	"\x06choice\"[\n" +
 	"\x12MetadataSourceList\x12E\n" +
 	"\x0fmetadata_source\x18\x01 \x03(\v2\x1c.ddex.pie.v10.MetadataSourceR\x0emetadataSource\"\x8f\x01\n" +
 	"\x17MetadataSourceReference\x12\x14\n" +
@@ -9578,9 +11406,19 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\ris_deprecated\x18\x05 \x01(\bR\fisDeprecated\"\x8f\x01\n" +
 	"\"NameWithPronunciationAndScriptCode\x12&\n" +
 	"\x04name\x18\x01 \x01(\v2\x12.ddex.pie.v10.NameR\x04name\x12A\n" +
-	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"h\n" +
-	" PartyDescriptorWithPronunciation\x12:\n" +
-	"\bparty_id\x18\x01 \x01(\v2\x1d.ddex.pie.v10.DetailedPartyIdH\x00R\apartyIdB\b\n" +
+	"\rpronunciation\x18\x02 \x03(\v2\x1b.ddex.pie.v10.PronunciationR\rpronunciation\"p\n" +
+	" PartyDescriptorWithPronunciation\x12L\n" +
+	"\x06choice\x18\x01 \x01(\v24.ddex.pie.v10.PartyDescriptorWithPronunciationChoiceR\x06choice\"\xcd\x03\n" +
+	"&PartyDescriptorWithPronunciationChoice\x12f\n" +
+	"\x0fparty_id_option\x18\x01 \x01(\v2<.ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option2H\x00R\rpartyIdOption\x12]\n" +
+	"\n" +
+	"sequence_1\x18\x02 \x01(\v2<.ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option1H\x00R\tsequence1\x1a\x8c\x01\n" +
+	"\aOption1\x12G\n" +
+	"\n" +
+	"party_name\x18\x01 \x03(\v2(.ddex.pie.v10.PartyNameWithPronunciationR\tpartyName\x128\n" +
+	"\bparty_id\x18\x02 \x03(\v2\x1d.ddex.pie.v10.DetailedPartyIdR\apartyId\x1aC\n" +
+	"\aOption2\x128\n" +
+	"\bparty_id\x18\x01 \x03(\v2\x1d.ddex.pie.v10.DetailedPartyIdR\apartyIdB\b\n" +
 	"\x06choice\"\xa1\x06\n" +
 	"\x1aPartyNameWithPronunciation\x12M\n" +
 	"\tfull_name\x18\x01 \x01(\v20.ddex.pie.v10.NameWithPronunciationAndScriptCodeR\bfullName\x12o\n" +
@@ -9616,9 +11454,17 @@ const file_ddex_pie_v10_v10_proto_rawDesc = "" +
 	"\x1bencoding_user_defined_value\x18\x06 \x01(\tR\x18encodingUserDefinedValue\"C\n" +
 	"\rProprietaryId\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
-	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"M\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\"\x8b\x01\n" +
 	"\x0fRelatedCreation\x12:\n" +
-	"\x05title\x18\x01 \x01(\v2$.ddex.pie.v10.TitleWithPronunciationR\x05title\"\xe5\x02\n" +
+	"\x05title\x18\x01 \x01(\v2$.ddex.pie.v10.TitleWithPronunciationR\x05title\x12<\n" +
+	"\x06choice\x18\x02 \x01(\v2$.ddex.pie.v10.RelatedCreationChoice2R\x06choice\"\xf6\x01\n" +
+	"\x16RelatedCreationChoice2\x128\n" +
+	"\n" +
+	"release_id\x18\x01 \x01(\v2\x17.ddex.pie.v10.ReleaseIdH\x00R\treleaseId\x12F\n" +
+	"\vresource_id\x18\x02 \x01(\v2#.ddex.pie.v10.ResourceIdWithoutFlagH\x00R\n" +
+	"resourceId\x12P\n" +
+	"\x0fmusical_work_id\x18\x03 \x01(\v2&.ddex.pie.v10.MusicalWorkIdWithoutFlagH\x00R\rmusicalWorkIdB\b\n" +
+	"\x06choice\"\xe5\x02\n" +
 	"\aRelease\x12\x13\n" +
 	"\x05g_rid\x18\x01 \x01(\tR\x04gRid\x12\x15\n" +
 	"\ai_c_p_n\x18\x02 \x01(\tR\x04iCPN\x124\n" +
@@ -9748,358 +11594,437 @@ func file_ddex_pie_v10_v10_proto_rawDescGZIP() []byte {
 	return file_ddex_pie_v10_v10_proto_rawDescData
 }
 
-var file_ddex_pie_v10_v10_proto_msgTypes = make([]protoimpl.MessageInfo, 115)
+var file_ddex_pie_v10_v10_proto_msgTypes = make([]protoimpl.MessageInfo, 145)
 var file_ddex_pie_v10_v10_proto_goTypes = []any{
-	(*PieMessage)(nil),                         // 0: ddex.pie.v10.PieMessage
-	(*PieRequestMessage)(nil),                  // 1: ddex.pie.v10.PieRequestMessage
-	(*Feed)(nil),                               // 2: ddex.pie.v10.Feed
-	(*Contribution)(nil),                       // 3: ddex.pie.v10.Contribution
-	(*CreationDescription)(nil),                // 4: ddex.pie.v10.CreationDescription
-	(*DetailedPartyIdForParty)(nil),            // 5: ddex.pie.v10.DetailedPartyIdForParty
-	(*Entry)(nil),                              // 6: ddex.pie.v10.Entry
-	(*Event)(nil),                              // 7: ddex.pie.v10.Event
-	(*EventType)(nil),                          // 8: ddex.pie.v10.EventType
-	(*Focus)(nil),                              // 9: ddex.pie.v10.Focus
-	(*Gender)(nil),                             // 10: ddex.pie.v10.Gender
-	(*GenderValue)(nil),                        // 11: ddex.pie.v10.GenderValue
-	(*NameWithPronunciation)(nil),              // 12: ddex.pie.v10.NameWithPronunciation
-	(*NameWithScriptCode)(nil),                 // 13: ddex.pie.v10.NameWithScriptCode
-	(*Nationality)(nil),                        // 14: ddex.pie.v10.Nationality
-	(*Party)(nil),                              // 15: ddex.pie.v10.Party
-	(*PartyDescriptorForEntry)(nil),            // 16: ddex.pie.v10.PartyDescriptorForEntry
-	(*PartyList)(nil),                          // 17: ddex.pie.v10.PartyList
-	(*PartyName)(nil),                          // 18: ddex.pie.v10.PartyName
-	(*PartyNameForRequest)(nil),                // 19: ddex.pie.v10.PartyNameForRequest
-	(*PartyNameFormat)(nil),                    // 20: ddex.pie.v10.PartyNameFormat
-	(*PartyNamePurpose)(nil),                   // 21: ddex.pie.v10.PartyNamePurpose
-	(*PartyNameType)(nil),                      // 22: ddex.pie.v10.PartyNameType
-	(*PartyRelationshipType)(nil),              // 23: ddex.pie.v10.PartyRelationshipType
-	(*PartyType)(nil),                          // 24: ddex.pie.v10.PartyType
-	(*PartyTypeValue)(nil),                     // 25: ddex.pie.v10.PartyTypeValue
-	(*PrimaryRole)(nil),                        // 26: ddex.pie.v10.PrimaryRole
-	(*PronunciationForParty)(nil),              // 27: ddex.pie.v10.PronunciationForParty
-	(*ReasonForNameChange)(nil),                // 28: ddex.pie.v10.ReasonForNameChange
-	(*RelatedCreationForParty)(nil),            // 29: ddex.pie.v10.RelatedCreationForParty
-	(*RelatedParty)(nil),                       // 30: ddex.pie.v10.RelatedParty
-	(*ReleaseForRequest)(nil),                  // 31: ddex.pie.v10.ReleaseForRequest
-	(*RequestedParty)(nil),                     // 32: ddex.pie.v10.RequestedParty
-	(*ResourceForRequest)(nil),                 // 33: ddex.pie.v10.ResourceForRequest
-	(*SocialMediaURL)(nil),                     // 34: ddex.pie.v10.SocialMediaURL
-	(*WorkForRequest)(nil),                     // 35: ddex.pie.v10.WorkForRequest
-	(*Category)(nil),                           // 36: ddex.pie.v10.Category
-	(*Content)(nil),                            // 37: ddex.pie.v10.Content
-	(*DateTime)(nil),                           // 38: ddex.pie.v10.DateTime
-	(*Generator)(nil),                          // 39: ddex.pie.v10.Generator
-	(*Icon)(nil),                               // 40: ddex.pie.v10.Icon
-	(*Id)(nil),                                 // 41: ddex.pie.v10.Id
-	(*Link)(nil),                               // 42: ddex.pie.v10.Link
-	(*Logo)(nil),                               // 43: ddex.pie.v10.Logo
-	(*Person)(nil),                             // 44: ddex.pie.v10.Person
-	(*Source)(nil),                             // 45: ddex.pie.v10.Source
-	(*Text)(nil),                               // 46: ddex.pie.v10.Text
-	(*URI)(nil),                                // 47: ddex.pie.v10.URI
-	(*AllTerritoryCode)(nil),                   // 48: ddex.pie.v10.AllTerritoryCode
-	(*ArtistType)(nil),                         // 49: ddex.pie.v10.ArtistType
-	(*ArtistTypeValue)(nil),                    // 50: ddex.pie.v10.ArtistTypeValue
-	(*ArtisticInfluence)(nil),                  // 51: ddex.pie.v10.ArtisticInfluence
-	(*Award)(nil),                              // 52: ddex.pie.v10.Award
-	(*Biography)(nil),                          // 53: ddex.pie.v10.Biography
-	(*BiographyText)(nil),                      // 54: ddex.pie.v10.BiographyText
-	(*CatalogNumber)(nil),                      // 55: ddex.pie.v10.CatalogNumber
-	(*ClassicalPeriod)(nil),                    // 56: ddex.pie.v10.ClassicalPeriod
-	(*CommentaryNote)(nil),                     // 57: ddex.pie.v10.CommentaryNote
-	(*CommentaryNoteType)(nil),                 // 58: ddex.pie.v10.CommentaryNoteType
-	(*ContributorRole)(nil),                    // 59: ddex.pie.v10.ContributorRole
-	(*Date)(nil),                               // 60: ddex.pie.v10.Date
-	(*Description)(nil),                        // 61: ddex.pie.v10.Description
-	(*DetailedHashSum)(nil),                    // 62: ddex.pie.v10.DetailedHashSum
-	(*DetailedPartyId)(nil),                    // 63: ddex.pie.v10.DetailedPartyId
-	(*DisplayArtistName)(nil),                  // 64: ddex.pie.v10.DisplayArtistName
-	(*DisplayArtistNameWithDefault)(nil),       // 65: ddex.pie.v10.DisplayArtistNameWithDefault
-	(*DisplayArtistNameWithPronunciation)(nil), // 66: ddex.pie.v10.DisplayArtistNameWithPronunciation
-	(*DisplaySubTitle)(nil),                    // 67: ddex.pie.v10.DisplaySubTitle
-	(*DisplayTitle)(nil),                       // 68: ddex.pie.v10.DisplayTitle
-	(*Epoch)(nil),                              // 69: ddex.pie.v10.Epoch
-	(*EventDate)(nil),                          // 70: ddex.pie.v10.EventDate
-	(*File)(nil),                               // 71: ddex.pie.v10.File
-	(*HashSumAlgorithmType)(nil),               // 72: ddex.pie.v10.HashSumAlgorithmType
-	(*Image)(nil),                              // 73: ddex.pie.v10.Image
-	(*ImageType)(nil),                          // 74: ddex.pie.v10.ImageType
-	(*MessageAuditTrail)(nil),                  // 75: ddex.pie.v10.MessageAuditTrail
-	(*MessageAuditTrailEvent)(nil),             // 76: ddex.pie.v10.MessageAuditTrailEvent
-	(*MessageHeader)(nil),                      // 77: ddex.pie.v10.MessageHeader
-	(*MessagingPartyWithoutCode)(nil),          // 78: ddex.pie.v10.MessagingPartyWithoutCode
-	(*MetadataSource)(nil),                     // 79: ddex.pie.v10.MetadataSource
-	(*MetadataSourceList)(nil),                 // 80: ddex.pie.v10.MetadataSourceList
-	(*MetadataSourceReference)(nil),            // 81: ddex.pie.v10.MetadataSourceReference
-	(*MetadataSourceType)(nil),                 // 82: ddex.pie.v10.MetadataSourceType
-	(*MusicalWorkIdWithoutFlag)(nil),           // 83: ddex.pie.v10.MusicalWorkIdWithoutFlag
-	(*Name)(nil),                               // 84: ddex.pie.v10.Name
-	(*NameId)(nil),                             // 85: ddex.pie.v10.NameId
-	(*NameWithPronunciationAndScriptCode)(nil), // 86: ddex.pie.v10.NameWithPronunciationAndScriptCode
-	(*PartyDescriptorWithPronunciation)(nil),   // 87: ddex.pie.v10.PartyDescriptorWithPronunciation
-	(*PartyNameWithPronunciation)(nil),         // 88: ddex.pie.v10.PartyNameWithPronunciation
-	(*PartyNameWithoutCode)(nil),               // 89: ddex.pie.v10.PartyNameWithoutCode
-	(*PeriodValue)(nil),                        // 90: ddex.pie.v10.PeriodValue
-	(*PeriodWithTime)(nil),                     // 91: ddex.pie.v10.PeriodWithTime
-	(*Pronunciation)(nil),                      // 92: ddex.pie.v10.Pronunciation
-	(*ProprietaryId)(nil),                      // 93: ddex.pie.v10.ProprietaryId
-	(*RelatedCreation)(nil),                    // 94: ddex.pie.v10.RelatedCreation
-	(*Release)(nil),                            // 95: ddex.pie.v10.Release
-	(*ReleaseId)(nil),                          // 96: ddex.pie.v10.ReleaseId
-	(*ReleaseSummary)(nil),                     // 97: ddex.pie.v10.ReleaseSummary
-	(*ReleaseTitle)(nil),                       // 98: ddex.pie.v10.ReleaseTitle
-	(*Resource)(nil),                           // 99: ddex.pie.v10.Resource
-	(*ResourceIdWithoutFlag)(nil),              // 100: ddex.pie.v10.ResourceIdWithoutFlag
-	(*ResourceSummary)(nil),                    // 101: ddex.pie.v10.ResourceSummary
-	(*ResourceTitle)(nil),                      // 102: ddex.pie.v10.ResourceTitle
-	(*SubTitle)(nil),                           // 103: ddex.pie.v10.SubTitle
-	(*TextWithFormat)(nil),                     // 104: ddex.pie.v10.TextWithFormat
-	(*TextWithoutTerritory)(nil),               // 105: ddex.pie.v10.TextWithoutTerritory
-	(*TitleText)(nil),                          // 106: ddex.pie.v10.TitleText
-	(*TitleWithPronunciation)(nil),             // 107: ddex.pie.v10.TitleWithPronunciation
-	(*TitleWithUDV)(nil),                       // 108: ddex.pie.v10.TitleWithUDV
-	(*ValidityPeriod)(nil),                     // 109: ddex.pie.v10.ValidityPeriod
-	(*VocalRegister)(nil),                      // 110: ddex.pie.v10.VocalRegister
-	(*VocalRegisterValue)(nil),                 // 111: ddex.pie.v10.VocalRegisterValue
-	(*Work)(nil),                               // 112: ddex.pie.v10.Work
-	(*WorkSummary)(nil),                        // 113: ddex.pie.v10.WorkSummary
-	(*WorkTitle)(nil),                          // 114: ddex.pie.v10.WorkTitle
+	(*PieMessage)(nil),                             // 0: ddex.pie.v10.PieMessage
+	(*PieRequestMessage)(nil),                      // 1: ddex.pie.v10.PieRequestMessage
+	(*Feed)(nil),                                   // 2: ddex.pie.v10.Feed
+	(*FeedChoice)(nil),                             // 3: ddex.pie.v10.FeedChoice
+	(*Contribution)(nil),                           // 4: ddex.pie.v10.Contribution
+	(*CreationDescription)(nil),                    // 5: ddex.pie.v10.CreationDescription
+	(*DetailedPartyIdForParty)(nil),                // 6: ddex.pie.v10.DetailedPartyIdForParty
+	(*Entry)(nil),                                  // 7: ddex.pie.v10.Entry
+	(*EntryChoice)(nil),                            // 8: ddex.pie.v10.EntryChoice
+	(*Event)(nil),                                  // 9: ddex.pie.v10.Event
+	(*EventChoice4)(nil),                           // 10: ddex.pie.v10.EventChoice4
+	(*EventType)(nil),                              // 11: ddex.pie.v10.EventType
+	(*Focus)(nil),                                  // 12: ddex.pie.v10.Focus
+	(*Gender)(nil),                                 // 13: ddex.pie.v10.Gender
+	(*GenderValue)(nil),                            // 14: ddex.pie.v10.GenderValue
+	(*NameWithPronunciation)(nil),                  // 15: ddex.pie.v10.NameWithPronunciation
+	(*NameWithScriptCode)(nil),                     // 16: ddex.pie.v10.NameWithScriptCode
+	(*Nationality)(nil),                            // 17: ddex.pie.v10.Nationality
+	(*Party)(nil),                                  // 18: ddex.pie.v10.Party
+	(*PartyDescriptorForEntry)(nil),                // 19: ddex.pie.v10.PartyDescriptorForEntry
+	(*PartyList)(nil),                              // 20: ddex.pie.v10.PartyList
+	(*PartyName)(nil),                              // 21: ddex.pie.v10.PartyName
+	(*PartyNameForRequest)(nil),                    // 22: ddex.pie.v10.PartyNameForRequest
+	(*PartyNameFormat)(nil),                        // 23: ddex.pie.v10.PartyNameFormat
+	(*PartyNamePurpose)(nil),                       // 24: ddex.pie.v10.PartyNamePurpose
+	(*PartyNameType)(nil),                          // 25: ddex.pie.v10.PartyNameType
+	(*PartyRelationshipType)(nil),                  // 26: ddex.pie.v10.PartyRelationshipType
+	(*PartyType)(nil),                              // 27: ddex.pie.v10.PartyType
+	(*PartyTypeValue)(nil),                         // 28: ddex.pie.v10.PartyTypeValue
+	(*PrimaryRole)(nil),                            // 29: ddex.pie.v10.PrimaryRole
+	(*PronunciationForParty)(nil),                  // 30: ddex.pie.v10.PronunciationForParty
+	(*ReasonForNameChange)(nil),                    // 31: ddex.pie.v10.ReasonForNameChange
+	(*RelatedCreationForParty)(nil),                // 32: ddex.pie.v10.RelatedCreationForParty
+	(*RelatedCreationForPartyChoice6)(nil),         // 33: ddex.pie.v10.RelatedCreationForPartyChoice6
+	(*RelatedParty)(nil),                           // 34: ddex.pie.v10.RelatedParty
+	(*RelatedPartyChoice8)(nil),                    // 35: ddex.pie.v10.RelatedPartyChoice8
+	(*ReleaseForRequest)(nil),                      // 36: ddex.pie.v10.ReleaseForRequest
+	(*RequestedParty)(nil),                         // 37: ddex.pie.v10.RequestedParty
+	(*RequestedPartyChoice5)(nil),                  // 38: ddex.pie.v10.RequestedPartyChoice5
+	(*ResourceForRequest)(nil),                     // 39: ddex.pie.v10.ResourceForRequest
+	(*SocialMediaURL)(nil),                         // 40: ddex.pie.v10.SocialMediaURL
+	(*WorkForRequest)(nil),                         // 41: ddex.pie.v10.WorkForRequest
+	(*Category)(nil),                               // 42: ddex.pie.v10.Category
+	(*Content)(nil),                                // 43: ddex.pie.v10.Content
+	(*DateTime)(nil),                               // 44: ddex.pie.v10.DateTime
+	(*Generator)(nil),                              // 45: ddex.pie.v10.Generator
+	(*Icon)(nil),                                   // 46: ddex.pie.v10.Icon
+	(*Id)(nil),                                     // 47: ddex.pie.v10.Id
+	(*Link)(nil),                                   // 48: ddex.pie.v10.Link
+	(*Logo)(nil),                                   // 49: ddex.pie.v10.Logo
+	(*Person)(nil),                                 // 50: ddex.pie.v10.Person
+	(*PersonChoice)(nil),                           // 51: ddex.pie.v10.PersonChoice
+	(*Source)(nil),                                 // 52: ddex.pie.v10.Source
+	(*SourceChoice)(nil),                           // 53: ddex.pie.v10.SourceChoice
+	(*Text)(nil),                                   // 54: ddex.pie.v10.Text
+	(*URI)(nil),                                    // 55: ddex.pie.v10.URI
+	(*AllTerritoryCode)(nil),                       // 56: ddex.pie.v10.AllTerritoryCode
+	(*ArtistType)(nil),                             // 57: ddex.pie.v10.ArtistType
+	(*ArtistTypeValue)(nil),                        // 58: ddex.pie.v10.ArtistTypeValue
+	(*ArtisticInfluence)(nil),                      // 59: ddex.pie.v10.ArtisticInfluence
+	(*Award)(nil),                                  // 60: ddex.pie.v10.Award
+	(*Biography)(nil),                              // 61: ddex.pie.v10.Biography
+	(*BiographyText)(nil),                          // 62: ddex.pie.v10.BiographyText
+	(*CatalogNumber)(nil),                          // 63: ddex.pie.v10.CatalogNumber
+	(*ClassicalPeriod)(nil),                        // 64: ddex.pie.v10.ClassicalPeriod
+	(*CommentaryNote)(nil),                         // 65: ddex.pie.v10.CommentaryNote
+	(*CommentaryNoteType)(nil),                     // 66: ddex.pie.v10.CommentaryNoteType
+	(*ContributorRole)(nil),                        // 67: ddex.pie.v10.ContributorRole
+	(*Date)(nil),                                   // 68: ddex.pie.v10.Date
+	(*Description)(nil),                            // 69: ddex.pie.v10.Description
+	(*DetailedHashSum)(nil),                        // 70: ddex.pie.v10.DetailedHashSum
+	(*DetailedPartyId)(nil),                        // 71: ddex.pie.v10.DetailedPartyId
+	(*DisplayArtistName)(nil),                      // 72: ddex.pie.v10.DisplayArtistName
+	(*DisplayArtistNameWithDefault)(nil),           // 73: ddex.pie.v10.DisplayArtistNameWithDefault
+	(*DisplayArtistNameWithPronunciation)(nil),     // 74: ddex.pie.v10.DisplayArtistNameWithPronunciation
+	(*DisplaySubTitle)(nil),                        // 75: ddex.pie.v10.DisplaySubTitle
+	(*DisplayTitle)(nil),                           // 76: ddex.pie.v10.DisplayTitle
+	(*Epoch)(nil),                                  // 77: ddex.pie.v10.Epoch
+	(*EventDate)(nil),                              // 78: ddex.pie.v10.EventDate
+	(*File)(nil),                                   // 79: ddex.pie.v10.File
+	(*HashSumAlgorithmType)(nil),                   // 80: ddex.pie.v10.HashSumAlgorithmType
+	(*Image)(nil),                                  // 81: ddex.pie.v10.Image
+	(*ImageType)(nil),                              // 82: ddex.pie.v10.ImageType
+	(*MessageAuditTrail)(nil),                      // 83: ddex.pie.v10.MessageAuditTrail
+	(*MessageAuditTrailEvent)(nil),                 // 84: ddex.pie.v10.MessageAuditTrailEvent
+	(*MessageHeader)(nil),                          // 85: ddex.pie.v10.MessageHeader
+	(*MessagingPartyWithoutCode)(nil),              // 86: ddex.pie.v10.MessagingPartyWithoutCode
+	(*MetadataSource)(nil),                         // 87: ddex.pie.v10.MetadataSource
+	(*MetadataSourceChoice3)(nil),                  // 88: ddex.pie.v10.MetadataSourceChoice3
+	(*MetadataSourceList)(nil),                     // 89: ddex.pie.v10.MetadataSourceList
+	(*MetadataSourceReference)(nil),                // 90: ddex.pie.v10.MetadataSourceReference
+	(*MetadataSourceType)(nil),                     // 91: ddex.pie.v10.MetadataSourceType
+	(*MusicalWorkIdWithoutFlag)(nil),               // 92: ddex.pie.v10.MusicalWorkIdWithoutFlag
+	(*Name)(nil),                                   // 93: ddex.pie.v10.Name
+	(*NameId)(nil),                                 // 94: ddex.pie.v10.NameId
+	(*NameWithPronunciationAndScriptCode)(nil),     // 95: ddex.pie.v10.NameWithPronunciationAndScriptCode
+	(*PartyDescriptorWithPronunciation)(nil),       // 96: ddex.pie.v10.PartyDescriptorWithPronunciation
+	(*PartyDescriptorWithPronunciationChoice)(nil), // 97: ddex.pie.v10.PartyDescriptorWithPronunciationChoice
+	(*PartyNameWithPronunciation)(nil),             // 98: ddex.pie.v10.PartyNameWithPronunciation
+	(*PartyNameWithoutCode)(nil),                   // 99: ddex.pie.v10.PartyNameWithoutCode
+	(*PeriodValue)(nil),                            // 100: ddex.pie.v10.PeriodValue
+	(*PeriodWithTime)(nil),                         // 101: ddex.pie.v10.PeriodWithTime
+	(*Pronunciation)(nil),                          // 102: ddex.pie.v10.Pronunciation
+	(*ProprietaryId)(nil),                          // 103: ddex.pie.v10.ProprietaryId
+	(*RelatedCreation)(nil),                        // 104: ddex.pie.v10.RelatedCreation
+	(*RelatedCreationChoice2)(nil),                 // 105: ddex.pie.v10.RelatedCreationChoice2
+	(*Release)(nil),                                // 106: ddex.pie.v10.Release
+	(*ReleaseId)(nil),                              // 107: ddex.pie.v10.ReleaseId
+	(*ReleaseSummary)(nil),                         // 108: ddex.pie.v10.ReleaseSummary
+	(*ReleaseTitle)(nil),                           // 109: ddex.pie.v10.ReleaseTitle
+	(*Resource)(nil),                               // 110: ddex.pie.v10.Resource
+	(*ResourceIdWithoutFlag)(nil),                  // 111: ddex.pie.v10.ResourceIdWithoutFlag
+	(*ResourceSummary)(nil),                        // 112: ddex.pie.v10.ResourceSummary
+	(*ResourceTitle)(nil),                          // 113: ddex.pie.v10.ResourceTitle
+	(*SubTitle)(nil),                               // 114: ddex.pie.v10.SubTitle
+	(*TextWithFormat)(nil),                         // 115: ddex.pie.v10.TextWithFormat
+	(*TextWithoutTerritory)(nil),                   // 116: ddex.pie.v10.TextWithoutTerritory
+	(*TitleText)(nil),                              // 117: ddex.pie.v10.TitleText
+	(*TitleWithPronunciation)(nil),                 // 118: ddex.pie.v10.TitleWithPronunciation
+	(*TitleWithUDV)(nil),                           // 119: ddex.pie.v10.TitleWithUDV
+	(*ValidityPeriod)(nil),                         // 120: ddex.pie.v10.ValidityPeriod
+	(*VocalRegister)(nil),                          // 121: ddex.pie.v10.VocalRegister
+	(*VocalRegisterValue)(nil),                     // 122: ddex.pie.v10.VocalRegisterValue
+	(*Work)(nil),                                   // 123: ddex.pie.v10.Work
+	(*WorkSummary)(nil),                            // 124: ddex.pie.v10.WorkSummary
+	(*WorkTitle)(nil),                              // 125: ddex.pie.v10.WorkTitle
+	(*FeedChoice_Option1)(nil),                     // 126: ddex.pie.v10.FeedChoice.Option1
+	(*FeedChoice_Option2)(nil),                     // 127: ddex.pie.v10.FeedChoice.Option2
+	(*FeedChoice_Option3)(nil),                     // 128: ddex.pie.v10.FeedChoice.Option3
+	(*FeedChoice_Option4)(nil),                     // 129: ddex.pie.v10.FeedChoice.Option4
+	(*FeedChoice_Option5)(nil),                     // 130: ddex.pie.v10.FeedChoice.Option5
+	(*EntryChoice_Option1)(nil),                    // 131: ddex.pie.v10.EntryChoice.Option1
+	(*EntryChoice_Option2)(nil),                    // 132: ddex.pie.v10.EntryChoice.Option2
+	(*EntryChoice_Option3)(nil),                    // 133: ddex.pie.v10.EntryChoice.Option3
+	(*EntryChoice_Option4)(nil),                    // 134: ddex.pie.v10.EntryChoice.Option4
+	(*EventChoice4_Option1)(nil),                   // 135: ddex.pie.v10.EventChoice4.Option1
+	(*RelatedPartyChoice8_Option1)(nil),            // 136: ddex.pie.v10.RelatedPartyChoice8.Option1
+	(*SourceChoice_Option1)(nil),                   // 137: ddex.pie.v10.SourceChoice.Option1
+	(*SourceChoice_Option2)(nil),                   // 138: ddex.pie.v10.SourceChoice.Option2
+	(*SourceChoice_Option3)(nil),                   // 139: ddex.pie.v10.SourceChoice.Option3
+	(*SourceChoice_Option4)(nil),                   // 140: ddex.pie.v10.SourceChoice.Option4
+	(*MetadataSourceChoice3_Option1)(nil),          // 141: ddex.pie.v10.MetadataSourceChoice3.Option1
+	(*MetadataSourceChoice3_Option2)(nil),          // 142: ddex.pie.v10.MetadataSourceChoice3.Option2
+	(*PartyDescriptorWithPronunciationChoice_Option1)(nil), // 143: ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option1
+	(*PartyDescriptorWithPronunciationChoice_Option2)(nil), // 144: ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option2
 }
 var file_ddex_pie_v10_v10_proto_depIdxs = []int32{
-	77,  // 0: ddex.pie.v10.PieMessage.message_header:type_name -> ddex.pie.v10.MessageHeader
-	80,  // 1: ddex.pie.v10.PieMessage.metadata_source_list:type_name -> ddex.pie.v10.MetadataSourceList
-	17,  // 2: ddex.pie.v10.PieMessage.party_list:type_name -> ddex.pie.v10.PartyList
-	77,  // 3: ddex.pie.v10.PieRequestMessage.message_header:type_name -> ddex.pie.v10.MessageHeader
-	32,  // 4: ddex.pie.v10.PieRequestMessage.requested_party:type_name -> ddex.pie.v10.RequestedParty
-	44,  // 5: ddex.pie.v10.Feed.author:type_name -> ddex.pie.v10.Person
-	36,  // 6: ddex.pie.v10.Feed.category:type_name -> ddex.pie.v10.Category
-	44,  // 7: ddex.pie.v10.Feed.contributor:type_name -> ddex.pie.v10.Person
-	39,  // 8: ddex.pie.v10.Feed.generator:type_name -> ddex.pie.v10.Generator
-	40,  // 9: ddex.pie.v10.Feed.icon:type_name -> ddex.pie.v10.Icon
-	41,  // 10: ddex.pie.v10.Feed.id:type_name -> ddex.pie.v10.Id
-	42,  // 11: ddex.pie.v10.Feed.link:type_name -> ddex.pie.v10.Link
-	43,  // 12: ddex.pie.v10.Feed.logo:type_name -> ddex.pie.v10.Logo
-	46,  // 13: ddex.pie.v10.Feed.rights:type_name -> ddex.pie.v10.Text
-	46,  // 14: ddex.pie.v10.Feed.subtitle:type_name -> ddex.pie.v10.Text
-	46,  // 15: ddex.pie.v10.Feed.title:type_name -> ddex.pie.v10.Text
-	38,  // 16: ddex.pie.v10.Feed.updated:type_name -> ddex.pie.v10.DateTime
-	6,   // 17: ddex.pie.v10.Feed.entry:type_name -> ddex.pie.v10.Entry
-	59,  // 18: ddex.pie.v10.Contribution.role:type_name -> ddex.pie.v10.ContributorRole
-	70,  // 19: ddex.pie.v10.Contribution.event:type_name -> ddex.pie.v10.EventDate
-	108, // 20: ddex.pie.v10.CreationDescription.title:type_name -> ddex.pie.v10.TitleWithUDV
-	64,  // 21: ddex.pie.v10.CreationDescription.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistName
-	70,  // 22: ddex.pie.v10.CreationDescription.publication_date:type_name -> ddex.pie.v10.EventDate
-	93,  // 23: ddex.pie.v10.DetailedPartyIdForParty.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	44,  // 24: ddex.pie.v10.Entry.author:type_name -> ddex.pie.v10.Person
-	36,  // 25: ddex.pie.v10.Entry.category:type_name -> ddex.pie.v10.Category
-	37,  // 26: ddex.pie.v10.Entry.content:type_name -> ddex.pie.v10.Content
-	44,  // 27: ddex.pie.v10.Entry.contributor:type_name -> ddex.pie.v10.Person
-	41,  // 28: ddex.pie.v10.Entry.id:type_name -> ddex.pie.v10.Id
-	42,  // 29: ddex.pie.v10.Entry.link:type_name -> ddex.pie.v10.Link
-	38,  // 30: ddex.pie.v10.Entry.published:type_name -> ddex.pie.v10.DateTime
-	46,  // 31: ddex.pie.v10.Entry.rights:type_name -> ddex.pie.v10.Text
-	45,  // 32: ddex.pie.v10.Entry.source:type_name -> ddex.pie.v10.Source
-	46,  // 33: ddex.pie.v10.Entry.summary:type_name -> ddex.pie.v10.Text
-	46,  // 34: ddex.pie.v10.Entry.title:type_name -> ddex.pie.v10.Text
-	38,  // 35: ddex.pie.v10.Entry.updated:type_name -> ddex.pie.v10.DateTime
-	16,  // 36: ddex.pie.v10.Entry.party:type_name -> ddex.pie.v10.PartyDescriptorForEntry
-	81,  // 37: ddex.pie.v10.Event.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	8,   // 38: ddex.pie.v10.Event.event_type:type_name -> ddex.pie.v10.EventType
-	61,  // 39: ddex.pie.v10.Event.event_description:type_name -> ddex.pie.v10.Description
-	81,  // 40: ddex.pie.v10.Focus.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	101, // 41: ddex.pie.v10.Focus.focus_track:type_name -> ddex.pie.v10.ResourceSummary
-	97,  // 42: ddex.pie.v10.Focus.focus_release:type_name -> ddex.pie.v10.ReleaseSummary
-	113, // 43: ddex.pie.v10.Focus.focus_work:type_name -> ddex.pie.v10.WorkSummary
-	66,  // 44: ddex.pie.v10.Focus.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 45: ddex.pie.v10.Focus.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	87,  // 46: ddex.pie.v10.Focus.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	91,  // 47: ddex.pie.v10.Focus.period_of_being_focus:type_name -> ddex.pie.v10.PeriodWithTime
-	105, // 48: ddex.pie.v10.Focus.comment:type_name -> ddex.pie.v10.TextWithoutTerritory
-	81,  // 49: ddex.pie.v10.Gender.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	11,  // 50: ddex.pie.v10.Gender.value:type_name -> ddex.pie.v10.GenderValue
-	27,  // 51: ddex.pie.v10.NameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
-	84,  // 52: ddex.pie.v10.NameWithScriptCode.name:type_name -> ddex.pie.v10.Name
-	27,  // 53: ddex.pie.v10.NameWithScriptCode.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
-	81,  // 54: ddex.pie.v10.Nationality.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	48,  // 55: ddex.pie.v10.Nationality.value:type_name -> ddex.pie.v10.AllTerritoryCode
-	5,   // 56: ddex.pie.v10.Party.party_id:type_name -> ddex.pie.v10.DetailedPartyIdForParty
-	18,  // 57: ddex.pie.v10.Party.party_name:type_name -> ddex.pie.v10.PartyName
-	24,  // 58: ddex.pie.v10.Party.party_type:type_name -> ddex.pie.v10.PartyType
-	7,   // 59: ddex.pie.v10.Party.event:type_name -> ddex.pie.v10.Event
-	30,  // 60: ddex.pie.v10.Party.related_party:type_name -> ddex.pie.v10.RelatedParty
-	29,  // 61: ddex.pie.v10.Party.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
-	10,  // 62: ddex.pie.v10.Party.gender:type_name -> ddex.pie.v10.Gender
-	14,  // 63: ddex.pie.v10.Party.nationality:type_name -> ddex.pie.v10.Nationality
-	26,  // 64: ddex.pie.v10.Party.primary_role:type_name -> ddex.pie.v10.PrimaryRole
-	110, // 65: ddex.pie.v10.Party.vocal_register:type_name -> ddex.pie.v10.VocalRegister
-	9,   // 66: ddex.pie.v10.Party.focus:type_name -> ddex.pie.v10.Focus
-	49,  // 67: ddex.pie.v10.Party.artist_type:type_name -> ddex.pie.v10.ArtistType
-	56,  // 68: ddex.pie.v10.Party.classical_period:type_name -> ddex.pie.v10.ClassicalPeriod
-	69,  // 69: ddex.pie.v10.Party.epoch:type_name -> ddex.pie.v10.Epoch
-	51,  // 70: ddex.pie.v10.Party.artistic_influence:type_name -> ddex.pie.v10.ArtisticInfluence
-	52,  // 71: ddex.pie.v10.Party.award:type_name -> ddex.pie.v10.Award
-	53,  // 72: ddex.pie.v10.Party.biography:type_name -> ddex.pie.v10.Biography
-	73,  // 73: ddex.pie.v10.Party.image:type_name -> ddex.pie.v10.Image
-	34,  // 74: ddex.pie.v10.Party.social_media_u_r_l:type_name -> ddex.pie.v10.SocialMediaURL
-	57,  // 75: ddex.pie.v10.Party.commentary_note:type_name -> ddex.pie.v10.CommentaryNote
-	63,  // 76: ddex.pie.v10.PartyDescriptorForEntry.party_id:type_name -> ddex.pie.v10.DetailedPartyId
-	15,  // 77: ddex.pie.v10.PartyList.party:type_name -> ddex.pie.v10.Party
-	81,  // 78: ddex.pie.v10.PartyName.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	85,  // 79: ddex.pie.v10.PartyName.name_id:type_name -> ddex.pie.v10.NameId
-	22,  // 80: ddex.pie.v10.PartyName.party_name_type:type_name -> ddex.pie.v10.PartyNameType
-	28,  // 81: ddex.pie.v10.PartyName.reason_for_name_change:type_name -> ddex.pie.v10.ReasonForNameChange
-	21,  // 82: ddex.pie.v10.PartyName.party_name_purpose:type_name -> ddex.pie.v10.PartyNamePurpose
-	20,  // 83: ddex.pie.v10.PartyName.party_name_format:type_name -> ddex.pie.v10.PartyNameFormat
-	13,  // 84: ddex.pie.v10.PartyName.full_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	12,  // 85: ddex.pie.v10.PartyName.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciation
-	13,  // 86: ddex.pie.v10.PartyName.full_name_indexed:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 87: ddex.pie.v10.PartyName.names_before_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 88: ddex.pie.v10.PartyName.key_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 89: ddex.pie.v10.PartyName.names_after_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 90: ddex.pie.v10.PartyName.short_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	13,  // 91: ddex.pie.v10.PartyName.abbreviated_name:type_name -> ddex.pie.v10.NameWithScriptCode
-	109, // 92: ddex.pie.v10.PartyName.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
-	29,  // 93: ddex.pie.v10.PartyName.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
-	84,  // 94: ddex.pie.v10.PartyNameForRequest.full_name:type_name -> ddex.pie.v10.Name
-	84,  // 95: ddex.pie.v10.PartyNameForRequest.full_name_indexed:type_name -> ddex.pie.v10.Name
-	84,  // 96: ddex.pie.v10.PartyNameForRequest.names_before_key_name:type_name -> ddex.pie.v10.Name
-	84,  // 97: ddex.pie.v10.PartyNameForRequest.key_name:type_name -> ddex.pie.v10.Name
-	84,  // 98: ddex.pie.v10.PartyNameForRequest.names_after_key_name:type_name -> ddex.pie.v10.Name
-	84,  // 99: ddex.pie.v10.PartyNameForRequest.abbreviated_name:type_name -> ddex.pie.v10.Name
-	81,  // 100: ddex.pie.v10.PartyType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	25,  // 101: ddex.pie.v10.PartyType.value:type_name -> ddex.pie.v10.PartyTypeValue
-	81,  // 102: ddex.pie.v10.PrimaryRole.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	59,  // 103: ddex.pie.v10.PrimaryRole.value:type_name -> ddex.pie.v10.ContributorRole
-	81,  // 104: ddex.pie.v10.RelatedCreationForParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	3,   // 105: ddex.pie.v10.RelatedCreationForParty.contribution:type_name -> ddex.pie.v10.Contribution
-	61,  // 106: ddex.pie.v10.RelatedCreationForParty.relationship_description:type_name -> ddex.pie.v10.Description
-	81,  // 107: ddex.pie.v10.RelatedParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	23,  // 108: ddex.pie.v10.RelatedParty.party_relationship_type:type_name -> ddex.pie.v10.PartyRelationshipType
-	61,  // 109: ddex.pie.v10.RelatedParty.description:type_name -> ddex.pie.v10.Description
-	109, // 110: ddex.pie.v10.RelatedParty.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
-	29,  // 111: ddex.pie.v10.RelatedParty.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
-	96,  // 112: ddex.pie.v10.ReleaseForRequest.release_id:type_name -> ddex.pie.v10.ReleaseId
-	98,  // 113: ddex.pie.v10.ReleaseForRequest.release_title:type_name -> ddex.pie.v10.ReleaseTitle
-	59,  // 114: ddex.pie.v10.RequestedParty.role:type_name -> ddex.pie.v10.ContributorRole
-	31,  // 115: ddex.pie.v10.RequestedParty.release:type_name -> ddex.pie.v10.ReleaseForRequest
-	33,  // 116: ddex.pie.v10.RequestedParty.resource:type_name -> ddex.pie.v10.ResourceForRequest
-	35,  // 117: ddex.pie.v10.RequestedParty.work:type_name -> ddex.pie.v10.WorkForRequest
-	100, // 118: ddex.pie.v10.ResourceForRequest.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
-	102, // 119: ddex.pie.v10.ResourceForRequest.resource_title:type_name -> ddex.pie.v10.ResourceTitle
-	83,  // 120: ddex.pie.v10.WorkForRequest.work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
-	114, // 121: ddex.pie.v10.WorkForRequest.work_title:type_name -> ddex.pie.v10.WorkTitle
-	47,  // 122: ddex.pie.v10.Person.uri:type_name -> ddex.pie.v10.URI
-	44,  // 123: ddex.pie.v10.Source.author:type_name -> ddex.pie.v10.Person
-	36,  // 124: ddex.pie.v10.Source.category:type_name -> ddex.pie.v10.Category
-	44,  // 125: ddex.pie.v10.Source.contributor:type_name -> ddex.pie.v10.Person
-	39,  // 126: ddex.pie.v10.Source.generator:type_name -> ddex.pie.v10.Generator
-	40,  // 127: ddex.pie.v10.Source.icon:type_name -> ddex.pie.v10.Icon
-	41,  // 128: ddex.pie.v10.Source.id:type_name -> ddex.pie.v10.Id
-	42,  // 129: ddex.pie.v10.Source.link:type_name -> ddex.pie.v10.Link
-	43,  // 130: ddex.pie.v10.Source.logo:type_name -> ddex.pie.v10.Logo
-	46,  // 131: ddex.pie.v10.Source.rights:type_name -> ddex.pie.v10.Text
-	46,  // 132: ddex.pie.v10.Source.subtitle:type_name -> ddex.pie.v10.Text
-	46,  // 133: ddex.pie.v10.Source.title:type_name -> ddex.pie.v10.Text
-	38,  // 134: ddex.pie.v10.Source.updated:type_name -> ddex.pie.v10.DateTime
-	81,  // 135: ddex.pie.v10.ArtistType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	50,  // 136: ddex.pie.v10.ArtistType.value:type_name -> ddex.pie.v10.ArtistTypeValue
-	81,  // 137: ddex.pie.v10.ArtisticInfluence.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	87,  // 138: ddex.pie.v10.ArtisticInfluence.party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	112, // 139: ddex.pie.v10.ArtisticInfluence.work:type_name -> ddex.pie.v10.Work
-	99,  // 140: ddex.pie.v10.ArtisticInfluence.resource:type_name -> ddex.pie.v10.Resource
-	95,  // 141: ddex.pie.v10.ArtisticInfluence.release:type_name -> ddex.pie.v10.Release
-	104, // 142: ddex.pie.v10.ArtisticInfluence.description:type_name -> ddex.pie.v10.TextWithFormat
-	81,  // 143: ddex.pie.v10.Award.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	87,  // 144: ddex.pie.v10.Award.awarding_body:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	87,  // 145: ddex.pie.v10.Award.awarded_party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	86,  // 146: ddex.pie.v10.Award.award_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	70,  // 147: ddex.pie.v10.Award.date:type_name -> ddex.pie.v10.EventDate
-	104, // 148: ddex.pie.v10.Award.comment:type_name -> ddex.pie.v10.TextWithFormat
-	81,  // 149: ddex.pie.v10.Biography.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	54,  // 150: ddex.pie.v10.Biography.text:type_name -> ddex.pie.v10.BiographyText
-	87,  // 151: ddex.pie.v10.Biography.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	81,  // 152: ddex.pie.v10.ClassicalPeriod.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	90,  // 153: ddex.pie.v10.ClassicalPeriod.name:type_name -> ddex.pie.v10.PeriodValue
-	81,  // 154: ddex.pie.v10.CommentaryNote.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	105, // 155: ddex.pie.v10.CommentaryNote.text:type_name -> ddex.pie.v10.TextWithoutTerritory
-	58,  // 156: ddex.pie.v10.CommentaryNote.commentary_note_type:type_name -> ddex.pie.v10.CommentaryNoteType
-	87,  // 157: ddex.pie.v10.CommentaryNote.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	72,  // 158: ddex.pie.v10.DetailedHashSum.algorithm:type_name -> ddex.pie.v10.HashSumAlgorithmType
-	93,  // 159: ddex.pie.v10.DetailedPartyId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	65,  // 160: ddex.pie.v10.DisplayArtistNameWithPronunciation.name:type_name -> ddex.pie.v10.DisplayArtistNameWithDefault
-	92,  // 161: ddex.pie.v10.DisplayArtistNameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	92,  // 162: ddex.pie.v10.DisplaySubTitle.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	106, // 163: ddex.pie.v10.DisplayTitle.title_text:type_name -> ddex.pie.v10.TitleText
-	67,  // 164: ddex.pie.v10.DisplayTitle.sub_title:type_name -> ddex.pie.v10.DisplaySubTitle
-	81,  // 165: ddex.pie.v10.Epoch.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	84,  // 166: ddex.pie.v10.Epoch.value:type_name -> ddex.pie.v10.Name
-	87,  // 167: ddex.pie.v10.Epoch.related_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	94,  // 168: ddex.pie.v10.Epoch.related_creation:type_name -> ddex.pie.v10.RelatedCreation
-	60,  // 169: ddex.pie.v10.Epoch.start_date:type_name -> ddex.pie.v10.Date
-	60,  // 170: ddex.pie.v10.Epoch.end_date:type_name -> ddex.pie.v10.Date
-	62,  // 171: ddex.pie.v10.File.hash_sum:type_name -> ddex.pie.v10.DetailedHashSum
-	81,  // 172: ddex.pie.v10.Image.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	71,  // 173: ddex.pie.v10.Image.file:type_name -> ddex.pie.v10.File
-	74,  // 174: ddex.pie.v10.Image.image_type:type_name -> ddex.pie.v10.ImageType
-	76,  // 175: ddex.pie.v10.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.pie.v10.MessageAuditTrailEvent
-	78,  // 176: ddex.pie.v10.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	78,  // 177: ddex.pie.v10.MessageHeader.message_sender:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	78,  // 178: ddex.pie.v10.MessageHeader.sent_on_behalf_of:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	78,  // 179: ddex.pie.v10.MessageHeader.message_recipient:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
-	75,  // 180: ddex.pie.v10.MessageHeader.message_audit_trail:type_name -> ddex.pie.v10.MessageAuditTrail
-	89,  // 181: ddex.pie.v10.MessagingPartyWithoutCode.party_name:type_name -> ddex.pie.v10.PartyNameWithoutCode
-	82,  // 182: ddex.pie.v10.MetadataSource.metadata_source_type:type_name -> ddex.pie.v10.MetadataSourceType
-	79,  // 183: ddex.pie.v10.MetadataSourceList.metadata_source:type_name -> ddex.pie.v10.MetadataSource
-	93,  // 184: ddex.pie.v10.MusicalWorkIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	93,  // 185: ddex.pie.v10.NameId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	84,  // 186: ddex.pie.v10.NameWithPronunciationAndScriptCode.name:type_name -> ddex.pie.v10.Name
-	92,  // 187: ddex.pie.v10.NameWithPronunciationAndScriptCode.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	63,  // 188: ddex.pie.v10.PartyDescriptorWithPronunciation.party_id:type_name -> ddex.pie.v10.DetailedPartyId
-	86,  // 189: ddex.pie.v10.PartyNameWithPronunciation.full_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 190: ddex.pie.v10.PartyNameWithPronunciation.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 191: ddex.pie.v10.PartyNameWithPronunciation.full_name_indexed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 192: ddex.pie.v10.PartyNameWithPronunciation.names_before_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 193: ddex.pie.v10.PartyNameWithPronunciation.key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 194: ddex.pie.v10.PartyNameWithPronunciation.names_after_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	86,  // 195: ddex.pie.v10.PartyNameWithPronunciation.abbreviated_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
-	107, // 196: ddex.pie.v10.RelatedCreation.title:type_name -> ddex.pie.v10.TitleWithPronunciation
-	98,  // 197: ddex.pie.v10.Release.release_title:type_name -> ddex.pie.v10.ReleaseTitle
-	66,  // 198: ddex.pie.v10.Release.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 199: ddex.pie.v10.Release.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	55,  // 200: ddex.pie.v10.ReleaseId.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
-	93,  // 201: ddex.pie.v10.ReleaseId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	96,  // 202: ddex.pie.v10.ReleaseSummary.release_id:type_name -> ddex.pie.v10.ReleaseId
-	68,  // 203: ddex.pie.v10.ReleaseSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
-	66,  // 204: ddex.pie.v10.ReleaseSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 205: ddex.pie.v10.ReleaseSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	102, // 206: ddex.pie.v10.Resource.resource_title:type_name -> ddex.pie.v10.ResourceTitle
-	66,  // 207: ddex.pie.v10.Resource.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 208: ddex.pie.v10.Resource.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	55,  // 209: ddex.pie.v10.ResourceIdWithoutFlag.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
-	93,  // 210: ddex.pie.v10.ResourceIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
-	100, // 211: ddex.pie.v10.ResourceSummary.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
-	68,  // 212: ddex.pie.v10.ResourceSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
-	66,  // 213: ddex.pie.v10.ResourceSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
-	87,  // 214: ddex.pie.v10.ResourceSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	92,  // 215: ddex.pie.v10.TitleText.pronunciation:type_name -> ddex.pie.v10.Pronunciation
-	106, // 216: ddex.pie.v10.TitleWithPronunciation.title_text:type_name -> ddex.pie.v10.TitleText
-	106, // 217: ddex.pie.v10.TitleWithPronunciation.sub_title:type_name -> ddex.pie.v10.TitleText
-	103, // 218: ddex.pie.v10.TitleWithUDV.sub_title:type_name -> ddex.pie.v10.SubTitle
-	70,  // 219: ddex.pie.v10.ValidityPeriod.start_date:type_name -> ddex.pie.v10.EventDate
-	70,  // 220: ddex.pie.v10.ValidityPeriod.end_date:type_name -> ddex.pie.v10.EventDate
-	81,  // 221: ddex.pie.v10.VocalRegister.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
-	111, // 222: ddex.pie.v10.VocalRegister.value:type_name -> ddex.pie.v10.VocalRegisterValue
-	114, // 223: ddex.pie.v10.Work.work_title:type_name -> ddex.pie.v10.WorkTitle
-	87,  // 224: ddex.pie.v10.Work.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	83,  // 225: ddex.pie.v10.WorkSummary.musical_work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
-	107, // 226: ddex.pie.v10.WorkSummary.work_title:type_name -> ddex.pie.v10.TitleWithPronunciation
-	87,  // 227: ddex.pie.v10.WorkSummary.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
-	228, // [228:228] is the sub-list for method output_type
-	228, // [228:228] is the sub-list for method input_type
-	228, // [228:228] is the sub-list for extension type_name
-	228, // [228:228] is the sub-list for extension extendee
-	0,   // [0:228] is the sub-list for field type_name
+	85,  // 0: ddex.pie.v10.PieMessage.message_header:type_name -> ddex.pie.v10.MessageHeader
+	89,  // 1: ddex.pie.v10.PieMessage.metadata_source_list:type_name -> ddex.pie.v10.MetadataSourceList
+	20,  // 2: ddex.pie.v10.PieMessage.party_list:type_name -> ddex.pie.v10.PartyList
+	85,  // 3: ddex.pie.v10.PieRequestMessage.message_header:type_name -> ddex.pie.v10.MessageHeader
+	37,  // 4: ddex.pie.v10.PieRequestMessage.requested_party:type_name -> ddex.pie.v10.RequestedParty
+	3,   // 5: ddex.pie.v10.Feed.choice:type_name -> ddex.pie.v10.FeedChoice
+	126, // 6: ddex.pie.v10.FeedChoice.author_option:type_name -> ddex.pie.v10.FeedChoice.Option1
+	127, // 7: ddex.pie.v10.FeedChoice.category_option:type_name -> ddex.pie.v10.FeedChoice.Option2
+	128, // 8: ddex.pie.v10.FeedChoice.contributor_option:type_name -> ddex.pie.v10.FeedChoice.Option3
+	45,  // 9: ddex.pie.v10.FeedChoice.generator:type_name -> ddex.pie.v10.Generator
+	46,  // 10: ddex.pie.v10.FeedChoice.icon:type_name -> ddex.pie.v10.Icon
+	47,  // 11: ddex.pie.v10.FeedChoice.id:type_name -> ddex.pie.v10.Id
+	129, // 12: ddex.pie.v10.FeedChoice.link_option:type_name -> ddex.pie.v10.FeedChoice.Option4
+	49,  // 13: ddex.pie.v10.FeedChoice.logo:type_name -> ddex.pie.v10.Logo
+	54,  // 14: ddex.pie.v10.FeedChoice.rights:type_name -> ddex.pie.v10.Text
+	54,  // 15: ddex.pie.v10.FeedChoice.subtitle:type_name -> ddex.pie.v10.Text
+	54,  // 16: ddex.pie.v10.FeedChoice.title:type_name -> ddex.pie.v10.Text
+	44,  // 17: ddex.pie.v10.FeedChoice.updated:type_name -> ddex.pie.v10.DateTime
+	130, // 18: ddex.pie.v10.FeedChoice.entry_option:type_name -> ddex.pie.v10.FeedChoice.Option5
+	67,  // 19: ddex.pie.v10.Contribution.role:type_name -> ddex.pie.v10.ContributorRole
+	78,  // 20: ddex.pie.v10.Contribution.event:type_name -> ddex.pie.v10.EventDate
+	119, // 21: ddex.pie.v10.CreationDescription.title:type_name -> ddex.pie.v10.TitleWithUDV
+	72,  // 22: ddex.pie.v10.CreationDescription.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistName
+	78,  // 23: ddex.pie.v10.CreationDescription.publication_date:type_name -> ddex.pie.v10.EventDate
+	103, // 24: ddex.pie.v10.DetailedPartyIdForParty.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	8,   // 25: ddex.pie.v10.Entry.choice:type_name -> ddex.pie.v10.EntryChoice
+	131, // 26: ddex.pie.v10.EntryChoice.author_option:type_name -> ddex.pie.v10.EntryChoice.Option1
+	132, // 27: ddex.pie.v10.EntryChoice.category_option:type_name -> ddex.pie.v10.EntryChoice.Option2
+	43,  // 28: ddex.pie.v10.EntryChoice.content:type_name -> ddex.pie.v10.Content
+	133, // 29: ddex.pie.v10.EntryChoice.contributor_option:type_name -> ddex.pie.v10.EntryChoice.Option3
+	47,  // 30: ddex.pie.v10.EntryChoice.id:type_name -> ddex.pie.v10.Id
+	134, // 31: ddex.pie.v10.EntryChoice.link_option:type_name -> ddex.pie.v10.EntryChoice.Option4
+	44,  // 32: ddex.pie.v10.EntryChoice.published:type_name -> ddex.pie.v10.DateTime
+	54,  // 33: ddex.pie.v10.EntryChoice.rights:type_name -> ddex.pie.v10.Text
+	52,  // 34: ddex.pie.v10.EntryChoice.source:type_name -> ddex.pie.v10.Source
+	54,  // 35: ddex.pie.v10.EntryChoice.summary:type_name -> ddex.pie.v10.Text
+	54,  // 36: ddex.pie.v10.EntryChoice.title:type_name -> ddex.pie.v10.Text
+	44,  // 37: ddex.pie.v10.EntryChoice.updated:type_name -> ddex.pie.v10.DateTime
+	19,  // 38: ddex.pie.v10.EntryChoice.party:type_name -> ddex.pie.v10.PartyDescriptorForEntry
+	90,  // 39: ddex.pie.v10.Event.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	11,  // 40: ddex.pie.v10.Event.event_type:type_name -> ddex.pie.v10.EventType
+	69,  // 41: ddex.pie.v10.Event.event_description:type_name -> ddex.pie.v10.Description
+	10,  // 42: ddex.pie.v10.Event.choice:type_name -> ddex.pie.v10.EventChoice4
+	78,  // 43: ddex.pie.v10.EventChoice4.date:type_name -> ddex.pie.v10.EventDate
+	135, // 44: ddex.pie.v10.EventChoice4.sequence_1:type_name -> ddex.pie.v10.EventChoice4.Option1
+	90,  // 45: ddex.pie.v10.Focus.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	112, // 46: ddex.pie.v10.Focus.focus_track:type_name -> ddex.pie.v10.ResourceSummary
+	108, // 47: ddex.pie.v10.Focus.focus_release:type_name -> ddex.pie.v10.ReleaseSummary
+	124, // 48: ddex.pie.v10.Focus.focus_work:type_name -> ddex.pie.v10.WorkSummary
+	74,  // 49: ddex.pie.v10.Focus.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	96,  // 50: ddex.pie.v10.Focus.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	96,  // 51: ddex.pie.v10.Focus.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	101, // 52: ddex.pie.v10.Focus.period_of_being_focus:type_name -> ddex.pie.v10.PeriodWithTime
+	116, // 53: ddex.pie.v10.Focus.comment:type_name -> ddex.pie.v10.TextWithoutTerritory
+	90,  // 54: ddex.pie.v10.Gender.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	14,  // 55: ddex.pie.v10.Gender.value:type_name -> ddex.pie.v10.GenderValue
+	30,  // 56: ddex.pie.v10.NameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
+	93,  // 57: ddex.pie.v10.NameWithScriptCode.name:type_name -> ddex.pie.v10.Name
+	30,  // 58: ddex.pie.v10.NameWithScriptCode.pronunciation:type_name -> ddex.pie.v10.PronunciationForParty
+	90,  // 59: ddex.pie.v10.Nationality.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	56,  // 60: ddex.pie.v10.Nationality.value:type_name -> ddex.pie.v10.AllTerritoryCode
+	6,   // 61: ddex.pie.v10.Party.party_id:type_name -> ddex.pie.v10.DetailedPartyIdForParty
+	21,  // 62: ddex.pie.v10.Party.party_name:type_name -> ddex.pie.v10.PartyName
+	27,  // 63: ddex.pie.v10.Party.party_type:type_name -> ddex.pie.v10.PartyType
+	9,   // 64: ddex.pie.v10.Party.event:type_name -> ddex.pie.v10.Event
+	34,  // 65: ddex.pie.v10.Party.related_party:type_name -> ddex.pie.v10.RelatedParty
+	32,  // 66: ddex.pie.v10.Party.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
+	13,  // 67: ddex.pie.v10.Party.gender:type_name -> ddex.pie.v10.Gender
+	17,  // 68: ddex.pie.v10.Party.nationality:type_name -> ddex.pie.v10.Nationality
+	29,  // 69: ddex.pie.v10.Party.primary_role:type_name -> ddex.pie.v10.PrimaryRole
+	121, // 70: ddex.pie.v10.Party.vocal_register:type_name -> ddex.pie.v10.VocalRegister
+	12,  // 71: ddex.pie.v10.Party.focus:type_name -> ddex.pie.v10.Focus
+	57,  // 72: ddex.pie.v10.Party.artist_type:type_name -> ddex.pie.v10.ArtistType
+	64,  // 73: ddex.pie.v10.Party.classical_period:type_name -> ddex.pie.v10.ClassicalPeriod
+	77,  // 74: ddex.pie.v10.Party.epoch:type_name -> ddex.pie.v10.Epoch
+	59,  // 75: ddex.pie.v10.Party.artistic_influence:type_name -> ddex.pie.v10.ArtisticInfluence
+	60,  // 76: ddex.pie.v10.Party.award:type_name -> ddex.pie.v10.Award
+	61,  // 77: ddex.pie.v10.Party.biography:type_name -> ddex.pie.v10.Biography
+	81,  // 78: ddex.pie.v10.Party.image:type_name -> ddex.pie.v10.Image
+	40,  // 79: ddex.pie.v10.Party.social_media_u_r_l:type_name -> ddex.pie.v10.SocialMediaURL
+	65,  // 80: ddex.pie.v10.Party.commentary_note:type_name -> ddex.pie.v10.CommentaryNote
+	71,  // 81: ddex.pie.v10.PartyDescriptorForEntry.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	18,  // 82: ddex.pie.v10.PartyList.party:type_name -> ddex.pie.v10.Party
+	90,  // 83: ddex.pie.v10.PartyName.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	94,  // 84: ddex.pie.v10.PartyName.name_id:type_name -> ddex.pie.v10.NameId
+	25,  // 85: ddex.pie.v10.PartyName.party_name_type:type_name -> ddex.pie.v10.PartyNameType
+	31,  // 86: ddex.pie.v10.PartyName.reason_for_name_change:type_name -> ddex.pie.v10.ReasonForNameChange
+	24,  // 87: ddex.pie.v10.PartyName.party_name_purpose:type_name -> ddex.pie.v10.PartyNamePurpose
+	23,  // 88: ddex.pie.v10.PartyName.party_name_format:type_name -> ddex.pie.v10.PartyNameFormat
+	16,  // 89: ddex.pie.v10.PartyName.full_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	15,  // 90: ddex.pie.v10.PartyName.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciation
+	16,  // 91: ddex.pie.v10.PartyName.full_name_indexed:type_name -> ddex.pie.v10.NameWithScriptCode
+	16,  // 92: ddex.pie.v10.PartyName.names_before_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	16,  // 93: ddex.pie.v10.PartyName.key_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	16,  // 94: ddex.pie.v10.PartyName.names_after_key_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	16,  // 95: ddex.pie.v10.PartyName.short_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	16,  // 96: ddex.pie.v10.PartyName.abbreviated_name:type_name -> ddex.pie.v10.NameWithScriptCode
+	120, // 97: ddex.pie.v10.PartyName.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
+	32,  // 98: ddex.pie.v10.PartyName.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
+	93,  // 99: ddex.pie.v10.PartyNameForRequest.full_name:type_name -> ddex.pie.v10.Name
+	93,  // 100: ddex.pie.v10.PartyNameForRequest.full_name_indexed:type_name -> ddex.pie.v10.Name
+	93,  // 101: ddex.pie.v10.PartyNameForRequest.names_before_key_name:type_name -> ddex.pie.v10.Name
+	93,  // 102: ddex.pie.v10.PartyNameForRequest.key_name:type_name -> ddex.pie.v10.Name
+	93,  // 103: ddex.pie.v10.PartyNameForRequest.names_after_key_name:type_name -> ddex.pie.v10.Name
+	93,  // 104: ddex.pie.v10.PartyNameForRequest.abbreviated_name:type_name -> ddex.pie.v10.Name
+	90,  // 105: ddex.pie.v10.PartyType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	28,  // 106: ddex.pie.v10.PartyType.value:type_name -> ddex.pie.v10.PartyTypeValue
+	90,  // 107: ddex.pie.v10.PrimaryRole.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	67,  // 108: ddex.pie.v10.PrimaryRole.value:type_name -> ddex.pie.v10.ContributorRole
+	90,  // 109: ddex.pie.v10.RelatedCreationForParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	4,   // 110: ddex.pie.v10.RelatedCreationForParty.contribution:type_name -> ddex.pie.v10.Contribution
+	69,  // 111: ddex.pie.v10.RelatedCreationForParty.relationship_description:type_name -> ddex.pie.v10.Description
+	33,  // 112: ddex.pie.v10.RelatedCreationForParty.choice:type_name -> ddex.pie.v10.RelatedCreationForPartyChoice6
+	107, // 113: ddex.pie.v10.RelatedCreationForPartyChoice6.release_id:type_name -> ddex.pie.v10.ReleaseId
+	111, // 114: ddex.pie.v10.RelatedCreationForPartyChoice6.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
+	92,  // 115: ddex.pie.v10.RelatedCreationForPartyChoice6.musical_work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
+	5,   // 116: ddex.pie.v10.RelatedCreationForPartyChoice6.creation_description:type_name -> ddex.pie.v10.CreationDescription
+	90,  // 117: ddex.pie.v10.RelatedParty.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	26,  // 118: ddex.pie.v10.RelatedParty.party_relationship_type:type_name -> ddex.pie.v10.PartyRelationshipType
+	69,  // 119: ddex.pie.v10.RelatedParty.description:type_name -> ddex.pie.v10.Description
+	120, // 120: ddex.pie.v10.RelatedParty.validity_period:type_name -> ddex.pie.v10.ValidityPeriod
+	32,  // 121: ddex.pie.v10.RelatedParty.related_creation:type_name -> ddex.pie.v10.RelatedCreationForParty
+	35,  // 122: ddex.pie.v10.RelatedParty.choice:type_name -> ddex.pie.v10.RelatedPartyChoice8
+	136, // 123: ddex.pie.v10.RelatedPartyChoice8.sequence_1:type_name -> ddex.pie.v10.RelatedPartyChoice8.Option1
+	107, // 124: ddex.pie.v10.ReleaseForRequest.release_id:type_name -> ddex.pie.v10.ReleaseId
+	109, // 125: ddex.pie.v10.ReleaseForRequest.release_title:type_name -> ddex.pie.v10.ReleaseTitle
+	67,  // 126: ddex.pie.v10.RequestedParty.role:type_name -> ddex.pie.v10.ContributorRole
+	36,  // 127: ddex.pie.v10.RequestedParty.release:type_name -> ddex.pie.v10.ReleaseForRequest
+	39,  // 128: ddex.pie.v10.RequestedParty.resource:type_name -> ddex.pie.v10.ResourceForRequest
+	41,  // 129: ddex.pie.v10.RequestedParty.work:type_name -> ddex.pie.v10.WorkForRequest
+	38,  // 130: ddex.pie.v10.RequestedParty.choice:type_name -> ddex.pie.v10.RequestedPartyChoice5
+	71,  // 131: ddex.pie.v10.RequestedPartyChoice5.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	22,  // 132: ddex.pie.v10.RequestedPartyChoice5.party_name:type_name -> ddex.pie.v10.PartyNameForRequest
+	111, // 133: ddex.pie.v10.ResourceForRequest.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
+	113, // 134: ddex.pie.v10.ResourceForRequest.resource_title:type_name -> ddex.pie.v10.ResourceTitle
+	92,  // 135: ddex.pie.v10.WorkForRequest.work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
+	125, // 136: ddex.pie.v10.WorkForRequest.work_title:type_name -> ddex.pie.v10.WorkTitle
+	51,  // 137: ddex.pie.v10.Person.choice:type_name -> ddex.pie.v10.PersonChoice
+	55,  // 138: ddex.pie.v10.PersonChoice.uri:type_name -> ddex.pie.v10.URI
+	53,  // 139: ddex.pie.v10.Source.choice:type_name -> ddex.pie.v10.SourceChoice
+	137, // 140: ddex.pie.v10.SourceChoice.author_option:type_name -> ddex.pie.v10.SourceChoice.Option1
+	138, // 141: ddex.pie.v10.SourceChoice.category_option:type_name -> ddex.pie.v10.SourceChoice.Option2
+	139, // 142: ddex.pie.v10.SourceChoice.contributor_option:type_name -> ddex.pie.v10.SourceChoice.Option3
+	45,  // 143: ddex.pie.v10.SourceChoice.generator:type_name -> ddex.pie.v10.Generator
+	46,  // 144: ddex.pie.v10.SourceChoice.icon:type_name -> ddex.pie.v10.Icon
+	47,  // 145: ddex.pie.v10.SourceChoice.id:type_name -> ddex.pie.v10.Id
+	140, // 146: ddex.pie.v10.SourceChoice.link_option:type_name -> ddex.pie.v10.SourceChoice.Option4
+	49,  // 147: ddex.pie.v10.SourceChoice.logo:type_name -> ddex.pie.v10.Logo
+	54,  // 148: ddex.pie.v10.SourceChoice.rights:type_name -> ddex.pie.v10.Text
+	54,  // 149: ddex.pie.v10.SourceChoice.subtitle:type_name -> ddex.pie.v10.Text
+	54,  // 150: ddex.pie.v10.SourceChoice.title:type_name -> ddex.pie.v10.Text
+	44,  // 151: ddex.pie.v10.SourceChoice.updated:type_name -> ddex.pie.v10.DateTime
+	90,  // 152: ddex.pie.v10.ArtistType.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	58,  // 153: ddex.pie.v10.ArtistType.value:type_name -> ddex.pie.v10.ArtistTypeValue
+	90,  // 154: ddex.pie.v10.ArtisticInfluence.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	96,  // 155: ddex.pie.v10.ArtisticInfluence.party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	123, // 156: ddex.pie.v10.ArtisticInfluence.work:type_name -> ddex.pie.v10.Work
+	110, // 157: ddex.pie.v10.ArtisticInfluence.resource:type_name -> ddex.pie.v10.Resource
+	106, // 158: ddex.pie.v10.ArtisticInfluence.release:type_name -> ddex.pie.v10.Release
+	115, // 159: ddex.pie.v10.ArtisticInfluence.description:type_name -> ddex.pie.v10.TextWithFormat
+	90,  // 160: ddex.pie.v10.Award.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	96,  // 161: ddex.pie.v10.Award.awarding_body:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	96,  // 162: ddex.pie.v10.Award.awarded_party:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	95,  // 163: ddex.pie.v10.Award.award_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	78,  // 164: ddex.pie.v10.Award.date:type_name -> ddex.pie.v10.EventDate
+	115, // 165: ddex.pie.v10.Award.comment:type_name -> ddex.pie.v10.TextWithFormat
+	90,  // 166: ddex.pie.v10.Biography.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	62,  // 167: ddex.pie.v10.Biography.text:type_name -> ddex.pie.v10.BiographyText
+	96,  // 168: ddex.pie.v10.Biography.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	90,  // 169: ddex.pie.v10.ClassicalPeriod.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	100, // 170: ddex.pie.v10.ClassicalPeriod.name:type_name -> ddex.pie.v10.PeriodValue
+	90,  // 171: ddex.pie.v10.CommentaryNote.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	116, // 172: ddex.pie.v10.CommentaryNote.text:type_name -> ddex.pie.v10.TextWithoutTerritory
+	66,  // 173: ddex.pie.v10.CommentaryNote.commentary_note_type:type_name -> ddex.pie.v10.CommentaryNoteType
+	96,  // 174: ddex.pie.v10.CommentaryNote.author:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	80,  // 175: ddex.pie.v10.DetailedHashSum.algorithm:type_name -> ddex.pie.v10.HashSumAlgorithmType
+	103, // 176: ddex.pie.v10.DetailedPartyId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	73,  // 177: ddex.pie.v10.DisplayArtistNameWithPronunciation.name:type_name -> ddex.pie.v10.DisplayArtistNameWithDefault
+	102, // 178: ddex.pie.v10.DisplayArtistNameWithPronunciation.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	102, // 179: ddex.pie.v10.DisplaySubTitle.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	117, // 180: ddex.pie.v10.DisplayTitle.title_text:type_name -> ddex.pie.v10.TitleText
+	75,  // 181: ddex.pie.v10.DisplayTitle.sub_title:type_name -> ddex.pie.v10.DisplaySubTitle
+	90,  // 182: ddex.pie.v10.Epoch.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	93,  // 183: ddex.pie.v10.Epoch.value:type_name -> ddex.pie.v10.Name
+	96,  // 184: ddex.pie.v10.Epoch.related_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	104, // 185: ddex.pie.v10.Epoch.related_creation:type_name -> ddex.pie.v10.RelatedCreation
+	68,  // 186: ddex.pie.v10.Epoch.start_date:type_name -> ddex.pie.v10.Date
+	68,  // 187: ddex.pie.v10.Epoch.end_date:type_name -> ddex.pie.v10.Date
+	70,  // 188: ddex.pie.v10.File.hash_sum:type_name -> ddex.pie.v10.DetailedHashSum
+	90,  // 189: ddex.pie.v10.Image.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	79,  // 190: ddex.pie.v10.Image.file:type_name -> ddex.pie.v10.File
+	82,  // 191: ddex.pie.v10.Image.image_type:type_name -> ddex.pie.v10.ImageType
+	84,  // 192: ddex.pie.v10.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.pie.v10.MessageAuditTrailEvent
+	86,  // 193: ddex.pie.v10.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	86,  // 194: ddex.pie.v10.MessageHeader.message_sender:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	86,  // 195: ddex.pie.v10.MessageHeader.sent_on_behalf_of:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	86,  // 196: ddex.pie.v10.MessageHeader.message_recipient:type_name -> ddex.pie.v10.MessagingPartyWithoutCode
+	83,  // 197: ddex.pie.v10.MessageHeader.message_audit_trail:type_name -> ddex.pie.v10.MessageAuditTrail
+	99,  // 198: ddex.pie.v10.MessagingPartyWithoutCode.party_name:type_name -> ddex.pie.v10.PartyNameWithoutCode
+	91,  // 199: ddex.pie.v10.MetadataSource.metadata_source_type:type_name -> ddex.pie.v10.MetadataSourceType
+	88,  // 200: ddex.pie.v10.MetadataSource.choice:type_name -> ddex.pie.v10.MetadataSourceChoice3
+	142, // 201: ddex.pie.v10.MetadataSourceChoice3.party_id_option:type_name -> ddex.pie.v10.MetadataSourceChoice3.Option2
+	141, // 202: ddex.pie.v10.MetadataSourceChoice3.sequence_1:type_name -> ddex.pie.v10.MetadataSourceChoice3.Option1
+	87,  // 203: ddex.pie.v10.MetadataSourceList.metadata_source:type_name -> ddex.pie.v10.MetadataSource
+	103, // 204: ddex.pie.v10.MusicalWorkIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	103, // 205: ddex.pie.v10.NameId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	93,  // 206: ddex.pie.v10.NameWithPronunciationAndScriptCode.name:type_name -> ddex.pie.v10.Name
+	102, // 207: ddex.pie.v10.NameWithPronunciationAndScriptCode.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	97,  // 208: ddex.pie.v10.PartyDescriptorWithPronunciation.choice:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciationChoice
+	144, // 209: ddex.pie.v10.PartyDescriptorWithPronunciationChoice.party_id_option:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option2
+	143, // 210: ddex.pie.v10.PartyDescriptorWithPronunciationChoice.sequence_1:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option1
+	95,  // 211: ddex.pie.v10.PartyNameWithPronunciation.full_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	95,  // 212: ddex.pie.v10.PartyNameWithPronunciation.full_name_ascii_transcribed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	95,  // 213: ddex.pie.v10.PartyNameWithPronunciation.full_name_indexed:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	95,  // 214: ddex.pie.v10.PartyNameWithPronunciation.names_before_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	95,  // 215: ddex.pie.v10.PartyNameWithPronunciation.key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	95,  // 216: ddex.pie.v10.PartyNameWithPronunciation.names_after_key_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	95,  // 217: ddex.pie.v10.PartyNameWithPronunciation.abbreviated_name:type_name -> ddex.pie.v10.NameWithPronunciationAndScriptCode
+	118, // 218: ddex.pie.v10.RelatedCreation.title:type_name -> ddex.pie.v10.TitleWithPronunciation
+	105, // 219: ddex.pie.v10.RelatedCreation.choice:type_name -> ddex.pie.v10.RelatedCreationChoice2
+	107, // 220: ddex.pie.v10.RelatedCreationChoice2.release_id:type_name -> ddex.pie.v10.ReleaseId
+	111, // 221: ddex.pie.v10.RelatedCreationChoice2.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
+	92,  // 222: ddex.pie.v10.RelatedCreationChoice2.musical_work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
+	109, // 223: ddex.pie.v10.Release.release_title:type_name -> ddex.pie.v10.ReleaseTitle
+	74,  // 224: ddex.pie.v10.Release.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	96,  // 225: ddex.pie.v10.Release.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	63,  // 226: ddex.pie.v10.ReleaseId.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
+	103, // 227: ddex.pie.v10.ReleaseId.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	107, // 228: ddex.pie.v10.ReleaseSummary.release_id:type_name -> ddex.pie.v10.ReleaseId
+	76,  // 229: ddex.pie.v10.ReleaseSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
+	74,  // 230: ddex.pie.v10.ReleaseSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	96,  // 231: ddex.pie.v10.ReleaseSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	113, // 232: ddex.pie.v10.Resource.resource_title:type_name -> ddex.pie.v10.ResourceTitle
+	74,  // 233: ddex.pie.v10.Resource.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	96,  // 234: ddex.pie.v10.Resource.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	63,  // 235: ddex.pie.v10.ResourceIdWithoutFlag.catalog_number:type_name -> ddex.pie.v10.CatalogNumber
+	103, // 236: ddex.pie.v10.ResourceIdWithoutFlag.proprietary_id:type_name -> ddex.pie.v10.ProprietaryId
+	111, // 237: ddex.pie.v10.ResourceSummary.resource_id:type_name -> ddex.pie.v10.ResourceIdWithoutFlag
+	76,  // 238: ddex.pie.v10.ResourceSummary.display_title:type_name -> ddex.pie.v10.DisplayTitle
+	74,  // 239: ddex.pie.v10.ResourceSummary.display_artist_name:type_name -> ddex.pie.v10.DisplayArtistNameWithPronunciation
+	96,  // 240: ddex.pie.v10.ResourceSummary.display_artist:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	102, // 241: ddex.pie.v10.TitleText.pronunciation:type_name -> ddex.pie.v10.Pronunciation
+	117, // 242: ddex.pie.v10.TitleWithPronunciation.title_text:type_name -> ddex.pie.v10.TitleText
+	117, // 243: ddex.pie.v10.TitleWithPronunciation.sub_title:type_name -> ddex.pie.v10.TitleText
+	114, // 244: ddex.pie.v10.TitleWithUDV.sub_title:type_name -> ddex.pie.v10.SubTitle
+	78,  // 245: ddex.pie.v10.ValidityPeriod.start_date:type_name -> ddex.pie.v10.EventDate
+	78,  // 246: ddex.pie.v10.ValidityPeriod.end_date:type_name -> ddex.pie.v10.EventDate
+	90,  // 247: ddex.pie.v10.VocalRegister.metadata_source_reference:type_name -> ddex.pie.v10.MetadataSourceReference
+	122, // 248: ddex.pie.v10.VocalRegister.value:type_name -> ddex.pie.v10.VocalRegisterValue
+	125, // 249: ddex.pie.v10.Work.work_title:type_name -> ddex.pie.v10.WorkTitle
+	96,  // 250: ddex.pie.v10.Work.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	92,  // 251: ddex.pie.v10.WorkSummary.musical_work_id:type_name -> ddex.pie.v10.MusicalWorkIdWithoutFlag
+	118, // 252: ddex.pie.v10.WorkSummary.work_title:type_name -> ddex.pie.v10.TitleWithPronunciation
+	96,  // 253: ddex.pie.v10.WorkSummary.writer:type_name -> ddex.pie.v10.PartyDescriptorWithPronunciation
+	50,  // 254: ddex.pie.v10.FeedChoice.Option1.author:type_name -> ddex.pie.v10.Person
+	42,  // 255: ddex.pie.v10.FeedChoice.Option2.category:type_name -> ddex.pie.v10.Category
+	50,  // 256: ddex.pie.v10.FeedChoice.Option3.contributor:type_name -> ddex.pie.v10.Person
+	48,  // 257: ddex.pie.v10.FeedChoice.Option4.link:type_name -> ddex.pie.v10.Link
+	7,   // 258: ddex.pie.v10.FeedChoice.Option5.entry:type_name -> ddex.pie.v10.Entry
+	50,  // 259: ddex.pie.v10.EntryChoice.Option1.author:type_name -> ddex.pie.v10.Person
+	42,  // 260: ddex.pie.v10.EntryChoice.Option2.category:type_name -> ddex.pie.v10.Category
+	50,  // 261: ddex.pie.v10.EntryChoice.Option3.contributor:type_name -> ddex.pie.v10.Person
+	48,  // 262: ddex.pie.v10.EntryChoice.Option4.link:type_name -> ddex.pie.v10.Link
+	78,  // 263: ddex.pie.v10.EventChoice4.Option1.start_date:type_name -> ddex.pie.v10.EventDate
+	78,  // 264: ddex.pie.v10.EventChoice4.Option1.end_date:type_name -> ddex.pie.v10.EventDate
+	6,   // 265: ddex.pie.v10.RelatedPartyChoice8.Option1.party_id:type_name -> ddex.pie.v10.DetailedPartyIdForParty
+	21,  // 266: ddex.pie.v10.RelatedPartyChoice8.Option1.party_name:type_name -> ddex.pie.v10.PartyName
+	50,  // 267: ddex.pie.v10.SourceChoice.Option1.author:type_name -> ddex.pie.v10.Person
+	42,  // 268: ddex.pie.v10.SourceChoice.Option2.category:type_name -> ddex.pie.v10.Category
+	50,  // 269: ddex.pie.v10.SourceChoice.Option3.contributor:type_name -> ddex.pie.v10.Person
+	48,  // 270: ddex.pie.v10.SourceChoice.Option4.link:type_name -> ddex.pie.v10.Link
+	98,  // 271: ddex.pie.v10.MetadataSourceChoice3.Option1.party_name:type_name -> ddex.pie.v10.PartyNameWithPronunciation
+	71,  // 272: ddex.pie.v10.MetadataSourceChoice3.Option1.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	71,  // 273: ddex.pie.v10.MetadataSourceChoice3.Option2.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	98,  // 274: ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option1.party_name:type_name -> ddex.pie.v10.PartyNameWithPronunciation
+	71,  // 275: ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option1.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	71,  // 276: ddex.pie.v10.PartyDescriptorWithPronunciationChoice.Option2.party_id:type_name -> ddex.pie.v10.DetailedPartyId
+	277, // [277:277] is the sub-list for method output_type
+	277, // [277:277] is the sub-list for method input_type
+	277, // [277:277] is the sub-list for extension type_name
+	277, // [277:277] is the sub-list for extension extendee
+	0,   // [0:277] is the sub-list for field type_name
 }
 
 func init() { file_ddex_pie_v10_v10_proto_init() }
@@ -10107,58 +12032,86 @@ func file_ddex_pie_v10_v10_proto_init() {
 	if File_ddex_pie_v10_v10_proto != nil {
 		return
 	}
-	file_ddex_pie_v10_v10_proto_msgTypes[2].OneofWrappers = []any{
-		(*Feed_Author)(nil),
-		(*Feed_Category)(nil),
-		(*Feed_Contributor)(nil),
-		(*Feed_Generator)(nil),
-		(*Feed_Icon)(nil),
-		(*Feed_Id)(nil),
-		(*Feed_Link)(nil),
-		(*Feed_Logo)(nil),
-		(*Feed_Rights)(nil),
-		(*Feed_Subtitle)(nil),
-		(*Feed_Title)(nil),
-		(*Feed_Updated)(nil),
-		(*Feed_Entry)(nil),
+	file_ddex_pie_v10_v10_proto_msgTypes[3].OneofWrappers = []any{
+		(*FeedChoice_AuthorOption)(nil),
+		(*FeedChoice_CategoryOption)(nil),
+		(*FeedChoice_ContributorOption)(nil),
+		(*FeedChoice_Generator)(nil),
+		(*FeedChoice_Icon)(nil),
+		(*FeedChoice_Id)(nil),
+		(*FeedChoice_LinkOption)(nil),
+		(*FeedChoice_Logo)(nil),
+		(*FeedChoice_Rights)(nil),
+		(*FeedChoice_Subtitle)(nil),
+		(*FeedChoice_Title)(nil),
+		(*FeedChoice_Updated)(nil),
+		(*FeedChoice_EntryOption)(nil),
 	}
-	file_ddex_pie_v10_v10_proto_msgTypes[6].OneofWrappers = []any{
-		(*Entry_Author)(nil),
-		(*Entry_Category)(nil),
-		(*Entry_Content)(nil),
-		(*Entry_Contributor)(nil),
-		(*Entry_Id)(nil),
-		(*Entry_Link)(nil),
-		(*Entry_Published)(nil),
-		(*Entry_Rights)(nil),
-		(*Entry_Source)(nil),
-		(*Entry_Summary)(nil),
-		(*Entry_Title)(nil),
-		(*Entry_Updated)(nil),
-		(*Entry_SubscriptionId)(nil),
-		(*Entry_Party)(nil),
+	file_ddex_pie_v10_v10_proto_msgTypes[8].OneofWrappers = []any{
+		(*EntryChoice_AuthorOption)(nil),
+		(*EntryChoice_CategoryOption)(nil),
+		(*EntryChoice_Content)(nil),
+		(*EntryChoice_ContributorOption)(nil),
+		(*EntryChoice_Id)(nil),
+		(*EntryChoice_LinkOption)(nil),
+		(*EntryChoice_Published)(nil),
+		(*EntryChoice_Rights)(nil),
+		(*EntryChoice_Source)(nil),
+		(*EntryChoice_Summary)(nil),
+		(*EntryChoice_Title)(nil),
+		(*EntryChoice_Updated)(nil),
+		(*EntryChoice_SubscriptionId)(nil),
+		(*EntryChoice_Party)(nil),
 	}
-	file_ddex_pie_v10_v10_proto_msgTypes[44].OneofWrappers = []any{
-		(*Person_Name)(nil),
-		(*Person_Uri)(nil),
-		(*Person_Email)(nil),
+	file_ddex_pie_v10_v10_proto_msgTypes[10].OneofWrappers = []any{
+		(*EventChoice4_Date)(nil),
+		(*EventChoice4_Sequence_1)(nil),
 	}
-	file_ddex_pie_v10_v10_proto_msgTypes[45].OneofWrappers = []any{
-		(*Source_Author)(nil),
-		(*Source_Category)(nil),
-		(*Source_Contributor)(nil),
-		(*Source_Generator)(nil),
-		(*Source_Icon)(nil),
-		(*Source_Id)(nil),
-		(*Source_Link)(nil),
-		(*Source_Logo)(nil),
-		(*Source_Rights)(nil),
-		(*Source_Subtitle)(nil),
-		(*Source_Title)(nil),
-		(*Source_Updated)(nil),
+	file_ddex_pie_v10_v10_proto_msgTypes[33].OneofWrappers = []any{
+		(*RelatedCreationForPartyChoice6_ReleaseId)(nil),
+		(*RelatedCreationForPartyChoice6_ResourceId)(nil),
+		(*RelatedCreationForPartyChoice6_MusicalWorkId)(nil),
+		(*RelatedCreationForPartyChoice6_CreationDescription)(nil),
 	}
-	file_ddex_pie_v10_v10_proto_msgTypes[87].OneofWrappers = []any{
-		(*PartyDescriptorWithPronunciation_PartyId)(nil),
+	file_ddex_pie_v10_v10_proto_msgTypes[35].OneofWrappers = []any{
+		(*RelatedPartyChoice8_PartyRelatedPartyReference)(nil),
+		(*RelatedPartyChoice8_Sequence_1)(nil),
+	}
+	file_ddex_pie_v10_v10_proto_msgTypes[38].OneofWrappers = []any{
+		(*RequestedPartyChoice5_PartyId)(nil),
+		(*RequestedPartyChoice5_PartyName)(nil),
+	}
+	file_ddex_pie_v10_v10_proto_msgTypes[51].OneofWrappers = []any{
+		(*PersonChoice_Name)(nil),
+		(*PersonChoice_Uri)(nil),
+		(*PersonChoice_Email)(nil),
+	}
+	file_ddex_pie_v10_v10_proto_msgTypes[53].OneofWrappers = []any{
+		(*SourceChoice_AuthorOption)(nil),
+		(*SourceChoice_CategoryOption)(nil),
+		(*SourceChoice_ContributorOption)(nil),
+		(*SourceChoice_Generator)(nil),
+		(*SourceChoice_Icon)(nil),
+		(*SourceChoice_Id)(nil),
+		(*SourceChoice_LinkOption)(nil),
+		(*SourceChoice_Logo)(nil),
+		(*SourceChoice_Rights)(nil),
+		(*SourceChoice_Subtitle)(nil),
+		(*SourceChoice_Title)(nil),
+		(*SourceChoice_Updated)(nil),
+	}
+	file_ddex_pie_v10_v10_proto_msgTypes[88].OneofWrappers = []any{
+		(*MetadataSourceChoice3_PartyIdOption)(nil),
+		(*MetadataSourceChoice3_Sequence_1)(nil),
+	}
+	file_ddex_pie_v10_v10_proto_msgTypes[97].OneofWrappers = []any{
+		(*PartyDescriptorWithPronunciationChoice_PartyIdOption)(nil),
+		(*PartyDescriptorWithPronunciationChoice_Sequence_1)(nil),
+	}
+	file_ddex_pie_v10_v10_proto_msgTypes[105].OneofWrappers = []any{
+		(*RelatedCreationChoice2_ReleaseId)(nil),
+		(*RelatedCreationChoice2_ResourceId)(nil),
+		(*RelatedCreationChoice2_MusicalWorkId)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -10166,7 +12119,7 @@ func file_ddex_pie_v10_v10_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ddex_pie_v10_v10_proto_rawDesc), len(file_ddex_pie_v10_v10_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   115,
+			NumMessages:   145,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

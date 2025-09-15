@@ -6,13 +6,14 @@ import "encoding/xml"
 
 // MarshalXML implements xml.Marshaler for MeadMessage
 func (m *MeadMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for marshaling
-	// Pass pointer to avoid copying protobuf struct with mutex
-	return e.EncodeElement(m, start)
+	// Create an alias type to avoid infinite recursion
+	type alias MeadMessage
+	return e.EncodeElement((*alias)(m), start)
 }
 
 // UnmarshalXML implements xml.Unmarshaler for MeadMessage
 func (m *MeadMessage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for unmarshaling
-	return d.DecodeElement(m, &start)
+	// Create an alias type to avoid infinite recursion
+	type alias MeadMessage
+	return d.DecodeElement((*alias)(m), &start)
 }

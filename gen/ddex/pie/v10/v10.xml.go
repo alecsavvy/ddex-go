@@ -6,26 +6,28 @@ import "encoding/xml"
 
 // MarshalXML implements xml.Marshaler for PieMessage
 func (m *PieMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for marshaling
-	// Pass pointer to avoid copying protobuf struct with mutex
-	return e.EncodeElement(m, start)
+	// Create an alias type to avoid infinite recursion
+	type alias PieMessage
+	return e.EncodeElement((*alias)(m), start)
 }
 
 // UnmarshalXML implements xml.Unmarshaler for PieMessage
 func (m *PieMessage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for unmarshaling
-	return d.DecodeElement(m, &start)
+	// Create an alias type to avoid infinite recursion
+	type alias PieMessage
+	return d.DecodeElement((*alias)(m), &start)
 }
 
 // MarshalXML implements xml.Marshaler for PieRequestMessage
 func (m *PieRequestMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for marshaling
-	// Pass pointer to avoid copying protobuf struct with mutex
-	return e.EncodeElement(m, start)
+	// Create an alias type to avoid infinite recursion
+	type alias PieRequestMessage
+	return e.EncodeElement((*alias)(m), start)
 }
 
 // UnmarshalXML implements xml.Unmarshaler for PieRequestMessage
 func (m *PieRequestMessage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for unmarshaling
-	return d.DecodeElement(m, &start)
+	// Create an alias type to avoid infinite recursion
+	type alias PieRequestMessage
+	return d.DecodeElement((*alias)(m), &start)
 }

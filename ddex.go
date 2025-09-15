@@ -91,10 +91,10 @@ func ParseERN(xmlData []byte) (ERNMessage, ERNVersion, error) {
 func ParseERNWithVersion(xmlData []byte, version ERNVersion) (ERNMessage, error) {
 	xmlStr := string(xmlData)
 
-	// Determine message type
-	if strings.Contains(xmlStr, "<NewReleaseMessage") {
+	// Determine message type (handle both namespaced and non-namespaced forms)
+	if strings.Contains(xmlStr, "NewReleaseMessage") {
 		return parseNewReleaseMessage(xmlData, version)
-	} else if strings.Contains(xmlStr, "<PurgeReleaseMessage") {
+	} else if strings.Contains(xmlStr, "PurgeReleaseMessage") {
 		return parsePurgeReleaseMessage(xmlData, version)
 	}
 

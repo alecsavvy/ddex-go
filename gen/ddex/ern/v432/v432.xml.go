@@ -6,26 +6,28 @@ import "encoding/xml"
 
 // MarshalXML implements xml.Marshaler for NewReleaseMessage
 func (m *NewReleaseMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for marshaling
-	// Pass pointer to avoid copying protobuf struct with mutex
-	return e.EncodeElement(m, start)
+	// Create an alias type to avoid infinite recursion
+	type alias NewReleaseMessage
+	return e.EncodeElement((*alias)(m), start)
 }
 
 // UnmarshalXML implements xml.Unmarshaler for NewReleaseMessage
 func (m *NewReleaseMessage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for unmarshaling
-	return d.DecodeElement(m, &start)
+	// Create an alias type to avoid infinite recursion
+	type alias NewReleaseMessage
+	return d.DecodeElement((*alias)(m), &start)
 }
 
 // MarshalXML implements xml.Marshaler for PurgeReleaseMessage
 func (m *PurgeReleaseMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for marshaling
-	// Pass pointer to avoid copying protobuf struct with mutex
-	return e.EncodeElement(m, start)
+	// Create an alias type to avoid infinite recursion
+	type alias PurgeReleaseMessage
+	return e.EncodeElement((*alias)(m), start)
 }
 
 // UnmarshalXML implements xml.Unmarshaler for PurgeReleaseMessage
 func (m *PurgeReleaseMessage) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	// Use the xml tags from the protobuf struct for unmarshaling
-	return d.DecodeElement(m, &start)
+	// Create an alias type to avoid infinite recursion
+	type alias PurgeReleaseMessage
+	return d.DecodeElement((*alias)(m), &start)
 }

@@ -131,6 +131,7 @@ func performRoundTripValidation(xmlPath string, msgType string) *DOMComparison {
 		// Use the new versioning system to auto-detect and parse
 		msg, version, err := ParseERN(originalXML)
 		if err != nil {
+			fmt.Printf("ParseERN error: %v\n", err)
 			comparison.Success = false
 			return comparison
 		}
@@ -333,7 +334,6 @@ func max(a, b int) int {
 
 // TestFieldCoverageReport generates a detailed field coverage report
 func TestFieldCoverageReport(t *testing.T) {
-	t.Skip()
 	xmlPath := "testdata/ernv432/Samples43/1 Audio.xml"
 
 	// Read and parse original

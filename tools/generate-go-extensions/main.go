@@ -305,16 +305,17 @@ func generateXMLMarshalingMethods(message MessageInfo) string {
 	// Generate MarshalXML method
 	sb.WriteString(fmt.Sprintf("// MarshalXML implements xml.Marshaler for %s\n", message.Name))
 	sb.WriteString(fmt.Sprintf("func (m *%s) MarshalXML(e *xml.Encoder, start xml.StartElement) error {\n", message.Name))
-	sb.WriteString("\t// Use the xml tags from the protobuf struct for marshaling\n")
-	sb.WriteString("\t// Pass pointer to avoid copying protobuf struct with mutex\n")
-	sb.WriteString("\treturn e.EncodeElement(m, start)\n")
+	sb.WriteString("\t// Create an alias type to avoid infinite recursion\n")
+	sb.WriteString(fmt.Sprintf("\ttype alias %s\n", message.Name))
+	sb.WriteString("\treturn e.EncodeElement((*alias)(m), start)\n")
 	sb.WriteString("}\n\n")
 
 	// Generate UnmarshalXML method
 	sb.WriteString(fmt.Sprintf("// UnmarshalXML implements xml.Unmarshaler for %s\n", message.Name))
 	sb.WriteString(fmt.Sprintf("func (m *%s) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {\n", message.Name))
-	sb.WriteString("\t// Use the xml tags from the protobuf struct for unmarshaling\n")
-	sb.WriteString("\treturn d.DecodeElement(m, &start)\n")
+	sb.WriteString("\t// Create an alias type to avoid infinite recursion\n")
+	sb.WriteString(fmt.Sprintf("\ttype alias %s\n", message.Name))
+	sb.WriteString("\treturn d.DecodeElement((*alias)(m), &start)\n")
 	sb.WriteString("}")
 
 	return sb.String()
