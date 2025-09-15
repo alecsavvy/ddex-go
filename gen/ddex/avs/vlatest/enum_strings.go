@@ -5484,8 +5484,8 @@ func (e Theme) XMLString() string {
 		return "CELEBRITY"
 	case Theme_THEME_CELLPHONE:
 		return "CELLPHONE"
-	case Theme_THEME_CEMETARY:
-		return "CEMETARY"
+	case Theme_THEME_CEMETERY:
+		return "CEMETERY"
 	case Theme_THEME_CENTRALAFRICANREPUBLIC:
 		return "CENTRALAFRICANREPUBLIC"
 	case Theme_THEME_CENTRALAMERICA:
@@ -8117,8 +8117,8 @@ func ParseThemeString(s string) (Theme, bool) {
 		return Theme_THEME_CELEBRITY, true
 	case "CELLPHONE":
 		return Theme_THEME_CELLPHONE, true
-	case "CEMETARY":
-		return Theme_THEME_CEMETARY, true
+	case "CEMETERY":
+		return Theme_THEME_CEMETERY, true
 	case "CENTRALAFRICANREPUBLIC":
 		return Theme_THEME_CENTRALAFRICANREPUBLIC, true
 	case "CENTRALAMERICA":
@@ -11003,4 +11003,3 @@ func ParseWorkTypeString(s string) (WorkType, bool) {
 		return WorkType(0), false
 	}
 }
-

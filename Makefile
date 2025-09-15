@@ -1,6 +1,6 @@
 # DDEX Go Library Makefile
 
-.PHONY: test testdata clean generate-proto generate-proto-go generate buf-lint buf-generate buf-all help
+.PHONY: test testdata clean generate-proto generate-proto-go generate fmt buf-lint buf-generate buf-all help
 
 # Default target
 help:
@@ -20,6 +20,7 @@ help:
 	@echo "  testdata      - Download DDEX sample files"
 	@echo ""
 	@echo "Maintenance:"
+	@echo "  fmt           - Format all Go code with gofmt"
 	@echo "  clean         - Clean generated files and test data"
 	@echo "  testdata-refresh - Force re-download test data"
 
@@ -38,8 +39,13 @@ generate-proto-go:
 	@$(MAKE) generate-go-extensions
 
 # Generate everything
-generate: generate-proto generate-proto-go
+generate: generate-proto generate-proto-go fmt
 	@echo "All generation complete!"
+
+# Format all Go code
+fmt:
+	@echo "Formatting Go code..."
+	gofmt -s -w .
 
 # Lint protobuf files with buf
 buf-lint:

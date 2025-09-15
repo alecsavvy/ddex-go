@@ -2520,4 +2520,3 @@ func ParseReferenceCreationString(s string) (ReferenceCreation, bool) {
 		return ReferenceCreation(0), false
 	}
 }
-

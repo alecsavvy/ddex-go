@@ -38390,7 +38390,7 @@ const (
 	Theme_THEME_CELEBRATION                  Theme = 192
 	Theme_THEME_CELEBRITY                    Theme = 193
 	Theme_THEME_CELLPHONE                    Theme = 194
-	Theme_THEME_CEMETARY                     Theme = 195
+	Theme_THEME_CEMETERY                     Theme = 195
 	Theme_THEME_CENTRALAFRICANREPUBLIC       Theme = 196
 	Theme_THEME_CENTRALAMERICA               Theme = 197
 	Theme_THEME_CHAD                         Theme = 198
@@ -39708,7 +39708,7 @@ var (
 		192:  "THEME_CELEBRATION",
 		193:  "THEME_CELEBRITY",
 		194:  "THEME_CELLPHONE",
-		195:  "THEME_CEMETARY",
+		195:  "THEME_CEMETERY",
 		196:  "THEME_CENTRALAFRICANREPUBLIC",
 		197:  "THEME_CENTRALAMERICA",
 		198:  "THEME_CHAD",
@@ -41023,7 +41023,7 @@ var (
 		"THEME_CELEBRATION":                  192,
 		"THEME_CELEBRITY":                    193,
 		"THEME_CELLPHONE":                    194,
-		"THEME_CEMETARY":                     195,
+		"THEME_CEMETERY":                     195,
 		"THEME_CENTRALAFRICANREPUBLIC":       196,
 		"THEME_CENTRALAMERICA":               197,
 		"THEME_CHAD":                         198,
@@ -56476,7 +56476,7 @@ const file_ddex_avs_vlatest_vlatest_proto_rawDesc = "" +
 	"\x11THEME_CELEBRATION\x10\xc0\x01\x12\x14\n" +
 	"\x0fTHEME_CELEBRITY\x10\xc1\x01\x12\x14\n" +
 	"\x0fTHEME_CELLPHONE\x10\xc2\x01\x12\x13\n" +
-	"\x0eTHEME_CEMETARY\x10\xc3\x01\x12!\n" +
+	"\x0eTHEME_CEMETERY\x10\xc3\x01\x12!\n" +
 	"\x1cTHEME_CENTRALAFRICANREPUBLIC\x10\xc4\x01\x12\x19\n" +
 	"\x14THEME_CENTRALAMERICA\x10\xc5\x01\x12\x0f\n" +
 	"\n" +

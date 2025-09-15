@@ -67,9 +67,9 @@ func findEnumTypes(filename string) ([]EnumInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var enums []EnumInfo
-	
+
 	// Look for enum type definitions and their constants
 	for _, decl := range node.Decls {
 		switch d := decl.(type) {
@@ -93,14 +93,14 @@ func findEnumTypes(filename string) ([]EnumInfo, error) {
 			}
 		}
 	}
-	
+
 	return enums, nil
 }
 
 // findEnumConstants finds all constants for a given enum type
 func findEnumConstants(node *ast.File, enumTypeName string) []string {
 	var constants []string
-	
+
 	for _, decl := range node.Decls {
 		if genDecl, ok := decl.(*ast.GenDecl); ok && genDecl.Tok == token.CONST {
 			for _, spec := range genDecl.Specs {
@@ -115,7 +115,7 @@ func findEnumConstants(node *ast.File, enumTypeName string) []string {
 			}
 		}
 	}
-	
+
 	return constants
 }
 
@@ -227,17 +227,17 @@ func generatePackageXMLContent(packageName string, messages []MessageInfo) strin
 // generateEnumStringMethod creates a String() method for the enum type
 func generateEnumStringMethod(enum EnumInfo) string {
 	var sb strings.Builder
-	
+
 	sb.WriteString(fmt.Sprintf("// XMLString returns the XML string representation of %s\n", enum.Name))
 	sb.WriteString(fmt.Sprintf("func (e %s) XMLString() string {\n", enum.Name))
 	sb.WriteString("\tswitch e {\n")
-	
+
 	// Generate cases for each constant
 	for _, constant := range enum.Constants {
 		if strings.HasSuffix(constant, "_UNSPECIFIED") {
 			continue // Skip UNSPECIFIED values
 		}
-		
+
 		// Extract the meaningful part of the constant name
 		upperName := strings.ToUpper(enum.Name)
 		idx := strings.LastIndex(constant, upperName+"_")
@@ -249,35 +249,35 @@ func generateEnumStringMethod(enum EnumInfo) string {
 			}
 		}
 	}
-	
+
 	sb.WriteString("\tdefault:\n")
 	sb.WriteString("\t\treturn \"\"\n")
 	sb.WriteString("\t}\n")
 	sb.WriteString("}")
-	
+
 	return sb.String()
 }
 
 // generateEnumParser creates the parser function for an enum
 func generateEnumParser(enum EnumInfo) string {
 	var sb strings.Builder
-	
+
 	sb.WriteString(fmt.Sprintf("// Parse%sString parses a string value to %s enum (case-insensitive)\n", enum.Name, enum.Name))
 	sb.WriteString(fmt.Sprintf("func Parse%sString(s string) (%s, bool) {\n", enum.Name, enum.Name))
 	sb.WriteString("\ts = strings.ToUpper(s)\n")
 	sb.WriteString("\tswitch s {\n")
-	
+
 	// Generate cases for each constant
 	for _, constant := range enum.Constants {
 		if strings.HasSuffix(constant, "_UNSPECIFIED") {
 			continue // Skip UNSPECIFIED values
 		}
-		
+
 		// Extract the meaningful part of the constant name
 		// Try to find the enum pattern: EnumName_ENUM_NAME_VALUE
 		// We'll look for the last occurrence of the enum name in uppercase
 		upperName := strings.ToUpper(enum.Name)
-		
+
 		// Find the pattern EnumName_..._VALUE
 		idx := strings.LastIndex(constant, upperName+"_")
 		if idx >= 0 {
@@ -289,7 +289,7 @@ func generateEnumParser(enum EnumInfo) string {
 			}
 		}
 	}
-	
+
 	sb.WriteString("\tdefault:\n")
 	sb.WriteString(fmt.Sprintf("\t\treturn %s(0), false\n", enum.Name))
 	sb.WriteString("\t}\n")

@@ -20,4 +20,3 @@ func ParseDdexCCurrentTerritoryCodeString(s string) (DdexCCurrentTerritoryCode, 
 		return DdexCCurrentTerritoryCode(0), false
 	}
 }
-

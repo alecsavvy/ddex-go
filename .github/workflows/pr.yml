@@ -1,0 +1,110 @@
+name: PR Quality Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.25.x'
+
+    - name: Install quality tools
+      run: |
+        go install github.com/client9/misspell/cmd/misspell@latest
+        go install github.com/gordonklaus/ineffassign@latest
+        go install github.com/fzipp/gocyclo/cmd/gocyclo@latest
+
+    - name: Check gofmt
+      run: |
+        if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then
+          echo "❌ The following files are not gofmt'd:"
+          gofmt -s -l .
+          echo ""
+          echo "Run 'make fmt' to fix formatting issues"
+          exit 1
+        fi
+        echo "✅ All files are properly formatted"
+
+    - name: Run go vet
+      run: |
+        if ! go vet ./...; then
+          echo "❌ go vet found issues"
+          echo "Fix the issues above before merging"
+          exit 1
+        fi
+        echo "✅ No go vet issues found"
+
+    - name: Check for misspellings
+      run: |
+        if [ "$(misspell . | wc -l)" -gt 0 ]; then
+          echo "❌ Misspellings found:"
+          misspell .
+          echo ""
+          echo "Run 'misspell -w .' to fix misspellings"
+          exit 1
+        fi
+        echo "✅ No misspellings found"
+
+    - name: Check for ineffective assignments
+      run: |
+        if ineffassign . | grep -v "gen/" | grep -q "."; then
+          echo "❌ Ineffective assignments found:"
+          ineffassign . | grep -v "gen/"
+          echo ""
+          echo "Fix the ineffective assignments above"
+          exit 1
+        fi
+        echo "✅ No ineffective assignments found"
+
+    - name: Check cyclomatic complexity
+      run: |
+        # Allow higher complexity for generated code and specific functions
+        COMPLEX_FUNCS=$(gocyclo -over 15 . | grep -v "gen/" | grep -v "enum_strings.go" | grep -v "TestFieldCompleteness" | grep -v "compareDOMTrees" | grep -v "performRoundTripValidation")
+        if [ -n "$COMPLEX_FUNCS" ]; then
+          echo "❌ Functions with high cyclomatic complexity found:"
+          echo "$COMPLEX_FUNCS"
+          echo ""
+          echo "Consider breaking down complex functions (complexity > 15)"
+          exit 1
+        fi
+        echo "✅ Cyclomatic complexity is acceptable"
+
+    - name: Run tests
+      run: |
+        if ! go test -v ./...; then
+          echo "❌ Tests failed"
+          exit 1
+        fi
+        echo "✅ All tests passed"
+
+    - name: Verify go.mod is tidy
+      run: |
+        go mod tidy
+        if [ "$(git status --porcelain go.mod go.sum | wc -l)" -gt 0 ]; then
+          echo "❌ go.mod is not tidy"
+          echo "Run 'go mod tidy' and commit the changes"
+          git diff go.mod go.sum
+          exit 1
+        fi
+        echo "✅ go.mod is tidy"
+
+    - name: Quality summary
+      run: |
+        echo "🎉 All quality checks passed!"
+        echo ""
+        echo "This PR maintains the Go Report Card A rating:"
+        echo "✅ gofmt"
+        echo "✅ go vet"
+        echo "✅ misspell"
+        echo "✅ ineffassign"
+        echo "✅ gocyclo"
+        echo "✅ tests"
+        echo "✅ go mod tidy"

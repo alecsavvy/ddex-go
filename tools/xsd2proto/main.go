@@ -152,9 +152,9 @@ type loadState struct {
 
 func newLoadState() *loadState {
 	return &loadState{
-		visitedFiles: make(map[string]struct{}),
-		nsBundles:    make(map[string]*NamespaceBundle),
-		fileToNS:     make(map[string]string),
+		visitedFiles:      make(map[string]struct{}),
+		nsBundles:         make(map[string]*NamespaceBundle),
+		fileToNS:          make(map[string]string),
 		avsVersionContext: make(map[string]string),
 	}
 }

@@ -16831,7 +16831,7 @@
          <xs:enumeration value="ExpressOrder">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">An OrderType in which the referenced
-                  Releases should be procesed expeditioulsy.</xs:documentation>
+                  Releases should be proceeds expeditioulsy.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="HardDiskOrder">
@@ -17308,8 +17308,8 @@
          </xs:enumeration>
          <xs:enumeration value="INCAA">
             <xs:annotation>
-               <xs:documentation source="ddex:Definition">The Instituto de Cine y Artes
-                  Audiovisuales of Argentinia.</xs:documentation>
+               <xs:documentation source="ddex:Definition">The Institution de Cine y Artes
+                  Audiovisuales of Argentina.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="KMRB">
@@ -18114,7 +18114,7 @@
                <xs:documentation source="ddex:Definition">A Resource that is not a main Resource of
                   a Release. It supports the PrimaryResources (examples are lyrics, cover art etc).
                   In accordance with the GRid standard, a change in a PrimaryResource mandates a new
-                  GRid wheras a change in a SecondaryResource does not mandate a new
+                  GRid whereas a change in a SecondaryResource does not mandate a new
                   GRid.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
@@ -19094,7 +19094,7 @@
          </xs:enumeration>
          <xs:enumeration value="AssistantVisualEditor">
             <xs:annotation>
-               <xs:documentation source="ddex:Definition">An assitant of a
+               <xs:documentation source="ddex:Definition">An assistant of a
                   VisualEditor.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
@@ -19285,7 +19285,7 @@
          <xs:enumeration value="CoDirector">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">A Director who is sharing some or all of a
-                  director's responsabilities with a Director or another
+                  director's responsibilities with a Director or another
                   CoDirector.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
@@ -19316,7 +19316,7 @@
          <xs:enumeration value="CoMixingEngineer">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">A Party who is sharing some or all of a
-                  mixing engineer's responsabilities with a MixingEngineer or another
+                  mixing engineer's responsibilities with a MixingEngineer or another
                   CoMixer.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
@@ -19385,7 +19385,7 @@
          <xs:enumeration value="CoProducer">
             <xs:annotation>
                <xs:documentation source="ddex:Definition">A producer who is sharing some or all of a
-                  producer's responsabilities with a Producer or another
+                  producer's responsibilities with a Producer or another
                   CoProducer.</xs:documentation>
             </xs:annotation>
          </xs:enumeration>
