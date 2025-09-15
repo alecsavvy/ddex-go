@@ -1,0 +1,107 @@
+run:
+  timeout: 5m
+  issues-exit-code: 1
+  tests: true
+  skip-dirs:
+    - gen  # Skip generated protobuf code
+    - testdata
+  skip-files:
+    - ".*\\.pb\\.go$"  # Skip protobuf generated files
+    - ".*_string\\.go$"  # Skip stringer generated files
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  gocyclo:
+    min-complexity: 15
+  goimports:
+    local-prefixes: github.com/alecsavvy/ddex-go
+  govet:
+    check-shadowing: true
+    enable-all: true
+  revive:
+    min-confidence: 0.8
+  misspell:
+    locale: US
+  unused:
+    check-exported: false
+  unparam:
+    check-exported: false
+
+linters:
+  enable:
+    - bodyclose
+    - deadcode
+    - depguard
+    - dogsled
+    - errcheck
+    - gochecknoinits
+    - goconst
+    - gocyclo
+    - gofmt
+    - goimports
+    - golint
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - misspell
+    - nakedret
+    - revive
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unconvert
+    - unparam
+    - unused
+    - varcheck
+    - whitespace
+
+  disable:
+    - lll  # Line length can be flexible for generated code examples
+
+issues:
+  exclude-rules:
+    # Exclude some linters from running on tests files
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - gosec
+
+    # Exclude generated files from most linting
+    - path: gen/.*\.go
+      linters:
+        - golint
+        - revive
+        - goconst
+        - gocyclo
+
+    # Exclude testdata from linting
+    - path: testdata/.*\.go
+      linters:
+        - golint
+        - revive
+        - deadcode
+        - unused
+
+    # Allow long lines in generated code and examples
+    - path: (gen|examples)/.*\.go
+      linters:
+        - lll
+
+  # Maximum issues count per one linter. Set to 0 to disable.
+  max-issues-per-linter: 0
+
+  # Maximum count of issues with the same text. Set to 0 to disable.
+  max-same-issues: 0
+
+  # Show only new issues: if there are unstaged changes or untracked files,
+  # only those changes are analyzed, else only changes in HEAD~ are analyzed.
+  new: false

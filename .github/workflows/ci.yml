@@ -1,0 +1,143 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ['1.25.x', '1.24.x']
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: ${{ matrix.go-version }}
+
+    - name: Cache Go modules
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/go-build
+          ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+
+    - name: Install dependencies
+      run: |
+        go mod download
+        go install github.com/bufbuild/buf/cmd/buf@latest
+        go install github.com/favadi/protoc-go-inject-tag@latest
+
+    - name: Install protoc
+      uses: arduino/setup-protoc@v2
+      with:
+        version: '24.x'
+
+    - name: Verify go.mod is tidy
+      run: |
+        go mod tidy
+        git diff --exit-code go.mod go.sum
+
+    - name: Run golangci-lint
+      uses: golangci/golangci-lint-action@v3
+      with:
+        version: latest
+        args: --timeout=5m
+
+    - name: Generate code
+      run: make generate
+
+    - name: Verify generated code is up to date
+      run: |
+        git diff --exit-code || (echo "Generated code is not up to date. Run 'make generate' and commit the changes." && exit 1)
+
+    - name: Run tests
+      run: make test
+
+    - name: Run comprehensive tests
+      run: make test-comprehensive
+
+    - name: Run benchmarks
+      run: make benchmark
+
+    - name: Generate coverage report
+      run: |
+        go test -race -coverprofile=coverage.out -covermode=atomic ./...
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.out
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  buf-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.25.x'
+
+    - name: Install buf
+      run: go install github.com/bufbuild/buf/cmd/buf@latest
+
+    - name: Generate proto files
+      run: make generate-proto
+
+    - name: Lint protobuf files
+      run: make buf-lint
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Gosec Security Scanner
+      uses: securecodewarrior/github-action-gosec@master
+      with:
+        args: '-no-fail -fmt sarif -out gosec.sarif ./...'
+
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: gosec.sarif
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goos: [linux, darwin, windows]
+        goarch: [amd64, arm64]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.25.x'
+
+    - name: Build
+      env:
+        GOOS: ${{ matrix.goos }}
+        GOARCH: ${{ matrix.goarch }}
+      run: |
+        go build -v ./...
+        go build -v ./examples/proto

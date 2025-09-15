@@ -1,6 +1,84 @@
-/tmp
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 
-# Test DDEX files (for manual testing)
-/test-files/
-/ddex-samples/
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+coverage.out
+coverage.html
+
+# Dependency directories (remove the comment below to include it)
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build artifacts
+bin/
+dist/
+build/
+
+# Temporary files and directories
+tmp/
+temp/
+*.tmp
+
+# Log files
+*.log
+
+# Test data that shouldn't be committed
+test-files/
+ddex-samples/
+*.xml.bak
+*.xml.tmp
 *.ddex.xml
+
+# Local development files
+.env
+.env.local
+.env.*.local
+
+# Coverage reports
+profile.cov
+coverage.txt
+
+# Documentation build artifacts
+docs/_build/
+docs/.doctrees/
+
+# Generated files (these should be regenerated)
+# Note: We actually want to commit generated files in this project
+# for easier consumption, but you might want to exclude them in forks
+# gen/
+# proto/ddex/
+
+# Tool-specific temporary files
+.protoc-gen-go-temp
+.buf-temp
+
+# Local testing with real DDEX files
+# (create these directories for testing with proprietary DDEX files)
+private-samples/
+confidential-testdata/
