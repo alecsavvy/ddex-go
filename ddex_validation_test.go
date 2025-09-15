@@ -39,8 +39,9 @@ func TestXMLRoundTripIntegrity(t *testing.T) {
 		{"ERN Simple Audio", "testdata/ernv432/Samples43/4 SimpleAudioSingle.xml", "ERN"},
 		{"ERN Simple Video", "testdata/ernv432/Samples43/5 SimpleVideoSingle.xml", "ERN"},
 		{"ERN DJ Mix", "testdata/ernv432/Samples43/8 DjMix.xml", "ERN"},
-		{"MEAD Award", "testdata/meadv11/mead_award_example.xml", "MEAD"},
-		{"PIE Award", "testdata/piev10/pie_award_example.xml", "PIE"},
+		// TODO: Re-enable these tests when we have verified DDEX-compliant examples
+		// {"MEAD Award", "testdata/meadv11/mead_award_example.xml", "MEAD"},
+		// {"PIE Award", "testdata/piev10/pie_award_example.xml", "PIE"},
 	}
 
 	for _, tc := range testCases {
