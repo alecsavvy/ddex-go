@@ -132,8 +132,32 @@ func (x *MeadMessage) GetLanguageAndScriptCode() string {
 
 type Feed struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        []*FeedChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"author"
+	Author []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
+	// @gotags: xml:"category"
+	Category []*Category `protobuf:"bytes,2,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
+	// @gotags: xml:"contributor"
+	Contributor []*Person `protobuf:"bytes,3,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
+	// @gotags: xml:"generator"
+	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3" json:"generator,omitempty" xml:"generator"`
+	// @gotags: xml:"icon"
+	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3" json:"icon,omitempty" xml:"icon"`
+	// @gotags: xml:"id"
+	Id *Id `protobuf:"bytes,6,opt,name=id,proto3" json:"id,omitempty" xml:"id"`
+	// @gotags: xml:"link"
+	Link []*Link `protobuf:"bytes,7,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
+	// @gotags: xml:"logo"
+	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3" json:"logo,omitempty" xml:"logo"`
+	// @gotags: xml:"rights"
+	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3" json:"rights,omitempty" xml:"rights"`
+	// @gotags: xml:"subtitle"
+	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3" json:"subtitle,omitempty" xml:"subtitle"`
+	// @gotags: xml:"title"
+	Title *Text `protobuf:"bytes,11,opt,name=title,proto3" json:"title,omitempty" xml:"title"`
+	// @gotags: xml:"updated"
+	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3" json:"updated,omitempty" xml:"updated"`
+	// @gotags: xml:"entry"
+	Entry         []*Entry `protobuf:"bytes,13,rep,name=entry,proto3" json:"entry,omitempty" xml:"entry"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -168,283 +192,96 @@ func (*Feed) Descriptor() ([]byte, []int) {
 	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Feed) GetChoice() []*FeedChoice {
+func (x *Feed) GetAuthor() []*Person {
 	if x != nil {
-		return x.Choice
+		return x.Author
 	}
 	return nil
 }
 
-type FeedChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*FeedChoice_AuthorOption
-	//	*FeedChoice_CategoryOption
-	//	*FeedChoice_ContributorOption
-	//	*FeedChoice_Generator
-	//	*FeedChoice_Icon
-	//	*FeedChoice_Id
-	//	*FeedChoice_LinkOption
-	//	*FeedChoice_Logo
-	//	*FeedChoice_Rights
-	//	*FeedChoice_Subtitle
-	//	*FeedChoice_Title
-	//	*FeedChoice_Updated
-	//	*FeedChoice_EntryOption
-	Choice        isFeedChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FeedChoice) Reset() {
-	*x = FeedChoice{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FeedChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FeedChoice) ProtoMessage() {}
-
-func (x *FeedChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[2]
+func (x *Feed) GetCategory() []*Category {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FeedChoice.ProtoReflect.Descriptor instead.
-func (*FeedChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *FeedChoice) GetChoice() isFeedChoice_Choice {
-	if x != nil {
-		return x.Choice
+		return x.Category
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetAuthorOption() *FeedChoice_Option1 {
+func (x *Feed) GetContributor() []*Person {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_AuthorOption); ok {
-			return x.AuthorOption
-		}
+		return x.Contributor
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetCategoryOption() *FeedChoice_Option2 {
+func (x *Feed) GetGenerator() *Generator {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_CategoryOption); ok {
-			return x.CategoryOption
-		}
+		return x.Generator
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetContributorOption() *FeedChoice_Option3 {
+func (x *Feed) GetIcon() *Icon {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_ContributorOption); ok {
-			return x.ContributorOption
-		}
+		return x.Icon
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetGenerator() *Generator {
+func (x *Feed) GetId() *Id {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Generator); ok {
-			return x.Generator
-		}
+		return x.Id
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetIcon() *Icon {
+func (x *Feed) GetLink() []*Link {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Icon); ok {
-			return x.Icon
-		}
+		return x.Link
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetId() *Id {
+func (x *Feed) GetLogo() *Logo {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Id); ok {
-			return x.Id
-		}
+		return x.Logo
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetLinkOption() *FeedChoice_Option4 {
+func (x *Feed) GetRights() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_LinkOption); ok {
-			return x.LinkOption
-		}
+		return x.Rights
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetLogo() *Logo {
+func (x *Feed) GetSubtitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Logo); ok {
-			return x.Logo
-		}
+		return x.Subtitle
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetRights() *Text {
+func (x *Feed) GetTitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Rights); ok {
-			return x.Rights
-		}
+		return x.Title
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetSubtitle() *Text {
+func (x *Feed) GetUpdated() *DateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Subtitle); ok {
-			return x.Subtitle
-		}
+		return x.Updated
 	}
 	return nil
 }
 
-func (x *FeedChoice) GetTitle() *Text {
+func (x *Feed) GetEntry() []*Entry {
 	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Title); ok {
-			return x.Title
-		}
+		return x.Entry
 	}
 	return nil
 }
-
-func (x *FeedChoice) GetUpdated() *DateTime {
-	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_Updated); ok {
-			return x.Updated
-		}
-	}
-	return nil
-}
-
-func (x *FeedChoice) GetEntryOption() *FeedChoice_Option5 {
-	if x != nil {
-		if x, ok := x.Choice.(*FeedChoice_EntryOption); ok {
-			return x.EntryOption
-		}
-	}
-	return nil
-}
-
-type isFeedChoice_Choice interface {
-	isFeedChoice_Choice()
-}
-
-type FeedChoice_AuthorOption struct {
-	// @gotags: xml:"author"
-	AuthorOption *FeedChoice_Option1 `protobuf:"bytes,1,opt,name=author_option,json=authorOption,proto3,oneof" xml:"author"`
-}
-
-type FeedChoice_CategoryOption struct {
-	// @gotags: xml:"category"
-	CategoryOption *FeedChoice_Option2 `protobuf:"bytes,2,opt,name=category_option,json=categoryOption,proto3,oneof" xml:"category"`
-}
-
-type FeedChoice_ContributorOption struct {
-	// @gotags: xml:"contributor"
-	ContributorOption *FeedChoice_Option3 `protobuf:"bytes,3,opt,name=contributor_option,json=contributorOption,proto3,oneof" xml:"contributor"`
-}
-
-type FeedChoice_Generator struct {
-	// @gotags: xml:"generator"
-	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof" xml:"generator"`
-}
-
-type FeedChoice_Icon struct {
-	// @gotags: xml:"icon"
-	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof" xml:"icon"`
-}
-
-type FeedChoice_Id struct {
-	// @gotags: xml:"id"
-	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof" xml:"id"`
-}
-
-type FeedChoice_LinkOption struct {
-	// @gotags: xml:"link"
-	LinkOption *FeedChoice_Option4 `protobuf:"bytes,7,opt,name=link_option,json=linkOption,proto3,oneof" xml:"link"`
-}
-
-type FeedChoice_Logo struct {
-	// @gotags: xml:"logo"
-	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof" xml:"logo"`
-}
-
-type FeedChoice_Rights struct {
-	// @gotags: xml:"rights"
-	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof" xml:"rights"`
-}
-
-type FeedChoice_Subtitle struct {
-	// @gotags: xml:"subtitle"
-	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof" xml:"subtitle"`
-}
-
-type FeedChoice_Title struct {
-	// @gotags: xml:"title"
-	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
-}
-
-type FeedChoice_Updated struct {
-	// @gotags: xml:"updated"
-	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
-}
-
-type FeedChoice_EntryOption struct {
-	// @gotags: xml:"entry"
-	EntryOption *FeedChoice_Option5 `protobuf:"bytes,13,opt,name=entry_option,json=entryOption,proto3,oneof" xml:"entry"`
-}
-
-func (*FeedChoice_AuthorOption) isFeedChoice_Choice() {}
-
-func (*FeedChoice_CategoryOption) isFeedChoice_Choice() {}
-
-func (*FeedChoice_ContributorOption) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Generator) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Icon) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Id) isFeedChoice_Choice() {}
-
-func (*FeedChoice_LinkOption) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Logo) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Rights) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Subtitle) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Title) isFeedChoice_Choice() {}
-
-func (*FeedChoice_Updated) isFeedChoice_Choice() {}
-
-func (*FeedChoice_EntryOption) isFeedChoice_Choice() {}
 
 type AbsolutePitch struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -460,7 +297,7 @@ type AbsolutePitch struct {
 
 func (x *AbsolutePitch) Reset() {
 	*x = AbsolutePitch{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[3]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -472,7 +309,7 @@ func (x *AbsolutePitch) String() string {
 func (*AbsolutePitch) ProtoMessage() {}
 
 func (x *AbsolutePitch) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[3]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -485,7 +322,7 @@ func (x *AbsolutePitch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AbsolutePitch.ProtoReflect.Descriptor instead.
 func (*AbsolutePitch) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{3}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AbsolutePitch) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -527,7 +364,7 @@ type Activity struct {
 
 func (x *Activity) Reset() {
 	*x = Activity{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[4]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -539,7 +376,7 @@ func (x *Activity) String() string {
 func (*Activity) ProtoMessage() {}
 
 func (x *Activity) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[4]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -552,7 +389,7 @@ func (x *Activity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Activity.ProtoReflect.Descriptor instead.
 func (*Activity) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{4}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Activity) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -604,7 +441,7 @@ type ActivityValue struct {
 
 func (x *ActivityValue) Reset() {
 	*x = ActivityValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[5]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -616,7 +453,7 @@ func (x *ActivityValue) String() string {
 func (*ActivityValue) ProtoMessage() {}
 
 func (x *ActivityValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[5]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -629,7 +466,7 @@ func (x *ActivityValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ActivityValue.ProtoReflect.Descriptor instead.
 func (*ActivityValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{5}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ActivityValue) GetValue() string {
@@ -675,7 +512,7 @@ type AlternativeTitle struct {
 
 func (x *AlternativeTitle) Reset() {
 	*x = AlternativeTitle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[6]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -687,7 +524,7 @@ func (x *AlternativeTitle) String() string {
 func (*AlternativeTitle) ProtoMessage() {}
 
 func (x *AlternativeTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[6]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -700,7 +537,7 @@ func (x *AlternativeTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlternativeTitle.ProtoReflect.Descriptor instead.
 func (*AlternativeTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{6}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AlternativeTitle) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -764,7 +601,7 @@ type Annotation struct {
 
 func (x *Annotation) Reset() {
 	*x = Annotation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[7]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -776,7 +613,7 @@ func (x *Annotation) String() string {
 func (*Annotation) ProtoMessage() {}
 
 func (x *Annotation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[7]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -789,7 +626,7 @@ func (x *Annotation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Annotation.ProtoReflect.Descriptor instead.
 func (*Annotation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{7}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Annotation) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -820,7 +657,7 @@ type ArtisticStyle struct {
 
 func (x *ArtisticStyle) Reset() {
 	*x = ArtisticStyle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[8]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -832,7 +669,7 @@ func (x *ArtisticStyle) String() string {
 func (*ArtisticStyle) ProtoMessage() {}
 
 func (x *ArtisticStyle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[8]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -845,7 +682,7 @@ func (x *ArtisticStyle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ArtisticStyle.ProtoReflect.Descriptor instead.
 func (*ArtisticStyle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{8}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ArtisticStyle) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -883,7 +720,7 @@ type BeatsPerMinute struct {
 
 func (x *BeatsPerMinute) Reset() {
 	*x = BeatsPerMinute{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[9]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -895,7 +732,7 @@ func (x *BeatsPerMinute) String() string {
 func (*BeatsPerMinute) ProtoMessage() {}
 
 func (x *BeatsPerMinute) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[9]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -908,7 +745,7 @@ func (x *BeatsPerMinute) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BeatsPerMinute.ProtoReflect.Descriptor instead.
 func (*BeatsPerMinute) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{9}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *BeatsPerMinute) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -954,7 +791,7 @@ type ChildWorkHierarchy struct {
 
 func (x *ChildWorkHierarchy) Reset() {
 	*x = ChildWorkHierarchy{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[10]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -966,7 +803,7 @@ func (x *ChildWorkHierarchy) String() string {
 func (*ChildWorkHierarchy) ProtoMessage() {}
 
 func (x *ChildWorkHierarchy) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[10]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -979,7 +816,7 @@ func (x *ChildWorkHierarchy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChildWorkHierarchy.ProtoReflect.Descriptor instead.
 func (*ChildWorkHierarchy) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{10}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ChildWorkHierarchy) GetIsDescribedElement() bool {
@@ -1045,7 +882,7 @@ type Contributor struct {
 
 func (x *Contributor) Reset() {
 	*x = Contributor{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[11]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1057,7 +894,7 @@ func (x *Contributor) String() string {
 func (*Contributor) ProtoMessage() {}
 
 func (x *Contributor) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[11]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1070,7 +907,7 @@ func (x *Contributor) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Contributor.ProtoReflect.Descriptor instead.
 func (*Contributor) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{11}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *Contributor) GetIdentifier() *DetailedPartyId {
@@ -1112,7 +949,7 @@ type DanceStyle struct {
 
 func (x *DanceStyle) Reset() {
 	*x = DanceStyle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[12]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1124,7 +961,7 @@ func (x *DanceStyle) String() string {
 func (*DanceStyle) ProtoMessage() {}
 
 func (x *DanceStyle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[12]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1137,7 +974,7 @@ func (x *DanceStyle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DanceStyle.ProtoReflect.Descriptor instead.
 func (*DanceStyle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{12}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DanceStyle) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1189,7 +1026,7 @@ type DanceStyleValue struct {
 
 func (x *DanceStyleValue) Reset() {
 	*x = DanceStyleValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[13]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1201,7 +1038,7 @@ func (x *DanceStyleValue) String() string {
 func (*DanceStyleValue) ProtoMessage() {}
 
 func (x *DanceStyleValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[13]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1214,7 +1051,7 @@ func (x *DanceStyleValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DanceStyleValue.ProtoReflect.Descriptor instead.
 func (*DanceStyleValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{13}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *DanceStyleValue) GetValue() string {
@@ -1258,7 +1095,7 @@ type DerivedRecording struct {
 
 func (x *DerivedRecording) Reset() {
 	*x = DerivedRecording{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[14]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1270,7 +1107,7 @@ func (x *DerivedRecording) String() string {
 func (*DerivedRecording) ProtoMessage() {}
 
 func (x *DerivedRecording) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[14]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1283,7 +1120,7 @@ func (x *DerivedRecording) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DerivedRecording.ProtoReflect.Descriptor instead.
 func (*DerivedRecording) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{14}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *DerivedRecording) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1350,7 +1187,7 @@ type DisplaySubTitle struct {
 
 func (x *DisplaySubTitle) Reset() {
 	*x = DisplaySubTitle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[15]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1362,7 +1199,7 @@ func (x *DisplaySubTitle) String() string {
 func (*DisplaySubTitle) ProtoMessage() {}
 
 func (x *DisplaySubTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[15]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1375,7 +1212,7 @@ func (x *DisplaySubTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplaySubTitle.ProtoReflect.Descriptor instead.
 func (*DisplaySubTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{15}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *DisplaySubTitle) GetTitle() string {
@@ -1445,7 +1282,7 @@ type DisplayTitle struct {
 
 func (x *DisplayTitle) Reset() {
 	*x = DisplayTitle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[16]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1457,7 +1294,7 @@ func (x *DisplayTitle) String() string {
 func (*DisplayTitle) ProtoMessage() {}
 
 func (x *DisplayTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[16]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1470,7 +1307,7 @@ func (x *DisplayTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayTitle.ProtoReflect.Descriptor instead.
 func (*DisplayTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{16}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *DisplayTitle) GetTitleText() *TitleText {
@@ -1510,17 +1347,41 @@ func (x *DisplayTitle) GetIsDefault() bool {
 
 type Entry struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice []*EntryChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"author"
+	Author []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
+	// @gotags: xml:"category"
+	Category []*Category `protobuf:"bytes,2,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
+	// @gotags: xml:"content"
+	Content *Content `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty" xml:"content"`
+	// @gotags: xml:"contributor"
+	Contributor []*Person `protobuf:"bytes,4,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
+	// @gotags: xml:"id"
+	Id *Id `protobuf:"bytes,5,opt,name=id,proto3" json:"id,omitempty" xml:"id"`
+	// @gotags: xml:"link"
+	Link []*Link `protobuf:"bytes,6,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
+	// @gotags: xml:"published"
+	Published *DateTime `protobuf:"bytes,7,opt,name=published,proto3" json:"published,omitempty" xml:"published"`
+	// @gotags: xml:"rights"
+	Rights *Text `protobuf:"bytes,8,opt,name=rights,proto3" json:"rights,omitempty" xml:"rights"`
+	// @gotags: xml:"source"
+	Source *Source `protobuf:"bytes,9,opt,name=source,proto3" json:"source,omitempty" xml:"source"`
+	// @gotags: xml:"summary"
+	Summary *Text `protobuf:"bytes,10,opt,name=summary,proto3" json:"summary,omitempty" xml:"summary"`
+	// @gotags: xml:"title"
+	Title *Text `protobuf:"bytes,11,opt,name=title,proto3" json:"title,omitempty" xml:"title"`
+	// @gotags: xml:"updated"
+	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3" json:"updated,omitempty" xml:"updated"`
+	// @gotags: xml:"SubscriptionId"
+	SubscriptionId string `protobuf:"bytes,13,opt,name=subscription_id,json=subscriptionId,proto3" json:"subscription_id,omitempty" xml:"SubscriptionId"`
 	// @gotags: xml:"AvsVersionId,attr"
-	AvsVersionId  string `protobuf:"bytes,2,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
+	AvsVersionId  string `protobuf:"bytes,14,opt,name=avs_version_id,json=avsVersionId,proto3" json:"avs_version_id,omitempty" xml:"AvsVersionId,attr"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Entry) Reset() {
 	*x = Entry{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[17]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1532,7 +1393,7 @@ func (x *Entry) String() string {
 func (*Entry) ProtoMessage() {}
 
 func (x *Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[17]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1545,14 +1406,98 @@ func (x *Entry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Entry.ProtoReflect.Descriptor instead.
 func (*Entry) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{17}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{16}
 }
 
-func (x *Entry) GetChoice() []*EntryChoice {
+func (x *Entry) GetAuthor() []*Person {
 	if x != nil {
-		return x.Choice
+		return x.Author
 	}
 	return nil
+}
+
+func (x *Entry) GetCategory() []*Category {
+	if x != nil {
+		return x.Category
+	}
+	return nil
+}
+
+func (x *Entry) GetContent() *Content {
+	if x != nil {
+		return x.Content
+	}
+	return nil
+}
+
+func (x *Entry) GetContributor() []*Person {
+	if x != nil {
+		return x.Contributor
+	}
+	return nil
+}
+
+func (x *Entry) GetId() *Id {
+	if x != nil {
+		return x.Id
+	}
+	return nil
+}
+
+func (x *Entry) GetLink() []*Link {
+	if x != nil {
+		return x.Link
+	}
+	return nil
+}
+
+func (x *Entry) GetPublished() *DateTime {
+	if x != nil {
+		return x.Published
+	}
+	return nil
+}
+
+func (x *Entry) GetRights() *Text {
+	if x != nil {
+		return x.Rights
+	}
+	return nil
+}
+
+func (x *Entry) GetSource() *Source {
+	if x != nil {
+		return x.Source
+	}
+	return nil
+}
+
+func (x *Entry) GetSummary() *Text {
+	if x != nil {
+		return x.Summary
+	}
+	return nil
+}
+
+func (x *Entry) GetTitle() *Text {
+	if x != nil {
+		return x.Title
+	}
+	return nil
+}
+
+func (x *Entry) GetUpdated() *DateTime {
+	if x != nil {
+		return x.Updated
+	}
+	return nil
+}
+
+func (x *Entry) GetSubscriptionId() string {
+	if x != nil {
+		return x.SubscriptionId
+	}
+	return ""
 }
 
 func (x *Entry) GetAvsVersionId() string {
@@ -1561,277 +1506,6 @@ func (x *Entry) GetAvsVersionId() string {
 	}
 	return ""
 }
-
-type EntryChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*EntryChoice_AuthorOption
-	//	*EntryChoice_CategoryOption
-	//	*EntryChoice_Content
-	//	*EntryChoice_ContributorOption
-	//	*EntryChoice_Id
-	//	*EntryChoice_LinkOption
-	//	*EntryChoice_Published
-	//	*EntryChoice_Rights
-	//	*EntryChoice_Source
-	//	*EntryChoice_Summary
-	//	*EntryChoice_Title
-	//	*EntryChoice_Updated
-	//	*EntryChoice_SubscriptionId
-	Choice        isEntryChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EntryChoice) Reset() {
-	*x = EntryChoice{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EntryChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EntryChoice) ProtoMessage() {}
-
-func (x *EntryChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EntryChoice.ProtoReflect.Descriptor instead.
-func (*EntryChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *EntryChoice) GetChoice() isEntryChoice_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetAuthorOption() *EntryChoice_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_AuthorOption); ok {
-			return x.AuthorOption
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetCategoryOption() *EntryChoice_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_CategoryOption); ok {
-			return x.CategoryOption
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetContent() *Content {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Content); ok {
-			return x.Content
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetContributorOption() *EntryChoice_Option3 {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_ContributorOption); ok {
-			return x.ContributorOption
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetId() *Id {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Id); ok {
-			return x.Id
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetLinkOption() *EntryChoice_Option4 {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_LinkOption); ok {
-			return x.LinkOption
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetPublished() *DateTime {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Published); ok {
-			return x.Published
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetRights() *Text {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Rights); ok {
-			return x.Rights
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetSource() *Source {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Source); ok {
-			return x.Source
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetSummary() *Text {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Summary); ok {
-			return x.Summary
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetTitle() *Text {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Title); ok {
-			return x.Title
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetUpdated() *DateTime {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_Updated); ok {
-			return x.Updated
-		}
-	}
-	return nil
-}
-
-func (x *EntryChoice) GetSubscriptionId() string {
-	if x != nil {
-		if x, ok := x.Choice.(*EntryChoice_SubscriptionId); ok {
-			return x.SubscriptionId
-		}
-	}
-	return ""
-}
-
-type isEntryChoice_Choice interface {
-	isEntryChoice_Choice()
-}
-
-type EntryChoice_AuthorOption struct {
-	// @gotags: xml:"author"
-	AuthorOption *EntryChoice_Option1 `protobuf:"bytes,1,opt,name=author_option,json=authorOption,proto3,oneof" xml:"author"`
-}
-
-type EntryChoice_CategoryOption struct {
-	// @gotags: xml:"category"
-	CategoryOption *EntryChoice_Option2 `protobuf:"bytes,2,opt,name=category_option,json=categoryOption,proto3,oneof" xml:"category"`
-}
-
-type EntryChoice_Content struct {
-	// @gotags: xml:"content"
-	Content *Content `protobuf:"bytes,3,opt,name=content,proto3,oneof" xml:"content"`
-}
-
-type EntryChoice_ContributorOption struct {
-	// @gotags: xml:"contributor"
-	ContributorOption *EntryChoice_Option3 `protobuf:"bytes,4,opt,name=contributor_option,json=contributorOption,proto3,oneof" xml:"contributor"`
-}
-
-type EntryChoice_Id struct {
-	// @gotags: xml:"id"
-	Id *Id `protobuf:"bytes,5,opt,name=id,proto3,oneof" xml:"id"`
-}
-
-type EntryChoice_LinkOption struct {
-	// @gotags: xml:"link"
-	LinkOption *EntryChoice_Option4 `protobuf:"bytes,6,opt,name=link_option,json=linkOption,proto3,oneof" xml:"link"`
-}
-
-type EntryChoice_Published struct {
-	// @gotags: xml:"published"
-	Published *DateTime `protobuf:"bytes,7,opt,name=published,proto3,oneof" xml:"published"`
-}
-
-type EntryChoice_Rights struct {
-	// @gotags: xml:"rights"
-	Rights *Text `protobuf:"bytes,8,opt,name=rights,proto3,oneof" xml:"rights"`
-}
-
-type EntryChoice_Source struct {
-	// @gotags: xml:"source"
-	Source *Source `protobuf:"bytes,9,opt,name=source,proto3,oneof" xml:"source"`
-}
-
-type EntryChoice_Summary struct {
-	// @gotags: xml:"summary"
-	Summary *Text `protobuf:"bytes,10,opt,name=summary,proto3,oneof" xml:"summary"`
-}
-
-type EntryChoice_Title struct {
-	// @gotags: xml:"title"
-	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
-}
-
-type EntryChoice_Updated struct {
-	// @gotags: xml:"updated"
-	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
-}
-
-type EntryChoice_SubscriptionId struct {
-	// @gotags: xml:"SubscriptionId"
-	SubscriptionId string `protobuf:"bytes,13,opt,name=subscription_id,json=subscriptionId,proto3,oneof" xml:"SubscriptionId"`
-}
-
-func (*EntryChoice_AuthorOption) isEntryChoice_Choice() {}
-
-func (*EntryChoice_CategoryOption) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Content) isEntryChoice_Choice() {}
-
-func (*EntryChoice_ContributorOption) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Id) isEntryChoice_Choice() {}
-
-func (*EntryChoice_LinkOption) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Published) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Rights) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Source) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Summary) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Title) isEntryChoice_Choice() {}
-
-func (*EntryChoice_Updated) isEntryChoice_Choice() {}
-
-func (*EntryChoice_SubscriptionId) isEntryChoice_Choice() {}
 
 type Flag struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -1845,7 +1519,7 @@ type Flag struct {
 
 func (x *Flag) Reset() {
 	*x = Flag{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[19]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1857,7 +1531,7 @@ func (x *Flag) String() string {
 func (*Flag) ProtoMessage() {}
 
 func (x *Flag) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[19]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1870,7 +1544,7 @@ func (x *Flag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Flag.ProtoReflect.Descriptor instead.
 func (*Flag) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{19}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *Flag) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1899,7 +1573,7 @@ type Form struct {
 
 func (x *Form) Reset() {
 	*x = Form{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[20]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1911,7 +1585,7 @@ func (x *Form) String() string {
 func (*Form) ProtoMessage() {}
 
 func (x *Form) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[20]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1924,7 +1598,7 @@ func (x *Form) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Form.ProtoReflect.Descriptor instead.
 func (*Form) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{20}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *Form) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -1955,7 +1629,7 @@ type FormValue struct {
 
 func (x *FormValue) Reset() {
 	*x = FormValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[21]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1967,7 +1641,7 @@ func (x *FormValue) String() string {
 func (*FormValue) ProtoMessage() {}
 
 func (x *FormValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[21]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1980,7 +1654,7 @@ func (x *FormValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FormValue.ProtoReflect.Descriptor instead.
 func (*FormValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{21}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *FormValue) GetValue() string {
@@ -2020,7 +1694,7 @@ type GenreCategory struct {
 
 func (x *GenreCategory) Reset() {
 	*x = GenreCategory{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[22]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2032,7 +1706,7 @@ func (x *GenreCategory) String() string {
 func (*GenreCategory) ProtoMessage() {}
 
 func (x *GenreCategory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[22]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2045,7 +1719,7 @@ func (x *GenreCategory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenreCategory.ProtoReflect.Descriptor instead.
 func (*GenreCategory) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{22}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GenreCategory) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2094,7 +1768,7 @@ type Harmony struct {
 
 func (x *Harmony) Reset() {
 	*x = Harmony{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[23]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2106,7 +1780,7 @@ func (x *Harmony) String() string {
 func (*Harmony) ProtoMessage() {}
 
 func (x *Harmony) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[23]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2119,7 +1793,7 @@ func (x *Harmony) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Harmony.ProtoReflect.Descriptor instead.
 func (*Harmony) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{23}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *Harmony) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2165,15 +1839,21 @@ type HarmonyModulation struct {
 	RootChordQuality *RootChordQuality `protobuf:"bytes,2,opt,name=root_chord_quality,json=rootChordQuality,proto3" json:"root_chord_quality,omitempty" xml:"RootChordQuality"`
 	// @gotags: xml:"Mode"
 	Mode *Mode `protobuf:"bytes,3,opt,name=mode,proto3" json:"mode,omitempty" xml:"Mode"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *HarmonyModulationChoice4 `protobuf:"bytes,4,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"StartPoint"
+	StartPoint string `protobuf:"bytes,4,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
+	// @gotags: xml:"EndPoint"
+	EndPoint string `protobuf:"bytes,5,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty" xml:"EndPoint"`
+	// @gotags: xml:"StartBar"
+	StartBar int32 `protobuf:"varint,6,opt,name=start_bar,json=startBar,proto3" json:"start_bar,omitempty" xml:"StartBar"`
+	// @gotags: xml:"EndBar"
+	EndBar        int32 `protobuf:"varint,7,opt,name=end_bar,json=endBar,proto3" json:"end_bar,omitempty" xml:"EndBar"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *HarmonyModulation) Reset() {
 	*x = HarmonyModulation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[24]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2185,7 +1865,7 @@ func (x *HarmonyModulation) String() string {
 func (*HarmonyModulation) ProtoMessage() {}
 
 func (x *HarmonyModulation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[24]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2198,7 +1878,7 @@ func (x *HarmonyModulation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HarmonyModulation.ProtoReflect.Descriptor instead.
 func (*HarmonyModulation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{24}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *HarmonyModulation) GetRootChordNote() *RootChordNote {
@@ -2222,94 +1902,33 @@ func (x *HarmonyModulation) GetMode() *Mode {
 	return nil
 }
 
-func (x *HarmonyModulation) GetChoice() *HarmonyModulationChoice4 {
+func (x *HarmonyModulation) GetStartPoint() string {
 	if x != nil {
-		return x.Choice
+		return x.StartPoint
 	}
-	return nil
+	return ""
 }
 
-type HarmonyModulationChoice4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*HarmonyModulationChoice4_Sequence_1
-	//	*HarmonyModulationChoice4_Sequence_2
-	Choice        isHarmonyModulationChoice4_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HarmonyModulationChoice4) Reset() {
-	*x = HarmonyModulationChoice4{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HarmonyModulationChoice4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HarmonyModulationChoice4) ProtoMessage() {}
-
-func (x *HarmonyModulationChoice4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[25]
+func (x *HarmonyModulation) GetEndPoint() string {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+		return x.EndPoint
 	}
-	return mi.MessageOf(x)
+	return ""
 }
 
-// Deprecated: Use HarmonyModulationChoice4.ProtoReflect.Descriptor instead.
-func (*HarmonyModulationChoice4) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *HarmonyModulationChoice4) GetChoice() isHarmonyModulationChoice4_Choice {
+func (x *HarmonyModulation) GetStartBar() int32 {
 	if x != nil {
-		return x.Choice
+		return x.StartBar
 	}
-	return nil
+	return 0
 }
 
-func (x *HarmonyModulationChoice4) GetSequence_1() *HarmonyModulationChoice4_Option1 {
+func (x *HarmonyModulation) GetEndBar() int32 {
 	if x != nil {
-		if x, ok := x.Choice.(*HarmonyModulationChoice4_Sequence_1); ok {
-			return x.Sequence_1
-		}
+		return x.EndBar
 	}
-	return nil
+	return 0
 }
-
-func (x *HarmonyModulationChoice4) GetSequence_2() *HarmonyModulationChoice4_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*HarmonyModulationChoice4_Sequence_2); ok {
-			return x.Sequence_2
-		}
-	}
-	return nil
-}
-
-type isHarmonyModulationChoice4_Choice interface {
-	isHarmonyModulationChoice4_Choice()
-}
-
-type HarmonyModulationChoice4_Sequence_1 struct {
-	Sequence_1 *HarmonyModulationChoice4_Option1 `protobuf:"bytes,1,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-type HarmonyModulationChoice4_Sequence_2 struct {
-	Sequence_2 *HarmonyModulationChoice4_Option2 `protobuf:"bytes,2,opt,name=sequence_2,json=sequence2,proto3,oneof"`
-}
-
-func (*HarmonyModulationChoice4_Sequence_1) isHarmonyModulationChoice4_Choice() {}
-
-func (*HarmonyModulationChoice4_Sequence_2) isHarmonyModulationChoice4_Choice() {}
 
 type ImpactDate struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -2323,7 +1942,7 @@ type ImpactDate struct {
 
 func (x *ImpactDate) Reset() {
 	*x = ImpactDate{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[26]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2335,7 +1954,7 @@ func (x *ImpactDate) String() string {
 func (*ImpactDate) ProtoMessage() {}
 
 func (x *ImpactDate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[26]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2348,7 +1967,7 @@ func (x *ImpactDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ImpactDate.ProtoReflect.Descriptor instead.
 func (*ImpactDate) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{26}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *ImpactDate) GetDate() string {
@@ -2377,7 +1996,7 @@ type Instrument struct {
 
 func (x *Instrument) Reset() {
 	*x = Instrument{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[27]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2389,7 +2008,7 @@ func (x *Instrument) String() string {
 func (*Instrument) ProtoMessage() {}
 
 func (x *Instrument) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[27]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2402,7 +2021,7 @@ func (x *Instrument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Instrument.ProtoReflect.Descriptor instead.
 func (*Instrument) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{27}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *Instrument) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2433,7 +2052,7 @@ type InstrumentUsed struct {
 
 func (x *InstrumentUsed) Reset() {
 	*x = InstrumentUsed{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[28]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2445,7 +2064,7 @@ func (x *InstrumentUsed) String() string {
 func (*InstrumentUsed) ProtoMessage() {}
 
 func (x *InstrumentUsed) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[28]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2458,7 +2077,7 @@ func (x *InstrumentUsed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstrumentUsed.ProtoReflect.Descriptor instead.
 func (*InstrumentUsed) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{28}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *InstrumentUsed) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2496,7 +2115,7 @@ type InstrumentValue struct {
 
 func (x *InstrumentValue) Reset() {
 	*x = InstrumentValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[29]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2508,7 +2127,7 @@ func (x *InstrumentValue) String() string {
 func (*InstrumentValue) ProtoMessage() {}
 
 func (x *InstrumentValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[29]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2521,7 +2140,7 @@ func (x *InstrumentValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstrumentValue.ProtoReflect.Descriptor instead.
 func (*InstrumentValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{29}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *InstrumentValue) GetValue() string {
@@ -2557,7 +2176,7 @@ type Intensity struct {
 
 func (x *Intensity) Reset() {
 	*x = Intensity{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[30]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2569,7 +2188,7 @@ func (x *Intensity) String() string {
 func (*Intensity) ProtoMessage() {}
 
 func (x *Intensity) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[30]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2582,7 +2201,7 @@ func (x *Intensity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Intensity.ProtoReflect.Descriptor instead.
 func (*Intensity) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{30}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *Intensity) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2613,7 +2232,7 @@ type IntensityValue struct {
 
 func (x *IntensityValue) Reset() {
 	*x = IntensityValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[31]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2625,7 +2244,7 @@ func (x *IntensityValue) String() string {
 func (*IntensityValue) ProtoMessage() {}
 
 func (x *IntensityValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[31]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2638,7 +2257,7 @@ func (x *IntensityValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IntensityValue.ProtoReflect.Descriptor instead.
 func (*IntensityValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{31}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *IntensityValue) GetValue() string {
@@ -2682,7 +2301,7 @@ type LocationAndDateOfSession struct {
 
 func (x *LocationAndDateOfSession) Reset() {
 	*x = LocationAndDateOfSession{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[32]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2694,7 +2313,7 @@ func (x *LocationAndDateOfSession) String() string {
 func (*LocationAndDateOfSession) ProtoMessage() {}
 
 func (x *LocationAndDateOfSession) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[32]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2707,7 +2326,7 @@ func (x *LocationAndDateOfSession) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LocationAndDateOfSession.ProtoReflect.Descriptor instead.
 func (*LocationAndDateOfSession) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{32}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *LocationAndDateOfSession) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2780,7 +2399,7 @@ type Lyrics struct {
 
 func (x *Lyrics) Reset() {
 	*x = Lyrics{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[33]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2792,7 +2411,7 @@ func (x *Lyrics) String() string {
 func (*Lyrics) ProtoMessage() {}
 
 func (x *Lyrics) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[33]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2805,7 +2424,7 @@ func (x *Lyrics) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Lyrics.ProtoReflect.Descriptor instead.
 func (*Lyrics) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{33}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *Lyrics) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -2896,7 +2515,7 @@ type LyricsText struct {
 
 func (x *LyricsText) Reset() {
 	*x = LyricsText{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[34]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2908,7 +2527,7 @@ func (x *LyricsText) String() string {
 func (*LyricsText) ProtoMessage() {}
 
 func (x *LyricsText) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[34]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2921,7 +2540,7 @@ func (x *LyricsText) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LyricsText.ProtoReflect.Descriptor instead.
 func (*LyricsText) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{34}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *LyricsText) GetValue() string {
@@ -2971,7 +2590,7 @@ type Meter struct {
 
 func (x *Meter) Reset() {
 	*x = Meter{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[35]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2983,7 +2602,7 @@ func (x *Meter) String() string {
 func (*Meter) ProtoMessage() {}
 
 func (x *Meter) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[35]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2996,7 +2615,7 @@ func (x *Meter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Meter.ProtoReflect.Descriptor instead.
 func (*Meter) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{35}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *Meter) GetNumberOfBeatsInBar() int32 {
@@ -3027,7 +2646,7 @@ type Mode struct {
 
 func (x *Mode) Reset() {
 	*x = Mode{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[36]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3039,7 +2658,7 @@ func (x *Mode) String() string {
 func (*Mode) ProtoMessage() {}
 
 func (x *Mode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[36]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3052,7 +2671,7 @@ func (x *Mode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Mode.ProtoReflect.Descriptor instead.
 func (*Mode) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{36}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *Mode) GetValue() string {
@@ -3080,15 +2699,21 @@ type Modulation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Value"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *ModulationChoice2 `protobuf:"bytes,2,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"StartPoint"
+	StartPoint string `protobuf:"bytes,2,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
+	// @gotags: xml:"EndPoint"
+	EndPoint string `protobuf:"bytes,3,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty" xml:"EndPoint"`
+	// @gotags: xml:"StartBar"
+	StartBar int32 `protobuf:"varint,4,opt,name=start_bar,json=startBar,proto3" json:"start_bar,omitempty" xml:"StartBar"`
+	// @gotags: xml:"EndBar"
+	EndBar        int32 `protobuf:"varint,5,opt,name=end_bar,json=endBar,proto3" json:"end_bar,omitempty" xml:"EndBar"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Modulation) Reset() {
 	*x = Modulation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[37]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3100,7 +2725,7 @@ func (x *Modulation) String() string {
 func (*Modulation) ProtoMessage() {}
 
 func (x *Modulation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[37]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3113,7 +2738,7 @@ func (x *Modulation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Modulation.ProtoReflect.Descriptor instead.
 func (*Modulation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{37}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *Modulation) GetValue() string {
@@ -3123,94 +2748,33 @@ func (x *Modulation) GetValue() string {
 	return ""
 }
 
-func (x *Modulation) GetChoice() *ModulationChoice2 {
+func (x *Modulation) GetStartPoint() string {
 	if x != nil {
-		return x.Choice
+		return x.StartPoint
 	}
-	return nil
+	return ""
 }
 
-type ModulationChoice2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ModulationChoice2_Sequence_1
-	//	*ModulationChoice2_Sequence_2
-	Choice        isModulationChoice2_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ModulationChoice2) Reset() {
-	*x = ModulationChoice2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ModulationChoice2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ModulationChoice2) ProtoMessage() {}
-
-func (x *ModulationChoice2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[38]
+func (x *Modulation) GetEndPoint() string {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+		return x.EndPoint
 	}
-	return mi.MessageOf(x)
+	return ""
 }
 
-// Deprecated: Use ModulationChoice2.ProtoReflect.Descriptor instead.
-func (*ModulationChoice2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *ModulationChoice2) GetChoice() isModulationChoice2_Choice {
+func (x *Modulation) GetStartBar() int32 {
 	if x != nil {
-		return x.Choice
+		return x.StartBar
 	}
-	return nil
+	return 0
 }
 
-func (x *ModulationChoice2) GetSequence_1() *ModulationChoice2_Option1 {
+func (x *Modulation) GetEndBar() int32 {
 	if x != nil {
-		if x, ok := x.Choice.(*ModulationChoice2_Sequence_1); ok {
-			return x.Sequence_1
-		}
+		return x.EndBar
 	}
-	return nil
+	return 0
 }
-
-func (x *ModulationChoice2) GetSequence_2() *ModulationChoice2_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*ModulationChoice2_Sequence_2); ok {
-			return x.Sequence_2
-		}
-	}
-	return nil
-}
-
-type isModulationChoice2_Choice interface {
-	isModulationChoice2_Choice()
-}
-
-type ModulationChoice2_Sequence_1 struct {
-	Sequence_1 *ModulationChoice2_Option1 `protobuf:"bytes,1,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-type ModulationChoice2_Sequence_2 struct {
-	Sequence_2 *ModulationChoice2_Option2 `protobuf:"bytes,2,opt,name=sequence_2,json=sequence2,proto3,oneof"`
-}
-
-func (*ModulationChoice2_Sequence_1) isModulationChoice2_Choice() {}
-
-func (*ModulationChoice2_Sequence_2) isModulationChoice2_Choice() {}
 
 type Mood struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -3232,7 +2796,7 @@ type Mood struct {
 
 func (x *Mood) Reset() {
 	*x = Mood{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[39]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3244,7 +2808,7 @@ func (x *Mood) String() string {
 func (*Mood) ProtoMessage() {}
 
 func (x *Mood) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[39]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3257,7 +2821,7 @@ func (x *Mood) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Mood.ProtoReflect.Descriptor instead.
 func (*Mood) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{39}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *Mood) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -3320,7 +2884,7 @@ type MoodValue struct {
 
 func (x *MoodValue) Reset() {
 	*x = MoodValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[40]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3332,7 +2896,7 @@ func (x *MoodValue) String() string {
 func (*MoodValue) ProtoMessage() {}
 
 func (x *MoodValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[40]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3345,7 +2909,7 @@ func (x *MoodValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoodValue.ProtoReflect.Descriptor instead.
 func (*MoodValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{40}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *MoodValue) GetValue() string {
@@ -3403,7 +2967,7 @@ type Party struct {
 
 func (x *Party) Reset() {
 	*x = Party{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[41]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3415,7 +2979,7 @@ func (x *Party) String() string {
 func (*Party) ProtoMessage() {}
 
 func (x *Party) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[41]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3428,7 +2992,7 @@ func (x *Party) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Party.ProtoReflect.Descriptor instead.
 func (*Party) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{41}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *Party) GetISNI() string {
@@ -3497,7 +3061,7 @@ type RecordingPart struct {
 
 func (x *RecordingPart) Reset() {
 	*x = RecordingPart{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[42]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3509,7 +3073,7 @@ func (x *RecordingPart) String() string {
 func (*RecordingPart) ProtoMessage() {}
 
 func (x *RecordingPart) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[42]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3522,7 +3086,7 @@ func (x *RecordingPart) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecordingPart.ProtoReflect.Descriptor instead.
 func (*RecordingPart) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{42}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *RecordingPart) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -3599,7 +3163,7 @@ type RelatedWork struct {
 
 func (x *RelatedWork) Reset() {
 	*x = RelatedWork{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[43]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3611,7 +3175,7 @@ func (x *RelatedWork) String() string {
 func (*RelatedWork) ProtoMessage() {}
 
 func (x *RelatedWork) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[43]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3624,7 +3188,7 @@ func (x *RelatedWork) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedWork.ProtoReflect.Descriptor instead.
 func (*RelatedWork) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{43}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *RelatedWork) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -3708,7 +3272,7 @@ type ReleaseInformation struct {
 
 func (x *ReleaseInformation) Reset() {
 	*x = ReleaseInformation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[44]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3720,7 +3284,7 @@ func (x *ReleaseInformation) String() string {
 func (*ReleaseInformation) ProtoMessage() {}
 
 func (x *ReleaseInformation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[44]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3733,7 +3297,7 @@ func (x *ReleaseInformation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseInformation.ProtoReflect.Descriptor instead.
 func (*ReleaseInformation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{44}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *ReleaseInformation) GetReleaseSummary() *ReleaseSummary {
@@ -3879,7 +3443,7 @@ type ReleaseInformationList struct {
 
 func (x *ReleaseInformationList) Reset() {
 	*x = ReleaseInformationList{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[45]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3891,7 +3455,7 @@ func (x *ReleaseInformationList) String() string {
 func (*ReleaseInformationList) ProtoMessage() {}
 
 func (x *ReleaseInformationList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[45]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3904,7 +3468,7 @@ func (x *ReleaseInformationList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseInformationList.ProtoReflect.Descriptor instead.
 func (*ReleaseInformationList) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{45}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *ReleaseInformationList) GetReleaseInformation() []*ReleaseInformation {
@@ -3930,7 +3494,7 @@ type ReleaseSummary struct {
 
 func (x *ReleaseSummary) Reset() {
 	*x = ReleaseSummary{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[46]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3942,7 +3506,7 @@ func (x *ReleaseSummary) String() string {
 func (*ReleaseSummary) ProtoMessage() {}
 
 func (x *ReleaseSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[46]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3955,7 +3519,7 @@ func (x *ReleaseSummary) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseSummary.ProtoReflect.Descriptor instead.
 func (*ReleaseSummary) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{46}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *ReleaseSummary) GetReleaseId() *ReleaseId {
@@ -3998,7 +3562,7 @@ type RelevantResource struct {
 
 func (x *RelevantResource) Reset() {
 	*x = RelevantResource{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[47]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4010,7 +3574,7 @@ func (x *RelevantResource) String() string {
 func (*RelevantResource) ProtoMessage() {}
 
 func (x *RelevantResource) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[47]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4023,7 +3587,7 @@ func (x *RelevantResource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelevantResource.ProtoReflect.Descriptor instead.
 func (*RelevantResource) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{47}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *RelevantResource) GetResourceId() *ResourceIdWithoutFlag {
@@ -4114,21 +3678,23 @@ type ResourceInformation struct {
 	AlternativeTitle []*AlternativeTitle `protobuf:"bytes,35,rep,name=alternative_title,json=alternativeTitle,proto3" json:"alternative_title,omitempty" xml:"AlternativeTitle"`
 	// @gotags: xml:"Image"
 	Image []*Image `protobuf:"bytes,36,rep,name=image,proto3" json:"image,omitempty" xml:"Image"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *ResourceInformationChoice37 `protobuf:"bytes,37,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"IsOriginal"
+	IsOriginal *Flag `protobuf:"bytes,37,opt,name=is_original,json=isOriginal,proto3" json:"is_original,omitempty" xml:"IsOriginal"`
+	// @gotags: xml:"IsCover"
+	IsCover *Flag `protobuf:"bytes,38,opt,name=is_cover,json=isCover,proto3" json:"is_cover,omitempty" xml:"IsCover"`
 	// @gotags: xml:"PriorityPeriodStartDate,attr"
-	PriorityPeriodStartDate string `protobuf:"bytes,38,opt,name=priority_period_start_date,json=priorityPeriodStartDate,proto3" json:"priority_period_start_date,omitempty" xml:"PriorityPeriodStartDate,attr"`
+	PriorityPeriodStartDate string `protobuf:"bytes,39,opt,name=priority_period_start_date,json=priorityPeriodStartDate,proto3" json:"priority_period_start_date,omitempty" xml:"PriorityPeriodStartDate,attr"`
 	// @gotags: xml:"PriorityPeriodEndDate,attr"
-	PriorityPeriodEndDate string `protobuf:"bytes,39,opt,name=priority_period_end_date,json=priorityPeriodEndDate,proto3" json:"priority_period_end_date,omitempty" xml:"PriorityPeriodEndDate,attr"`
+	PriorityPeriodEndDate string `protobuf:"bytes,40,opt,name=priority_period_end_date,json=priorityPeriodEndDate,proto3" json:"priority_period_end_date,omitempty" xml:"PriorityPeriodEndDate,attr"`
 	// @gotags: xml:"ApplicableTerritoryCode,attr"
-	ApplicableTerritoryCode string `protobuf:"bytes,40,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
+	ApplicableTerritoryCode string `protobuf:"bytes,41,opt,name=applicable_territory_code,json=applicableTerritoryCode,proto3" json:"applicable_territory_code,omitempty" xml:"ApplicableTerritoryCode,attr"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
 
 func (x *ResourceInformation) Reset() {
 	*x = ResourceInformation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[48]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4140,7 +3706,7 @@ func (x *ResourceInformation) String() string {
 func (*ResourceInformation) ProtoMessage() {}
 
 func (x *ResourceInformation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[48]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4153,7 +3719,7 @@ func (x *ResourceInformation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceInformation.ProtoReflect.Descriptor instead.
 func (*ResourceInformation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{48}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *ResourceInformation) GetResourceSummary() *ResourceSummary {
@@ -4408,9 +3974,16 @@ func (x *ResourceInformation) GetImage() []*Image {
 	return nil
 }
 
-func (x *ResourceInformation) GetChoice() *ResourceInformationChoice37 {
+func (x *ResourceInformation) GetIsOriginal() *Flag {
 	if x != nil {
-		return x.Choice
+		return x.IsOriginal
+	}
+	return nil
+}
+
+func (x *ResourceInformation) GetIsCover() *Flag {
+	if x != nil {
+		return x.IsCover
 	}
 	return nil
 }
@@ -4436,90 +4009,6 @@ func (x *ResourceInformation) GetApplicableTerritoryCode() string {
 	return ""
 }
 
-type ResourceInformationChoice37 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ResourceInformationChoice37_IsOriginal
-	//	*ResourceInformationChoice37_IsCover
-	Choice        isResourceInformationChoice37_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResourceInformationChoice37) Reset() {
-	*x = ResourceInformationChoice37{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResourceInformationChoice37) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResourceInformationChoice37) ProtoMessage() {}
-
-func (x *ResourceInformationChoice37) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResourceInformationChoice37.ProtoReflect.Descriptor instead.
-func (*ResourceInformationChoice37) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *ResourceInformationChoice37) GetChoice() isResourceInformationChoice37_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceInformationChoice37) GetIsOriginal() *Flag {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceInformationChoice37_IsOriginal); ok {
-			return x.IsOriginal
-		}
-	}
-	return nil
-}
-
-func (x *ResourceInformationChoice37) GetIsCover() *Flag {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceInformationChoice37_IsCover); ok {
-			return x.IsCover
-		}
-	}
-	return nil
-}
-
-type isResourceInformationChoice37_Choice interface {
-	isResourceInformationChoice37_Choice()
-}
-
-type ResourceInformationChoice37_IsOriginal struct {
-	// @gotags: xml:"IsOriginal"
-	IsOriginal *Flag `protobuf:"bytes,1,opt,name=is_original,json=isOriginal,proto3,oneof" xml:"IsOriginal"`
-}
-
-type ResourceInformationChoice37_IsCover struct {
-	// @gotags: xml:"IsCover"
-	IsCover *Flag `protobuf:"bytes,2,opt,name=is_cover,json=isCover,proto3,oneof" xml:"IsCover"`
-}
-
-func (*ResourceInformationChoice37_IsOriginal) isResourceInformationChoice37_Choice() {}
-
-func (*ResourceInformationChoice37_IsCover) isResourceInformationChoice37_Choice() {}
-
 type ResourceInformationList struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"ResourceInformation"
@@ -4530,7 +4019,7 @@ type ResourceInformationList struct {
 
 func (x *ResourceInformationList) Reset() {
 	*x = ResourceInformationList{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[50]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4542,7 +4031,7 @@ func (x *ResourceInformationList) String() string {
 func (*ResourceInformationList) ProtoMessage() {}
 
 func (x *ResourceInformationList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[50]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4555,7 +4044,7 @@ func (x *ResourceInformationList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceInformationList.ProtoReflect.Descriptor instead.
 func (*ResourceInformationList) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{50}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *ResourceInformationList) GetResourceInformation() []*ResourceInformation {
@@ -4585,7 +4074,7 @@ type ResourceRelationship struct {
 
 func (x *ResourceRelationship) Reset() {
 	*x = ResourceRelationship{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[51]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4597,7 +4086,7 @@ func (x *ResourceRelationship) String() string {
 func (*ResourceRelationship) ProtoMessage() {}
 
 func (x *ResourceRelationship) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[51]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4610,7 +4099,7 @@ func (x *ResourceRelationship) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceRelationship.ProtoReflect.Descriptor instead.
 func (*ResourceRelationship) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{51}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *ResourceRelationship) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -4671,7 +4160,7 @@ type ResourceSummary struct {
 
 func (x *ResourceSummary) Reset() {
 	*x = ResourceSummary{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[52]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4683,7 +4172,7 @@ func (x *ResourceSummary) String() string {
 func (*ResourceSummary) ProtoMessage() {}
 
 func (x *ResourceSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[52]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4696,7 +4185,7 @@ func (x *ResourceSummary) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceSummary.ProtoReflect.Descriptor instead.
 func (*ResourceSummary) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{52}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *ResourceSummary) GetResourceId() *ResourceIdWithoutFlag {
@@ -4745,7 +4234,7 @@ type RhythmStyle struct {
 
 func (x *RhythmStyle) Reset() {
 	*x = RhythmStyle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[53]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4757,7 +4246,7 @@ func (x *RhythmStyle) String() string {
 func (*RhythmStyle) ProtoMessage() {}
 
 func (x *RhythmStyle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[53]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4770,7 +4259,7 @@ func (x *RhythmStyle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RhythmStyle.ProtoReflect.Descriptor instead.
 func (*RhythmStyle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{53}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *RhythmStyle) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -4822,7 +4311,7 @@ type RhythmStyleValue struct {
 
 func (x *RhythmStyleValue) Reset() {
 	*x = RhythmStyleValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[54]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4834,7 +4323,7 @@ func (x *RhythmStyleValue) String() string {
 func (*RhythmStyleValue) ProtoMessage() {}
 
 func (x *RhythmStyleValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[54]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4847,7 +4336,7 @@ func (x *RhythmStyleValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RhythmStyleValue.ProtoReflect.Descriptor instead.
 func (*RhythmStyleValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{54}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *RhythmStyleValue) GetValue() string {
@@ -4885,7 +4374,7 @@ type RootChordNote struct {
 
 func (x *RootChordNote) Reset() {
 	*x = RootChordNote{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[55]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4897,7 +4386,7 @@ func (x *RootChordNote) String() string {
 func (*RootChordNote) ProtoMessage() {}
 
 func (x *RootChordNote) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[55]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4910,7 +4399,7 @@ func (x *RootChordNote) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RootChordNote.ProtoReflect.Descriptor instead.
 func (*RootChordNote) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{55}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RootChordNote) GetValue() string {
@@ -4948,7 +4437,7 @@ type RootChordQuality struct {
 
 func (x *RootChordQuality) Reset() {
 	*x = RootChordQuality{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[56]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4960,7 +4449,7 @@ func (x *RootChordQuality) String() string {
 func (*RootChordQuality) ProtoMessage() {}
 
 func (x *RootChordQuality) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[56]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4973,7 +4462,7 @@ func (x *RootChordQuality) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RootChordQuality.ProtoReflect.Descriptor instead.
 func (*RootChordQuality) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{56}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *RootChordQuality) GetValue() string {
@@ -5007,17 +4496,21 @@ type Sample struct {
 	SampleFeature []*SampleFeature `protobuf:"bytes,3,rep,name=sample_feature,json=sampleFeature,proto3" json:"sample_feature,omitempty" xml:"SampleFeature"`
 	// @gotags: xml:"Description"
 	Description []*TextWithFormat `protobuf:"bytes,4,rep,name=description,proto3" json:"description,omitempty" xml:"Description"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *SampleChoice5 `protobuf:"bytes,5,opt,name=choice,proto3" json:"choice,omitempty"`
-	// Choice wrapper for XSD choice within sequence
-	Choice_1      []*SampleChoice6 `protobuf:"bytes,6,rep,name=choice_1,json=choice1,proto3" json:"choice_1,omitempty"`
+	// @gotags: xml:"ContainsSamples"
+	ContainsSamples bool `protobuf:"varint,5,opt,name=contains_samples,json=containsSamples,proto3" json:"contains_samples,omitempty" xml:"ContainsSamples"`
+	// @gotags: xml:"IsContainedInSample"
+	IsContainedInSample bool `protobuf:"varint,6,opt,name=is_contained_in_sample,json=isContainedInSample,proto3" json:"is_contained_in_sample,omitempty" xml:"IsContainedInSample"`
+	// @gotags: xml:"HostTiming"
+	HostTiming []*Timing `protobuf:"bytes,7,rep,name=host_timing,json=hostTiming,proto3" json:"host_timing,omitempty" xml:"HostTiming"`
+	// @gotags: xml:"SampleTiming"
+	SampleTiming  []*Timing `protobuf:"bytes,8,rep,name=sample_timing,json=sampleTiming,proto3" json:"sample_timing,omitempty" xml:"SampleTiming"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Sample) Reset() {
 	*x = Sample{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[57]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5029,7 +4522,7 @@ func (x *Sample) String() string {
 func (*Sample) ProtoMessage() {}
 
 func (x *Sample) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[57]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5042,7 +4535,7 @@ func (x *Sample) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Sample.ProtoReflect.Descriptor instead.
 func (*Sample) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{57}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *Sample) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5073,187 +4566,33 @@ func (x *Sample) GetDescription() []*TextWithFormat {
 	return nil
 }
 
-func (x *Sample) GetChoice() *SampleChoice5 {
+func (x *Sample) GetContainsSamples() bool {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *Sample) GetChoice_1() []*SampleChoice6 {
-	if x != nil {
-		return x.Choice_1
-	}
-	return nil
-}
-
-type SampleChoice5 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*SampleChoice5_ContainsSamples
-	//	*SampleChoice5_IsContainedInSample
-	Choice        isSampleChoice5_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SampleChoice5) Reset() {
-	*x = SampleChoice5{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SampleChoice5) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SampleChoice5) ProtoMessage() {}
-
-func (x *SampleChoice5) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SampleChoice5.ProtoReflect.Descriptor instead.
-func (*SampleChoice5) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *SampleChoice5) GetChoice() isSampleChoice5_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *SampleChoice5) GetContainsSamples() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*SampleChoice5_ContainsSamples); ok {
-			return x.ContainsSamples
-		}
+		return x.ContainsSamples
 	}
 	return false
 }
 
-func (x *SampleChoice5) GetIsContainedInSample() bool {
+func (x *Sample) GetIsContainedInSample() bool {
 	if x != nil {
-		if x, ok := x.Choice.(*SampleChoice5_IsContainedInSample); ok {
-			return x.IsContainedInSample
-		}
+		return x.IsContainedInSample
 	}
 	return false
 }
 
-type isSampleChoice5_Choice interface {
-	isSampleChoice5_Choice()
-}
-
-type SampleChoice5_ContainsSamples struct {
-	// @gotags: xml:"ContainsSamples"
-	ContainsSamples bool `protobuf:"varint,1,opt,name=contains_samples,json=containsSamples,proto3,oneof" xml:"ContainsSamples"`
-}
-
-type SampleChoice5_IsContainedInSample struct {
-	// @gotags: xml:"IsContainedInSample"
-	IsContainedInSample bool `protobuf:"varint,2,opt,name=is_contained_in_sample,json=isContainedInSample,proto3,oneof" xml:"IsContainedInSample"`
-}
-
-func (*SampleChoice5_ContainsSamples) isSampleChoice5_Choice() {}
-
-func (*SampleChoice5_IsContainedInSample) isSampleChoice5_Choice() {}
-
-type SampleChoice6 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*SampleChoice6_HostTimingOption
-	//	*SampleChoice6_SampleTimingOption
-	Choice        isSampleChoice6_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SampleChoice6) Reset() {
-	*x = SampleChoice6{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SampleChoice6) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SampleChoice6) ProtoMessage() {}
-
-func (x *SampleChoice6) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[59]
+func (x *Sample) GetHostTiming() []*Timing {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SampleChoice6.ProtoReflect.Descriptor instead.
-func (*SampleChoice6) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *SampleChoice6) GetChoice() isSampleChoice6_Choice {
-	if x != nil {
-		return x.Choice
+		return x.HostTiming
 	}
 	return nil
 }
 
-func (x *SampleChoice6) GetHostTimingOption() *SampleChoice6_Option1 {
+func (x *Sample) GetSampleTiming() []*Timing {
 	if x != nil {
-		if x, ok := x.Choice.(*SampleChoice6_HostTimingOption); ok {
-			return x.HostTimingOption
-		}
+		return x.SampleTiming
 	}
 	return nil
 }
-
-func (x *SampleChoice6) GetSampleTimingOption() *SampleChoice6_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*SampleChoice6_SampleTimingOption); ok {
-			return x.SampleTimingOption
-		}
-	}
-	return nil
-}
-
-type isSampleChoice6_Choice interface {
-	isSampleChoice6_Choice()
-}
-
-type SampleChoice6_HostTimingOption struct {
-	// @gotags: xml:"HostTiming"
-	HostTimingOption *SampleChoice6_Option1 `protobuf:"bytes,1,opt,name=host_timing_option,json=hostTimingOption,proto3,oneof" xml:"HostTiming"`
-}
-
-type SampleChoice6_SampleTimingOption struct {
-	// @gotags: xml:"SampleTiming"
-	SampleTimingOption *SampleChoice6_Option2 `protobuf:"bytes,2,opt,name=sample_timing_option,json=sampleTimingOption,proto3,oneof" xml:"SampleTiming"`
-}
-
-func (*SampleChoice6_HostTimingOption) isSampleChoice6_Choice() {}
-
-func (*SampleChoice6_SampleTimingOption) isSampleChoice6_Choice() {}
 
 type SampleFeature struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -5267,7 +4606,7 @@ type SampleFeature struct {
 
 func (x *SampleFeature) Reset() {
 	*x = SampleFeature{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[60]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5279,7 +4618,7 @@ func (x *SampleFeature) String() string {
 func (*SampleFeature) ProtoMessage() {}
 
 func (x *SampleFeature) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[60]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5292,7 +4631,7 @@ func (x *SampleFeature) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SampleFeature.ProtoReflect.Descriptor instead.
 func (*SampleFeature) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{60}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *SampleFeature) GetValue() string {
@@ -5323,7 +4662,7 @@ type SimilarRelease struct {
 
 func (x *SimilarRelease) Reset() {
 	*x = SimilarRelease{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[61]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5335,7 +4674,7 @@ func (x *SimilarRelease) String() string {
 func (*SimilarRelease) ProtoMessage() {}
 
 func (x *SimilarRelease) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[61]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5348,7 +4687,7 @@ func (x *SimilarRelease) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SimilarRelease.ProtoReflect.Descriptor instead.
 func (*SimilarRelease) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{61}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SimilarRelease) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5386,7 +4725,7 @@ type SimilarResource struct {
 
 func (x *SimilarResource) Reset() {
 	*x = SimilarResource{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[62]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5398,7 +4737,7 @@ func (x *SimilarResource) String() string {
 func (*SimilarResource) ProtoMessage() {}
 
 func (x *SimilarResource) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[62]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5411,7 +4750,7 @@ func (x *SimilarResource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SimilarResource.ProtoReflect.Descriptor instead.
 func (*SimilarResource) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{62}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *SimilarResource) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5449,7 +4788,7 @@ type SimilarWork struct {
 
 func (x *SimilarWork) Reset() {
 	*x = SimilarWork{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[63]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5461,7 +4800,7 @@ func (x *SimilarWork) String() string {
 func (*SimilarWork) ProtoMessage() {}
 
 func (x *SimilarWork) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[63]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5474,7 +4813,7 @@ func (x *SimilarWork) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SimilarWork.ProtoReflect.Descriptor instead.
 func (*SimilarWork) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{63}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SimilarWork) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5510,7 +4849,7 @@ type SubGenreCategory struct {
 
 func (x *SubGenreCategory) Reset() {
 	*x = SubGenreCategory{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[64]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5522,7 +4861,7 @@ func (x *SubGenreCategory) String() string {
 func (*SubGenreCategory) ProtoMessage() {}
 
 func (x *SubGenreCategory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[64]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5535,7 +4874,7 @@ func (x *SubGenreCategory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SubGenreCategory.ProtoReflect.Descriptor instead.
 func (*SubGenreCategory) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{64}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *SubGenreCategory) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5566,7 +4905,7 @@ type TempoValue struct {
 
 func (x *TempoValue) Reset() {
 	*x = TempoValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[65]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5578,7 +4917,7 @@ func (x *TempoValue) String() string {
 func (*TempoValue) ProtoMessage() {}
 
 func (x *TempoValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[65]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5591,7 +4930,7 @@ func (x *TempoValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TempoValue.ProtoReflect.Descriptor instead.
 func (*TempoValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{65}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *TempoValue) GetValue() string {
@@ -5635,7 +4974,7 @@ type Theme struct {
 
 func (x *Theme) Reset() {
 	*x = Theme{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[66]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5647,7 +4986,7 @@ func (x *Theme) String() string {
 func (*Theme) ProtoMessage() {}
 
 func (x *Theme) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[66]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5660,7 +4999,7 @@ func (x *Theme) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Theme.ProtoReflect.Descriptor instead.
 func (*Theme) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{66}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *Theme) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5719,7 +5058,7 @@ type ThemeValue struct {
 
 func (x *ThemeValue) Reset() {
 	*x = ThemeValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[67]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5731,7 +5070,7 @@ func (x *ThemeValue) String() string {
 func (*ThemeValue) ProtoMessage() {}
 
 func (x *ThemeValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[67]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5744,7 +5083,7 @@ func (x *ThemeValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ThemeValue.ProtoReflect.Descriptor instead.
 func (*ThemeValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{67}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *ThemeValue) GetValue() string {
@@ -5774,15 +5113,19 @@ type TimeSignature struct {
 	MetadataSourceReference []*MetadataSourceReference `protobuf:"bytes,1,rep,name=metadata_source_reference,json=metadataSourceReference,proto3" json:"metadata_source_reference,omitempty" xml:"MetadataSourceReference"`
 	// @gotags: xml:"Modulation"
 	Modulation []*TimeSignatureModulation `protobuf:"bytes,2,rep,name=modulation,proto3" json:"modulation,omitempty" xml:"Modulation"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *TimeSignatureChoice3 `protobuf:"bytes,3,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"Meter"
+	Meter *Meter `protobuf:"bytes,3,opt,name=meter,proto3" json:"meter,omitempty" xml:"Meter"`
+	// @gotags: xml:"NoMeterAvailable"
+	NoMeterAvailable bool `protobuf:"varint,4,opt,name=no_meter_available,json=noMeterAvailable,proto3" json:"no_meter_available,omitempty" xml:"NoMeterAvailable"`
+	// @gotags: xml:"TooManyTempi"
+	TooManyTempi  bool `protobuf:"varint,5,opt,name=too_many_tempi,json=tooManyTempi,proto3" json:"too_many_tempi,omitempty" xml:"TooManyTempi"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TimeSignature) Reset() {
 	*x = TimeSignature{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[68]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5794,7 +5137,7 @@ func (x *TimeSignature) String() string {
 func (*TimeSignature) ProtoMessage() {}
 
 func (x *TimeSignature) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[68]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5807,7 +5150,7 @@ func (x *TimeSignature) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TimeSignature.ProtoReflect.Descriptor instead.
 func (*TimeSignature) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{68}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *TimeSignature) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -5824,129 +5167,50 @@ func (x *TimeSignature) GetModulation() []*TimeSignatureModulation {
 	return nil
 }
 
-func (x *TimeSignature) GetChoice() *TimeSignatureChoice3 {
+func (x *TimeSignature) GetMeter() *Meter {
 	if x != nil {
-		return x.Choice
+		return x.Meter
 	}
 	return nil
 }
 
-type TimeSignatureChoice3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*TimeSignatureChoice3_Meter
-	//	*TimeSignatureChoice3_NoMeterAvailable
-	//	*TimeSignatureChoice3_TooManyTempi
-	Choice        isTimeSignatureChoice3_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TimeSignatureChoice3) Reset() {
-	*x = TimeSignatureChoice3{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TimeSignatureChoice3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TimeSignatureChoice3) ProtoMessage() {}
-
-func (x *TimeSignatureChoice3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[69]
+func (x *TimeSignature) GetNoMeterAvailable() bool {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TimeSignatureChoice3.ProtoReflect.Descriptor instead.
-func (*TimeSignatureChoice3) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *TimeSignatureChoice3) GetChoice() isTimeSignatureChoice3_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *TimeSignatureChoice3) GetMeter() *Meter {
-	if x != nil {
-		if x, ok := x.Choice.(*TimeSignatureChoice3_Meter); ok {
-			return x.Meter
-		}
-	}
-	return nil
-}
-
-func (x *TimeSignatureChoice3) GetNoMeterAvailable() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*TimeSignatureChoice3_NoMeterAvailable); ok {
-			return x.NoMeterAvailable
-		}
+		return x.NoMeterAvailable
 	}
 	return false
 }
 
-func (x *TimeSignatureChoice3) GetTooManyTempi() bool {
+func (x *TimeSignature) GetTooManyTempi() bool {
 	if x != nil {
-		if x, ok := x.Choice.(*TimeSignatureChoice3_TooManyTempi); ok {
-			return x.TooManyTempi
-		}
+		return x.TooManyTempi
 	}
 	return false
 }
-
-type isTimeSignatureChoice3_Choice interface {
-	isTimeSignatureChoice3_Choice()
-}
-
-type TimeSignatureChoice3_Meter struct {
-	// @gotags: xml:"Meter"
-	Meter *Meter `protobuf:"bytes,1,opt,name=meter,proto3,oneof" xml:"Meter"`
-}
-
-type TimeSignatureChoice3_NoMeterAvailable struct {
-	// @gotags: xml:"NoMeterAvailable"
-	NoMeterAvailable bool `protobuf:"varint,2,opt,name=no_meter_available,json=noMeterAvailable,proto3,oneof" xml:"NoMeterAvailable"`
-}
-
-type TimeSignatureChoice3_TooManyTempi struct {
-	// @gotags: xml:"TooManyTempi"
-	TooManyTempi bool `protobuf:"varint,3,opt,name=too_many_tempi,json=tooManyTempi,proto3,oneof" xml:"TooManyTempi"`
-}
-
-func (*TimeSignatureChoice3_Meter) isTimeSignatureChoice3_Choice() {}
-
-func (*TimeSignatureChoice3_NoMeterAvailable) isTimeSignatureChoice3_Choice() {}
-
-func (*TimeSignatureChoice3_TooManyTempi) isTimeSignatureChoice3_Choice() {}
 
 type TimeSignatureModulation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Value"
 	Value string `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty" xml:"Value"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *TimeSignatureModulationChoice2 `protobuf:"bytes,2,opt,name=choice,proto3" json:"choice,omitempty"`
-	// Choice wrapper for XSD choice within sequence
-	Choice_1      *TimeSignatureModulationChoice3 `protobuf:"bytes,3,opt,name=choice_1,json=choice1,proto3" json:"choice_1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// @gotags: xml:"StartPoint"
+	StartPoint string `protobuf:"bytes,2,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
+	// @gotags: xml:"EndPoint"
+	EndPoint string `protobuf:"bytes,3,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty" xml:"EndPoint"`
+	// @gotags: xml:"StartBar"
+	StartBar int32 `protobuf:"varint,4,opt,name=start_bar,json=startBar,proto3" json:"start_bar,omitempty" xml:"StartBar"`
+	// @gotags: xml:"EndBar"
+	EndBar int32 `protobuf:"varint,5,opt,name=end_bar,json=endBar,proto3" json:"end_bar,omitempty" xml:"EndBar"`
+	// @gotags: xml:"Meter"
+	Meter *Meter `protobuf:"bytes,6,opt,name=meter,proto3" json:"meter,omitempty" xml:"Meter"`
+	// @gotags: xml:"NoMeterAvailable"
+	NoMeterAvailable bool `protobuf:"varint,7,opt,name=no_meter_available,json=noMeterAvailable,proto3" json:"no_meter_available,omitempty" xml:"NoMeterAvailable"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TimeSignatureModulation) Reset() {
 	*x = TimeSignatureModulation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[70]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5958,7 +5222,7 @@ func (x *TimeSignatureModulation) String() string {
 func (*TimeSignatureModulation) ProtoMessage() {}
 
 func (x *TimeSignatureModulation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[70]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5971,7 +5235,7 @@ func (x *TimeSignatureModulation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TimeSignatureModulation.ProtoReflect.Descriptor instead.
 func (*TimeSignatureModulation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{70}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *TimeSignatureModulation) GetValue() string {
@@ -5981,185 +5245,47 @@ func (x *TimeSignatureModulation) GetValue() string {
 	return ""
 }
 
-func (x *TimeSignatureModulation) GetChoice() *TimeSignatureModulationChoice2 {
+func (x *TimeSignatureModulation) GetStartPoint() string {
 	if x != nil {
-		return x.Choice
+		return x.StartPoint
+	}
+	return ""
+}
+
+func (x *TimeSignatureModulation) GetEndPoint() string {
+	if x != nil {
+		return x.EndPoint
+	}
+	return ""
+}
+
+func (x *TimeSignatureModulation) GetStartBar() int32 {
+	if x != nil {
+		return x.StartBar
+	}
+	return 0
+}
+
+func (x *TimeSignatureModulation) GetEndBar() int32 {
+	if x != nil {
+		return x.EndBar
+	}
+	return 0
+}
+
+func (x *TimeSignatureModulation) GetMeter() *Meter {
+	if x != nil {
+		return x.Meter
 	}
 	return nil
 }
 
-func (x *TimeSignatureModulation) GetChoice_1() *TimeSignatureModulationChoice3 {
+func (x *TimeSignatureModulation) GetNoMeterAvailable() bool {
 	if x != nil {
-		return x.Choice_1
-	}
-	return nil
-}
-
-type TimeSignatureModulationChoice2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*TimeSignatureModulationChoice2_Sequence_1
-	//	*TimeSignatureModulationChoice2_Sequence_2
-	Choice        isTimeSignatureModulationChoice2_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TimeSignatureModulationChoice2) Reset() {
-	*x = TimeSignatureModulationChoice2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TimeSignatureModulationChoice2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TimeSignatureModulationChoice2) ProtoMessage() {}
-
-func (x *TimeSignatureModulationChoice2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TimeSignatureModulationChoice2.ProtoReflect.Descriptor instead.
-func (*TimeSignatureModulationChoice2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *TimeSignatureModulationChoice2) GetChoice() isTimeSignatureModulationChoice2_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *TimeSignatureModulationChoice2) GetSequence_1() *TimeSignatureModulationChoice2_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*TimeSignatureModulationChoice2_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-func (x *TimeSignatureModulationChoice2) GetSequence_2() *TimeSignatureModulationChoice2_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*TimeSignatureModulationChoice2_Sequence_2); ok {
-			return x.Sequence_2
-		}
-	}
-	return nil
-}
-
-type isTimeSignatureModulationChoice2_Choice interface {
-	isTimeSignatureModulationChoice2_Choice()
-}
-
-type TimeSignatureModulationChoice2_Sequence_1 struct {
-	Sequence_1 *TimeSignatureModulationChoice2_Option1 `protobuf:"bytes,1,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-type TimeSignatureModulationChoice2_Sequence_2 struct {
-	Sequence_2 *TimeSignatureModulationChoice2_Option2 `protobuf:"bytes,2,opt,name=sequence_2,json=sequence2,proto3,oneof"`
-}
-
-func (*TimeSignatureModulationChoice2_Sequence_1) isTimeSignatureModulationChoice2_Choice() {}
-
-func (*TimeSignatureModulationChoice2_Sequence_2) isTimeSignatureModulationChoice2_Choice() {}
-
-type TimeSignatureModulationChoice3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*TimeSignatureModulationChoice3_Meter
-	//	*TimeSignatureModulationChoice3_NoMeterAvailable
-	Choice        isTimeSignatureModulationChoice3_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TimeSignatureModulationChoice3) Reset() {
-	*x = TimeSignatureModulationChoice3{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TimeSignatureModulationChoice3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TimeSignatureModulationChoice3) ProtoMessage() {}
-
-func (x *TimeSignatureModulationChoice3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TimeSignatureModulationChoice3.ProtoReflect.Descriptor instead.
-func (*TimeSignatureModulationChoice3) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *TimeSignatureModulationChoice3) GetChoice() isTimeSignatureModulationChoice3_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *TimeSignatureModulationChoice3) GetMeter() *Meter {
-	if x != nil {
-		if x, ok := x.Choice.(*TimeSignatureModulationChoice3_Meter); ok {
-			return x.Meter
-		}
-	}
-	return nil
-}
-
-func (x *TimeSignatureModulationChoice3) GetNoMeterAvailable() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*TimeSignatureModulationChoice3_NoMeterAvailable); ok {
-			return x.NoMeterAvailable
-		}
+		return x.NoMeterAvailable
 	}
 	return false
 }
-
-type isTimeSignatureModulationChoice3_Choice interface {
-	isTimeSignatureModulationChoice3_Choice()
-}
-
-type TimeSignatureModulationChoice3_Meter struct {
-	// @gotags: xml:"Meter"
-	Meter *Meter `protobuf:"bytes,1,opt,name=meter,proto3,oneof" xml:"Meter"`
-}
-
-type TimeSignatureModulationChoice3_NoMeterAvailable struct {
-	// @gotags: xml:"NoMeterAvailable"
-	NoMeterAvailable bool `protobuf:"varint,2,opt,name=no_meter_available,json=noMeterAvailable,proto3,oneof" xml:"NoMeterAvailable"`
-}
-
-func (*TimeSignatureModulationChoice3_Meter) isTimeSignatureModulationChoice3_Choice() {}
-
-func (*TimeSignatureModulationChoice3_NoMeterAvailable) isTimeSignatureModulationChoice3_Choice() {}
 
 type Usage struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -6173,15 +5299,17 @@ type Usage struct {
 	SequenceNumber int32 `protobuf:"varint,4,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber"`
 	// @gotags: xml:"RelevantResource"
 	RelevantResource []*RelevantResource `protobuf:"bytes,5,rep,name=relevant_resource,json=relevantResource,proto3" json:"relevant_resource,omitempty" xml:"RelevantResource"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *UsageChoice6 `protobuf:"bytes,6,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"UsageDate"
+	UsageDate []*EventDate `protobuf:"bytes,6,rep,name=usage_date,json=usageDate,proto3" json:"usage_date,omitempty" xml:"UsageDate"`
+	// @gotags: xml:"UsagePeriod"
+	UsagePeriod   []*UsagePeriod `protobuf:"bytes,7,rep,name=usage_period,json=usagePeriod,proto3" json:"usage_period,omitempty" xml:"UsagePeriod"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Usage) Reset() {
 	*x = Usage{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[73]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6193,7 +5321,7 @@ func (x *Usage) String() string {
 func (*Usage) ProtoMessage() {}
 
 func (x *Usage) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[73]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6206,7 +5334,7 @@ func (x *Usage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Usage.ProtoReflect.Descriptor instead.
 func (*Usage) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{73}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *Usage) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -6244,96 +5372,19 @@ func (x *Usage) GetRelevantResource() []*RelevantResource {
 	return nil
 }
 
-func (x *Usage) GetChoice() *UsageChoice6 {
+func (x *Usage) GetUsageDate() []*EventDate {
 	if x != nil {
-		return x.Choice
+		return x.UsageDate
 	}
 	return nil
 }
 
-type UsageChoice6 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*UsageChoice6_UsageDateOption
-	//	*UsageChoice6_UsagePeriodOption
-	Choice        isUsageChoice6_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UsageChoice6) Reset() {
-	*x = UsageChoice6{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UsageChoice6) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UsageChoice6) ProtoMessage() {}
-
-func (x *UsageChoice6) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[74]
+func (x *Usage) GetUsagePeriod() []*UsagePeriod {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UsageChoice6.ProtoReflect.Descriptor instead.
-func (*UsageChoice6) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *UsageChoice6) GetChoice() isUsageChoice6_Choice {
-	if x != nil {
-		return x.Choice
+		return x.UsagePeriod
 	}
 	return nil
 }
-
-func (x *UsageChoice6) GetUsageDateOption() *UsageChoice6_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*UsageChoice6_UsageDateOption); ok {
-			return x.UsageDateOption
-		}
-	}
-	return nil
-}
-
-func (x *UsageChoice6) GetUsagePeriodOption() *UsageChoice6_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*UsageChoice6_UsagePeriodOption); ok {
-			return x.UsagePeriodOption
-		}
-	}
-	return nil
-}
-
-type isUsageChoice6_Choice interface {
-	isUsageChoice6_Choice()
-}
-
-type UsageChoice6_UsageDateOption struct {
-	// @gotags: xml:"UsageDate"
-	UsageDateOption *UsageChoice6_Option1 `protobuf:"bytes,1,opt,name=usage_date_option,json=usageDateOption,proto3,oneof" xml:"UsageDate"`
-}
-
-type UsageChoice6_UsagePeriodOption struct {
-	// @gotags: xml:"UsagePeriod"
-	UsagePeriodOption *UsageChoice6_Option2 `protobuf:"bytes,2,opt,name=usage_period_option,json=usagePeriodOption,proto3,oneof" xml:"UsagePeriod"`
-}
-
-func (*UsageChoice6_UsageDateOption) isUsageChoice6_Choice() {}
-
-func (*UsageChoice6_UsagePeriodOption) isUsageChoice6_Choice() {}
 
 type UsagePeriod struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -6347,7 +5398,7 @@ type UsagePeriod struct {
 
 func (x *UsagePeriod) Reset() {
 	*x = UsagePeriod{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[75]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6359,7 +5410,7 @@ func (x *UsagePeriod) String() string {
 func (*UsagePeriod) ProtoMessage() {}
 
 func (x *UsagePeriod) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[75]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6372,7 +5423,7 @@ func (x *UsagePeriod) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UsagePeriod.ProtoReflect.Descriptor instead.
 func (*UsagePeriod) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{75}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *UsagePeriod) GetStartDate() *EventDateWithoutFlags {
@@ -6401,7 +5452,7 @@ type UsedMusicalWork struct {
 
 func (x *UsedMusicalWork) Reset() {
 	*x = UsedMusicalWork{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[76]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6413,7 +5464,7 @@ func (x *UsedMusicalWork) String() string {
 func (*UsedMusicalWork) ProtoMessage() {}
 
 func (x *UsedMusicalWork) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[76]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6426,7 +5477,7 @@ func (x *UsedMusicalWork) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UsedMusicalWork.ProtoReflect.Descriptor instead.
 func (*UsedMusicalWork) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{76}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *UsedMusicalWork) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -6467,7 +5518,7 @@ type WorkHierarchy struct {
 
 func (x *WorkHierarchy) Reset() {
 	*x = WorkHierarchy{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[77]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6479,7 +5530,7 @@ func (x *WorkHierarchy) String() string {
 func (*WorkHierarchy) ProtoMessage() {}
 
 func (x *WorkHierarchy) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[77]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6492,7 +5543,7 @@ func (x *WorkHierarchy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkHierarchy.ProtoReflect.Descriptor instead.
 func (*WorkHierarchy) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{77}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *WorkHierarchy) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -6613,7 +5664,7 @@ type WorkInformation struct {
 
 func (x *WorkInformation) Reset() {
 	*x = WorkInformation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[78]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6625,7 +5676,7 @@ func (x *WorkInformation) String() string {
 func (*WorkInformation) ProtoMessage() {}
 
 func (x *WorkInformation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[78]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6638,7 +5689,7 @@ func (x *WorkInformation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkInformation.ProtoReflect.Descriptor instead.
 func (*WorkInformation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{78}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *WorkInformation) GetMusicalWorkReference() string {
@@ -6840,7 +5891,7 @@ type WorkInformationList struct {
 
 func (x *WorkInformationList) Reset() {
 	*x = WorkInformationList{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[79]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6852,7 +5903,7 @@ func (x *WorkInformationList) String() string {
 func (*WorkInformationList) ProtoMessage() {}
 
 func (x *WorkInformationList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[79]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6865,7 +5916,7 @@ func (x *WorkInformationList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkInformationList.ProtoReflect.Descriptor instead.
 func (*WorkInformationList) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{79}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *WorkInformationList) GetWorkInformation() []*WorkInformation {
@@ -6889,7 +5940,7 @@ type WorkSummary struct {
 
 func (x *WorkSummary) Reset() {
 	*x = WorkSummary{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[80]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6901,7 +5952,7 @@ func (x *WorkSummary) String() string {
 func (*WorkSummary) ProtoMessage() {}
 
 func (x *WorkSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[80]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6914,7 +5965,7 @@ func (x *WorkSummary) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkSummary.ProtoReflect.Descriptor instead.
 func (*WorkSummary) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{80}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *WorkSummary) GetMusicalWorkId() *MusicalWorkIdWithoutFlag {
@@ -6952,7 +6003,7 @@ type Category struct {
 
 func (x *Category) Reset() {
 	*x = Category{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[81]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6964,7 +6015,7 @@ func (x *Category) String() string {
 func (*Category) ProtoMessage() {}
 
 func (x *Category) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[81]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6977,7 +6028,7 @@ func (x *Category) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Category.ProtoReflect.Descriptor instead.
 func (*Category) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{81}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *Category) GetTerm() string {
@@ -7013,7 +6064,7 @@ type Content struct {
 
 func (x *Content) Reset() {
 	*x = Content{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[82]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7025,7 +6076,7 @@ func (x *Content) String() string {
 func (*Content) ProtoMessage() {}
 
 func (x *Content) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[82]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7038,7 +6089,7 @@ func (x *Content) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Content.ProtoReflect.Descriptor instead.
 func (*Content) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{82}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *Content) GetType() string {
@@ -7065,7 +6116,7 @@ type DateTime struct {
 
 func (x *DateTime) Reset() {
 	*x = DateTime{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[83]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7077,7 +6128,7 @@ func (x *DateTime) String() string {
 func (*DateTime) ProtoMessage() {}
 
 func (x *DateTime) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[83]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7090,7 +6141,7 @@ func (x *DateTime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DateTime.ProtoReflect.Descriptor instead.
 func (*DateTime) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{83}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *DateTime) GetValue() string {
@@ -7114,7 +6165,7 @@ type Generator struct {
 
 func (x *Generator) Reset() {
 	*x = Generator{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[84]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7126,7 +6177,7 @@ func (x *Generator) String() string {
 func (*Generator) ProtoMessage() {}
 
 func (x *Generator) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[84]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7139,7 +6190,7 @@ func (x *Generator) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Generator.ProtoReflect.Descriptor instead.
 func (*Generator) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{84}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *Generator) GetValue() string {
@@ -7173,7 +6224,7 @@ type Icon struct {
 
 func (x *Icon) Reset() {
 	*x = Icon{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[85]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7185,7 +6236,7 @@ func (x *Icon) String() string {
 func (*Icon) ProtoMessage() {}
 
 func (x *Icon) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[85]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7198,7 +6249,7 @@ func (x *Icon) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Icon.ProtoReflect.Descriptor instead.
 func (*Icon) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{85}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *Icon) GetValue() string {
@@ -7218,7 +6269,7 @@ type Id struct {
 
 func (x *Id) Reset() {
 	*x = Id{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[86]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7230,7 +6281,7 @@ func (x *Id) String() string {
 func (*Id) ProtoMessage() {}
 
 func (x *Id) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[86]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7243,7 +6294,7 @@ func (x *Id) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Id.ProtoReflect.Descriptor instead.
 func (*Id) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{86}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *Id) GetValue() string {
@@ -7273,7 +6324,7 @@ type Link struct {
 
 func (x *Link) Reset() {
 	*x = Link{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[87]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7285,7 +6336,7 @@ func (x *Link) String() string {
 func (*Link) ProtoMessage() {}
 
 func (x *Link) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[87]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7298,7 +6349,7 @@ func (x *Link) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Link.ProtoReflect.Descriptor instead.
 func (*Link) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{87}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *Link) GetHref() string {
@@ -7353,7 +6404,7 @@ type Logo struct {
 
 func (x *Logo) Reset() {
 	*x = Logo{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[88]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7365,7 +6416,7 @@ func (x *Logo) String() string {
 func (*Logo) ProtoMessage() {}
 
 func (x *Logo) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[88]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7378,7 +6429,7 @@ func (x *Logo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Logo.ProtoReflect.Descriptor instead.
 func (*Logo) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{88}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *Logo) GetValue() string {
@@ -7390,15 +6441,19 @@ func (x *Logo) GetValue() string {
 
 type Person struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        []*PersonChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"name"
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" xml:"name"`
+	// @gotags: xml:"uri"
+	Uri *URI `protobuf:"bytes,2,opt,name=uri,proto3" json:"uri,omitempty" xml:"uri"`
+	// @gotags: xml:"email"
+	Email         string `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty" xml:"email"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Person) Reset() {
 	*x = Person{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[89]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7410,7 +6465,7 @@ func (x *Person) String() string {
 func (*Person) ProtoMessage() {}
 
 func (x *Person) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[89]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7423,128 +6478,63 @@ func (x *Person) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Person.ProtoReflect.Descriptor instead.
 func (*Person) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{89}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{78}
 }
 
-func (x *Person) GetChoice() []*PersonChoice {
+func (x *Person) GetName() string {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-type PersonChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PersonChoice_Name
-	//	*PersonChoice_Uri
-	//	*PersonChoice_Email
-	Choice        isPersonChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PersonChoice) Reset() {
-	*x = PersonChoice{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PersonChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PersonChoice) ProtoMessage() {}
-
-func (x *PersonChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PersonChoice.ProtoReflect.Descriptor instead.
-func (*PersonChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *PersonChoice) GetChoice() isPersonChoice_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *PersonChoice) GetName() string {
-	if x != nil {
-		if x, ok := x.Choice.(*PersonChoice_Name); ok {
-			return x.Name
-		}
+		return x.Name
 	}
 	return ""
 }
 
-func (x *PersonChoice) GetUri() *URI {
+func (x *Person) GetUri() *URI {
 	if x != nil {
-		if x, ok := x.Choice.(*PersonChoice_Uri); ok {
-			return x.Uri
-		}
+		return x.Uri
 	}
 	return nil
 }
 
-func (x *PersonChoice) GetEmail() string {
+func (x *Person) GetEmail() string {
 	if x != nil {
-		if x, ok := x.Choice.(*PersonChoice_Email); ok {
-			return x.Email
-		}
+		return x.Email
 	}
 	return ""
 }
-
-type isPersonChoice_Choice interface {
-	isPersonChoice_Choice()
-}
-
-type PersonChoice_Name struct {
-	// @gotags: xml:"name"
-	Name string `protobuf:"bytes,1,opt,name=name,proto3,oneof" xml:"name"`
-}
-
-type PersonChoice_Uri struct {
-	// @gotags: xml:"uri"
-	Uri *URI `protobuf:"bytes,2,opt,name=uri,proto3,oneof" xml:"uri"`
-}
-
-type PersonChoice_Email struct {
-	// @gotags: xml:"email"
-	Email string `protobuf:"bytes,3,opt,name=email,proto3,oneof" xml:"email"`
-}
-
-func (*PersonChoice_Name) isPersonChoice_Choice() {}
-
-func (*PersonChoice_Uri) isPersonChoice_Choice() {}
-
-func (*PersonChoice_Email) isPersonChoice_Choice() {}
 
 type Source struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        []*SourceChoice `protobuf:"bytes,1,rep,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"author"
+	Author []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
+	// @gotags: xml:"category"
+	Category []*Category `protobuf:"bytes,2,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
+	// @gotags: xml:"contributor"
+	Contributor []*Person `protobuf:"bytes,3,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
+	// @gotags: xml:"generator"
+	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3" json:"generator,omitempty" xml:"generator"`
+	// @gotags: xml:"icon"
+	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3" json:"icon,omitempty" xml:"icon"`
+	// @gotags: xml:"id"
+	Id *Id `protobuf:"bytes,6,opt,name=id,proto3" json:"id,omitempty" xml:"id"`
+	// @gotags: xml:"link"
+	Link []*Link `protobuf:"bytes,7,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
+	// @gotags: xml:"logo"
+	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3" json:"logo,omitempty" xml:"logo"`
+	// @gotags: xml:"rights"
+	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3" json:"rights,omitempty" xml:"rights"`
+	// @gotags: xml:"subtitle"
+	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3" json:"subtitle,omitempty" xml:"subtitle"`
+	// @gotags: xml:"title"
+	Title *Text `protobuf:"bytes,11,opt,name=title,proto3" json:"title,omitempty" xml:"title"`
+	// @gotags: xml:"updated"
+	Updated       *DateTime `protobuf:"bytes,12,opt,name=updated,proto3" json:"updated,omitempty" xml:"updated"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Source) Reset() {
 	*x = Source{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[91]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7556,7 +6546,7 @@ func (x *Source) String() string {
 func (*Source) ProtoMessage() {}
 
 func (x *Source) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[91]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7569,269 +6559,92 @@ func (x *Source) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Source.ProtoReflect.Descriptor instead.
 func (*Source) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{91}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{79}
 }
 
-func (x *Source) GetChoice() []*SourceChoice {
+func (x *Source) GetAuthor() []*Person {
 	if x != nil {
-		return x.Choice
+		return x.Author
 	}
 	return nil
 }
 
-type SourceChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*SourceChoice_AuthorOption
-	//	*SourceChoice_CategoryOption
-	//	*SourceChoice_ContributorOption
-	//	*SourceChoice_Generator
-	//	*SourceChoice_Icon
-	//	*SourceChoice_Id
-	//	*SourceChoice_LinkOption
-	//	*SourceChoice_Logo
-	//	*SourceChoice_Rights
-	//	*SourceChoice_Subtitle
-	//	*SourceChoice_Title
-	//	*SourceChoice_Updated
-	Choice        isSourceChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SourceChoice) Reset() {
-	*x = SourceChoice{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SourceChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SourceChoice) ProtoMessage() {}
-
-func (x *SourceChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[92]
+func (x *Source) GetCategory() []*Category {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SourceChoice.ProtoReflect.Descriptor instead.
-func (*SourceChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *SourceChoice) GetChoice() isSourceChoice_Choice {
-	if x != nil {
-		return x.Choice
+		return x.Category
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetAuthorOption() *SourceChoice_Option1 {
+func (x *Source) GetContributor() []*Person {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_AuthorOption); ok {
-			return x.AuthorOption
-		}
+		return x.Contributor
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetCategoryOption() *SourceChoice_Option2 {
+func (x *Source) GetGenerator() *Generator {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_CategoryOption); ok {
-			return x.CategoryOption
-		}
+		return x.Generator
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetContributorOption() *SourceChoice_Option3 {
+func (x *Source) GetIcon() *Icon {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_ContributorOption); ok {
-			return x.ContributorOption
-		}
+		return x.Icon
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetGenerator() *Generator {
+func (x *Source) GetId() *Id {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Generator); ok {
-			return x.Generator
-		}
+		return x.Id
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetIcon() *Icon {
+func (x *Source) GetLink() []*Link {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Icon); ok {
-			return x.Icon
-		}
+		return x.Link
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetId() *Id {
+func (x *Source) GetLogo() *Logo {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Id); ok {
-			return x.Id
-		}
+		return x.Logo
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetLinkOption() *SourceChoice_Option4 {
+func (x *Source) GetRights() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_LinkOption); ok {
-			return x.LinkOption
-		}
+		return x.Rights
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetLogo() *Logo {
+func (x *Source) GetSubtitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Logo); ok {
-			return x.Logo
-		}
+		return x.Subtitle
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetRights() *Text {
+func (x *Source) GetTitle() *Text {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Rights); ok {
-			return x.Rights
-		}
+		return x.Title
 	}
 	return nil
 }
 
-func (x *SourceChoice) GetSubtitle() *Text {
+func (x *Source) GetUpdated() *DateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Subtitle); ok {
-			return x.Subtitle
-		}
+		return x.Updated
 	}
 	return nil
 }
-
-func (x *SourceChoice) GetTitle() *Text {
-	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Title); ok {
-			return x.Title
-		}
-	}
-	return nil
-}
-
-func (x *SourceChoice) GetUpdated() *DateTime {
-	if x != nil {
-		if x, ok := x.Choice.(*SourceChoice_Updated); ok {
-			return x.Updated
-		}
-	}
-	return nil
-}
-
-type isSourceChoice_Choice interface {
-	isSourceChoice_Choice()
-}
-
-type SourceChoice_AuthorOption struct {
-	// @gotags: xml:"author"
-	AuthorOption *SourceChoice_Option1 `protobuf:"bytes,1,opt,name=author_option,json=authorOption,proto3,oneof" xml:"author"`
-}
-
-type SourceChoice_CategoryOption struct {
-	// @gotags: xml:"category"
-	CategoryOption *SourceChoice_Option2 `protobuf:"bytes,2,opt,name=category_option,json=categoryOption,proto3,oneof" xml:"category"`
-}
-
-type SourceChoice_ContributorOption struct {
-	// @gotags: xml:"contributor"
-	ContributorOption *SourceChoice_Option3 `protobuf:"bytes,3,opt,name=contributor_option,json=contributorOption,proto3,oneof" xml:"contributor"`
-}
-
-type SourceChoice_Generator struct {
-	// @gotags: xml:"generator"
-	Generator *Generator `protobuf:"bytes,4,opt,name=generator,proto3,oneof" xml:"generator"`
-}
-
-type SourceChoice_Icon struct {
-	// @gotags: xml:"icon"
-	Icon *Icon `protobuf:"bytes,5,opt,name=icon,proto3,oneof" xml:"icon"`
-}
-
-type SourceChoice_Id struct {
-	// @gotags: xml:"id"
-	Id *Id `protobuf:"bytes,6,opt,name=id,proto3,oneof" xml:"id"`
-}
-
-type SourceChoice_LinkOption struct {
-	// @gotags: xml:"link"
-	LinkOption *SourceChoice_Option4 `protobuf:"bytes,7,opt,name=link_option,json=linkOption,proto3,oneof" xml:"link"`
-}
-
-type SourceChoice_Logo struct {
-	// @gotags: xml:"logo"
-	Logo *Logo `protobuf:"bytes,8,opt,name=logo,proto3,oneof" xml:"logo"`
-}
-
-type SourceChoice_Rights struct {
-	// @gotags: xml:"rights"
-	Rights *Text `protobuf:"bytes,9,opt,name=rights,proto3,oneof" xml:"rights"`
-}
-
-type SourceChoice_Subtitle struct {
-	// @gotags: xml:"subtitle"
-	Subtitle *Text `protobuf:"bytes,10,opt,name=subtitle,proto3,oneof" xml:"subtitle"`
-}
-
-type SourceChoice_Title struct {
-	// @gotags: xml:"title"
-	Title *Text `protobuf:"bytes,11,opt,name=title,proto3,oneof" xml:"title"`
-}
-
-type SourceChoice_Updated struct {
-	// @gotags: xml:"updated"
-	Updated *DateTime `protobuf:"bytes,12,opt,name=updated,proto3,oneof" xml:"updated"`
-}
-
-func (*SourceChoice_AuthorOption) isSourceChoice_Choice() {}
-
-func (*SourceChoice_CategoryOption) isSourceChoice_Choice() {}
-
-func (*SourceChoice_ContributorOption) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Generator) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Icon) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Id) isSourceChoice_Choice() {}
-
-func (*SourceChoice_LinkOption) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Logo) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Rights) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Subtitle) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Title) isSourceChoice_Choice() {}
-
-func (*SourceChoice_Updated) isSourceChoice_Choice() {}
 
 type Text struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -7843,7 +6656,7 @@ type Text struct {
 
 func (x *Text) Reset() {
 	*x = Text{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[93]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7855,7 +6668,7 @@ func (x *Text) String() string {
 func (*Text) ProtoMessage() {}
 
 func (x *Text) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[93]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7868,7 +6681,7 @@ func (x *Text) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Text.ProtoReflect.Descriptor instead.
 func (*Text) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{93}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *Text) GetType() string {
@@ -7888,7 +6701,7 @@ type URI struct {
 
 func (x *URI) Reset() {
 	*x = URI{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[94]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7900,7 +6713,7 @@ func (x *URI) String() string {
 func (*URI) ProtoMessage() {}
 
 func (x *URI) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[94]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7913,7 +6726,7 @@ func (x *URI) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use URI.ProtoReflect.Descriptor instead.
 func (*URI) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{94}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *URI) GetValue() string {
@@ -7935,7 +6748,7 @@ type AllTerritoryCode struct {
 
 func (x *AllTerritoryCode) Reset() {
 	*x = AllTerritoryCode{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[95]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7947,7 +6760,7 @@ func (x *AllTerritoryCode) String() string {
 func (*AllTerritoryCode) ProtoMessage() {}
 
 func (x *AllTerritoryCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[95]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7960,7 +6773,7 @@ func (x *AllTerritoryCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AllTerritoryCode.ProtoReflect.Descriptor instead.
 func (*AllTerritoryCode) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{95}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *AllTerritoryCode) GetValue() string {
@@ -7991,7 +6804,7 @@ type ArtistTypeValue struct {
 
 func (x *ArtistTypeValue) Reset() {
 	*x = ArtistTypeValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[96]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8003,7 +6816,7 @@ func (x *ArtistTypeValue) String() string {
 func (*ArtistTypeValue) ProtoMessage() {}
 
 func (x *ArtistTypeValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[96]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8016,7 +6829,7 @@ func (x *ArtistTypeValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ArtistTypeValue.ProtoReflect.Descriptor instead.
 func (*ArtistTypeValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{96}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *ArtistTypeValue) GetValue() string {
@@ -8064,7 +6877,7 @@ type ArtisticInfluence struct {
 
 func (x *ArtisticInfluence) Reset() {
 	*x = ArtisticInfluence{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[97]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8076,7 +6889,7 @@ func (x *ArtisticInfluence) String() string {
 func (*ArtisticInfluence) ProtoMessage() {}
 
 func (x *ArtisticInfluence) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[97]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8089,7 +6902,7 @@ func (x *ArtisticInfluence) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ArtisticInfluence.ProtoReflect.Descriptor instead.
 func (*ArtisticInfluence) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{97}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *ArtisticInfluence) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -8170,7 +6983,7 @@ type Award struct {
 
 func (x *Award) Reset() {
 	*x = Award{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[98]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8182,7 +6995,7 @@ func (x *Award) String() string {
 func (*Award) ProtoMessage() {}
 
 func (x *Award) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[98]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8195,7 +7008,7 @@ func (x *Award) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Award.ProtoReflect.Descriptor instead.
 func (*Award) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{98}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *Award) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -8259,7 +7072,7 @@ type CatalogNumber struct {
 
 func (x *CatalogNumber) Reset() {
 	*x = CatalogNumber{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[99]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8271,7 +7084,7 @@ func (x *CatalogNumber) String() string {
 func (*CatalogNumber) ProtoMessage() {}
 
 func (x *CatalogNumber) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[99]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8284,7 +7097,7 @@ func (x *CatalogNumber) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CatalogNumber.ProtoReflect.Descriptor instead.
 func (*CatalogNumber) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{99}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *CatalogNumber) GetValue() string {
@@ -8317,7 +7130,7 @@ type ChartEntry struct {
 
 func (x *ChartEntry) Reset() {
 	*x = ChartEntry{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[100]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8329,7 +7142,7 @@ func (x *ChartEntry) String() string {
 func (*ChartEntry) ProtoMessage() {}
 
 func (x *ChartEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[100]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8342,7 +7155,7 @@ func (x *ChartEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChartEntry.ProtoReflect.Descriptor instead.
 func (*ChartEntry) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{100}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *ChartEntry) GetPosition() int32 {
@@ -8389,7 +7202,7 @@ type ClassicalPeriod struct {
 
 func (x *ClassicalPeriod) Reset() {
 	*x = ClassicalPeriod{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[101]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8401,7 +7214,7 @@ func (x *ClassicalPeriod) String() string {
 func (*ClassicalPeriod) ProtoMessage() {}
 
 func (x *ClassicalPeriod) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[101]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8414,7 +7227,7 @@ func (x *ClassicalPeriod) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClassicalPeriod.ProtoReflect.Descriptor instead.
 func (*ClassicalPeriod) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{101}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *ClassicalPeriod) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -8465,7 +7278,7 @@ type CommentaryNote struct {
 
 func (x *CommentaryNote) Reset() {
 	*x = CommentaryNote{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[102]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8477,7 +7290,7 @@ func (x *CommentaryNote) String() string {
 func (*CommentaryNote) ProtoMessage() {}
 
 func (x *CommentaryNote) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[102]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8490,7 +7303,7 @@ func (x *CommentaryNote) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommentaryNote.ProtoReflect.Descriptor instead.
 func (*CommentaryNote) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{102}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *CommentaryNote) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -8549,7 +7362,7 @@ type CommentaryNoteType struct {
 
 func (x *CommentaryNoteType) Reset() {
 	*x = CommentaryNoteType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[103]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8561,7 +7374,7 @@ func (x *CommentaryNoteType) String() string {
 func (*CommentaryNoteType) ProtoMessage() {}
 
 func (x *CommentaryNoteType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[103]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8574,7 +7387,7 @@ func (x *CommentaryNoteType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommentaryNoteType.ProtoReflect.Descriptor instead.
 func (*CommentaryNoteType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{103}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *CommentaryNoteType) GetValue() string {
@@ -8610,7 +7423,7 @@ type CurrentTerritoryCode struct {
 
 func (x *CurrentTerritoryCode) Reset() {
 	*x = CurrentTerritoryCode{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[104]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8622,7 +7435,7 @@ func (x *CurrentTerritoryCode) String() string {
 func (*CurrentTerritoryCode) ProtoMessage() {}
 
 func (x *CurrentTerritoryCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[104]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8635,7 +7448,7 @@ func (x *CurrentTerritoryCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CurrentTerritoryCode.ProtoReflect.Descriptor instead.
 func (*CurrentTerritoryCode) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{104}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *CurrentTerritoryCode) GetValue() string {
@@ -8664,7 +7477,7 @@ type Date struct {
 
 func (x *Date) Reset() {
 	*x = Date{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[105]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8676,7 +7489,7 @@ func (x *Date) String() string {
 func (*Date) ProtoMessage() {}
 
 func (x *Date) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[105]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8689,7 +7502,7 @@ func (x *Date) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Date.ProtoReflect.Descriptor instead.
 func (*Date) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{105}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *Date) GetValue() string {
@@ -8724,7 +7537,7 @@ type DetailedHashSum struct {
 
 func (x *DetailedHashSum) Reset() {
 	*x = DetailedHashSum{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[106]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8736,7 +7549,7 @@ func (x *DetailedHashSum) String() string {
 func (*DetailedHashSum) ProtoMessage() {}
 
 func (x *DetailedHashSum) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[106]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8749,7 +7562,7 @@ func (x *DetailedHashSum) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedHashSum.ProtoReflect.Descriptor instead.
 func (*DetailedHashSum) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{106}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *DetailedHashSum) GetAlgorithm() *HashSumAlgorithmType {
@@ -8807,7 +7620,7 @@ type DetailedPartyId struct {
 
 func (x *DetailedPartyId) Reset() {
 	*x = DetailedPartyId{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[107]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8819,7 +7632,7 @@ func (x *DetailedPartyId) String() string {
 func (*DetailedPartyId) ProtoMessage() {}
 
 func (x *DetailedPartyId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[107]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8832,7 +7645,7 @@ func (x *DetailedPartyId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedPartyId.ProtoReflect.Descriptor instead.
 func (*DetailedPartyId) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{107}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *DetailedPartyId) GetISNI() string {
@@ -8893,7 +7706,7 @@ type DisplayArtistNameWithDefault struct {
 
 func (x *DisplayArtistNameWithDefault) Reset() {
 	*x = DisplayArtistNameWithDefault{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[108]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8905,7 +7718,7 @@ func (x *DisplayArtistNameWithDefault) String() string {
 func (*DisplayArtistNameWithDefault) ProtoMessage() {}
 
 func (x *DisplayArtistNameWithDefault) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[108]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8918,7 +7731,7 @@ func (x *DisplayArtistNameWithDefault) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayArtistNameWithDefault.ProtoReflect.Descriptor instead.
 func (*DisplayArtistNameWithDefault) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{108}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *DisplayArtistNameWithDefault) GetValue() string {
@@ -8961,7 +7774,7 @@ type DisplayArtistNameWithPronunciation struct {
 
 func (x *DisplayArtistNameWithPronunciation) Reset() {
 	*x = DisplayArtistNameWithPronunciation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[109]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8973,7 +7786,7 @@ func (x *DisplayArtistNameWithPronunciation) String() string {
 func (*DisplayArtistNameWithPronunciation) ProtoMessage() {}
 
 func (x *DisplayArtistNameWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[109]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8986,7 +7799,7 @@ func (x *DisplayArtistNameWithPronunciation) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use DisplayArtistNameWithPronunciation.ProtoReflect.Descriptor instead.
 func (*DisplayArtistNameWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{109}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *DisplayArtistNameWithPronunciation) GetName() *DisplayArtistNameWithDefault {
@@ -9019,7 +7832,7 @@ type Duration struct {
 
 func (x *Duration) Reset() {
 	*x = Duration{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[110]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9031,7 +7844,7 @@ func (x *Duration) String() string {
 func (*Duration) ProtoMessage() {}
 
 func (x *Duration) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[110]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9044,7 +7857,7 @@ func (x *Duration) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Duration.ProtoReflect.Descriptor instead.
 func (*Duration) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{110}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *Duration) GetValue() string {
@@ -9099,7 +7912,7 @@ type Epoch struct {
 
 func (x *Epoch) Reset() {
 	*x = Epoch{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[111]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9111,7 +7924,7 @@ func (x *Epoch) String() string {
 func (*Epoch) ProtoMessage() {}
 
 func (x *Epoch) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[111]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9124,7 +7937,7 @@ func (x *Epoch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Epoch.ProtoReflect.Descriptor instead.
 func (*Epoch) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{111}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *Epoch) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -9205,7 +8018,7 @@ type EventDate struct {
 
 func (x *EventDate) Reset() {
 	*x = EventDate{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[112]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9217,7 +8030,7 @@ func (x *EventDate) String() string {
 func (*EventDate) ProtoMessage() {}
 
 func (x *EventDate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[112]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9230,7 +8043,7 @@ func (x *EventDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDate.ProtoReflect.Descriptor instead.
 func (*EventDate) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{112}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *EventDate) GetValue() string {
@@ -9304,7 +8117,7 @@ type EventDateTime struct {
 
 func (x *EventDateTime) Reset() {
 	*x = EventDateTime{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[113]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9316,7 +8129,7 @@ func (x *EventDateTime) String() string {
 func (*EventDateTime) ProtoMessage() {}
 
 func (x *EventDateTime) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[113]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9329,7 +8142,7 @@ func (x *EventDateTime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDateTime.ProtoReflect.Descriptor instead.
 func (*EventDateTime) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{113}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *EventDateTime) GetValue() string {
@@ -9395,7 +8208,7 @@ type File struct {
 
 func (x *File) Reset() {
 	*x = File{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[114]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9407,7 +8220,7 @@ func (x *File) String() string {
 func (*File) ProtoMessage() {}
 
 func (x *File) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[114]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9420,7 +8233,7 @@ func (x *File) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use File.ProtoReflect.Descriptor instead.
 func (*File) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{114}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *File) GetURI() string {
@@ -9472,7 +8285,7 @@ type Focus struct {
 
 func (x *Focus) Reset() {
 	*x = Focus{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[115]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9484,7 +8297,7 @@ func (x *Focus) String() string {
 func (*Focus) ProtoMessage() {}
 
 func (x *Focus) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[115]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9497,7 +8310,7 @@ func (x *Focus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Focus.ProtoReflect.Descriptor instead.
 func (*Focus) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{115}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *Focus) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -9586,7 +8399,7 @@ type GenreCategoryValue struct {
 
 func (x *GenreCategoryValue) Reset() {
 	*x = GenreCategoryValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[116]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9598,7 +8411,7 @@ func (x *GenreCategoryValue) String() string {
 func (*GenreCategoryValue) ProtoMessage() {}
 
 func (x *GenreCategoryValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[116]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9611,7 +8424,7 @@ func (x *GenreCategoryValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenreCategoryValue.ProtoReflect.Descriptor instead.
 func (*GenreCategoryValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{116}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *GenreCategoryValue) GetValue() string {
@@ -9656,7 +8469,7 @@ type HashSumAlgorithmType struct {
 
 func (x *HashSumAlgorithmType) Reset() {
 	*x = HashSumAlgorithmType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[117]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9668,7 +8481,7 @@ func (x *HashSumAlgorithmType) String() string {
 func (*HashSumAlgorithmType) ProtoMessage() {}
 
 func (x *HashSumAlgorithmType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[117]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9681,7 +8494,7 @@ func (x *HashSumAlgorithmType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashSumAlgorithmType.ProtoReflect.Descriptor instead.
 func (*HashSumAlgorithmType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{117}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *HashSumAlgorithmType) GetValue() string {
@@ -9727,7 +8540,7 @@ type HistoricChartingInformation struct {
 
 func (x *HistoricChartingInformation) Reset() {
 	*x = HistoricChartingInformation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[118]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9739,7 +8552,7 @@ func (x *HistoricChartingInformation) String() string {
 func (*HistoricChartingInformation) ProtoMessage() {}
 
 func (x *HistoricChartingInformation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[118]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9752,7 +8565,7 @@ func (x *HistoricChartingInformation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HistoricChartingInformation.ProtoReflect.Descriptor instead.
 func (*HistoricChartingInformation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{118}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *HistoricChartingInformation) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -9818,7 +8631,7 @@ type Image struct {
 
 func (x *Image) Reset() {
 	*x = Image{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[119]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9830,7 +8643,7 @@ func (x *Image) String() string {
 func (*Image) ProtoMessage() {}
 
 func (x *Image) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[119]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9843,7 +8656,7 @@ func (x *Image) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Image.ProtoReflect.Descriptor instead.
 func (*Image) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{119}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *Image) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -9881,7 +8694,7 @@ type ImageType struct {
 
 func (x *ImageType) Reset() {
 	*x = ImageType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[120]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9893,7 +8706,7 @@ func (x *ImageType) String() string {
 func (*ImageType) ProtoMessage() {}
 
 func (x *ImageType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[120]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9906,7 +8719,7 @@ func (x *ImageType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ImageType.ProtoReflect.Descriptor instead.
 func (*ImageType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{120}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *ImageType) GetValue() string {
@@ -9940,7 +8753,7 @@ type MessageAuditTrail struct {
 
 func (x *MessageAuditTrail) Reset() {
 	*x = MessageAuditTrail{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[121]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9952,7 +8765,7 @@ func (x *MessageAuditTrail) String() string {
 func (*MessageAuditTrail) ProtoMessage() {}
 
 func (x *MessageAuditTrail) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[121]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9965,7 +8778,7 @@ func (x *MessageAuditTrail) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAuditTrail.ProtoReflect.Descriptor instead.
 func (*MessageAuditTrail) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{121}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *MessageAuditTrail) GetMessageAuditTrailEvent() []*MessageAuditTrailEvent {
@@ -9987,7 +8800,7 @@ type MessageAuditTrailEvent struct {
 
 func (x *MessageAuditTrailEvent) Reset() {
 	*x = MessageAuditTrailEvent{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[122]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9999,7 +8812,7 @@ func (x *MessageAuditTrailEvent) String() string {
 func (*MessageAuditTrailEvent) ProtoMessage() {}
 
 func (x *MessageAuditTrailEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[122]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10012,7 +8825,7 @@ func (x *MessageAuditTrailEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAuditTrailEvent.ProtoReflect.Descriptor instead.
 func (*MessageAuditTrailEvent) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{122}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *MessageAuditTrailEvent) GetMessagingPartyDescriptor() *MessagingPartyWithoutCode {
@@ -10055,7 +8868,7 @@ type MessageHeader struct {
 
 func (x *MessageHeader) Reset() {
 	*x = MessageHeader{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[123]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10067,7 +8880,7 @@ func (x *MessageHeader) String() string {
 func (*MessageHeader) ProtoMessage() {}
 
 func (x *MessageHeader) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[123]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10080,7 +8893,7 @@ func (x *MessageHeader) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageHeader.ProtoReflect.Descriptor instead.
 func (*MessageHeader) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{123}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *MessageHeader) GetMessageThreadId() string {
@@ -10160,7 +8973,7 @@ type MessagingPartyWithoutCode struct {
 
 func (x *MessagingPartyWithoutCode) Reset() {
 	*x = MessagingPartyWithoutCode{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[124]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10172,7 +8985,7 @@ func (x *MessagingPartyWithoutCode) String() string {
 func (*MessagingPartyWithoutCode) ProtoMessage() {}
 
 func (x *MessagingPartyWithoutCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[124]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10185,7 +8998,7 @@ func (x *MessagingPartyWithoutCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessagingPartyWithoutCode.ProtoReflect.Descriptor instead.
 func (*MessagingPartyWithoutCode) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{124}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *MessagingPartyWithoutCode) GetPartyId() string {
@@ -10215,15 +9028,17 @@ type MetadataSource struct {
 	SourceReference string `protobuf:"bytes,1,opt,name=source_reference,json=sourceReference,proto3" json:"source_reference,omitempty" xml:"SourceReference"`
 	// @gotags: xml:"MetadataSourceType"
 	MetadataSourceType *MetadataSourceType `protobuf:"bytes,2,opt,name=metadata_source_type,json=metadataSourceType,proto3" json:"metadata_source_type,omitempty" xml:"MetadataSourceType"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *MetadataSourceChoice3 `protobuf:"bytes,3,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyId `protobuf:"bytes,3,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName     []*PartyNameWithPronunciation `protobuf:"bytes,4,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MetadataSource) Reset() {
 	*x = MetadataSource{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[125]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10235,7 +9050,7 @@ func (x *MetadataSource) String() string {
 func (*MetadataSource) ProtoMessage() {}
 
 func (x *MetadataSource) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[125]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10248,7 +9063,7 @@ func (x *MetadataSource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSource.ProtoReflect.Descriptor instead.
 func (*MetadataSource) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{125}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *MetadataSource) GetSourceReference() string {
@@ -10265,95 +9080,19 @@ func (x *MetadataSource) GetMetadataSourceType() *MetadataSourceType {
 	return nil
 }
 
-func (x *MetadataSource) GetChoice() *MetadataSourceChoice3 {
+func (x *MetadataSource) GetPartyId() []*DetailedPartyId {
 	if x != nil {
-		return x.Choice
+		return x.PartyId
 	}
 	return nil
 }
 
-type MetadataSourceChoice3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*MetadataSourceChoice3_PartyIdOption
-	//	*MetadataSourceChoice3_Sequence_1
-	Choice        isMetadataSourceChoice3_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MetadataSourceChoice3) Reset() {
-	*x = MetadataSourceChoice3{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MetadataSourceChoice3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MetadataSourceChoice3) ProtoMessage() {}
-
-func (x *MetadataSourceChoice3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[126]
+func (x *MetadataSource) GetPartyName() []*PartyNameWithPronunciation {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MetadataSourceChoice3.ProtoReflect.Descriptor instead.
-func (*MetadataSourceChoice3) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{126}
-}
-
-func (x *MetadataSourceChoice3) GetChoice() isMetadataSourceChoice3_Choice {
-	if x != nil {
-		return x.Choice
+		return x.PartyName
 	}
 	return nil
 }
-
-func (x *MetadataSourceChoice3) GetPartyIdOption() *MetadataSourceChoice3_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*MetadataSourceChoice3_PartyIdOption); ok {
-			return x.PartyIdOption
-		}
-	}
-	return nil
-}
-
-func (x *MetadataSourceChoice3) GetSequence_1() *MetadataSourceChoice3_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*MetadataSourceChoice3_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isMetadataSourceChoice3_Choice interface {
-	isMetadataSourceChoice3_Choice()
-}
-
-type MetadataSourceChoice3_PartyIdOption struct {
-	// @gotags: xml:"PartyId"
-	PartyIdOption *MetadataSourceChoice3_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
-}
-
-type MetadataSourceChoice3_Sequence_1 struct {
-	Sequence_1 *MetadataSourceChoice3_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*MetadataSourceChoice3_PartyIdOption) isMetadataSourceChoice3_Choice() {}
-
-func (*MetadataSourceChoice3_Sequence_1) isMetadataSourceChoice3_Choice() {}
 
 type MetadataSourceList struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -10365,7 +9104,7 @@ type MetadataSourceList struct {
 
 func (x *MetadataSourceList) Reset() {
 	*x = MetadataSourceList{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[127]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10377,7 +9116,7 @@ func (x *MetadataSourceList) String() string {
 func (*MetadataSourceList) ProtoMessage() {}
 
 func (x *MetadataSourceList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[127]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10390,7 +9129,7 @@ func (x *MetadataSourceList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSourceList.ProtoReflect.Descriptor instead.
 func (*MetadataSourceList) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{127}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *MetadataSourceList) GetMetadataSource() []*MetadataSource {
@@ -10416,7 +9155,7 @@ type MetadataSourceReference struct {
 
 func (x *MetadataSourceReference) Reset() {
 	*x = MetadataSourceReference{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[128]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10428,7 +9167,7 @@ func (x *MetadataSourceReference) String() string {
 func (*MetadataSourceReference) ProtoMessage() {}
 
 func (x *MetadataSourceReference) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[128]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10441,7 +9180,7 @@ func (x *MetadataSourceReference) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSourceReference.ProtoReflect.Descriptor instead.
 func (*MetadataSourceReference) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{128}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *MetadataSourceReference) GetValue() string {
@@ -10486,7 +9225,7 @@ type MetadataSourceType struct {
 
 func (x *MetadataSourceType) Reset() {
 	*x = MetadataSourceType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[129]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10498,7 +9237,7 @@ func (x *MetadataSourceType) String() string {
 func (*MetadataSourceType) ProtoMessage() {}
 
 func (x *MetadataSourceType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[129]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10511,7 +9250,7 @@ func (x *MetadataSourceType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetadataSourceType.ProtoReflect.Descriptor instead.
 func (*MetadataSourceType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{129}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *MetadataSourceType) GetValue() string {
@@ -10551,7 +9290,7 @@ type MusicalWorkIdWithoutFlag struct {
 
 func (x *MusicalWorkIdWithoutFlag) Reset() {
 	*x = MusicalWorkIdWithoutFlag{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[130]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10563,7 +9302,7 @@ func (x *MusicalWorkIdWithoutFlag) String() string {
 func (*MusicalWorkIdWithoutFlag) ProtoMessage() {}
 
 func (x *MusicalWorkIdWithoutFlag) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[130]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10576,7 +9315,7 @@ func (x *MusicalWorkIdWithoutFlag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MusicalWorkIdWithoutFlag.ProtoReflect.Descriptor instead.
 func (*MusicalWorkIdWithoutFlag) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{130}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *MusicalWorkIdWithoutFlag) GetISWC() string {
@@ -10619,7 +9358,7 @@ type Name struct {
 
 func (x *Name) Reset() {
 	*x = Name{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[131]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10631,7 +9370,7 @@ func (x *Name) String() string {
 func (*Name) ProtoMessage() {}
 
 func (x *Name) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[131]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10644,7 +9383,7 @@ func (x *Name) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Name.ProtoReflect.Descriptor instead.
 func (*Name) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{131}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *Name) GetValue() string {
@@ -10673,7 +9412,7 @@ type NameWithPronunciationAndScriptCode struct {
 
 func (x *NameWithPronunciationAndScriptCode) Reset() {
 	*x = NameWithPronunciationAndScriptCode{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[132]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10685,7 +9424,7 @@ func (x *NameWithPronunciationAndScriptCode) String() string {
 func (*NameWithPronunciationAndScriptCode) ProtoMessage() {}
 
 func (x *NameWithPronunciationAndScriptCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[132]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10698,7 +9437,7 @@ func (x *NameWithPronunciationAndScriptCode) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use NameWithPronunciationAndScriptCode.ProtoReflect.Descriptor instead.
 func (*NameWithPronunciationAndScriptCode) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{132}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *NameWithPronunciationAndScriptCode) GetName() *Name {
@@ -10717,15 +9456,17 @@ func (x *NameWithPronunciationAndScriptCode) GetPronunciation() []*Pronunciation
 
 type PartyDescriptorWithPronunciation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        *PartyDescriptorWithPronunciationChoice `protobuf:"bytes,1,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName     []*PartyNameWithPronunciation `protobuf:"bytes,2,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PartyDescriptorWithPronunciation) Reset() {
 	*x = PartyDescriptorWithPronunciation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[133]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10737,7 +9478,7 @@ func (x *PartyDescriptorWithPronunciation) String() string {
 func (*PartyDescriptorWithPronunciation) ProtoMessage() {}
 
 func (x *PartyDescriptorWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[133]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10750,99 +9491,21 @@ func (x *PartyDescriptorWithPronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyDescriptorWithPronunciation.ProtoReflect.Descriptor instead.
 func (*PartyDescriptorWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{133}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{119}
 }
 
-func (x *PartyDescriptorWithPronunciation) GetChoice() *PartyDescriptorWithPronunciationChoice {
+func (x *PartyDescriptorWithPronunciation) GetPartyId() []*DetailedPartyId {
 	if x != nil {
-		return x.Choice
+		return x.PartyId
 	}
 	return nil
 }
 
-type PartyDescriptorWithPronunciationChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PartyDescriptorWithPronunciationChoice_PartyIdOption
-	//	*PartyDescriptorWithPronunciationChoice_Sequence_1
-	Choice        isPartyDescriptorWithPronunciationChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartyDescriptorWithPronunciationChoice) Reset() {
-	*x = PartyDescriptorWithPronunciationChoice{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[134]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartyDescriptorWithPronunciationChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartyDescriptorWithPronunciationChoice) ProtoMessage() {}
-
-func (x *PartyDescriptorWithPronunciationChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[134]
+func (x *PartyDescriptorWithPronunciation) GetPartyName() []*PartyNameWithPronunciation {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartyDescriptorWithPronunciationChoice.ProtoReflect.Descriptor instead.
-func (*PartyDescriptorWithPronunciationChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{134}
-}
-
-func (x *PartyDescriptorWithPronunciationChoice) GetChoice() isPartyDescriptorWithPronunciationChoice_Choice {
-	if x != nil {
-		return x.Choice
+		return x.PartyName
 	}
 	return nil
-}
-
-func (x *PartyDescriptorWithPronunciationChoice) GetPartyIdOption() *PartyDescriptorWithPronunciationChoice_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*PartyDescriptorWithPronunciationChoice_PartyIdOption); ok {
-			return x.PartyIdOption
-		}
-	}
-	return nil
-}
-
-func (x *PartyDescriptorWithPronunciationChoice) GetSequence_1() *PartyDescriptorWithPronunciationChoice_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*PartyDescriptorWithPronunciationChoice_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isPartyDescriptorWithPronunciationChoice_Choice interface {
-	isPartyDescriptorWithPronunciationChoice_Choice()
-}
-
-type PartyDescriptorWithPronunciationChoice_PartyIdOption struct {
-	// @gotags: xml:"PartyId"
-	PartyIdOption *PartyDescriptorWithPronunciationChoice_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
-}
-
-type PartyDescriptorWithPronunciationChoice_Sequence_1 struct {
-	Sequence_1 *PartyDescriptorWithPronunciationChoice_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*PartyDescriptorWithPronunciationChoice_PartyIdOption) isPartyDescriptorWithPronunciationChoice_Choice() {
-}
-
-func (*PartyDescriptorWithPronunciationChoice_Sequence_1) isPartyDescriptorWithPronunciationChoice_Choice() {
 }
 
 type PartyNameWithPronunciation struct {
@@ -10871,7 +9534,7 @@ type PartyNameWithPronunciation struct {
 
 func (x *PartyNameWithPronunciation) Reset() {
 	*x = PartyNameWithPronunciation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[135]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10883,7 +9546,7 @@ func (x *PartyNameWithPronunciation) String() string {
 func (*PartyNameWithPronunciation) ProtoMessage() {}
 
 func (x *PartyNameWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[135]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10896,7 +9559,7 @@ func (x *PartyNameWithPronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameWithPronunciation.ProtoReflect.Descriptor instead.
 func (*PartyNameWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{135}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *PartyNameWithPronunciation) GetFullName() *NameWithPronunciationAndScriptCode {
@@ -10984,7 +9647,7 @@ type PartyNameWithoutCode struct {
 
 func (x *PartyNameWithoutCode) Reset() {
 	*x = PartyNameWithoutCode{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[136]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10996,7 +9659,7 @@ func (x *PartyNameWithoutCode) String() string {
 func (*PartyNameWithoutCode) ProtoMessage() {}
 
 func (x *PartyNameWithoutCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[136]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11009,7 +9672,7 @@ func (x *PartyNameWithoutCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameWithoutCode.ProtoReflect.Descriptor instead.
 func (*PartyNameWithoutCode) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{136}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *PartyNameWithoutCode) GetFullName() string {
@@ -11063,15 +9726,21 @@ func (x *PartyNameWithoutCode) GetAbbreviatedName() string {
 
 type Period struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        *PeriodChoice `protobuf:"bytes,1,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"StartDate"
+	StartDate *EventDate `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate *EventDate `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
+	// @gotags: xml:"StartDateTime"
+	StartDateTime *EventDateTime `protobuf:"bytes,3,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
+	// @gotags: xml:"EndDateTime"
+	EndDateTime   *EventDateTime `protobuf:"bytes,4,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Period) Reset() {
 	*x = Period{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[137]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11083,7 +9752,7 @@ func (x *Period) String() string {
 func (*Period) ProtoMessage() {}
 
 func (x *Period) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[137]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11096,97 +9765,36 @@ func (x *Period) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Period.ProtoReflect.Descriptor instead.
 func (*Period) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{137}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{122}
 }
 
-func (x *Period) GetChoice() *PeriodChoice {
+func (x *Period) GetStartDate() *EventDate {
 	if x != nil {
-		return x.Choice
+		return x.StartDate
 	}
 	return nil
 }
 
-type PeriodChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PeriodChoice_Sequence_1
-	//	*PeriodChoice_Sequence_2
-	Choice        isPeriodChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodChoice) Reset() {
-	*x = PeriodChoice{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodChoice) ProtoMessage() {}
-
-func (x *PeriodChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[138]
+func (x *Period) GetEndDate() *EventDate {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodChoice.ProtoReflect.Descriptor instead.
-func (*PeriodChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{138}
-}
-
-func (x *PeriodChoice) GetChoice() isPeriodChoice_Choice {
-	if x != nil {
-		return x.Choice
+		return x.EndDate
 	}
 	return nil
 }
 
-func (x *PeriodChoice) GetSequence_1() *PeriodChoice_Option1 {
+func (x *Period) GetStartDateTime() *EventDateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodChoice_Sequence_1); ok {
-			return x.Sequence_1
-		}
+		return x.StartDateTime
 	}
 	return nil
 }
 
-func (x *PeriodChoice) GetSequence_2() *PeriodChoice_Option2 {
+func (x *Period) GetEndDateTime() *EventDateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodChoice_Sequence_2); ok {
-			return x.Sequence_2
-		}
+		return x.EndDateTime
 	}
 	return nil
 }
-
-type isPeriodChoice_Choice interface {
-	isPeriodChoice_Choice()
-}
-
-type PeriodChoice_Sequence_1 struct {
-	Sequence_1 *PeriodChoice_Option1 `protobuf:"bytes,1,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-type PeriodChoice_Sequence_2 struct {
-	Sequence_2 *PeriodChoice_Option2 `protobuf:"bytes,2,opt,name=sequence_2,json=sequence2,proto3,oneof"`
-}
-
-func (*PeriodChoice_Sequence_1) isPeriodChoice_Choice() {}
-
-func (*PeriodChoice_Sequence_2) isPeriodChoice_Choice() {}
 
 type PeriodValue struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -11202,7 +9810,7 @@ type PeriodValue struct {
 
 func (x *PeriodValue) Reset() {
 	*x = PeriodValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[139]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11214,7 +9822,7 @@ func (x *PeriodValue) String() string {
 func (*PeriodValue) ProtoMessage() {}
 
 func (x *PeriodValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[139]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11227,7 +9835,7 @@ func (x *PeriodValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeriodValue.ProtoReflect.Descriptor instead.
 func (*PeriodValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{139}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *PeriodValue) GetValue() string {
@@ -11263,7 +9871,7 @@ type PeriodWithTime struct {
 
 func (x *PeriodWithTime) Reset() {
 	*x = PeriodWithTime{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[140]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11275,7 +9883,7 @@ func (x *PeriodWithTime) String() string {
 func (*PeriodWithTime) ProtoMessage() {}
 
 func (x *PeriodWithTime) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[140]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11288,7 +9896,7 @@ func (x *PeriodWithTime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeriodWithTime.ProtoReflect.Descriptor instead.
 func (*PeriodWithTime) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{140}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *PeriodWithTime) GetStartDateTime() string {
@@ -11325,7 +9933,7 @@ type Pronunciation struct {
 
 func (x *Pronunciation) Reset() {
 	*x = Pronunciation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[141]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11337,7 +9945,7 @@ func (x *Pronunciation) String() string {
 func (*Pronunciation) ProtoMessage() {}
 
 func (x *Pronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[141]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11350,7 +9958,7 @@ func (x *Pronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Pronunciation.ProtoReflect.Descriptor instead.
 func (*Pronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{141}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *Pronunciation) GetValue() string {
@@ -11407,7 +10015,7 @@ type ProprietaryId struct {
 
 func (x *ProprietaryId) Reset() {
 	*x = ProprietaryId{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[142]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11419,7 +10027,7 @@ func (x *ProprietaryId) String() string {
 func (*ProprietaryId) ProtoMessage() {}
 
 func (x *ProprietaryId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[142]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11432,7 +10040,7 @@ func (x *ProprietaryId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProprietaryId.ProtoReflect.Descriptor instead.
 func (*ProprietaryId) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{142}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *ProprietaryId) GetValue() string {
@@ -11463,7 +10071,7 @@ type RecordingPartType struct {
 
 func (x *RecordingPartType) Reset() {
 	*x = RecordingPartType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[143]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11475,7 +10083,7 @@ func (x *RecordingPartType) String() string {
 func (*RecordingPartType) ProtoMessage() {}
 
 func (x *RecordingPartType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[143]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11488,7 +10096,7 @@ func (x *RecordingPartType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecordingPartType.ProtoReflect.Descriptor instead.
 func (*RecordingPartType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{143}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *RecordingPartType) GetValue() string {
@@ -11516,15 +10124,19 @@ type RelatedCreation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"Title"
 	Title *TitleWithPronunciation `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" xml:"Title"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *RelatedCreationChoice2 `protobuf:"bytes,2,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
+	// @gotags: xml:"ResourceId"
+	ResourceId *ResourceIdWithoutFlag `protobuf:"bytes,3,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"MusicalWorkId"
+	MusicalWorkId *MusicalWorkIdWithoutFlag `protobuf:"bytes,4,opt,name=musical_work_id,json=musicalWorkId,proto3" json:"musical_work_id,omitempty" xml:"MusicalWorkId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RelatedCreation) Reset() {
 	*x = RelatedCreation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[144]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11536,7 +10148,7 @@ func (x *RelatedCreation) String() string {
 func (*RelatedCreation) ProtoMessage() {}
 
 func (x *RelatedCreation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[144]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11549,7 +10161,7 @@ func (x *RelatedCreation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedCreation.ProtoReflect.Descriptor instead.
 func (*RelatedCreation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{144}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *RelatedCreation) GetTitle() *TitleWithPronunciation {
@@ -11559,113 +10171,26 @@ func (x *RelatedCreation) GetTitle() *TitleWithPronunciation {
 	return nil
 }
 
-func (x *RelatedCreation) GetChoice() *RelatedCreationChoice2 {
+func (x *RelatedCreation) GetReleaseId() *ReleaseId {
 	if x != nil {
-		return x.Choice
+		return x.ReleaseId
 	}
 	return nil
 }
 
-type RelatedCreationChoice2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*RelatedCreationChoice2_ReleaseId
-	//	*RelatedCreationChoice2_ResourceId
-	//	*RelatedCreationChoice2_MusicalWorkId
-	Choice        isRelatedCreationChoice2_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RelatedCreationChoice2) Reset() {
-	*x = RelatedCreationChoice2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RelatedCreationChoice2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RelatedCreationChoice2) ProtoMessage() {}
-
-func (x *RelatedCreationChoice2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[145]
+func (x *RelatedCreation) GetResourceId() *ResourceIdWithoutFlag {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RelatedCreationChoice2.ProtoReflect.Descriptor instead.
-func (*RelatedCreationChoice2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{145}
-}
-
-func (x *RelatedCreationChoice2) GetChoice() isRelatedCreationChoice2_Choice {
-	if x != nil {
-		return x.Choice
+		return x.ResourceId
 	}
 	return nil
 }
 
-func (x *RelatedCreationChoice2) GetReleaseId() *ReleaseId {
+func (x *RelatedCreation) GetMusicalWorkId() *MusicalWorkIdWithoutFlag {
 	if x != nil {
-		if x, ok := x.Choice.(*RelatedCreationChoice2_ReleaseId); ok {
-			return x.ReleaseId
-		}
+		return x.MusicalWorkId
 	}
 	return nil
 }
-
-func (x *RelatedCreationChoice2) GetResourceId() *ResourceIdWithoutFlag {
-	if x != nil {
-		if x, ok := x.Choice.(*RelatedCreationChoice2_ResourceId); ok {
-			return x.ResourceId
-		}
-	}
-	return nil
-}
-
-func (x *RelatedCreationChoice2) GetMusicalWorkId() *MusicalWorkIdWithoutFlag {
-	if x != nil {
-		if x, ok := x.Choice.(*RelatedCreationChoice2_MusicalWorkId); ok {
-			return x.MusicalWorkId
-		}
-	}
-	return nil
-}
-
-type isRelatedCreationChoice2_Choice interface {
-	isRelatedCreationChoice2_Choice()
-}
-
-type RelatedCreationChoice2_ReleaseId struct {
-	// @gotags: xml:"ReleaseId"
-	ReleaseId *ReleaseId `protobuf:"bytes,1,opt,name=release_id,json=releaseId,proto3,oneof" xml:"ReleaseId"`
-}
-
-type RelatedCreationChoice2_ResourceId struct {
-	// @gotags: xml:"ResourceId"
-	ResourceId *ResourceIdWithoutFlag `protobuf:"bytes,2,opt,name=resource_id,json=resourceId,proto3,oneof" xml:"ResourceId"`
-}
-
-type RelatedCreationChoice2_MusicalWorkId struct {
-	// @gotags: xml:"MusicalWorkId"
-	MusicalWorkId *MusicalWorkIdWithoutFlag `protobuf:"bytes,3,opt,name=musical_work_id,json=musicalWorkId,proto3,oneof" xml:"MusicalWorkId"`
-}
-
-func (*RelatedCreationChoice2_ReleaseId) isRelatedCreationChoice2_Choice() {}
-
-func (*RelatedCreationChoice2_ResourceId) isRelatedCreationChoice2_Choice() {}
-
-func (*RelatedCreationChoice2_MusicalWorkId) isRelatedCreationChoice2_Choice() {}
 
 type RelatedResourceType struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -11681,7 +10206,7 @@ type RelatedResourceType struct {
 
 func (x *RelatedResourceType) Reset() {
 	*x = RelatedResourceType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[146]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11693,7 +10218,7 @@ func (x *RelatedResourceType) String() string {
 func (*RelatedResourceType) ProtoMessage() {}
 
 func (x *RelatedResourceType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[146]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11706,7 +10231,7 @@ func (x *RelatedResourceType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedResourceType.ProtoReflect.Descriptor instead.
 func (*RelatedResourceType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{146}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *RelatedResourceType) GetValue() string {
@@ -11750,7 +10275,7 @@ type Release struct {
 
 func (x *Release) Reset() {
 	*x = Release{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[147]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11762,7 +10287,7 @@ func (x *Release) String() string {
 func (*Release) ProtoMessage() {}
 
 func (x *Release) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[147]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11775,7 +10300,7 @@ func (x *Release) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Release.ProtoReflect.Descriptor instead.
 func (*Release) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{147}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *Release) GetGRid() string {
@@ -11838,7 +10363,7 @@ type ReleaseId struct {
 
 func (x *ReleaseId) Reset() {
 	*x = ReleaseId{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[148]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11850,7 +10375,7 @@ func (x *ReleaseId) String() string {
 func (*ReleaseId) ProtoMessage() {}
 
 func (x *ReleaseId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[148]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11863,7 +10388,7 @@ func (x *ReleaseId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseId.ProtoReflect.Descriptor instead.
 func (*ReleaseId) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{148}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *ReleaseId) GetGRid() string {
@@ -11913,7 +10438,7 @@ type ReleaseTitle struct {
 
 func (x *ReleaseTitle) Reset() {
 	*x = ReleaseTitle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[149]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11925,7 +10450,7 @@ func (x *ReleaseTitle) String() string {
 func (*ReleaseTitle) ProtoMessage() {}
 
 func (x *ReleaseTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[149]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11938,7 +10463,7 @@ func (x *ReleaseTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseTitle.ProtoReflect.Descriptor instead.
 func (*ReleaseTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{149}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *ReleaseTitle) GetValue() string {
@@ -11975,7 +10500,7 @@ type Resource struct {
 
 func (x *Resource) Reset() {
 	*x = Resource{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[150]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11987,7 +10512,7 @@ func (x *Resource) String() string {
 func (*Resource) ProtoMessage() {}
 
 func (x *Resource) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[150]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12000,7 +10525,7 @@ func (x *Resource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Resource.ProtoReflect.Descriptor instead.
 func (*Resource) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{150}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *Resource) GetISRC() string {
@@ -12059,7 +10584,7 @@ type ResourceContributorRole struct {
 
 func (x *ResourceContributorRole) Reset() {
 	*x = ResourceContributorRole{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[151]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12071,7 +10596,7 @@ func (x *ResourceContributorRole) String() string {
 func (*ResourceContributorRole) ProtoMessage() {}
 
 func (x *ResourceContributorRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[151]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12084,7 +10609,7 @@ func (x *ResourceContributorRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceContributorRole.ProtoReflect.Descriptor instead.
 func (*ResourceContributorRole) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{151}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *ResourceContributorRole) GetValue() string {
@@ -12134,7 +10659,7 @@ type ResourceIdWithoutFlag struct {
 
 func (x *ResourceIdWithoutFlag) Reset() {
 	*x = ResourceIdWithoutFlag{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[152]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12146,7 +10671,7 @@ func (x *ResourceIdWithoutFlag) String() string {
 func (*ResourceIdWithoutFlag) ProtoMessage() {}
 
 func (x *ResourceIdWithoutFlag) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[152]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12159,7 +10684,7 @@ func (x *ResourceIdWithoutFlag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceIdWithoutFlag.ProtoReflect.Descriptor instead.
 func (*ResourceIdWithoutFlag) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{152}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *ResourceIdWithoutFlag) GetISRC() string {
@@ -12239,7 +10764,7 @@ type ResourceRelationshipType struct {
 
 func (x *ResourceRelationshipType) Reset() {
 	*x = ResourceRelationshipType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[153]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12251,7 +10776,7 @@ func (x *ResourceRelationshipType) String() string {
 func (*ResourceRelationshipType) ProtoMessage() {}
 
 func (x *ResourceRelationshipType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[153]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12264,7 +10789,7 @@ func (x *ResourceRelationshipType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceRelationshipType.ProtoReflect.Descriptor instead.
 func (*ResourceRelationshipType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{153}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *ResourceRelationshipType) GetValue() string {
@@ -12300,7 +10825,7 @@ type ResourceTitle struct {
 
 func (x *ResourceTitle) Reset() {
 	*x = ResourceTitle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[154]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12312,7 +10837,7 @@ func (x *ResourceTitle) String() string {
 func (*ResourceTitle) ProtoMessage() {}
 
 func (x *ResourceTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[154]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12325,7 +10850,7 @@ func (x *ResourceTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceTitle.ProtoReflect.Descriptor instead.
 func (*ResourceTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{154}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *ResourceTitle) GetValue() string {
@@ -12356,7 +10881,7 @@ type SessionType struct {
 
 func (x *SessionType) Reset() {
 	*x = SessionType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[155]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12368,7 +10893,7 @@ func (x *SessionType) String() string {
 func (*SessionType) ProtoMessage() {}
 
 func (x *SessionType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[155]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12381,7 +10906,7 @@ func (x *SessionType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionType.ProtoReflect.Descriptor instead.
 func (*SessionType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{155}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *SessionType) GetValue() string {
@@ -12419,7 +10944,7 @@ type SubGenreCategoryValue struct {
 
 func (x *SubGenreCategoryValue) Reset() {
 	*x = SubGenreCategoryValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[156]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12431,7 +10956,7 @@ func (x *SubGenreCategoryValue) String() string {
 func (*SubGenreCategoryValue) ProtoMessage() {}
 
 func (x *SubGenreCategoryValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[156]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12444,7 +10969,7 @@ func (x *SubGenreCategoryValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SubGenreCategoryValue.ProtoReflect.Descriptor instead.
 func (*SubGenreCategoryValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{156}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *SubGenreCategoryValue) GetValue() string {
@@ -12490,7 +11015,7 @@ type TextWithFormat struct {
 
 func (x *TextWithFormat) Reset() {
 	*x = TextWithFormat{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[157]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12502,7 +11027,7 @@ func (x *TextWithFormat) String() string {
 func (*TextWithFormat) ProtoMessage() {}
 
 func (x *TextWithFormat) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[157]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12515,7 +11040,7 @@ func (x *TextWithFormat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextWithFormat.ProtoReflect.Descriptor instead.
 func (*TextWithFormat) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{157}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *TextWithFormat) GetValue() string {
@@ -12589,7 +11114,7 @@ type TextWithoutTerritory struct {
 
 func (x *TextWithoutTerritory) Reset() {
 	*x = TextWithoutTerritory{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[158]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12601,7 +11126,7 @@ func (x *TextWithoutTerritory) String() string {
 func (*TextWithoutTerritory) ProtoMessage() {}
 
 func (x *TextWithoutTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[158]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12614,7 +11139,7 @@ func (x *TextWithoutTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextWithoutTerritory.ProtoReflect.Descriptor instead.
 func (*TextWithoutTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{158}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *TextWithoutTerritory) GetValue() string {
@@ -12678,7 +11203,7 @@ type TitleText struct {
 
 func (x *TitleText) Reset() {
 	*x = TitleText{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[159]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12690,7 +11215,7 @@ func (x *TitleText) String() string {
 func (*TitleText) ProtoMessage() {}
 
 func (x *TitleText) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[159]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12703,7 +11228,7 @@ func (x *TitleText) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TitleText.ProtoReflect.Descriptor instead.
 func (*TitleText) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{159}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *TitleText) GetTitle() string {
@@ -12740,7 +11265,7 @@ type TitleWithPronunciation struct {
 
 func (x *TitleWithPronunciation) Reset() {
 	*x = TitleWithPronunciation{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[160]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12752,7 +11277,7 @@ func (x *TitleWithPronunciation) String() string {
 func (*TitleWithPronunciation) ProtoMessage() {}
 
 func (x *TitleWithPronunciation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[160]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12765,7 +11290,7 @@ func (x *TitleWithPronunciation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TitleWithPronunciation.ProtoReflect.Descriptor instead.
 func (*TitleWithPronunciation) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{160}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *TitleWithPronunciation) GetTitleText() *TitleText {
@@ -12828,7 +11353,7 @@ type Venue struct {
 
 func (x *Venue) Reset() {
 	*x = Venue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[161]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12840,7 +11365,7 @@ func (x *Venue) String() string {
 func (*Venue) ProtoMessage() {}
 
 func (x *Venue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[161]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12853,7 +11378,7 @@ func (x *Venue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Venue.ProtoReflect.Descriptor instead.
 func (*Venue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{161}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *Venue) GetVenueName() string {
@@ -12903,7 +11428,7 @@ type VocalRegister struct {
 
 func (x *VocalRegister) Reset() {
 	*x = VocalRegister{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[162]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12915,7 +11440,7 @@ func (x *VocalRegister) String() string {
 func (*VocalRegister) ProtoMessage() {}
 
 func (x *VocalRegister) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[162]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12928,7 +11453,7 @@ func (x *VocalRegister) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VocalRegister.ProtoReflect.Descriptor instead.
 func (*VocalRegister) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{162}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *VocalRegister) GetMetadataSourceReference() []*MetadataSourceReference {
@@ -12959,7 +11484,7 @@ type VocalRegisterValue struct {
 
 func (x *VocalRegisterValue) Reset() {
 	*x = VocalRegisterValue{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[163]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12971,7 +11496,7 @@ func (x *VocalRegisterValue) String() string {
 func (*VocalRegisterValue) ProtoMessage() {}
 
 func (x *VocalRegisterValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[163]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12984,7 +11509,7 @@ func (x *VocalRegisterValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VocalRegisterValue.ProtoReflect.Descriptor instead.
 func (*VocalRegisterValue) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{163}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *VocalRegisterValue) GetValue() string {
@@ -13024,7 +11549,7 @@ type Work struct {
 
 func (x *Work) Reset() {
 	*x = Work{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[164]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13036,7 +11561,7 @@ func (x *Work) String() string {
 func (*Work) ProtoMessage() {}
 
 func (x *Work) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[164]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13049,7 +11574,7 @@ func (x *Work) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Work.ProtoReflect.Descriptor instead.
 func (*Work) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{164}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *Work) GetISWC() string {
@@ -13094,7 +11619,7 @@ type WorkRelationshipType struct {
 
 func (x *WorkRelationshipType) Reset() {
 	*x = WorkRelationshipType{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[165]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13106,7 +11631,7 @@ func (x *WorkRelationshipType) String() string {
 func (*WorkRelationshipType) ProtoMessage() {}
 
 func (x *WorkRelationshipType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[165]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13119,7 +11644,7 @@ func (x *WorkRelationshipType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkRelationshipType.ProtoReflect.Descriptor instead.
 func (*WorkRelationshipType) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{165}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *WorkRelationshipType) GetValue() string {
@@ -13155,7 +11680,7 @@ type WorkTitle struct {
 
 func (x *WorkTitle) Reset() {
 	*x = WorkTitle{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[166]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13167,7 +11692,7 @@ func (x *WorkTitle) String() string {
 func (*WorkTitle) ProtoMessage() {}
 
 func (x *WorkTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[166]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13180,7 +11705,7 @@ func (x *WorkTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkTitle.ProtoReflect.Descriptor instead.
 func (*WorkTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{166}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *WorkTitle) GetValue() string {
@@ -13215,7 +11740,7 @@ type EventDateWithoutFlags struct {
 
 func (x *EventDateWithoutFlags) Reset() {
 	*x = EventDateWithoutFlags{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[167]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13227,7 +11752,7 @@ func (x *EventDateWithoutFlags) String() string {
 func (*EventDateWithoutFlags) ProtoMessage() {}
 
 func (x *EventDateWithoutFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[167]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13240,7 +11765,7 @@ func (x *EventDateWithoutFlags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDateWithoutFlags.ProtoReflect.Descriptor instead.
 func (*EventDateWithoutFlags) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{167}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *EventDateWithoutFlags) GetValue() string {
@@ -13290,7 +11815,7 @@ type Timing struct {
 
 func (x *Timing) Reset() {
 	*x = Timing{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[168]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13302,7 +11827,7 @@ func (x *Timing) String() string {
 func (*Timing) ProtoMessage() {}
 
 func (x *Timing) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[168]
+	mi := &file_ddex_mead_v11_v11_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13315,7 +11840,7 @@ func (x *Timing) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Timing.ProtoReflect.Descriptor instead.
 func (*Timing) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{168}
+	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *Timing) GetStartPoint() string {
@@ -13332,1401 +11857,6 @@ func (x *Timing) GetDurationUsed() string {
 	return ""
 }
 
-type FeedChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"author"
-	Author        []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FeedChoice_Option1) Reset() {
-	*x = FeedChoice_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[169]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FeedChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FeedChoice_Option1) ProtoMessage() {}
-
-func (x *FeedChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[169]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FeedChoice_Option1.ProtoReflect.Descriptor instead.
-func (*FeedChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{2, 0}
-}
-
-func (x *FeedChoice_Option1) GetAuthor() []*Person {
-	if x != nil {
-		return x.Author
-	}
-	return nil
-}
-
-type FeedChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"category"
-	Category      []*Category `protobuf:"bytes,1,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FeedChoice_Option2) Reset() {
-	*x = FeedChoice_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[170]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FeedChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FeedChoice_Option2) ProtoMessage() {}
-
-func (x *FeedChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[170]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FeedChoice_Option2.ProtoReflect.Descriptor instead.
-func (*FeedChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{2, 1}
-}
-
-func (x *FeedChoice_Option2) GetCategory() []*Category {
-	if x != nil {
-		return x.Category
-	}
-	return nil
-}
-
-type FeedChoice_Option3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"contributor"
-	Contributor   []*Person `protobuf:"bytes,1,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FeedChoice_Option3) Reset() {
-	*x = FeedChoice_Option3{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[171]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FeedChoice_Option3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FeedChoice_Option3) ProtoMessage() {}
-
-func (x *FeedChoice_Option3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[171]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FeedChoice_Option3.ProtoReflect.Descriptor instead.
-func (*FeedChoice_Option3) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{2, 2}
-}
-
-func (x *FeedChoice_Option3) GetContributor() []*Person {
-	if x != nil {
-		return x.Contributor
-	}
-	return nil
-}
-
-type FeedChoice_Option4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"link"
-	Link          []*Link `protobuf:"bytes,1,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FeedChoice_Option4) Reset() {
-	*x = FeedChoice_Option4{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[172]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FeedChoice_Option4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FeedChoice_Option4) ProtoMessage() {}
-
-func (x *FeedChoice_Option4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[172]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FeedChoice_Option4.ProtoReflect.Descriptor instead.
-func (*FeedChoice_Option4) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{2, 3}
-}
-
-func (x *FeedChoice_Option4) GetLink() []*Link {
-	if x != nil {
-		return x.Link
-	}
-	return nil
-}
-
-type FeedChoice_Option5 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"entry"
-	Entry         []*Entry `protobuf:"bytes,1,rep,name=entry,proto3" json:"entry,omitempty" xml:"entry"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FeedChoice_Option5) Reset() {
-	*x = FeedChoice_Option5{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[173]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FeedChoice_Option5) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FeedChoice_Option5) ProtoMessage() {}
-
-func (x *FeedChoice_Option5) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[173]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FeedChoice_Option5.ProtoReflect.Descriptor instead.
-func (*FeedChoice_Option5) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{2, 4}
-}
-
-func (x *FeedChoice_Option5) GetEntry() []*Entry {
-	if x != nil {
-		return x.Entry
-	}
-	return nil
-}
-
-type EntryChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"author"
-	Author        []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EntryChoice_Option1) Reset() {
-	*x = EntryChoice_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[174]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EntryChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EntryChoice_Option1) ProtoMessage() {}
-
-func (x *EntryChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[174]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EntryChoice_Option1.ProtoReflect.Descriptor instead.
-func (*EntryChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{18, 0}
-}
-
-func (x *EntryChoice_Option1) GetAuthor() []*Person {
-	if x != nil {
-		return x.Author
-	}
-	return nil
-}
-
-type EntryChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"category"
-	Category      []*Category `protobuf:"bytes,1,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EntryChoice_Option2) Reset() {
-	*x = EntryChoice_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[175]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EntryChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EntryChoice_Option2) ProtoMessage() {}
-
-func (x *EntryChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[175]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EntryChoice_Option2.ProtoReflect.Descriptor instead.
-func (*EntryChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{18, 1}
-}
-
-func (x *EntryChoice_Option2) GetCategory() []*Category {
-	if x != nil {
-		return x.Category
-	}
-	return nil
-}
-
-type EntryChoice_Option3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"contributor"
-	Contributor   []*Person `protobuf:"bytes,1,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EntryChoice_Option3) Reset() {
-	*x = EntryChoice_Option3{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[176]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EntryChoice_Option3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EntryChoice_Option3) ProtoMessage() {}
-
-func (x *EntryChoice_Option3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[176]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EntryChoice_Option3.ProtoReflect.Descriptor instead.
-func (*EntryChoice_Option3) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{18, 2}
-}
-
-func (x *EntryChoice_Option3) GetContributor() []*Person {
-	if x != nil {
-		return x.Contributor
-	}
-	return nil
-}
-
-type EntryChoice_Option4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"link"
-	Link          []*Link `protobuf:"bytes,1,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EntryChoice_Option4) Reset() {
-	*x = EntryChoice_Option4{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[177]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EntryChoice_Option4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EntryChoice_Option4) ProtoMessage() {}
-
-func (x *EntryChoice_Option4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[177]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EntryChoice_Option4.ProtoReflect.Descriptor instead.
-func (*EntryChoice_Option4) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{18, 3}
-}
-
-func (x *EntryChoice_Option4) GetLink() []*Link {
-	if x != nil {
-		return x.Link
-	}
-	return nil
-}
-
-type HarmonyModulationChoice4_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartPoint"
-	StartPoint string `protobuf:"bytes,1,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
-	// @gotags: xml:"EndPoint"
-	EndPoint      string `protobuf:"bytes,2,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty" xml:"EndPoint"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HarmonyModulationChoice4_Option1) Reset() {
-	*x = HarmonyModulationChoice4_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[178]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HarmonyModulationChoice4_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HarmonyModulationChoice4_Option1) ProtoMessage() {}
-
-func (x *HarmonyModulationChoice4_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[178]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HarmonyModulationChoice4_Option1.ProtoReflect.Descriptor instead.
-func (*HarmonyModulationChoice4_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{25, 0}
-}
-
-func (x *HarmonyModulationChoice4_Option1) GetStartPoint() string {
-	if x != nil {
-		return x.StartPoint
-	}
-	return ""
-}
-
-func (x *HarmonyModulationChoice4_Option1) GetEndPoint() string {
-	if x != nil {
-		return x.EndPoint
-	}
-	return ""
-}
-
-type HarmonyModulationChoice4_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartBar"
-	StartBar int32 `protobuf:"varint,1,opt,name=start_bar,json=startBar,proto3" json:"start_bar,omitempty" xml:"StartBar"`
-	// @gotags: xml:"EndBar"
-	EndBar        int32 `protobuf:"varint,2,opt,name=end_bar,json=endBar,proto3" json:"end_bar,omitempty" xml:"EndBar"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HarmonyModulationChoice4_Option2) Reset() {
-	*x = HarmonyModulationChoice4_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[179]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HarmonyModulationChoice4_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HarmonyModulationChoice4_Option2) ProtoMessage() {}
-
-func (x *HarmonyModulationChoice4_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[179]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HarmonyModulationChoice4_Option2.ProtoReflect.Descriptor instead.
-func (*HarmonyModulationChoice4_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{25, 1}
-}
-
-func (x *HarmonyModulationChoice4_Option2) GetStartBar() int32 {
-	if x != nil {
-		return x.StartBar
-	}
-	return 0
-}
-
-func (x *HarmonyModulationChoice4_Option2) GetEndBar() int32 {
-	if x != nil {
-		return x.EndBar
-	}
-	return 0
-}
-
-type ModulationChoice2_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartPoint"
-	StartPoint string `protobuf:"bytes,1,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
-	// @gotags: xml:"EndPoint"
-	EndPoint      string `protobuf:"bytes,2,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty" xml:"EndPoint"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ModulationChoice2_Option1) Reset() {
-	*x = ModulationChoice2_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[180]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ModulationChoice2_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ModulationChoice2_Option1) ProtoMessage() {}
-
-func (x *ModulationChoice2_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[180]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ModulationChoice2_Option1.ProtoReflect.Descriptor instead.
-func (*ModulationChoice2_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{38, 0}
-}
-
-func (x *ModulationChoice2_Option1) GetStartPoint() string {
-	if x != nil {
-		return x.StartPoint
-	}
-	return ""
-}
-
-func (x *ModulationChoice2_Option1) GetEndPoint() string {
-	if x != nil {
-		return x.EndPoint
-	}
-	return ""
-}
-
-type ModulationChoice2_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartBar"
-	StartBar int32 `protobuf:"varint,1,opt,name=start_bar,json=startBar,proto3" json:"start_bar,omitempty" xml:"StartBar"`
-	// @gotags: xml:"EndBar"
-	EndBar        int32 `protobuf:"varint,2,opt,name=end_bar,json=endBar,proto3" json:"end_bar,omitempty" xml:"EndBar"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ModulationChoice2_Option2) Reset() {
-	*x = ModulationChoice2_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[181]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ModulationChoice2_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ModulationChoice2_Option2) ProtoMessage() {}
-
-func (x *ModulationChoice2_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[181]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ModulationChoice2_Option2.ProtoReflect.Descriptor instead.
-func (*ModulationChoice2_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{38, 1}
-}
-
-func (x *ModulationChoice2_Option2) GetStartBar() int32 {
-	if x != nil {
-		return x.StartBar
-	}
-	return 0
-}
-
-func (x *ModulationChoice2_Option2) GetEndBar() int32 {
-	if x != nil {
-		return x.EndBar
-	}
-	return 0
-}
-
-type SampleChoice6_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"HostTiming"
-	HostTiming    []*Timing `protobuf:"bytes,1,rep,name=host_timing,json=hostTiming,proto3" json:"host_timing,omitempty" xml:"HostTiming"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SampleChoice6_Option1) Reset() {
-	*x = SampleChoice6_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[182]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SampleChoice6_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SampleChoice6_Option1) ProtoMessage() {}
-
-func (x *SampleChoice6_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[182]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SampleChoice6_Option1.ProtoReflect.Descriptor instead.
-func (*SampleChoice6_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{59, 0}
-}
-
-func (x *SampleChoice6_Option1) GetHostTiming() []*Timing {
-	if x != nil {
-		return x.HostTiming
-	}
-	return nil
-}
-
-type SampleChoice6_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"SampleTiming"
-	SampleTiming  []*Timing `protobuf:"bytes,1,rep,name=sample_timing,json=sampleTiming,proto3" json:"sample_timing,omitempty" xml:"SampleTiming"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SampleChoice6_Option2) Reset() {
-	*x = SampleChoice6_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[183]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SampleChoice6_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SampleChoice6_Option2) ProtoMessage() {}
-
-func (x *SampleChoice6_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[183]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SampleChoice6_Option2.ProtoReflect.Descriptor instead.
-func (*SampleChoice6_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{59, 1}
-}
-
-func (x *SampleChoice6_Option2) GetSampleTiming() []*Timing {
-	if x != nil {
-		return x.SampleTiming
-	}
-	return nil
-}
-
-type TimeSignatureModulationChoice2_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartPoint"
-	StartPoint string `protobuf:"bytes,1,opt,name=start_point,json=startPoint,proto3" json:"start_point,omitempty" xml:"StartPoint"`
-	// @gotags: xml:"EndPoint"
-	EndPoint      string `protobuf:"bytes,2,opt,name=end_point,json=endPoint,proto3" json:"end_point,omitempty" xml:"EndPoint"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TimeSignatureModulationChoice2_Option1) Reset() {
-	*x = TimeSignatureModulationChoice2_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[184]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TimeSignatureModulationChoice2_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TimeSignatureModulationChoice2_Option1) ProtoMessage() {}
-
-func (x *TimeSignatureModulationChoice2_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[184]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TimeSignatureModulationChoice2_Option1.ProtoReflect.Descriptor instead.
-func (*TimeSignatureModulationChoice2_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{71, 0}
-}
-
-func (x *TimeSignatureModulationChoice2_Option1) GetStartPoint() string {
-	if x != nil {
-		return x.StartPoint
-	}
-	return ""
-}
-
-func (x *TimeSignatureModulationChoice2_Option1) GetEndPoint() string {
-	if x != nil {
-		return x.EndPoint
-	}
-	return ""
-}
-
-type TimeSignatureModulationChoice2_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartBar"
-	StartBar int32 `protobuf:"varint,1,opt,name=start_bar,json=startBar,proto3" json:"start_bar,omitempty" xml:"StartBar"`
-	// @gotags: xml:"EndBar"
-	EndBar        int32 `protobuf:"varint,2,opt,name=end_bar,json=endBar,proto3" json:"end_bar,omitempty" xml:"EndBar"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TimeSignatureModulationChoice2_Option2) Reset() {
-	*x = TimeSignatureModulationChoice2_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[185]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TimeSignatureModulationChoice2_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TimeSignatureModulationChoice2_Option2) ProtoMessage() {}
-
-func (x *TimeSignatureModulationChoice2_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[185]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TimeSignatureModulationChoice2_Option2.ProtoReflect.Descriptor instead.
-func (*TimeSignatureModulationChoice2_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{71, 1}
-}
-
-func (x *TimeSignatureModulationChoice2_Option2) GetStartBar() int32 {
-	if x != nil {
-		return x.StartBar
-	}
-	return 0
-}
-
-func (x *TimeSignatureModulationChoice2_Option2) GetEndBar() int32 {
-	if x != nil {
-		return x.EndBar
-	}
-	return 0
-}
-
-type UsageChoice6_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"UsageDate"
-	UsageDate     []*EventDate `protobuf:"bytes,1,rep,name=usage_date,json=usageDate,proto3" json:"usage_date,omitempty" xml:"UsageDate"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UsageChoice6_Option1) Reset() {
-	*x = UsageChoice6_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[186]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UsageChoice6_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UsageChoice6_Option1) ProtoMessage() {}
-
-func (x *UsageChoice6_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[186]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UsageChoice6_Option1.ProtoReflect.Descriptor instead.
-func (*UsageChoice6_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{74, 0}
-}
-
-func (x *UsageChoice6_Option1) GetUsageDate() []*EventDate {
-	if x != nil {
-		return x.UsageDate
-	}
-	return nil
-}
-
-type UsageChoice6_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"UsagePeriod"
-	UsagePeriod   []*UsagePeriod `protobuf:"bytes,1,rep,name=usage_period,json=usagePeriod,proto3" json:"usage_period,omitempty" xml:"UsagePeriod"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UsageChoice6_Option2) Reset() {
-	*x = UsageChoice6_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[187]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UsageChoice6_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UsageChoice6_Option2) ProtoMessage() {}
-
-func (x *UsageChoice6_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[187]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UsageChoice6_Option2.ProtoReflect.Descriptor instead.
-func (*UsageChoice6_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{74, 1}
-}
-
-func (x *UsageChoice6_Option2) GetUsagePeriod() []*UsagePeriod {
-	if x != nil {
-		return x.UsagePeriod
-	}
-	return nil
-}
-
-type SourceChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"author"
-	Author        []*Person `protobuf:"bytes,1,rep,name=author,proto3" json:"author,omitempty" xml:"author"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SourceChoice_Option1) Reset() {
-	*x = SourceChoice_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[188]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SourceChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SourceChoice_Option1) ProtoMessage() {}
-
-func (x *SourceChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[188]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SourceChoice_Option1.ProtoReflect.Descriptor instead.
-func (*SourceChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{92, 0}
-}
-
-func (x *SourceChoice_Option1) GetAuthor() []*Person {
-	if x != nil {
-		return x.Author
-	}
-	return nil
-}
-
-type SourceChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"category"
-	Category      []*Category `protobuf:"bytes,1,rep,name=category,proto3" json:"category,omitempty" xml:"category"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SourceChoice_Option2) Reset() {
-	*x = SourceChoice_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[189]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SourceChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SourceChoice_Option2) ProtoMessage() {}
-
-func (x *SourceChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[189]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SourceChoice_Option2.ProtoReflect.Descriptor instead.
-func (*SourceChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{92, 1}
-}
-
-func (x *SourceChoice_Option2) GetCategory() []*Category {
-	if x != nil {
-		return x.Category
-	}
-	return nil
-}
-
-type SourceChoice_Option3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"contributor"
-	Contributor   []*Person `protobuf:"bytes,1,rep,name=contributor,proto3" json:"contributor,omitempty" xml:"contributor"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SourceChoice_Option3) Reset() {
-	*x = SourceChoice_Option3{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[190]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SourceChoice_Option3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SourceChoice_Option3) ProtoMessage() {}
-
-func (x *SourceChoice_Option3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[190]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SourceChoice_Option3.ProtoReflect.Descriptor instead.
-func (*SourceChoice_Option3) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{92, 2}
-}
-
-func (x *SourceChoice_Option3) GetContributor() []*Person {
-	if x != nil {
-		return x.Contributor
-	}
-	return nil
-}
-
-type SourceChoice_Option4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"link"
-	Link          []*Link `protobuf:"bytes,1,rep,name=link,proto3" json:"link,omitempty" xml:"link"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SourceChoice_Option4) Reset() {
-	*x = SourceChoice_Option4{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[191]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SourceChoice_Option4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SourceChoice_Option4) ProtoMessage() {}
-
-func (x *SourceChoice_Option4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[191]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SourceChoice_Option4.ProtoReflect.Descriptor instead.
-func (*SourceChoice_Option4) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{92, 3}
-}
-
-func (x *SourceChoice_Option4) GetLink() []*Link {
-	if x != nil {
-		return x.Link
-	}
-	return nil
-}
-
-type MetadataSourceChoice3_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyName"
-	PartyName []*PartyNameWithPronunciation `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MetadataSourceChoice3_Option1) Reset() {
-	*x = MetadataSourceChoice3_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[192]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MetadataSourceChoice3_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MetadataSourceChoice3_Option1) ProtoMessage() {}
-
-func (x *MetadataSourceChoice3_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[192]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MetadataSourceChoice3_Option1.ProtoReflect.Descriptor instead.
-func (*MetadataSourceChoice3_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{126, 0}
-}
-
-func (x *MetadataSourceChoice3_Option1) GetPartyName() []*PartyNameWithPronunciation {
-	if x != nil {
-		return x.PartyName
-	}
-	return nil
-}
-
-func (x *MetadataSourceChoice3_Option1) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type MetadataSourceChoice3_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MetadataSourceChoice3_Option2) Reset() {
-	*x = MetadataSourceChoice3_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[193]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MetadataSourceChoice3_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MetadataSourceChoice3_Option2) ProtoMessage() {}
-
-func (x *MetadataSourceChoice3_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[193]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MetadataSourceChoice3_Option2.ProtoReflect.Descriptor instead.
-func (*MetadataSourceChoice3_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{126, 1}
-}
-
-func (x *MetadataSourceChoice3_Option2) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type PartyDescriptorWithPronunciationChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyName"
-	PartyName []*PartyNameWithPronunciation `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option1) Reset() {
-	*x = PartyDescriptorWithPronunciationChoice_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[194]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartyDescriptorWithPronunciationChoice_Option1) ProtoMessage() {}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[194]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartyDescriptorWithPronunciationChoice_Option1.ProtoReflect.Descriptor instead.
-func (*PartyDescriptorWithPronunciationChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{134, 0}
-}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option1) GetPartyName() []*PartyNameWithPronunciation {
-	if x != nil {
-		return x.PartyName
-	}
-	return nil
-}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option1) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type PartyDescriptorWithPronunciationChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option2) Reset() {
-	*x = PartyDescriptorWithPronunciationChoice_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[195]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartyDescriptorWithPronunciationChoice_Option2) ProtoMessage() {}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[195]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartyDescriptorWithPronunciationChoice_Option2.ProtoReflect.Descriptor instead.
-func (*PartyDescriptorWithPronunciationChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{134, 1}
-}
-
-func (x *PartyDescriptorWithPronunciationChoice_Option2) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type PeriodChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDate"
-	StartDate *EventDate `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
-	// @gotags: xml:"EndDate"
-	EndDate       *EventDate `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodChoice_Option1) Reset() {
-	*x = PeriodChoice_Option1{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[196]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodChoice_Option1) ProtoMessage() {}
-
-func (x *PeriodChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[196]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodChoice_Option1.ProtoReflect.Descriptor instead.
-func (*PeriodChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{138, 0}
-}
-
-func (x *PeriodChoice_Option1) GetStartDate() *EventDate {
-	if x != nil {
-		return x.StartDate
-	}
-	return nil
-}
-
-func (x *PeriodChoice_Option1) GetEndDate() *EventDate {
-	if x != nil {
-		return x.EndDate
-	}
-	return nil
-}
-
-type PeriodChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDateTime"
-	StartDateTime *EventDateTime `protobuf:"bytes,1,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
-	// @gotags: xml:"EndDateTime"
-	EndDateTime   *EventDateTime `protobuf:"bytes,2,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodChoice_Option2) Reset() {
-	*x = PeriodChoice_Option2{}
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[197]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodChoice_Option2) ProtoMessage() {}
-
-func (x *PeriodChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_mead_v11_v11_proto_msgTypes[197]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodChoice_Option2.ProtoReflect.Descriptor instead.
-func (*PeriodChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_mead_v11_v11_proto_rawDescGZIP(), []int{138, 1}
-}
-
-func (x *PeriodChoice_Option2) GetStartDateTime() *EventDateTime {
-	if x != nil {
-		return x.StartDateTime
-	}
-	return nil
-}
-
-func (x *PeriodChoice_Option2) GetEndDateTime() *EventDateTime {
-	if x != nil {
-		return x.EndDateTime
-	}
-	return nil
-}
-
 var File_ddex_mead_v11_v11_proto protoreflect.FileDescriptor
 
 const file_ddex_mead_v11_v11_proto_rawDesc = "" +
@@ -14740,37 +11870,22 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x19resource_information_list\x18\x05 \x01(\v2&.ddex.mead.v11.ResourceInformationListR\x17resourceInformationList\x12_\n" +
 	"\x18release_information_list\x18\x06 \x01(\v2%.ddex.mead.v11.ReleaseInformationListR\x16releaseInformationList\x12$\n" +
 	"\x0eavs_version_id\x18\a \x01(\tR\favsVersionId\x127\n" +
-	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\"9\n" +
-	"\x04Feed\x121\n" +
-	"\x06choice\x18\x01 \x03(\v2\x19.ddex.mead.v11.FeedChoiceR\x06choice\"\xb2\b\n" +
-	"\n" +
-	"FeedChoice\x12H\n" +
-	"\rauthor_option\x18\x01 \x01(\v2!.ddex.mead.v11.FeedChoice.Option1H\x00R\fauthorOption\x12L\n" +
-	"\x0fcategory_option\x18\x02 \x01(\v2!.ddex.mead.v11.FeedChoice.Option2H\x00R\x0ecategoryOption\x12R\n" +
-	"\x12contributor_option\x18\x03 \x01(\v2!.ddex.mead.v11.FeedChoice.Option3H\x00R\x11contributorOption\x128\n" +
-	"\tgenerator\x18\x04 \x01(\v2\x18.ddex.mead.v11.GeneratorH\x00R\tgenerator\x12)\n" +
-	"\x04icon\x18\x05 \x01(\v2\x13.ddex.mead.v11.IconH\x00R\x04icon\x12#\n" +
-	"\x02id\x18\x06 \x01(\v2\x11.ddex.mead.v11.IdH\x00R\x02id\x12D\n" +
-	"\vlink_option\x18\a \x01(\v2!.ddex.mead.v11.FeedChoice.Option4H\x00R\n" +
-	"linkOption\x12)\n" +
-	"\x04logo\x18\b \x01(\v2\x13.ddex.mead.v11.LogoH\x00R\x04logo\x12-\n" +
-	"\x06rights\x18\t \x01(\v2\x13.ddex.mead.v11.TextH\x00R\x06rights\x121\n" +
+	"\x18language_and_script_code\x18\b \x01(\tR\x15languageAndScriptCode\"\xe1\x04\n" +
+	"\x04Feed\x12-\n" +
+	"\x06author\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\x06author\x123\n" +
+	"\bcategory\x18\x02 \x03(\v2\x17.ddex.mead.v11.CategoryR\bcategory\x127\n" +
+	"\vcontributor\x18\x03 \x03(\v2\x15.ddex.mead.v11.PersonR\vcontributor\x126\n" +
+	"\tgenerator\x18\x04 \x01(\v2\x18.ddex.mead.v11.GeneratorR\tgenerator\x12'\n" +
+	"\x04icon\x18\x05 \x01(\v2\x13.ddex.mead.v11.IconR\x04icon\x12!\n" +
+	"\x02id\x18\x06 \x01(\v2\x11.ddex.mead.v11.IdR\x02id\x12'\n" +
+	"\x04link\x18\a \x03(\v2\x13.ddex.mead.v11.LinkR\x04link\x12'\n" +
+	"\x04logo\x18\b \x01(\v2\x13.ddex.mead.v11.LogoR\x04logo\x12+\n" +
+	"\x06rights\x18\t \x01(\v2\x13.ddex.mead.v11.TextR\x06rights\x12/\n" +
 	"\bsubtitle\x18\n" +
-	" \x01(\v2\x13.ddex.mead.v11.TextH\x00R\bsubtitle\x12+\n" +
-	"\x05title\x18\v \x01(\v2\x13.ddex.mead.v11.TextH\x00R\x05title\x123\n" +
-	"\aupdated\x18\f \x01(\v2\x17.ddex.mead.v11.DateTimeH\x00R\aupdated\x12F\n" +
-	"\fentry_option\x18\r \x01(\v2!.ddex.mead.v11.FeedChoice.Option5H\x00R\ventryOption\x1a8\n" +
-	"\aOption1\x12-\n" +
-	"\x06author\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\x06author\x1a>\n" +
-	"\aOption2\x123\n" +
-	"\bcategory\x18\x01 \x03(\v2\x17.ddex.mead.v11.CategoryR\bcategory\x1aB\n" +
-	"\aOption3\x127\n" +
-	"\vcontributor\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\vcontributor\x1a2\n" +
-	"\aOption4\x12'\n" +
-	"\x04link\x18\x01 \x03(\v2\x13.ddex.mead.v11.LinkR\x04link\x1a5\n" +
-	"\aOption5\x12*\n" +
-	"\x05entry\x18\x01 \x03(\v2\x14.ddex.mead.v11.EntryR\x05entryB\b\n" +
-	"\x06choice\"\xc4\x01\n" +
+	" \x01(\v2\x13.ddex.mead.v11.TextR\bsubtitle\x12)\n" +
+	"\x05title\x18\v \x01(\v2\x13.ddex.mead.v11.TextR\x05title\x121\n" +
+	"\aupdated\x18\f \x01(\v2\x17.ddex.mead.v11.DateTimeR\aupdated\x12*\n" +
+	"\x05entry\x18\r \x03(\v2\x14.ddex.mead.v11.EntryR\x05entry\"\xc4\x01\n" +
 	"\rAbsolutePitch\x12b\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2&.ddex.mead.v11.MetadataSourceReferenceR\x17metadataSourceReference\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\x129\n" +
@@ -14861,35 +11976,23 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x18language_and_script_code\x18\x03 \x01(\tR\x15languageAndScriptCode\x12:\n" +
 	"\x19applicable_territory_code\x18\x04 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x05 \x01(\bR\tisDefault\"a\n" +
-	"\x05Entry\x122\n" +
-	"\x06choice\x18\x01 \x03(\v2\x1a.ddex.mead.v11.EntryChoiceR\x06choice\x12$\n" +
-	"\x0eavs_version_id\x18\x02 \x01(\tR\favsVersionId\"\xef\a\n" +
-	"\vEntryChoice\x12I\n" +
-	"\rauthor_option\x18\x01 \x01(\v2\".ddex.mead.v11.EntryChoice.Option1H\x00R\fauthorOption\x12M\n" +
-	"\x0fcategory_option\x18\x02 \x01(\v2\".ddex.mead.v11.EntryChoice.Option2H\x00R\x0ecategoryOption\x122\n" +
-	"\acontent\x18\x03 \x01(\v2\x16.ddex.mead.v11.ContentH\x00R\acontent\x12S\n" +
-	"\x12contributor_option\x18\x04 \x01(\v2\".ddex.mead.v11.EntryChoice.Option3H\x00R\x11contributorOption\x12#\n" +
-	"\x02id\x18\x05 \x01(\v2\x11.ddex.mead.v11.IdH\x00R\x02id\x12E\n" +
-	"\vlink_option\x18\x06 \x01(\v2\".ddex.mead.v11.EntryChoice.Option4H\x00R\n" +
-	"linkOption\x127\n" +
-	"\tpublished\x18\a \x01(\v2\x17.ddex.mead.v11.DateTimeH\x00R\tpublished\x12-\n" +
-	"\x06rights\x18\b \x01(\v2\x13.ddex.mead.v11.TextH\x00R\x06rights\x12/\n" +
-	"\x06source\x18\t \x01(\v2\x15.ddex.mead.v11.SourceH\x00R\x06source\x12/\n" +
+	"is_default\x18\x05 \x01(\bR\tisDefault\"\x91\x05\n" +
+	"\x05Entry\x12-\n" +
+	"\x06author\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\x06author\x123\n" +
+	"\bcategory\x18\x02 \x03(\v2\x17.ddex.mead.v11.CategoryR\bcategory\x120\n" +
+	"\acontent\x18\x03 \x01(\v2\x16.ddex.mead.v11.ContentR\acontent\x127\n" +
+	"\vcontributor\x18\x04 \x03(\v2\x15.ddex.mead.v11.PersonR\vcontributor\x12!\n" +
+	"\x02id\x18\x05 \x01(\v2\x11.ddex.mead.v11.IdR\x02id\x12'\n" +
+	"\x04link\x18\x06 \x03(\v2\x13.ddex.mead.v11.LinkR\x04link\x125\n" +
+	"\tpublished\x18\a \x01(\v2\x17.ddex.mead.v11.DateTimeR\tpublished\x12+\n" +
+	"\x06rights\x18\b \x01(\v2\x13.ddex.mead.v11.TextR\x06rights\x12-\n" +
+	"\x06source\x18\t \x01(\v2\x15.ddex.mead.v11.SourceR\x06source\x12-\n" +
 	"\asummary\x18\n" +
-	" \x01(\v2\x13.ddex.mead.v11.TextH\x00R\asummary\x12+\n" +
-	"\x05title\x18\v \x01(\v2\x13.ddex.mead.v11.TextH\x00R\x05title\x123\n" +
-	"\aupdated\x18\f \x01(\v2\x17.ddex.mead.v11.DateTimeH\x00R\aupdated\x12)\n" +
-	"\x0fsubscription_id\x18\r \x01(\tH\x00R\x0esubscriptionId\x1a8\n" +
-	"\aOption1\x12-\n" +
-	"\x06author\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\x06author\x1a>\n" +
-	"\aOption2\x123\n" +
-	"\bcategory\x18\x01 \x03(\v2\x17.ddex.mead.v11.CategoryR\bcategory\x1aB\n" +
-	"\aOption3\x127\n" +
-	"\vcontributor\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\vcontributor\x1a2\n" +
-	"\aOption4\x12'\n" +
-	"\x04link\x18\x01 \x03(\v2\x13.ddex.mead.v11.LinkR\x04linkB\b\n" +
-	"\x06choice\"\x80\x01\n" +
+	" \x01(\v2\x13.ddex.mead.v11.TextR\asummary\x12)\n" +
+	"\x05title\x18\v \x01(\v2\x13.ddex.mead.v11.TextR\x05title\x121\n" +
+	"\aupdated\x18\f \x01(\v2\x17.ddex.mead.v11.DateTimeR\aupdated\x12'\n" +
+	"\x0fsubscription_id\x18\r \x01(\tR\x0esubscriptionId\x12$\n" +
+	"\x0eavs_version_id\x18\x0e \x01(\tR\favsVersionId\"\x80\x01\n" +
 	"\x04Flag\x12b\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2&.ddex.mead.v11.MetadataSourceReferenceR\x17metadataSourceReference\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\bR\x05value\"\x9a\x01\n" +
@@ -14912,25 +12015,16 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x04mode\x18\x04 \x01(\v2\x13.ddex.mead.v11.ModeR\x04mode\x12@\n" +
 	"\n" +
 	"modulation\x18\x05 \x03(\v2 .ddex.mead.v11.HarmonyModulationR\n" +
-	"modulation\"\x92\x02\n" +
+	"modulation\"\xc5\x02\n" +
 	"\x11HarmonyModulation\x12D\n" +
 	"\x0froot_chord_note\x18\x01 \x01(\v2\x1c.ddex.mead.v11.RootChordNoteR\rrootChordNote\x12M\n" +
 	"\x12root_chord_quality\x18\x02 \x01(\v2\x1f.ddex.mead.v11.RootChordQualityR\x10rootChordQuality\x12'\n" +
-	"\x04mode\x18\x03 \x01(\v2\x13.ddex.mead.v11.ModeR\x04mode\x12?\n" +
-	"\x06choice\x18\x04 \x01(\v2'.ddex.mead.v11.HarmonyModulationChoice4R\x06choice\"\xd2\x02\n" +
-	"\x18HarmonyModulationChoice4\x12P\n" +
-	"\n" +
-	"sequence_1\x18\x01 \x01(\v2/.ddex.mead.v11.HarmonyModulationChoice4.Option1H\x00R\tsequence1\x12P\n" +
-	"\n" +
-	"sequence_2\x18\x02 \x01(\v2/.ddex.mead.v11.HarmonyModulationChoice4.Option2H\x00R\tsequence2\x1aG\n" +
-	"\aOption1\x12\x1f\n" +
-	"\vstart_point\x18\x01 \x01(\tR\n" +
+	"\x04mode\x18\x03 \x01(\v2\x13.ddex.mead.v11.ModeR\x04mode\x12\x1f\n" +
+	"\vstart_point\x18\x04 \x01(\tR\n" +
 	"startPoint\x12\x1b\n" +
-	"\tend_point\x18\x02 \x01(\tR\bendPoint\x1a?\n" +
-	"\aOption2\x12\x1b\n" +
-	"\tstart_bar\x18\x01 \x01(\x05R\bstartBar\x12\x17\n" +
-	"\aend_bar\x18\x02 \x01(\x05R\x06endBarB\b\n" +
-	"\x06choice\"l\n" +
+	"\tend_point\x18\x05 \x01(\tR\bendPoint\x12\x1b\n" +
+	"\tstart_bar\x18\x06 \x01(\x05R\bstartBar\x12\x17\n" +
+	"\aend_bar\x18\a \x01(\x05R\x06endBar\"l\n" +
 	"\n" +
 	"ImpactDate\x12\x12\n" +
 	"\x04date\x18\x01 \x01(\tR\x04date\x12J\n" +
@@ -14989,24 +12083,15 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x04Mode\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\\\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x96\x01\n" +
 	"\n" +
 	"Modulation\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x128\n" +
-	"\x06choice\x18\x02 \x01(\v2 .ddex.mead.v11.ModulationChoice2R\x06choice\"\xbd\x02\n" +
-	"\x11ModulationChoice2\x12I\n" +
-	"\n" +
-	"sequence_1\x18\x01 \x01(\v2(.ddex.mead.v11.ModulationChoice2.Option1H\x00R\tsequence1\x12I\n" +
-	"\n" +
-	"sequence_2\x18\x02 \x01(\v2(.ddex.mead.v11.ModulationChoice2.Option2H\x00R\tsequence2\x1aG\n" +
-	"\aOption1\x12\x1f\n" +
-	"\vstart_point\x18\x01 \x01(\tR\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1f\n" +
+	"\vstart_point\x18\x02 \x01(\tR\n" +
 	"startPoint\x12\x1b\n" +
-	"\tend_point\x18\x02 \x01(\tR\bendPoint\x1a?\n" +
-	"\aOption2\x12\x1b\n" +
-	"\tstart_bar\x18\x01 \x01(\x05R\bstartBar\x12\x17\n" +
-	"\aend_bar\x18\x02 \x01(\x05R\x06endBarB\b\n" +
-	"\x06choice\"\xff\x02\n" +
+	"\tend_point\x18\x03 \x01(\tR\bendPoint\x12\x1b\n" +
+	"\tstart_bar\x18\x04 \x01(\x05R\bstartBar\x12\x17\n" +
+	"\aend_bar\x18\x05 \x01(\x05R\x06endBar\"\xff\x02\n" +
 	"\x04Mood\x12b\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2&.ddex.mead.v11.MetadataSourceReferenceR\x17metadataSourceReference\x12.\n" +
 	"\x05value\x18\x02 \x01(\v2\x18.ddex.mead.v11.MoodValueR\x05value\x12E\n" +
@@ -15078,7 +12163,7 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x10RelevantResource\x12E\n" +
 	"\vresource_id\x18\x01 \x01(\v2$.ddex.mead.v11.ResourceIdWithoutFlagR\n" +
 	"resourceId\x12e\n" +
-	"\x1aresource_relationship_type\x18\x02 \x01(\v2'.ddex.mead.v11.ResourceRelationshipTypeR\x18resourceRelationshipType\"\xf9\x13\n" +
+	"\x1aresource_relationship_type\x18\x02 \x01(\v2'.ddex.mead.v11.ResourceRelationshipTypeR\x18resourceRelationshipType\"\x9b\x14\n" +
 	"\x13ResourceInformation\x12I\n" +
 	"\x10resource_summary\x18\x01 \x01(\v2\x1e.ddex.mead.v11.ResourceSummaryR\x0fresourceSummary\x12C\n" +
 	"\x0egenre_category\x18\x02 \x03(\v2\x1c.ddex.mead.v11.GenreCategoryR\rgenreCategory\x12M\n" +
@@ -15119,16 +12204,13 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x05award\x18! \x03(\v2\x14.ddex.mead.v11.AwardR\x05award\x12g\n" +
 	"\x1clocation_and_date_of_session\x18\" \x03(\v2'.ddex.mead.v11.LocationAndDateOfSessionR\x18locationAndDateOfSession\x12L\n" +
 	"\x11alternative_title\x18# \x03(\v2\x1f.ddex.mead.v11.AlternativeTitleR\x10alternativeTitle\x12*\n" +
-	"\x05image\x18$ \x03(\v2\x14.ddex.mead.v11.ImageR\x05image\x12B\n" +
-	"\x06choice\x18% \x01(\v2*.ddex.mead.v11.ResourceInformationChoice37R\x06choice\x12;\n" +
-	"\x1apriority_period_start_date\x18& \x01(\tR\x17priorityPeriodStartDate\x127\n" +
-	"\x18priority_period_end_date\x18' \x01(\tR\x15priorityPeriodEndDate\x12:\n" +
-	"\x19applicable_territory_code\x18( \x01(\tR\x17applicableTerritoryCode\"\x91\x01\n" +
-	"\x1bResourceInformationChoice37\x126\n" +
-	"\vis_original\x18\x01 \x01(\v2\x13.ddex.mead.v11.FlagH\x00R\n" +
-	"isOriginal\x120\n" +
-	"\bis_cover\x18\x02 \x01(\v2\x13.ddex.mead.v11.FlagH\x00R\aisCoverB\b\n" +
-	"\x06choice\"p\n" +
+	"\x05image\x18$ \x03(\v2\x14.ddex.mead.v11.ImageR\x05image\x124\n" +
+	"\vis_original\x18% \x01(\v2\x13.ddex.mead.v11.FlagR\n" +
+	"isOriginal\x12.\n" +
+	"\bis_cover\x18& \x01(\v2\x13.ddex.mead.v11.FlagR\aisCover\x12;\n" +
+	"\x1apriority_period_start_date\x18' \x01(\tR\x17priorityPeriodStartDate\x127\n" +
+	"\x18priority_period_end_date\x18( \x01(\tR\x15priorityPeriodEndDate\x12:\n" +
+	"\x19applicable_territory_code\x18) \x01(\tR\x17applicableTerritoryCode\"p\n" +
 	"\x17ResourceInformationList\x12U\n" +
 	"\x14resource_information\x18\x01 \x03(\v2\".ddex.mead.v11.ResourceInformationR\x13resourceInformation\"\x91\x04\n" +
 	"\x14ResourceRelationship\x12b\n" +
@@ -15162,27 +12244,17 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x10RootChordQuality\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xac\x03\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x91\x04\n" +
 	"\x06Sample\x12b\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2&.ddex.mead.v11.MetadataSourceReferenceR\x17metadataSourceReference\x12I\n" +
 	"\x10related_resource\x18\x02 \x01(\v2\x1e.ddex.mead.v11.ResourceSummaryR\x0frelatedResource\x12C\n" +
 	"\x0esample_feature\x18\x03 \x03(\v2\x1c.ddex.mead.v11.SampleFeatureR\rsampleFeature\x12?\n" +
-	"\vdescription\x18\x04 \x03(\v2\x1d.ddex.mead.v11.TextWithFormatR\vdescription\x124\n" +
-	"\x06choice\x18\x05 \x01(\v2\x1c.ddex.mead.v11.SampleChoice5R\x06choice\x127\n" +
-	"\bchoice_1\x18\x06 \x03(\v2\x1c.ddex.mead.v11.SampleChoice6R\achoice1\"}\n" +
-	"\rSampleChoice5\x12+\n" +
-	"\x10contains_samples\x18\x01 \x01(\bH\x00R\x0fcontainsSamples\x125\n" +
-	"\x16is_contained_in_sample\x18\x02 \x01(\bH\x00R\x13isContainedInSampleB\b\n" +
-	"\x06choice\"\xd3\x02\n" +
-	"\rSampleChoice6\x12T\n" +
-	"\x12host_timing_option\x18\x01 \x01(\v2$.ddex.mead.v11.SampleChoice6.Option1H\x00R\x10hostTimingOption\x12X\n" +
-	"\x14sample_timing_option\x18\x02 \x01(\v2$.ddex.mead.v11.SampleChoice6.Option2H\x00R\x12sampleTimingOption\x1aA\n" +
-	"\aOption1\x126\n" +
-	"\vhost_timing\x18\x01 \x03(\v2\x15.ddex.mead.v11.TimingR\n" +
-	"hostTiming\x1aE\n" +
-	"\aOption2\x12:\n" +
-	"\rsample_timing\x18\x01 \x03(\v2\x15.ddex.mead.v11.TimingR\fsampleTimingB\b\n" +
-	"\x06choice\"^\n" +
+	"\vdescription\x18\x04 \x03(\v2\x1d.ddex.mead.v11.TextWithFormatR\vdescription\x12)\n" +
+	"\x10contains_samples\x18\x05 \x01(\bR\x0fcontainsSamples\x123\n" +
+	"\x16is_contained_in_sample\x18\x06 \x01(\bR\x13isContainedInSample\x126\n" +
+	"\vhost_timing\x18\a \x03(\v2\x15.ddex.mead.v11.TimingR\n" +
+	"hostTiming\x12:\n" +
+	"\rsample_timing\x18\b \x03(\v2\x15.ddex.mead.v11.TimingR\fsampleTiming\"^\n" +
 	"\rSampleFeature\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\xe3\x01\n" +
@@ -15218,55 +12290,33 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"ThemeValue\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xf8\x01\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xbb\x02\n" +
 	"\rTimeSignature\x12b\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2&.ddex.mead.v11.MetadataSourceReferenceR\x17metadataSourceReference\x12F\n" +
 	"\n" +
 	"modulation\x18\x02 \x03(\v2&.ddex.mead.v11.TimeSignatureModulationR\n" +
-	"modulation\x12;\n" +
-	"\x06choice\x18\x03 \x01(\v2#.ddex.mead.v11.TimeSignatureChoice3R\x06choice\"\xa6\x01\n" +
-	"\x14TimeSignatureChoice3\x12,\n" +
-	"\x05meter\x18\x01 \x01(\v2\x14.ddex.mead.v11.MeterH\x00R\x05meter\x12.\n" +
-	"\x12no_meter_available\x18\x02 \x01(\bH\x00R\x10noMeterAvailable\x12&\n" +
-	"\x0etoo_many_tempi\x18\x03 \x01(\bH\x00R\ftooManyTempiB\b\n" +
-	"\x06choice\"\xc0\x01\n" +
+	"modulation\x12*\n" +
+	"\x05meter\x18\x03 \x01(\v2\x14.ddex.mead.v11.MeterR\x05meter\x12,\n" +
+	"\x12no_meter_available\x18\x04 \x01(\bR\x10noMeterAvailable\x12$\n" +
+	"\x0etoo_many_tempi\x18\x05 \x01(\bR\ftooManyTempi\"\xfd\x01\n" +
 	"\x17TimeSignatureModulation\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\x12E\n" +
-	"\x06choice\x18\x02 \x01(\v2-.ddex.mead.v11.TimeSignatureModulationChoice2R\x06choice\x12H\n" +
-	"\bchoice_1\x18\x03 \x01(\v2-.ddex.mead.v11.TimeSignatureModulationChoice3R\achoice1\"\xe4\x02\n" +
-	"\x1eTimeSignatureModulationChoice2\x12V\n" +
-	"\n" +
-	"sequence_1\x18\x01 \x01(\v25.ddex.mead.v11.TimeSignatureModulationChoice2.Option1H\x00R\tsequence1\x12V\n" +
-	"\n" +
-	"sequence_2\x18\x02 \x01(\v25.ddex.mead.v11.TimeSignatureModulationChoice2.Option2H\x00R\tsequence2\x1aG\n" +
-	"\aOption1\x12\x1f\n" +
-	"\vstart_point\x18\x01 \x01(\tR\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1f\n" +
+	"\vstart_point\x18\x02 \x01(\tR\n" +
 	"startPoint\x12\x1b\n" +
-	"\tend_point\x18\x02 \x01(\tR\bendPoint\x1a?\n" +
-	"\aOption2\x12\x1b\n" +
-	"\tstart_bar\x18\x01 \x01(\x05R\bstartBar\x12\x17\n" +
-	"\aend_bar\x18\x02 \x01(\x05R\x06endBarB\b\n" +
-	"\x06choice\"\x88\x01\n" +
-	"\x1eTimeSignatureModulationChoice3\x12,\n" +
-	"\x05meter\x18\x01 \x01(\v2\x14.ddex.mead.v11.MeterH\x00R\x05meter\x12.\n" +
-	"\x12no_meter_available\x18\x02 \x01(\bH\x00R\x10noMeterAvailableB\b\n" +
-	"\x06choice\"\x9d\x03\n" +
+	"\tend_point\x18\x03 \x01(\tR\bendPoint\x12\x1b\n" +
+	"\tstart_bar\x18\x04 \x01(\x05R\bstartBar\x12\x17\n" +
+	"\aend_bar\x18\x05 \x01(\x05R\x06endBar\x12*\n" +
+	"\x05meter\x18\x06 \x01(\v2\x14.ddex.mead.v11.MeterR\x05meter\x12,\n" +
+	"\x12no_meter_available\x18\a \x01(\bR\x10noMeterAvailable\"\xe0\x03\n" +
 	"\x05Usage\x12b\n" +
 	"\x19metadata_source_reference\x18\x01 \x03(\v2&.ddex.mead.v11.MetadataSourceReferenceR\x17metadataSourceReference\x12?\n" +
 	"\vdescription\x18\x02 \x03(\v2\x1d.ddex.mead.v11.TextWithFormatR\vdescription\x12C\n" +
 	"\x1eterritory_of_usage_description\x18\x03 \x03(\tR\x1bterritoryOfUsageDescription\x12'\n" +
 	"\x0fsequence_number\x18\x04 \x01(\x05R\x0esequenceNumber\x12L\n" +
-	"\x11relevant_resource\x18\x05 \x03(\v2\x1f.ddex.mead.v11.RelevantResourceR\x10relevantResource\x123\n" +
-	"\x06choice\x18\x06 \x01(\v2\x1b.ddex.mead.v11.UsageChoice6R\x06choice\"\xd0\x02\n" +
-	"\fUsageChoice6\x12Q\n" +
-	"\x11usage_date_option\x18\x01 \x01(\v2#.ddex.mead.v11.UsageChoice6.Option1H\x00R\x0fusageDateOption\x12U\n" +
-	"\x13usage_period_option\x18\x02 \x01(\v2#.ddex.mead.v11.UsageChoice6.Option2H\x00R\x11usagePeriodOption\x1aB\n" +
-	"\aOption1\x127\n" +
+	"\x11relevant_resource\x18\x05 \x03(\v2\x1f.ddex.mead.v11.RelevantResourceR\x10relevantResource\x127\n" +
 	"\n" +
-	"usage_date\x18\x01 \x03(\v2\x18.ddex.mead.v11.EventDateR\tusageDate\x1aH\n" +
-	"\aOption2\x12=\n" +
-	"\fusage_period\x18\x01 \x03(\v2\x1a.ddex.mead.v11.UsagePeriodR\vusagePeriodB\b\n" +
-	"\x06choice\"\x93\x01\n" +
+	"usage_date\x18\x06 \x03(\v2\x18.ddex.mead.v11.EventDateR\tusageDate\x12=\n" +
+	"\fusage_period\x18\a \x03(\v2\x1a.ddex.mead.v11.UsagePeriodR\vusagePeriod\"\x93\x01\n" +
 	"\vUsagePeriod\x12C\n" +
 	"\n" +
 	"start_date\x18\x01 \x01(\v2$.ddex.mead.v11.EventDateWithoutFlagsR\tstartDate\x12?\n" +
@@ -15348,40 +12398,25 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x05title\x18\x05 \x01(\tR\x05title\x12\x16\n" +
 	"\x06length\x18\x06 \x01(\x05R\x06length\"\x1c\n" +
 	"\x04Logo\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\"=\n" +
-	"\x06Person\x123\n" +
-	"\x06choice\x18\x01 \x03(\v2\x1b.ddex.mead.v11.PersonChoiceR\x06choice\"n\n" +
-	"\fPersonChoice\x12\x14\n" +
-	"\x04name\x18\x01 \x01(\tH\x00R\x04name\x12&\n" +
-	"\x03uri\x18\x02 \x01(\v2\x12.ddex.mead.v11.URIH\x00R\x03uri\x12\x16\n" +
-	"\x05email\x18\x03 \x01(\tH\x00R\x05emailB\b\n" +
-	"\x06choice\"=\n" +
-	"\x06Source\x123\n" +
-	"\x06choice\x18\x01 \x03(\v2\x1b.ddex.mead.v11.SourceChoiceR\x06choice\"\xbd\a\n" +
-	"\fSourceChoice\x12J\n" +
-	"\rauthor_option\x18\x01 \x01(\v2#.ddex.mead.v11.SourceChoice.Option1H\x00R\fauthorOption\x12N\n" +
-	"\x0fcategory_option\x18\x02 \x01(\v2#.ddex.mead.v11.SourceChoice.Option2H\x00R\x0ecategoryOption\x12T\n" +
-	"\x12contributor_option\x18\x03 \x01(\v2#.ddex.mead.v11.SourceChoice.Option3H\x00R\x11contributorOption\x128\n" +
-	"\tgenerator\x18\x04 \x01(\v2\x18.ddex.mead.v11.GeneratorH\x00R\tgenerator\x12)\n" +
-	"\x04icon\x18\x05 \x01(\v2\x13.ddex.mead.v11.IconH\x00R\x04icon\x12#\n" +
-	"\x02id\x18\x06 \x01(\v2\x11.ddex.mead.v11.IdH\x00R\x02id\x12F\n" +
-	"\vlink_option\x18\a \x01(\v2#.ddex.mead.v11.SourceChoice.Option4H\x00R\n" +
-	"linkOption\x12)\n" +
-	"\x04logo\x18\b \x01(\v2\x13.ddex.mead.v11.LogoH\x00R\x04logo\x12-\n" +
-	"\x06rights\x18\t \x01(\v2\x13.ddex.mead.v11.TextH\x00R\x06rights\x121\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"X\n" +
+	"\x06Person\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12$\n" +
+	"\x03uri\x18\x02 \x01(\v2\x12.ddex.mead.v11.URIR\x03uri\x12\x14\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\"\xb7\x04\n" +
+	"\x06Source\x12-\n" +
+	"\x06author\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\x06author\x123\n" +
+	"\bcategory\x18\x02 \x03(\v2\x17.ddex.mead.v11.CategoryR\bcategory\x127\n" +
+	"\vcontributor\x18\x03 \x03(\v2\x15.ddex.mead.v11.PersonR\vcontributor\x126\n" +
+	"\tgenerator\x18\x04 \x01(\v2\x18.ddex.mead.v11.GeneratorR\tgenerator\x12'\n" +
+	"\x04icon\x18\x05 \x01(\v2\x13.ddex.mead.v11.IconR\x04icon\x12!\n" +
+	"\x02id\x18\x06 \x01(\v2\x11.ddex.mead.v11.IdR\x02id\x12'\n" +
+	"\x04link\x18\a \x03(\v2\x13.ddex.mead.v11.LinkR\x04link\x12'\n" +
+	"\x04logo\x18\b \x01(\v2\x13.ddex.mead.v11.LogoR\x04logo\x12+\n" +
+	"\x06rights\x18\t \x01(\v2\x13.ddex.mead.v11.TextR\x06rights\x12/\n" +
 	"\bsubtitle\x18\n" +
-	" \x01(\v2\x13.ddex.mead.v11.TextH\x00R\bsubtitle\x12+\n" +
-	"\x05title\x18\v \x01(\v2\x13.ddex.mead.v11.TextH\x00R\x05title\x123\n" +
-	"\aupdated\x18\f \x01(\v2\x17.ddex.mead.v11.DateTimeH\x00R\aupdated\x1a8\n" +
-	"\aOption1\x12-\n" +
-	"\x06author\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\x06author\x1a>\n" +
-	"\aOption2\x123\n" +
-	"\bcategory\x18\x01 \x03(\v2\x17.ddex.mead.v11.CategoryR\bcategory\x1aB\n" +
-	"\aOption3\x127\n" +
-	"\vcontributor\x18\x01 \x03(\v2\x15.ddex.mead.v11.PersonR\vcontributor\x1a2\n" +
-	"\aOption4\x12'\n" +
-	"\x04link\x18\x01 \x03(\v2\x13.ddex.mead.v11.LinkR\x04linkB\b\n" +
-	"\x06choice\"\x1a\n" +
+	" \x01(\v2\x13.ddex.mead.v11.TextR\bsubtitle\x12)\n" +
+	"\x05title\x18\v \x01(\v2\x13.ddex.mead.v11.TextR\x05title\x121\n" +
+	"\aupdated\x18\f \x01(\v2\x17.ddex.mead.v11.DateTimeR\aupdated\"\x1a\n" +
 	"\x04Text\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\"\x1b\n" +
 	"\x03URI\x12\x14\n" +
@@ -15560,22 +12595,13 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\bparty_id\x18\x01 \x01(\tR\apartyId\x12B\n" +
 	"\n" +
 	"party_name\x18\x02 \x01(\v2#.ddex.mead.v11.PartyNameWithoutCodeR\tpartyName\x12!\n" +
-	"\ftrading_name\x18\x03 \x01(\tR\vtradingName\"\xce\x01\n" +
+	"\ftrading_name\x18\x03 \x01(\tR\vtradingName\"\x95\x02\n" +
 	"\x0eMetadataSource\x12)\n" +
 	"\x10source_reference\x18\x01 \x01(\tR\x0fsourceReference\x12S\n" +
-	"\x14metadata_source_type\x18\x02 \x01(\v2!.ddex.mead.v11.MetadataSourceTypeR\x12metadataSourceType\x12<\n" +
-	"\x06choice\x18\x03 \x01(\v2$.ddex.mead.v11.MetadataSourceChoice3R\x06choice\"\x9f\x03\n" +
-	"\x15MetadataSourceChoice3\x12V\n" +
-	"\x0fparty_id_option\x18\x01 \x01(\v2,.ddex.mead.v11.MetadataSourceChoice3.Option2H\x00R\rpartyIdOption\x12M\n" +
+	"\x14metadata_source_type\x18\x02 \x01(\v2!.ddex.mead.v11.MetadataSourceTypeR\x12metadataSourceType\x129\n" +
+	"\bparty_id\x18\x03 \x03(\v2\x1e.ddex.mead.v11.DetailedPartyIdR\apartyId\x12H\n" +
 	"\n" +
-	"sequence_1\x18\x02 \x01(\v2,.ddex.mead.v11.MetadataSourceChoice3.Option1H\x00R\tsequence1\x1a\x8e\x01\n" +
-	"\aOption1\x12H\n" +
-	"\n" +
-	"party_name\x18\x01 \x03(\v2).ddex.mead.v11.PartyNameWithPronunciationR\tpartyName\x129\n" +
-	"\bparty_id\x18\x02 \x03(\v2\x1e.ddex.mead.v11.DetailedPartyIdR\apartyId\x1aD\n" +
-	"\aOption2\x129\n" +
-	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.mead.v11.DetailedPartyIdR\apartyIdB\b\n" +
-	"\x06choice\"\\\n" +
+	"party_name\x18\x04 \x03(\v2).ddex.mead.v11.PartyNameWithPronunciationR\tpartyName\"\\\n" +
 	"\x12MetadataSourceList\x12F\n" +
 	"\x0fmetadata_source\x18\x01 \x03(\v2\x1d.ddex.mead.v11.MetadataSourceR\x0emetadataSource\"\x8f\x01\n" +
 	"\x17MetadataSourceReference\x12\x14\n" +
@@ -15598,20 +12624,11 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"\x91\x01\n" +
 	"\"NameWithPronunciationAndScriptCode\x12'\n" +
 	"\x04name\x18\x01 \x01(\v2\x13.ddex.mead.v11.NameR\x04name\x12B\n" +
-	"\rpronunciation\x18\x02 \x03(\v2\x1c.ddex.mead.v11.PronunciationR\rpronunciation\"q\n" +
-	" PartyDescriptorWithPronunciation\x12M\n" +
-	"\x06choice\x18\x01 \x01(\v25.ddex.mead.v11.PartyDescriptorWithPronunciationChoiceR\x06choice\"\xd2\x03\n" +
-	"&PartyDescriptorWithPronunciationChoice\x12g\n" +
-	"\x0fparty_id_option\x18\x01 \x01(\v2=.ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option2H\x00R\rpartyIdOption\x12^\n" +
+	"\rpronunciation\x18\x02 \x03(\v2\x1c.ddex.mead.v11.PronunciationR\rpronunciation\"\xa7\x01\n" +
+	" PartyDescriptorWithPronunciation\x129\n" +
+	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.mead.v11.DetailedPartyIdR\apartyId\x12H\n" +
 	"\n" +
-	"sequence_1\x18\x02 \x01(\v2=.ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option1H\x00R\tsequence1\x1a\x8e\x01\n" +
-	"\aOption1\x12H\n" +
-	"\n" +
-	"party_name\x18\x01 \x03(\v2).ddex.mead.v11.PartyNameWithPronunciationR\tpartyName\x129\n" +
-	"\bparty_id\x18\x02 \x03(\v2\x1e.ddex.mead.v11.DetailedPartyIdR\apartyId\x1aD\n" +
-	"\aOption2\x129\n" +
-	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.mead.v11.DetailedPartyIdR\apartyIdB\b\n" +
-	"\x06choice\"\xa8\x06\n" +
+	"party_name\x18\x02 \x03(\v2).ddex.mead.v11.PartyNameWithPronunciationR\tpartyName\"\xa8\x06\n" +
 	"\x1aPartyNameWithPronunciation\x12N\n" +
 	"\tfull_name\x18\x01 \x01(\v21.ddex.mead.v11.NameWithPronunciationAndScriptCodeR\bfullName\x12p\n" +
 	"\x1bfull_name_ascii_transcribed\x18\x02 \x01(\v21.ddex.mead.v11.NameWithPronunciationAndScriptCodeR\x18fullNameAsciiTranscribed\x12]\n" +
@@ -15629,22 +12646,13 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x15names_before_key_name\x18\x04 \x01(\tR\x12namesBeforeKeyName\x12\x19\n" +
 	"\bkey_name\x18\x05 \x01(\tR\akeyName\x12/\n" +
 	"\x14names_after_key_name\x18\x06 \x01(\tR\x11namesAfterKeyName\x12)\n" +
-	"\x10abbreviated_name\x18\a \x01(\tR\x0fabbreviatedName\"=\n" +
-	"\x06Period\x123\n" +
-	"\x06choice\x18\x01 \x01(\v2\x1b.ddex.mead.v11.PeriodChoiceR\x06choice\"\xb1\x03\n" +
-	"\fPeriodChoice\x12D\n" +
-	"\n" +
-	"sequence_1\x18\x01 \x01(\v2#.ddex.mead.v11.PeriodChoice.Option1H\x00R\tsequence1\x12D\n" +
-	"\n" +
-	"sequence_2\x18\x02 \x01(\v2#.ddex.mead.v11.PeriodChoice.Option2H\x00R\tsequence2\x1aw\n" +
-	"\aOption1\x127\n" +
+	"\x10abbreviated_name\x18\a \x01(\tR\x0fabbreviatedName\"\xfe\x01\n" +
+	"\x06Period\x127\n" +
 	"\n" +
 	"start_date\x18\x01 \x01(\v2\x18.ddex.mead.v11.EventDateR\tstartDate\x123\n" +
-	"\bend_date\x18\x02 \x01(\v2\x18.ddex.mead.v11.EventDateR\aendDate\x1a\x91\x01\n" +
-	"\aOption2\x12D\n" +
-	"\x0fstart_date_time\x18\x01 \x01(\v2\x1c.ddex.mead.v11.EventDateTimeR\rstartDateTime\x12@\n" +
-	"\rend_date_time\x18\x02 \x01(\v2\x1c.ddex.mead.v11.EventDateTimeR\vendDateTimeB\b\n" +
-	"\x06choice\"o\n" +
+	"\bend_date\x18\x02 \x01(\v2\x18.ddex.mead.v11.EventDateR\aendDate\x12D\n" +
+	"\x0fstart_date_time\x18\x03 \x01(\v2\x1c.ddex.mead.v11.EventDateTimeR\rstartDateTime\x12@\n" +
+	"\rend_date_time\x18\x04 \x01(\v2\x1c.ddex.mead.v11.EventDateTimeR\vendDateTime\"o\n" +
 	"\vPeriodValue\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -15665,17 +12673,14 @@ const file_ddex_mead_v11_v11_proto_rawDesc = "" +
 	"\x11RecordingPartType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x8d\x01\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x9f\x02\n" +
 	"\x0fRelatedCreation\x12;\n" +
-	"\x05title\x18\x01 \x01(\v2%.ddex.mead.v11.TitleWithPronunciationR\x05title\x12=\n" +
-	"\x06choice\x18\x02 \x01(\v2%.ddex.mead.v11.RelatedCreationChoice2R\x06choice\"\xf9\x01\n" +
-	"\x16RelatedCreationChoice2\x129\n" +
+	"\x05title\x18\x01 \x01(\v2%.ddex.mead.v11.TitleWithPronunciationR\x05title\x127\n" +
 	"\n" +
-	"release_id\x18\x01 \x01(\v2\x18.ddex.mead.v11.ReleaseIdH\x00R\treleaseId\x12G\n" +
-	"\vresource_id\x18\x02 \x01(\v2$.ddex.mead.v11.ResourceIdWithoutFlagH\x00R\n" +
-	"resourceId\x12Q\n" +
-	"\x0fmusical_work_id\x18\x03 \x01(\v2'.ddex.mead.v11.MusicalWorkIdWithoutFlagH\x00R\rmusicalWorkIdB\b\n" +
-	"\x06choice\"w\n" +
+	"release_id\x18\x02 \x01(\v2\x18.ddex.mead.v11.ReleaseIdR\treleaseId\x12E\n" +
+	"\vresource_id\x18\x03 \x01(\v2$.ddex.mead.v11.ResourceIdWithoutFlagR\n" +
+	"resourceId\x12O\n" +
+	"\x0fmusical_work_id\x18\x04 \x01(\v2'.ddex.mead.v11.MusicalWorkIdWithoutFlagR\rmusicalWorkId\"w\n" +
 	"\x13RelatedResourceType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -15814,618 +12819,524 @@ func file_ddex_mead_v11_v11_proto_rawDescGZIP() []byte {
 	return file_ddex_mead_v11_v11_proto_rawDescData
 }
 
-var file_ddex_mead_v11_v11_proto_msgTypes = make([]protoimpl.MessageInfo, 198)
+var file_ddex_mead_v11_v11_proto_msgTypes = make([]protoimpl.MessageInfo, 152)
 var file_ddex_mead_v11_v11_proto_goTypes = []any{
-	(*MeadMessage)(nil),                                    // 0: ddex.mead.v11.MeadMessage
-	(*Feed)(nil),                                           // 1: ddex.mead.v11.Feed
-	(*FeedChoice)(nil),                                     // 2: ddex.mead.v11.FeedChoice
-	(*AbsolutePitch)(nil),                                  // 3: ddex.mead.v11.AbsolutePitch
-	(*Activity)(nil),                                       // 4: ddex.mead.v11.Activity
-	(*ActivityValue)(nil),                                  // 5: ddex.mead.v11.ActivityValue
-	(*AlternativeTitle)(nil),                               // 6: ddex.mead.v11.AlternativeTitle
-	(*Annotation)(nil),                                     // 7: ddex.mead.v11.Annotation
-	(*ArtisticStyle)(nil),                                  // 8: ddex.mead.v11.ArtisticStyle
-	(*BeatsPerMinute)(nil),                                 // 9: ddex.mead.v11.BeatsPerMinute
-	(*ChildWorkHierarchy)(nil),                             // 10: ddex.mead.v11.ChildWorkHierarchy
-	(*Contributor)(nil),                                    // 11: ddex.mead.v11.Contributor
-	(*DanceStyle)(nil),                                     // 12: ddex.mead.v11.DanceStyle
-	(*DanceStyleValue)(nil),                                // 13: ddex.mead.v11.DanceStyleValue
-	(*DerivedRecording)(nil),                               // 14: ddex.mead.v11.DerivedRecording
-	(*DisplaySubTitle)(nil),                                // 15: ddex.mead.v11.DisplaySubTitle
-	(*DisplayTitle)(nil),                                   // 16: ddex.mead.v11.DisplayTitle
-	(*Entry)(nil),                                          // 17: ddex.mead.v11.Entry
-	(*EntryChoice)(nil),                                    // 18: ddex.mead.v11.EntryChoice
-	(*Flag)(nil),                                           // 19: ddex.mead.v11.Flag
-	(*Form)(nil),                                           // 20: ddex.mead.v11.Form
-	(*FormValue)(nil),                                      // 21: ddex.mead.v11.FormValue
-	(*GenreCategory)(nil),                                  // 22: ddex.mead.v11.GenreCategory
-	(*Harmony)(nil),                                        // 23: ddex.mead.v11.Harmony
-	(*HarmonyModulation)(nil),                              // 24: ddex.mead.v11.HarmonyModulation
-	(*HarmonyModulationChoice4)(nil),                       // 25: ddex.mead.v11.HarmonyModulationChoice4
-	(*ImpactDate)(nil),                                     // 26: ddex.mead.v11.ImpactDate
-	(*Instrument)(nil),                                     // 27: ddex.mead.v11.Instrument
-	(*InstrumentUsed)(nil),                                 // 28: ddex.mead.v11.InstrumentUsed
-	(*InstrumentValue)(nil),                                // 29: ddex.mead.v11.InstrumentValue
-	(*Intensity)(nil),                                      // 30: ddex.mead.v11.Intensity
-	(*IntensityValue)(nil),                                 // 31: ddex.mead.v11.IntensityValue
-	(*LocationAndDateOfSession)(nil),                       // 32: ddex.mead.v11.LocationAndDateOfSession
-	(*Lyrics)(nil),                                         // 33: ddex.mead.v11.Lyrics
-	(*LyricsText)(nil),                                     // 34: ddex.mead.v11.LyricsText
-	(*Meter)(nil),                                          // 35: ddex.mead.v11.Meter
-	(*Mode)(nil),                                           // 36: ddex.mead.v11.Mode
-	(*Modulation)(nil),                                     // 37: ddex.mead.v11.Modulation
-	(*ModulationChoice2)(nil),                              // 38: ddex.mead.v11.ModulationChoice2
-	(*Mood)(nil),                                           // 39: ddex.mead.v11.Mood
-	(*MoodValue)(nil),                                      // 40: ddex.mead.v11.MoodValue
-	(*Party)(nil),                                          // 41: ddex.mead.v11.Party
-	(*RecordingPart)(nil),                                  // 42: ddex.mead.v11.RecordingPart
-	(*RelatedWork)(nil),                                    // 43: ddex.mead.v11.RelatedWork
-	(*ReleaseInformation)(nil),                             // 44: ddex.mead.v11.ReleaseInformation
-	(*ReleaseInformationList)(nil),                         // 45: ddex.mead.v11.ReleaseInformationList
-	(*ReleaseSummary)(nil),                                 // 46: ddex.mead.v11.ReleaseSummary
-	(*RelevantResource)(nil),                               // 47: ddex.mead.v11.RelevantResource
-	(*ResourceInformation)(nil),                            // 48: ddex.mead.v11.ResourceInformation
-	(*ResourceInformationChoice37)(nil),                    // 49: ddex.mead.v11.ResourceInformationChoice37
-	(*ResourceInformationList)(nil),                        // 50: ddex.mead.v11.ResourceInformationList
-	(*ResourceRelationship)(nil),                           // 51: ddex.mead.v11.ResourceRelationship
-	(*ResourceSummary)(nil),                                // 52: ddex.mead.v11.ResourceSummary
-	(*RhythmStyle)(nil),                                    // 53: ddex.mead.v11.RhythmStyle
-	(*RhythmStyleValue)(nil),                               // 54: ddex.mead.v11.RhythmStyleValue
-	(*RootChordNote)(nil),                                  // 55: ddex.mead.v11.RootChordNote
-	(*RootChordQuality)(nil),                               // 56: ddex.mead.v11.RootChordQuality
-	(*Sample)(nil),                                         // 57: ddex.mead.v11.Sample
-	(*SampleChoice5)(nil),                                  // 58: ddex.mead.v11.SampleChoice5
-	(*SampleChoice6)(nil),                                  // 59: ddex.mead.v11.SampleChoice6
-	(*SampleFeature)(nil),                                  // 60: ddex.mead.v11.SampleFeature
-	(*SimilarRelease)(nil),                                 // 61: ddex.mead.v11.SimilarRelease
-	(*SimilarResource)(nil),                                // 62: ddex.mead.v11.SimilarResource
-	(*SimilarWork)(nil),                                    // 63: ddex.mead.v11.SimilarWork
-	(*SubGenreCategory)(nil),                               // 64: ddex.mead.v11.SubGenreCategory
-	(*TempoValue)(nil),                                     // 65: ddex.mead.v11.TempoValue
-	(*Theme)(nil),                                          // 66: ddex.mead.v11.Theme
-	(*ThemeValue)(nil),                                     // 67: ddex.mead.v11.ThemeValue
-	(*TimeSignature)(nil),                                  // 68: ddex.mead.v11.TimeSignature
-	(*TimeSignatureChoice3)(nil),                           // 69: ddex.mead.v11.TimeSignatureChoice3
-	(*TimeSignatureModulation)(nil),                        // 70: ddex.mead.v11.TimeSignatureModulation
-	(*TimeSignatureModulationChoice2)(nil),                 // 71: ddex.mead.v11.TimeSignatureModulationChoice2
-	(*TimeSignatureModulationChoice3)(nil),                 // 72: ddex.mead.v11.TimeSignatureModulationChoice3
-	(*Usage)(nil),                                          // 73: ddex.mead.v11.Usage
-	(*UsageChoice6)(nil),                                   // 74: ddex.mead.v11.UsageChoice6
-	(*UsagePeriod)(nil),                                    // 75: ddex.mead.v11.UsagePeriod
-	(*UsedMusicalWork)(nil),                                // 76: ddex.mead.v11.UsedMusicalWork
-	(*WorkHierarchy)(nil),                                  // 77: ddex.mead.v11.WorkHierarchy
-	(*WorkInformation)(nil),                                // 78: ddex.mead.v11.WorkInformation
-	(*WorkInformationList)(nil),                            // 79: ddex.mead.v11.WorkInformationList
-	(*WorkSummary)(nil),                                    // 80: ddex.mead.v11.WorkSummary
-	(*Category)(nil),                                       // 81: ddex.mead.v11.Category
-	(*Content)(nil),                                        // 82: ddex.mead.v11.Content
-	(*DateTime)(nil),                                       // 83: ddex.mead.v11.DateTime
-	(*Generator)(nil),                                      // 84: ddex.mead.v11.Generator
-	(*Icon)(nil),                                           // 85: ddex.mead.v11.Icon
-	(*Id)(nil),                                             // 86: ddex.mead.v11.Id
-	(*Link)(nil),                                           // 87: ddex.mead.v11.Link
-	(*Logo)(nil),                                           // 88: ddex.mead.v11.Logo
-	(*Person)(nil),                                         // 89: ddex.mead.v11.Person
-	(*PersonChoice)(nil),                                   // 90: ddex.mead.v11.PersonChoice
-	(*Source)(nil),                                         // 91: ddex.mead.v11.Source
-	(*SourceChoice)(nil),                                   // 92: ddex.mead.v11.SourceChoice
-	(*Text)(nil),                                           // 93: ddex.mead.v11.Text
-	(*URI)(nil),                                            // 94: ddex.mead.v11.URI
-	(*AllTerritoryCode)(nil),                               // 95: ddex.mead.v11.AllTerritoryCode
-	(*ArtistTypeValue)(nil),                                // 96: ddex.mead.v11.ArtistTypeValue
-	(*ArtisticInfluence)(nil),                              // 97: ddex.mead.v11.ArtisticInfluence
-	(*Award)(nil),                                          // 98: ddex.mead.v11.Award
-	(*CatalogNumber)(nil),                                  // 99: ddex.mead.v11.CatalogNumber
-	(*ChartEntry)(nil),                                     // 100: ddex.mead.v11.ChartEntry
-	(*ClassicalPeriod)(nil),                                // 101: ddex.mead.v11.ClassicalPeriod
-	(*CommentaryNote)(nil),                                 // 102: ddex.mead.v11.CommentaryNote
-	(*CommentaryNoteType)(nil),                             // 103: ddex.mead.v11.CommentaryNoteType
-	(*CurrentTerritoryCode)(nil),                           // 104: ddex.mead.v11.CurrentTerritoryCode
-	(*Date)(nil),                                           // 105: ddex.mead.v11.Date
-	(*DetailedHashSum)(nil),                                // 106: ddex.mead.v11.DetailedHashSum
-	(*DetailedPartyId)(nil),                                // 107: ddex.mead.v11.DetailedPartyId
-	(*DisplayArtistNameWithDefault)(nil),                   // 108: ddex.mead.v11.DisplayArtistNameWithDefault
-	(*DisplayArtistNameWithPronunciation)(nil),             // 109: ddex.mead.v11.DisplayArtistNameWithPronunciation
-	(*Duration)(nil),                                       // 110: ddex.mead.v11.Duration
-	(*Epoch)(nil),                                          // 111: ddex.mead.v11.Epoch
-	(*EventDate)(nil),                                      // 112: ddex.mead.v11.EventDate
-	(*EventDateTime)(nil),                                  // 113: ddex.mead.v11.EventDateTime
-	(*File)(nil),                                           // 114: ddex.mead.v11.File
-	(*Focus)(nil),                                          // 115: ddex.mead.v11.Focus
-	(*GenreCategoryValue)(nil),                             // 116: ddex.mead.v11.GenreCategoryValue
-	(*HashSumAlgorithmType)(nil),                           // 117: ddex.mead.v11.HashSumAlgorithmType
-	(*HistoricChartingInformation)(nil),                    // 118: ddex.mead.v11.HistoricChartingInformation
-	(*Image)(nil),                                          // 119: ddex.mead.v11.Image
-	(*ImageType)(nil),                                      // 120: ddex.mead.v11.ImageType
-	(*MessageAuditTrail)(nil),                              // 121: ddex.mead.v11.MessageAuditTrail
-	(*MessageAuditTrailEvent)(nil),                         // 122: ddex.mead.v11.MessageAuditTrailEvent
-	(*MessageHeader)(nil),                                  // 123: ddex.mead.v11.MessageHeader
-	(*MessagingPartyWithoutCode)(nil),                      // 124: ddex.mead.v11.MessagingPartyWithoutCode
-	(*MetadataSource)(nil),                                 // 125: ddex.mead.v11.MetadataSource
-	(*MetadataSourceChoice3)(nil),                          // 126: ddex.mead.v11.MetadataSourceChoice3
-	(*MetadataSourceList)(nil),                             // 127: ddex.mead.v11.MetadataSourceList
-	(*MetadataSourceReference)(nil),                        // 128: ddex.mead.v11.MetadataSourceReference
-	(*MetadataSourceType)(nil),                             // 129: ddex.mead.v11.MetadataSourceType
-	(*MusicalWorkIdWithoutFlag)(nil),                       // 130: ddex.mead.v11.MusicalWorkIdWithoutFlag
-	(*Name)(nil),                                           // 131: ddex.mead.v11.Name
-	(*NameWithPronunciationAndScriptCode)(nil),             // 132: ddex.mead.v11.NameWithPronunciationAndScriptCode
-	(*PartyDescriptorWithPronunciation)(nil),               // 133: ddex.mead.v11.PartyDescriptorWithPronunciation
-	(*PartyDescriptorWithPronunciationChoice)(nil),         // 134: ddex.mead.v11.PartyDescriptorWithPronunciationChoice
-	(*PartyNameWithPronunciation)(nil),                     // 135: ddex.mead.v11.PartyNameWithPronunciation
-	(*PartyNameWithoutCode)(nil),                           // 136: ddex.mead.v11.PartyNameWithoutCode
-	(*Period)(nil),                                         // 137: ddex.mead.v11.Period
-	(*PeriodChoice)(nil),                                   // 138: ddex.mead.v11.PeriodChoice
-	(*PeriodValue)(nil),                                    // 139: ddex.mead.v11.PeriodValue
-	(*PeriodWithTime)(nil),                                 // 140: ddex.mead.v11.PeriodWithTime
-	(*Pronunciation)(nil),                                  // 141: ddex.mead.v11.Pronunciation
-	(*ProprietaryId)(nil),                                  // 142: ddex.mead.v11.ProprietaryId
-	(*RecordingPartType)(nil),                              // 143: ddex.mead.v11.RecordingPartType
-	(*RelatedCreation)(nil),                                // 144: ddex.mead.v11.RelatedCreation
-	(*RelatedCreationChoice2)(nil),                         // 145: ddex.mead.v11.RelatedCreationChoice2
-	(*RelatedResourceType)(nil),                            // 146: ddex.mead.v11.RelatedResourceType
-	(*Release)(nil),                                        // 147: ddex.mead.v11.Release
-	(*ReleaseId)(nil),                                      // 148: ddex.mead.v11.ReleaseId
-	(*ReleaseTitle)(nil),                                   // 149: ddex.mead.v11.ReleaseTitle
-	(*Resource)(nil),                                       // 150: ddex.mead.v11.Resource
-	(*ResourceContributorRole)(nil),                        // 151: ddex.mead.v11.ResourceContributorRole
-	(*ResourceIdWithoutFlag)(nil),                          // 152: ddex.mead.v11.ResourceIdWithoutFlag
-	(*ResourceRelationshipType)(nil),                       // 153: ddex.mead.v11.ResourceRelationshipType
-	(*ResourceTitle)(nil),                                  // 154: ddex.mead.v11.ResourceTitle
-	(*SessionType)(nil),                                    // 155: ddex.mead.v11.SessionType
-	(*SubGenreCategoryValue)(nil),                          // 156: ddex.mead.v11.SubGenreCategoryValue
-	(*TextWithFormat)(nil),                                 // 157: ddex.mead.v11.TextWithFormat
-	(*TextWithoutTerritory)(nil),                           // 158: ddex.mead.v11.TextWithoutTerritory
-	(*TitleText)(nil),                                      // 159: ddex.mead.v11.TitleText
-	(*TitleWithPronunciation)(nil),                         // 160: ddex.mead.v11.TitleWithPronunciation
-	(*Venue)(nil),                                          // 161: ddex.mead.v11.Venue
-	(*VocalRegister)(nil),                                  // 162: ddex.mead.v11.VocalRegister
-	(*VocalRegisterValue)(nil),                             // 163: ddex.mead.v11.VocalRegisterValue
-	(*Work)(nil),                                           // 164: ddex.mead.v11.Work
-	(*WorkRelationshipType)(nil),                           // 165: ddex.mead.v11.WorkRelationshipType
-	(*WorkTitle)(nil),                                      // 166: ddex.mead.v11.WorkTitle
-	(*EventDateWithoutFlags)(nil),                          // 167: ddex.mead.v11.EventDateWithoutFlags
-	(*Timing)(nil),                                         // 168: ddex.mead.v11.Timing
-	(*FeedChoice_Option1)(nil),                             // 169: ddex.mead.v11.FeedChoice.Option1
-	(*FeedChoice_Option2)(nil),                             // 170: ddex.mead.v11.FeedChoice.Option2
-	(*FeedChoice_Option3)(nil),                             // 171: ddex.mead.v11.FeedChoice.Option3
-	(*FeedChoice_Option4)(nil),                             // 172: ddex.mead.v11.FeedChoice.Option4
-	(*FeedChoice_Option5)(nil),                             // 173: ddex.mead.v11.FeedChoice.Option5
-	(*EntryChoice_Option1)(nil),                            // 174: ddex.mead.v11.EntryChoice.Option1
-	(*EntryChoice_Option2)(nil),                            // 175: ddex.mead.v11.EntryChoice.Option2
-	(*EntryChoice_Option3)(nil),                            // 176: ddex.mead.v11.EntryChoice.Option3
-	(*EntryChoice_Option4)(nil),                            // 177: ddex.mead.v11.EntryChoice.Option4
-	(*HarmonyModulationChoice4_Option1)(nil),               // 178: ddex.mead.v11.HarmonyModulationChoice4.Option1
-	(*HarmonyModulationChoice4_Option2)(nil),               // 179: ddex.mead.v11.HarmonyModulationChoice4.Option2
-	(*ModulationChoice2_Option1)(nil),                      // 180: ddex.mead.v11.ModulationChoice2.Option1
-	(*ModulationChoice2_Option2)(nil),                      // 181: ddex.mead.v11.ModulationChoice2.Option2
-	(*SampleChoice6_Option1)(nil),                          // 182: ddex.mead.v11.SampleChoice6.Option1
-	(*SampleChoice6_Option2)(nil),                          // 183: ddex.mead.v11.SampleChoice6.Option2
-	(*TimeSignatureModulationChoice2_Option1)(nil),         // 184: ddex.mead.v11.TimeSignatureModulationChoice2.Option1
-	(*TimeSignatureModulationChoice2_Option2)(nil),         // 185: ddex.mead.v11.TimeSignatureModulationChoice2.Option2
-	(*UsageChoice6_Option1)(nil),                           // 186: ddex.mead.v11.UsageChoice6.Option1
-	(*UsageChoice6_Option2)(nil),                           // 187: ddex.mead.v11.UsageChoice6.Option2
-	(*SourceChoice_Option1)(nil),                           // 188: ddex.mead.v11.SourceChoice.Option1
-	(*SourceChoice_Option2)(nil),                           // 189: ddex.mead.v11.SourceChoice.Option2
-	(*SourceChoice_Option3)(nil),                           // 190: ddex.mead.v11.SourceChoice.Option3
-	(*SourceChoice_Option4)(nil),                           // 191: ddex.mead.v11.SourceChoice.Option4
-	(*MetadataSourceChoice3_Option1)(nil),                  // 192: ddex.mead.v11.MetadataSourceChoice3.Option1
-	(*MetadataSourceChoice3_Option2)(nil),                  // 193: ddex.mead.v11.MetadataSourceChoice3.Option2
-	(*PartyDescriptorWithPronunciationChoice_Option1)(nil), // 194: ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option1
-	(*PartyDescriptorWithPronunciationChoice_Option2)(nil), // 195: ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option2
-	(*PeriodChoice_Option1)(nil),                           // 196: ddex.mead.v11.PeriodChoice.Option1
-	(*PeriodChoice_Option2)(nil),                           // 197: ddex.mead.v11.PeriodChoice.Option2
+	(*MeadMessage)(nil),                        // 0: ddex.mead.v11.MeadMessage
+	(*Feed)(nil),                               // 1: ddex.mead.v11.Feed
+	(*AbsolutePitch)(nil),                      // 2: ddex.mead.v11.AbsolutePitch
+	(*Activity)(nil),                           // 3: ddex.mead.v11.Activity
+	(*ActivityValue)(nil),                      // 4: ddex.mead.v11.ActivityValue
+	(*AlternativeTitle)(nil),                   // 5: ddex.mead.v11.AlternativeTitle
+	(*Annotation)(nil),                         // 6: ddex.mead.v11.Annotation
+	(*ArtisticStyle)(nil),                      // 7: ddex.mead.v11.ArtisticStyle
+	(*BeatsPerMinute)(nil),                     // 8: ddex.mead.v11.BeatsPerMinute
+	(*ChildWorkHierarchy)(nil),                 // 9: ddex.mead.v11.ChildWorkHierarchy
+	(*Contributor)(nil),                        // 10: ddex.mead.v11.Contributor
+	(*DanceStyle)(nil),                         // 11: ddex.mead.v11.DanceStyle
+	(*DanceStyleValue)(nil),                    // 12: ddex.mead.v11.DanceStyleValue
+	(*DerivedRecording)(nil),                   // 13: ddex.mead.v11.DerivedRecording
+	(*DisplaySubTitle)(nil),                    // 14: ddex.mead.v11.DisplaySubTitle
+	(*DisplayTitle)(nil),                       // 15: ddex.mead.v11.DisplayTitle
+	(*Entry)(nil),                              // 16: ddex.mead.v11.Entry
+	(*Flag)(nil),                               // 17: ddex.mead.v11.Flag
+	(*Form)(nil),                               // 18: ddex.mead.v11.Form
+	(*FormValue)(nil),                          // 19: ddex.mead.v11.FormValue
+	(*GenreCategory)(nil),                      // 20: ddex.mead.v11.GenreCategory
+	(*Harmony)(nil),                            // 21: ddex.mead.v11.Harmony
+	(*HarmonyModulation)(nil),                  // 22: ddex.mead.v11.HarmonyModulation
+	(*ImpactDate)(nil),                         // 23: ddex.mead.v11.ImpactDate
+	(*Instrument)(nil),                         // 24: ddex.mead.v11.Instrument
+	(*InstrumentUsed)(nil),                     // 25: ddex.mead.v11.InstrumentUsed
+	(*InstrumentValue)(nil),                    // 26: ddex.mead.v11.InstrumentValue
+	(*Intensity)(nil),                          // 27: ddex.mead.v11.Intensity
+	(*IntensityValue)(nil),                     // 28: ddex.mead.v11.IntensityValue
+	(*LocationAndDateOfSession)(nil),           // 29: ddex.mead.v11.LocationAndDateOfSession
+	(*Lyrics)(nil),                             // 30: ddex.mead.v11.Lyrics
+	(*LyricsText)(nil),                         // 31: ddex.mead.v11.LyricsText
+	(*Meter)(nil),                              // 32: ddex.mead.v11.Meter
+	(*Mode)(nil),                               // 33: ddex.mead.v11.Mode
+	(*Modulation)(nil),                         // 34: ddex.mead.v11.Modulation
+	(*Mood)(nil),                               // 35: ddex.mead.v11.Mood
+	(*MoodValue)(nil),                          // 36: ddex.mead.v11.MoodValue
+	(*Party)(nil),                              // 37: ddex.mead.v11.Party
+	(*RecordingPart)(nil),                      // 38: ddex.mead.v11.RecordingPart
+	(*RelatedWork)(nil),                        // 39: ddex.mead.v11.RelatedWork
+	(*ReleaseInformation)(nil),                 // 40: ddex.mead.v11.ReleaseInformation
+	(*ReleaseInformationList)(nil),             // 41: ddex.mead.v11.ReleaseInformationList
+	(*ReleaseSummary)(nil),                     // 42: ddex.mead.v11.ReleaseSummary
+	(*RelevantResource)(nil),                   // 43: ddex.mead.v11.RelevantResource
+	(*ResourceInformation)(nil),                // 44: ddex.mead.v11.ResourceInformation
+	(*ResourceInformationList)(nil),            // 45: ddex.mead.v11.ResourceInformationList
+	(*ResourceRelationship)(nil),               // 46: ddex.mead.v11.ResourceRelationship
+	(*ResourceSummary)(nil),                    // 47: ddex.mead.v11.ResourceSummary
+	(*RhythmStyle)(nil),                        // 48: ddex.mead.v11.RhythmStyle
+	(*RhythmStyleValue)(nil),                   // 49: ddex.mead.v11.RhythmStyleValue
+	(*RootChordNote)(nil),                      // 50: ddex.mead.v11.RootChordNote
+	(*RootChordQuality)(nil),                   // 51: ddex.mead.v11.RootChordQuality
+	(*Sample)(nil),                             // 52: ddex.mead.v11.Sample
+	(*SampleFeature)(nil),                      // 53: ddex.mead.v11.SampleFeature
+	(*SimilarRelease)(nil),                     // 54: ddex.mead.v11.SimilarRelease
+	(*SimilarResource)(nil),                    // 55: ddex.mead.v11.SimilarResource
+	(*SimilarWork)(nil),                        // 56: ddex.mead.v11.SimilarWork
+	(*SubGenreCategory)(nil),                   // 57: ddex.mead.v11.SubGenreCategory
+	(*TempoValue)(nil),                         // 58: ddex.mead.v11.TempoValue
+	(*Theme)(nil),                              // 59: ddex.mead.v11.Theme
+	(*ThemeValue)(nil),                         // 60: ddex.mead.v11.ThemeValue
+	(*TimeSignature)(nil),                      // 61: ddex.mead.v11.TimeSignature
+	(*TimeSignatureModulation)(nil),            // 62: ddex.mead.v11.TimeSignatureModulation
+	(*Usage)(nil),                              // 63: ddex.mead.v11.Usage
+	(*UsagePeriod)(nil),                        // 64: ddex.mead.v11.UsagePeriod
+	(*UsedMusicalWork)(nil),                    // 65: ddex.mead.v11.UsedMusicalWork
+	(*WorkHierarchy)(nil),                      // 66: ddex.mead.v11.WorkHierarchy
+	(*WorkInformation)(nil),                    // 67: ddex.mead.v11.WorkInformation
+	(*WorkInformationList)(nil),                // 68: ddex.mead.v11.WorkInformationList
+	(*WorkSummary)(nil),                        // 69: ddex.mead.v11.WorkSummary
+	(*Category)(nil),                           // 70: ddex.mead.v11.Category
+	(*Content)(nil),                            // 71: ddex.mead.v11.Content
+	(*DateTime)(nil),                           // 72: ddex.mead.v11.DateTime
+	(*Generator)(nil),                          // 73: ddex.mead.v11.Generator
+	(*Icon)(nil),                               // 74: ddex.mead.v11.Icon
+	(*Id)(nil),                                 // 75: ddex.mead.v11.Id
+	(*Link)(nil),                               // 76: ddex.mead.v11.Link
+	(*Logo)(nil),                               // 77: ddex.mead.v11.Logo
+	(*Person)(nil),                             // 78: ddex.mead.v11.Person
+	(*Source)(nil),                             // 79: ddex.mead.v11.Source
+	(*Text)(nil),                               // 80: ddex.mead.v11.Text
+	(*URI)(nil),                                // 81: ddex.mead.v11.URI
+	(*AllTerritoryCode)(nil),                   // 82: ddex.mead.v11.AllTerritoryCode
+	(*ArtistTypeValue)(nil),                    // 83: ddex.mead.v11.ArtistTypeValue
+	(*ArtisticInfluence)(nil),                  // 84: ddex.mead.v11.ArtisticInfluence
+	(*Award)(nil),                              // 85: ddex.mead.v11.Award
+	(*CatalogNumber)(nil),                      // 86: ddex.mead.v11.CatalogNumber
+	(*ChartEntry)(nil),                         // 87: ddex.mead.v11.ChartEntry
+	(*ClassicalPeriod)(nil),                    // 88: ddex.mead.v11.ClassicalPeriod
+	(*CommentaryNote)(nil),                     // 89: ddex.mead.v11.CommentaryNote
+	(*CommentaryNoteType)(nil),                 // 90: ddex.mead.v11.CommentaryNoteType
+	(*CurrentTerritoryCode)(nil),               // 91: ddex.mead.v11.CurrentTerritoryCode
+	(*Date)(nil),                               // 92: ddex.mead.v11.Date
+	(*DetailedHashSum)(nil),                    // 93: ddex.mead.v11.DetailedHashSum
+	(*DetailedPartyId)(nil),                    // 94: ddex.mead.v11.DetailedPartyId
+	(*DisplayArtistNameWithDefault)(nil),       // 95: ddex.mead.v11.DisplayArtistNameWithDefault
+	(*DisplayArtistNameWithPronunciation)(nil), // 96: ddex.mead.v11.DisplayArtistNameWithPronunciation
+	(*Duration)(nil),                           // 97: ddex.mead.v11.Duration
+	(*Epoch)(nil),                              // 98: ddex.mead.v11.Epoch
+	(*EventDate)(nil),                          // 99: ddex.mead.v11.EventDate
+	(*EventDateTime)(nil),                      // 100: ddex.mead.v11.EventDateTime
+	(*File)(nil),                               // 101: ddex.mead.v11.File
+	(*Focus)(nil),                              // 102: ddex.mead.v11.Focus
+	(*GenreCategoryValue)(nil),                 // 103: ddex.mead.v11.GenreCategoryValue
+	(*HashSumAlgorithmType)(nil),               // 104: ddex.mead.v11.HashSumAlgorithmType
+	(*HistoricChartingInformation)(nil),        // 105: ddex.mead.v11.HistoricChartingInformation
+	(*Image)(nil),                              // 106: ddex.mead.v11.Image
+	(*ImageType)(nil),                          // 107: ddex.mead.v11.ImageType
+	(*MessageAuditTrail)(nil),                  // 108: ddex.mead.v11.MessageAuditTrail
+	(*MessageAuditTrailEvent)(nil),             // 109: ddex.mead.v11.MessageAuditTrailEvent
+	(*MessageHeader)(nil),                      // 110: ddex.mead.v11.MessageHeader
+	(*MessagingPartyWithoutCode)(nil),          // 111: ddex.mead.v11.MessagingPartyWithoutCode
+	(*MetadataSource)(nil),                     // 112: ddex.mead.v11.MetadataSource
+	(*MetadataSourceList)(nil),                 // 113: ddex.mead.v11.MetadataSourceList
+	(*MetadataSourceReference)(nil),            // 114: ddex.mead.v11.MetadataSourceReference
+	(*MetadataSourceType)(nil),                 // 115: ddex.mead.v11.MetadataSourceType
+	(*MusicalWorkIdWithoutFlag)(nil),           // 116: ddex.mead.v11.MusicalWorkIdWithoutFlag
+	(*Name)(nil),                               // 117: ddex.mead.v11.Name
+	(*NameWithPronunciationAndScriptCode)(nil), // 118: ddex.mead.v11.NameWithPronunciationAndScriptCode
+	(*PartyDescriptorWithPronunciation)(nil),   // 119: ddex.mead.v11.PartyDescriptorWithPronunciation
+	(*PartyNameWithPronunciation)(nil),         // 120: ddex.mead.v11.PartyNameWithPronunciation
+	(*PartyNameWithoutCode)(nil),               // 121: ddex.mead.v11.PartyNameWithoutCode
+	(*Period)(nil),                             // 122: ddex.mead.v11.Period
+	(*PeriodValue)(nil),                        // 123: ddex.mead.v11.PeriodValue
+	(*PeriodWithTime)(nil),                     // 124: ddex.mead.v11.PeriodWithTime
+	(*Pronunciation)(nil),                      // 125: ddex.mead.v11.Pronunciation
+	(*ProprietaryId)(nil),                      // 126: ddex.mead.v11.ProprietaryId
+	(*RecordingPartType)(nil),                  // 127: ddex.mead.v11.RecordingPartType
+	(*RelatedCreation)(nil),                    // 128: ddex.mead.v11.RelatedCreation
+	(*RelatedResourceType)(nil),                // 129: ddex.mead.v11.RelatedResourceType
+	(*Release)(nil),                            // 130: ddex.mead.v11.Release
+	(*ReleaseId)(nil),                          // 131: ddex.mead.v11.ReleaseId
+	(*ReleaseTitle)(nil),                       // 132: ddex.mead.v11.ReleaseTitle
+	(*Resource)(nil),                           // 133: ddex.mead.v11.Resource
+	(*ResourceContributorRole)(nil),            // 134: ddex.mead.v11.ResourceContributorRole
+	(*ResourceIdWithoutFlag)(nil),              // 135: ddex.mead.v11.ResourceIdWithoutFlag
+	(*ResourceRelationshipType)(nil),           // 136: ddex.mead.v11.ResourceRelationshipType
+	(*ResourceTitle)(nil),                      // 137: ddex.mead.v11.ResourceTitle
+	(*SessionType)(nil),                        // 138: ddex.mead.v11.SessionType
+	(*SubGenreCategoryValue)(nil),              // 139: ddex.mead.v11.SubGenreCategoryValue
+	(*TextWithFormat)(nil),                     // 140: ddex.mead.v11.TextWithFormat
+	(*TextWithoutTerritory)(nil),               // 141: ddex.mead.v11.TextWithoutTerritory
+	(*TitleText)(nil),                          // 142: ddex.mead.v11.TitleText
+	(*TitleWithPronunciation)(nil),             // 143: ddex.mead.v11.TitleWithPronunciation
+	(*Venue)(nil),                              // 144: ddex.mead.v11.Venue
+	(*VocalRegister)(nil),                      // 145: ddex.mead.v11.VocalRegister
+	(*VocalRegisterValue)(nil),                 // 146: ddex.mead.v11.VocalRegisterValue
+	(*Work)(nil),                               // 147: ddex.mead.v11.Work
+	(*WorkRelationshipType)(nil),               // 148: ddex.mead.v11.WorkRelationshipType
+	(*WorkTitle)(nil),                          // 149: ddex.mead.v11.WorkTitle
+	(*EventDateWithoutFlags)(nil),              // 150: ddex.mead.v11.EventDateWithoutFlags
+	(*Timing)(nil),                             // 151: ddex.mead.v11.Timing
 }
 var file_ddex_mead_v11_v11_proto_depIdxs = []int32{
-	123, // 0: ddex.mead.v11.MeadMessage.message_header:type_name -> ddex.mead.v11.MessageHeader
-	127, // 1: ddex.mead.v11.MeadMessage.metadata_source_list:type_name -> ddex.mead.v11.MetadataSourceList
-	79,  // 2: ddex.mead.v11.MeadMessage.work_information_list:type_name -> ddex.mead.v11.WorkInformationList
-	50,  // 3: ddex.mead.v11.MeadMessage.resource_information_list:type_name -> ddex.mead.v11.ResourceInformationList
-	45,  // 4: ddex.mead.v11.MeadMessage.release_information_list:type_name -> ddex.mead.v11.ReleaseInformationList
-	2,   // 5: ddex.mead.v11.Feed.choice:type_name -> ddex.mead.v11.FeedChoice
-	169, // 6: ddex.mead.v11.FeedChoice.author_option:type_name -> ddex.mead.v11.FeedChoice.Option1
-	170, // 7: ddex.mead.v11.FeedChoice.category_option:type_name -> ddex.mead.v11.FeedChoice.Option2
-	171, // 8: ddex.mead.v11.FeedChoice.contributor_option:type_name -> ddex.mead.v11.FeedChoice.Option3
-	84,  // 9: ddex.mead.v11.FeedChoice.generator:type_name -> ddex.mead.v11.Generator
-	85,  // 10: ddex.mead.v11.FeedChoice.icon:type_name -> ddex.mead.v11.Icon
-	86,  // 11: ddex.mead.v11.FeedChoice.id:type_name -> ddex.mead.v11.Id
-	172, // 12: ddex.mead.v11.FeedChoice.link_option:type_name -> ddex.mead.v11.FeedChoice.Option4
-	88,  // 13: ddex.mead.v11.FeedChoice.logo:type_name -> ddex.mead.v11.Logo
-	93,  // 14: ddex.mead.v11.FeedChoice.rights:type_name -> ddex.mead.v11.Text
-	93,  // 15: ddex.mead.v11.FeedChoice.subtitle:type_name -> ddex.mead.v11.Text
-	93,  // 16: ddex.mead.v11.FeedChoice.title:type_name -> ddex.mead.v11.Text
-	83,  // 17: ddex.mead.v11.FeedChoice.updated:type_name -> ddex.mead.v11.DateTime
-	173, // 18: ddex.mead.v11.FeedChoice.entry_option:type_name -> ddex.mead.v11.FeedChoice.Option5
-	128, // 19: ddex.mead.v11.AbsolutePitch.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	37,  // 20: ddex.mead.v11.AbsolutePitch.modulation:type_name -> ddex.mead.v11.Modulation
-	128, // 21: ddex.mead.v11.Activity.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	5,   // 22: ddex.mead.v11.Activity.value:type_name -> ddex.mead.v11.ActivityValue
-	158, // 23: ddex.mead.v11.Activity.description:type_name -> ddex.mead.v11.TextWithoutTerritory
-	128, // 24: ddex.mead.v11.AlternativeTitle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	159, // 25: ddex.mead.v11.AlternativeTitle.title_text:type_name -> ddex.mead.v11.TitleText
-	159, // 26: ddex.mead.v11.AlternativeTitle.sub_title:type_name -> ddex.mead.v11.TitleText
-	128, // 27: ddex.mead.v11.Annotation.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	157, // 28: ddex.mead.v11.Annotation.text:type_name -> ddex.mead.v11.TextWithFormat
-	128, // 29: ddex.mead.v11.ArtisticStyle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	96,  // 30: ddex.mead.v11.ArtisticStyle.value:type_name -> ddex.mead.v11.ArtistTypeValue
-	128, // 31: ddex.mead.v11.BeatsPerMinute.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	37,  // 32: ddex.mead.v11.BeatsPerMinute.modulation:type_name -> ddex.mead.v11.Modulation
-	130, // 33: ddex.mead.v11.ChildWorkHierarchy.work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
-	166, // 34: ddex.mead.v11.ChildWorkHierarchy.work_title:type_name -> ddex.mead.v11.WorkTitle
-	10,  // 35: ddex.mead.v11.ChildWorkHierarchy.child:type_name -> ddex.mead.v11.ChildWorkHierarchy
-	20,  // 36: ddex.mead.v11.ChildWorkHierarchy.form:type_name -> ddex.mead.v11.Form
-	107, // 37: ddex.mead.v11.Contributor.identifier:type_name -> ddex.mead.v11.DetailedPartyId
-	135, // 38: ddex.mead.v11.Contributor.name:type_name -> ddex.mead.v11.PartyNameWithPronunciation
-	151, // 39: ddex.mead.v11.Contributor.role:type_name -> ddex.mead.v11.ResourceContributorRole
-	128, // 40: ddex.mead.v11.DanceStyle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	13,  // 41: ddex.mead.v11.DanceStyle.value:type_name -> ddex.mead.v11.DanceStyleValue
-	158, // 42: ddex.mead.v11.DanceStyle.description:type_name -> ddex.mead.v11.TextWithoutTerritory
-	128, // 43: ddex.mead.v11.DerivedRecording.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	152, // 44: ddex.mead.v11.DerivedRecording.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
-	146, // 45: ddex.mead.v11.DerivedRecording.related_resource_type:type_name -> ddex.mead.v11.RelatedResourceType
-	160, // 46: ddex.mead.v11.DerivedRecording.title:type_name -> ddex.mead.v11.TitleWithPronunciation
-	109, // 47: ddex.mead.v11.DerivedRecording.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
-	133, // 48: ddex.mead.v11.DerivedRecording.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	141, // 49: ddex.mead.v11.DisplaySubTitle.pronunciation:type_name -> ddex.mead.v11.Pronunciation
-	159, // 50: ddex.mead.v11.DisplayTitle.title_text:type_name -> ddex.mead.v11.TitleText
-	15,  // 51: ddex.mead.v11.DisplayTitle.sub_title:type_name -> ddex.mead.v11.DisplaySubTitle
-	18,  // 52: ddex.mead.v11.Entry.choice:type_name -> ddex.mead.v11.EntryChoice
-	174, // 53: ddex.mead.v11.EntryChoice.author_option:type_name -> ddex.mead.v11.EntryChoice.Option1
-	175, // 54: ddex.mead.v11.EntryChoice.category_option:type_name -> ddex.mead.v11.EntryChoice.Option2
-	82,  // 55: ddex.mead.v11.EntryChoice.content:type_name -> ddex.mead.v11.Content
-	176, // 56: ddex.mead.v11.EntryChoice.contributor_option:type_name -> ddex.mead.v11.EntryChoice.Option3
-	86,  // 57: ddex.mead.v11.EntryChoice.id:type_name -> ddex.mead.v11.Id
-	177, // 58: ddex.mead.v11.EntryChoice.link_option:type_name -> ddex.mead.v11.EntryChoice.Option4
-	83,  // 59: ddex.mead.v11.EntryChoice.published:type_name -> ddex.mead.v11.DateTime
-	93,  // 60: ddex.mead.v11.EntryChoice.rights:type_name -> ddex.mead.v11.Text
-	91,  // 61: ddex.mead.v11.EntryChoice.source:type_name -> ddex.mead.v11.Source
-	93,  // 62: ddex.mead.v11.EntryChoice.summary:type_name -> ddex.mead.v11.Text
-	93,  // 63: ddex.mead.v11.EntryChoice.title:type_name -> ddex.mead.v11.Text
-	83,  // 64: ddex.mead.v11.EntryChoice.updated:type_name -> ddex.mead.v11.DateTime
-	128, // 65: ddex.mead.v11.Flag.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	128, // 66: ddex.mead.v11.Form.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	21,  // 67: ddex.mead.v11.Form.value:type_name -> ddex.mead.v11.FormValue
-	128, // 68: ddex.mead.v11.GenreCategory.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	116, // 69: ddex.mead.v11.GenreCategory.value:type_name -> ddex.mead.v11.GenreCategoryValue
-	158, // 70: ddex.mead.v11.GenreCategory.description:type_name -> ddex.mead.v11.TextWithoutTerritory
-	128, // 71: ddex.mead.v11.Harmony.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	55,  // 72: ddex.mead.v11.Harmony.root_chord_note:type_name -> ddex.mead.v11.RootChordNote
-	56,  // 73: ddex.mead.v11.Harmony.root_chord_quality:type_name -> ddex.mead.v11.RootChordQuality
-	36,  // 74: ddex.mead.v11.Harmony.mode:type_name -> ddex.mead.v11.Mode
-	24,  // 75: ddex.mead.v11.Harmony.modulation:type_name -> ddex.mead.v11.HarmonyModulation
-	55,  // 76: ddex.mead.v11.HarmonyModulation.root_chord_note:type_name -> ddex.mead.v11.RootChordNote
-	56,  // 77: ddex.mead.v11.HarmonyModulation.root_chord_quality:type_name -> ddex.mead.v11.RootChordQuality
-	36,  // 78: ddex.mead.v11.HarmonyModulation.mode:type_name -> ddex.mead.v11.Mode
-	25,  // 79: ddex.mead.v11.HarmonyModulation.choice:type_name -> ddex.mead.v11.HarmonyModulationChoice4
-	178, // 80: ddex.mead.v11.HarmonyModulationChoice4.sequence_1:type_name -> ddex.mead.v11.HarmonyModulationChoice4.Option1
-	179, // 81: ddex.mead.v11.HarmonyModulationChoice4.sequence_2:type_name -> ddex.mead.v11.HarmonyModulationChoice4.Option2
-	104, // 82: ddex.mead.v11.ImpactDate.territory_code:type_name -> ddex.mead.v11.CurrentTerritoryCode
-	128, // 83: ddex.mead.v11.Instrument.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	29,  // 84: ddex.mead.v11.Instrument.value:type_name -> ddex.mead.v11.InstrumentValue
-	128, // 85: ddex.mead.v11.InstrumentUsed.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	29,  // 86: ddex.mead.v11.InstrumentUsed.value:type_name -> ddex.mead.v11.InstrumentValue
-	128, // 87: ddex.mead.v11.Intensity.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	31,  // 88: ddex.mead.v11.Intensity.value:type_name -> ddex.mead.v11.IntensityValue
-	128, // 89: ddex.mead.v11.LocationAndDateOfSession.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	155, // 90: ddex.mead.v11.LocationAndDateOfSession.session_type:type_name -> ddex.mead.v11.SessionType
-	137, // 91: ddex.mead.v11.LocationAndDateOfSession.period:type_name -> ddex.mead.v11.Period
-	161, // 92: ddex.mead.v11.LocationAndDateOfSession.venue:type_name -> ddex.mead.v11.Venue
-	157, // 93: ddex.mead.v11.LocationAndDateOfSession.comment:type_name -> ddex.mead.v11.TextWithFormat
-	11,  // 94: ddex.mead.v11.LocationAndDateOfSession.contributor:type_name -> ddex.mead.v11.Contributor
-	128, // 95: ddex.mead.v11.Lyrics.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	34,  // 96: ddex.mead.v11.Lyrics.text:type_name -> ddex.mead.v11.LyricsText
-	141, // 97: ddex.mead.v11.Lyrics.pronunciation:type_name -> ddex.mead.v11.Pronunciation
-	38,  // 98: ddex.mead.v11.Modulation.choice:type_name -> ddex.mead.v11.ModulationChoice2
-	180, // 99: ddex.mead.v11.ModulationChoice2.sequence_1:type_name -> ddex.mead.v11.ModulationChoice2.Option1
-	181, // 100: ddex.mead.v11.ModulationChoice2.sequence_2:type_name -> ddex.mead.v11.ModulationChoice2.Option2
-	128, // 101: ddex.mead.v11.Mood.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	40,  // 102: ddex.mead.v11.Mood.value:type_name -> ddex.mead.v11.MoodValue
-	158, // 103: ddex.mead.v11.Mood.description:type_name -> ddex.mead.v11.TextWithoutTerritory
-	142, // 104: ddex.mead.v11.Party.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
-	128, // 105: ddex.mead.v11.RecordingPart.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	143, // 106: ddex.mead.v11.RecordingPart.recording_part_type:type_name -> ddex.mead.v11.RecordingPartType
-	7,   // 107: ddex.mead.v11.RecordingPart.comment:type_name -> ddex.mead.v11.Annotation
-	157, // 108: ddex.mead.v11.RecordingPart.usage_information:type_name -> ddex.mead.v11.TextWithFormat
-	128, // 109: ddex.mead.v11.RelatedWork.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	130, // 110: ddex.mead.v11.RelatedWork.work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
-	166, // 111: ddex.mead.v11.RelatedWork.work_title:type_name -> ddex.mead.v11.WorkTitle
-	165, // 112: ddex.mead.v11.RelatedWork.work_relationship_type:type_name -> ddex.mead.v11.WorkRelationshipType
-	133, // 113: ddex.mead.v11.RelatedWork.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	46,  // 114: ddex.mead.v11.ReleaseInformation.release_summary:type_name -> ddex.mead.v11.ReleaseSummary
-	22,  // 115: ddex.mead.v11.ReleaseInformation.genre_category:type_name -> ddex.mead.v11.GenreCategory
-	64,  // 116: ddex.mead.v11.ReleaseInformation.sub_genre_category:type_name -> ddex.mead.v11.SubGenreCategory
-	115, // 117: ddex.mead.v11.ReleaseInformation.focus:type_name -> ddex.mead.v11.Focus
-	39,  // 118: ddex.mead.v11.ReleaseInformation.mood:type_name -> ddex.mead.v11.Mood
-	8,   // 119: ddex.mead.v11.ReleaseInformation.artistic_style:type_name -> ddex.mead.v11.ArtisticStyle
-	66,  // 120: ddex.mead.v11.ReleaseInformation.theme:type_name -> ddex.mead.v11.Theme
-	4,   // 121: ddex.mead.v11.ReleaseInformation.activity:type_name -> ddex.mead.v11.Activity
-	102, // 122: ddex.mead.v11.ReleaseInformation.commentary_note:type_name -> ddex.mead.v11.CommentaryNote
-	111, // 123: ddex.mead.v11.ReleaseInformation.epoch:type_name -> ddex.mead.v11.Epoch
-	97,  // 124: ddex.mead.v11.ReleaseInformation.artistic_influence:type_name -> ddex.mead.v11.ArtisticInfluence
-	61,  // 125: ddex.mead.v11.ReleaseInformation.is_similar:type_name -> ddex.mead.v11.SimilarRelease
-	118, // 126: ddex.mead.v11.ReleaseInformation.historic_charting_information:type_name -> ddex.mead.v11.HistoricChartingInformation
-	98,  // 127: ddex.mead.v11.ReleaseInformation.award:type_name -> ddex.mead.v11.Award
-	6,   // 128: ddex.mead.v11.ReleaseInformation.alternative_title:type_name -> ddex.mead.v11.AlternativeTitle
-	119, // 129: ddex.mead.v11.ReleaseInformation.image:type_name -> ddex.mead.v11.Image
-	44,  // 130: ddex.mead.v11.ReleaseInformationList.release_information:type_name -> ddex.mead.v11.ReleaseInformation
-	148, // 131: ddex.mead.v11.ReleaseSummary.release_id:type_name -> ddex.mead.v11.ReleaseId
-	16,  // 132: ddex.mead.v11.ReleaseSummary.display_title:type_name -> ddex.mead.v11.DisplayTitle
-	109, // 133: ddex.mead.v11.ReleaseSummary.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
-	133, // 134: ddex.mead.v11.ReleaseSummary.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	152, // 135: ddex.mead.v11.RelevantResource.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
-	153, // 136: ddex.mead.v11.RelevantResource.resource_relationship_type:type_name -> ddex.mead.v11.ResourceRelationshipType
-	52,  // 137: ddex.mead.v11.ResourceInformation.resource_summary:type_name -> ddex.mead.v11.ResourceSummary
-	22,  // 138: ddex.mead.v11.ResourceInformation.genre_category:type_name -> ddex.mead.v11.GenreCategory
-	64,  // 139: ddex.mead.v11.ResourceInformation.sub_genre_category:type_name -> ddex.mead.v11.SubGenreCategory
-	20,  // 140: ddex.mead.v11.ResourceInformation.form:type_name -> ddex.mead.v11.Form
-	162, // 141: ddex.mead.v11.ResourceInformation.vocal_register:type_name -> ddex.mead.v11.VocalRegister
-	115, // 142: ddex.mead.v11.ResourceInformation.focus:type_name -> ddex.mead.v11.Focus
-	3,   // 143: ddex.mead.v11.ResourceInformation.absolute_pitch:type_name -> ddex.mead.v11.AbsolutePitch
-	68,  // 144: ddex.mead.v11.ResourceInformation.time_signature:type_name -> ddex.mead.v11.TimeSignature
-	65,  // 145: ddex.mead.v11.ResourceInformation.tempo:type_name -> ddex.mead.v11.TempoValue
-	9,   // 146: ddex.mead.v11.ResourceInformation.beats_per_minute:type_name -> ddex.mead.v11.BeatsPerMinute
-	30,  // 147: ddex.mead.v11.ResourceInformation.intensity:type_name -> ddex.mead.v11.Intensity
-	28,  // 148: ddex.mead.v11.ResourceInformation.instrument_used:type_name -> ddex.mead.v11.InstrumentUsed
-	23,  // 149: ddex.mead.v11.ResourceInformation.harmony:type_name -> ddex.mead.v11.Harmony
-	39,  // 150: ddex.mead.v11.ResourceInformation.mood:type_name -> ddex.mead.v11.Mood
-	12,  // 151: ddex.mead.v11.ResourceInformation.dance_style:type_name -> ddex.mead.v11.DanceStyle
-	53,  // 152: ddex.mead.v11.ResourceInformation.rhythm_style:type_name -> ddex.mead.v11.RhythmStyle
-	8,   // 153: ddex.mead.v11.ResourceInformation.artistic_style:type_name -> ddex.mead.v11.ArtisticStyle
-	66,  // 154: ddex.mead.v11.ResourceInformation.theme:type_name -> ddex.mead.v11.Theme
-	4,   // 155: ddex.mead.v11.ResourceInformation.activity:type_name -> ddex.mead.v11.Activity
-	76,  // 156: ddex.mead.v11.ResourceInformation.used_musical_work:type_name -> ddex.mead.v11.UsedMusicalWork
-	51,  // 157: ddex.mead.v11.ResourceInformation.related_resource:type_name -> ddex.mead.v11.ResourceRelationship
-	33,  // 158: ddex.mead.v11.ResourceInformation.lyrics:type_name -> ddex.mead.v11.Lyrics
-	102, // 159: ddex.mead.v11.ResourceInformation.commentary_note:type_name -> ddex.mead.v11.CommentaryNote
-	57,  // 160: ddex.mead.v11.ResourceInformation.sample:type_name -> ddex.mead.v11.Sample
-	42,  // 161: ddex.mead.v11.ResourceInformation.recording_part:type_name -> ddex.mead.v11.RecordingPart
-	73,  // 162: ddex.mead.v11.ResourceInformation.usage:type_name -> ddex.mead.v11.Usage
-	26,  // 163: ddex.mead.v11.ResourceInformation.impact_date:type_name -> ddex.mead.v11.ImpactDate
-	101, // 164: ddex.mead.v11.ResourceInformation.classical_period:type_name -> ddex.mead.v11.ClassicalPeriod
-	111, // 165: ddex.mead.v11.ResourceInformation.epoch:type_name -> ddex.mead.v11.Epoch
-	97,  // 166: ddex.mead.v11.ResourceInformation.artistic_influence:type_name -> ddex.mead.v11.ArtisticInfluence
-	62,  // 167: ddex.mead.v11.ResourceInformation.is_similar:type_name -> ddex.mead.v11.SimilarResource
-	118, // 168: ddex.mead.v11.ResourceInformation.historic_charting_information:type_name -> ddex.mead.v11.HistoricChartingInformation
-	98,  // 169: ddex.mead.v11.ResourceInformation.award:type_name -> ddex.mead.v11.Award
-	32,  // 170: ddex.mead.v11.ResourceInformation.location_and_date_of_session:type_name -> ddex.mead.v11.LocationAndDateOfSession
-	6,   // 171: ddex.mead.v11.ResourceInformation.alternative_title:type_name -> ddex.mead.v11.AlternativeTitle
-	119, // 172: ddex.mead.v11.ResourceInformation.image:type_name -> ddex.mead.v11.Image
-	49,  // 173: ddex.mead.v11.ResourceInformation.choice:type_name -> ddex.mead.v11.ResourceInformationChoice37
-	19,  // 174: ddex.mead.v11.ResourceInformationChoice37.is_original:type_name -> ddex.mead.v11.Flag
-	19,  // 175: ddex.mead.v11.ResourceInformationChoice37.is_cover:type_name -> ddex.mead.v11.Flag
-	48,  // 176: ddex.mead.v11.ResourceInformationList.resource_information:type_name -> ddex.mead.v11.ResourceInformation
-	128, // 177: ddex.mead.v11.ResourceRelationship.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	152, // 178: ddex.mead.v11.ResourceRelationship.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
-	146, // 179: ddex.mead.v11.ResourceRelationship.related_resource_type:type_name -> ddex.mead.v11.RelatedResourceType
-	160, // 180: ddex.mead.v11.ResourceRelationship.title:type_name -> ddex.mead.v11.TitleWithPronunciation
-	109, // 181: ddex.mead.v11.ResourceRelationship.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
-	133, // 182: ddex.mead.v11.ResourceRelationship.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	152, // 183: ddex.mead.v11.ResourceSummary.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
-	16,  // 184: ddex.mead.v11.ResourceSummary.display_title:type_name -> ddex.mead.v11.DisplayTitle
-	109, // 185: ddex.mead.v11.ResourceSummary.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
-	133, // 186: ddex.mead.v11.ResourceSummary.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	128, // 187: ddex.mead.v11.RhythmStyle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	54,  // 188: ddex.mead.v11.RhythmStyle.value:type_name -> ddex.mead.v11.RhythmStyleValue
-	158, // 189: ddex.mead.v11.RhythmStyle.description:type_name -> ddex.mead.v11.TextWithoutTerritory
-	128, // 190: ddex.mead.v11.Sample.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	52,  // 191: ddex.mead.v11.Sample.related_resource:type_name -> ddex.mead.v11.ResourceSummary
-	60,  // 192: ddex.mead.v11.Sample.sample_feature:type_name -> ddex.mead.v11.SampleFeature
-	157, // 193: ddex.mead.v11.Sample.description:type_name -> ddex.mead.v11.TextWithFormat
-	58,  // 194: ddex.mead.v11.Sample.choice:type_name -> ddex.mead.v11.SampleChoice5
-	59,  // 195: ddex.mead.v11.Sample.choice_1:type_name -> ddex.mead.v11.SampleChoice6
-	182, // 196: ddex.mead.v11.SampleChoice6.host_timing_option:type_name -> ddex.mead.v11.SampleChoice6.Option1
-	183, // 197: ddex.mead.v11.SampleChoice6.sample_timing_option:type_name -> ddex.mead.v11.SampleChoice6.Option2
-	128, // 198: ddex.mead.v11.SimilarRelease.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	147, // 199: ddex.mead.v11.SimilarRelease.release:type_name -> ddex.mead.v11.Release
-	7,   // 200: ddex.mead.v11.SimilarRelease.description:type_name -> ddex.mead.v11.Annotation
-	128, // 201: ddex.mead.v11.SimilarResource.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	150, // 202: ddex.mead.v11.SimilarResource.resource:type_name -> ddex.mead.v11.Resource
-	7,   // 203: ddex.mead.v11.SimilarResource.description:type_name -> ddex.mead.v11.Annotation
-	128, // 204: ddex.mead.v11.SimilarWork.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	164, // 205: ddex.mead.v11.SimilarWork.work:type_name -> ddex.mead.v11.Work
-	7,   // 206: ddex.mead.v11.SimilarWork.description:type_name -> ddex.mead.v11.Annotation
-	128, // 207: ddex.mead.v11.SubGenreCategory.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	156, // 208: ddex.mead.v11.SubGenreCategory.value:type_name -> ddex.mead.v11.SubGenreCategoryValue
-	128, // 209: ddex.mead.v11.Theme.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	67,  // 210: ddex.mead.v11.Theme.value:type_name -> ddex.mead.v11.ThemeValue
-	158, // 211: ddex.mead.v11.Theme.description:type_name -> ddex.mead.v11.TextWithoutTerritory
-	128, // 212: ddex.mead.v11.TimeSignature.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	70,  // 213: ddex.mead.v11.TimeSignature.modulation:type_name -> ddex.mead.v11.TimeSignatureModulation
-	69,  // 214: ddex.mead.v11.TimeSignature.choice:type_name -> ddex.mead.v11.TimeSignatureChoice3
-	35,  // 215: ddex.mead.v11.TimeSignatureChoice3.meter:type_name -> ddex.mead.v11.Meter
-	71,  // 216: ddex.mead.v11.TimeSignatureModulation.choice:type_name -> ddex.mead.v11.TimeSignatureModulationChoice2
-	72,  // 217: ddex.mead.v11.TimeSignatureModulation.choice_1:type_name -> ddex.mead.v11.TimeSignatureModulationChoice3
-	184, // 218: ddex.mead.v11.TimeSignatureModulationChoice2.sequence_1:type_name -> ddex.mead.v11.TimeSignatureModulationChoice2.Option1
-	185, // 219: ddex.mead.v11.TimeSignatureModulationChoice2.sequence_2:type_name -> ddex.mead.v11.TimeSignatureModulationChoice2.Option2
-	35,  // 220: ddex.mead.v11.TimeSignatureModulationChoice3.meter:type_name -> ddex.mead.v11.Meter
-	128, // 221: ddex.mead.v11.Usage.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	157, // 222: ddex.mead.v11.Usage.description:type_name -> ddex.mead.v11.TextWithFormat
-	47,  // 223: ddex.mead.v11.Usage.relevant_resource:type_name -> ddex.mead.v11.RelevantResource
-	74,  // 224: ddex.mead.v11.Usage.choice:type_name -> ddex.mead.v11.UsageChoice6
-	186, // 225: ddex.mead.v11.UsageChoice6.usage_date_option:type_name -> ddex.mead.v11.UsageChoice6.Option1
-	187, // 226: ddex.mead.v11.UsageChoice6.usage_period_option:type_name -> ddex.mead.v11.UsageChoice6.Option2
-	167, // 227: ddex.mead.v11.UsagePeriod.start_date:type_name -> ddex.mead.v11.EventDateWithoutFlags
-	167, // 228: ddex.mead.v11.UsagePeriod.end_date:type_name -> ddex.mead.v11.EventDateWithoutFlags
-	128, // 229: ddex.mead.v11.UsedMusicalWork.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	128, // 230: ddex.mead.v11.WorkHierarchy.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	130, // 231: ddex.mead.v11.WorkHierarchy.work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
-	166, // 232: ddex.mead.v11.WorkHierarchy.work_title:type_name -> ddex.mead.v11.WorkTitle
-	10,  // 233: ddex.mead.v11.WorkHierarchy.child:type_name -> ddex.mead.v11.ChildWorkHierarchy
-	20,  // 234: ddex.mead.v11.WorkHierarchy.form:type_name -> ddex.mead.v11.Form
-	80,  // 235: ddex.mead.v11.WorkInformation.work_summary:type_name -> ddex.mead.v11.WorkSummary
-	22,  // 236: ddex.mead.v11.WorkInformation.genre_category:type_name -> ddex.mead.v11.GenreCategory
-	64,  // 237: ddex.mead.v11.WorkInformation.sub_genre_category:type_name -> ddex.mead.v11.SubGenreCategory
-	20,  // 238: ddex.mead.v11.WorkInformation.form:type_name -> ddex.mead.v11.Form
-	162, // 239: ddex.mead.v11.WorkInformation.vocal_register:type_name -> ddex.mead.v11.VocalRegister
-	115, // 240: ddex.mead.v11.WorkInformation.focus:type_name -> ddex.mead.v11.Focus
-	68,  // 241: ddex.mead.v11.WorkInformation.time_signature:type_name -> ddex.mead.v11.TimeSignature
-	65,  // 242: ddex.mead.v11.WorkInformation.tempo:type_name -> ddex.mead.v11.TempoValue
-	27,  // 243: ddex.mead.v11.WorkInformation.target_instrument:type_name -> ddex.mead.v11.Instrument
-	23,  // 244: ddex.mead.v11.WorkInformation.harmony:type_name -> ddex.mead.v11.Harmony
-	39,  // 245: ddex.mead.v11.WorkInformation.mood:type_name -> ddex.mead.v11.Mood
-	12,  // 246: ddex.mead.v11.WorkInformation.dance_style:type_name -> ddex.mead.v11.DanceStyle
-	53,  // 247: ddex.mead.v11.WorkInformation.rhythm_style:type_name -> ddex.mead.v11.RhythmStyle
-	66,  // 248: ddex.mead.v11.WorkInformation.theme:type_name -> ddex.mead.v11.Theme
-	4,   // 249: ddex.mead.v11.WorkInformation.activity:type_name -> ddex.mead.v11.Activity
-	77,  // 250: ddex.mead.v11.WorkInformation.work_hierarchy:type_name -> ddex.mead.v11.WorkHierarchy
-	43,  // 251: ddex.mead.v11.WorkInformation.related_work:type_name -> ddex.mead.v11.RelatedWork
-	14,  // 252: ddex.mead.v11.WorkInformation.derived_recording:type_name -> ddex.mead.v11.DerivedRecording
-	33,  // 253: ddex.mead.v11.WorkInformation.lyrics:type_name -> ddex.mead.v11.Lyrics
-	102, // 254: ddex.mead.v11.WorkInformation.commentary_note:type_name -> ddex.mead.v11.CommentaryNote
-	101, // 255: ddex.mead.v11.WorkInformation.classical_period:type_name -> ddex.mead.v11.ClassicalPeriod
-	111, // 256: ddex.mead.v11.WorkInformation.epoch:type_name -> ddex.mead.v11.Epoch
-	97,  // 257: ddex.mead.v11.WorkInformation.artistic_influence:type_name -> ddex.mead.v11.ArtisticInfluence
-	63,  // 258: ddex.mead.v11.WorkInformation.is_similar:type_name -> ddex.mead.v11.SimilarWork
-	98,  // 259: ddex.mead.v11.WorkInformation.award:type_name -> ddex.mead.v11.Award
-	6,   // 260: ddex.mead.v11.WorkInformation.alternative_title:type_name -> ddex.mead.v11.AlternativeTitle
-	78,  // 261: ddex.mead.v11.WorkInformationList.work_information:type_name -> ddex.mead.v11.WorkInformation
-	130, // 262: ddex.mead.v11.WorkSummary.musical_work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
-	160, // 263: ddex.mead.v11.WorkSummary.work_title:type_name -> ddex.mead.v11.TitleWithPronunciation
-	133, // 264: ddex.mead.v11.WorkSummary.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	90,  // 265: ddex.mead.v11.Person.choice:type_name -> ddex.mead.v11.PersonChoice
-	94,  // 266: ddex.mead.v11.PersonChoice.uri:type_name -> ddex.mead.v11.URI
-	92,  // 267: ddex.mead.v11.Source.choice:type_name -> ddex.mead.v11.SourceChoice
-	188, // 268: ddex.mead.v11.SourceChoice.author_option:type_name -> ddex.mead.v11.SourceChoice.Option1
-	189, // 269: ddex.mead.v11.SourceChoice.category_option:type_name -> ddex.mead.v11.SourceChoice.Option2
-	190, // 270: ddex.mead.v11.SourceChoice.contributor_option:type_name -> ddex.mead.v11.SourceChoice.Option3
-	84,  // 271: ddex.mead.v11.SourceChoice.generator:type_name -> ddex.mead.v11.Generator
-	85,  // 272: ddex.mead.v11.SourceChoice.icon:type_name -> ddex.mead.v11.Icon
-	86,  // 273: ddex.mead.v11.SourceChoice.id:type_name -> ddex.mead.v11.Id
-	191, // 274: ddex.mead.v11.SourceChoice.link_option:type_name -> ddex.mead.v11.SourceChoice.Option4
-	88,  // 275: ddex.mead.v11.SourceChoice.logo:type_name -> ddex.mead.v11.Logo
-	93,  // 276: ddex.mead.v11.SourceChoice.rights:type_name -> ddex.mead.v11.Text
-	93,  // 277: ddex.mead.v11.SourceChoice.subtitle:type_name -> ddex.mead.v11.Text
-	93,  // 278: ddex.mead.v11.SourceChoice.title:type_name -> ddex.mead.v11.Text
-	83,  // 279: ddex.mead.v11.SourceChoice.updated:type_name -> ddex.mead.v11.DateTime
-	128, // 280: ddex.mead.v11.ArtisticInfluence.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	133, // 281: ddex.mead.v11.ArtisticInfluence.party:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	164, // 282: ddex.mead.v11.ArtisticInfluence.work:type_name -> ddex.mead.v11.Work
-	150, // 283: ddex.mead.v11.ArtisticInfluence.resource:type_name -> ddex.mead.v11.Resource
-	147, // 284: ddex.mead.v11.ArtisticInfluence.release:type_name -> ddex.mead.v11.Release
-	157, // 285: ddex.mead.v11.ArtisticInfluence.description:type_name -> ddex.mead.v11.TextWithFormat
-	128, // 286: ddex.mead.v11.Award.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	133, // 287: ddex.mead.v11.Award.awarding_body:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	133, // 288: ddex.mead.v11.Award.awarded_party:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	132, // 289: ddex.mead.v11.Award.award_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	112, // 290: ddex.mead.v11.Award.date:type_name -> ddex.mead.v11.EventDate
-	157, // 291: ddex.mead.v11.Award.comment:type_name -> ddex.mead.v11.TextWithFormat
-	110, // 292: ddex.mead.v11.ChartEntry.duration:type_name -> ddex.mead.v11.Duration
-	157, // 293: ddex.mead.v11.ChartEntry.comment:type_name -> ddex.mead.v11.TextWithFormat
-	128, // 294: ddex.mead.v11.ClassicalPeriod.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	139, // 295: ddex.mead.v11.ClassicalPeriod.name:type_name -> ddex.mead.v11.PeriodValue
-	128, // 296: ddex.mead.v11.CommentaryNote.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	158, // 297: ddex.mead.v11.CommentaryNote.text:type_name -> ddex.mead.v11.TextWithoutTerritory
-	103, // 298: ddex.mead.v11.CommentaryNote.commentary_note_type:type_name -> ddex.mead.v11.CommentaryNoteType
-	133, // 299: ddex.mead.v11.CommentaryNote.author:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	117, // 300: ddex.mead.v11.DetailedHashSum.algorithm:type_name -> ddex.mead.v11.HashSumAlgorithmType
-	142, // 301: ddex.mead.v11.DetailedPartyId.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
-	108, // 302: ddex.mead.v11.DisplayArtistNameWithPronunciation.name:type_name -> ddex.mead.v11.DisplayArtistNameWithDefault
-	141, // 303: ddex.mead.v11.DisplayArtistNameWithPronunciation.pronunciation:type_name -> ddex.mead.v11.Pronunciation
-	128, // 304: ddex.mead.v11.Epoch.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	131, // 305: ddex.mead.v11.Epoch.value:type_name -> ddex.mead.v11.Name
-	133, // 306: ddex.mead.v11.Epoch.related_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	144, // 307: ddex.mead.v11.Epoch.related_creation:type_name -> ddex.mead.v11.RelatedCreation
-	105, // 308: ddex.mead.v11.Epoch.start_date:type_name -> ddex.mead.v11.Date
-	105, // 309: ddex.mead.v11.Epoch.end_date:type_name -> ddex.mead.v11.Date
-	106, // 310: ddex.mead.v11.File.hash_sum:type_name -> ddex.mead.v11.DetailedHashSum
-	128, // 311: ddex.mead.v11.Focus.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	133, // 312: ddex.mead.v11.Focus.party:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	109, // 313: ddex.mead.v11.Focus.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
-	133, // 314: ddex.mead.v11.Focus.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	133, // 315: ddex.mead.v11.Focus.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	140, // 316: ddex.mead.v11.Focus.period_of_being_focus:type_name -> ddex.mead.v11.PeriodWithTime
-	158, // 317: ddex.mead.v11.Focus.comment:type_name -> ddex.mead.v11.TextWithoutTerritory
-	128, // 318: ddex.mead.v11.HistoricChartingInformation.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	104, // 319: ddex.mead.v11.HistoricChartingInformation.territory_code:type_name -> ddex.mead.v11.CurrentTerritoryCode
-	132, // 320: ddex.mead.v11.HistoricChartingInformation.chart_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	110, // 321: ddex.mead.v11.HistoricChartingInformation.duration_in_charts:type_name -> ddex.mead.v11.Duration
-	100, // 322: ddex.mead.v11.HistoricChartingInformation.chart_entry:type_name -> ddex.mead.v11.ChartEntry
-	157, // 323: ddex.mead.v11.HistoricChartingInformation.comment:type_name -> ddex.mead.v11.TextWithFormat
-	128, // 324: ddex.mead.v11.Image.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	114, // 325: ddex.mead.v11.Image.file:type_name -> ddex.mead.v11.File
-	120, // 326: ddex.mead.v11.Image.image_type:type_name -> ddex.mead.v11.ImageType
-	122, // 327: ddex.mead.v11.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.mead.v11.MessageAuditTrailEvent
-	124, // 328: ddex.mead.v11.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
-	124, // 329: ddex.mead.v11.MessageHeader.message_sender:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
-	124, // 330: ddex.mead.v11.MessageHeader.sent_on_behalf_of:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
-	124, // 331: ddex.mead.v11.MessageHeader.message_recipient:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
-	121, // 332: ddex.mead.v11.MessageHeader.message_audit_trail:type_name -> ddex.mead.v11.MessageAuditTrail
-	136, // 333: ddex.mead.v11.MessagingPartyWithoutCode.party_name:type_name -> ddex.mead.v11.PartyNameWithoutCode
-	129, // 334: ddex.mead.v11.MetadataSource.metadata_source_type:type_name -> ddex.mead.v11.MetadataSourceType
-	126, // 335: ddex.mead.v11.MetadataSource.choice:type_name -> ddex.mead.v11.MetadataSourceChoice3
-	193, // 336: ddex.mead.v11.MetadataSourceChoice3.party_id_option:type_name -> ddex.mead.v11.MetadataSourceChoice3.Option2
-	192, // 337: ddex.mead.v11.MetadataSourceChoice3.sequence_1:type_name -> ddex.mead.v11.MetadataSourceChoice3.Option1
-	125, // 338: ddex.mead.v11.MetadataSourceList.metadata_source:type_name -> ddex.mead.v11.MetadataSource
-	142, // 339: ddex.mead.v11.MusicalWorkIdWithoutFlag.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
-	131, // 340: ddex.mead.v11.NameWithPronunciationAndScriptCode.name:type_name -> ddex.mead.v11.Name
-	141, // 341: ddex.mead.v11.NameWithPronunciationAndScriptCode.pronunciation:type_name -> ddex.mead.v11.Pronunciation
-	134, // 342: ddex.mead.v11.PartyDescriptorWithPronunciation.choice:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciationChoice
-	195, // 343: ddex.mead.v11.PartyDescriptorWithPronunciationChoice.party_id_option:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option2
-	194, // 344: ddex.mead.v11.PartyDescriptorWithPronunciationChoice.sequence_1:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option1
-	132, // 345: ddex.mead.v11.PartyNameWithPronunciation.full_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	132, // 346: ddex.mead.v11.PartyNameWithPronunciation.full_name_ascii_transcribed:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	132, // 347: ddex.mead.v11.PartyNameWithPronunciation.full_name_indexed:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	132, // 348: ddex.mead.v11.PartyNameWithPronunciation.names_before_key_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	132, // 349: ddex.mead.v11.PartyNameWithPronunciation.key_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	132, // 350: ddex.mead.v11.PartyNameWithPronunciation.names_after_key_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	132, // 351: ddex.mead.v11.PartyNameWithPronunciation.abbreviated_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
-	138, // 352: ddex.mead.v11.Period.choice:type_name -> ddex.mead.v11.PeriodChoice
-	196, // 353: ddex.mead.v11.PeriodChoice.sequence_1:type_name -> ddex.mead.v11.PeriodChoice.Option1
-	197, // 354: ddex.mead.v11.PeriodChoice.sequence_2:type_name -> ddex.mead.v11.PeriodChoice.Option2
-	160, // 355: ddex.mead.v11.RelatedCreation.title:type_name -> ddex.mead.v11.TitleWithPronunciation
-	145, // 356: ddex.mead.v11.RelatedCreation.choice:type_name -> ddex.mead.v11.RelatedCreationChoice2
-	148, // 357: ddex.mead.v11.RelatedCreationChoice2.release_id:type_name -> ddex.mead.v11.ReleaseId
-	152, // 358: ddex.mead.v11.RelatedCreationChoice2.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
-	130, // 359: ddex.mead.v11.RelatedCreationChoice2.musical_work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
-	149, // 360: ddex.mead.v11.Release.release_title:type_name -> ddex.mead.v11.ReleaseTitle
-	109, // 361: ddex.mead.v11.Release.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
-	133, // 362: ddex.mead.v11.Release.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	99,  // 363: ddex.mead.v11.ReleaseId.catalog_number:type_name -> ddex.mead.v11.CatalogNumber
-	142, // 364: ddex.mead.v11.ReleaseId.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
-	154, // 365: ddex.mead.v11.Resource.resource_title:type_name -> ddex.mead.v11.ResourceTitle
-	109, // 366: ddex.mead.v11.Resource.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
-	133, // 367: ddex.mead.v11.Resource.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	99,  // 368: ddex.mead.v11.ResourceIdWithoutFlag.catalog_number:type_name -> ddex.mead.v11.CatalogNumber
-	142, // 369: ddex.mead.v11.ResourceIdWithoutFlag.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
-	141, // 370: ddex.mead.v11.TitleText.pronunciation:type_name -> ddex.mead.v11.Pronunciation
-	159, // 371: ddex.mead.v11.TitleWithPronunciation.title_text:type_name -> ddex.mead.v11.TitleText
-	159, // 372: ddex.mead.v11.TitleWithPronunciation.sub_title:type_name -> ddex.mead.v11.TitleText
-	95,  // 373: ddex.mead.v11.Venue.territory_code:type_name -> ddex.mead.v11.AllTerritoryCode
-	128, // 374: ddex.mead.v11.VocalRegister.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
-	163, // 375: ddex.mead.v11.VocalRegister.value:type_name -> ddex.mead.v11.VocalRegisterValue
-	166, // 376: ddex.mead.v11.Work.work_title:type_name -> ddex.mead.v11.WorkTitle
-	133, // 377: ddex.mead.v11.Work.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
-	89,  // 378: ddex.mead.v11.FeedChoice.Option1.author:type_name -> ddex.mead.v11.Person
-	81,  // 379: ddex.mead.v11.FeedChoice.Option2.category:type_name -> ddex.mead.v11.Category
-	89,  // 380: ddex.mead.v11.FeedChoice.Option3.contributor:type_name -> ddex.mead.v11.Person
-	87,  // 381: ddex.mead.v11.FeedChoice.Option4.link:type_name -> ddex.mead.v11.Link
-	17,  // 382: ddex.mead.v11.FeedChoice.Option5.entry:type_name -> ddex.mead.v11.Entry
-	89,  // 383: ddex.mead.v11.EntryChoice.Option1.author:type_name -> ddex.mead.v11.Person
-	81,  // 384: ddex.mead.v11.EntryChoice.Option2.category:type_name -> ddex.mead.v11.Category
-	89,  // 385: ddex.mead.v11.EntryChoice.Option3.contributor:type_name -> ddex.mead.v11.Person
-	87,  // 386: ddex.mead.v11.EntryChoice.Option4.link:type_name -> ddex.mead.v11.Link
-	168, // 387: ddex.mead.v11.SampleChoice6.Option1.host_timing:type_name -> ddex.mead.v11.Timing
-	168, // 388: ddex.mead.v11.SampleChoice6.Option2.sample_timing:type_name -> ddex.mead.v11.Timing
-	112, // 389: ddex.mead.v11.UsageChoice6.Option1.usage_date:type_name -> ddex.mead.v11.EventDate
-	75,  // 390: ddex.mead.v11.UsageChoice6.Option2.usage_period:type_name -> ddex.mead.v11.UsagePeriod
-	89,  // 391: ddex.mead.v11.SourceChoice.Option1.author:type_name -> ddex.mead.v11.Person
-	81,  // 392: ddex.mead.v11.SourceChoice.Option2.category:type_name -> ddex.mead.v11.Category
-	89,  // 393: ddex.mead.v11.SourceChoice.Option3.contributor:type_name -> ddex.mead.v11.Person
-	87,  // 394: ddex.mead.v11.SourceChoice.Option4.link:type_name -> ddex.mead.v11.Link
-	135, // 395: ddex.mead.v11.MetadataSourceChoice3.Option1.party_name:type_name -> ddex.mead.v11.PartyNameWithPronunciation
-	107, // 396: ddex.mead.v11.MetadataSourceChoice3.Option1.party_id:type_name -> ddex.mead.v11.DetailedPartyId
-	107, // 397: ddex.mead.v11.MetadataSourceChoice3.Option2.party_id:type_name -> ddex.mead.v11.DetailedPartyId
-	135, // 398: ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option1.party_name:type_name -> ddex.mead.v11.PartyNameWithPronunciation
-	107, // 399: ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option1.party_id:type_name -> ddex.mead.v11.DetailedPartyId
-	107, // 400: ddex.mead.v11.PartyDescriptorWithPronunciationChoice.Option2.party_id:type_name -> ddex.mead.v11.DetailedPartyId
-	112, // 401: ddex.mead.v11.PeriodChoice.Option1.start_date:type_name -> ddex.mead.v11.EventDate
-	112, // 402: ddex.mead.v11.PeriodChoice.Option1.end_date:type_name -> ddex.mead.v11.EventDate
-	113, // 403: ddex.mead.v11.PeriodChoice.Option2.start_date_time:type_name -> ddex.mead.v11.EventDateTime
-	113, // 404: ddex.mead.v11.PeriodChoice.Option2.end_date_time:type_name -> ddex.mead.v11.EventDateTime
-	405, // [405:405] is the sub-list for method output_type
-	405, // [405:405] is the sub-list for method input_type
-	405, // [405:405] is the sub-list for extension type_name
-	405, // [405:405] is the sub-list for extension extendee
-	0,   // [0:405] is the sub-list for field type_name
+	110, // 0: ddex.mead.v11.MeadMessage.message_header:type_name -> ddex.mead.v11.MessageHeader
+	113, // 1: ddex.mead.v11.MeadMessage.metadata_source_list:type_name -> ddex.mead.v11.MetadataSourceList
+	68,  // 2: ddex.mead.v11.MeadMessage.work_information_list:type_name -> ddex.mead.v11.WorkInformationList
+	45,  // 3: ddex.mead.v11.MeadMessage.resource_information_list:type_name -> ddex.mead.v11.ResourceInformationList
+	41,  // 4: ddex.mead.v11.MeadMessage.release_information_list:type_name -> ddex.mead.v11.ReleaseInformationList
+	78,  // 5: ddex.mead.v11.Feed.author:type_name -> ddex.mead.v11.Person
+	70,  // 6: ddex.mead.v11.Feed.category:type_name -> ddex.mead.v11.Category
+	78,  // 7: ddex.mead.v11.Feed.contributor:type_name -> ddex.mead.v11.Person
+	73,  // 8: ddex.mead.v11.Feed.generator:type_name -> ddex.mead.v11.Generator
+	74,  // 9: ddex.mead.v11.Feed.icon:type_name -> ddex.mead.v11.Icon
+	75,  // 10: ddex.mead.v11.Feed.id:type_name -> ddex.mead.v11.Id
+	76,  // 11: ddex.mead.v11.Feed.link:type_name -> ddex.mead.v11.Link
+	77,  // 12: ddex.mead.v11.Feed.logo:type_name -> ddex.mead.v11.Logo
+	80,  // 13: ddex.mead.v11.Feed.rights:type_name -> ddex.mead.v11.Text
+	80,  // 14: ddex.mead.v11.Feed.subtitle:type_name -> ddex.mead.v11.Text
+	80,  // 15: ddex.mead.v11.Feed.title:type_name -> ddex.mead.v11.Text
+	72,  // 16: ddex.mead.v11.Feed.updated:type_name -> ddex.mead.v11.DateTime
+	16,  // 17: ddex.mead.v11.Feed.entry:type_name -> ddex.mead.v11.Entry
+	114, // 18: ddex.mead.v11.AbsolutePitch.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	34,  // 19: ddex.mead.v11.AbsolutePitch.modulation:type_name -> ddex.mead.v11.Modulation
+	114, // 20: ddex.mead.v11.Activity.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	4,   // 21: ddex.mead.v11.Activity.value:type_name -> ddex.mead.v11.ActivityValue
+	141, // 22: ddex.mead.v11.Activity.description:type_name -> ddex.mead.v11.TextWithoutTerritory
+	114, // 23: ddex.mead.v11.AlternativeTitle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	142, // 24: ddex.mead.v11.AlternativeTitle.title_text:type_name -> ddex.mead.v11.TitleText
+	142, // 25: ddex.mead.v11.AlternativeTitle.sub_title:type_name -> ddex.mead.v11.TitleText
+	114, // 26: ddex.mead.v11.Annotation.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	140, // 27: ddex.mead.v11.Annotation.text:type_name -> ddex.mead.v11.TextWithFormat
+	114, // 28: ddex.mead.v11.ArtisticStyle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	83,  // 29: ddex.mead.v11.ArtisticStyle.value:type_name -> ddex.mead.v11.ArtistTypeValue
+	114, // 30: ddex.mead.v11.BeatsPerMinute.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	34,  // 31: ddex.mead.v11.BeatsPerMinute.modulation:type_name -> ddex.mead.v11.Modulation
+	116, // 32: ddex.mead.v11.ChildWorkHierarchy.work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
+	149, // 33: ddex.mead.v11.ChildWorkHierarchy.work_title:type_name -> ddex.mead.v11.WorkTitle
+	9,   // 34: ddex.mead.v11.ChildWorkHierarchy.child:type_name -> ddex.mead.v11.ChildWorkHierarchy
+	18,  // 35: ddex.mead.v11.ChildWorkHierarchy.form:type_name -> ddex.mead.v11.Form
+	94,  // 36: ddex.mead.v11.Contributor.identifier:type_name -> ddex.mead.v11.DetailedPartyId
+	120, // 37: ddex.mead.v11.Contributor.name:type_name -> ddex.mead.v11.PartyNameWithPronunciation
+	134, // 38: ddex.mead.v11.Contributor.role:type_name -> ddex.mead.v11.ResourceContributorRole
+	114, // 39: ddex.mead.v11.DanceStyle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	12,  // 40: ddex.mead.v11.DanceStyle.value:type_name -> ddex.mead.v11.DanceStyleValue
+	141, // 41: ddex.mead.v11.DanceStyle.description:type_name -> ddex.mead.v11.TextWithoutTerritory
+	114, // 42: ddex.mead.v11.DerivedRecording.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	135, // 43: ddex.mead.v11.DerivedRecording.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
+	129, // 44: ddex.mead.v11.DerivedRecording.related_resource_type:type_name -> ddex.mead.v11.RelatedResourceType
+	143, // 45: ddex.mead.v11.DerivedRecording.title:type_name -> ddex.mead.v11.TitleWithPronunciation
+	96,  // 46: ddex.mead.v11.DerivedRecording.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
+	119, // 47: ddex.mead.v11.DerivedRecording.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	125, // 48: ddex.mead.v11.DisplaySubTitle.pronunciation:type_name -> ddex.mead.v11.Pronunciation
+	142, // 49: ddex.mead.v11.DisplayTitle.title_text:type_name -> ddex.mead.v11.TitleText
+	14,  // 50: ddex.mead.v11.DisplayTitle.sub_title:type_name -> ddex.mead.v11.DisplaySubTitle
+	78,  // 51: ddex.mead.v11.Entry.author:type_name -> ddex.mead.v11.Person
+	70,  // 52: ddex.mead.v11.Entry.category:type_name -> ddex.mead.v11.Category
+	71,  // 53: ddex.mead.v11.Entry.content:type_name -> ddex.mead.v11.Content
+	78,  // 54: ddex.mead.v11.Entry.contributor:type_name -> ddex.mead.v11.Person
+	75,  // 55: ddex.mead.v11.Entry.id:type_name -> ddex.mead.v11.Id
+	76,  // 56: ddex.mead.v11.Entry.link:type_name -> ddex.mead.v11.Link
+	72,  // 57: ddex.mead.v11.Entry.published:type_name -> ddex.mead.v11.DateTime
+	80,  // 58: ddex.mead.v11.Entry.rights:type_name -> ddex.mead.v11.Text
+	79,  // 59: ddex.mead.v11.Entry.source:type_name -> ddex.mead.v11.Source
+	80,  // 60: ddex.mead.v11.Entry.summary:type_name -> ddex.mead.v11.Text
+	80,  // 61: ddex.mead.v11.Entry.title:type_name -> ddex.mead.v11.Text
+	72,  // 62: ddex.mead.v11.Entry.updated:type_name -> ddex.mead.v11.DateTime
+	114, // 63: ddex.mead.v11.Flag.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	114, // 64: ddex.mead.v11.Form.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	19,  // 65: ddex.mead.v11.Form.value:type_name -> ddex.mead.v11.FormValue
+	114, // 66: ddex.mead.v11.GenreCategory.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	103, // 67: ddex.mead.v11.GenreCategory.value:type_name -> ddex.mead.v11.GenreCategoryValue
+	141, // 68: ddex.mead.v11.GenreCategory.description:type_name -> ddex.mead.v11.TextWithoutTerritory
+	114, // 69: ddex.mead.v11.Harmony.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	50,  // 70: ddex.mead.v11.Harmony.root_chord_note:type_name -> ddex.mead.v11.RootChordNote
+	51,  // 71: ddex.mead.v11.Harmony.root_chord_quality:type_name -> ddex.mead.v11.RootChordQuality
+	33,  // 72: ddex.mead.v11.Harmony.mode:type_name -> ddex.mead.v11.Mode
+	22,  // 73: ddex.mead.v11.Harmony.modulation:type_name -> ddex.mead.v11.HarmonyModulation
+	50,  // 74: ddex.mead.v11.HarmonyModulation.root_chord_note:type_name -> ddex.mead.v11.RootChordNote
+	51,  // 75: ddex.mead.v11.HarmonyModulation.root_chord_quality:type_name -> ddex.mead.v11.RootChordQuality
+	33,  // 76: ddex.mead.v11.HarmonyModulation.mode:type_name -> ddex.mead.v11.Mode
+	91,  // 77: ddex.mead.v11.ImpactDate.territory_code:type_name -> ddex.mead.v11.CurrentTerritoryCode
+	114, // 78: ddex.mead.v11.Instrument.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	26,  // 79: ddex.mead.v11.Instrument.value:type_name -> ddex.mead.v11.InstrumentValue
+	114, // 80: ddex.mead.v11.InstrumentUsed.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	26,  // 81: ddex.mead.v11.InstrumentUsed.value:type_name -> ddex.mead.v11.InstrumentValue
+	114, // 82: ddex.mead.v11.Intensity.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	28,  // 83: ddex.mead.v11.Intensity.value:type_name -> ddex.mead.v11.IntensityValue
+	114, // 84: ddex.mead.v11.LocationAndDateOfSession.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	138, // 85: ddex.mead.v11.LocationAndDateOfSession.session_type:type_name -> ddex.mead.v11.SessionType
+	122, // 86: ddex.mead.v11.LocationAndDateOfSession.period:type_name -> ddex.mead.v11.Period
+	144, // 87: ddex.mead.v11.LocationAndDateOfSession.venue:type_name -> ddex.mead.v11.Venue
+	140, // 88: ddex.mead.v11.LocationAndDateOfSession.comment:type_name -> ddex.mead.v11.TextWithFormat
+	10,  // 89: ddex.mead.v11.LocationAndDateOfSession.contributor:type_name -> ddex.mead.v11.Contributor
+	114, // 90: ddex.mead.v11.Lyrics.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	31,  // 91: ddex.mead.v11.Lyrics.text:type_name -> ddex.mead.v11.LyricsText
+	125, // 92: ddex.mead.v11.Lyrics.pronunciation:type_name -> ddex.mead.v11.Pronunciation
+	114, // 93: ddex.mead.v11.Mood.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	36,  // 94: ddex.mead.v11.Mood.value:type_name -> ddex.mead.v11.MoodValue
+	141, // 95: ddex.mead.v11.Mood.description:type_name -> ddex.mead.v11.TextWithoutTerritory
+	126, // 96: ddex.mead.v11.Party.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
+	114, // 97: ddex.mead.v11.RecordingPart.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	127, // 98: ddex.mead.v11.RecordingPart.recording_part_type:type_name -> ddex.mead.v11.RecordingPartType
+	6,   // 99: ddex.mead.v11.RecordingPart.comment:type_name -> ddex.mead.v11.Annotation
+	140, // 100: ddex.mead.v11.RecordingPart.usage_information:type_name -> ddex.mead.v11.TextWithFormat
+	114, // 101: ddex.mead.v11.RelatedWork.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	116, // 102: ddex.mead.v11.RelatedWork.work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
+	149, // 103: ddex.mead.v11.RelatedWork.work_title:type_name -> ddex.mead.v11.WorkTitle
+	148, // 104: ddex.mead.v11.RelatedWork.work_relationship_type:type_name -> ddex.mead.v11.WorkRelationshipType
+	119, // 105: ddex.mead.v11.RelatedWork.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	42,  // 106: ddex.mead.v11.ReleaseInformation.release_summary:type_name -> ddex.mead.v11.ReleaseSummary
+	20,  // 107: ddex.mead.v11.ReleaseInformation.genre_category:type_name -> ddex.mead.v11.GenreCategory
+	57,  // 108: ddex.mead.v11.ReleaseInformation.sub_genre_category:type_name -> ddex.mead.v11.SubGenreCategory
+	102, // 109: ddex.mead.v11.ReleaseInformation.focus:type_name -> ddex.mead.v11.Focus
+	35,  // 110: ddex.mead.v11.ReleaseInformation.mood:type_name -> ddex.mead.v11.Mood
+	7,   // 111: ddex.mead.v11.ReleaseInformation.artistic_style:type_name -> ddex.mead.v11.ArtisticStyle
+	59,  // 112: ddex.mead.v11.ReleaseInformation.theme:type_name -> ddex.mead.v11.Theme
+	3,   // 113: ddex.mead.v11.ReleaseInformation.activity:type_name -> ddex.mead.v11.Activity
+	89,  // 114: ddex.mead.v11.ReleaseInformation.commentary_note:type_name -> ddex.mead.v11.CommentaryNote
+	98,  // 115: ddex.mead.v11.ReleaseInformation.epoch:type_name -> ddex.mead.v11.Epoch
+	84,  // 116: ddex.mead.v11.ReleaseInformation.artistic_influence:type_name -> ddex.mead.v11.ArtisticInfluence
+	54,  // 117: ddex.mead.v11.ReleaseInformation.is_similar:type_name -> ddex.mead.v11.SimilarRelease
+	105, // 118: ddex.mead.v11.ReleaseInformation.historic_charting_information:type_name -> ddex.mead.v11.HistoricChartingInformation
+	85,  // 119: ddex.mead.v11.ReleaseInformation.award:type_name -> ddex.mead.v11.Award
+	5,   // 120: ddex.mead.v11.ReleaseInformation.alternative_title:type_name -> ddex.mead.v11.AlternativeTitle
+	106, // 121: ddex.mead.v11.ReleaseInformation.image:type_name -> ddex.mead.v11.Image
+	40,  // 122: ddex.mead.v11.ReleaseInformationList.release_information:type_name -> ddex.mead.v11.ReleaseInformation
+	131, // 123: ddex.mead.v11.ReleaseSummary.release_id:type_name -> ddex.mead.v11.ReleaseId
+	15,  // 124: ddex.mead.v11.ReleaseSummary.display_title:type_name -> ddex.mead.v11.DisplayTitle
+	96,  // 125: ddex.mead.v11.ReleaseSummary.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
+	119, // 126: ddex.mead.v11.ReleaseSummary.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	135, // 127: ddex.mead.v11.RelevantResource.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
+	136, // 128: ddex.mead.v11.RelevantResource.resource_relationship_type:type_name -> ddex.mead.v11.ResourceRelationshipType
+	47,  // 129: ddex.mead.v11.ResourceInformation.resource_summary:type_name -> ddex.mead.v11.ResourceSummary
+	20,  // 130: ddex.mead.v11.ResourceInformation.genre_category:type_name -> ddex.mead.v11.GenreCategory
+	57,  // 131: ddex.mead.v11.ResourceInformation.sub_genre_category:type_name -> ddex.mead.v11.SubGenreCategory
+	18,  // 132: ddex.mead.v11.ResourceInformation.form:type_name -> ddex.mead.v11.Form
+	145, // 133: ddex.mead.v11.ResourceInformation.vocal_register:type_name -> ddex.mead.v11.VocalRegister
+	102, // 134: ddex.mead.v11.ResourceInformation.focus:type_name -> ddex.mead.v11.Focus
+	2,   // 135: ddex.mead.v11.ResourceInformation.absolute_pitch:type_name -> ddex.mead.v11.AbsolutePitch
+	61,  // 136: ddex.mead.v11.ResourceInformation.time_signature:type_name -> ddex.mead.v11.TimeSignature
+	58,  // 137: ddex.mead.v11.ResourceInformation.tempo:type_name -> ddex.mead.v11.TempoValue
+	8,   // 138: ddex.mead.v11.ResourceInformation.beats_per_minute:type_name -> ddex.mead.v11.BeatsPerMinute
+	27,  // 139: ddex.mead.v11.ResourceInformation.intensity:type_name -> ddex.mead.v11.Intensity
+	25,  // 140: ddex.mead.v11.ResourceInformation.instrument_used:type_name -> ddex.mead.v11.InstrumentUsed
+	21,  // 141: ddex.mead.v11.ResourceInformation.harmony:type_name -> ddex.mead.v11.Harmony
+	35,  // 142: ddex.mead.v11.ResourceInformation.mood:type_name -> ddex.mead.v11.Mood
+	11,  // 143: ddex.mead.v11.ResourceInformation.dance_style:type_name -> ddex.mead.v11.DanceStyle
+	48,  // 144: ddex.mead.v11.ResourceInformation.rhythm_style:type_name -> ddex.mead.v11.RhythmStyle
+	7,   // 145: ddex.mead.v11.ResourceInformation.artistic_style:type_name -> ddex.mead.v11.ArtisticStyle
+	59,  // 146: ddex.mead.v11.ResourceInformation.theme:type_name -> ddex.mead.v11.Theme
+	3,   // 147: ddex.mead.v11.ResourceInformation.activity:type_name -> ddex.mead.v11.Activity
+	65,  // 148: ddex.mead.v11.ResourceInformation.used_musical_work:type_name -> ddex.mead.v11.UsedMusicalWork
+	46,  // 149: ddex.mead.v11.ResourceInformation.related_resource:type_name -> ddex.mead.v11.ResourceRelationship
+	30,  // 150: ddex.mead.v11.ResourceInformation.lyrics:type_name -> ddex.mead.v11.Lyrics
+	89,  // 151: ddex.mead.v11.ResourceInformation.commentary_note:type_name -> ddex.mead.v11.CommentaryNote
+	52,  // 152: ddex.mead.v11.ResourceInformation.sample:type_name -> ddex.mead.v11.Sample
+	38,  // 153: ddex.mead.v11.ResourceInformation.recording_part:type_name -> ddex.mead.v11.RecordingPart
+	63,  // 154: ddex.mead.v11.ResourceInformation.usage:type_name -> ddex.mead.v11.Usage
+	23,  // 155: ddex.mead.v11.ResourceInformation.impact_date:type_name -> ddex.mead.v11.ImpactDate
+	88,  // 156: ddex.mead.v11.ResourceInformation.classical_period:type_name -> ddex.mead.v11.ClassicalPeriod
+	98,  // 157: ddex.mead.v11.ResourceInformation.epoch:type_name -> ddex.mead.v11.Epoch
+	84,  // 158: ddex.mead.v11.ResourceInformation.artistic_influence:type_name -> ddex.mead.v11.ArtisticInfluence
+	55,  // 159: ddex.mead.v11.ResourceInformation.is_similar:type_name -> ddex.mead.v11.SimilarResource
+	105, // 160: ddex.mead.v11.ResourceInformation.historic_charting_information:type_name -> ddex.mead.v11.HistoricChartingInformation
+	85,  // 161: ddex.mead.v11.ResourceInformation.award:type_name -> ddex.mead.v11.Award
+	29,  // 162: ddex.mead.v11.ResourceInformation.location_and_date_of_session:type_name -> ddex.mead.v11.LocationAndDateOfSession
+	5,   // 163: ddex.mead.v11.ResourceInformation.alternative_title:type_name -> ddex.mead.v11.AlternativeTitle
+	106, // 164: ddex.mead.v11.ResourceInformation.image:type_name -> ddex.mead.v11.Image
+	17,  // 165: ddex.mead.v11.ResourceInformation.is_original:type_name -> ddex.mead.v11.Flag
+	17,  // 166: ddex.mead.v11.ResourceInformation.is_cover:type_name -> ddex.mead.v11.Flag
+	44,  // 167: ddex.mead.v11.ResourceInformationList.resource_information:type_name -> ddex.mead.v11.ResourceInformation
+	114, // 168: ddex.mead.v11.ResourceRelationship.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	135, // 169: ddex.mead.v11.ResourceRelationship.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
+	129, // 170: ddex.mead.v11.ResourceRelationship.related_resource_type:type_name -> ddex.mead.v11.RelatedResourceType
+	143, // 171: ddex.mead.v11.ResourceRelationship.title:type_name -> ddex.mead.v11.TitleWithPronunciation
+	96,  // 172: ddex.mead.v11.ResourceRelationship.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
+	119, // 173: ddex.mead.v11.ResourceRelationship.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	135, // 174: ddex.mead.v11.ResourceSummary.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
+	15,  // 175: ddex.mead.v11.ResourceSummary.display_title:type_name -> ddex.mead.v11.DisplayTitle
+	96,  // 176: ddex.mead.v11.ResourceSummary.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
+	119, // 177: ddex.mead.v11.ResourceSummary.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	114, // 178: ddex.mead.v11.RhythmStyle.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	49,  // 179: ddex.mead.v11.RhythmStyle.value:type_name -> ddex.mead.v11.RhythmStyleValue
+	141, // 180: ddex.mead.v11.RhythmStyle.description:type_name -> ddex.mead.v11.TextWithoutTerritory
+	114, // 181: ddex.mead.v11.Sample.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	47,  // 182: ddex.mead.v11.Sample.related_resource:type_name -> ddex.mead.v11.ResourceSummary
+	53,  // 183: ddex.mead.v11.Sample.sample_feature:type_name -> ddex.mead.v11.SampleFeature
+	140, // 184: ddex.mead.v11.Sample.description:type_name -> ddex.mead.v11.TextWithFormat
+	151, // 185: ddex.mead.v11.Sample.host_timing:type_name -> ddex.mead.v11.Timing
+	151, // 186: ddex.mead.v11.Sample.sample_timing:type_name -> ddex.mead.v11.Timing
+	114, // 187: ddex.mead.v11.SimilarRelease.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	130, // 188: ddex.mead.v11.SimilarRelease.release:type_name -> ddex.mead.v11.Release
+	6,   // 189: ddex.mead.v11.SimilarRelease.description:type_name -> ddex.mead.v11.Annotation
+	114, // 190: ddex.mead.v11.SimilarResource.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	133, // 191: ddex.mead.v11.SimilarResource.resource:type_name -> ddex.mead.v11.Resource
+	6,   // 192: ddex.mead.v11.SimilarResource.description:type_name -> ddex.mead.v11.Annotation
+	114, // 193: ddex.mead.v11.SimilarWork.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	147, // 194: ddex.mead.v11.SimilarWork.work:type_name -> ddex.mead.v11.Work
+	6,   // 195: ddex.mead.v11.SimilarWork.description:type_name -> ddex.mead.v11.Annotation
+	114, // 196: ddex.mead.v11.SubGenreCategory.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	139, // 197: ddex.mead.v11.SubGenreCategory.value:type_name -> ddex.mead.v11.SubGenreCategoryValue
+	114, // 198: ddex.mead.v11.Theme.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	60,  // 199: ddex.mead.v11.Theme.value:type_name -> ddex.mead.v11.ThemeValue
+	141, // 200: ddex.mead.v11.Theme.description:type_name -> ddex.mead.v11.TextWithoutTerritory
+	114, // 201: ddex.mead.v11.TimeSignature.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	62,  // 202: ddex.mead.v11.TimeSignature.modulation:type_name -> ddex.mead.v11.TimeSignatureModulation
+	32,  // 203: ddex.mead.v11.TimeSignature.meter:type_name -> ddex.mead.v11.Meter
+	32,  // 204: ddex.mead.v11.TimeSignatureModulation.meter:type_name -> ddex.mead.v11.Meter
+	114, // 205: ddex.mead.v11.Usage.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	140, // 206: ddex.mead.v11.Usage.description:type_name -> ddex.mead.v11.TextWithFormat
+	43,  // 207: ddex.mead.v11.Usage.relevant_resource:type_name -> ddex.mead.v11.RelevantResource
+	99,  // 208: ddex.mead.v11.Usage.usage_date:type_name -> ddex.mead.v11.EventDate
+	64,  // 209: ddex.mead.v11.Usage.usage_period:type_name -> ddex.mead.v11.UsagePeriod
+	150, // 210: ddex.mead.v11.UsagePeriod.start_date:type_name -> ddex.mead.v11.EventDateWithoutFlags
+	150, // 211: ddex.mead.v11.UsagePeriod.end_date:type_name -> ddex.mead.v11.EventDateWithoutFlags
+	114, // 212: ddex.mead.v11.UsedMusicalWork.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	114, // 213: ddex.mead.v11.WorkHierarchy.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	116, // 214: ddex.mead.v11.WorkHierarchy.work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
+	149, // 215: ddex.mead.v11.WorkHierarchy.work_title:type_name -> ddex.mead.v11.WorkTitle
+	9,   // 216: ddex.mead.v11.WorkHierarchy.child:type_name -> ddex.mead.v11.ChildWorkHierarchy
+	18,  // 217: ddex.mead.v11.WorkHierarchy.form:type_name -> ddex.mead.v11.Form
+	69,  // 218: ddex.mead.v11.WorkInformation.work_summary:type_name -> ddex.mead.v11.WorkSummary
+	20,  // 219: ddex.mead.v11.WorkInformation.genre_category:type_name -> ddex.mead.v11.GenreCategory
+	57,  // 220: ddex.mead.v11.WorkInformation.sub_genre_category:type_name -> ddex.mead.v11.SubGenreCategory
+	18,  // 221: ddex.mead.v11.WorkInformation.form:type_name -> ddex.mead.v11.Form
+	145, // 222: ddex.mead.v11.WorkInformation.vocal_register:type_name -> ddex.mead.v11.VocalRegister
+	102, // 223: ddex.mead.v11.WorkInformation.focus:type_name -> ddex.mead.v11.Focus
+	61,  // 224: ddex.mead.v11.WorkInformation.time_signature:type_name -> ddex.mead.v11.TimeSignature
+	58,  // 225: ddex.mead.v11.WorkInformation.tempo:type_name -> ddex.mead.v11.TempoValue
+	24,  // 226: ddex.mead.v11.WorkInformation.target_instrument:type_name -> ddex.mead.v11.Instrument
+	21,  // 227: ddex.mead.v11.WorkInformation.harmony:type_name -> ddex.mead.v11.Harmony
+	35,  // 228: ddex.mead.v11.WorkInformation.mood:type_name -> ddex.mead.v11.Mood
+	11,  // 229: ddex.mead.v11.WorkInformation.dance_style:type_name -> ddex.mead.v11.DanceStyle
+	48,  // 230: ddex.mead.v11.WorkInformation.rhythm_style:type_name -> ddex.mead.v11.RhythmStyle
+	59,  // 231: ddex.mead.v11.WorkInformation.theme:type_name -> ddex.mead.v11.Theme
+	3,   // 232: ddex.mead.v11.WorkInformation.activity:type_name -> ddex.mead.v11.Activity
+	66,  // 233: ddex.mead.v11.WorkInformation.work_hierarchy:type_name -> ddex.mead.v11.WorkHierarchy
+	39,  // 234: ddex.mead.v11.WorkInformation.related_work:type_name -> ddex.mead.v11.RelatedWork
+	13,  // 235: ddex.mead.v11.WorkInformation.derived_recording:type_name -> ddex.mead.v11.DerivedRecording
+	30,  // 236: ddex.mead.v11.WorkInformation.lyrics:type_name -> ddex.mead.v11.Lyrics
+	89,  // 237: ddex.mead.v11.WorkInformation.commentary_note:type_name -> ddex.mead.v11.CommentaryNote
+	88,  // 238: ddex.mead.v11.WorkInformation.classical_period:type_name -> ddex.mead.v11.ClassicalPeriod
+	98,  // 239: ddex.mead.v11.WorkInformation.epoch:type_name -> ddex.mead.v11.Epoch
+	84,  // 240: ddex.mead.v11.WorkInformation.artistic_influence:type_name -> ddex.mead.v11.ArtisticInfluence
+	56,  // 241: ddex.mead.v11.WorkInformation.is_similar:type_name -> ddex.mead.v11.SimilarWork
+	85,  // 242: ddex.mead.v11.WorkInformation.award:type_name -> ddex.mead.v11.Award
+	5,   // 243: ddex.mead.v11.WorkInformation.alternative_title:type_name -> ddex.mead.v11.AlternativeTitle
+	67,  // 244: ddex.mead.v11.WorkInformationList.work_information:type_name -> ddex.mead.v11.WorkInformation
+	116, // 245: ddex.mead.v11.WorkSummary.musical_work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
+	143, // 246: ddex.mead.v11.WorkSummary.work_title:type_name -> ddex.mead.v11.TitleWithPronunciation
+	119, // 247: ddex.mead.v11.WorkSummary.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	81,  // 248: ddex.mead.v11.Person.uri:type_name -> ddex.mead.v11.URI
+	78,  // 249: ddex.mead.v11.Source.author:type_name -> ddex.mead.v11.Person
+	70,  // 250: ddex.mead.v11.Source.category:type_name -> ddex.mead.v11.Category
+	78,  // 251: ddex.mead.v11.Source.contributor:type_name -> ddex.mead.v11.Person
+	73,  // 252: ddex.mead.v11.Source.generator:type_name -> ddex.mead.v11.Generator
+	74,  // 253: ddex.mead.v11.Source.icon:type_name -> ddex.mead.v11.Icon
+	75,  // 254: ddex.mead.v11.Source.id:type_name -> ddex.mead.v11.Id
+	76,  // 255: ddex.mead.v11.Source.link:type_name -> ddex.mead.v11.Link
+	77,  // 256: ddex.mead.v11.Source.logo:type_name -> ddex.mead.v11.Logo
+	80,  // 257: ddex.mead.v11.Source.rights:type_name -> ddex.mead.v11.Text
+	80,  // 258: ddex.mead.v11.Source.subtitle:type_name -> ddex.mead.v11.Text
+	80,  // 259: ddex.mead.v11.Source.title:type_name -> ddex.mead.v11.Text
+	72,  // 260: ddex.mead.v11.Source.updated:type_name -> ddex.mead.v11.DateTime
+	114, // 261: ddex.mead.v11.ArtisticInfluence.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	119, // 262: ddex.mead.v11.ArtisticInfluence.party:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	147, // 263: ddex.mead.v11.ArtisticInfluence.work:type_name -> ddex.mead.v11.Work
+	133, // 264: ddex.mead.v11.ArtisticInfluence.resource:type_name -> ddex.mead.v11.Resource
+	130, // 265: ddex.mead.v11.ArtisticInfluence.release:type_name -> ddex.mead.v11.Release
+	140, // 266: ddex.mead.v11.ArtisticInfluence.description:type_name -> ddex.mead.v11.TextWithFormat
+	114, // 267: ddex.mead.v11.Award.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	119, // 268: ddex.mead.v11.Award.awarding_body:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	119, // 269: ddex.mead.v11.Award.awarded_party:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	118, // 270: ddex.mead.v11.Award.award_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	99,  // 271: ddex.mead.v11.Award.date:type_name -> ddex.mead.v11.EventDate
+	140, // 272: ddex.mead.v11.Award.comment:type_name -> ddex.mead.v11.TextWithFormat
+	97,  // 273: ddex.mead.v11.ChartEntry.duration:type_name -> ddex.mead.v11.Duration
+	140, // 274: ddex.mead.v11.ChartEntry.comment:type_name -> ddex.mead.v11.TextWithFormat
+	114, // 275: ddex.mead.v11.ClassicalPeriod.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	123, // 276: ddex.mead.v11.ClassicalPeriod.name:type_name -> ddex.mead.v11.PeriodValue
+	114, // 277: ddex.mead.v11.CommentaryNote.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	141, // 278: ddex.mead.v11.CommentaryNote.text:type_name -> ddex.mead.v11.TextWithoutTerritory
+	90,  // 279: ddex.mead.v11.CommentaryNote.commentary_note_type:type_name -> ddex.mead.v11.CommentaryNoteType
+	119, // 280: ddex.mead.v11.CommentaryNote.author:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	104, // 281: ddex.mead.v11.DetailedHashSum.algorithm:type_name -> ddex.mead.v11.HashSumAlgorithmType
+	126, // 282: ddex.mead.v11.DetailedPartyId.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
+	95,  // 283: ddex.mead.v11.DisplayArtistNameWithPronunciation.name:type_name -> ddex.mead.v11.DisplayArtistNameWithDefault
+	125, // 284: ddex.mead.v11.DisplayArtistNameWithPronunciation.pronunciation:type_name -> ddex.mead.v11.Pronunciation
+	114, // 285: ddex.mead.v11.Epoch.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	117, // 286: ddex.mead.v11.Epoch.value:type_name -> ddex.mead.v11.Name
+	119, // 287: ddex.mead.v11.Epoch.related_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	128, // 288: ddex.mead.v11.Epoch.related_creation:type_name -> ddex.mead.v11.RelatedCreation
+	92,  // 289: ddex.mead.v11.Epoch.start_date:type_name -> ddex.mead.v11.Date
+	92,  // 290: ddex.mead.v11.Epoch.end_date:type_name -> ddex.mead.v11.Date
+	93,  // 291: ddex.mead.v11.File.hash_sum:type_name -> ddex.mead.v11.DetailedHashSum
+	114, // 292: ddex.mead.v11.Focus.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	119, // 293: ddex.mead.v11.Focus.party:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	96,  // 294: ddex.mead.v11.Focus.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
+	119, // 295: ddex.mead.v11.Focus.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	119, // 296: ddex.mead.v11.Focus.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	124, // 297: ddex.mead.v11.Focus.period_of_being_focus:type_name -> ddex.mead.v11.PeriodWithTime
+	141, // 298: ddex.mead.v11.Focus.comment:type_name -> ddex.mead.v11.TextWithoutTerritory
+	114, // 299: ddex.mead.v11.HistoricChartingInformation.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	91,  // 300: ddex.mead.v11.HistoricChartingInformation.territory_code:type_name -> ddex.mead.v11.CurrentTerritoryCode
+	118, // 301: ddex.mead.v11.HistoricChartingInformation.chart_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	97,  // 302: ddex.mead.v11.HistoricChartingInformation.duration_in_charts:type_name -> ddex.mead.v11.Duration
+	87,  // 303: ddex.mead.v11.HistoricChartingInformation.chart_entry:type_name -> ddex.mead.v11.ChartEntry
+	140, // 304: ddex.mead.v11.HistoricChartingInformation.comment:type_name -> ddex.mead.v11.TextWithFormat
+	114, // 305: ddex.mead.v11.Image.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	101, // 306: ddex.mead.v11.Image.file:type_name -> ddex.mead.v11.File
+	107, // 307: ddex.mead.v11.Image.image_type:type_name -> ddex.mead.v11.ImageType
+	109, // 308: ddex.mead.v11.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.mead.v11.MessageAuditTrailEvent
+	111, // 309: ddex.mead.v11.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
+	111, // 310: ddex.mead.v11.MessageHeader.message_sender:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
+	111, // 311: ddex.mead.v11.MessageHeader.sent_on_behalf_of:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
+	111, // 312: ddex.mead.v11.MessageHeader.message_recipient:type_name -> ddex.mead.v11.MessagingPartyWithoutCode
+	108, // 313: ddex.mead.v11.MessageHeader.message_audit_trail:type_name -> ddex.mead.v11.MessageAuditTrail
+	121, // 314: ddex.mead.v11.MessagingPartyWithoutCode.party_name:type_name -> ddex.mead.v11.PartyNameWithoutCode
+	115, // 315: ddex.mead.v11.MetadataSource.metadata_source_type:type_name -> ddex.mead.v11.MetadataSourceType
+	94,  // 316: ddex.mead.v11.MetadataSource.party_id:type_name -> ddex.mead.v11.DetailedPartyId
+	120, // 317: ddex.mead.v11.MetadataSource.party_name:type_name -> ddex.mead.v11.PartyNameWithPronunciation
+	112, // 318: ddex.mead.v11.MetadataSourceList.metadata_source:type_name -> ddex.mead.v11.MetadataSource
+	126, // 319: ddex.mead.v11.MusicalWorkIdWithoutFlag.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
+	117, // 320: ddex.mead.v11.NameWithPronunciationAndScriptCode.name:type_name -> ddex.mead.v11.Name
+	125, // 321: ddex.mead.v11.NameWithPronunciationAndScriptCode.pronunciation:type_name -> ddex.mead.v11.Pronunciation
+	94,  // 322: ddex.mead.v11.PartyDescriptorWithPronunciation.party_id:type_name -> ddex.mead.v11.DetailedPartyId
+	120, // 323: ddex.mead.v11.PartyDescriptorWithPronunciation.party_name:type_name -> ddex.mead.v11.PartyNameWithPronunciation
+	118, // 324: ddex.mead.v11.PartyNameWithPronunciation.full_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	118, // 325: ddex.mead.v11.PartyNameWithPronunciation.full_name_ascii_transcribed:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	118, // 326: ddex.mead.v11.PartyNameWithPronunciation.full_name_indexed:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	118, // 327: ddex.mead.v11.PartyNameWithPronunciation.names_before_key_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	118, // 328: ddex.mead.v11.PartyNameWithPronunciation.key_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	118, // 329: ddex.mead.v11.PartyNameWithPronunciation.names_after_key_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	118, // 330: ddex.mead.v11.PartyNameWithPronunciation.abbreviated_name:type_name -> ddex.mead.v11.NameWithPronunciationAndScriptCode
+	99,  // 331: ddex.mead.v11.Period.start_date:type_name -> ddex.mead.v11.EventDate
+	99,  // 332: ddex.mead.v11.Period.end_date:type_name -> ddex.mead.v11.EventDate
+	100, // 333: ddex.mead.v11.Period.start_date_time:type_name -> ddex.mead.v11.EventDateTime
+	100, // 334: ddex.mead.v11.Period.end_date_time:type_name -> ddex.mead.v11.EventDateTime
+	143, // 335: ddex.mead.v11.RelatedCreation.title:type_name -> ddex.mead.v11.TitleWithPronunciation
+	131, // 336: ddex.mead.v11.RelatedCreation.release_id:type_name -> ddex.mead.v11.ReleaseId
+	135, // 337: ddex.mead.v11.RelatedCreation.resource_id:type_name -> ddex.mead.v11.ResourceIdWithoutFlag
+	116, // 338: ddex.mead.v11.RelatedCreation.musical_work_id:type_name -> ddex.mead.v11.MusicalWorkIdWithoutFlag
+	132, // 339: ddex.mead.v11.Release.release_title:type_name -> ddex.mead.v11.ReleaseTitle
+	96,  // 340: ddex.mead.v11.Release.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
+	119, // 341: ddex.mead.v11.Release.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	86,  // 342: ddex.mead.v11.ReleaseId.catalog_number:type_name -> ddex.mead.v11.CatalogNumber
+	126, // 343: ddex.mead.v11.ReleaseId.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
+	137, // 344: ddex.mead.v11.Resource.resource_title:type_name -> ddex.mead.v11.ResourceTitle
+	96,  // 345: ddex.mead.v11.Resource.display_artist_name:type_name -> ddex.mead.v11.DisplayArtistNameWithPronunciation
+	119, // 346: ddex.mead.v11.Resource.display_artist:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	86,  // 347: ddex.mead.v11.ResourceIdWithoutFlag.catalog_number:type_name -> ddex.mead.v11.CatalogNumber
+	126, // 348: ddex.mead.v11.ResourceIdWithoutFlag.proprietary_id:type_name -> ddex.mead.v11.ProprietaryId
+	125, // 349: ddex.mead.v11.TitleText.pronunciation:type_name -> ddex.mead.v11.Pronunciation
+	142, // 350: ddex.mead.v11.TitleWithPronunciation.title_text:type_name -> ddex.mead.v11.TitleText
+	142, // 351: ddex.mead.v11.TitleWithPronunciation.sub_title:type_name -> ddex.mead.v11.TitleText
+	82,  // 352: ddex.mead.v11.Venue.territory_code:type_name -> ddex.mead.v11.AllTerritoryCode
+	114, // 353: ddex.mead.v11.VocalRegister.metadata_source_reference:type_name -> ddex.mead.v11.MetadataSourceReference
+	146, // 354: ddex.mead.v11.VocalRegister.value:type_name -> ddex.mead.v11.VocalRegisterValue
+	149, // 355: ddex.mead.v11.Work.work_title:type_name -> ddex.mead.v11.WorkTitle
+	119, // 356: ddex.mead.v11.Work.writer:type_name -> ddex.mead.v11.PartyDescriptorWithPronunciation
+	357, // [357:357] is the sub-list for method output_type
+	357, // [357:357] is the sub-list for method input_type
+	357, // [357:357] is the sub-list for extension type_name
+	357, // [357:357] is the sub-list for extension extendee
+	0,   // [0:357] is the sub-list for field type_name
 }
 
 func init() { file_ddex_mead_v11_v11_proto_init() }
@@ -16433,116 +13344,13 @@ func file_ddex_mead_v11_v11_proto_init() {
 	if File_ddex_mead_v11_v11_proto != nil {
 		return
 	}
-	file_ddex_mead_v11_v11_proto_msgTypes[2].OneofWrappers = []any{
-		(*FeedChoice_AuthorOption)(nil),
-		(*FeedChoice_CategoryOption)(nil),
-		(*FeedChoice_ContributorOption)(nil),
-		(*FeedChoice_Generator)(nil),
-		(*FeedChoice_Icon)(nil),
-		(*FeedChoice_Id)(nil),
-		(*FeedChoice_LinkOption)(nil),
-		(*FeedChoice_Logo)(nil),
-		(*FeedChoice_Rights)(nil),
-		(*FeedChoice_Subtitle)(nil),
-		(*FeedChoice_Title)(nil),
-		(*FeedChoice_Updated)(nil),
-		(*FeedChoice_EntryOption)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[18].OneofWrappers = []any{
-		(*EntryChoice_AuthorOption)(nil),
-		(*EntryChoice_CategoryOption)(nil),
-		(*EntryChoice_Content)(nil),
-		(*EntryChoice_ContributorOption)(nil),
-		(*EntryChoice_Id)(nil),
-		(*EntryChoice_LinkOption)(nil),
-		(*EntryChoice_Published)(nil),
-		(*EntryChoice_Rights)(nil),
-		(*EntryChoice_Source)(nil),
-		(*EntryChoice_Summary)(nil),
-		(*EntryChoice_Title)(nil),
-		(*EntryChoice_Updated)(nil),
-		(*EntryChoice_SubscriptionId)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[25].OneofWrappers = []any{
-		(*HarmonyModulationChoice4_Sequence_1)(nil),
-		(*HarmonyModulationChoice4_Sequence_2)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[38].OneofWrappers = []any{
-		(*ModulationChoice2_Sequence_1)(nil),
-		(*ModulationChoice2_Sequence_2)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[49].OneofWrappers = []any{
-		(*ResourceInformationChoice37_IsOriginal)(nil),
-		(*ResourceInformationChoice37_IsCover)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[58].OneofWrappers = []any{
-		(*SampleChoice5_ContainsSamples)(nil),
-		(*SampleChoice5_IsContainedInSample)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[59].OneofWrappers = []any{
-		(*SampleChoice6_HostTimingOption)(nil),
-		(*SampleChoice6_SampleTimingOption)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[69].OneofWrappers = []any{
-		(*TimeSignatureChoice3_Meter)(nil),
-		(*TimeSignatureChoice3_NoMeterAvailable)(nil),
-		(*TimeSignatureChoice3_TooManyTempi)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[71].OneofWrappers = []any{
-		(*TimeSignatureModulationChoice2_Sequence_1)(nil),
-		(*TimeSignatureModulationChoice2_Sequence_2)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[72].OneofWrappers = []any{
-		(*TimeSignatureModulationChoice3_Meter)(nil),
-		(*TimeSignatureModulationChoice3_NoMeterAvailable)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[74].OneofWrappers = []any{
-		(*UsageChoice6_UsageDateOption)(nil),
-		(*UsageChoice6_UsagePeriodOption)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[90].OneofWrappers = []any{
-		(*PersonChoice_Name)(nil),
-		(*PersonChoice_Uri)(nil),
-		(*PersonChoice_Email)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[92].OneofWrappers = []any{
-		(*SourceChoice_AuthorOption)(nil),
-		(*SourceChoice_CategoryOption)(nil),
-		(*SourceChoice_ContributorOption)(nil),
-		(*SourceChoice_Generator)(nil),
-		(*SourceChoice_Icon)(nil),
-		(*SourceChoice_Id)(nil),
-		(*SourceChoice_LinkOption)(nil),
-		(*SourceChoice_Logo)(nil),
-		(*SourceChoice_Rights)(nil),
-		(*SourceChoice_Subtitle)(nil),
-		(*SourceChoice_Title)(nil),
-		(*SourceChoice_Updated)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[126].OneofWrappers = []any{
-		(*MetadataSourceChoice3_PartyIdOption)(nil),
-		(*MetadataSourceChoice3_Sequence_1)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[134].OneofWrappers = []any{
-		(*PartyDescriptorWithPronunciationChoice_PartyIdOption)(nil),
-		(*PartyDescriptorWithPronunciationChoice_Sequence_1)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[138].OneofWrappers = []any{
-		(*PeriodChoice_Sequence_1)(nil),
-		(*PeriodChoice_Sequence_2)(nil),
-	}
-	file_ddex_mead_v11_v11_proto_msgTypes[145].OneofWrappers = []any{
-		(*RelatedCreationChoice2_ReleaseId)(nil),
-		(*RelatedCreationChoice2_ResourceId)(nil),
-		(*RelatedCreationChoice2_MusicalWorkId)(nil),
-	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ddex_mead_v11_v11_proto_rawDesc), len(file_ddex_mead_v11_v11_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   198,
+			NumMessages:   152,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -28,64 +28,32 @@ message MeadMessage {
 }
 
 message Feed {
-  // Choice wrapper for XSD choice
-  repeated FeedChoice choice = 1;
-}
-
-message FeedChoice {
-  message Option1 {
-    // @gotags: xml:"author"
-    repeated ddex.mead.v11.Person author = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"category"
-    repeated ddex.mead.v11.Category category = 1;
-  }
-
-  message Option3 {
-    // @gotags: xml:"contributor"
-    repeated ddex.mead.v11.Person contributor = 1;
-  }
-
-  message Option4 {
-    // @gotags: xml:"link"
-    repeated ddex.mead.v11.Link link = 1;
-  }
-
-  message Option5 {
-    // @gotags: xml:"entry"
-    repeated ddex.mead.v11.Entry entry = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"author"
-    Option1 author_option = 1;
-    // @gotags: xml:"category"
-    Option2 category_option = 2;
-    // @gotags: xml:"contributor"
-    Option3 contributor_option = 3;
-    // @gotags: xml:"generator"
-    ddex.mead.v11.Generator generator = 4;
-    // @gotags: xml:"icon"
-    ddex.mead.v11.Icon icon = 5;
-    // @gotags: xml:"id"
-    ddex.mead.v11.Id id = 6;
-    // @gotags: xml:"link"
-    Option4 link_option = 7;
-    // @gotags: xml:"logo"
-    ddex.mead.v11.Logo logo = 8;
-    // @gotags: xml:"rights"
-    ddex.mead.v11.Text rights = 9;
-    // @gotags: xml:"subtitle"
-    ddex.mead.v11.Text subtitle = 10;
-    // @gotags: xml:"title"
-    ddex.mead.v11.Text title = 11;
-    // @gotags: xml:"updated"
-    ddex.mead.v11.DateTime updated = 12;
-    // @gotags: xml:"entry"
-    Option5 entry_option = 13;
-  }
+  // @gotags: xml:"author"
+  repeated ddex.mead.v11.Person author = 1;
+  // @gotags: xml:"category"
+  repeated ddex.mead.v11.Category category = 2;
+  // @gotags: xml:"contributor"
+  repeated ddex.mead.v11.Person contributor = 3;
+  // @gotags: xml:"generator"
+  ddex.mead.v11.Generator generator = 4;
+  // @gotags: xml:"icon"
+  ddex.mead.v11.Icon icon = 5;
+  // @gotags: xml:"id"
+  ddex.mead.v11.Id id = 6;
+  // @gotags: xml:"link"
+  repeated ddex.mead.v11.Link link = 7;
+  // @gotags: xml:"logo"
+  ddex.mead.v11.Logo logo = 8;
+  // @gotags: xml:"rights"
+  ddex.mead.v11.Text rights = 9;
+  // @gotags: xml:"subtitle"
+  ddex.mead.v11.Text subtitle = 10;
+  // @gotags: xml:"title"
+  ddex.mead.v11.Text title = 11;
+  // @gotags: xml:"updated"
+  ddex.mead.v11.DateTime updated = 12;
+  // @gotags: xml:"entry"
+  repeated ddex.mead.v11.Entry entry = 13;
 }
 
 message AbsolutePitch {
@@ -255,61 +223,34 @@ message DisplayTitle {
 }
 
 message Entry {
-  // Choice wrapper for XSD choice
-  repeated EntryChoice choice = 1;
+  // @gotags: xml:"author"
+  repeated ddex.mead.v11.Person author = 1;
+  // @gotags: xml:"category"
+  repeated ddex.mead.v11.Category category = 2;
+  // @gotags: xml:"content"
+  ddex.mead.v11.Content content = 3;
+  // @gotags: xml:"contributor"
+  repeated ddex.mead.v11.Person contributor = 4;
+  // @gotags: xml:"id"
+  ddex.mead.v11.Id id = 5;
+  // @gotags: xml:"link"
+  repeated ddex.mead.v11.Link link = 6;
+  // @gotags: xml:"published"
+  ddex.mead.v11.DateTime published = 7;
+  // @gotags: xml:"rights"
+  ddex.mead.v11.Text rights = 8;
+  // @gotags: xml:"source"
+  ddex.mead.v11.Source source = 9;
+  // @gotags: xml:"summary"
+  ddex.mead.v11.Text summary = 10;
+  // @gotags: xml:"title"
+  ddex.mead.v11.Text title = 11;
+  // @gotags: xml:"updated"
+  ddex.mead.v11.DateTime updated = 12;
+  // @gotags: xml:"SubscriptionId"
+  string subscription_id = 13;
   // @gotags: xml:"AvsVersionId,attr"
-  string avs_version_id = 2;
-}
-
-message EntryChoice {
-  message Option1 {
-    // @gotags: xml:"author"
-    repeated ddex.mead.v11.Person author = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"category"
-    repeated ddex.mead.v11.Category category = 1;
-  }
-
-  message Option3 {
-    // @gotags: xml:"contributor"
-    repeated ddex.mead.v11.Person contributor = 1;
-  }
-
-  message Option4 {
-    // @gotags: xml:"link"
-    repeated ddex.mead.v11.Link link = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"author"
-    Option1 author_option = 1;
-    // @gotags: xml:"category"
-    Option2 category_option = 2;
-    // @gotags: xml:"content"
-    ddex.mead.v11.Content content = 3;
-    // @gotags: xml:"contributor"
-    Option3 contributor_option = 4;
-    // @gotags: xml:"id"
-    ddex.mead.v11.Id id = 5;
-    // @gotags: xml:"link"
-    Option4 link_option = 6;
-    // @gotags: xml:"published"
-    ddex.mead.v11.DateTime published = 7;
-    // @gotags: xml:"rights"
-    ddex.mead.v11.Text rights = 8;
-    // @gotags: xml:"source"
-    ddex.mead.v11.Source source = 9;
-    // @gotags: xml:"summary"
-    ddex.mead.v11.Text summary = 10;
-    // @gotags: xml:"title"
-    ddex.mead.v11.Text title = 11;
-    // @gotags: xml:"updated"
-    ddex.mead.v11.DateTime updated = 12;
-    // @gotags: xml:"SubscriptionId"
-    string subscription_id = 13;
-  }
+  string avs_version_id = 14;
 }
 
 message Flag {
@@ -366,29 +307,14 @@ message HarmonyModulation {
   ddex.mead.v11.RootChordQuality root_chord_quality = 2;
   // @gotags: xml:"Mode"
   ddex.mead.v11.Mode mode = 3;
-  // Choice wrapper for XSD choice within sequence
-  HarmonyModulationChoice choice = 4;
-}
-
-message HarmonyModulationChoice {
-  message Option1 {
-    // @gotags: xml:"StartPoint"
-  string start_point = 1;
-    // @gotags: xml:"EndPoint"
-  string end_point = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"StartBar"
-  int32 start_bar = 1;
-    // @gotags: xml:"EndBar"
-  int32 end_bar = 2;
-  }
-
-  oneof choice {
-    Option1 sequence_1 = 1;
-    Option2 sequence_2 = 2;
-  }
+  // @gotags: xml:"StartPoint"
+  string start_point = 4;
+  // @gotags: xml:"EndPoint"
+  string end_point = 5;
+  // @gotags: xml:"StartBar"
+  int32 start_bar = 6;
+  // @gotags: xml:"EndBar"
+  int32 end_bar = 7;
 }
 
 message ImpactDate {
@@ -509,29 +435,14 @@ message Mode {
 message Modulation {
   // @gotags: xml:"Value"
   string value = 1;
-  // Choice wrapper for XSD choice within sequence
-  ModulationChoice choice = 2;
-}
-
-message ModulationChoice {
-  message Option1 {
-    // @gotags: xml:"StartPoint"
-  string start_point = 1;
-    // @gotags: xml:"EndPoint"
-  string end_point = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"StartBar"
-  int32 start_bar = 1;
-    // @gotags: xml:"EndBar"
-  int32 end_bar = 2;
-  }
-
-  oneof choice {
-    Option1 sequence_1 = 1;
-    Option2 sequence_2 = 2;
-  }
+  // @gotags: xml:"StartPoint"
+  string start_point = 2;
+  // @gotags: xml:"EndPoint"
+  string end_point = 3;
+  // @gotags: xml:"StartBar"
+  int32 start_bar = 4;
+  // @gotags: xml:"EndBar"
+  int32 end_bar = 5;
 }
 
 message Mood {
@@ -746,23 +657,16 @@ message ResourceInformation {
   repeated ddex.mead.v11.AlternativeTitle alternative_title = 35;
   // @gotags: xml:"Image"
   repeated ddex.mead.v11.Image image = 36;
-  // Choice wrapper for XSD choice within sequence
-  ResourceInformationChoice choice = 37;
+  // @gotags: xml:"IsOriginal"
+  ddex.mead.v11.Flag is_original = 37;
+  // @gotags: xml:"IsCover"
+  ddex.mead.v11.Flag is_cover = 38;
   // @gotags: xml:"PriorityPeriodStartDate,attr"
-  string priority_period_start_date = 38;
+  string priority_period_start_date = 39;
   // @gotags: xml:"PriorityPeriodEndDate,attr"
-  string priority_period_end_date = 39;
+  string priority_period_end_date = 40;
   // @gotags: xml:"ApplicableTerritoryCode,attr"
-  string applicable_territory_code = 40;
-}
-
-message ResourceInformationChoice {
-  oneof choice {
-    // @gotags: xml:"IsOriginal"
-    ddex.mead.v11.Flag is_original = 1;
-    // @gotags: xml:"IsCover"
-    ddex.mead.v11.Flag is_cover = 2;
-  }
+  string applicable_territory_code = 41;
 }
 
 message ResourceInformationList {
@@ -845,38 +749,14 @@ message Sample {
   repeated ddex.mead.v11.SampleFeature sample_feature = 3;
   // @gotags: xml:"Description"
   repeated ddex.mead.v11.TextWithFormat description = 4;
-  // Choice wrapper for XSD choice within sequence
-  SampleChoice1 choice = 5;
-  // Choice wrapper for XSD choice within sequence
-  repeated SampleChoice2 choice_1 = 6;
-}
-
-message SampleChoice1 {
-  oneof choice {
-    // @gotags: xml:"ContainsSamples"
-    bool contains_samples = 1;
-    // @gotags: xml:"IsContainedInSample"
-    bool is_contained_in_sample = 2;
-  }
-}
-
-message SampleChoice2 {
-  message Option1 {
-    // @gotags: xml:"HostTiming"
-    repeated ddex.mead.v11.Timing host_timing = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"SampleTiming"
-    repeated ddex.mead.v11.Timing sample_timing = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"HostTiming"
-    Option1 host_timing_option = 1;
-    // @gotags: xml:"SampleTiming"
-    Option2 sample_timing_option = 2;
-  }
+  // @gotags: xml:"ContainsSamples"
+  bool contains_samples = 5;
+  // @gotags: xml:"IsContainedInSample"
+  bool is_contained_in_sample = 6;
+  // @gotags: xml:"HostTiming"
+  repeated ddex.mead.v11.Timing host_timing = 7;
+  // @gotags: xml:"SampleTiming"
+  repeated ddex.mead.v11.Timing sample_timing = 8;
 }
 
 message SampleFeature {
@@ -958,58 +838,29 @@ message TimeSignature {
   repeated ddex.mead.v11.MetadataSourceReference metadata_source_reference = 1;
   // @gotags: xml:"Modulation"
   repeated ddex.mead.v11.TimeSignatureModulation modulation = 2;
-  // Choice wrapper for XSD choice within sequence
-  TimeSignatureChoice choice = 3;
-}
-
-message TimeSignatureChoice {
-  oneof choice {
-    // @gotags: xml:"Meter"
-    ddex.mead.v11.Meter meter = 1;
-    // @gotags: xml:"NoMeterAvailable"
-    bool no_meter_available = 2;
-    // @gotags: xml:"TooManyTempi"
-    bool too_many_tempi = 3;
-  }
+  // @gotags: xml:"Meter"
+  ddex.mead.v11.Meter meter = 3;
+  // @gotags: xml:"NoMeterAvailable"
+  bool no_meter_available = 4;
+  // @gotags: xml:"TooManyTempi"
+  bool too_many_tempi = 5;
 }
 
 message TimeSignatureModulation {
   // @gotags: xml:"Value"
   string value = 1;
-  // Choice wrapper for XSD choice within sequence
-  TimeSignatureModulationChoice1 choice = 2;
-  // Choice wrapper for XSD choice within sequence
-  TimeSignatureModulationChoice2 choice_1 = 3;
-}
-
-message TimeSignatureModulationChoice1 {
-  message Option1 {
-    // @gotags: xml:"StartPoint"
-  string start_point = 1;
-    // @gotags: xml:"EndPoint"
-  string end_point = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"StartBar"
-  int32 start_bar = 1;
-    // @gotags: xml:"EndBar"
-  int32 end_bar = 2;
-  }
-
-  oneof choice {
-    Option1 sequence_1 = 1;
-    Option2 sequence_2 = 2;
-  }
-}
-
-message TimeSignatureModulationChoice2 {
-  oneof choice {
-    // @gotags: xml:"Meter"
-    ddex.mead.v11.Meter meter = 1;
-    // @gotags: xml:"NoMeterAvailable"
-    bool no_meter_available = 2;
-  }
+  // @gotags: xml:"StartPoint"
+  string start_point = 2;
+  // @gotags: xml:"EndPoint"
+  string end_point = 3;
+  // @gotags: xml:"StartBar"
+  int32 start_bar = 4;
+  // @gotags: xml:"EndBar"
+  int32 end_bar = 5;
+  // @gotags: xml:"Meter"
+  ddex.mead.v11.Meter meter = 6;
+  // @gotags: xml:"NoMeterAvailable"
+  bool no_meter_available = 7;
 }
 
 message Usage {
@@ -1023,27 +874,10 @@ message Usage {
   int32 sequence_number = 4;
   // @gotags: xml:"RelevantResource"
   repeated ddex.mead.v11.RelevantResource relevant_resource = 5;
-  // Choice wrapper for XSD choice within sequence
-  UsageChoice choice = 6;
-}
-
-message UsageChoice {
-  message Option1 {
-    // @gotags: xml:"UsageDate"
-    repeated ddex.mead.v11.EventDate usage_date = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"UsagePeriod"
-    repeated ddex.mead.v11.UsagePeriod usage_period = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"UsageDate"
-    Option1 usage_date_option = 1;
-    // @gotags: xml:"UsagePeriod"
-    Option2 usage_period_option = 2;
-  }
+  // @gotags: xml:"UsageDate"
+  repeated ddex.mead.v11.EventDate usage_date = 6;
+  // @gotags: xml:"UsagePeriod"
+  repeated ddex.mead.v11.UsagePeriod usage_period = 7;
 }
 
 message UsagePeriod {
@@ -1211,73 +1045,39 @@ message Logo {
 }
 
 message Person {
-  // Choice wrapper for XSD choice
-  repeated PersonChoice choice = 1;
-}
-
-message PersonChoice {
-  oneof choice {
-    // @gotags: xml:"name"
-    string name = 1;
-    // @gotags: xml:"uri"
-    ddex.mead.v11.URI uri = 2;
-    // @gotags: xml:"email"
-    string email = 3;
-  }
+  // @gotags: xml:"name"
+  string name = 1;
+  // @gotags: xml:"uri"
+  ddex.mead.v11.URI uri = 2;
+  // @gotags: xml:"email"
+  string email = 3;
 }
 
 message Source {
-  // Choice wrapper for XSD choice
-  repeated SourceChoice choice = 1;
-}
-
-message SourceChoice {
-  message Option1 {
-    // @gotags: xml:"author"
-    repeated ddex.mead.v11.Person author = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"category"
-    repeated ddex.mead.v11.Category category = 1;
-  }
-
-  message Option3 {
-    // @gotags: xml:"contributor"
-    repeated ddex.mead.v11.Person contributor = 1;
-  }
-
-  message Option4 {
-    // @gotags: xml:"link"
-    repeated ddex.mead.v11.Link link = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"author"
-    Option1 author_option = 1;
-    // @gotags: xml:"category"
-    Option2 category_option = 2;
-    // @gotags: xml:"contributor"
-    Option3 contributor_option = 3;
-    // @gotags: xml:"generator"
-    ddex.mead.v11.Generator generator = 4;
-    // @gotags: xml:"icon"
-    ddex.mead.v11.Icon icon = 5;
-    // @gotags: xml:"id"
-    ddex.mead.v11.Id id = 6;
-    // @gotags: xml:"link"
-    Option4 link_option = 7;
-    // @gotags: xml:"logo"
-    ddex.mead.v11.Logo logo = 8;
-    // @gotags: xml:"rights"
-    ddex.mead.v11.Text rights = 9;
-    // @gotags: xml:"subtitle"
-    ddex.mead.v11.Text subtitle = 10;
-    // @gotags: xml:"title"
-    ddex.mead.v11.Text title = 11;
-    // @gotags: xml:"updated"
-    ddex.mead.v11.DateTime updated = 12;
-  }
+  // @gotags: xml:"author"
+  repeated ddex.mead.v11.Person author = 1;
+  // @gotags: xml:"category"
+  repeated ddex.mead.v11.Category category = 2;
+  // @gotags: xml:"contributor"
+  repeated ddex.mead.v11.Person contributor = 3;
+  // @gotags: xml:"generator"
+  ddex.mead.v11.Generator generator = 4;
+  // @gotags: xml:"icon"
+  ddex.mead.v11.Icon icon = 5;
+  // @gotags: xml:"id"
+  ddex.mead.v11.Id id = 6;
+  // @gotags: xml:"link"
+  repeated ddex.mead.v11.Link link = 7;
+  // @gotags: xml:"logo"
+  ddex.mead.v11.Logo logo = 8;
+  // @gotags: xml:"rights"
+  ddex.mead.v11.Text rights = 9;
+  // @gotags: xml:"subtitle"
+  ddex.mead.v11.Text subtitle = 10;
+  // @gotags: xml:"title"
+  ddex.mead.v11.Text title = 11;
+  // @gotags: xml:"updated"
+  ddex.mead.v11.DateTime updated = 12;
 }
 
 message Text {
@@ -1653,28 +1453,10 @@ message MetadataSource {
   string source_reference = 1;
   // @gotags: xml:"MetadataSourceType"
   ddex.mead.v11.MetadataSourceType metadata_source_type = 2;
-  // Choice wrapper for XSD choice within sequence
-  MetadataSourceChoice choice = 3;
-}
-
-message MetadataSourceChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.mead.v11.PartyNameWithPronunciation party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.mead.v11.DetailedPartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.mead.v11.DetailedPartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"PartyId"
+  repeated ddex.mead.v11.DetailedPartyId party_id = 3;
+  // @gotags: xml:"PartyName"
+  repeated ddex.mead.v11.PartyNameWithPronunciation party_name = 4;
 }
 
 message MetadataSourceList {
@@ -1728,28 +1510,10 @@ message NameWithPronunciationAndScriptCode {
 }
 
 message PartyDescriptorWithPronunciation {
-  // Choice wrapper for XSD choice
-  PartyDescriptorWithPronunciationChoice choice = 1;
-}
-
-message PartyDescriptorWithPronunciationChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.mead.v11.PartyNameWithPronunciation party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.mead.v11.DetailedPartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.mead.v11.DetailedPartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"PartyId"
+  repeated ddex.mead.v11.DetailedPartyId party_id = 1;
+  // @gotags: xml:"PartyName"
+  repeated ddex.mead.v11.PartyNameWithPronunciation party_name = 2;
 }
 
 message PartyNameWithPronunciation {
@@ -1791,29 +1555,14 @@ message PartyNameWithoutCode {
 }
 
 message Period {
-  // Choice wrapper for XSD choice
-  PeriodChoice choice = 1;
-}
-
-message PeriodChoice {
-  message Option1 {
-    // @gotags: xml:"StartDate"
+  // @gotags: xml:"StartDate"
   ddex.mead.v11.EventDate start_date = 1;
-    // @gotags: xml:"EndDate"
+  // @gotags: xml:"EndDate"
   ddex.mead.v11.EventDate end_date = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"StartDateTime"
-  ddex.mead.v11.EventDateTime start_date_time = 1;
-    // @gotags: xml:"EndDateTime"
-  ddex.mead.v11.EventDateTime end_date_time = 2;
-  }
-
-  oneof choice {
-    Option1 sequence_1 = 1;
-    Option2 sequence_2 = 2;
-  }
+  // @gotags: xml:"StartDateTime"
+  ddex.mead.v11.EventDateTime start_date_time = 3;
+  // @gotags: xml:"EndDateTime"
+  ddex.mead.v11.EventDateTime end_date_time = 4;
 }
 
 message PeriodValue {
@@ -1866,19 +1615,12 @@ message RecordingPartType {
 message RelatedCreation {
   // @gotags: xml:"Title"
   ddex.mead.v11.TitleWithPronunciation title = 1;
-  // Choice wrapper for XSD choice within sequence
-  RelatedCreationChoice choice = 2;
-}
-
-message RelatedCreationChoice {
-  oneof choice {
-    // @gotags: xml:"ReleaseId"
-    ddex.mead.v11.ReleaseId release_id = 1;
-    // @gotags: xml:"ResourceId"
-    ddex.mead.v11.ResourceIdWithoutFlag resource_id = 2;
-    // @gotags: xml:"MusicalWorkId"
-    ddex.mead.v11.MusicalWorkIdWithoutFlag musical_work_id = 3;
-  }
+  // @gotags: xml:"ReleaseId"
+  ddex.mead.v11.ReleaseId release_id = 2;
+  // @gotags: xml:"ResourceId"
+  ddex.mead.v11.ResourceIdWithoutFlag resource_id = 3;
+  // @gotags: xml:"MusicalWorkId"
+  ddex.mead.v11.MusicalWorkIdWithoutFlag musical_work_id = 4;
 }
 
 message RelatedResourceType {

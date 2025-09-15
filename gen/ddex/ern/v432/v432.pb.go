@@ -557,8 +557,10 @@ type Brand struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"BrandReference"
 	BrandReference string `protobuf:"bytes,1,opt,name=brand_reference,json=brandReference,proto3" json:"brand_reference,omitempty" xml:"BrandReference"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *BrandChoice2 `protobuf:"bytes,2,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"BrandId"
+	BrandId []*ProprietaryId `protobuf:"bytes,2,rep,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty" xml:"BrandId"`
+	// @gotags: xml:"BrandName"
+	BrandName     []*PartyNameWithTerritory `protobuf:"bytes,3,rep,name=brand_name,json=brandName,proto3" json:"brand_name,omitempty" xml:"BrandName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -600,95 +602,19 @@ func (x *Brand) GetBrandReference() string {
 	return ""
 }
 
-func (x *Brand) GetChoice() *BrandChoice2 {
+func (x *Brand) GetBrandId() []*ProprietaryId {
 	if x != nil {
-		return x.Choice
+		return x.BrandId
 	}
 	return nil
 }
 
-type BrandChoice2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*BrandChoice2_BrandIdOption
-	//	*BrandChoice2_Sequence_1
-	Choice        isBrandChoice2_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BrandChoice2) Reset() {
-	*x = BrandChoice2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BrandChoice2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BrandChoice2) ProtoMessage() {}
-
-func (x *BrandChoice2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[6]
+func (x *Brand) GetBrandName() []*PartyNameWithTerritory {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BrandChoice2.ProtoReflect.Descriptor instead.
-func (*BrandChoice2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *BrandChoice2) GetChoice() isBrandChoice2_Choice {
-	if x != nil {
-		return x.Choice
+		return x.BrandName
 	}
 	return nil
 }
-
-func (x *BrandChoice2) GetBrandIdOption() *BrandChoice2_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*BrandChoice2_BrandIdOption); ok {
-			return x.BrandIdOption
-		}
-	}
-	return nil
-}
-
-func (x *BrandChoice2) GetSequence_1() *BrandChoice2_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*BrandChoice2_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isBrandChoice2_Choice interface {
-	isBrandChoice2_Choice()
-}
-
-type BrandChoice2_BrandIdOption struct {
-	// @gotags: xml:"BrandId"
-	BrandIdOption *BrandChoice2_Option2 `protobuf:"bytes,1,opt,name=brand_id_option,json=brandIdOption,proto3,oneof" xml:"BrandId"`
-}
-
-type BrandChoice2_Sequence_1 struct {
-	Sequence_1 *BrandChoice2_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*BrandChoice2_BrandIdOption) isBrandChoice2_Choice() {}
-
-func (*BrandChoice2_Sequence_1) isBrandChoice2_Choice() {}
 
 type Channel struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -702,7 +628,7 @@ type Channel struct {
 
 func (x *Channel) Reset() {
 	*x = Channel{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[7]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -714,7 +640,7 @@ func (x *Channel) String() string {
 func (*Channel) ProtoMessage() {}
 
 func (x *Channel) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[7]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -727,7 +653,7 @@ func (x *Channel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Channel.ProtoReflect.Descriptor instead.
 func (*Channel) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{7}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Channel) GetProprietaryId() []*ProprietaryId {
@@ -780,7 +706,7 @@ type Chapter struct {
 
 func (x *Chapter) Reset() {
 	*x = Chapter{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[8]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -792,7 +718,7 @@ func (x *Chapter) String() string {
 func (*Chapter) ProtoMessage() {}
 
 func (x *Chapter) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[8]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -805,7 +731,7 @@ func (x *Chapter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Chapter.ProtoReflect.Descriptor instead.
 func (*Chapter) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{8}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Chapter) GetChapterReference() string {
@@ -918,7 +844,7 @@ type ChapterList struct {
 
 func (x *ChapterList) Reset() {
 	*x = ChapterList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[9]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -930,7 +856,7 @@ func (x *ChapterList) String() string {
 func (*ChapterList) ProtoMessage() {}
 
 func (x *ChapterList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[9]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -943,7 +869,7 @@ func (x *ChapterList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChapterList.ProtoReflect.Descriptor instead.
 func (*ChapterList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{9}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ChapterList) GetChapter() []*Chapter {
@@ -974,7 +900,7 @@ type Character struct {
 
 func (x *Character) Reset() {
 	*x = Character{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[10]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -986,7 +912,7 @@ func (x *Character) String() string {
 func (*Character) ProtoMessage() {}
 
 func (x *Character) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[10]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -999,7 +925,7 @@ func (x *Character) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Character.ProtoReflect.Descriptor instead.
 func (*Character) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{10}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *Character) GetCharacterPartyReference() string {
@@ -1039,7 +965,7 @@ type ClipDetails struct {
 
 func (x *ClipDetails) Reset() {
 	*x = ClipDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[11]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1051,7 +977,7 @@ func (x *ClipDetails) String() string {
 func (*ClipDetails) ProtoMessage() {}
 
 func (x *ClipDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[11]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1064,7 +990,7 @@ func (x *ClipDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClipDetails.ProtoReflect.Descriptor instead.
 func (*ClipDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{11}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ClipDetails) GetClipType() *ClipType {
@@ -1123,7 +1049,7 @@ type ClipRelease struct {
 
 func (x *ClipRelease) Reset() {
 	*x = ClipRelease{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[12]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1135,7 +1061,7 @@ func (x *ClipRelease) String() string {
 func (*ClipRelease) ProtoMessage() {}
 
 func (x *ClipRelease) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[12]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1148,7 +1074,7 @@ func (x *ClipRelease) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClipRelease.ProtoReflect.Descriptor instead.
 func (*ClipRelease) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{12}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ClipRelease) GetReleaseReference() string {
@@ -1235,7 +1161,7 @@ type CommercialModelType struct {
 
 func (x *CommercialModelType) Reset() {
 	*x = CommercialModelType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[13]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1247,7 +1173,7 @@ func (x *CommercialModelType) String() string {
 func (*CommercialModelType) ProtoMessage() {}
 
 func (x *CommercialModelType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[13]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1260,7 +1186,7 @@ func (x *CommercialModelType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommercialModelType.ProtoReflect.Descriptor instead.
 func (*CommercialModelType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{13}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CommercialModelType) GetValue() string {
@@ -1306,7 +1232,7 @@ type ConditionForRightsClaimPolicy struct {
 
 func (x *ConditionForRightsClaimPolicy) Reset() {
 	*x = ConditionForRightsClaimPolicy{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[14]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1318,7 +1244,7 @@ func (x *ConditionForRightsClaimPolicy) String() string {
 func (*ConditionForRightsClaimPolicy) ProtoMessage() {}
 
 func (x *ConditionForRightsClaimPolicy) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[14]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1331,7 +1257,7 @@ func (x *ConditionForRightsClaimPolicy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConditionForRightsClaimPolicy.ProtoReflect.Descriptor instead.
 func (*ConditionForRightsClaimPolicy) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{14}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ConditionForRightsClaimPolicy) GetValue() string {
@@ -1395,7 +1321,7 @@ type CoreArea struct {
 
 func (x *CoreArea) Reset() {
 	*x = CoreArea{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[15]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1407,7 +1333,7 @@ func (x *CoreArea) String() string {
 func (*CoreArea) ProtoMessage() {}
 
 func (x *CoreArea) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[15]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1420,7 +1346,7 @@ func (x *CoreArea) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CoreArea.ProtoReflect.Descriptor instead.
 func (*CoreArea) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{15}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CoreArea) GetTopLeftCorner() string {
@@ -1473,15 +1399,17 @@ type Cue struct {
 	Duration string `protobuf:"bytes,16,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
 	// @gotags: xml:"EndTime"
 	EndTime string `protobuf:"bytes,17,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty" xml:"EndTime"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *CueChoice18 `protobuf:"bytes,18,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"ResourceId"
+	ResourceId *ResourceId `protobuf:"bytes,18,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
+	// @gotags: xml:"WorkId"
+	WorkId        *MusicalWorkId `protobuf:"bytes,19,opt,name=work_id,json=workId,proto3" json:"work_id,omitempty" xml:"WorkId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Cue) Reset() {
 	*x = Cue{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[16]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1493,7 +1421,7 @@ func (x *Cue) String() string {
 func (*Cue) ProtoMessage() {}
 
 func (x *Cue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[16]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1506,7 +1434,7 @@ func (x *Cue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Cue.ProtoReflect.Descriptor instead.
 func (*Cue) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{16}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *Cue) GetCueUseType() *CueUseType {
@@ -1628,96 +1556,19 @@ func (x *Cue) GetEndTime() string {
 	return ""
 }
 
-func (x *Cue) GetChoice() *CueChoice18 {
+func (x *Cue) GetResourceId() *ResourceId {
 	if x != nil {
-		return x.Choice
+		return x.ResourceId
 	}
 	return nil
 }
 
-type CueChoice18 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*CueChoice18_ResourceId
-	//	*CueChoice18_WorkId
-	Choice        isCueChoice18_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CueChoice18) Reset() {
-	*x = CueChoice18{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CueChoice18) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CueChoice18) ProtoMessage() {}
-
-func (x *CueChoice18) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[17]
+func (x *Cue) GetWorkId() *MusicalWorkId {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CueChoice18.ProtoReflect.Descriptor instead.
-func (*CueChoice18) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *CueChoice18) GetChoice() isCueChoice18_Choice {
-	if x != nil {
-		return x.Choice
+		return x.WorkId
 	}
 	return nil
 }
-
-func (x *CueChoice18) GetResourceId() *ResourceId {
-	if x != nil {
-		if x, ok := x.Choice.(*CueChoice18_ResourceId); ok {
-			return x.ResourceId
-		}
-	}
-	return nil
-}
-
-func (x *CueChoice18) GetWorkId() *MusicalWorkId {
-	if x != nil {
-		if x, ok := x.Choice.(*CueChoice18_WorkId); ok {
-			return x.WorkId
-		}
-	}
-	return nil
-}
-
-type isCueChoice18_Choice interface {
-	isCueChoice18_Choice()
-}
-
-type CueChoice18_ResourceId struct {
-	// @gotags: xml:"ResourceId"
-	ResourceId *ResourceId `protobuf:"bytes,1,opt,name=resource_id,json=resourceId,proto3,oneof" xml:"ResourceId"`
-}
-
-type CueChoice18_WorkId struct {
-	// @gotags: xml:"WorkId"
-	WorkId *MusicalWorkId `protobuf:"bytes,2,opt,name=work_id,json=workId,proto3,oneof" xml:"WorkId"`
-}
-
-func (*CueChoice18_ResourceId) isCueChoice18_Choice() {}
-
-func (*CueChoice18_WorkId) isCueChoice18_Choice() {}
 
 type CueSheet struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -1735,7 +1586,7 @@ type CueSheet struct {
 
 func (x *CueSheet) Reset() {
 	*x = CueSheet{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[18]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1747,7 +1598,7 @@ func (x *CueSheet) String() string {
 func (*CueSheet) ProtoMessage() {}
 
 func (x *CueSheet) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[18]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1760,7 +1611,7 @@ func (x *CueSheet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueSheet.ProtoReflect.Descriptor instead.
 func (*CueSheet) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{18}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CueSheet) GetCueSheetId() []*ProprietaryId {
@@ -1801,7 +1652,7 @@ type CueSheetList struct {
 
 func (x *CueSheetList) Reset() {
 	*x = CueSheetList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[19]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1813,7 +1664,7 @@ func (x *CueSheetList) String() string {
 func (*CueSheetList) ProtoMessage() {}
 
 func (x *CueSheetList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[19]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1826,7 +1677,7 @@ func (x *CueSheetList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueSheetList.ProtoReflect.Descriptor instead.
 func (*CueSheetList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{19}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CueSheetList) GetCueSheet() []*CueSheet {
@@ -1854,7 +1705,7 @@ type Deal struct {
 
 func (x *Deal) Reset() {
 	*x = Deal{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[20]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1866,7 +1717,7 @@ func (x *Deal) String() string {
 func (*Deal) ProtoMessage() {}
 
 func (x *Deal) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[20]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1879,7 +1730,7 @@ func (x *Deal) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Deal.ProtoReflect.Descriptor instead.
 func (*Deal) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{20}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *Deal) GetDealReference() []string {
@@ -1931,7 +1782,7 @@ type DealList struct {
 
 func (x *DealList) Reset() {
 	*x = DealList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[21]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1943,7 +1794,7 @@ func (x *DealList) String() string {
 func (*DealList) ProtoMessage() {}
 
 func (x *DealList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[21]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1956,7 +1807,7 @@ func (x *DealList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DealList.ProtoReflect.Descriptor instead.
 func (*DealList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{21}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *DealList) GetReleaseDeal() []*ReleaseDeal {
@@ -1990,7 +1841,7 @@ type DealResourceReferenceList struct {
 
 func (x *DealResourceReferenceList) Reset() {
 	*x = DealResourceReferenceList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[22]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2002,7 +1853,7 @@ func (x *DealResourceReferenceList) String() string {
 func (*DealResourceReferenceList) ProtoMessage() {}
 
 func (x *DealResourceReferenceList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[22]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2015,7 +1866,7 @@ func (x *DealResourceReferenceList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DealResourceReferenceList.ProtoReflect.Descriptor instead.
 func (*DealResourceReferenceList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{22}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *DealResourceReferenceList) GetDealResourceReference() []string {
@@ -2035,7 +1886,7 @@ type DealTechnicalResourceDetailsReferenceList struct {
 
 func (x *DealTechnicalResourceDetailsReferenceList) Reset() {
 	*x = DealTechnicalResourceDetailsReferenceList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[23]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2047,7 +1898,7 @@ func (x *DealTechnicalResourceDetailsReferenceList) String() string {
 func (*DealTechnicalResourceDetailsReferenceList) ProtoMessage() {}
 
 func (x *DealTechnicalResourceDetailsReferenceList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[23]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2060,7 +1911,7 @@ func (x *DealTechnicalResourceDetailsReferenceList) ProtoReflect() protoreflect.
 
 // Deprecated: Use DealTechnicalResourceDetailsReferenceList.ProtoReflect.Descriptor instead.
 func (*DealTechnicalResourceDetailsReferenceList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{23}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *DealTechnicalResourceDetailsReferenceList) GetDealTechnicalResourceDetailsReference() []string {
@@ -2098,19 +1949,25 @@ type DealTerms struct {
 	PhysicalReturns *PhysicalReturns `protobuf:"bytes,12,opt,name=physical_returns,json=physicalReturns,proto3" json:"physical_returns,omitempty" xml:"PhysicalReturns"`
 	// @gotags: xml:"NumberOfProductsPerCarton"
 	NumberOfProductsPerCarton int32 `protobuf:"varint,13,opt,name=number_of_products_per_carton,json=numberOfProductsPerCarton,proto3" json:"number_of_products_per_carton,omitempty" xml:"NumberOfProductsPerCarton"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *DealTermsChoice14 `protobuf:"bytes,14,opt,name=choice,proto3" json:"choice,omitempty"`
-	// Choice wrapper for XSD choice within sequence
-	Choice_1 *DealTermsChoice15 `protobuf:"bytes,15,opt,name=choice_1,json=choice1,proto3" json:"choice_1,omitempty"`
-	// Choice wrapper for XSD choice within sequence
-	Choice_2      *DealTermsChoice16 `protobuf:"bytes,16,opt,name=choice_2,json=choice2,proto3" json:"choice_2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// @gotags: xml:"TerritoryCode"
+	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,14,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
+	// @gotags: xml:"ExcludedTerritoryCode"
+	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,15,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
+	// @gotags: xml:"DistributionChannel"
+	DistributionChannel []*DSP `protobuf:"bytes,16,rep,name=distribution_channel,json=distributionChannel,proto3" json:"distribution_channel,omitempty" xml:"DistributionChannel"`
+	// @gotags: xml:"ExcludedDistributionChannel"
+	ExcludedDistributionChannel []*DSP `protobuf:"bytes,17,rep,name=excluded_distribution_channel,json=excludedDistributionChannel,proto3" json:"excluded_distribution_channel,omitempty" xml:"ExcludedDistributionChannel"`
+	// @gotags: xml:"IsPromotional"
+	IsPromotional bool `protobuf:"varint,18,opt,name=is_promotional,json=isPromotional,proto3" json:"is_promotional,omitempty" xml:"IsPromotional"`
+	// @gotags: xml:"PromotionalCode"
+	PromotionalCode *PromotionalCode `protobuf:"bytes,19,opt,name=promotional_code,json=promotionalCode,proto3" json:"promotional_code,omitempty" xml:"PromotionalCode"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *DealTerms) Reset() {
 	*x = DealTerms{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[24]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2122,7 +1979,7 @@ func (x *DealTerms) String() string {
 func (*DealTerms) ProtoMessage() {}
 
 func (x *DealTerms) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[24]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2135,7 +1992,7 @@ func (x *DealTerms) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DealTerms.ProtoReflect.Descriptor instead.
 func (*DealTerms) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{24}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *DealTerms) GetValidityPeriod() []*PeriodWithStartDate {
@@ -2229,278 +2086,47 @@ func (x *DealTerms) GetNumberOfProductsPerCarton() int32 {
 	return 0
 }
 
-func (x *DealTerms) GetChoice() *DealTermsChoice14 {
+func (x *DealTerms) GetTerritoryCode() []*CurrentTerritoryCode {
 	if x != nil {
-		return x.Choice
+		return x.TerritoryCode
 	}
 	return nil
 }
 
-func (x *DealTerms) GetChoice_1() *DealTermsChoice15 {
+func (x *DealTerms) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
 	if x != nil {
-		return x.Choice_1
+		return x.ExcludedTerritoryCode
 	}
 	return nil
 }
 
-func (x *DealTerms) GetChoice_2() *DealTermsChoice16 {
+func (x *DealTerms) GetDistributionChannel() []*DSP {
 	if x != nil {
-		return x.Choice_2
+		return x.DistributionChannel
 	}
 	return nil
 }
 
-type DealTermsChoice14 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*DealTermsChoice14_TerritoryCodeOption
-	//	*DealTermsChoice14_ExcludedTerritoryCodeOption
-	Choice        isDealTermsChoice14_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DealTermsChoice14) Reset() {
-	*x = DealTermsChoice14{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DealTermsChoice14) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DealTermsChoice14) ProtoMessage() {}
-
-func (x *DealTermsChoice14) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[25]
+func (x *DealTerms) GetExcludedDistributionChannel() []*DSP {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DealTermsChoice14.ProtoReflect.Descriptor instead.
-func (*DealTermsChoice14) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *DealTermsChoice14) GetChoice() isDealTermsChoice14_Choice {
-	if x != nil {
-		return x.Choice
+		return x.ExcludedDistributionChannel
 	}
 	return nil
 }
 
-func (x *DealTermsChoice14) GetTerritoryCodeOption() *DealTermsChoice14_Option1 {
+func (x *DealTerms) GetIsPromotional() bool {
 	if x != nil {
-		if x, ok := x.Choice.(*DealTermsChoice14_TerritoryCodeOption); ok {
-			return x.TerritoryCodeOption
-		}
-	}
-	return nil
-}
-
-func (x *DealTermsChoice14) GetExcludedTerritoryCodeOption() *DealTermsChoice14_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*DealTermsChoice14_ExcludedTerritoryCodeOption); ok {
-			return x.ExcludedTerritoryCodeOption
-		}
-	}
-	return nil
-}
-
-type isDealTermsChoice14_Choice interface {
-	isDealTermsChoice14_Choice()
-}
-
-type DealTermsChoice14_TerritoryCodeOption struct {
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCodeOption *DealTermsChoice14_Option1 `protobuf:"bytes,1,opt,name=territory_code_option,json=territoryCodeOption,proto3,oneof" xml:"TerritoryCode"`
-}
-
-type DealTermsChoice14_ExcludedTerritoryCodeOption struct {
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCodeOption *DealTermsChoice14_Option2 `protobuf:"bytes,2,opt,name=excluded_territory_code_option,json=excludedTerritoryCodeOption,proto3,oneof" xml:"ExcludedTerritoryCode"`
-}
-
-func (*DealTermsChoice14_TerritoryCodeOption) isDealTermsChoice14_Choice() {}
-
-func (*DealTermsChoice14_ExcludedTerritoryCodeOption) isDealTermsChoice14_Choice() {}
-
-type DealTermsChoice15 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*DealTermsChoice15_DistributionChannelOption
-	//	*DealTermsChoice15_ExcludedDistributionChannelOption
-	Choice        isDealTermsChoice15_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DealTermsChoice15) Reset() {
-	*x = DealTermsChoice15{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DealTermsChoice15) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DealTermsChoice15) ProtoMessage() {}
-
-func (x *DealTermsChoice15) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DealTermsChoice15.ProtoReflect.Descriptor instead.
-func (*DealTermsChoice15) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *DealTermsChoice15) GetChoice() isDealTermsChoice15_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *DealTermsChoice15) GetDistributionChannelOption() *DealTermsChoice15_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*DealTermsChoice15_DistributionChannelOption); ok {
-			return x.DistributionChannelOption
-		}
-	}
-	return nil
-}
-
-func (x *DealTermsChoice15) GetExcludedDistributionChannelOption() *DealTermsChoice15_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*DealTermsChoice15_ExcludedDistributionChannelOption); ok {
-			return x.ExcludedDistributionChannelOption
-		}
-	}
-	return nil
-}
-
-type isDealTermsChoice15_Choice interface {
-	isDealTermsChoice15_Choice()
-}
-
-type DealTermsChoice15_DistributionChannelOption struct {
-	// @gotags: xml:"DistributionChannel"
-	DistributionChannelOption *DealTermsChoice15_Option1 `protobuf:"bytes,1,opt,name=distribution_channel_option,json=distributionChannelOption,proto3,oneof" xml:"DistributionChannel"`
-}
-
-type DealTermsChoice15_ExcludedDistributionChannelOption struct {
-	// @gotags: xml:"ExcludedDistributionChannel"
-	ExcludedDistributionChannelOption *DealTermsChoice15_Option2 `protobuf:"bytes,2,opt,name=excluded_distribution_channel_option,json=excludedDistributionChannelOption,proto3,oneof" xml:"ExcludedDistributionChannel"`
-}
-
-func (*DealTermsChoice15_DistributionChannelOption) isDealTermsChoice15_Choice() {}
-
-func (*DealTermsChoice15_ExcludedDistributionChannelOption) isDealTermsChoice15_Choice() {}
-
-type DealTermsChoice16 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*DealTermsChoice16_IsPromotional
-	//	*DealTermsChoice16_PromotionalCode
-	Choice        isDealTermsChoice16_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DealTermsChoice16) Reset() {
-	*x = DealTermsChoice16{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DealTermsChoice16) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DealTermsChoice16) ProtoMessage() {}
-
-func (x *DealTermsChoice16) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DealTermsChoice16.ProtoReflect.Descriptor instead.
-func (*DealTermsChoice16) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *DealTermsChoice16) GetChoice() isDealTermsChoice16_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *DealTermsChoice16) GetIsPromotional() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*DealTermsChoice16_IsPromotional); ok {
-			return x.IsPromotional
-		}
+		return x.IsPromotional
 	}
 	return false
 }
 
-func (x *DealTermsChoice16) GetPromotionalCode() *PromotionalCode {
+func (x *DealTerms) GetPromotionalCode() *PromotionalCode {
 	if x != nil {
-		if x, ok := x.Choice.(*DealTermsChoice16_PromotionalCode); ok {
-			return x.PromotionalCode
-		}
+		return x.PromotionalCode
 	}
 	return nil
 }
-
-type isDealTermsChoice16_Choice interface {
-	isDealTermsChoice16_Choice()
-}
-
-type DealTermsChoice16_IsPromotional struct {
-	// @gotags: xml:"IsPromotional"
-	IsPromotional bool `protobuf:"varint,1,opt,name=is_promotional,json=isPromotional,proto3,oneof" xml:"IsPromotional"`
-}
-
-type DealTermsChoice16_PromotionalCode struct {
-	// @gotags: xml:"PromotionalCode"
-	PromotionalCode *PromotionalCode `protobuf:"bytes,2,opt,name=promotional_code,json=promotionalCode,proto3,oneof" xml:"PromotionalCode"`
-}
-
-func (*DealTermsChoice16_IsPromotional) isDealTermsChoice16_Choice() {}
-
-func (*DealTermsChoice16_PromotionalCode) isDealTermsChoice16_Choice() {}
 
 type DealTermsTechnicalInstantiation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -2516,7 +2142,7 @@ type DealTermsTechnicalInstantiation struct {
 
 func (x *DealTermsTechnicalInstantiation) Reset() {
 	*x = DealTermsTechnicalInstantiation{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[28]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2528,7 +2154,7 @@ func (x *DealTermsTechnicalInstantiation) String() string {
 func (*DealTermsTechnicalInstantiation) ProtoMessage() {}
 
 func (x *DealTermsTechnicalInstantiation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[28]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2541,7 +2167,7 @@ func (x *DealTermsTechnicalInstantiation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DealTermsTechnicalInstantiation.ProtoReflect.Descriptor instead.
 func (*DealTermsTechnicalInstantiation) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{28}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *DealTermsTechnicalInstantiation) GetVideoDefinitionType() *VideoDefinitionType {
@@ -2579,7 +2205,7 @@ type Deity struct {
 
 func (x *Deity) Reset() {
 	*x = Deity{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[29]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2591,7 +2217,7 @@ func (x *Deity) String() string {
 func (*Deity) ProtoMessage() {}
 
 func (x *Deity) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[29]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2604,7 +2230,7 @@ func (x *Deity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Deity.ProtoReflect.Descriptor instead.
 func (*Deity) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{29}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *Deity) GetValue() string {
@@ -2642,7 +2268,7 @@ type DelegatedUsageRights struct {
 
 func (x *DelegatedUsageRights) Reset() {
 	*x = DelegatedUsageRights{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[30]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2654,7 +2280,7 @@ func (x *DelegatedUsageRights) String() string {
 func (*DelegatedUsageRights) ProtoMessage() {}
 
 func (x *DelegatedUsageRights) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[30]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2667,7 +2293,7 @@ func (x *DelegatedUsageRights) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DelegatedUsageRights.ProtoReflect.Descriptor instead.
 func (*DelegatedUsageRights) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{30}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *DelegatedUsageRights) GetUseType() []*UseType {
@@ -2707,7 +2333,7 @@ type DescriptionWithTerritory struct {
 
 func (x *DescriptionWithTerritory) Reset() {
 	*x = DescriptionWithTerritory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[31]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2719,7 +2345,7 @@ func (x *DescriptionWithTerritory) String() string {
 func (*DescriptionWithTerritory) ProtoMessage() {}
 
 func (x *DescriptionWithTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[31]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2732,7 +2358,7 @@ func (x *DescriptionWithTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescriptionWithTerritory.ProtoReflect.Descriptor instead.
 func (*DescriptionWithTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{31}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *DescriptionWithTerritory) GetValue() string {
@@ -2775,17 +2401,19 @@ type DetailedResourceContributor struct {
 	HasMadeContractedContribution bool `protobuf:"varint,4,opt,name=has_made_contracted_contribution,json=hasMadeContractedContribution,proto3" json:"has_made_contracted_contribution,omitempty" xml:"HasMadeContractedContribution"`
 	// @gotags: xml:"DisplayCredits"
 	DisplayCredits []*DisplayCredits `protobuf:"bytes,5,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *DetailedResourceContributorChoice6 `protobuf:"bytes,6,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyId `protobuf:"bytes,6,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName []*PartyName `protobuf:"bytes,7,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
 	// @gotags: xml:"SequenceNumber,attr"
-	SequenceNumber int32 `protobuf:"varint,7,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	SequenceNumber int32 `protobuf:"varint,8,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *DetailedResourceContributor) Reset() {
 	*x = DetailedResourceContributor{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[32]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2797,7 +2425,7 @@ func (x *DetailedResourceContributor) String() string {
 func (*DetailedResourceContributor) ProtoMessage() {}
 
 func (x *DetailedResourceContributor) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[32]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2810,7 +2438,7 @@ func (x *DetailedResourceContributor) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedResourceContributor.ProtoReflect.Descriptor instead.
 func (*DetailedResourceContributor) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{32}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *DetailedResourceContributor) GetRole() []*ContributorRole {
@@ -2848,9 +2476,16 @@ func (x *DetailedResourceContributor) GetDisplayCredits() []*DisplayCredits {
 	return nil
 }
 
-func (x *DetailedResourceContributor) GetChoice() *DetailedResourceContributorChoice6 {
+func (x *DetailedResourceContributor) GetPartyId() []*DetailedPartyId {
 	if x != nil {
-		return x.Choice
+		return x.PartyId
+	}
+	return nil
+}
+
+func (x *DetailedResourceContributor) GetPartyName() []*PartyName {
+	if x != nil {
+		return x.PartyName
 	}
 	return nil
 }
@@ -2861,90 +2496,6 @@ func (x *DetailedResourceContributor) GetSequenceNumber() int32 {
 	}
 	return 0
 }
-
-type DetailedResourceContributorChoice6 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*DetailedResourceContributorChoice6_PartyIdOption
-	//	*DetailedResourceContributorChoice6_Sequence_1
-	Choice        isDetailedResourceContributorChoice6_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DetailedResourceContributorChoice6) Reset() {
-	*x = DetailedResourceContributorChoice6{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DetailedResourceContributorChoice6) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DetailedResourceContributorChoice6) ProtoMessage() {}
-
-func (x *DetailedResourceContributorChoice6) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DetailedResourceContributorChoice6.ProtoReflect.Descriptor instead.
-func (*DetailedResourceContributorChoice6) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *DetailedResourceContributorChoice6) GetChoice() isDetailedResourceContributorChoice6_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *DetailedResourceContributorChoice6) GetPartyIdOption() *DetailedResourceContributorChoice6_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*DetailedResourceContributorChoice6_PartyIdOption); ok {
-			return x.PartyIdOption
-		}
-	}
-	return nil
-}
-
-func (x *DetailedResourceContributorChoice6) GetSequence_1() *DetailedResourceContributorChoice6_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*DetailedResourceContributorChoice6_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isDetailedResourceContributorChoice6_Choice interface {
-	isDetailedResourceContributorChoice6_Choice()
-}
-
-type DetailedResourceContributorChoice6_PartyIdOption struct {
-	// @gotags: xml:"PartyId"
-	PartyIdOption *DetailedResourceContributorChoice6_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
-}
-
-type DetailedResourceContributorChoice6_Sequence_1 struct {
-	Sequence_1 *DetailedResourceContributorChoice6_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*DetailedResourceContributorChoice6_PartyIdOption) isDetailedResourceContributorChoice6_Choice() {
-}
-
-func (*DetailedResourceContributorChoice6_Sequence_1) isDetailedResourceContributorChoice6_Choice() {}
 
 type DiscoverableUseType struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -2962,7 +2513,7 @@ type DiscoverableUseType struct {
 
 func (x *DiscoverableUseType) Reset() {
 	*x = DiscoverableUseType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[34]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2974,7 +2525,7 @@ func (x *DiscoverableUseType) String() string {
 func (*DiscoverableUseType) ProtoMessage() {}
 
 func (x *DiscoverableUseType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[34]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2987,7 +2538,7 @@ func (x *DiscoverableUseType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverableUseType.ProtoReflect.Descriptor instead.
 func (*DiscoverableUseType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{34}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *DiscoverableUseType) GetValue() string {
@@ -3026,17 +2577,21 @@ type DisplayArtist struct {
 	TitleDisplayInformation []*TitleDisplayInformation `protobuf:"bytes,2,rep,name=title_display_information,json=titleDisplayInformation,proto3" json:"title_display_information,omitempty" xml:"TitleDisplayInformation"`
 	// @gotags: xml:"DisplayCredits"
 	DisplayCredits []*DisplayCredits `protobuf:"bytes,3,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *DisplayArtistChoice4 `protobuf:"bytes,4,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"SpecialDisplayArtist"
+	SpecialDisplayArtist *SpecialContributorType `protobuf:"bytes,4,opt,name=special_display_artist,json=specialDisplayArtist,proto3" json:"special_display_artist,omitempty" xml:"SpecialDisplayArtist"`
+	// @gotags: xml:"ArtistPartyReference"
+	ArtistPartyReference string `protobuf:"bytes,5,opt,name=artist_party_reference,json=artistPartyReference,proto3" json:"artist_party_reference,omitempty" xml:"ArtistPartyReference"`
+	// @gotags: xml:"DisplayArtistRole"
+	DisplayArtistRole *DisplayArtistRole `protobuf:"bytes,6,opt,name=display_artist_role,json=displayArtistRole,proto3" json:"display_artist_role,omitempty" xml:"DisplayArtistRole"`
 	// @gotags: xml:"SequenceNumber,attr"
-	SequenceNumber int32 `protobuf:"varint,5,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	SequenceNumber int32 `protobuf:"varint,7,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *DisplayArtist) Reset() {
 	*x = DisplayArtist{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[35]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3048,7 +2603,7 @@ func (x *DisplayArtist) String() string {
 func (*DisplayArtist) ProtoMessage() {}
 
 func (x *DisplayArtist) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[35]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3061,7 +2616,7 @@ func (x *DisplayArtist) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayArtist.ProtoReflect.Descriptor instead.
 func (*DisplayArtist) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{35}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *DisplayArtist) GetArtisticRole() []*ContributorRole {
@@ -3085,9 +2640,23 @@ func (x *DisplayArtist) GetDisplayCredits() []*DisplayCredits {
 	return nil
 }
 
-func (x *DisplayArtist) GetChoice() *DisplayArtistChoice4 {
+func (x *DisplayArtist) GetSpecialDisplayArtist() *SpecialContributorType {
 	if x != nil {
-		return x.Choice
+		return x.SpecialDisplayArtist
+	}
+	return nil
+}
+
+func (x *DisplayArtist) GetArtistPartyReference() string {
+	if x != nil {
+		return x.ArtistPartyReference
+	}
+	return ""
+}
+
+func (x *DisplayArtist) GetDisplayArtistRole() *DisplayArtistRole {
+	if x != nil {
+		return x.DisplayArtistRole
 	}
 	return nil
 }
@@ -3098,89 +2667,6 @@ func (x *DisplayArtist) GetSequenceNumber() int32 {
 	}
 	return 0
 }
-
-type DisplayArtistChoice4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*DisplayArtistChoice4_SpecialDisplayArtist
-	//	*DisplayArtistChoice4_Sequence_1
-	Choice        isDisplayArtistChoice4_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DisplayArtistChoice4) Reset() {
-	*x = DisplayArtistChoice4{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DisplayArtistChoice4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DisplayArtistChoice4) ProtoMessage() {}
-
-func (x *DisplayArtistChoice4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DisplayArtistChoice4.ProtoReflect.Descriptor instead.
-func (*DisplayArtistChoice4) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *DisplayArtistChoice4) GetChoice() isDisplayArtistChoice4_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *DisplayArtistChoice4) GetSpecialDisplayArtist() *SpecialContributorType {
-	if x != nil {
-		if x, ok := x.Choice.(*DisplayArtistChoice4_SpecialDisplayArtist); ok {
-			return x.SpecialDisplayArtist
-		}
-	}
-	return nil
-}
-
-func (x *DisplayArtistChoice4) GetSequence_1() *DisplayArtistChoice4_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*DisplayArtistChoice4_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isDisplayArtistChoice4_Choice interface {
-	isDisplayArtistChoice4_Choice()
-}
-
-type DisplayArtistChoice4_SpecialDisplayArtist struct {
-	// @gotags: xml:"SpecialDisplayArtist"
-	SpecialDisplayArtist *SpecialContributorType `protobuf:"bytes,1,opt,name=special_display_artist,json=specialDisplayArtist,proto3,oneof" xml:"SpecialDisplayArtist"`
-}
-
-type DisplayArtistChoice4_Sequence_1 struct {
-	Sequence_1 *DisplayArtistChoice4_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*DisplayArtistChoice4_SpecialDisplayArtist) isDisplayArtistChoice4_Choice() {}
-
-func (*DisplayArtistChoice4_Sequence_1) isDisplayArtistChoice4_Choice() {}
 
 type DisplayTitleText struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -3200,7 +2686,7 @@ type DisplayTitleText struct {
 
 func (x *DisplayTitleText) Reset() {
 	*x = DisplayTitleText{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[37]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3212,7 +2698,7 @@ func (x *DisplayTitleText) String() string {
 func (*DisplayTitleText) ProtoMessage() {}
 
 func (x *DisplayTitleText) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[37]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3225,7 +2711,7 @@ func (x *DisplayTitleText) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayTitleText.ProtoReflect.Descriptor instead.
 func (*DisplayTitleText) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{37}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *DisplayTitleText) GetValue() string {
@@ -3279,7 +2765,7 @@ type DistributionChannelPage struct {
 
 func (x *DistributionChannelPage) Reset() {
 	*x = DistributionChannelPage{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[38]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3291,7 +2777,7 @@ func (x *DistributionChannelPage) String() string {
 func (*DistributionChannelPage) ProtoMessage() {}
 
 func (x *DistributionChannelPage) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[38]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3304,7 +2790,7 @@ func (x *DistributionChannelPage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DistributionChannelPage.ProtoReflect.Descriptor instead.
 func (*DistributionChannelPage) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{38}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *DistributionChannelPage) GetPartyId() []*DetailedPartyId {
@@ -3349,17 +2835,19 @@ type EditionContributor struct {
 	IsCredited *IsCredited `protobuf:"bytes,5,opt,name=is_credited,json=isCredited,proto3" json:"is_credited,omitempty" xml:"IsCredited"`
 	// @gotags: xml:"DisplayCredits"
 	DisplayCredits []*DisplayCredits `protobuf:"bytes,6,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *EditionContributorChoice7 `protobuf:"bytes,7,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"ContributorPartyReference"
+	ContributorPartyReference string `protobuf:"bytes,7,opt,name=contributor_party_reference,json=contributorPartyReference,proto3" json:"contributor_party_reference,omitempty" xml:"ContributorPartyReference"`
+	// @gotags: xml:"SpecialContributor"
+	SpecialContributor *SpecialContributorType `protobuf:"bytes,8,opt,name=special_contributor,json=specialContributor,proto3" json:"special_contributor,omitempty" xml:"SpecialContributor"`
 	// @gotags: xml:"SequenceNumber,attr"
-	SequenceNumber int32 `protobuf:"varint,8,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	SequenceNumber int32 `protobuf:"varint,9,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *EditionContributor) Reset() {
 	*x = EditionContributor{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[39]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3371,7 +2859,7 @@ func (x *EditionContributor) String() string {
 func (*EditionContributor) ProtoMessage() {}
 
 func (x *EditionContributor) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[39]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3384,7 +2872,7 @@ func (x *EditionContributor) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EditionContributor.ProtoReflect.Descriptor instead.
 func (*EditionContributor) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{39}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *EditionContributor) GetRole() []*ContributorRole {
@@ -3429,9 +2917,16 @@ func (x *EditionContributor) GetDisplayCredits() []*DisplayCredits {
 	return nil
 }
 
-func (x *EditionContributor) GetChoice() *EditionContributorChoice7 {
+func (x *EditionContributor) GetContributorPartyReference() string {
 	if x != nil {
-		return x.Choice
+		return x.ContributorPartyReference
+	}
+	return ""
+}
+
+func (x *EditionContributor) GetSpecialContributor() *SpecialContributorType {
+	if x != nil {
+		return x.SpecialContributor
 	}
 	return nil
 }
@@ -3442,90 +2937,6 @@ func (x *EditionContributor) GetSequenceNumber() int32 {
 	}
 	return 0
 }
-
-type EditionContributorChoice7 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*EditionContributorChoice7_ContributorPartyReference
-	//	*EditionContributorChoice7_SpecialContributor
-	Choice        isEditionContributorChoice7_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EditionContributorChoice7) Reset() {
-	*x = EditionContributorChoice7{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EditionContributorChoice7) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EditionContributorChoice7) ProtoMessage() {}
-
-func (x *EditionContributorChoice7) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EditionContributorChoice7.ProtoReflect.Descriptor instead.
-func (*EditionContributorChoice7) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *EditionContributorChoice7) GetChoice() isEditionContributorChoice7_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *EditionContributorChoice7) GetContributorPartyReference() string {
-	if x != nil {
-		if x, ok := x.Choice.(*EditionContributorChoice7_ContributorPartyReference); ok {
-			return x.ContributorPartyReference
-		}
-	}
-	return ""
-}
-
-func (x *EditionContributorChoice7) GetSpecialContributor() *SpecialContributorType {
-	if x != nil {
-		if x, ok := x.Choice.(*EditionContributorChoice7_SpecialContributor); ok {
-			return x.SpecialContributor
-		}
-	}
-	return nil
-}
-
-type isEditionContributorChoice7_Choice interface {
-	isEditionContributorChoice7_Choice()
-}
-
-type EditionContributorChoice7_ContributorPartyReference struct {
-	// @gotags: xml:"ContributorPartyReference"
-	ContributorPartyReference string `protobuf:"bytes,1,opt,name=contributor_party_reference,json=contributorPartyReference,proto3,oneof" xml:"ContributorPartyReference"`
-}
-
-type EditionContributorChoice7_SpecialContributor struct {
-	// @gotags: xml:"SpecialContributor"
-	SpecialContributor *SpecialContributorType `protobuf:"bytes,2,opt,name=special_contributor,json=specialContributor,proto3,oneof" xml:"SpecialContributor"`
-}
-
-func (*EditionContributorChoice7_ContributorPartyReference) isEditionContributorChoice7_Choice() {}
-
-func (*EditionContributorChoice7_SpecialContributor) isEditionContributorChoice7_Choice() {}
 
 type EventDateTimeWithoutFlags struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -3545,7 +2956,7 @@ type EventDateTimeWithoutFlags struct {
 
 func (x *EventDateTimeWithoutFlags) Reset() {
 	*x = EventDateTimeWithoutFlags{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[41]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3557,7 +2968,7 @@ func (x *EventDateTimeWithoutFlags) String() string {
 func (*EventDateTimeWithoutFlags) ProtoMessage() {}
 
 func (x *EventDateTimeWithoutFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[41]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3570,7 +2981,7 @@ func (x *EventDateTimeWithoutFlags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDateTimeWithoutFlags.ProtoReflect.Descriptor instead.
 func (*EventDateTimeWithoutFlags) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{41}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *EventDateTimeWithoutFlags) GetValue() string {
@@ -3626,7 +3037,7 @@ type EventDateWithCurrentTerritory struct {
 
 func (x *EventDateWithCurrentTerritory) Reset() {
 	*x = EventDateWithCurrentTerritory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[42]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3638,7 +3049,7 @@ func (x *EventDateWithCurrentTerritory) String() string {
 func (*EventDateWithCurrentTerritory) ProtoMessage() {}
 
 func (x *EventDateWithCurrentTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[42]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3651,7 +3062,7 @@ func (x *EventDateWithCurrentTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDateWithCurrentTerritory.ProtoReflect.Descriptor instead.
 func (*EventDateWithCurrentTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{42}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *EventDateWithCurrentTerritory) GetValue() string {
@@ -3705,7 +3116,7 @@ type EventDateWithDefault struct {
 
 func (x *EventDateWithDefault) Reset() {
 	*x = EventDateWithDefault{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[43]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3717,7 +3128,7 @@ func (x *EventDateWithDefault) String() string {
 func (*EventDateWithDefault) ProtoMessage() {}
 
 func (x *EventDateWithDefault) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[43]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3730,7 +3141,7 @@ func (x *EventDateWithDefault) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDateWithDefault.ProtoReflect.Descriptor instead.
 func (*EventDateWithDefault) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{43}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *EventDateWithDefault) GetValue() string {
@@ -3779,7 +3190,7 @@ type EventDateWithoutFlags struct {
 
 func (x *EventDateWithoutFlags) Reset() {
 	*x = EventDateWithoutFlags{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[44]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3791,7 +3202,7 @@ func (x *EventDateWithoutFlags) String() string {
 func (*EventDateWithoutFlags) ProtoMessage() {}
 
 func (x *EventDateWithoutFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[44]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3804,7 +3215,7 @@ func (x *EventDateWithoutFlags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDateWithoutFlags.ProtoReflect.Descriptor instead.
 func (*EventDateWithoutFlags) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{44}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *EventDateWithoutFlags) GetValue() string {
@@ -3860,7 +3271,7 @@ type ExternalResourceLink struct {
 
 func (x *ExternalResourceLink) Reset() {
 	*x = ExternalResourceLink{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[45]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3872,7 +3283,7 @@ func (x *ExternalResourceLink) String() string {
 func (*ExternalResourceLink) ProtoMessage() {}
 
 func (x *ExternalResourceLink) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[45]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3885,7 +3296,7 @@ func (x *ExternalResourceLink) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExternalResourceLink.ProtoReflect.Descriptor instead.
 func (*ExternalResourceLink) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{45}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *ExternalResourceLink) GetURL() []string {
@@ -3937,7 +3348,7 @@ type HdrVideoDynamicMetadataType struct {
 
 func (x *HdrVideoDynamicMetadataType) Reset() {
 	*x = HdrVideoDynamicMetadataType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[46]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3949,7 +3360,7 @@ func (x *HdrVideoDynamicMetadataType) String() string {
 func (*HdrVideoDynamicMetadataType) ProtoMessage() {}
 
 func (x *HdrVideoDynamicMetadataType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[46]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3962,7 +3373,7 @@ func (x *HdrVideoDynamicMetadataType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HdrVideoDynamicMetadataType.ProtoReflect.Descriptor instead.
 func (*HdrVideoDynamicMetadataType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{46}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *HdrVideoDynamicMetadataType) GetValue() string {
@@ -4046,7 +3457,7 @@ type Image struct {
 
 func (x *Image) Reset() {
 	*x = Image{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[47]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4058,7 +3469,7 @@ func (x *Image) String() string {
 func (*Image) ProtoMessage() {}
 
 func (x *Image) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[47]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4071,7 +3482,7 @@ func (x *Image) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Image.ProtoReflect.Descriptor instead.
 func (*Image) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{47}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *Image) GetResourceReference() string {
@@ -4278,7 +3689,7 @@ type LinkedReleaseResourceReference struct {
 
 func (x *LinkedReleaseResourceReference) Reset() {
 	*x = LinkedReleaseResourceReference{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[48]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4290,7 +3701,7 @@ func (x *LinkedReleaseResourceReference) String() string {
 func (*LinkedReleaseResourceReference) ProtoMessage() {}
 
 func (x *LinkedReleaseResourceReference) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[48]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4303,7 +3714,7 @@ func (x *LinkedReleaseResourceReference) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LinkedReleaseResourceReference.ProtoReflect.Descriptor instead.
 func (*LinkedReleaseResourceReference) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{48}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *LinkedReleaseResourceReference) GetValue() string {
@@ -4373,7 +3784,7 @@ type LocationAndDateOfSession struct {
 
 func (x *LocationAndDateOfSession) Reset() {
 	*x = LocationAndDateOfSession{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[49]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4385,7 +3796,7 @@ func (x *LocationAndDateOfSession) String() string {
 func (*LocationAndDateOfSession) ProtoMessage() {}
 
 func (x *LocationAndDateOfSession) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[49]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4398,7 +3809,7 @@ func (x *LocationAndDateOfSession) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LocationAndDateOfSession.ProtoReflect.Descriptor instead.
 func (*LocationAndDateOfSession) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{49}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *LocationAndDateOfSession) GetSessionType() []*SessionType {
@@ -4446,15 +3857,17 @@ type Party struct {
 	RelatedParty []*RelatedParty `protobuf:"bytes,3,rep,name=related_party,json=relatedParty,proto3" json:"related_party,omitempty" xml:"RelatedParty"`
 	// @gotags: xml:"ArtistProfilePage"
 	ArtistProfilePage []string `protobuf:"bytes,4,rep,name=artist_profile_page,json=artistProfilePage,proto3" json:"artist_profile_page,omitempty" xml:"ArtistProfilePage"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *PartyChoice5 `protobuf:"bytes,5,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyId `protobuf:"bytes,5,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName     []*PartyNameWithTerritory `protobuf:"bytes,6,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Party) Reset() {
 	*x = Party{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[50]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4466,7 +3879,7 @@ func (x *Party) String() string {
 func (*Party) ProtoMessage() {}
 
 func (x *Party) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[50]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4479,7 +3892,7 @@ func (x *Party) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Party.ProtoReflect.Descriptor instead.
 func (*Party) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{50}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *Party) GetPartyReference() string {
@@ -4510,95 +3923,19 @@ func (x *Party) GetArtistProfilePage() []string {
 	return nil
 }
 
-func (x *Party) GetChoice() *PartyChoice5 {
+func (x *Party) GetPartyId() []*DetailedPartyId {
 	if x != nil {
-		return x.Choice
+		return x.PartyId
 	}
 	return nil
 }
 
-type PartyChoice5 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PartyChoice5_PartyIdOption
-	//	*PartyChoice5_Sequence_1
-	Choice        isPartyChoice5_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartyChoice5) Reset() {
-	*x = PartyChoice5{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartyChoice5) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartyChoice5) ProtoMessage() {}
-
-func (x *PartyChoice5) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[51]
+func (x *Party) GetPartyName() []*PartyNameWithTerritory {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartyChoice5.ProtoReflect.Descriptor instead.
-func (*PartyChoice5) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *PartyChoice5) GetChoice() isPartyChoice5_Choice {
-	if x != nil {
-		return x.Choice
+		return x.PartyName
 	}
 	return nil
 }
-
-func (x *PartyChoice5) GetPartyIdOption() *PartyChoice5_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*PartyChoice5_PartyIdOption); ok {
-			return x.PartyIdOption
-		}
-	}
-	return nil
-}
-
-func (x *PartyChoice5) GetSequence_1() *PartyChoice5_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*PartyChoice5_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isPartyChoice5_Choice interface {
-	isPartyChoice5_Choice()
-}
-
-type PartyChoice5_PartyIdOption struct {
-	// @gotags: xml:"PartyId"
-	PartyIdOption *PartyChoice5_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
-}
-
-type PartyChoice5_Sequence_1 struct {
-	Sequence_1 *PartyChoice5_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*PartyChoice5_PartyIdOption) isPartyChoice5_Choice() {}
-
-func (*PartyChoice5_Sequence_1) isPartyChoice5_Choice() {}
 
 type PartyList struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -4612,7 +3949,7 @@ type PartyList struct {
 
 func (x *PartyList) Reset() {
 	*x = PartyList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[52]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4624,7 +3961,7 @@ func (x *PartyList) String() string {
 func (*PartyList) ProtoMessage() {}
 
 func (x *PartyList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[52]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4637,7 +3974,7 @@ func (x *PartyList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyList.ProtoReflect.Descriptor instead.
 func (*PartyList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{52}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *PartyList) GetParty() []*Party {
@@ -4690,7 +4027,7 @@ type PartyNameWithTerritory struct {
 
 func (x *PartyNameWithTerritory) Reset() {
 	*x = PartyNameWithTerritory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[53]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4702,7 +4039,7 @@ func (x *PartyNameWithTerritory) String() string {
 func (*PartyNameWithTerritory) ProtoMessage() {}
 
 func (x *PartyNameWithTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[53]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4715,7 +4052,7 @@ func (x *PartyNameWithTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameWithTerritory.ProtoReflect.Descriptor instead.
 func (*PartyNameWithTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{53}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *PartyNameWithTerritory) GetFullName() *Name {
@@ -4838,7 +4175,7 @@ type PartyWithRole struct {
 
 func (x *PartyWithRole) Reset() {
 	*x = PartyWithRole{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[54]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4850,7 +4187,7 @@ func (x *PartyWithRole) String() string {
 func (*PartyWithRole) ProtoMessage() {}
 
 func (x *PartyWithRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[54]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4863,7 +4200,7 @@ func (x *PartyWithRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyWithRole.ProtoReflect.Descriptor instead.
 func (*PartyWithRole) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{54}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *PartyWithRole) GetISNI() string {
@@ -4917,15 +4254,21 @@ func (x *PartyWithRole) GetRole() *ResourceContributorRole {
 
 type PeriodWithStartDate struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        *PeriodWithStartDateChoice `protobuf:"bytes,1,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"StartDate"
+	StartDate *EventDateWithCurrentTerritory `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate *EventDateWithCurrentTerritory `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
+	// @gotags: xml:"StartDateTime"
+	StartDateTime *EventDateTimeWithoutFlags `protobuf:"bytes,3,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
+	// @gotags: xml:"EndDateTime"
+	EndDateTime   *EventDateTimeWithoutFlags `protobuf:"bytes,4,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PeriodWithStartDate) Reset() {
 	*x = PeriodWithStartDate{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[55]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4937,7 +4280,7 @@ func (x *PeriodWithStartDate) String() string {
 func (*PeriodWithStartDate) ProtoMessage() {}
 
 func (x *PeriodWithStartDate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[55]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4950,109 +4293,54 @@ func (x *PeriodWithStartDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeriodWithStartDate.ProtoReflect.Descriptor instead.
 func (*PeriodWithStartDate) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{55}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{46}
 }
 
-func (x *PeriodWithStartDate) GetChoice() *PeriodWithStartDateChoice {
+func (x *PeriodWithStartDate) GetStartDate() *EventDateWithCurrentTerritory {
 	if x != nil {
-		return x.Choice
+		return x.StartDate
 	}
 	return nil
 }
 
-type PeriodWithStartDateChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PeriodWithStartDateChoice_Sequence_1
-	//	*PeriodWithStartDateChoice_Sequence_2
-	Choice        isPeriodWithStartDateChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodWithStartDateChoice) Reset() {
-	*x = PeriodWithStartDateChoice{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodWithStartDateChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodWithStartDateChoice) ProtoMessage() {}
-
-func (x *PeriodWithStartDateChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[56]
+func (x *PeriodWithStartDate) GetEndDate() *EventDateWithCurrentTerritory {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodWithStartDateChoice.ProtoReflect.Descriptor instead.
-func (*PeriodWithStartDateChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *PeriodWithStartDateChoice) GetChoice() isPeriodWithStartDateChoice_Choice {
-	if x != nil {
-		return x.Choice
+		return x.EndDate
 	}
 	return nil
 }
 
-func (x *PeriodWithStartDateChoice) GetSequence_1() *PeriodWithStartDateChoice_Option1 {
+func (x *PeriodWithStartDate) GetStartDateTime() *EventDateTimeWithoutFlags {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodWithStartDateChoice_Sequence_1); ok {
-			return x.Sequence_1
-		}
+		return x.StartDateTime
 	}
 	return nil
 }
 
-func (x *PeriodWithStartDateChoice) GetSequence_2() *PeriodWithStartDateChoice_Option2 {
+func (x *PeriodWithStartDate) GetEndDateTime() *EventDateTimeWithoutFlags {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodWithStartDateChoice_Sequence_2); ok {
-			return x.Sequence_2
-		}
+		return x.EndDateTime
 	}
 	return nil
 }
-
-type isPeriodWithStartDateChoice_Choice interface {
-	isPeriodWithStartDateChoice_Choice()
-}
-
-type PeriodWithStartDateChoice_Sequence_1 struct {
-	Sequence_1 *PeriodWithStartDateChoice_Option1 `protobuf:"bytes,1,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-type PeriodWithStartDateChoice_Sequence_2 struct {
-	Sequence_2 *PeriodWithStartDateChoice_Option2 `protobuf:"bytes,2,opt,name=sequence_2,json=sequence2,proto3,oneof"`
-}
-
-func (*PeriodWithStartDateChoice_Sequence_1) isPeriodWithStartDateChoice_Choice() {}
-
-func (*PeriodWithStartDateChoice_Sequence_2) isPeriodWithStartDateChoice_Choice() {}
 
 type PeriodWithoutFlags struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        *PeriodWithoutFlagsChoice `protobuf:"bytes,1,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"StartDate"
+	StartDate *EventDateWithCurrentTerritory `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate *EventDateWithCurrentTerritory `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
+	// @gotags: xml:"StartDateTime"
+	StartDateTime *EventDateTimeWithoutFlags `protobuf:"bytes,3,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
+	// @gotags: xml:"EndDateTime"
+	EndDateTime   *EventDateTimeWithoutFlags `protobuf:"bytes,4,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PeriodWithoutFlags) Reset() {
 	*x = PeriodWithoutFlags{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[57]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5064,7 +4352,7 @@ func (x *PeriodWithoutFlags) String() string {
 func (*PeriodWithoutFlags) ProtoMessage() {}
 
 func (x *PeriodWithoutFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[57]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5077,97 +4365,36 @@ func (x *PeriodWithoutFlags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeriodWithoutFlags.ProtoReflect.Descriptor instead.
 func (*PeriodWithoutFlags) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{57}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{47}
 }
 
-func (x *PeriodWithoutFlags) GetChoice() *PeriodWithoutFlagsChoice {
+func (x *PeriodWithoutFlags) GetStartDate() *EventDateWithCurrentTerritory {
 	if x != nil {
-		return x.Choice
+		return x.StartDate
 	}
 	return nil
 }
 
-type PeriodWithoutFlagsChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PeriodWithoutFlagsChoice_Sequence_1
-	//	*PeriodWithoutFlagsChoice_Sequence_2
-	Choice        isPeriodWithoutFlagsChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodWithoutFlagsChoice) Reset() {
-	*x = PeriodWithoutFlagsChoice{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodWithoutFlagsChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodWithoutFlagsChoice) ProtoMessage() {}
-
-func (x *PeriodWithoutFlagsChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[58]
+func (x *PeriodWithoutFlags) GetEndDate() *EventDateWithCurrentTerritory {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodWithoutFlagsChoice.ProtoReflect.Descriptor instead.
-func (*PeriodWithoutFlagsChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *PeriodWithoutFlagsChoice) GetChoice() isPeriodWithoutFlagsChoice_Choice {
-	if x != nil {
-		return x.Choice
+		return x.EndDate
 	}
 	return nil
 }
 
-func (x *PeriodWithoutFlagsChoice) GetSequence_1() *PeriodWithoutFlagsChoice_Option1 {
+func (x *PeriodWithoutFlags) GetStartDateTime() *EventDateTimeWithoutFlags {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodWithoutFlagsChoice_Sequence_1); ok {
-			return x.Sequence_1
-		}
+		return x.StartDateTime
 	}
 	return nil
 }
 
-func (x *PeriodWithoutFlagsChoice) GetSequence_2() *PeriodWithoutFlagsChoice_Option2 {
+func (x *PeriodWithoutFlags) GetEndDateTime() *EventDateTimeWithoutFlags {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodWithoutFlagsChoice_Sequence_2); ok {
-			return x.Sequence_2
-		}
+		return x.EndDateTime
 	}
 	return nil
 }
-
-type isPeriodWithoutFlagsChoice_Choice interface {
-	isPeriodWithoutFlagsChoice_Choice()
-}
-
-type PeriodWithoutFlagsChoice_Sequence_1 struct {
-	Sequence_1 *PeriodWithoutFlagsChoice_Option1 `protobuf:"bytes,1,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-type PeriodWithoutFlagsChoice_Sequence_2 struct {
-	Sequence_2 *PeriodWithoutFlagsChoice_Option2 `protobuf:"bytes,2,opt,name=sequence_2,json=sequence2,proto3,oneof"`
-}
-
-func (*PeriodWithoutFlagsChoice_Sequence_1) isPeriodWithoutFlagsChoice_Choice() {}
-
-func (*PeriodWithoutFlagsChoice_Sequence_2) isPeriodWithoutFlagsChoice_Choice() {}
 
 type PhysicalReturns struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -5181,7 +4408,7 @@ type PhysicalReturns struct {
 
 func (x *PhysicalReturns) Reset() {
 	*x = PhysicalReturns{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[59]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5193,7 +4420,7 @@ func (x *PhysicalReturns) String() string {
 func (*PhysicalReturns) ProtoMessage() {}
 
 func (x *PhysicalReturns) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[59]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5206,7 +4433,7 @@ func (x *PhysicalReturns) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PhysicalReturns.ProtoReflect.Descriptor instead.
 func (*PhysicalReturns) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{59}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *PhysicalReturns) GetPhysicalReturnsAllowed() bool {
@@ -5245,7 +4472,7 @@ type PriceInformation struct {
 
 func (x *PriceInformation) Reset() {
 	*x = PriceInformation{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[60]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5257,7 +4484,7 @@ func (x *PriceInformation) String() string {
 func (*PriceInformation) ProtoMessage() {}
 
 func (x *PriceInformation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[60]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5270,7 +4497,7 @@ func (x *PriceInformation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PriceInformation.ProtoReflect.Descriptor instead.
 func (*PriceInformation) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{60}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *PriceInformation) GetPriceCode() *PriceType {
@@ -5336,7 +4563,7 @@ type PurgedRelease struct {
 
 func (x *PurgedRelease) Reset() {
 	*x = PurgedRelease{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[61]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5348,7 +4575,7 @@ func (x *PurgedRelease) String() string {
 func (*PurgedRelease) ProtoMessage() {}
 
 func (x *PurgedRelease) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[61]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5361,7 +4588,7 @@ func (x *PurgedRelease) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PurgedRelease.ProtoReflect.Descriptor instead.
 func (*PurgedRelease) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{61}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *PurgedRelease) GetReleaseId() *ReleaseId {
@@ -5399,7 +4626,7 @@ type Raga struct {
 
 func (x *Raga) Reset() {
 	*x = Raga{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[62]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5411,7 +4638,7 @@ func (x *Raga) String() string {
 func (*Raga) ProtoMessage() {}
 
 func (x *Raga) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[62]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5424,7 +4651,7 @@ func (x *Raga) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Raga.ProtoReflect.Descriptor instead.
 func (*Raga) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{62}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *Raga) GetValue() string {
@@ -5462,7 +4689,7 @@ type RecordingFormat struct {
 
 func (x *RecordingFormat) Reset() {
 	*x = RecordingFormat{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[63]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5474,7 +4701,7 @@ func (x *RecordingFormat) String() string {
 func (*RecordingFormat) ProtoMessage() {}
 
 func (x *RecordingFormat) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[63]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5487,7 +4714,7 @@ func (x *RecordingFormat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecordingFormat.ProtoReflect.Descriptor instead.
 func (*RecordingFormat) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{63}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *RecordingFormat) GetValue() string {
@@ -5539,7 +4766,7 @@ type RelatedRelease struct {
 
 func (x *RelatedRelease) Reset() {
 	*x = RelatedRelease{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[64]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5551,7 +4778,7 @@ func (x *RelatedRelease) String() string {
 func (*RelatedRelease) ProtoMessage() {}
 
 func (x *RelatedRelease) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[64]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5564,7 +4791,7 @@ func (x *RelatedRelease) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedRelease.ProtoReflect.Descriptor instead.
 func (*RelatedRelease) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{64}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RelatedRelease) GetReleaseRelationshipType() *ReleaseRelationshipType {
@@ -5643,15 +4870,17 @@ type RelatedResource struct {
 	ResourceRelationshipType string `protobuf:"bytes,1,opt,name=resource_relationship_type,json=resourceRelationshipType,proto3" json:"resource_relationship_type,omitempty" xml:"ResourceRelationshipType"`
 	// @gotags: xml:"Timing"
 	Timing []*Timing `protobuf:"bytes,2,rep,name=timing,proto3" json:"timing,omitempty" xml:"Timing"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *RelatedResourceChoice3 `protobuf:"bytes,3,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"ResourceRelatedResourceReference"
+	ResourceRelatedResourceReference string `protobuf:"bytes,3,opt,name=resource_related_resource_reference,json=resourceRelatedResourceReference,proto3" json:"resource_related_resource_reference,omitempty" xml:"ResourceRelatedResourceReference"`
+	// @gotags: xml:"ResourceId"
+	ResourceId    *ResourceId `protobuf:"bytes,4,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty" xml:"ResourceId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RelatedResource) Reset() {
 	*x = RelatedResource{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[65]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5663,7 +4892,7 @@ func (x *RelatedResource) String() string {
 func (*RelatedResource) ProtoMessage() {}
 
 func (x *RelatedResource) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[65]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5676,7 +4905,7 @@ func (x *RelatedResource) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedResource.ProtoReflect.Descriptor instead.
 func (*RelatedResource) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{65}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RelatedResource) GetResourceRelationshipType() string {
@@ -5693,96 +4922,19 @@ func (x *RelatedResource) GetTiming() []*Timing {
 	return nil
 }
 
-func (x *RelatedResource) GetChoice() *RelatedResourceChoice3 {
+func (x *RelatedResource) GetResourceRelatedResourceReference() string {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-type RelatedResourceChoice3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*RelatedResourceChoice3_ResourceRelatedResourceReference
-	//	*RelatedResourceChoice3_ResourceId
-	Choice        isRelatedResourceChoice3_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RelatedResourceChoice3) Reset() {
-	*x = RelatedResourceChoice3{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RelatedResourceChoice3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RelatedResourceChoice3) ProtoMessage() {}
-
-func (x *RelatedResourceChoice3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RelatedResourceChoice3.ProtoReflect.Descriptor instead.
-func (*RelatedResourceChoice3) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *RelatedResourceChoice3) GetChoice() isRelatedResourceChoice3_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *RelatedResourceChoice3) GetResourceRelatedResourceReference() string {
-	if x != nil {
-		if x, ok := x.Choice.(*RelatedResourceChoice3_ResourceRelatedResourceReference); ok {
-			return x.ResourceRelatedResourceReference
-		}
+		return x.ResourceRelatedResourceReference
 	}
 	return ""
 }
 
-func (x *RelatedResourceChoice3) GetResourceId() *ResourceId {
+func (x *RelatedResource) GetResourceId() *ResourceId {
 	if x != nil {
-		if x, ok := x.Choice.(*RelatedResourceChoice3_ResourceId); ok {
-			return x.ResourceId
-		}
+		return x.ResourceId
 	}
 	return nil
 }
-
-type isRelatedResourceChoice3_Choice interface {
-	isRelatedResourceChoice3_Choice()
-}
-
-type RelatedResourceChoice3_ResourceRelatedResourceReference struct {
-	// @gotags: xml:"ResourceRelatedResourceReference"
-	ResourceRelatedResourceReference string `protobuf:"bytes,1,opt,name=resource_related_resource_reference,json=resourceRelatedResourceReference,proto3,oneof" xml:"ResourceRelatedResourceReference"`
-}
-
-type RelatedResourceChoice3_ResourceId struct {
-	// @gotags: xml:"ResourceId"
-	ResourceId *ResourceId `protobuf:"bytes,2,opt,name=resource_id,json=resourceId,proto3,oneof" xml:"ResourceId"`
-}
-
-func (*RelatedResourceChoice3_ResourceRelatedResourceReference) isRelatedResourceChoice3_Choice() {}
-
-func (*RelatedResourceChoice3_ResourceId) isRelatedResourceChoice3_Choice() {}
 
 type Release struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -5860,17 +5012,19 @@ type Release struct {
 	IsHiResMusic bool `protobuf:"varint,36,opt,name=is_hi_res_music,json=isHiResMusic,proto3" json:"is_hi_res_music,omitempty" xml:"IsHiResMusic"`
 	// @gotags: xml:"MarketingComment"
 	MarketingComment []*MarketingComment `protobuf:"bytes,37,rep,name=marketing_comment,json=marketingComment,proto3" json:"marketing_comment,omitempty" xml:"MarketingComment"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *ReleaseChoice38 `protobuf:"bytes,38,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"IsSingleArtistCompilation"
+	IsSingleArtistCompilation bool `protobuf:"varint,38,opt,name=is_single_artist_compilation,json=isSingleArtistCompilation,proto3" json:"is_single_artist_compilation,omitempty" xml:"IsSingleArtistCompilation"`
+	// @gotags: xml:"IsMultiArtistCompilation"
+	IsMultiArtistCompilation bool `protobuf:"varint,39,opt,name=is_multi_artist_compilation,json=isMultiArtistCompilation,proto3" json:"is_multi_artist_compilation,omitempty" xml:"IsMultiArtistCompilation"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
-	LanguageAndScriptCode string `protobuf:"bytes,39,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	LanguageAndScriptCode string `protobuf:"bytes,40,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
 
 func (x *Release) Reset() {
 	*x = Release{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[67]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5882,7 +5036,7 @@ func (x *Release) String() string {
 func (*Release) ProtoMessage() {}
 
 func (x *Release) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[67]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5895,7 +5049,7 @@ func (x *Release) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Release.ProtoReflect.Descriptor instead.
 func (*Release) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{67}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *Release) GetReleaseReference() string {
@@ -6157,11 +5311,18 @@ func (x *Release) GetMarketingComment() []*MarketingComment {
 	return nil
 }
 
-func (x *Release) GetChoice() *ReleaseChoice38 {
+func (x *Release) GetIsSingleArtistCompilation() bool {
 	if x != nil {
-		return x.Choice
+		return x.IsSingleArtistCompilation
 	}
-	return nil
+	return false
+}
+
+func (x *Release) GetIsMultiArtistCompilation() bool {
+	if x != nil {
+		return x.IsMultiArtistCompilation
+	}
+	return false
 }
 
 func (x *Release) GetLanguageAndScriptCode() string {
@@ -6170,90 +5331,6 @@ func (x *Release) GetLanguageAndScriptCode() string {
 	}
 	return ""
 }
-
-type ReleaseChoice38 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ReleaseChoice38_IsSingleArtistCompilation
-	//	*ReleaseChoice38_IsMultiArtistCompilation
-	Choice        isReleaseChoice38_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseChoice38) Reset() {
-	*x = ReleaseChoice38{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseChoice38) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseChoice38) ProtoMessage() {}
-
-func (x *ReleaseChoice38) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseChoice38.ProtoReflect.Descriptor instead.
-func (*ReleaseChoice38) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *ReleaseChoice38) GetChoice() isReleaseChoice38_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ReleaseChoice38) GetIsSingleArtistCompilation() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*ReleaseChoice38_IsSingleArtistCompilation); ok {
-			return x.IsSingleArtistCompilation
-		}
-	}
-	return false
-}
-
-func (x *ReleaseChoice38) GetIsMultiArtistCompilation() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*ReleaseChoice38_IsMultiArtistCompilation); ok {
-			return x.IsMultiArtistCompilation
-		}
-	}
-	return false
-}
-
-type isReleaseChoice38_Choice interface {
-	isReleaseChoice38_Choice()
-}
-
-type ReleaseChoice38_IsSingleArtistCompilation struct {
-	// @gotags: xml:"IsSingleArtistCompilation"
-	IsSingleArtistCompilation bool `protobuf:"varint,1,opt,name=is_single_artist_compilation,json=isSingleArtistCompilation,proto3,oneof" xml:"IsSingleArtistCompilation"`
-}
-
-type ReleaseChoice38_IsMultiArtistCompilation struct {
-	// @gotags: xml:"IsMultiArtistCompilation"
-	IsMultiArtistCompilation bool `protobuf:"varint,2,opt,name=is_multi_artist_compilation,json=isMultiArtistCompilation,proto3,oneof" xml:"IsMultiArtistCompilation"`
-}
-
-func (*ReleaseChoice38_IsSingleArtistCompilation) isReleaseChoice38_Choice() {}
-
-func (*ReleaseChoice38_IsMultiArtistCompilation) isReleaseChoice38_Choice() {}
 
 type ReleaseAdmin struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -6269,7 +5346,7 @@ type ReleaseAdmin struct {
 
 func (x *ReleaseAdmin) Reset() {
 	*x = ReleaseAdmin{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[69]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6281,7 +5358,7 @@ func (x *ReleaseAdmin) String() string {
 func (*ReleaseAdmin) ProtoMessage() {}
 
 func (x *ReleaseAdmin) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[69]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6294,7 +5371,7 @@ func (x *ReleaseAdmin) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseAdmin.ProtoReflect.Descriptor instead.
 func (*ReleaseAdmin) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{69}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *ReleaseAdmin) GetReleaseAdminId() string {
@@ -6330,7 +5407,7 @@ type ReleaseDeal struct {
 
 func (x *ReleaseDeal) Reset() {
 	*x = ReleaseDeal{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[70]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6342,7 +5419,7 @@ func (x *ReleaseDeal) String() string {
 func (*ReleaseDeal) ProtoMessage() {}
 
 func (x *ReleaseDeal) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[70]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6355,7 +5432,7 @@ func (x *ReleaseDeal) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseDeal.ProtoReflect.Descriptor instead.
 func (*ReleaseDeal) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{70}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *ReleaseDeal) GetDealReleaseReference() []string {
@@ -6388,7 +5465,7 @@ type ReleaseId struct {
 
 func (x *ReleaseId) Reset() {
 	*x = ReleaseId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[71]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6400,7 +5477,7 @@ func (x *ReleaseId) String() string {
 func (*ReleaseId) ProtoMessage() {}
 
 func (x *ReleaseId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[71]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6413,7 +5490,7 @@ func (x *ReleaseId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseId.ProtoReflect.Descriptor instead.
 func (*ReleaseId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{71}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *ReleaseId) GetGRid() string {
@@ -6466,7 +5543,7 @@ type ReleaseLabelReference struct {
 
 func (x *ReleaseLabelReference) Reset() {
 	*x = ReleaseLabelReference{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[72]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6478,7 +5555,7 @@ func (x *ReleaseLabelReference) String() string {
 func (*ReleaseLabelReference) ProtoMessage() {}
 
 func (x *ReleaseLabelReference) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[72]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6491,7 +5568,7 @@ func (x *ReleaseLabelReference) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseLabelReference.ProtoReflect.Descriptor instead.
 func (*ReleaseLabelReference) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{72}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *ReleaseLabelReference) GetValue() string {
@@ -6567,7 +5644,7 @@ type ReleaseLabelReferenceWithParty struct {
 
 func (x *ReleaseLabelReferenceWithParty) Reset() {
 	*x = ReleaseLabelReferenceWithParty{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[73]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6579,7 +5656,7 @@ func (x *ReleaseLabelReferenceWithParty) String() string {
 func (*ReleaseLabelReferenceWithParty) ProtoMessage() {}
 
 func (x *ReleaseLabelReferenceWithParty) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[73]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6592,7 +5669,7 @@ func (x *ReleaseLabelReferenceWithParty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseLabelReferenceWithParty.ProtoReflect.Descriptor instead.
 func (*ReleaseLabelReferenceWithParty) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{73}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *ReleaseLabelReferenceWithParty) GetValue() string {
@@ -6665,7 +5742,7 @@ type ReleaseList struct {
 
 func (x *ReleaseList) Reset() {
 	*x = ReleaseList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[74]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6677,7 +5754,7 @@ func (x *ReleaseList) String() string {
 func (*ReleaseList) ProtoMessage() {}
 
 func (x *ReleaseList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[74]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6690,7 +5767,7 @@ func (x *ReleaseList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseList.ProtoReflect.Descriptor instead.
 func (*ReleaseList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{74}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *ReleaseList) GetRelease() *Release {
@@ -6726,17 +5803,19 @@ type ReleaseVisibility struct {
 	FullTrackListingPreviewStartDateTime string `protobuf:"bytes,4,opt,name=full_track_listing_preview_start_date_time,json=fullTrackListingPreviewStartDateTime,proto3" json:"full_track_listing_preview_start_date_time,omitempty" xml:"FullTrackListingPreviewStartDateTime"`
 	// @gotags: xml:"ClipPreviewStartDateTime"
 	ClipPreviewStartDateTime string `protobuf:"bytes,5,opt,name=clip_preview_start_date_time,json=clipPreviewStartDateTime,proto3" json:"clip_preview_start_date_time,omitempty" xml:"ClipPreviewStartDateTime"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *ReleaseVisibilityChoice6 `protobuf:"bytes,6,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"TerritoryCode"
+	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,6,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
+	// @gotags: xml:"ExcludedTerritoryCode"
+	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,7,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
 	// @gotags: xml:"DoNotDisplayDates,attr"
-	DoNotDisplayDates bool `protobuf:"varint,7,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty" xml:"DoNotDisplayDates,attr"`
+	DoNotDisplayDates bool `protobuf:"varint,8,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty" xml:"DoNotDisplayDates,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ReleaseVisibility) Reset() {
 	*x = ReleaseVisibility{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[75]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6748,7 +5827,7 @@ func (x *ReleaseVisibility) String() string {
 func (*ReleaseVisibility) ProtoMessage() {}
 
 func (x *ReleaseVisibility) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[75]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6761,7 +5840,7 @@ func (x *ReleaseVisibility) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseVisibility.ProtoReflect.Descriptor instead.
 func (*ReleaseVisibility) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{75}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *ReleaseVisibility) GetVisibilityReference() string {
@@ -6799,9 +5878,16 @@ func (x *ReleaseVisibility) GetClipPreviewStartDateTime() string {
 	return ""
 }
 
-func (x *ReleaseVisibility) GetChoice() *ReleaseVisibilityChoice6 {
+func (x *ReleaseVisibility) GetTerritoryCode() []*CurrentTerritoryCode {
 	if x != nil {
-		return x.Choice
+		return x.TerritoryCode
+	}
+	return nil
+}
+
+func (x *ReleaseVisibility) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
+	if x != nil {
+		return x.ExcludedTerritoryCode
 	}
 	return nil
 }
@@ -6812,90 +5898,6 @@ func (x *ReleaseVisibility) GetDoNotDisplayDates() bool {
 	}
 	return false
 }
-
-type ReleaseVisibilityChoice6 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ReleaseVisibilityChoice6_TerritoryCodeOption
-	//	*ReleaseVisibilityChoice6_ExcludedTerritoryCodeOption
-	Choice        isReleaseVisibilityChoice6_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseVisibilityChoice6) Reset() {
-	*x = ReleaseVisibilityChoice6{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseVisibilityChoice6) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseVisibilityChoice6) ProtoMessage() {}
-
-func (x *ReleaseVisibilityChoice6) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseVisibilityChoice6.ProtoReflect.Descriptor instead.
-func (*ReleaseVisibilityChoice6) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *ReleaseVisibilityChoice6) GetChoice() isReleaseVisibilityChoice6_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ReleaseVisibilityChoice6) GetTerritoryCodeOption() *ReleaseVisibilityChoice6_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*ReleaseVisibilityChoice6_TerritoryCodeOption); ok {
-			return x.TerritoryCodeOption
-		}
-	}
-	return nil
-}
-
-func (x *ReleaseVisibilityChoice6) GetExcludedTerritoryCodeOption() *ReleaseVisibilityChoice6_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*ReleaseVisibilityChoice6_ExcludedTerritoryCodeOption); ok {
-			return x.ExcludedTerritoryCodeOption
-		}
-	}
-	return nil
-}
-
-type isReleaseVisibilityChoice6_Choice interface {
-	isReleaseVisibilityChoice6_Choice()
-}
-
-type ReleaseVisibilityChoice6_TerritoryCodeOption struct {
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCodeOption *ReleaseVisibilityChoice6_Option1 `protobuf:"bytes,1,opt,name=territory_code_option,json=territoryCodeOption,proto3,oneof" xml:"TerritoryCode"`
-}
-
-type ReleaseVisibilityChoice6_ExcludedTerritoryCodeOption struct {
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCodeOption *ReleaseVisibilityChoice6_Option2 `protobuf:"bytes,2,opt,name=excluded_territory_code_option,json=excludedTerritoryCodeOption,proto3,oneof" xml:"ExcludedTerritoryCode"`
-}
-
-func (*ReleaseVisibilityChoice6_TerritoryCodeOption) isReleaseVisibilityChoice6_Choice() {}
-
-func (*ReleaseVisibilityChoice6_ExcludedTerritoryCodeOption) isReleaseVisibilityChoice6_Choice() {}
 
 type ResourceGroup struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -6921,17 +5923,21 @@ type ResourceGroup struct {
 	ResourceGroupContentItem []*ResourceGroupContentItem `protobuf:"bytes,10,rep,name=resource_group_content_item,json=resourceGroupContentItem,proto3" json:"resource_group_content_item,omitempty" xml:"ResourceGroupContentItem"`
 	// @gotags: xml:"LinkedReleaseResourceReference"
 	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,11,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty" xml:"LinkedReleaseResourceReference"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *ResourceGroupChoice12 `protobuf:"bytes,12,opt,name=choice,proto3" json:"choice,omitempty"`
-	// Choice wrapper for XSD choice within sequence
-	Choice_1      *ResourceGroupChoice13 `protobuf:"bytes,13,opt,name=choice_1,json=choice1,proto3" json:"choice_1,omitempty"`
+	// @gotags: xml:"NoDisplaySequence"
+	NoDisplaySequence bool `protobuf:"varint,12,opt,name=no_display_sequence,json=noDisplaySequence,proto3" json:"no_display_sequence,omitempty" xml:"NoDisplaySequence"`
+	// @gotags: xml:"DisplaySequence"
+	DisplaySequence string `protobuf:"bytes,13,opt,name=display_sequence,json=displaySequence,proto3" json:"display_sequence,omitempty" xml:"DisplaySequence"`
+	// @gotags: xml:"ResourceGroupReleaseReference"
+	ResourceGroupReleaseReference string `protobuf:"bytes,14,opt,name=resource_group_release_reference,json=resourceGroupReleaseReference,proto3" json:"resource_group_release_reference,omitempty" xml:"ResourceGroupReleaseReference"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId     *ReleaseId `protobuf:"bytes,15,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ResourceGroup) Reset() {
 	*x = ResourceGroup{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[77]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6943,7 +5949,7 @@ func (x *ResourceGroup) String() string {
 func (*ResourceGroup) ProtoMessage() {}
 
 func (x *ResourceGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[77]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6956,7 +5962,7 @@ func (x *ResourceGroup) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceGroup.ProtoReflect.Descriptor instead.
 func (*ResourceGroup) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{77}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *ResourceGroup) GetDisplayTitleText() []*DisplayTitleText {
@@ -7036,187 +6042,33 @@ func (x *ResourceGroup) GetLinkedReleaseResourceReference() []*LinkedReleaseReso
 	return nil
 }
 
-func (x *ResourceGroup) GetChoice() *ResourceGroupChoice12 {
+func (x *ResourceGroup) GetNoDisplaySequence() bool {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceGroup) GetChoice_1() *ResourceGroupChoice13 {
-	if x != nil {
-		return x.Choice_1
-	}
-	return nil
-}
-
-type ResourceGroupChoice12 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ResourceGroupChoice12_NoDisplaySequence
-	//	*ResourceGroupChoice12_DisplaySequence
-	Choice        isResourceGroupChoice12_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResourceGroupChoice12) Reset() {
-	*x = ResourceGroupChoice12{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResourceGroupChoice12) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResourceGroupChoice12) ProtoMessage() {}
-
-func (x *ResourceGroupChoice12) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResourceGroupChoice12.ProtoReflect.Descriptor instead.
-func (*ResourceGroupChoice12) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *ResourceGroupChoice12) GetChoice() isResourceGroupChoice12_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceGroupChoice12) GetNoDisplaySequence() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceGroupChoice12_NoDisplaySequence); ok {
-			return x.NoDisplaySequence
-		}
+		return x.NoDisplaySequence
 	}
 	return false
 }
 
-func (x *ResourceGroupChoice12) GetDisplaySequence() string {
+func (x *ResourceGroup) GetDisplaySequence() string {
 	if x != nil {
-		if x, ok := x.Choice.(*ResourceGroupChoice12_DisplaySequence); ok {
-			return x.DisplaySequence
-		}
+		return x.DisplaySequence
 	}
 	return ""
 }
 
-type isResourceGroupChoice12_Choice interface {
-	isResourceGroupChoice12_Choice()
-}
-
-type ResourceGroupChoice12_NoDisplaySequence struct {
-	// @gotags: xml:"NoDisplaySequence"
-	NoDisplaySequence bool `protobuf:"varint,1,opt,name=no_display_sequence,json=noDisplaySequence,proto3,oneof" xml:"NoDisplaySequence"`
-}
-
-type ResourceGroupChoice12_DisplaySequence struct {
-	// @gotags: xml:"DisplaySequence"
-	DisplaySequence string `protobuf:"bytes,2,opt,name=display_sequence,json=displaySequence,proto3,oneof" xml:"DisplaySequence"`
-}
-
-func (*ResourceGroupChoice12_NoDisplaySequence) isResourceGroupChoice12_Choice() {}
-
-func (*ResourceGroupChoice12_DisplaySequence) isResourceGroupChoice12_Choice() {}
-
-type ResourceGroupChoice13 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ResourceGroupChoice13_ResourceGroupReleaseReference
-	//	*ResourceGroupChoice13_ReleaseId
-	Choice        isResourceGroupChoice13_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResourceGroupChoice13) Reset() {
-	*x = ResourceGroupChoice13{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResourceGroupChoice13) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResourceGroupChoice13) ProtoMessage() {}
-
-func (x *ResourceGroupChoice13) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[79]
+func (x *ResourceGroup) GetResourceGroupReleaseReference() string {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResourceGroupChoice13.ProtoReflect.Descriptor instead.
-func (*ResourceGroupChoice13) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *ResourceGroupChoice13) GetChoice() isResourceGroupChoice13_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceGroupChoice13) GetResourceGroupReleaseReference() string {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceGroupChoice13_ResourceGroupReleaseReference); ok {
-			return x.ResourceGroupReleaseReference
-		}
+		return x.ResourceGroupReleaseReference
 	}
 	return ""
 }
 
-func (x *ResourceGroupChoice13) GetReleaseId() *ReleaseId {
+func (x *ResourceGroup) GetReleaseId() *ReleaseId {
 	if x != nil {
-		if x, ok := x.Choice.(*ResourceGroupChoice13_ReleaseId); ok {
-			return x.ReleaseId
-		}
+		return x.ReleaseId
 	}
 	return nil
 }
-
-type isResourceGroupChoice13_Choice interface {
-	isResourceGroupChoice13_Choice()
-}
-
-type ResourceGroupChoice13_ResourceGroupReleaseReference struct {
-	// @gotags: xml:"ResourceGroupReleaseReference"
-	ResourceGroupReleaseReference string `protobuf:"bytes,1,opt,name=resource_group_release_reference,json=resourceGroupReleaseReference,proto3,oneof" xml:"ResourceGroupReleaseReference"`
-}
-
-type ResourceGroupChoice13_ReleaseId struct {
-	// @gotags: xml:"ReleaseId"
-	ReleaseId *ReleaseId `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3,oneof" xml:"ReleaseId"`
-}
-
-func (*ResourceGroupChoice13_ResourceGroupReleaseReference) isResourceGroupChoice13_Choice() {}
-
-func (*ResourceGroupChoice13_ReleaseId) isResourceGroupChoice13_Choice() {}
 
 type ResourceGroupContentItem struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -7232,15 +6084,17 @@ type ResourceGroupContentItem struct {
 	IsInstantGratificationResource bool `protobuf:"varint,5,opt,name=is_instant_gratification_resource,json=isInstantGratificationResource,proto3" json:"is_instant_gratification_resource,omitempty" xml:"IsInstantGratificationResource"`
 	// @gotags: xml:"IsPreOrderIncentiveResource"
 	IsPreOrderIncentiveResource bool `protobuf:"varint,6,opt,name=is_pre_order_incentive_resource,json=isPreOrderIncentiveResource,proto3" json:"is_pre_order_incentive_resource,omitempty" xml:"IsPreOrderIncentiveResource"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *ResourceGroupContentItemChoice7 `protobuf:"bytes,7,opt,name=choice,proto3" json:"choice,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// @gotags: xml:"NoDisplaySequence"
+	NoDisplaySequence bool `protobuf:"varint,7,opt,name=no_display_sequence,json=noDisplaySequence,proto3" json:"no_display_sequence,omitempty" xml:"NoDisplaySequence"`
+	// @gotags: xml:"DisplaySequence"
+	DisplaySequence string `protobuf:"bytes,8,opt,name=display_sequence,json=displaySequence,proto3" json:"display_sequence,omitempty" xml:"DisplaySequence"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ResourceGroupContentItem) Reset() {
 	*x = ResourceGroupContentItem{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[80]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7252,7 +6106,7 @@ func (x *ResourceGroupContentItem) String() string {
 func (*ResourceGroupContentItem) ProtoMessage() {}
 
 func (x *ResourceGroupContentItem) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[80]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7265,7 +6119,7 @@ func (x *ResourceGroupContentItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceGroupContentItem.ProtoReflect.Descriptor instead.
 func (*ResourceGroupContentItem) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{80}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *ResourceGroupContentItem) GetSequenceNumber() int32 {
@@ -7310,97 +6164,19 @@ func (x *ResourceGroupContentItem) GetIsPreOrderIncentiveResource() bool {
 	return false
 }
 
-func (x *ResourceGroupContentItem) GetChoice() *ResourceGroupContentItemChoice7 {
+func (x *ResourceGroupContentItem) GetNoDisplaySequence() bool {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-type ResourceGroupContentItemChoice7 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ResourceGroupContentItemChoice7_NoDisplaySequence
-	//	*ResourceGroupContentItemChoice7_DisplaySequence
-	Choice        isResourceGroupContentItemChoice7_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResourceGroupContentItemChoice7) Reset() {
-	*x = ResourceGroupContentItemChoice7{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResourceGroupContentItemChoice7) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResourceGroupContentItemChoice7) ProtoMessage() {}
-
-func (x *ResourceGroupContentItemChoice7) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResourceGroupContentItemChoice7.ProtoReflect.Descriptor instead.
-func (*ResourceGroupContentItemChoice7) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *ResourceGroupContentItemChoice7) GetChoice() isResourceGroupContentItemChoice7_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceGroupContentItemChoice7) GetNoDisplaySequence() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceGroupContentItemChoice7_NoDisplaySequence); ok {
-			return x.NoDisplaySequence
-		}
+		return x.NoDisplaySequence
 	}
 	return false
 }
 
-func (x *ResourceGroupContentItemChoice7) GetDisplaySequence() string {
+func (x *ResourceGroupContentItem) GetDisplaySequence() string {
 	if x != nil {
-		if x, ok := x.Choice.(*ResourceGroupContentItemChoice7_DisplaySequence); ok {
-			return x.DisplaySequence
-		}
+		return x.DisplaySequence
 	}
 	return ""
 }
-
-type isResourceGroupContentItemChoice7_Choice interface {
-	isResourceGroupContentItemChoice7_Choice()
-}
-
-type ResourceGroupContentItemChoice7_NoDisplaySequence struct {
-	// @gotags: xml:"NoDisplaySequence"
-	NoDisplaySequence bool `protobuf:"varint,1,opt,name=no_display_sequence,json=noDisplaySequence,proto3,oneof" xml:"NoDisplaySequence"`
-}
-
-type ResourceGroupContentItemChoice7_DisplaySequence struct {
-	// @gotags: xml:"DisplaySequence"
-	DisplaySequence string `protobuf:"bytes,2,opt,name=display_sequence,json=displaySequence,proto3,oneof" xml:"DisplaySequence"`
-}
-
-func (*ResourceGroupContentItemChoice7_NoDisplaySequence) isResourceGroupContentItemChoice7_Choice() {
-}
-
-func (*ResourceGroupContentItemChoice7_DisplaySequence) isResourceGroupContentItemChoice7_Choice() {}
 
 type ResourceList struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -7422,7 +6198,7 @@ type ResourceList struct {
 
 func (x *ResourceList) Reset() {
 	*x = ResourceList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[82]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7434,7 +6210,7 @@ func (x *ResourceList) String() string {
 func (*ResourceList) ProtoMessage() {}
 
 func (x *ResourceList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[82]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7447,7 +6223,7 @@ func (x *ResourceList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceList.ProtoReflect.Descriptor instead.
 func (*ResourceList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{82}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *ResourceList) GetSoundRecording() []*SoundRecording {
@@ -7500,17 +6276,19 @@ type ResourceRightsController struct {
 	RightsControlType []string `protobuf:"bytes,2,rep,name=rights_control_type,json=rightsControlType,proto3" json:"rights_control_type,omitempty" xml:"RightsControlType"`
 	// @gotags: xml:"DelegatedUsageRights"
 	DelegatedUsageRights []*DelegatedUsageRights `protobuf:"bytes,3,rep,name=delegated_usage_rights,json=delegatedUsageRights,proto3" json:"delegated_usage_rights,omitempty" xml:"DelegatedUsageRights"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *ResourceRightsControllerChoice4 `protobuf:"bytes,4,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"RightShareUnknown"
+	RightShareUnknown bool `protobuf:"varint,4,opt,name=right_share_unknown,json=rightShareUnknown,proto3" json:"right_share_unknown,omitempty" xml:"RightShareUnknown"`
+	// @gotags: xml:"RightSharePercentage"
+	RightSharePercentage *Percentage `protobuf:"bytes,5,opt,name=right_share_percentage,json=rightSharePercentage,proto3" json:"right_share_percentage,omitempty" xml:"RightSharePercentage"`
 	// @gotags: xml:"SequenceNumber,attr"
-	SequenceNumber int32 `protobuf:"varint,5,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	SequenceNumber int32 `protobuf:"varint,6,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ResourceRightsController) Reset() {
 	*x = ResourceRightsController{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[83]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7522,7 +6300,7 @@ func (x *ResourceRightsController) String() string {
 func (*ResourceRightsController) ProtoMessage() {}
 
 func (x *ResourceRightsController) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[83]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7535,7 +6313,7 @@ func (x *ResourceRightsController) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceRightsController.ProtoReflect.Descriptor instead.
 func (*ResourceRightsController) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{83}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *ResourceRightsController) GetRightsControllerPartyReference() string {
@@ -7559,9 +6337,16 @@ func (x *ResourceRightsController) GetDelegatedUsageRights() []*DelegatedUsageRi
 	return nil
 }
 
-func (x *ResourceRightsController) GetChoice() *ResourceRightsControllerChoice4 {
+func (x *ResourceRightsController) GetRightShareUnknown() bool {
 	if x != nil {
-		return x.Choice
+		return x.RightShareUnknown
+	}
+	return false
+}
+
+func (x *ResourceRightsController) GetRightSharePercentage() *Percentage {
+	if x != nil {
+		return x.RightSharePercentage
 	}
 	return nil
 }
@@ -7571,92 +6356,6 @@ func (x *ResourceRightsController) GetSequenceNumber() int32 {
 		return x.SequenceNumber
 	}
 	return 0
-}
-
-type ResourceRightsControllerChoice4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ResourceRightsControllerChoice4_RightShareUnknown
-	//	*ResourceRightsControllerChoice4_RightSharePercentage
-	Choice        isResourceRightsControllerChoice4_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResourceRightsControllerChoice4) Reset() {
-	*x = ResourceRightsControllerChoice4{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResourceRightsControllerChoice4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResourceRightsControllerChoice4) ProtoMessage() {}
-
-func (x *ResourceRightsControllerChoice4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResourceRightsControllerChoice4.ProtoReflect.Descriptor instead.
-func (*ResourceRightsControllerChoice4) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *ResourceRightsControllerChoice4) GetChoice() isResourceRightsControllerChoice4_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceRightsControllerChoice4) GetRightShareUnknown() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceRightsControllerChoice4_RightShareUnknown); ok {
-			return x.RightShareUnknown
-		}
-	}
-	return false
-}
-
-func (x *ResourceRightsControllerChoice4) GetRightSharePercentage() *Percentage {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceRightsControllerChoice4_RightSharePercentage); ok {
-			return x.RightSharePercentage
-		}
-	}
-	return nil
-}
-
-type isResourceRightsControllerChoice4_Choice interface {
-	isResourceRightsControllerChoice4_Choice()
-}
-
-type ResourceRightsControllerChoice4_RightShareUnknown struct {
-	// @gotags: xml:"RightShareUnknown"
-	RightShareUnknown bool `protobuf:"varint,1,opt,name=right_share_unknown,json=rightShareUnknown,proto3,oneof" xml:"RightShareUnknown"`
-}
-
-type ResourceRightsControllerChoice4_RightSharePercentage struct {
-	// @gotags: xml:"RightSharePercentage"
-	RightSharePercentage *Percentage `protobuf:"bytes,2,opt,name=right_share_percentage,json=rightSharePercentage,proto3,oneof" xml:"RightSharePercentage"`
-}
-
-func (*ResourceRightsControllerChoice4_RightShareUnknown) isResourceRightsControllerChoice4_Choice() {
-}
-
-func (*ResourceRightsControllerChoice4_RightSharePercentage) isResourceRightsControllerChoice4_Choice() {
 }
 
 type ResourceSubGroup struct {
@@ -7683,19 +6382,23 @@ type ResourceSubGroup struct {
 	ResourceGroupContentItem []*ResourceGroupContentItem `protobuf:"bytes,10,rep,name=resource_group_content_item,json=resourceGroupContentItem,proto3" json:"resource_group_content_item,omitempty" xml:"ResourceGroupContentItem"`
 	// @gotags: xml:"LinkedReleaseResourceReference"
 	LinkedReleaseResourceReference []*LinkedReleaseResourceReference `protobuf:"bytes,11,rep,name=linked_release_resource_reference,json=linkedReleaseResourceReference,proto3" json:"linked_release_resource_reference,omitempty" xml:"LinkedReleaseResourceReference"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *ResourceSubGroupChoice12 `protobuf:"bytes,12,opt,name=choice,proto3" json:"choice,omitempty"`
-	// Choice wrapper for XSD choice within sequence
-	Choice_1 *ResourceSubGroupChoice13 `protobuf:"bytes,13,opt,name=choice_1,json=choice1,proto3" json:"choice_1,omitempty"`
+	// @gotags: xml:"NoDisplaySequence"
+	NoDisplaySequence bool `protobuf:"varint,12,opt,name=no_display_sequence,json=noDisplaySequence,proto3" json:"no_display_sequence,omitempty" xml:"NoDisplaySequence"`
+	// @gotags: xml:"DisplaySequence"
+	DisplaySequence string `protobuf:"bytes,13,opt,name=display_sequence,json=displaySequence,proto3" json:"display_sequence,omitempty" xml:"DisplaySequence"`
+	// @gotags: xml:"ResourceGroupReleaseReference"
+	ResourceGroupReleaseReference string `protobuf:"bytes,14,opt,name=resource_group_release_reference,json=resourceGroupReleaseReference,proto3" json:"resource_group_release_reference,omitempty" xml:"ResourceGroupReleaseReference"`
+	// @gotags: xml:"ReleaseId"
+	ReleaseId *ReleaseId `protobuf:"bytes,15,opt,name=release_id,json=releaseId,proto3" json:"release_id,omitempty" xml:"ReleaseId"`
 	// @gotags: xml:"ResourceGroupType,attr"
-	ResourceGroupType string `protobuf:"bytes,14,opt,name=resource_group_type,json=resourceGroupType,proto3" json:"resource_group_type,omitempty" xml:"ResourceGroupType,attr"`
+	ResourceGroupType string `protobuf:"bytes,16,opt,name=resource_group_type,json=resourceGroupType,proto3" json:"resource_group_type,omitempty" xml:"ResourceGroupType,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ResourceSubGroup) Reset() {
 	*x = ResourceSubGroup{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[85]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7707,7 +6410,7 @@ func (x *ResourceSubGroup) String() string {
 func (*ResourceSubGroup) ProtoMessage() {}
 
 func (x *ResourceSubGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[85]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7720,7 +6423,7 @@ func (x *ResourceSubGroup) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceSubGroup.ProtoReflect.Descriptor instead.
 func (*ResourceSubGroup) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{85}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *ResourceSubGroup) GetDisplayTitleText() []*DisplayTitleText {
@@ -7800,16 +6503,30 @@ func (x *ResourceSubGroup) GetLinkedReleaseResourceReference() []*LinkedReleaseR
 	return nil
 }
 
-func (x *ResourceSubGroup) GetChoice() *ResourceSubGroupChoice12 {
+func (x *ResourceSubGroup) GetNoDisplaySequence() bool {
 	if x != nil {
-		return x.Choice
+		return x.NoDisplaySequence
 	}
-	return nil
+	return false
 }
 
-func (x *ResourceSubGroup) GetChoice_1() *ResourceSubGroupChoice13 {
+func (x *ResourceSubGroup) GetDisplaySequence() string {
 	if x != nil {
-		return x.Choice_1
+		return x.DisplaySequence
+	}
+	return ""
+}
+
+func (x *ResourceSubGroup) GetResourceGroupReleaseReference() string {
+	if x != nil {
+		return x.ResourceGroupReleaseReference
+	}
+	return ""
+}
+
+func (x *ResourceSubGroup) GetReleaseId() *ReleaseId {
+	if x != nil {
+		return x.ReleaseId
 	}
 	return nil
 }
@@ -7820,174 +6537,6 @@ func (x *ResourceSubGroup) GetResourceGroupType() string {
 	}
 	return ""
 }
-
-type ResourceSubGroupChoice12 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ResourceSubGroupChoice12_NoDisplaySequence
-	//	*ResourceSubGroupChoice12_DisplaySequence
-	Choice        isResourceSubGroupChoice12_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResourceSubGroupChoice12) Reset() {
-	*x = ResourceSubGroupChoice12{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResourceSubGroupChoice12) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResourceSubGroupChoice12) ProtoMessage() {}
-
-func (x *ResourceSubGroupChoice12) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResourceSubGroupChoice12.ProtoReflect.Descriptor instead.
-func (*ResourceSubGroupChoice12) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *ResourceSubGroupChoice12) GetChoice() isResourceSubGroupChoice12_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceSubGroupChoice12) GetNoDisplaySequence() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceSubGroupChoice12_NoDisplaySequence); ok {
-			return x.NoDisplaySequence
-		}
-	}
-	return false
-}
-
-func (x *ResourceSubGroupChoice12) GetDisplaySequence() string {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceSubGroupChoice12_DisplaySequence); ok {
-			return x.DisplaySequence
-		}
-	}
-	return ""
-}
-
-type isResourceSubGroupChoice12_Choice interface {
-	isResourceSubGroupChoice12_Choice()
-}
-
-type ResourceSubGroupChoice12_NoDisplaySequence struct {
-	// @gotags: xml:"NoDisplaySequence"
-	NoDisplaySequence bool `protobuf:"varint,1,opt,name=no_display_sequence,json=noDisplaySequence,proto3,oneof" xml:"NoDisplaySequence"`
-}
-
-type ResourceSubGroupChoice12_DisplaySequence struct {
-	// @gotags: xml:"DisplaySequence"
-	DisplaySequence string `protobuf:"bytes,2,opt,name=display_sequence,json=displaySequence,proto3,oneof" xml:"DisplaySequence"`
-}
-
-func (*ResourceSubGroupChoice12_NoDisplaySequence) isResourceSubGroupChoice12_Choice() {}
-
-func (*ResourceSubGroupChoice12_DisplaySequence) isResourceSubGroupChoice12_Choice() {}
-
-type ResourceSubGroupChoice13 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ResourceSubGroupChoice13_ResourceGroupReleaseReference
-	//	*ResourceSubGroupChoice13_ReleaseId
-	Choice        isResourceSubGroupChoice13_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResourceSubGroupChoice13) Reset() {
-	*x = ResourceSubGroupChoice13{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResourceSubGroupChoice13) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResourceSubGroupChoice13) ProtoMessage() {}
-
-func (x *ResourceSubGroupChoice13) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResourceSubGroupChoice13.ProtoReflect.Descriptor instead.
-func (*ResourceSubGroupChoice13) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *ResourceSubGroupChoice13) GetChoice() isResourceSubGroupChoice13_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ResourceSubGroupChoice13) GetResourceGroupReleaseReference() string {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceSubGroupChoice13_ResourceGroupReleaseReference); ok {
-			return x.ResourceGroupReleaseReference
-		}
-	}
-	return ""
-}
-
-func (x *ResourceSubGroupChoice13) GetReleaseId() *ReleaseId {
-	if x != nil {
-		if x, ok := x.Choice.(*ResourceSubGroupChoice13_ReleaseId); ok {
-			return x.ReleaseId
-		}
-	}
-	return nil
-}
-
-type isResourceSubGroupChoice13_Choice interface {
-	isResourceSubGroupChoice13_Choice()
-}
-
-type ResourceSubGroupChoice13_ResourceGroupReleaseReference struct {
-	// @gotags: xml:"ResourceGroupReleaseReference"
-	ResourceGroupReleaseReference string `protobuf:"bytes,1,opt,name=resource_group_release_reference,json=resourceGroupReleaseReference,proto3,oneof" xml:"ResourceGroupReleaseReference"`
-}
-
-type ResourceSubGroupChoice13_ReleaseId struct {
-	// @gotags: xml:"ReleaseId"
-	ReleaseId *ReleaseId `protobuf:"bytes,2,opt,name=release_id,json=releaseId,proto3,oneof" xml:"ReleaseId"`
-}
-
-func (*ResourceSubGroupChoice13_ResourceGroupReleaseReference) isResourceSubGroupChoice13_Choice() {}
-
-func (*ResourceSubGroupChoice13_ReleaseId) isResourceSubGroupChoice13_Choice() {}
 
 type RightsClaimPolicy struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -8003,7 +6552,7 @@ type RightsClaimPolicy struct {
 
 func (x *RightsClaimPolicy) Reset() {
 	*x = RightsClaimPolicy{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[88]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8015,7 +6564,7 @@ func (x *RightsClaimPolicy) String() string {
 func (*RightsClaimPolicy) ProtoMessage() {}
 
 func (x *RightsClaimPolicy) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[88]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8028,7 +6577,7 @@ func (x *RightsClaimPolicy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RightsClaimPolicy.ProtoReflect.Descriptor instead.
 func (*RightsClaimPolicy) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{88}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *RightsClaimPolicy) GetCondition() []*ConditionForRightsClaimPolicy {
@@ -8056,15 +6605,17 @@ type Segment struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"StartTime"
 	StartTime string `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty" xml:"StartTime"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *SegmentChoice2 `protobuf:"bytes,2,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"Duration"
+	Duration string `protobuf:"bytes,2,opt,name=duration,proto3" json:"duration,omitempty" xml:"Duration"`
+	// @gotags: xml:"EndTime"
+	EndTime       string `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty" xml:"EndTime"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Segment) Reset() {
 	*x = Segment{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[89]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8076,7 +6627,7 @@ func (x *Segment) String() string {
 func (*Segment) ProtoMessage() {}
 
 func (x *Segment) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[89]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8089,7 +6640,7 @@ func (x *Segment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Segment.ProtoReflect.Descriptor instead.
 func (*Segment) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{89}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *Segment) GetStartTime() string {
@@ -8099,96 +6650,19 @@ func (x *Segment) GetStartTime() string {
 	return ""
 }
 
-func (x *Segment) GetChoice() *SegmentChoice2 {
+func (x *Segment) GetDuration() string {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-type SegmentChoice2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*SegmentChoice2_Duration
-	//	*SegmentChoice2_EndTime
-	Choice        isSegmentChoice2_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SegmentChoice2) Reset() {
-	*x = SegmentChoice2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SegmentChoice2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SegmentChoice2) ProtoMessage() {}
-
-func (x *SegmentChoice2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SegmentChoice2.ProtoReflect.Descriptor instead.
-func (*SegmentChoice2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *SegmentChoice2) GetChoice() isSegmentChoice2_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *SegmentChoice2) GetDuration() string {
-	if x != nil {
-		if x, ok := x.Choice.(*SegmentChoice2_Duration); ok {
-			return x.Duration
-		}
+		return x.Duration
 	}
 	return ""
 }
 
-func (x *SegmentChoice2) GetEndTime() string {
+func (x *Segment) GetEndTime() string {
 	if x != nil {
-		if x, ok := x.Choice.(*SegmentChoice2_EndTime); ok {
-			return x.EndTime
-		}
+		return x.EndTime
 	}
 	return ""
 }
-
-type isSegmentChoice2_Choice interface {
-	isSegmentChoice2_Choice()
-}
-
-type SegmentChoice2_Duration struct {
-	// @gotags: xml:"Duration"
-	Duration string `protobuf:"bytes,1,opt,name=duration,proto3,oneof" xml:"Duration"`
-}
-
-type SegmentChoice2_EndTime struct {
-	// @gotags: xml:"EndTime"
-	EndTime string `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3,oneof" xml:"EndTime"`
-}
-
-func (*SegmentChoice2_Duration) isSegmentChoice2_Choice() {}
-
-func (*SegmentChoice2_EndTime) isSegmentChoice2_Choice() {}
 
 type ServiceException struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -8198,15 +6672,17 @@ type ServiceException struct {
 	URL []string `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty" xml:"URL"`
 	// @gotags: xml:"Channel"
 	Channel []*Channel `protobuf:"bytes,3,rep,name=channel,proto3" json:"channel,omitempty" xml:"Channel"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *ServiceExceptionChoice4 `protobuf:"bytes,4,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyId `protobuf:"bytes,4,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName     []*PartyName `protobuf:"bytes,5,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ServiceException) Reset() {
 	*x = ServiceException{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[91]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8218,7 +6694,7 @@ func (x *ServiceException) String() string {
 func (*ServiceException) ProtoMessage() {}
 
 func (x *ServiceException) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[91]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8231,7 +6707,7 @@ func (x *ServiceException) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceException.ProtoReflect.Descriptor instead.
 func (*ServiceException) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{91}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *ServiceException) GetTradingName() *Name {
@@ -8255,95 +6731,19 @@ func (x *ServiceException) GetChannel() []*Channel {
 	return nil
 }
 
-func (x *ServiceException) GetChoice() *ServiceExceptionChoice4 {
+func (x *ServiceException) GetPartyId() []*DetailedPartyId {
 	if x != nil {
-		return x.Choice
+		return x.PartyId
 	}
 	return nil
 }
 
-type ServiceExceptionChoice4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ServiceExceptionChoice4_PartyIdOption
-	//	*ServiceExceptionChoice4_Sequence_1
-	Choice        isServiceExceptionChoice4_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ServiceExceptionChoice4) Reset() {
-	*x = ServiceExceptionChoice4{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ServiceExceptionChoice4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ServiceExceptionChoice4) ProtoMessage() {}
-
-func (x *ServiceExceptionChoice4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[92]
+func (x *ServiceException) GetPartyName() []*PartyName {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ServiceExceptionChoice4.ProtoReflect.Descriptor instead.
-func (*ServiceExceptionChoice4) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *ServiceExceptionChoice4) GetChoice() isServiceExceptionChoice4_Choice {
-	if x != nil {
-		return x.Choice
+		return x.PartyName
 	}
 	return nil
 }
-
-func (x *ServiceExceptionChoice4) GetPartyIdOption() *ServiceExceptionChoice4_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*ServiceExceptionChoice4_PartyIdOption); ok {
-			return x.PartyIdOption
-		}
-	}
-	return nil
-}
-
-func (x *ServiceExceptionChoice4) GetSequence_1() *ServiceExceptionChoice4_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*ServiceExceptionChoice4_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isServiceExceptionChoice4_Choice interface {
-	isServiceExceptionChoice4_Choice()
-}
-
-type ServiceExceptionChoice4_PartyIdOption struct {
-	// @gotags: xml:"PartyId"
-	PartyIdOption *ServiceExceptionChoice4_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
-}
-
-type ServiceExceptionChoice4_Sequence_1 struct {
-	Sequence_1 *ServiceExceptionChoice4_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*ServiceExceptionChoice4_PartyIdOption) isServiceExceptionChoice4_Choice() {}
-
-func (*ServiceExceptionChoice4_Sequence_1) isServiceExceptionChoice4_Choice() {}
 
 type SheetMusic struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -8407,7 +6807,7 @@ type SheetMusic struct {
 
 func (x *SheetMusic) Reset() {
 	*x = SheetMusic{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[93]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8419,7 +6819,7 @@ func (x *SheetMusic) String() string {
 func (*SheetMusic) ProtoMessage() {}
 
 func (x *SheetMusic) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[93]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8432,7 +6832,7 @@ func (x *SheetMusic) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SheetMusic.ProtoReflect.Descriptor instead.
 func (*SheetMusic) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{93}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *SheetMusic) GetResourceReference() string {
@@ -8686,7 +7086,7 @@ type Software struct {
 
 func (x *Software) Reset() {
 	*x = Software{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[94]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8698,7 +7098,7 @@ func (x *Software) String() string {
 func (*Software) ProtoMessage() {}
 
 func (x *Software) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[94]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8711,7 +7111,7 @@ func (x *Software) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Software.ProtoReflect.Descriptor instead.
 func (*Software) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{94}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *Software) GetResourceReference() string {
@@ -9003,7 +7403,7 @@ type SoundRecording struct {
 
 func (x *SoundRecording) Reset() {
 	*x = SoundRecording{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[95]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9015,7 +7415,7 @@ func (x *SoundRecording) String() string {
 func (*SoundRecording) ProtoMessage() {}
 
 func (x *SoundRecording) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[95]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9028,7 +7428,7 @@ func (x *SoundRecording) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SoundRecording.ProtoReflect.Descriptor instead.
 func (*SoundRecording) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{95}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *SoundRecording) GetResourceReference() string {
@@ -9371,7 +7771,7 @@ type SoundRecordingClipDetails struct {
 
 func (x *SoundRecordingClipDetails) Reset() {
 	*x = SoundRecordingClipDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[96]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9383,7 +7783,7 @@ func (x *SoundRecordingClipDetails) String() string {
 func (*SoundRecordingClipDetails) ProtoMessage() {}
 
 func (x *SoundRecordingClipDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[96]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9396,7 +7796,7 @@ func (x *SoundRecordingClipDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SoundRecordingClipDetails.ProtoReflect.Descriptor instead.
 func (*SoundRecordingClipDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{96}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *SoundRecordingClipDetails) GetTechnicalResourceDetailsReference() string {
@@ -9454,7 +7854,7 @@ type SoundRecordingEdition struct {
 
 func (x *SoundRecordingEdition) Reset() {
 	*x = SoundRecordingEdition{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[97]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9466,7 +7866,7 @@ func (x *SoundRecordingEdition) String() string {
 func (*SoundRecordingEdition) ProtoMessage() {}
 
 func (x *SoundRecordingEdition) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[97]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9479,7 +7879,7 @@ func (x *SoundRecordingEdition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SoundRecordingEdition.ProtoReflect.Descriptor instead.
 func (*SoundRecordingEdition) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{97}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *SoundRecordingEdition) GetType() string {
@@ -9534,7 +7934,7 @@ type SupplementalDocumentList struct {
 
 func (x *SupplementalDocumentList) Reset() {
 	*x = SupplementalDocumentList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[98]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9546,7 +7946,7 @@ func (x *SupplementalDocumentList) String() string {
 func (*SupplementalDocumentList) ProtoMessage() {}
 
 func (x *SupplementalDocumentList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[98]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9559,7 +7959,7 @@ func (x *SupplementalDocumentList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SupplementalDocumentList.ProtoReflect.Descriptor instead.
 func (*SupplementalDocumentList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{98}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *SupplementalDocumentList) GetSupplementalDocument() []*File {
@@ -9587,7 +7987,7 @@ type SynopsisWithTerritory struct {
 
 func (x *SynopsisWithTerritory) Reset() {
 	*x = SynopsisWithTerritory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[99]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9599,7 +7999,7 @@ func (x *SynopsisWithTerritory) String() string {
 func (*SynopsisWithTerritory) ProtoMessage() {}
 
 func (x *SynopsisWithTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[99]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9612,7 +8012,7 @@ func (x *SynopsisWithTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SynopsisWithTerritory.ProtoReflect.Descriptor instead.
 func (*SynopsisWithTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{99}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *SynopsisWithTerritory) GetValue() string {
@@ -9664,7 +8064,7 @@ type Tala struct {
 
 func (x *Tala) Reset() {
 	*x = Tala{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[100]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9676,7 +8076,7 @@ func (x *Tala) String() string {
 func (*Tala) ProtoMessage() {}
 
 func (x *Tala) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[100]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9689,7 +8089,7 @@ func (x *Tala) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Tala.ProtoReflect.Descriptor instead.
 func (*Tala) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{100}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *Tala) GetValue() string {
@@ -9753,7 +8153,7 @@ type TechnicalImageDetails struct {
 
 func (x *TechnicalImageDetails) Reset() {
 	*x = TechnicalImageDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[101]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9765,7 +8165,7 @@ func (x *TechnicalImageDetails) String() string {
 func (*TechnicalImageDetails) ProtoMessage() {}
 
 func (x *TechnicalImageDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[101]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9778,7 +8178,7 @@ func (x *TechnicalImageDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TechnicalImageDetails.ProtoReflect.Descriptor instead.
 func (*TechnicalImageDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{101}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *TechnicalImageDetails) GetTechnicalResourceDetailsReference() string {
@@ -9923,7 +8323,7 @@ type TechnicalSheetMusicDetails struct {
 
 func (x *TechnicalSheetMusicDetails) Reset() {
 	*x = TechnicalSheetMusicDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[102]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9935,7 +8335,7 @@ func (x *TechnicalSheetMusicDetails) String() string {
 func (*TechnicalSheetMusicDetails) ProtoMessage() {}
 
 func (x *TechnicalSheetMusicDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[102]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9948,7 +8348,7 @@ func (x *TechnicalSheetMusicDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TechnicalSheetMusicDetails.ProtoReflect.Descriptor instead.
 func (*TechnicalSheetMusicDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{102}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *TechnicalSheetMusicDetails) GetTechnicalResourceDetailsReference() string {
@@ -10058,7 +8458,7 @@ type TechnicalSoftwareDetails struct {
 
 func (x *TechnicalSoftwareDetails) Reset() {
 	*x = TechnicalSoftwareDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[103]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10070,7 +8470,7 @@ func (x *TechnicalSoftwareDetails) String() string {
 func (*TechnicalSoftwareDetails) ProtoMessage() {}
 
 func (x *TechnicalSoftwareDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[103]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10083,7 +8483,7 @@ func (x *TechnicalSoftwareDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TechnicalSoftwareDetails.ProtoReflect.Descriptor instead.
 func (*TechnicalSoftwareDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{103}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *TechnicalSoftwareDetails) GetTechnicalResourceDetailsReference() string {
@@ -10187,7 +8587,7 @@ type TechnicalSoundRecordingDetails struct {
 
 func (x *TechnicalSoundRecordingDetails) Reset() {
 	*x = TechnicalSoundRecordingDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[104]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10199,7 +8599,7 @@ func (x *TechnicalSoundRecordingDetails) String() string {
 func (*TechnicalSoundRecordingDetails) ProtoMessage() {}
 
 func (x *TechnicalSoundRecordingDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[104]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10212,7 +8612,7 @@ func (x *TechnicalSoundRecordingDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TechnicalSoundRecordingDetails.ProtoReflect.Descriptor instead.
 func (*TechnicalSoundRecordingDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{104}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *TechnicalSoundRecordingDetails) GetTechnicalResourceDetailsReference() string {
@@ -10301,7 +8701,7 @@ type TechnicalTextDetails struct {
 
 func (x *TechnicalTextDetails) Reset() {
 	*x = TechnicalTextDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[105]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10313,7 +8713,7 @@ func (x *TechnicalTextDetails) String() string {
 func (*TechnicalTextDetails) ProtoMessage() {}
 
 func (x *TechnicalTextDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[105]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10326,7 +8726,7 @@ func (x *TechnicalTextDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TechnicalTextDetails.ProtoReflect.Descriptor instead.
 func (*TechnicalTextDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{105}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *TechnicalTextDetails) GetTechnicalResourceDetailsReference() string {
@@ -10430,7 +8830,7 @@ type TechnicalVideoDetails struct {
 
 func (x *TechnicalVideoDetails) Reset() {
 	*x = TechnicalVideoDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[106]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10442,7 +8842,7 @@ func (x *TechnicalVideoDetails) String() string {
 func (*TechnicalVideoDetails) ProtoMessage() {}
 
 func (x *TechnicalVideoDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[106]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10455,7 +8855,7 @@ func (x *TechnicalVideoDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TechnicalVideoDetails.ProtoReflect.Descriptor instead.
 func (*TechnicalVideoDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{106}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *TechnicalVideoDetails) GetTechnicalResourceDetailsReference() string {
@@ -10578,7 +8978,7 @@ type Text struct {
 
 func (x *Text) Reset() {
 	*x = Text{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[107]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10590,7 +8990,7 @@ func (x *Text) String() string {
 func (*Text) ProtoMessage() {}
 
 func (x *Text) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[107]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10603,7 +9003,7 @@ func (x *Text) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Text.ProtoReflect.Descriptor instead.
 func (*Text) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{107}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *Text) GetResourceReference() string {
@@ -10816,7 +9216,7 @@ type Timing struct {
 
 func (x *Timing) Reset() {
 	*x = Timing{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[108]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10828,7 +9228,7 @@ func (x *Timing) String() string {
 func (*Timing) ProtoMessage() {}
 
 func (x *Timing) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[108]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10841,7 +9241,7 @@ func (x *Timing) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Timing.ProtoReflect.Descriptor instead.
 func (*Timing) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{108}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *Timing) GetStartPoint() string {
@@ -10881,7 +9281,7 @@ type Title struct {
 
 func (x *Title) Reset() {
 	*x = Title{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[109]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10893,7 +9293,7 @@ func (x *Title) String() string {
 func (*Title) ProtoMessage() {}
 
 func (x *Title) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[109]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10906,7 +9306,7 @@ func (x *Title) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Title.ProtoReflect.Descriptor instead.
 func (*Title) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{109}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *Title) GetTitleText() string {
@@ -10981,7 +9381,7 @@ type TrackRelease struct {
 
 func (x *TrackRelease) Reset() {
 	*x = TrackRelease{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[110]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10993,7 +9393,7 @@ func (x *TrackRelease) String() string {
 func (*TrackRelease) ProtoMessage() {}
 
 func (x *TrackRelease) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[110]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11006,7 +9406,7 @@ func (x *TrackRelease) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TrackRelease.ProtoReflect.Descriptor instead.
 func (*TrackRelease) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{110}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *TrackRelease) GetReleaseReference() string {
@@ -11143,17 +9543,19 @@ type TrackReleaseVisibility struct {
 	TrackListingPreviewStartDateTime string `protobuf:"bytes,2,opt,name=track_listing_preview_start_date_time,json=trackListingPreviewStartDateTime,proto3" json:"track_listing_preview_start_date_time,omitempty" xml:"TrackListingPreviewStartDateTime"`
 	// @gotags: xml:"ClipPreviewStartDateTime"
 	ClipPreviewStartDateTime string `protobuf:"bytes,3,opt,name=clip_preview_start_date_time,json=clipPreviewStartDateTime,proto3" json:"clip_preview_start_date_time,omitempty" xml:"ClipPreviewStartDateTime"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *TrackReleaseVisibilityChoice4 `protobuf:"bytes,4,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"TerritoryCode"
+	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,4,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
+	// @gotags: xml:"ExcludedTerritoryCode"
+	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,5,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
 	// @gotags: xml:"DoNotDisplayDates,attr"
-	DoNotDisplayDates bool `protobuf:"varint,5,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty" xml:"DoNotDisplayDates,attr"`
+	DoNotDisplayDates bool `protobuf:"varint,6,opt,name=do_not_display_dates,json=doNotDisplayDates,proto3" json:"do_not_display_dates,omitempty" xml:"DoNotDisplayDates,attr"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *TrackReleaseVisibility) Reset() {
 	*x = TrackReleaseVisibility{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[111]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11165,7 +9567,7 @@ func (x *TrackReleaseVisibility) String() string {
 func (*TrackReleaseVisibility) ProtoMessage() {}
 
 func (x *TrackReleaseVisibility) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[111]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11178,7 +9580,7 @@ func (x *TrackReleaseVisibility) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TrackReleaseVisibility.ProtoReflect.Descriptor instead.
 func (*TrackReleaseVisibility) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{111}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *TrackReleaseVisibility) GetVisibilityReference() string {
@@ -11202,9 +9604,16 @@ func (x *TrackReleaseVisibility) GetClipPreviewStartDateTime() string {
 	return ""
 }
 
-func (x *TrackReleaseVisibility) GetChoice() *TrackReleaseVisibilityChoice4 {
+func (x *TrackReleaseVisibility) GetTerritoryCode() []*CurrentTerritoryCode {
 	if x != nil {
-		return x.Choice
+		return x.TerritoryCode
+	}
+	return nil
+}
+
+func (x *TrackReleaseVisibility) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
+	if x != nil {
+		return x.ExcludedTerritoryCode
 	}
 	return nil
 }
@@ -11214,91 +9623,6 @@ func (x *TrackReleaseVisibility) GetDoNotDisplayDates() bool {
 		return x.DoNotDisplayDates
 	}
 	return false
-}
-
-type TrackReleaseVisibilityChoice4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*TrackReleaseVisibilityChoice4_TerritoryCodeOption
-	//	*TrackReleaseVisibilityChoice4_ExcludedTerritoryCodeOption
-	Choice        isTrackReleaseVisibilityChoice4_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TrackReleaseVisibilityChoice4) Reset() {
-	*x = TrackReleaseVisibilityChoice4{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TrackReleaseVisibilityChoice4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TrackReleaseVisibilityChoice4) ProtoMessage() {}
-
-func (x *TrackReleaseVisibilityChoice4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TrackReleaseVisibilityChoice4.ProtoReflect.Descriptor instead.
-func (*TrackReleaseVisibilityChoice4) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{112}
-}
-
-func (x *TrackReleaseVisibilityChoice4) GetChoice() isTrackReleaseVisibilityChoice4_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *TrackReleaseVisibilityChoice4) GetTerritoryCodeOption() *TrackReleaseVisibilityChoice4_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*TrackReleaseVisibilityChoice4_TerritoryCodeOption); ok {
-			return x.TerritoryCodeOption
-		}
-	}
-	return nil
-}
-
-func (x *TrackReleaseVisibilityChoice4) GetExcludedTerritoryCodeOption() *TrackReleaseVisibilityChoice4_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*TrackReleaseVisibilityChoice4_ExcludedTerritoryCodeOption); ok {
-			return x.ExcludedTerritoryCodeOption
-		}
-	}
-	return nil
-}
-
-type isTrackReleaseVisibilityChoice4_Choice interface {
-	isTrackReleaseVisibilityChoice4_Choice()
-}
-
-type TrackReleaseVisibilityChoice4_TerritoryCodeOption struct {
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCodeOption *TrackReleaseVisibilityChoice4_Option1 `protobuf:"bytes,1,opt,name=territory_code_option,json=territoryCodeOption,proto3,oneof" xml:"TerritoryCode"`
-}
-
-type TrackReleaseVisibilityChoice4_ExcludedTerritoryCodeOption struct {
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCodeOption *TrackReleaseVisibilityChoice4_Option2 `protobuf:"bytes,2,opt,name=excluded_territory_code_option,json=excludedTerritoryCodeOption,proto3,oneof" xml:"ExcludedTerritoryCode"`
-}
-
-func (*TrackReleaseVisibilityChoice4_TerritoryCodeOption) isTrackReleaseVisibilityChoice4_Choice() {}
-
-func (*TrackReleaseVisibilityChoice4_ExcludedTerritoryCodeOption) isTrackReleaseVisibilityChoice4_Choice() {
 }
 
 type UseType struct {
@@ -11315,7 +9639,7 @@ type UseType struct {
 
 func (x *UseType) Reset() {
 	*x = UseType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[113]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11327,7 +9651,7 @@ func (x *UseType) String() string {
 func (*UseType) ProtoMessage() {}
 
 func (x *UseType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[113]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11340,7 +9664,7 @@ func (x *UseType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UseType.ProtoReflect.Descriptor instead.
 func (*UseType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{113}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *UseType) GetValue() string {
@@ -11378,7 +9702,7 @@ type UserInterfaceType struct {
 
 func (x *UserInterfaceType) Reset() {
 	*x = UserInterfaceType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[114]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11390,7 +9714,7 @@ func (x *UserInterfaceType) String() string {
 func (*UserInterfaceType) ProtoMessage() {}
 
 func (x *UserInterfaceType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[114]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11403,7 +9727,7 @@ func (x *UserInterfaceType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserInterfaceType.ProtoReflect.Descriptor instead.
 func (*UserInterfaceType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{114}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *UserInterfaceType) GetValue() string {
@@ -11515,21 +9839,23 @@ type Video struct {
 	Deity []string `protobuf:"bytes,42,rep,name=deity,proto3" json:"deity,omitempty" xml:"Deity"`
 	// @gotags: xml:"VideoChapterReference"
 	VideoChapterReference []string `protobuf:"bytes,43,rep,name=video_chapter_reference,json=videoChapterReference,proto3" json:"video_chapter_reference,omitempty" xml:"VideoChapterReference"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *VideoChoice44 `protobuf:"bytes,44,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"VideoCueSheetReference"
+	VideoCueSheetReference []string `protobuf:"bytes,44,rep,name=video_cue_sheet_reference,json=videoCueSheetReference,proto3" json:"video_cue_sheet_reference,omitempty" xml:"VideoCueSheetReference"`
+	// @gotags: xml:"ReasonForCueSheetAbsence"
+	ReasonForCueSheetAbsence *Reason `protobuf:"bytes,45,opt,name=reason_for_cue_sheet_absence,json=reasonForCueSheetAbsence,proto3" json:"reason_for_cue_sheet_absence,omitempty" xml:"ReasonForCueSheetAbsence"`
 	// @gotags: xml:"LanguageAndScriptCode,attr"
-	LanguageAndScriptCode string `protobuf:"bytes,45,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
+	LanguageAndScriptCode string `protobuf:"bytes,46,opt,name=language_and_script_code,json=languageAndScriptCode,proto3" json:"language_and_script_code,omitempty" xml:"LanguageAndScriptCode,attr"`
 	// @gotags: xml:"IsSupplemental,attr"
-	IsSupplemental bool `protobuf:"varint,46,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
+	IsSupplemental bool `protobuf:"varint,47,opt,name=is_supplemental,json=isSupplemental,proto3" json:"is_supplemental,omitempty" xml:"IsSupplemental,attr"`
 	// @gotags: xml:"ApplyClassicalProfileVariant,attr"
-	ApplyClassicalProfileVariant bool `protobuf:"varint,47,opt,name=apply_classical_profile_variant,json=applyClassicalProfileVariant,proto3" json:"apply_classical_profile_variant,omitempty" xml:"ApplyClassicalProfileVariant,attr"`
+	ApplyClassicalProfileVariant bool `protobuf:"varint,48,opt,name=apply_classical_profile_variant,json=applyClassicalProfileVariant,proto3" json:"apply_classical_profile_variant,omitempty" xml:"ApplyClassicalProfileVariant,attr"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
 
 func (x *Video) Reset() {
 	*x = Video{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[115]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11541,7 +9867,7 @@ func (x *Video) String() string {
 func (*Video) ProtoMessage() {}
 
 func (x *Video) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[115]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11554,7 +9880,7 @@ func (x *Video) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Video.ProtoReflect.Descriptor instead.
 func (*Video) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{115}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *Video) GetResourceReference() string {
@@ -11858,9 +10184,16 @@ func (x *Video) GetVideoChapterReference() []string {
 	return nil
 }
 
-func (x *Video) GetChoice() *VideoChoice44 {
+func (x *Video) GetVideoCueSheetReference() []string {
 	if x != nil {
-		return x.Choice
+		return x.VideoCueSheetReference
+	}
+	return nil
+}
+
+func (x *Video) GetReasonForCueSheetAbsence() *Reason {
+	if x != nil {
+		return x.ReasonForCueSheetAbsence
 	}
 	return nil
 }
@@ -11886,90 +10219,6 @@ func (x *Video) GetApplyClassicalProfileVariant() bool {
 	return false
 }
 
-type VideoChoice44 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*VideoChoice44_VideoCueSheetReferenceOption
-	//	*VideoChoice44_ReasonForCueSheetAbsence
-	Choice        isVideoChoice44_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *VideoChoice44) Reset() {
-	*x = VideoChoice44{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *VideoChoice44) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*VideoChoice44) ProtoMessage() {}
-
-func (x *VideoChoice44) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use VideoChoice44.ProtoReflect.Descriptor instead.
-func (*VideoChoice44) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{116}
-}
-
-func (x *VideoChoice44) GetChoice() isVideoChoice44_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *VideoChoice44) GetVideoCueSheetReferenceOption() *VideoChoice44_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*VideoChoice44_VideoCueSheetReferenceOption); ok {
-			return x.VideoCueSheetReferenceOption
-		}
-	}
-	return nil
-}
-
-func (x *VideoChoice44) GetReasonForCueSheetAbsence() *Reason {
-	if x != nil {
-		if x, ok := x.Choice.(*VideoChoice44_ReasonForCueSheetAbsence); ok {
-			return x.ReasonForCueSheetAbsence
-		}
-	}
-	return nil
-}
-
-type isVideoChoice44_Choice interface {
-	isVideoChoice44_Choice()
-}
-
-type VideoChoice44_VideoCueSheetReferenceOption struct {
-	// @gotags: xml:"VideoCueSheetReference"
-	VideoCueSheetReferenceOption *VideoChoice44_Option1 `protobuf:"bytes,1,opt,name=video_cue_sheet_reference_option,json=videoCueSheetReferenceOption,proto3,oneof" xml:"VideoCueSheetReference"`
-}
-
-type VideoChoice44_ReasonForCueSheetAbsence struct {
-	// @gotags: xml:"ReasonForCueSheetAbsence"
-	ReasonForCueSheetAbsence *Reason `protobuf:"bytes,2,opt,name=reason_for_cue_sheet_absence,json=reasonForCueSheetAbsence,proto3,oneof" xml:"ReasonForCueSheetAbsence"`
-}
-
-func (*VideoChoice44_VideoCueSheetReferenceOption) isVideoChoice44_Choice() {}
-
-func (*VideoChoice44_ReasonForCueSheetAbsence) isVideoChoice44_Choice() {}
-
 type VideoClipDetails struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// @gotags: xml:"TechnicalResourceDetailsReference"
@@ -11992,7 +10241,7 @@ type VideoClipDetails struct {
 
 func (x *VideoClipDetails) Reset() {
 	*x = VideoClipDetails{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[117]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12004,7 +10253,7 @@ func (x *VideoClipDetails) String() string {
 func (*VideoClipDetails) ProtoMessage() {}
 
 func (x *VideoClipDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[117]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12017,7 +10266,7 @@ func (x *VideoClipDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VideoClipDetails.ProtoReflect.Descriptor instead.
 func (*VideoClipDetails) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{117}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *VideoClipDetails) GetTechnicalResourceDetailsReference() string {
@@ -12131,7 +10380,7 @@ type VideoDeliveryFile struct {
 
 func (x *VideoDeliveryFile) Reset() {
 	*x = VideoDeliveryFile{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[118]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12143,7 +10392,7 @@ func (x *VideoDeliveryFile) String() string {
 func (*VideoDeliveryFile) ProtoMessage() {}
 
 func (x *VideoDeliveryFile) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[118]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12156,7 +10405,7 @@ func (x *VideoDeliveryFile) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VideoDeliveryFile.ProtoReflect.Descriptor instead.
 func (*VideoDeliveryFile) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{118}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *VideoDeliveryFile) GetType() string {
@@ -12370,7 +10619,7 @@ type VideoEdition struct {
 
 func (x *VideoEdition) Reset() {
 	*x = VideoEdition{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[119]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12382,7 +10631,7 @@ func (x *VideoEdition) String() string {
 func (*VideoEdition) ProtoMessage() {}
 
 func (x *VideoEdition) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[119]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12395,7 +10644,7 @@ func (x *VideoEdition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VideoEdition.ProtoReflect.Descriptor instead.
 func (*VideoEdition) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{119}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *VideoEdition) GetType() string {
@@ -12461,7 +10710,7 @@ type VideoType struct {
 
 func (x *VideoType) Reset() {
 	*x = VideoType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[120]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12473,7 +10722,7 @@ func (x *VideoType) String() string {
 func (*VideoType) ProtoMessage() {}
 
 func (x *VideoType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[120]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12486,7 +10735,7 @@ func (x *VideoType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VideoType.ProtoReflect.Descriptor instead.
 func (*VideoType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{120}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *VideoType) GetValue() string {
@@ -12524,15 +10773,17 @@ type WorkRightsController struct {
 	StartDate string `protobuf:"bytes,5,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
 	// @gotags: xml:"EndDate"
 	EndDate string `protobuf:"bytes,6,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *WorkRightsControllerChoice7 `protobuf:"bytes,7,opt,name=choice,proto3" json:"choice,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// @gotags: xml:"RightShareUnknown"
+	RightShareUnknown bool `protobuf:"varint,7,opt,name=right_share_unknown,json=rightShareUnknown,proto3" json:"right_share_unknown,omitempty" xml:"RightShareUnknown"`
+	// @gotags: xml:"RightSharePercentage"
+	RightSharePercentage string `protobuf:"bytes,8,opt,name=right_share_percentage,json=rightSharePercentage,proto3" json:"right_share_percentage,omitempty" xml:"RightSharePercentage"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *WorkRightsController) Reset() {
 	*x = WorkRightsController{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[121]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12544,7 +10795,7 @@ func (x *WorkRightsController) String() string {
 func (*WorkRightsController) ProtoMessage() {}
 
 func (x *WorkRightsController) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[121]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12557,7 +10808,7 @@ func (x *WorkRightsController) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorkRightsController.ProtoReflect.Descriptor instead.
 func (*WorkRightsController) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{121}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *WorkRightsController) GetRightsControllerPartyReference() string {
@@ -12602,96 +10853,19 @@ func (x *WorkRightsController) GetEndDate() string {
 	return ""
 }
 
-func (x *WorkRightsController) GetChoice() *WorkRightsControllerChoice7 {
+func (x *WorkRightsController) GetRightShareUnknown() bool {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-type WorkRightsControllerChoice7 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*WorkRightsControllerChoice7_RightShareUnknown
-	//	*WorkRightsControllerChoice7_RightSharePercentage
-	Choice        isWorkRightsControllerChoice7_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WorkRightsControllerChoice7) Reset() {
-	*x = WorkRightsControllerChoice7{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WorkRightsControllerChoice7) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WorkRightsControllerChoice7) ProtoMessage() {}
-
-func (x *WorkRightsControllerChoice7) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WorkRightsControllerChoice7.ProtoReflect.Descriptor instead.
-func (*WorkRightsControllerChoice7) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{122}
-}
-
-func (x *WorkRightsControllerChoice7) GetChoice() isWorkRightsControllerChoice7_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *WorkRightsControllerChoice7) GetRightShareUnknown() bool {
-	if x != nil {
-		if x, ok := x.Choice.(*WorkRightsControllerChoice7_RightShareUnknown); ok {
-			return x.RightShareUnknown
-		}
+		return x.RightShareUnknown
 	}
 	return false
 }
 
-func (x *WorkRightsControllerChoice7) GetRightSharePercentage() string {
+func (x *WorkRightsController) GetRightSharePercentage() string {
 	if x != nil {
-		if x, ok := x.Choice.(*WorkRightsControllerChoice7_RightSharePercentage); ok {
-			return x.RightSharePercentage
-		}
+		return x.RightSharePercentage
 	}
 	return ""
 }
-
-type isWorkRightsControllerChoice7_Choice interface {
-	isWorkRightsControllerChoice7_Choice()
-}
-
-type WorkRightsControllerChoice7_RightShareUnknown struct {
-	// @gotags: xml:"RightShareUnknown"
-	RightShareUnknown bool `protobuf:"varint,1,opt,name=right_share_unknown,json=rightShareUnknown,proto3,oneof" xml:"RightShareUnknown"`
-}
-
-type WorkRightsControllerChoice7_RightSharePercentage struct {
-	// @gotags: xml:"RightSharePercentage"
-	RightSharePercentage string `protobuf:"bytes,2,opt,name=right_share_percentage,json=rightSharePercentage,proto3,oneof" xml:"RightSharePercentage"`
-}
-
-func (*WorkRightsControllerChoice7_RightShareUnknown) isWorkRightsControllerChoice7_Choice() {}
-
-func (*WorkRightsControllerChoice7_RightSharePercentage) isWorkRightsControllerChoice7_Choice() {}
 
 type AdministratingRecordCompanyRole struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -12707,7 +10881,7 @@ type AdministratingRecordCompanyRole struct {
 
 func (x *AdministratingRecordCompanyRole) Reset() {
 	*x = AdministratingRecordCompanyRole{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[123]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12719,7 +10893,7 @@ func (x *AdministratingRecordCompanyRole) String() string {
 func (*AdministratingRecordCompanyRole) ProtoMessage() {}
 
 func (x *AdministratingRecordCompanyRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[123]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12732,7 +10906,7 @@ func (x *AdministratingRecordCompanyRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AdministratingRecordCompanyRole.ProtoReflect.Descriptor instead.
 func (*AdministratingRecordCompanyRole) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{123}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *AdministratingRecordCompanyRole) GetValue() string {
@@ -12766,17 +10940,21 @@ type Affiliation struct {
 	RightsType []*RightsType `protobuf:"bytes,3,rep,name=rights_type,json=rightsType,proto3" json:"rights_type,omitempty" xml:"RightsType"`
 	// @gotags: xml:"PercentageOfRightsAssignment"
 	PercentageOfRightsAssignment string `protobuf:"bytes,4,opt,name=percentage_of_rights_assignment,json=percentageOfRightsAssignment,proto3" json:"percentage_of_rights_assignment,omitempty" xml:"PercentageOfRightsAssignment"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *AffiliationChoice5 `protobuf:"bytes,5,opt,name=choice,proto3" json:"choice,omitempty"`
-	// Choice wrapper for XSD choice within sequence
-	Choice_1      *AffiliationChoice6 `protobuf:"bytes,6,opt,name=choice_1,json=choice1,proto3" json:"choice_1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// @gotags: xml:"CompanyName"
+	CompanyName string `protobuf:"bytes,5,opt,name=company_name,json=companyName,proto3" json:"company_name,omitempty" xml:"CompanyName"`
+	// @gotags: xml:"PartyAffiliateReference"
+	PartyAffiliateReference string `protobuf:"bytes,6,opt,name=party_affiliate_reference,json=partyAffiliateReference,proto3" json:"party_affiliate_reference,omitempty" xml:"PartyAffiliateReference"`
+	// @gotags: xml:"TerritoryCode"
+	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,7,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
+	// @gotags: xml:"ExcludedTerritoryCode"
+	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,8,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *Affiliation) Reset() {
 	*x = Affiliation{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[124]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12788,7 +10966,7 @@ func (x *Affiliation) String() string {
 func (*Affiliation) ProtoMessage() {}
 
 func (x *Affiliation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[124]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12801,7 +10979,7 @@ func (x *Affiliation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Affiliation.ProtoReflect.Descriptor instead.
 func (*Affiliation) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{124}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *Affiliation) GetType() string {
@@ -12832,187 +11010,33 @@ func (x *Affiliation) GetPercentageOfRightsAssignment() string {
 	return ""
 }
 
-func (x *Affiliation) GetChoice() *AffiliationChoice5 {
+func (x *Affiliation) GetCompanyName() string {
 	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *Affiliation) GetChoice_1() *AffiliationChoice6 {
-	if x != nil {
-		return x.Choice_1
-	}
-	return nil
-}
-
-type AffiliationChoice5 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*AffiliationChoice5_CompanyName
-	//	*AffiliationChoice5_PartyAffiliateReference
-	Choice        isAffiliationChoice5_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AffiliationChoice5) Reset() {
-	*x = AffiliationChoice5{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AffiliationChoice5) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AffiliationChoice5) ProtoMessage() {}
-
-func (x *AffiliationChoice5) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AffiliationChoice5.ProtoReflect.Descriptor instead.
-func (*AffiliationChoice5) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{125}
-}
-
-func (x *AffiliationChoice5) GetChoice() isAffiliationChoice5_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *AffiliationChoice5) GetCompanyName() string {
-	if x != nil {
-		if x, ok := x.Choice.(*AffiliationChoice5_CompanyName); ok {
-			return x.CompanyName
-		}
+		return x.CompanyName
 	}
 	return ""
 }
 
-func (x *AffiliationChoice5) GetPartyAffiliateReference() string {
+func (x *Affiliation) GetPartyAffiliateReference() string {
 	if x != nil {
-		if x, ok := x.Choice.(*AffiliationChoice5_PartyAffiliateReference); ok {
-			return x.PartyAffiliateReference
-		}
+		return x.PartyAffiliateReference
 	}
 	return ""
 }
 
-type isAffiliationChoice5_Choice interface {
-	isAffiliationChoice5_Choice()
-}
-
-type AffiliationChoice5_CompanyName struct {
-	// @gotags: xml:"CompanyName"
-	CompanyName string `protobuf:"bytes,1,opt,name=company_name,json=companyName,proto3,oneof" xml:"CompanyName"`
-}
-
-type AffiliationChoice5_PartyAffiliateReference struct {
-	// @gotags: xml:"PartyAffiliateReference"
-	PartyAffiliateReference string `protobuf:"bytes,2,opt,name=party_affiliate_reference,json=partyAffiliateReference,proto3,oneof" xml:"PartyAffiliateReference"`
-}
-
-func (*AffiliationChoice5_CompanyName) isAffiliationChoice5_Choice() {}
-
-func (*AffiliationChoice5_PartyAffiliateReference) isAffiliationChoice5_Choice() {}
-
-type AffiliationChoice6 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*AffiliationChoice6_TerritoryCodeOption
-	//	*AffiliationChoice6_ExcludedTerritoryCodeOption
-	Choice        isAffiliationChoice6_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AffiliationChoice6) Reset() {
-	*x = AffiliationChoice6{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AffiliationChoice6) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AffiliationChoice6) ProtoMessage() {}
-
-func (x *AffiliationChoice6) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[126]
+func (x *Affiliation) GetTerritoryCode() []*CurrentTerritoryCode {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AffiliationChoice6.ProtoReflect.Descriptor instead.
-func (*AffiliationChoice6) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{126}
-}
-
-func (x *AffiliationChoice6) GetChoice() isAffiliationChoice6_Choice {
-	if x != nil {
-		return x.Choice
+		return x.TerritoryCode
 	}
 	return nil
 }
 
-func (x *AffiliationChoice6) GetTerritoryCodeOption() *AffiliationChoice6_Option1 {
+func (x *Affiliation) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
 	if x != nil {
-		if x, ok := x.Choice.(*AffiliationChoice6_TerritoryCodeOption); ok {
-			return x.TerritoryCodeOption
-		}
+		return x.ExcludedTerritoryCode
 	}
 	return nil
 }
-
-func (x *AffiliationChoice6) GetExcludedTerritoryCodeOption() *AffiliationChoice6_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*AffiliationChoice6_ExcludedTerritoryCodeOption); ok {
-			return x.ExcludedTerritoryCodeOption
-		}
-	}
-	return nil
-}
-
-type isAffiliationChoice6_Choice interface {
-	isAffiliationChoice6_Choice()
-}
-
-type AffiliationChoice6_TerritoryCodeOption struct {
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCodeOption *AffiliationChoice6_Option1 `protobuf:"bytes,1,opt,name=territory_code_option,json=territoryCodeOption,proto3,oneof" xml:"TerritoryCode"`
-}
-
-type AffiliationChoice6_ExcludedTerritoryCodeOption struct {
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCodeOption *AffiliationChoice6_Option2 `protobuf:"bytes,2,opt,name=excluded_territory_code_option,json=excludedTerritoryCodeOption,proto3,oneof" xml:"ExcludedTerritoryCode"`
-}
-
-func (*AffiliationChoice6_TerritoryCodeOption) isAffiliationChoice6_Choice() {}
-
-func (*AffiliationChoice6_ExcludedTerritoryCodeOption) isAffiliationChoice6_Choice() {}
 
 type AllTerritoryCode struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -13026,7 +11050,7 @@ type AllTerritoryCode struct {
 
 func (x *AllTerritoryCode) Reset() {
 	*x = AllTerritoryCode{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[127]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13038,7 +11062,7 @@ func (x *AllTerritoryCode) String() string {
 func (*AllTerritoryCode) ProtoMessage() {}
 
 func (x *AllTerritoryCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[127]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13051,7 +11075,7 @@ func (x *AllTerritoryCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AllTerritoryCode.ProtoReflect.Descriptor instead.
 func (*AllTerritoryCode) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{127}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *AllTerritoryCode) GetValue() string {
@@ -13082,7 +11106,7 @@ type AspectRatio struct {
 
 func (x *AspectRatio) Reset() {
 	*x = AspectRatio{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[128]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13094,7 +11118,7 @@ func (x *AspectRatio) String() string {
 func (*AspectRatio) ProtoMessage() {}
 
 func (x *AspectRatio) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[128]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13107,7 +11131,7 @@ func (x *AspectRatio) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AspectRatio.ProtoReflect.Descriptor instead.
 func (*AspectRatio) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{128}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *AspectRatio) GetValue() string {
@@ -13147,7 +11171,7 @@ type AudioCodecType struct {
 
 func (x *AudioCodecType) Reset() {
 	*x = AudioCodecType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[129]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13159,7 +11183,7 @@ func (x *AudioCodecType) String() string {
 func (*AudioCodecType) ProtoMessage() {}
 
 func (x *AudioCodecType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[129]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13172,7 +11196,7 @@ func (x *AudioCodecType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AudioCodecType.ProtoReflect.Descriptor instead.
 func (*AudioCodecType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{129}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *AudioCodecType) GetValue() string {
@@ -13215,7 +11239,7 @@ type BitRate struct {
 
 func (x *BitRate) Reset() {
 	*x = BitRate{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[130]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13227,7 +11251,7 @@ func (x *BitRate) String() string {
 func (*BitRate) ProtoMessage() {}
 
 func (x *BitRate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[130]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13240,7 +11264,7 @@ func (x *BitRate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BitRate.ProtoReflect.Descriptor instead.
 func (*BitRate) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{130}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *BitRate) GetValue() string {
@@ -13277,7 +11301,7 @@ type CLine struct {
 
 func (x *CLine) Reset() {
 	*x = CLine{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[131]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13289,7 +11313,7 @@ func (x *CLine) String() string {
 func (*CLine) ProtoMessage() {}
 
 func (x *CLine) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[131]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13302,7 +11326,7 @@ func (x *CLine) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CLine.ProtoReflect.Descriptor instead.
 func (*CLine) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{131}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *CLine) GetYear() string {
@@ -13361,7 +11385,7 @@ type CarrierType struct {
 
 func (x *CarrierType) Reset() {
 	*x = CarrierType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[132]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13373,7 +11397,7 @@ func (x *CarrierType) String() string {
 func (*CarrierType) ProtoMessage() {}
 
 func (x *CarrierType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[132]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13386,7 +11410,7 @@ func (x *CarrierType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CarrierType.ProtoReflect.Descriptor instead.
 func (*CarrierType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{132}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *CarrierType) GetValue() string {
@@ -13422,7 +11446,7 @@ type CatalogNumber struct {
 
 func (x *CatalogNumber) Reset() {
 	*x = CatalogNumber{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[133]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13434,7 +11458,7 @@ func (x *CatalogNumber) String() string {
 func (*CatalogNumber) ProtoMessage() {}
 
 func (x *CatalogNumber) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[133]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13447,7 +11471,7 @@ func (x *CatalogNumber) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CatalogNumber.ProtoReflect.Descriptor instead.
 func (*CatalogNumber) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{133}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *CatalogNumber) GetValue() string {
@@ -13486,7 +11510,7 @@ type ChapterId struct {
 
 func (x *ChapterId) Reset() {
 	*x = ChapterId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[134]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13498,7 +11522,7 @@ func (x *ChapterId) String() string {
 func (*ChapterId) ProtoMessage() {}
 
 func (x *ChapterId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[134]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13511,7 +11535,7 @@ func (x *ChapterId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChapterId.ProtoReflect.Descriptor instead.
 func (*ChapterId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{134}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *ChapterId) GetISRC() string {
@@ -13577,7 +11601,7 @@ type ClipType struct {
 
 func (x *ClipType) Reset() {
 	*x = ClipType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[135]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13589,7 +11613,7 @@ func (x *ClipType) String() string {
 func (*ClipType) ProtoMessage() {}
 
 func (x *ClipType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[135]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13602,7 +11626,7 @@ func (x *ClipType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClipType.ProtoReflect.Descriptor instead.
 func (*ClipType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{135}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *ClipType) GetValue() string {
@@ -13640,7 +11664,7 @@ type ContainerFormat struct {
 
 func (x *ContainerFormat) Reset() {
 	*x = ContainerFormat{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[136]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13652,7 +11676,7 @@ func (x *ContainerFormat) String() string {
 func (*ContainerFormat) ProtoMessage() {}
 
 func (x *ContainerFormat) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[136]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13665,7 +11689,7 @@ func (x *ContainerFormat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContainerFormat.ProtoReflect.Descriptor instead.
 func (*ContainerFormat) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{136}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *ContainerFormat) GetValue() string {
@@ -13705,17 +11729,19 @@ type Contributor struct {
 	IsCredited *IsCredited `protobuf:"bytes,6,opt,name=is_credited,json=isCredited,proto3" json:"is_credited,omitempty" xml:"IsCredited"`
 	// @gotags: xml:"DisplayCredits"
 	DisplayCredits []*DisplayCredits `protobuf:"bytes,7,rep,name=display_credits,json=displayCredits,proto3" json:"display_credits,omitempty" xml:"DisplayCredits"`
-	// Choice wrapper for XSD choice within sequence
-	Choice *ContributorChoice8 `protobuf:"bytes,8,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"ContributorPartyReference"
+	ContributorPartyReference string `protobuf:"bytes,8,opt,name=contributor_party_reference,json=contributorPartyReference,proto3" json:"contributor_party_reference,omitempty" xml:"ContributorPartyReference"`
+	// @gotags: xml:"SpecialContributor"
+	SpecialContributor *SpecialContributorType `protobuf:"bytes,9,opt,name=special_contributor,json=specialContributor,proto3" json:"special_contributor,omitempty" xml:"SpecialContributor"`
 	// @gotags: xml:"SequenceNumber,attr"
-	SequenceNumber int32 `protobuf:"varint,9,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
+	SequenceNumber int32 `protobuf:"varint,10,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" xml:"SequenceNumber,attr"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
 
 func (x *Contributor) Reset() {
 	*x = Contributor{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[137]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13727,7 +11753,7 @@ func (x *Contributor) String() string {
 func (*Contributor) ProtoMessage() {}
 
 func (x *Contributor) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[137]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13740,7 +11766,7 @@ func (x *Contributor) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Contributor.ProtoReflect.Descriptor instead.
 func (*Contributor) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{137}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *Contributor) GetRole() []*ContributorRole {
@@ -13792,9 +11818,16 @@ func (x *Contributor) GetDisplayCredits() []*DisplayCredits {
 	return nil
 }
 
-func (x *Contributor) GetChoice() *ContributorChoice8 {
+func (x *Contributor) GetContributorPartyReference() string {
 	if x != nil {
-		return x.Choice
+		return x.ContributorPartyReference
+	}
+	return ""
+}
+
+func (x *Contributor) GetSpecialContributor() *SpecialContributorType {
+	if x != nil {
+		return x.SpecialContributor
 	}
 	return nil
 }
@@ -13805,90 +11838,6 @@ func (x *Contributor) GetSequenceNumber() int32 {
 	}
 	return 0
 }
-
-type ContributorChoice8 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*ContributorChoice8_ContributorPartyReference
-	//	*ContributorChoice8_SpecialContributor
-	Choice        isContributorChoice8_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ContributorChoice8) Reset() {
-	*x = ContributorChoice8{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ContributorChoice8) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ContributorChoice8) ProtoMessage() {}
-
-func (x *ContributorChoice8) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ContributorChoice8.ProtoReflect.Descriptor instead.
-func (*ContributorChoice8) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{138}
-}
-
-func (x *ContributorChoice8) GetChoice() isContributorChoice8_Choice {
-	if x != nil {
-		return x.Choice
-	}
-	return nil
-}
-
-func (x *ContributorChoice8) GetContributorPartyReference() string {
-	if x != nil {
-		if x, ok := x.Choice.(*ContributorChoice8_ContributorPartyReference); ok {
-			return x.ContributorPartyReference
-		}
-	}
-	return ""
-}
-
-func (x *ContributorChoice8) GetSpecialContributor() *SpecialContributorType {
-	if x != nil {
-		if x, ok := x.Choice.(*ContributorChoice8_SpecialContributor); ok {
-			return x.SpecialContributor
-		}
-	}
-	return nil
-}
-
-type isContributorChoice8_Choice interface {
-	isContributorChoice8_Choice()
-}
-
-type ContributorChoice8_ContributorPartyReference struct {
-	// @gotags: xml:"ContributorPartyReference"
-	ContributorPartyReference string `protobuf:"bytes,1,opt,name=contributor_party_reference,json=contributorPartyReference,proto3,oneof" xml:"ContributorPartyReference"`
-}
-
-type ContributorChoice8_SpecialContributor struct {
-	// @gotags: xml:"SpecialContributor"
-	SpecialContributor *SpecialContributorType `protobuf:"bytes,2,opt,name=special_contributor,json=specialContributor,proto3,oneof" xml:"SpecialContributor"`
-}
-
-func (*ContributorChoice8_ContributorPartyReference) isContributorChoice8_Choice() {}
-
-func (*ContributorChoice8_SpecialContributor) isContributorChoice8_Choice() {}
 
 type ContributorRole struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -13902,7 +11851,7 @@ type ContributorRole struct {
 
 func (x *ContributorRole) Reset() {
 	*x = ContributorRole{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[139]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13914,7 +11863,7 @@ func (x *ContributorRole) String() string {
 func (*ContributorRole) ProtoMessage() {}
 
 func (x *ContributorRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[139]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13927,7 +11876,7 @@ func (x *ContributorRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContributorRole.ProtoReflect.Descriptor instead.
 func (*ContributorRole) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{139}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *ContributorRole) GetValue() *ContributorRoleValue {
@@ -13958,7 +11907,7 @@ type ContributorRoleValue struct {
 
 func (x *ContributorRoleValue) Reset() {
 	*x = ContributorRoleValue{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[140]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13970,7 +11919,7 @@ func (x *ContributorRoleValue) String() string {
 func (*ContributorRoleValue) ProtoMessage() {}
 
 func (x *ContributorRoleValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[140]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13983,7 +11932,7 @@ func (x *ContributorRoleValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ContributorRoleValue.ProtoReflect.Descriptor instead.
 func (*ContributorRoleValue) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{140}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *ContributorRoleValue) GetValue() string {
@@ -14023,7 +11972,7 @@ type CourtesyLine struct {
 
 func (x *CourtesyLine) Reset() {
 	*x = CourtesyLine{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[141]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14035,7 +11984,7 @@ func (x *CourtesyLine) String() string {
 func (*CourtesyLine) ProtoMessage() {}
 
 func (x *CourtesyLine) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[141]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14048,7 +11997,7 @@ func (x *CourtesyLine) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CourtesyLine.ProtoReflect.Descriptor instead.
 func (*CourtesyLine) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{141}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *CourtesyLine) GetValue() string {
@@ -14093,7 +12042,7 @@ type CueOrigin struct {
 
 func (x *CueOrigin) Reset() {
 	*x = CueOrigin{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[142]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14105,7 +12054,7 @@ func (x *CueOrigin) String() string {
 func (*CueOrigin) ProtoMessage() {}
 
 func (x *CueOrigin) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[142]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14118,7 +12067,7 @@ func (x *CueOrigin) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueOrigin.ProtoReflect.Descriptor instead.
 func (*CueOrigin) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{142}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *CueOrigin) GetValue() string {
@@ -14156,7 +12105,7 @@ type CueSheetType struct {
 
 func (x *CueSheetType) Reset() {
 	*x = CueSheetType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[143]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14168,7 +12117,7 @@ func (x *CueSheetType) String() string {
 func (*CueSheetType) ProtoMessage() {}
 
 func (x *CueSheetType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[143]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14181,7 +12130,7 @@ func (x *CueSheetType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueSheetType.ProtoReflect.Descriptor instead.
 func (*CueSheetType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{143}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *CueSheetType) GetValue() string {
@@ -14219,7 +12168,7 @@ type CueThemeType struct {
 
 func (x *CueThemeType) Reset() {
 	*x = CueThemeType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[144]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14231,7 +12180,7 @@ func (x *CueThemeType) String() string {
 func (*CueThemeType) ProtoMessage() {}
 
 func (x *CueThemeType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[144]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14244,7 +12193,7 @@ func (x *CueThemeType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueThemeType.ProtoReflect.Descriptor instead.
 func (*CueThemeType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{144}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *CueThemeType) GetValue() string {
@@ -14282,7 +12231,7 @@ type CueUseType struct {
 
 func (x *CueUseType) Reset() {
 	*x = CueUseType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[145]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14294,7 +12243,7 @@ func (x *CueUseType) String() string {
 func (*CueUseType) ProtoMessage() {}
 
 func (x *CueUseType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[145]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14307,7 +12256,7 @@ func (x *CueUseType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueUseType.ProtoReflect.Descriptor instead.
 func (*CueUseType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{145}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *CueUseType) GetValue() string {
@@ -14345,7 +12294,7 @@ type CueVisualPerceptionType struct {
 
 func (x *CueVisualPerceptionType) Reset() {
 	*x = CueVisualPerceptionType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[146]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14357,7 +12306,7 @@ func (x *CueVisualPerceptionType) String() string {
 func (*CueVisualPerceptionType) ProtoMessage() {}
 
 func (x *CueVisualPerceptionType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[146]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14370,7 +12319,7 @@ func (x *CueVisualPerceptionType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueVisualPerceptionType.ProtoReflect.Descriptor instead.
 func (*CueVisualPerceptionType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{146}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *CueVisualPerceptionType) GetValue() string {
@@ -14408,7 +12357,7 @@ type CueVocalType struct {
 
 func (x *CueVocalType) Reset() {
 	*x = CueVocalType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[147]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14420,7 +12369,7 @@ func (x *CueVocalType) String() string {
 func (*CueVocalType) ProtoMessage() {}
 
 func (x *CueVocalType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[147]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14433,7 +12382,7 @@ func (x *CueVocalType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CueVocalType.ProtoReflect.Descriptor instead.
 func (*CueVocalType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{147}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *CueVocalType) GetValue() string {
@@ -14469,7 +12418,7 @@ type CurrentTerritoryCode struct {
 
 func (x *CurrentTerritoryCode) Reset() {
 	*x = CurrentTerritoryCode{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[148]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14481,7 +12430,7 @@ func (x *CurrentTerritoryCode) String() string {
 func (*CurrentTerritoryCode) ProtoMessage() {}
 
 func (x *CurrentTerritoryCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[148]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14494,7 +12443,7 @@ func (x *CurrentTerritoryCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CurrentTerritoryCode.ProtoReflect.Descriptor instead.
 func (*CurrentTerritoryCode) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{148}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *CurrentTerritoryCode) GetValue() string {
@@ -14517,15 +12466,17 @@ type DSP struct {
 	TradingName *Name `protobuf:"bytes,1,opt,name=trading_name,json=tradingName,proto3" json:"trading_name,omitempty" xml:"TradingName"`
 	// @gotags: xml:"URL"
 	URL []string `protobuf:"bytes,2,rep,name=u_r_l,json=uRL,proto3" json:"u_r_l,omitempty" xml:"URL"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *DSPChoice3 `protobuf:"bytes,3,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"PartyId"
+	PartyId []*DetailedPartyId `protobuf:"bytes,3,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
+	// @gotags: xml:"PartyName"
+	PartyName     []*PartyName `protobuf:"bytes,4,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DSP) Reset() {
 	*x = DSP{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[149]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14537,7 +12488,7 @@ func (x *DSP) String() string {
 func (*DSP) ProtoMessage() {}
 
 func (x *DSP) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[149]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14550,7 +12501,7 @@ func (x *DSP) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DSP.ProtoReflect.Descriptor instead.
 func (*DSP) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{149}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *DSP) GetTradingName() *Name {
@@ -14567,95 +12518,19 @@ func (x *DSP) GetURL() []string {
 	return nil
 }
 
-func (x *DSP) GetChoice() *DSPChoice3 {
+func (x *DSP) GetPartyId() []*DetailedPartyId {
 	if x != nil {
-		return x.Choice
+		return x.PartyId
 	}
 	return nil
 }
 
-type DSPChoice3 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*DSPChoice3_PartyIdOption
-	//	*DSPChoice3_Sequence_1
-	Choice        isDSPChoice3_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DSPChoice3) Reset() {
-	*x = DSPChoice3{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[150]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DSPChoice3) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DSPChoice3) ProtoMessage() {}
-
-func (x *DSPChoice3) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[150]
+func (x *DSP) GetPartyName() []*PartyName {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DSPChoice3.ProtoReflect.Descriptor instead.
-func (*DSPChoice3) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{150}
-}
-
-func (x *DSPChoice3) GetChoice() isDSPChoice3_Choice {
-	if x != nil {
-		return x.Choice
+		return x.PartyName
 	}
 	return nil
 }
-
-func (x *DSPChoice3) GetPartyIdOption() *DSPChoice3_Option2 {
-	if x != nil {
-		if x, ok := x.Choice.(*DSPChoice3_PartyIdOption); ok {
-			return x.PartyIdOption
-		}
-	}
-	return nil
-}
-
-func (x *DSPChoice3) GetSequence_1() *DSPChoice3_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*DSPChoice3_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isDSPChoice3_Choice interface {
-	isDSPChoice3_Choice()
-}
-
-type DSPChoice3_PartyIdOption struct {
-	// @gotags: xml:"PartyId"
-	PartyIdOption *DSPChoice3_Option2 `protobuf:"bytes,1,opt,name=party_id_option,json=partyIdOption,proto3,oneof" xml:"PartyId"`
-}
-
-type DSPChoice3_Sequence_1 struct {
-	Sequence_1 *DSPChoice3_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*DSPChoice3_PartyIdOption) isDSPChoice3_Choice() {}
-
-func (*DSPChoice3_Sequence_1) isDSPChoice3_Choice() {}
 
 type DetailedHashSum struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -14675,7 +12550,7 @@ type DetailedHashSum struct {
 
 func (x *DetailedHashSum) Reset() {
 	*x = DetailedHashSum{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[151]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14687,7 +12562,7 @@ func (x *DetailedHashSum) String() string {
 func (*DetailedHashSum) ProtoMessage() {}
 
 func (x *DetailedHashSum) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[151]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14700,7 +12575,7 @@ func (x *DetailedHashSum) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedHashSum.ProtoReflect.Descriptor instead.
 func (*DetailedHashSum) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{151}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *DetailedHashSum) GetAlgorithm() *HashSumAlgorithmType {
@@ -14758,7 +12633,7 @@ type DetailedPartyId struct {
 
 func (x *DetailedPartyId) Reset() {
 	*x = DetailedPartyId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[152]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14770,7 +12645,7 @@ func (x *DetailedPartyId) String() string {
 func (*DetailedPartyId) ProtoMessage() {}
 
 func (x *DetailedPartyId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[152]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14783,7 +12658,7 @@ func (x *DetailedPartyId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DetailedPartyId.ProtoReflect.Descriptor instead.
 func (*DetailedPartyId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{152}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *DetailedPartyId) GetISNI() string {
@@ -14846,7 +12721,7 @@ type DisplayArtistNameWithOriginalLanguage struct {
 
 func (x *DisplayArtistNameWithOriginalLanguage) Reset() {
 	*x = DisplayArtistNameWithOriginalLanguage{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[153]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14858,7 +12733,7 @@ func (x *DisplayArtistNameWithOriginalLanguage) String() string {
 func (*DisplayArtistNameWithOriginalLanguage) ProtoMessage() {}
 
 func (x *DisplayArtistNameWithOriginalLanguage) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[153]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14871,7 +12746,7 @@ func (x *DisplayArtistNameWithOriginalLanguage) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use DisplayArtistNameWithOriginalLanguage.ProtoReflect.Descriptor instead.
 func (*DisplayArtistNameWithOriginalLanguage) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{153}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *DisplayArtistNameWithOriginalLanguage) GetValue() string {
@@ -14923,7 +12798,7 @@ type DisplayArtistRole struct {
 
 func (x *DisplayArtistRole) Reset() {
 	*x = DisplayArtistRole{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[154]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -14935,7 +12810,7 @@ func (x *DisplayArtistRole) String() string {
 func (*DisplayArtistRole) ProtoMessage() {}
 
 func (x *DisplayArtistRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[154]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -14948,7 +12823,7 @@ func (x *DisplayArtistRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayArtistRole.ProtoReflect.Descriptor instead.
 func (*DisplayArtistRole) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{154}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *DisplayArtistRole) GetValue() string {
@@ -14988,7 +12863,7 @@ type DisplayCredits struct {
 
 func (x *DisplayCredits) Reset() {
 	*x = DisplayCredits{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[155]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15000,7 +12875,7 @@ func (x *DisplayCredits) String() string {
 func (*DisplayCredits) ProtoMessage() {}
 
 func (x *DisplayCredits) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[155]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15013,7 +12888,7 @@ func (x *DisplayCredits) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayCredits.ProtoReflect.Descriptor instead.
 func (*DisplayCredits) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{155}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *DisplayCredits) GetDisplayCreditText() string {
@@ -15060,7 +12935,7 @@ type DisplaySubTitle struct {
 
 func (x *DisplaySubTitle) Reset() {
 	*x = DisplaySubTitle{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[156]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15072,7 +12947,7 @@ func (x *DisplaySubTitle) String() string {
 func (*DisplaySubTitle) ProtoMessage() {}
 
 func (x *DisplaySubTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[156]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15085,7 +12960,7 @@ func (x *DisplaySubTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplaySubTitle.ProtoReflect.Descriptor instead.
 func (*DisplaySubTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{156}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *DisplaySubTitle) GetValue() string {
@@ -15136,7 +13011,7 @@ type DisplayTitle struct {
 
 func (x *DisplayTitle) Reset() {
 	*x = DisplayTitle{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[157]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15148,7 +13023,7 @@ func (x *DisplayTitle) String() string {
 func (*DisplayTitle) ProtoMessage() {}
 
 func (x *DisplayTitle) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[157]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15161,7 +13036,7 @@ func (x *DisplayTitle) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayTitle.ProtoReflect.Descriptor instead.
 func (*DisplayTitle) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{157}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *DisplayTitle) GetTitleText() string {
@@ -15228,7 +13103,7 @@ type EventDate struct {
 
 func (x *EventDate) Reset() {
 	*x = EventDate{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[158]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15240,7 +13115,7 @@ func (x *EventDate) String() string {
 func (*EventDate) ProtoMessage() {}
 
 func (x *EventDate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[158]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15253,7 +13128,7 @@ func (x *EventDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDate.ProtoReflect.Descriptor instead.
 func (*EventDate) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{158}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *EventDate) GetValue() string {
@@ -15327,7 +13202,7 @@ type EventDateTime struct {
 
 func (x *EventDateTime) Reset() {
 	*x = EventDateTime{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[159]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15339,7 +13214,7 @@ func (x *EventDateTime) String() string {
 func (*EventDateTime) ProtoMessage() {}
 
 func (x *EventDateTime) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[159]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15352,7 +13227,7 @@ func (x *EventDateTime) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventDateTime.ProtoReflect.Descriptor instead.
 func (*EventDateTime) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{159}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *EventDateTime) GetValue() string {
@@ -15416,7 +13291,7 @@ type Extent struct {
 
 func (x *Extent) Reset() {
 	*x = Extent{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[160]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15428,7 +13303,7 @@ func (x *Extent) String() string {
 func (*Extent) ProtoMessage() {}
 
 func (x *Extent) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[160]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15441,7 +13316,7 @@ func (x *Extent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Extent.ProtoReflect.Descriptor instead.
 func (*Extent) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{160}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *Extent) GetValue() string {
@@ -15472,7 +13347,7 @@ type ExternallyLinkedResourceType struct {
 
 func (x *ExternallyLinkedResourceType) Reset() {
 	*x = ExternallyLinkedResourceType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[161]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15484,7 +13359,7 @@ func (x *ExternallyLinkedResourceType) String() string {
 func (*ExternallyLinkedResourceType) ProtoMessage() {}
 
 func (x *ExternallyLinkedResourceType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[161]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15497,7 +13372,7 @@ func (x *ExternallyLinkedResourceType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExternallyLinkedResourceType.ProtoReflect.Descriptor instead.
 func (*ExternallyLinkedResourceType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{161}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *ExternallyLinkedResourceType) GetValue() string {
@@ -15535,7 +13410,7 @@ type File struct {
 
 func (x *File) Reset() {
 	*x = File{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[162]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15547,7 +13422,7 @@ func (x *File) String() string {
 func (*File) ProtoMessage() {}
 
 func (x *File) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[162]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15560,7 +13435,7 @@ func (x *File) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use File.ProtoReflect.Descriptor instead.
 func (*File) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{162}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *File) GetURI() string {
@@ -15592,15 +13467,19 @@ type Fingerprint struct {
 	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty" xml:"Version"`
 	// @gotags: xml:"Parameter"
 	Parameter string `protobuf:"bytes,3,opt,name=parameter,proto3" json:"parameter,omitempty" xml:"Parameter"`
-	// Choice wrapper for XSD choice within sequence
-	Choice        *FingerprintChoice4 `protobuf:"bytes,4,opt,name=choice,proto3" json:"choice,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	// @gotags: xml:"File"
+	File *File `protobuf:"bytes,4,opt,name=file,proto3" json:"file,omitempty" xml:"File"`
+	// @gotags: xml:"DataType"
+	DataType string `protobuf:"bytes,5,opt,name=data_type,json=dataType,proto3" json:"data_type,omitempty" xml:"DataType"`
+	// @gotags: xml:"FingerprintValue"
+	FingerprintValue string `protobuf:"bytes,6,opt,name=fingerprint_value,json=fingerprintValue,proto3" json:"fingerprint_value,omitempty" xml:"FingerprintValue"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *Fingerprint) Reset() {
 	*x = Fingerprint{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[163]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15612,7 +13491,7 @@ func (x *Fingerprint) String() string {
 func (*Fingerprint) ProtoMessage() {}
 
 func (x *Fingerprint) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[163]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15625,7 +13504,7 @@ func (x *Fingerprint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Fingerprint.ProtoReflect.Descriptor instead.
 func (*Fingerprint) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{163}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *Fingerprint) GetAlgorithm() *FingerprintAlgorithmType {
@@ -15649,95 +13528,26 @@ func (x *Fingerprint) GetParameter() string {
 	return ""
 }
 
-func (x *Fingerprint) GetChoice() *FingerprintChoice4 {
+func (x *Fingerprint) GetFile() *File {
 	if x != nil {
-		return x.Choice
+		return x.File
 	}
 	return nil
 }
 
-type FingerprintChoice4 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*FingerprintChoice4_File
-	//	*FingerprintChoice4_Sequence_1
-	Choice        isFingerprintChoice4_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FingerprintChoice4) Reset() {
-	*x = FingerprintChoice4{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[164]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FingerprintChoice4) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FingerprintChoice4) ProtoMessage() {}
-
-func (x *FingerprintChoice4) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[164]
+func (x *Fingerprint) GetDataType() string {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+		return x.DataType
 	}
-	return mi.MessageOf(x)
+	return ""
 }
 
-// Deprecated: Use FingerprintChoice4.ProtoReflect.Descriptor instead.
-func (*FingerprintChoice4) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{164}
-}
-
-func (x *FingerprintChoice4) GetChoice() isFingerprintChoice4_Choice {
+func (x *Fingerprint) GetFingerprintValue() string {
 	if x != nil {
-		return x.Choice
+		return x.FingerprintValue
 	}
-	return nil
+	return ""
 }
-
-func (x *FingerprintChoice4) GetFile() *File {
-	if x != nil {
-		if x, ok := x.Choice.(*FingerprintChoice4_File); ok {
-			return x.File
-		}
-	}
-	return nil
-}
-
-func (x *FingerprintChoice4) GetSequence_1() *FingerprintChoice4_Option1 {
-	if x != nil {
-		if x, ok := x.Choice.(*FingerprintChoice4_Sequence_1); ok {
-			return x.Sequence_1
-		}
-	}
-	return nil
-}
-
-type isFingerprintChoice4_Choice interface {
-	isFingerprintChoice4_Choice()
-}
-
-type FingerprintChoice4_File struct {
-	// @gotags: xml:"File"
-	File *File `protobuf:"bytes,1,opt,name=file,proto3,oneof" xml:"File"`
-}
-
-type FingerprintChoice4_Sequence_1 struct {
-	Sequence_1 *FingerprintChoice4_Option1 `protobuf:"bytes,2,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-func (*FingerprintChoice4_File) isFingerprintChoice4_Choice() {}
-
-func (*FingerprintChoice4_Sequence_1) isFingerprintChoice4_Choice() {}
 
 type FingerprintAlgorithmType struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -15753,7 +13563,7 @@ type FingerprintAlgorithmType struct {
 
 func (x *FingerprintAlgorithmType) Reset() {
 	*x = FingerprintAlgorithmType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[165]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15765,7 +13575,7 @@ func (x *FingerprintAlgorithmType) String() string {
 func (*FingerprintAlgorithmType) ProtoMessage() {}
 
 func (x *FingerprintAlgorithmType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[165]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15778,7 +13588,7 @@ func (x *FingerprintAlgorithmType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FingerprintAlgorithmType.ProtoReflect.Descriptor instead.
 func (*FingerprintAlgorithmType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{165}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *FingerprintAlgorithmType) GetValue() string {
@@ -15816,7 +13626,7 @@ type FirstPublicationDate struct {
 
 func (x *FirstPublicationDate) Reset() {
 	*x = FirstPublicationDate{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[166]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15828,7 +13638,7 @@ func (x *FirstPublicationDate) String() string {
 func (*FirstPublicationDate) ProtoMessage() {}
 
 func (x *FirstPublicationDate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[166]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15841,7 +13651,7 @@ func (x *FirstPublicationDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FirstPublicationDate.ProtoReflect.Descriptor instead.
 func (*FirstPublicationDate) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{166}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *FirstPublicationDate) GetValue() string {
@@ -15877,7 +13687,7 @@ type FrameRate struct {
 
 func (x *FrameRate) Reset() {
 	*x = FrameRate{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[167]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15889,7 +13699,7 @@ func (x *FrameRate) String() string {
 func (*FrameRate) ProtoMessage() {}
 
 func (x *FrameRate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[167]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15902,7 +13712,7 @@ func (x *FrameRate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FrameRate.ProtoReflect.Descriptor instead.
 func (*FrameRate) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{167}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *FrameRate) GetValue() string {
@@ -15935,7 +13745,7 @@ type FulfillmentDate struct {
 
 func (x *FulfillmentDate) Reset() {
 	*x = FulfillmentDate{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[168]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -15947,7 +13757,7 @@ func (x *FulfillmentDate) String() string {
 func (*FulfillmentDate) ProtoMessage() {}
 
 func (x *FulfillmentDate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[168]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -15960,7 +13770,7 @@ func (x *FulfillmentDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FulfillmentDate.ProtoReflect.Descriptor instead.
 func (*FulfillmentDate) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{168}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *FulfillmentDate) GetFulfillmentDate() string {
@@ -16005,7 +13815,7 @@ type GenreCategory struct {
 
 func (x *GenreCategory) Reset() {
 	*x = GenreCategory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[169]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16017,7 +13827,7 @@ func (x *GenreCategory) String() string {
 func (*GenreCategory) ProtoMessage() {}
 
 func (x *GenreCategory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[169]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16030,7 +13840,7 @@ func (x *GenreCategory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenreCategory.ProtoReflect.Descriptor instead.
 func (*GenreCategory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{169}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *GenreCategory) GetValue() *GenreCategoryValue {
@@ -16070,7 +13880,7 @@ type GenreCategoryValue struct {
 
 func (x *GenreCategoryValue) Reset() {
 	*x = GenreCategoryValue{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[170]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16082,7 +13892,7 @@ func (x *GenreCategoryValue) String() string {
 func (*GenreCategoryValue) ProtoMessage() {}
 
 func (x *GenreCategoryValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[170]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16095,7 +13905,7 @@ func (x *GenreCategoryValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenreCategoryValue.ProtoReflect.Descriptor instead.
 func (*GenreCategoryValue) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{170}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *GenreCategoryValue) GetValue() string {
@@ -16148,7 +13958,7 @@ type GenreWithTerritory struct {
 
 func (x *GenreWithTerritory) Reset() {
 	*x = GenreWithTerritory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[171]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16160,7 +13970,7 @@ func (x *GenreWithTerritory) String() string {
 func (*GenreWithTerritory) ProtoMessage() {}
 
 func (x *GenreWithTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[171]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16173,7 +13983,7 @@ func (x *GenreWithTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenreWithTerritory.ProtoReflect.Descriptor instead.
 func (*GenreWithTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{171}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *GenreWithTerritory) GetGenreText() string {
@@ -16239,7 +14049,7 @@ type HashSumAlgorithmType struct {
 
 func (x *HashSumAlgorithmType) Reset() {
 	*x = HashSumAlgorithmType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[172]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16251,7 +14061,7 @@ func (x *HashSumAlgorithmType) String() string {
 func (*HashSumAlgorithmType) ProtoMessage() {}
 
 func (x *HashSumAlgorithmType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[172]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16264,7 +14074,7 @@ func (x *HashSumAlgorithmType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashSumAlgorithmType.ProtoReflect.Descriptor instead.
 func (*HashSumAlgorithmType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{172}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *HashSumAlgorithmType) GetValue() string {
@@ -16304,7 +14114,7 @@ type ImageCodecType struct {
 
 func (x *ImageCodecType) Reset() {
 	*x = ImageCodecType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[173]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16316,7 +14126,7 @@ func (x *ImageCodecType) String() string {
 func (*ImageCodecType) ProtoMessage() {}
 
 func (x *ImageCodecType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[173]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16329,7 +14139,7 @@ func (x *ImageCodecType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ImageCodecType.ProtoReflect.Descriptor instead.
 func (*ImageCodecType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{173}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *ImageCodecType) GetValue() string {
@@ -16374,7 +14184,7 @@ type ImageType struct {
 
 func (x *ImageType) Reset() {
 	*x = ImageType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[174]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16386,7 +14196,7 @@ func (x *ImageType) String() string {
 func (*ImageType) ProtoMessage() {}
 
 func (x *ImageType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[174]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16399,7 +14209,7 @@ func (x *ImageType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ImageType.ProtoReflect.Descriptor instead.
 func (*ImageType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{174}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *ImageType) GetValue() string {
@@ -16437,7 +14247,7 @@ type InstrumentType struct {
 
 func (x *InstrumentType) Reset() {
 	*x = InstrumentType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[175]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16449,7 +14259,7 @@ func (x *InstrumentType) String() string {
 func (*InstrumentType) ProtoMessage() {}
 
 func (x *InstrumentType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[175]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16462,7 +14272,7 @@ func (x *InstrumentType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InstrumentType.ProtoReflect.Descriptor instead.
 func (*InstrumentType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{175}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *InstrumentType) GetValue() string {
@@ -16498,7 +14308,7 @@ type IsCredited struct {
 
 func (x *IsCredited) Reset() {
 	*x = IsCredited{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[176]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16510,7 +14320,7 @@ func (x *IsCredited) String() string {
 func (*IsCredited) ProtoMessage() {}
 
 func (x *IsCredited) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[176]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16523,7 +14333,7 @@ func (x *IsCredited) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsCredited.ProtoReflect.Descriptor instead.
 func (*IsCredited) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{176}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *IsCredited) GetValue() string {
@@ -16556,7 +14366,7 @@ type KeywordsWithTerritory struct {
 
 func (x *KeywordsWithTerritory) Reset() {
 	*x = KeywordsWithTerritory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[177]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16568,7 +14378,7 @@ func (x *KeywordsWithTerritory) String() string {
 func (*KeywordsWithTerritory) ProtoMessage() {}
 
 func (x *KeywordsWithTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[177]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16581,7 +14391,7 @@ func (x *KeywordsWithTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KeywordsWithTerritory.ProtoReflect.Descriptor instead.
 func (*KeywordsWithTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{177}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *KeywordsWithTerritory) GetValue() string {
@@ -16624,7 +14434,7 @@ type Language struct {
 
 func (x *Language) Reset() {
 	*x = Language{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[178]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16636,7 +14446,7 @@ func (x *Language) String() string {
 func (*Language) ProtoMessage() {}
 
 func (x *Language) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[178]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16649,7 +14459,7 @@ func (x *Language) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Language.ProtoReflect.Descriptor instead.
 func (*Language) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{178}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *Language) GetValue() string {
@@ -16682,7 +14492,7 @@ type MarketingComment struct {
 
 func (x *MarketingComment) Reset() {
 	*x = MarketingComment{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[179]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16694,7 +14504,7 @@ func (x *MarketingComment) String() string {
 func (*MarketingComment) ProtoMessage() {}
 
 func (x *MarketingComment) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[179]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16707,7 +14517,7 @@ func (x *MarketingComment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MarketingComment.ProtoReflect.Descriptor instead.
 func (*MarketingComment) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{179}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *MarketingComment) GetValue() string {
@@ -16748,7 +14558,7 @@ type MessageAuditTrail struct {
 
 func (x *MessageAuditTrail) Reset() {
 	*x = MessageAuditTrail{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[180]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16760,7 +14570,7 @@ func (x *MessageAuditTrail) String() string {
 func (*MessageAuditTrail) ProtoMessage() {}
 
 func (x *MessageAuditTrail) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[180]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16773,7 +14583,7 @@ func (x *MessageAuditTrail) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAuditTrail.ProtoReflect.Descriptor instead.
 func (*MessageAuditTrail) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{180}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *MessageAuditTrail) GetMessageAuditTrailEvent() []*MessageAuditTrailEvent {
@@ -16795,7 +14605,7 @@ type MessageAuditTrailEvent struct {
 
 func (x *MessageAuditTrailEvent) Reset() {
 	*x = MessageAuditTrailEvent{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[181]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16807,7 +14617,7 @@ func (x *MessageAuditTrailEvent) String() string {
 func (*MessageAuditTrailEvent) ProtoMessage() {}
 
 func (x *MessageAuditTrailEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[181]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16820,7 +14630,7 @@ func (x *MessageAuditTrailEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAuditTrailEvent.ProtoReflect.Descriptor instead.
 func (*MessageAuditTrailEvent) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{181}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *MessageAuditTrailEvent) GetMessagingPartyDescriptor() *MessagingPartyWithoutCode {
@@ -16865,7 +14675,7 @@ type MessageHeader struct {
 
 func (x *MessageHeader) Reset() {
 	*x = MessageHeader{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[182]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16877,7 +14687,7 @@ func (x *MessageHeader) String() string {
 func (*MessageHeader) ProtoMessage() {}
 
 func (x *MessageHeader) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[182]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -16890,7 +14700,7 @@ func (x *MessageHeader) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageHeader.ProtoReflect.Descriptor instead.
 func (*MessageHeader) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{182}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *MessageHeader) GetMessageThreadId() string {
@@ -16977,7 +14787,7 @@ type MessagingPartyWithoutCode struct {
 
 func (x *MessagingPartyWithoutCode) Reset() {
 	*x = MessagingPartyWithoutCode{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[183]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -16989,7 +14799,7 @@ func (x *MessagingPartyWithoutCode) String() string {
 func (*MessagingPartyWithoutCode) ProtoMessage() {}
 
 func (x *MessagingPartyWithoutCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[183]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17002,7 +14812,7 @@ func (x *MessagingPartyWithoutCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessagingPartyWithoutCode.ProtoReflect.Descriptor instead.
 func (*MessagingPartyWithoutCode) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{183}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *MessagingPartyWithoutCode) GetPartyId() string {
@@ -17044,7 +14854,7 @@ type MusicalWorkId struct {
 
 func (x *MusicalWorkId) Reset() {
 	*x = MusicalWorkId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[184]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17056,7 +14866,7 @@ func (x *MusicalWorkId) String() string {
 func (*MusicalWorkId) ProtoMessage() {}
 
 func (x *MusicalWorkId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[184]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17069,7 +14879,7 @@ func (x *MusicalWorkId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MusicalWorkId.ProtoReflect.Descriptor instead.
 func (*MusicalWorkId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{184}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *MusicalWorkId) GetISWC() string {
@@ -17119,7 +14929,7 @@ type Name struct {
 
 func (x *Name) Reset() {
 	*x = Name{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[185]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17131,7 +14941,7 @@ func (x *Name) String() string {
 func (*Name) ProtoMessage() {}
 
 func (x *Name) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[185]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17144,7 +14954,7 @@ func (x *Name) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Name.ProtoReflect.Descriptor instead.
 func (*Name) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{185}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *Name) GetValue() string {
@@ -17177,7 +14987,7 @@ type OperatingSystemType struct {
 
 func (x *OperatingSystemType) Reset() {
 	*x = OperatingSystemType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[186]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17189,7 +14999,7 @@ func (x *OperatingSystemType) String() string {
 func (*OperatingSystemType) ProtoMessage() {}
 
 func (x *OperatingSystemType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[186]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17202,7 +15012,7 @@ func (x *OperatingSystemType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OperatingSystemType.ProtoReflect.Descriptor instead.
 func (*OperatingSystemType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{186}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *OperatingSystemType) GetValue() string {
@@ -17253,7 +15063,7 @@ type PLine struct {
 
 func (x *PLine) Reset() {
 	*x = PLine{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[187]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17265,7 +15075,7 @@ func (x *PLine) String() string {
 func (*PLine) ProtoMessage() {}
 
 func (x *PLine) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[187]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17278,7 +15088,7 @@ func (x *PLine) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PLine.ProtoReflect.Descriptor instead.
 func (*PLine) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{187}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *PLine) GetYear() string {
@@ -17347,7 +15157,7 @@ type ParentalWarningTypeWithStandard struct {
 
 func (x *ParentalWarningTypeWithStandard) Reset() {
 	*x = ParentalWarningTypeWithStandard{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[188]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17359,7 +15169,7 @@ func (x *ParentalWarningTypeWithStandard) String() string {
 func (*ParentalWarningTypeWithStandard) ProtoMessage() {}
 
 func (x *ParentalWarningTypeWithStandard) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[188]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17372,7 +15182,7 @@ func (x *ParentalWarningTypeWithStandard) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ParentalWarningTypeWithStandard.ProtoReflect.Descriptor instead.
 func (*ParentalWarningTypeWithStandard) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{188}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *ParentalWarningTypeWithStandard) GetValue() string {
@@ -17455,7 +15265,7 @@ type PartyName struct {
 
 func (x *PartyName) Reset() {
 	*x = PartyName{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[189]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17467,7 +15277,7 @@ func (x *PartyName) String() string {
 func (*PartyName) ProtoMessage() {}
 
 func (x *PartyName) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[189]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17480,7 +15290,7 @@ func (x *PartyName) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyName.ProtoReflect.Descriptor instead.
 func (*PartyName) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{189}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *PartyName) GetFullName() *Name {
@@ -17561,7 +15371,7 @@ type PartyNameWithoutCode struct {
 
 func (x *PartyNameWithoutCode) Reset() {
 	*x = PartyNameWithoutCode{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[190]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17573,7 +15383,7 @@ func (x *PartyNameWithoutCode) String() string {
 func (*PartyNameWithoutCode) ProtoMessage() {}
 
 func (x *PartyNameWithoutCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[190]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17586,7 +15396,7 @@ func (x *PartyNameWithoutCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyNameWithoutCode.ProtoReflect.Descriptor instead.
 func (*PartyNameWithoutCode) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{190}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *PartyNameWithoutCode) GetFullName() string {
@@ -17654,7 +15464,7 @@ type PartyRelationshipType struct {
 
 func (x *PartyRelationshipType) Reset() {
 	*x = PartyRelationshipType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[191]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17666,7 +15476,7 @@ func (x *PartyRelationshipType) String() string {
 func (*PartyRelationshipType) ProtoMessage() {}
 
 func (x *PartyRelationshipType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[191]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17679,7 +15489,7 @@ func (x *PartyRelationshipType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PartyRelationshipType.ProtoReflect.Descriptor instead.
 func (*PartyRelationshipType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{191}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *PartyRelationshipType) GetValue() string {
@@ -17722,7 +15532,7 @@ type Percentage struct {
 
 func (x *Percentage) Reset() {
 	*x = Percentage{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[192]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17734,7 +15544,7 @@ func (x *Percentage) String() string {
 func (*Percentage) ProtoMessage() {}
 
 func (x *Percentage) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[192]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17747,7 +15557,7 @@ func (x *Percentage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Percentage.ProtoReflect.Descriptor instead.
 func (*Percentage) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{192}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *Percentage) GetValue() string {
@@ -17766,15 +15576,21 @@ func (x *Percentage) GetHasMaxValueOfOne() bool {
 
 type Period struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Choice wrapper for XSD choice
-	Choice        *PeriodChoice `protobuf:"bytes,1,opt,name=choice,proto3" json:"choice,omitempty"`
+	// @gotags: xml:"StartDate"
+	StartDate *EventDate `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
+	// @gotags: xml:"EndDate"
+	EndDate *EventDate `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
+	// @gotags: xml:"StartDateTime"
+	StartDateTime *EventDateTime `protobuf:"bytes,3,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
+	// @gotags: xml:"EndDateTime"
+	EndDateTime   *EventDateTime `protobuf:"bytes,4,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Period) Reset() {
 	*x = Period{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[193]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17786,7 +15602,7 @@ func (x *Period) String() string {
 func (*Period) ProtoMessage() {}
 
 func (x *Period) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[193]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17799,97 +15615,36 @@ func (x *Period) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Period.ProtoReflect.Descriptor instead.
 func (*Period) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{193}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{163}
 }
 
-func (x *Period) GetChoice() *PeriodChoice {
+func (x *Period) GetStartDate() *EventDate {
 	if x != nil {
-		return x.Choice
+		return x.StartDate
 	}
 	return nil
 }
 
-type PeriodChoice struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Types that are valid to be assigned to Choice:
-	//
-	//	*PeriodChoice_Sequence_1
-	//	*PeriodChoice_Sequence_2
-	Choice        isPeriodChoice_Choice `protobuf_oneof:"choice"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodChoice) Reset() {
-	*x = PeriodChoice{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[194]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodChoice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodChoice) ProtoMessage() {}
-
-func (x *PeriodChoice) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[194]
+func (x *Period) GetEndDate() *EventDate {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodChoice.ProtoReflect.Descriptor instead.
-func (*PeriodChoice) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{194}
-}
-
-func (x *PeriodChoice) GetChoice() isPeriodChoice_Choice {
-	if x != nil {
-		return x.Choice
+		return x.EndDate
 	}
 	return nil
 }
 
-func (x *PeriodChoice) GetSequence_1() *PeriodChoice_Option1 {
+func (x *Period) GetStartDateTime() *EventDateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodChoice_Sequence_1); ok {
-			return x.Sequence_1
-		}
+		return x.StartDateTime
 	}
 	return nil
 }
 
-func (x *PeriodChoice) GetSequence_2() *PeriodChoice_Option2 {
+func (x *Period) GetEndDateTime() *EventDateTime {
 	if x != nil {
-		if x, ok := x.Choice.(*PeriodChoice_Sequence_2); ok {
-			return x.Sequence_2
-		}
+		return x.EndDateTime
 	}
 	return nil
 }
-
-type isPeriodChoice_Choice interface {
-	isPeriodChoice_Choice()
-}
-
-type PeriodChoice_Sequence_1 struct {
-	Sequence_1 *PeriodChoice_Option1 `protobuf:"bytes,1,opt,name=sequence_1,json=sequence1,proto3,oneof"`
-}
-
-type PeriodChoice_Sequence_2 struct {
-	Sequence_2 *PeriodChoice_Option2 `protobuf:"bytes,2,opt,name=sequence_2,json=sequence2,proto3,oneof"`
-}
-
-func (*PeriodChoice_Sequence_1) isPeriodChoice_Choice() {}
-
-func (*PeriodChoice_Sequence_2) isPeriodChoice_Choice() {}
 
 type Prefix struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -17903,7 +15658,7 @@ type Prefix struct {
 
 func (x *Prefix) Reset() {
 	*x = Prefix{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[195]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17915,7 +15670,7 @@ func (x *Prefix) String() string {
 func (*Prefix) ProtoMessage() {}
 
 func (x *Prefix) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[195]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17928,7 +15683,7 @@ func (x *Prefix) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Prefix.ProtoReflect.Descriptor instead.
 func (*Prefix) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{195}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *Prefix) GetValue() string {
@@ -17957,7 +15712,7 @@ type Price struct {
 
 func (x *Price) Reset() {
 	*x = Price{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[196]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -17969,7 +15724,7 @@ func (x *Price) String() string {
 func (*Price) ProtoMessage() {}
 
 func (x *Price) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[196]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -17982,7 +15737,7 @@ func (x *Price) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Price.ProtoReflect.Descriptor instead.
 func (*Price) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{196}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *Price) GetValue() string {
@@ -18011,7 +15766,7 @@ type PriceType struct {
 
 func (x *PriceType) Reset() {
 	*x = PriceType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[197]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18023,7 +15778,7 @@ func (x *PriceType) String() string {
 func (*PriceType) ProtoMessage() {}
 
 func (x *PriceType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[197]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18036,7 +15791,7 @@ func (x *PriceType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PriceType.ProtoReflect.Descriptor instead.
 func (*PriceType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{197}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *PriceType) GetValue() string {
@@ -18065,7 +15820,7 @@ type PromotionalCode struct {
 
 func (x *PromotionalCode) Reset() {
 	*x = PromotionalCode{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[198]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18077,7 +15832,7 @@ func (x *PromotionalCode) String() string {
 func (*PromotionalCode) ProtoMessage() {}
 
 func (x *PromotionalCode) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[198]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18090,7 +15845,7 @@ func (x *PromotionalCode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PromotionalCode.ProtoReflect.Descriptor instead.
 func (*PromotionalCode) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{198}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *PromotionalCode) GetValue() string {
@@ -18119,7 +15874,7 @@ type ProprietaryId struct {
 
 func (x *ProprietaryId) Reset() {
 	*x = ProprietaryId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[199]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18131,7 +15886,7 @@ func (x *ProprietaryId) String() string {
 func (*ProprietaryId) ProtoMessage() {}
 
 func (x *ProprietaryId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[199]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18144,7 +15899,7 @@ func (x *ProprietaryId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProprietaryId.ProtoReflect.Descriptor instead.
 func (*ProprietaryId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{199}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *ProprietaryId) GetValue() string {
@@ -18175,7 +15930,7 @@ type Purpose struct {
 
 func (x *Purpose) Reset() {
 	*x = Purpose{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[200]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18187,7 +15942,7 @@ func (x *Purpose) String() string {
 func (*Purpose) ProtoMessage() {}
 
 func (x *Purpose) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[200]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18200,7 +15955,7 @@ func (x *Purpose) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Purpose.ProtoReflect.Descriptor instead.
 func (*Purpose) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{200}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *Purpose) GetValue() string {
@@ -18238,7 +15993,7 @@ type RatingAgency struct {
 
 func (x *RatingAgency) Reset() {
 	*x = RatingAgency{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[201]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18250,7 +16005,7 @@ func (x *RatingAgency) String() string {
 func (*RatingAgency) ProtoMessage() {}
 
 func (x *RatingAgency) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[201]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18263,7 +16018,7 @@ func (x *RatingAgency) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RatingAgency.ProtoReflect.Descriptor instead.
 func (*RatingAgency) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{201}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *RatingAgency) GetValue() string {
@@ -18301,7 +16056,7 @@ type RatingReason struct {
 
 func (x *RatingReason) Reset() {
 	*x = RatingReason{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[202]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18313,7 +16068,7 @@ func (x *RatingReason) String() string {
 func (*RatingReason) ProtoMessage() {}
 
 func (x *RatingReason) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[202]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18326,7 +16081,7 @@ func (x *RatingReason) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RatingReason.ProtoReflect.Descriptor instead.
 func (*RatingReason) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{202}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *RatingReason) GetValue() string {
@@ -18362,7 +16117,7 @@ type Reason struct {
 
 func (x *Reason) Reset() {
 	*x = Reason{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[203]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18374,7 +16129,7 @@ func (x *Reason) String() string {
 func (*Reason) ProtoMessage() {}
 
 func (x *Reason) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[203]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18387,7 +16142,7 @@ func (x *Reason) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Reason.ProtoReflect.Descriptor instead.
 func (*Reason) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{203}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *Reason) GetValue() string {
@@ -18416,7 +16171,7 @@ type RelatedParty struct {
 
 func (x *RelatedParty) Reset() {
 	*x = RelatedParty{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[204]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18428,7 +16183,7 @@ func (x *RelatedParty) String() string {
 func (*RelatedParty) ProtoMessage() {}
 
 func (x *RelatedParty) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[204]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18441,7 +16196,7 @@ func (x *RelatedParty) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RelatedParty.ProtoReflect.Descriptor instead.
 func (*RelatedParty) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{204}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *RelatedParty) GetPartyRelatedPartyReference() string {
@@ -18472,7 +16227,7 @@ type ReleaseRelationshipType struct {
 
 func (x *ReleaseRelationshipType) Reset() {
 	*x = ReleaseRelationshipType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[205]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18484,7 +16239,7 @@ func (x *ReleaseRelationshipType) String() string {
 func (*ReleaseRelationshipType) ProtoMessage() {}
 
 func (x *ReleaseRelationshipType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[205]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18497,7 +16252,7 @@ func (x *ReleaseRelationshipType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseRelationshipType.ProtoReflect.Descriptor instead.
 func (*ReleaseRelationshipType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{205}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *ReleaseRelationshipType) GetValue() string {
@@ -18535,7 +16290,7 @@ type ReleaseTypeForReleaseNotification struct {
 
 func (x *ReleaseTypeForReleaseNotification) Reset() {
 	*x = ReleaseTypeForReleaseNotification{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[206]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18547,7 +16302,7 @@ func (x *ReleaseTypeForReleaseNotification) String() string {
 func (*ReleaseTypeForReleaseNotification) ProtoMessage() {}
 
 func (x *ReleaseTypeForReleaseNotification) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[206]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18560,7 +16315,7 @@ func (x *ReleaseTypeForReleaseNotification) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ReleaseTypeForReleaseNotification.ProtoReflect.Descriptor instead.
 func (*ReleaseTypeForReleaseNotification) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{206}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *ReleaseTypeForReleaseNotification) GetValue() string {
@@ -18600,7 +16355,7 @@ type ResourceContainedResourceReference struct {
 
 func (x *ResourceContainedResourceReference) Reset() {
 	*x = ResourceContainedResourceReference{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[207]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18612,7 +16367,7 @@ func (x *ResourceContainedResourceReference) String() string {
 func (*ResourceContainedResourceReference) ProtoMessage() {}
 
 func (x *ResourceContainedResourceReference) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[207]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18625,7 +16380,7 @@ func (x *ResourceContainedResourceReference) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use ResourceContainedResourceReference.ProtoReflect.Descriptor instead.
 func (*ResourceContainedResourceReference) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{207}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *ResourceContainedResourceReference) GetResourceContainedResourceReference() string {
@@ -18666,7 +16421,7 @@ type ResourceContainedResourceReferenceList struct {
 
 func (x *ResourceContainedResourceReferenceList) Reset() {
 	*x = ResourceContainedResourceReferenceList{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[208]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18678,7 +16433,7 @@ func (x *ResourceContainedResourceReferenceList) String() string {
 func (*ResourceContainedResourceReferenceList) ProtoMessage() {}
 
 func (x *ResourceContainedResourceReferenceList) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[208]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18691,7 +16446,7 @@ func (x *ResourceContainedResourceReferenceList) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use ResourceContainedResourceReferenceList.ProtoReflect.Descriptor instead.
 func (*ResourceContainedResourceReferenceList) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{208}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *ResourceContainedResourceReferenceList) GetResourceContainedResourceReference() []*ResourceContainedResourceReference {
@@ -18715,7 +16470,7 @@ type ResourceContributorRole struct {
 
 func (x *ResourceContributorRole) Reset() {
 	*x = ResourceContributorRole{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[209]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18727,7 +16482,7 @@ func (x *ResourceContributorRole) String() string {
 func (*ResourceContributorRole) ProtoMessage() {}
 
 func (x *ResourceContributorRole) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[209]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18740,7 +16495,7 @@ func (x *ResourceContributorRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceContributorRole.ProtoReflect.Descriptor instead.
 func (*ResourceContributorRole) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{209}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *ResourceContributorRole) GetValue() string {
@@ -18792,7 +16547,7 @@ type ResourceId struct {
 
 func (x *ResourceId) Reset() {
 	*x = ResourceId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[210]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18804,7 +16559,7 @@ func (x *ResourceId) String() string {
 func (*ResourceId) ProtoMessage() {}
 
 func (x *ResourceId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[210]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18817,7 +16572,7 @@ func (x *ResourceId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceId.ProtoReflect.Descriptor instead.
 func (*ResourceId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{210}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *ResourceId) GetISRC() string {
@@ -18902,7 +16657,7 @@ type ResourceProprietaryId struct {
 
 func (x *ResourceProprietaryId) Reset() {
 	*x = ResourceProprietaryId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[211]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18914,7 +16669,7 @@ func (x *ResourceProprietaryId) String() string {
 func (*ResourceProprietaryId) ProtoMessage() {}
 
 func (x *ResourceProprietaryId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[211]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18927,7 +16682,7 @@ func (x *ResourceProprietaryId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResourceProprietaryId.ProtoReflect.Descriptor instead.
 func (*ResourceProprietaryId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{211}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *ResourceProprietaryId) GetProprietaryId() []*ProprietaryId {
@@ -18958,7 +16713,7 @@ type RightsClaimPolicyReason struct {
 
 func (x *RightsClaimPolicyReason) Reset() {
 	*x = RightsClaimPolicyReason{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[212]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -18970,7 +16725,7 @@ func (x *RightsClaimPolicyReason) String() string {
 func (*RightsClaimPolicyReason) ProtoMessage() {}
 
 func (x *RightsClaimPolicyReason) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[212]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -18983,7 +16738,7 @@ func (x *RightsClaimPolicyReason) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RightsClaimPolicyReason.ProtoReflect.Descriptor instead.
 func (*RightsClaimPolicyReason) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{212}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *RightsClaimPolicyReason) GetValue() string {
@@ -19021,7 +16776,7 @@ type RightsType struct {
 
 func (x *RightsType) Reset() {
 	*x = RightsType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[213]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19033,7 +16788,7 @@ func (x *RightsType) String() string {
 func (*RightsType) ProtoMessage() {}
 
 func (x *RightsType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[213]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19046,7 +16801,7 @@ func (x *RightsType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RightsType.ProtoReflect.Descriptor instead.
 func (*RightsType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{213}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *RightsType) GetValue() string {
@@ -19082,7 +16837,7 @@ type SamplingRate struct {
 
 func (x *SamplingRate) Reset() {
 	*x = SamplingRate{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[214]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19094,7 +16849,7 @@ func (x *SamplingRate) String() string {
 func (*SamplingRate) ProtoMessage() {}
 
 func (x *SamplingRate) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[214]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19107,7 +16862,7 @@ func (x *SamplingRate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SamplingRate.ProtoReflect.Descriptor instead.
 func (*SamplingRate) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{214}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *SamplingRate) GetValue() string {
@@ -19138,7 +16893,7 @@ type SessionType struct {
 
 func (x *SessionType) Reset() {
 	*x = SessionType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[215]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19150,7 +16905,7 @@ func (x *SessionType) String() string {
 func (*SessionType) ProtoMessage() {}
 
 func (x *SessionType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[215]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19163,7 +16918,7 @@ func (x *SessionType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionType.ProtoReflect.Descriptor instead.
 func (*SessionType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{215}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *SessionType) GetValue() string {
@@ -19203,7 +16958,7 @@ type SheetMusicCodecType struct {
 
 func (x *SheetMusicCodecType) Reset() {
 	*x = SheetMusicCodecType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[216]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19215,7 +16970,7 @@ func (x *SheetMusicCodecType) String() string {
 func (*SheetMusicCodecType) ProtoMessage() {}
 
 func (x *SheetMusicCodecType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[216]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19228,7 +16983,7 @@ func (x *SheetMusicCodecType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SheetMusicCodecType.ProtoReflect.Descriptor instead.
 func (*SheetMusicCodecType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{216}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{185}
 }
 
 func (x *SheetMusicCodecType) GetValue() string {
@@ -19273,7 +17028,7 @@ type SheetMusicId struct {
 
 func (x *SheetMusicId) Reset() {
 	*x = SheetMusicId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[217]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19285,7 +17040,7 @@ func (x *SheetMusicId) String() string {
 func (*SheetMusicId) ProtoMessage() {}
 
 func (x *SheetMusicId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[217]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19298,7 +17053,7 @@ func (x *SheetMusicId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SheetMusicId.ProtoReflect.Descriptor instead.
 func (*SheetMusicId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{217}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *SheetMusicId) GetISMN() string {
@@ -19336,7 +17091,7 @@ type SheetMusicType struct {
 
 func (x *SheetMusicType) Reset() {
 	*x = SheetMusicType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[218]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19348,7 +17103,7 @@ func (x *SheetMusicType) String() string {
 func (*SheetMusicType) ProtoMessage() {}
 
 func (x *SheetMusicType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[218]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19361,7 +17116,7 @@ func (x *SheetMusicType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SheetMusicType.ProtoReflect.Descriptor instead.
 func (*SheetMusicType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{218}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{187}
 }
 
 func (x *SheetMusicType) GetValue() string {
@@ -19399,7 +17154,7 @@ type SoftwareType struct {
 
 func (x *SoftwareType) Reset() {
 	*x = SoftwareType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[219]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[188]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19411,7 +17166,7 @@ func (x *SoftwareType) String() string {
 func (*SoftwareType) ProtoMessage() {}
 
 func (x *SoftwareType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[219]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[188]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19424,7 +17179,7 @@ func (x *SoftwareType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SoftwareType.ProtoReflect.Descriptor instead.
 func (*SoftwareType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{219}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *SoftwareType) GetValue() string {
@@ -19464,7 +17219,7 @@ type SoundRecordingId struct {
 
 func (x *SoundRecordingId) Reset() {
 	*x = SoundRecordingId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[220]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19476,7 +17231,7 @@ func (x *SoundRecordingId) String() string {
 func (*SoundRecordingId) ProtoMessage() {}
 
 func (x *SoundRecordingId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[220]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19489,7 +17244,7 @@ func (x *SoundRecordingId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SoundRecordingId.ProtoReflect.Descriptor instead.
 func (*SoundRecordingId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{220}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{189}
 }
 
 func (x *SoundRecordingId) GetISRC() string {
@@ -19534,7 +17289,7 @@ type SoundRecordingType struct {
 
 func (x *SoundRecordingType) Reset() {
 	*x = SoundRecordingType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[221]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19546,7 +17301,7 @@ func (x *SoundRecordingType) String() string {
 func (*SoundRecordingType) ProtoMessage() {}
 
 func (x *SoundRecordingType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[221]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19559,7 +17314,7 @@ func (x *SoundRecordingType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SoundRecordingType.ProtoReflect.Descriptor instead.
 func (*SoundRecordingType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{221}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *SoundRecordingType) GetValue() string {
@@ -19597,7 +17352,7 @@ type SpecialContributorType struct {
 
 func (x *SpecialContributorType) Reset() {
 	*x = SpecialContributorType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[222]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[191]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19609,7 +17364,7 @@ func (x *SpecialContributorType) String() string {
 func (*SpecialContributorType) ProtoMessage() {}
 
 func (x *SpecialContributorType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[222]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[191]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19622,7 +17377,7 @@ func (x *SpecialContributorType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpecialContributorType.ProtoReflect.Descriptor instead.
 func (*SpecialContributorType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{222}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{191}
 }
 
 func (x *SpecialContributorType) GetValue() string {
@@ -19658,7 +17413,7 @@ type SubGenreCategory struct {
 
 func (x *SubGenreCategory) Reset() {
 	*x = SubGenreCategory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[223]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19670,7 +17425,7 @@ func (x *SubGenreCategory) String() string {
 func (*SubGenreCategory) ProtoMessage() {}
 
 func (x *SubGenreCategory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[223]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19683,7 +17438,7 @@ func (x *SubGenreCategory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SubGenreCategory.ProtoReflect.Descriptor instead.
 func (*SubGenreCategory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{223}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *SubGenreCategory) GetValue() []*SubGenreCategoryValue {
@@ -19714,7 +17469,7 @@ type SubGenreCategoryValue struct {
 
 func (x *SubGenreCategoryValue) Reset() {
 	*x = SubGenreCategoryValue{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[224]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19726,7 +17481,7 @@ func (x *SubGenreCategoryValue) String() string {
 func (*SubGenreCategoryValue) ProtoMessage() {}
 
 func (x *SubGenreCategoryValue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[224]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19739,7 +17494,7 @@ func (x *SubGenreCategoryValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SubGenreCategoryValue.ProtoReflect.Descriptor instead.
 func (*SubGenreCategoryValue) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{224}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{193}
 }
 
 func (x *SubGenreCategoryValue) GetValue() string {
@@ -19779,7 +17534,7 @@ type TextCodecType struct {
 
 func (x *TextCodecType) Reset() {
 	*x = TextCodecType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[225]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19791,7 +17546,7 @@ func (x *TextCodecType) String() string {
 func (*TextCodecType) ProtoMessage() {}
 
 func (x *TextCodecType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[225]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19804,7 +17559,7 @@ func (x *TextCodecType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextCodecType.ProtoReflect.Descriptor instead.
 func (*TextCodecType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{225}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *TextCodecType) GetValue() string {
@@ -19853,7 +17608,7 @@ type TextId struct {
 
 func (x *TextId) Reset() {
 	*x = TextId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[226]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19865,7 +17620,7 @@ func (x *TextId) String() string {
 func (*TextId) ProtoMessage() {}
 
 func (x *TextId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[226]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19878,7 +17633,7 @@ func (x *TextId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextId.ProtoReflect.Descriptor instead.
 func (*TextId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{226}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{195}
 }
 
 func (x *TextId) GetISBN() string {
@@ -19930,7 +17685,7 @@ type TextType struct {
 
 func (x *TextType) Reset() {
 	*x = TextType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[227]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -19942,7 +17697,7 @@ func (x *TextType) String() string {
 func (*TextType) ProtoMessage() {}
 
 func (x *TextType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[227]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -19955,7 +17710,7 @@ func (x *TextType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextType.ProtoReflect.Descriptor instead.
 func (*TextType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{227}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{196}
 }
 
 func (x *TextType) GetValue() string {
@@ -20001,7 +17756,7 @@ type TextWithFormat struct {
 
 func (x *TextWithFormat) Reset() {
 	*x = TextWithFormat{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[228]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20013,7 +17768,7 @@ func (x *TextWithFormat) String() string {
 func (*TextWithFormat) ProtoMessage() {}
 
 func (x *TextWithFormat) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[228]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20026,7 +17781,7 @@ func (x *TextWithFormat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextWithFormat.ProtoReflect.Descriptor instead.
 func (*TextWithFormat) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{228}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{197}
 }
 
 func (x *TextWithFormat) GetValue() string {
@@ -20100,7 +17855,7 @@ type TextWithoutTerritory struct {
 
 func (x *TextWithoutTerritory) Reset() {
 	*x = TextWithoutTerritory{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[229]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20112,7 +17867,7 @@ func (x *TextWithoutTerritory) String() string {
 func (*TextWithoutTerritory) ProtoMessage() {}
 
 func (x *TextWithoutTerritory) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[229]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20125,7 +17880,7 @@ func (x *TextWithoutTerritory) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TextWithoutTerritory.ProtoReflect.Descriptor instead.
 func (*TextWithoutTerritory) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{229}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{198}
 }
 
 func (x *TextWithoutTerritory) GetValue() string {
@@ -20193,7 +17948,7 @@ type TitleDisplayInformation struct {
 
 func (x *TitleDisplayInformation) Reset() {
 	*x = TitleDisplayInformation{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[230]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20205,7 +17960,7 @@ func (x *TitleDisplayInformation) String() string {
 func (*TitleDisplayInformation) ProtoMessage() {}
 
 func (x *TitleDisplayInformation) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[230]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20218,7 +17973,7 @@ func (x *TitleDisplayInformation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TitleDisplayInformation.ProtoReflect.Descriptor instead.
 func (*TitleDisplayInformation) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{230}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *TitleDisplayInformation) GetIsDisplayedInTitle() bool {
@@ -20261,7 +18016,7 @@ type ValidityPeriod struct {
 
 func (x *ValidityPeriod) Reset() {
 	*x = ValidityPeriod{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[231]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20273,7 +18028,7 @@ func (x *ValidityPeriod) String() string {
 func (*ValidityPeriod) ProtoMessage() {}
 
 func (x *ValidityPeriod) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[231]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20286,7 +18041,7 @@ func (x *ValidityPeriod) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidityPeriod.ProtoReflect.Descriptor instead.
 func (*ValidityPeriod) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{231}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *ValidityPeriod) GetStartDate() *EventDate {
@@ -20321,7 +18076,7 @@ type Venue struct {
 
 func (x *Venue) Reset() {
 	*x = Venue{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[232]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20333,7 +18088,7 @@ func (x *Venue) String() string {
 func (*Venue) ProtoMessage() {}
 
 func (x *Venue) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[232]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20346,7 +18101,7 @@ func (x *Venue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Venue.ProtoReflect.Descriptor instead.
 func (*Venue) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{232}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *Venue) GetVenueName() string {
@@ -20398,7 +18153,7 @@ type VersionType struct {
 
 func (x *VersionType) Reset() {
 	*x = VersionType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[233]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20410,7 +18165,7 @@ func (x *VersionType) String() string {
 func (*VersionType) ProtoMessage() {}
 
 func (x *VersionType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[233]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20423,7 +18178,7 @@ func (x *VersionType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VersionType.ProtoReflect.Descriptor instead.
 func (*VersionType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{233}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *VersionType) GetValue() string {
@@ -20463,7 +18218,7 @@ type VideoCodecType struct {
 
 func (x *VideoCodecType) Reset() {
 	*x = VideoCodecType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[234]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20475,7 +18230,7 @@ func (x *VideoCodecType) String() string {
 func (*VideoCodecType) ProtoMessage() {}
 
 func (x *VideoCodecType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[234]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20488,7 +18243,7 @@ func (x *VideoCodecType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VideoCodecType.ProtoReflect.Descriptor instead.
 func (*VideoCodecType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{234}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *VideoCodecType) GetValue() string {
@@ -20533,7 +18288,7 @@ type VideoDefinitionType struct {
 
 func (x *VideoDefinitionType) Reset() {
 	*x = VideoDefinitionType{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[235]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20545,7 +18300,7 @@ func (x *VideoDefinitionType) String() string {
 func (*VideoDefinitionType) ProtoMessage() {}
 
 func (x *VideoDefinitionType) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[235]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20558,7 +18313,7 @@ func (x *VideoDefinitionType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VideoDefinitionType.ProtoReflect.Descriptor instead.
 func (*VideoDefinitionType) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{235}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{204}
 }
 
 func (x *VideoDefinitionType) GetValue() string {
@@ -20604,7 +18359,7 @@ type VideoId struct {
 
 func (x *VideoId) Reset() {
 	*x = VideoId{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[236]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -20616,7 +18371,7 @@ func (x *VideoId) String() string {
 func (*VideoId) ProtoMessage() {}
 
 func (x *VideoId) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[236]
+	mi := &file_ddex_ern_v432_v432_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -20629,7 +18384,7 @@ func (x *VideoId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VideoId.ProtoReflect.Descriptor instead.
 func (*VideoId) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{236}
+	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *VideoId) GetISRC() string {
@@ -20679,1428 +18434,6 @@ func (x *VideoId) GetIsReplaced() bool {
 		return x.IsReplaced
 	}
 	return false
-}
-
-type BrandChoice2_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"BrandName"
-	BrandName []*PartyNameWithTerritory `protobuf:"bytes,1,rep,name=brand_name,json=brandName,proto3" json:"brand_name,omitempty" xml:"BrandName"`
-	// @gotags: xml:"BrandId"
-	BrandId       []*ProprietaryId `protobuf:"bytes,2,rep,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty" xml:"BrandId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BrandChoice2_Option1) Reset() {
-	*x = BrandChoice2_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[237]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BrandChoice2_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BrandChoice2_Option1) ProtoMessage() {}
-
-func (x *BrandChoice2_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[237]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BrandChoice2_Option1.ProtoReflect.Descriptor instead.
-func (*BrandChoice2_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{6, 0}
-}
-
-func (x *BrandChoice2_Option1) GetBrandName() []*PartyNameWithTerritory {
-	if x != nil {
-		return x.BrandName
-	}
-	return nil
-}
-
-func (x *BrandChoice2_Option1) GetBrandId() []*ProprietaryId {
-	if x != nil {
-		return x.BrandId
-	}
-	return nil
-}
-
-type BrandChoice2_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"BrandId"
-	BrandId       []*ProprietaryId `protobuf:"bytes,1,rep,name=brand_id,json=brandId,proto3" json:"brand_id,omitempty" xml:"BrandId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BrandChoice2_Option2) Reset() {
-	*x = BrandChoice2_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[238]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BrandChoice2_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BrandChoice2_Option2) ProtoMessage() {}
-
-func (x *BrandChoice2_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[238]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BrandChoice2_Option2.ProtoReflect.Descriptor instead.
-func (*BrandChoice2_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{6, 1}
-}
-
-func (x *BrandChoice2_Option2) GetBrandId() []*ProprietaryId {
-	if x != nil {
-		return x.BrandId
-	}
-	return nil
-}
-
-type DealTermsChoice14_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DealTermsChoice14_Option1) Reset() {
-	*x = DealTermsChoice14_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[239]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DealTermsChoice14_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DealTermsChoice14_Option1) ProtoMessage() {}
-
-func (x *DealTermsChoice14_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[239]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DealTermsChoice14_Option1.ProtoReflect.Descriptor instead.
-func (*DealTermsChoice14_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{25, 0}
-}
-
-func (x *DealTermsChoice14_Option1) GetTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.TerritoryCode
-	}
-	return nil
-}
-
-type DealTermsChoice14_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-func (x *DealTermsChoice14_Option2) Reset() {
-	*x = DealTermsChoice14_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[240]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DealTermsChoice14_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DealTermsChoice14_Option2) ProtoMessage() {}
-
-func (x *DealTermsChoice14_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[240]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DealTermsChoice14_Option2.ProtoReflect.Descriptor instead.
-func (*DealTermsChoice14_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{25, 1}
-}
-
-func (x *DealTermsChoice14_Option2) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.ExcludedTerritoryCode
-	}
-	return nil
-}
-
-type DealTermsChoice15_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"DistributionChannel"
-	DistributionChannel []*DSP `protobuf:"bytes,1,rep,name=distribution_channel,json=distributionChannel,proto3" json:"distribution_channel,omitempty" xml:"DistributionChannel"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
-}
-
-func (x *DealTermsChoice15_Option1) Reset() {
-	*x = DealTermsChoice15_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[241]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DealTermsChoice15_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DealTermsChoice15_Option1) ProtoMessage() {}
-
-func (x *DealTermsChoice15_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[241]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DealTermsChoice15_Option1.ProtoReflect.Descriptor instead.
-func (*DealTermsChoice15_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{26, 0}
-}
-
-func (x *DealTermsChoice15_Option1) GetDistributionChannel() []*DSP {
-	if x != nil {
-		return x.DistributionChannel
-	}
-	return nil
-}
-
-type DealTermsChoice15_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"ExcludedDistributionChannel"
-	ExcludedDistributionChannel []*DSP `protobuf:"bytes,1,rep,name=excluded_distribution_channel,json=excludedDistributionChannel,proto3" json:"excluded_distribution_channel,omitempty" xml:"ExcludedDistributionChannel"`
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
-}
-
-func (x *DealTermsChoice15_Option2) Reset() {
-	*x = DealTermsChoice15_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[242]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DealTermsChoice15_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DealTermsChoice15_Option2) ProtoMessage() {}
-
-func (x *DealTermsChoice15_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[242]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DealTermsChoice15_Option2.ProtoReflect.Descriptor instead.
-func (*DealTermsChoice15_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{26, 1}
-}
-
-func (x *DealTermsChoice15_Option2) GetExcludedDistributionChannel() []*DSP {
-	if x != nil {
-		return x.ExcludedDistributionChannel
-	}
-	return nil
-}
-
-type DetailedResourceContributorChoice6_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyName"
-	PartyName []*PartyName `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DetailedResourceContributorChoice6_Option1) Reset() {
-	*x = DetailedResourceContributorChoice6_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[243]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DetailedResourceContributorChoice6_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DetailedResourceContributorChoice6_Option1) ProtoMessage() {}
-
-func (x *DetailedResourceContributorChoice6_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[243]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DetailedResourceContributorChoice6_Option1.ProtoReflect.Descriptor instead.
-func (*DetailedResourceContributorChoice6_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{33, 0}
-}
-
-func (x *DetailedResourceContributorChoice6_Option1) GetPartyName() []*PartyName {
-	if x != nil {
-		return x.PartyName
-	}
-	return nil
-}
-
-func (x *DetailedResourceContributorChoice6_Option1) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type DetailedResourceContributorChoice6_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DetailedResourceContributorChoice6_Option2) Reset() {
-	*x = DetailedResourceContributorChoice6_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[244]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DetailedResourceContributorChoice6_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DetailedResourceContributorChoice6_Option2) ProtoMessage() {}
-
-func (x *DetailedResourceContributorChoice6_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[244]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DetailedResourceContributorChoice6_Option2.ProtoReflect.Descriptor instead.
-func (*DetailedResourceContributorChoice6_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{33, 1}
-}
-
-func (x *DetailedResourceContributorChoice6_Option2) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type DisplayArtistChoice4_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"ArtistPartyReference"
-	ArtistPartyReference string `protobuf:"bytes,1,opt,name=artist_party_reference,json=artistPartyReference,proto3" json:"artist_party_reference,omitempty" xml:"ArtistPartyReference"`
-	// @gotags: xml:"DisplayArtistRole"
-	DisplayArtistRole *DisplayArtistRole `protobuf:"bytes,2,opt,name=display_artist_role,json=displayArtistRole,proto3" json:"display_artist_role,omitempty" xml:"DisplayArtistRole"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-func (x *DisplayArtistChoice4_Option1) Reset() {
-	*x = DisplayArtistChoice4_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[245]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DisplayArtistChoice4_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DisplayArtistChoice4_Option1) ProtoMessage() {}
-
-func (x *DisplayArtistChoice4_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[245]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DisplayArtistChoice4_Option1.ProtoReflect.Descriptor instead.
-func (*DisplayArtistChoice4_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{36, 0}
-}
-
-func (x *DisplayArtistChoice4_Option1) GetArtistPartyReference() string {
-	if x != nil {
-		return x.ArtistPartyReference
-	}
-	return ""
-}
-
-func (x *DisplayArtistChoice4_Option1) GetDisplayArtistRole() *DisplayArtistRole {
-	if x != nil {
-		return x.DisplayArtistRole
-	}
-	return nil
-}
-
-type PartyChoice5_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyName"
-	PartyName []*PartyNameWithTerritory `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartyChoice5_Option1) Reset() {
-	*x = PartyChoice5_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[246]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartyChoice5_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartyChoice5_Option1) ProtoMessage() {}
-
-func (x *PartyChoice5_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[246]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartyChoice5_Option1.ProtoReflect.Descriptor instead.
-func (*PartyChoice5_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{51, 0}
-}
-
-func (x *PartyChoice5_Option1) GetPartyName() []*PartyNameWithTerritory {
-	if x != nil {
-		return x.PartyName
-	}
-	return nil
-}
-
-func (x *PartyChoice5_Option1) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type PartyChoice5_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartyChoice5_Option2) Reset() {
-	*x = PartyChoice5_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[247]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartyChoice5_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartyChoice5_Option2) ProtoMessage() {}
-
-func (x *PartyChoice5_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[247]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartyChoice5_Option2.ProtoReflect.Descriptor instead.
-func (*PartyChoice5_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{51, 1}
-}
-
-func (x *PartyChoice5_Option2) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type PeriodWithStartDateChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDate"
-	StartDate *EventDateWithCurrentTerritory `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
-	// @gotags: xml:"EndDate"
-	EndDate       *EventDateWithCurrentTerritory `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodWithStartDateChoice_Option1) Reset() {
-	*x = PeriodWithStartDateChoice_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[248]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodWithStartDateChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodWithStartDateChoice_Option1) ProtoMessage() {}
-
-func (x *PeriodWithStartDateChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[248]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodWithStartDateChoice_Option1.ProtoReflect.Descriptor instead.
-func (*PeriodWithStartDateChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{56, 0}
-}
-
-func (x *PeriodWithStartDateChoice_Option1) GetStartDate() *EventDateWithCurrentTerritory {
-	if x != nil {
-		return x.StartDate
-	}
-	return nil
-}
-
-func (x *PeriodWithStartDateChoice_Option1) GetEndDate() *EventDateWithCurrentTerritory {
-	if x != nil {
-		return x.EndDate
-	}
-	return nil
-}
-
-type PeriodWithStartDateChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDateTime"
-	StartDateTime *EventDateTimeWithoutFlags `protobuf:"bytes,1,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
-	// @gotags: xml:"EndDateTime"
-	EndDateTime   *EventDateTimeWithoutFlags `protobuf:"bytes,2,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodWithStartDateChoice_Option2) Reset() {
-	*x = PeriodWithStartDateChoice_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[249]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodWithStartDateChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodWithStartDateChoice_Option2) ProtoMessage() {}
-
-func (x *PeriodWithStartDateChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[249]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodWithStartDateChoice_Option2.ProtoReflect.Descriptor instead.
-func (*PeriodWithStartDateChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{56, 1}
-}
-
-func (x *PeriodWithStartDateChoice_Option2) GetStartDateTime() *EventDateTimeWithoutFlags {
-	if x != nil {
-		return x.StartDateTime
-	}
-	return nil
-}
-
-func (x *PeriodWithStartDateChoice_Option2) GetEndDateTime() *EventDateTimeWithoutFlags {
-	if x != nil {
-		return x.EndDateTime
-	}
-	return nil
-}
-
-type PeriodWithoutFlagsChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDate"
-	StartDate *EventDateWithCurrentTerritory `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
-	// @gotags: xml:"EndDate"
-	EndDate       *EventDateWithCurrentTerritory `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodWithoutFlagsChoice_Option1) Reset() {
-	*x = PeriodWithoutFlagsChoice_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[250]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodWithoutFlagsChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodWithoutFlagsChoice_Option1) ProtoMessage() {}
-
-func (x *PeriodWithoutFlagsChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[250]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodWithoutFlagsChoice_Option1.ProtoReflect.Descriptor instead.
-func (*PeriodWithoutFlagsChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{58, 0}
-}
-
-func (x *PeriodWithoutFlagsChoice_Option1) GetStartDate() *EventDateWithCurrentTerritory {
-	if x != nil {
-		return x.StartDate
-	}
-	return nil
-}
-
-func (x *PeriodWithoutFlagsChoice_Option1) GetEndDate() *EventDateWithCurrentTerritory {
-	if x != nil {
-		return x.EndDate
-	}
-	return nil
-}
-
-type PeriodWithoutFlagsChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDateTime"
-	StartDateTime *EventDateTimeWithoutFlags `protobuf:"bytes,1,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
-	// @gotags: xml:"EndDateTime"
-	EndDateTime   *EventDateTimeWithoutFlags `protobuf:"bytes,2,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodWithoutFlagsChoice_Option2) Reset() {
-	*x = PeriodWithoutFlagsChoice_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[251]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodWithoutFlagsChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodWithoutFlagsChoice_Option2) ProtoMessage() {}
-
-func (x *PeriodWithoutFlagsChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[251]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodWithoutFlagsChoice_Option2.ProtoReflect.Descriptor instead.
-func (*PeriodWithoutFlagsChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{58, 1}
-}
-
-func (x *PeriodWithoutFlagsChoice_Option2) GetStartDateTime() *EventDateTimeWithoutFlags {
-	if x != nil {
-		return x.StartDateTime
-	}
-	return nil
-}
-
-func (x *PeriodWithoutFlagsChoice_Option2) GetEndDateTime() *EventDateTimeWithoutFlags {
-	if x != nil {
-		return x.EndDateTime
-	}
-	return nil
-}
-
-type ReleaseVisibilityChoice6_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseVisibilityChoice6_Option1) Reset() {
-	*x = ReleaseVisibilityChoice6_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[252]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseVisibilityChoice6_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseVisibilityChoice6_Option1) ProtoMessage() {}
-
-func (x *ReleaseVisibilityChoice6_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[252]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseVisibilityChoice6_Option1.ProtoReflect.Descriptor instead.
-func (*ReleaseVisibilityChoice6_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{76, 0}
-}
-
-func (x *ReleaseVisibilityChoice6_Option1) GetTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.TerritoryCode
-	}
-	return nil
-}
-
-type ReleaseVisibilityChoice6_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-func (x *ReleaseVisibilityChoice6_Option2) Reset() {
-	*x = ReleaseVisibilityChoice6_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[253]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseVisibilityChoice6_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseVisibilityChoice6_Option2) ProtoMessage() {}
-
-func (x *ReleaseVisibilityChoice6_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[253]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseVisibilityChoice6_Option2.ProtoReflect.Descriptor instead.
-func (*ReleaseVisibilityChoice6_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{76, 1}
-}
-
-func (x *ReleaseVisibilityChoice6_Option2) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.ExcludedTerritoryCode
-	}
-	return nil
-}
-
-type ServiceExceptionChoice4_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyName"
-	PartyName []*PartyName `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ServiceExceptionChoice4_Option1) Reset() {
-	*x = ServiceExceptionChoice4_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[254]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ServiceExceptionChoice4_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ServiceExceptionChoice4_Option1) ProtoMessage() {}
-
-func (x *ServiceExceptionChoice4_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[254]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ServiceExceptionChoice4_Option1.ProtoReflect.Descriptor instead.
-func (*ServiceExceptionChoice4_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{92, 0}
-}
-
-func (x *ServiceExceptionChoice4_Option1) GetPartyName() []*PartyName {
-	if x != nil {
-		return x.PartyName
-	}
-	return nil
-}
-
-func (x *ServiceExceptionChoice4_Option1) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type ServiceExceptionChoice4_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ServiceExceptionChoice4_Option2) Reset() {
-	*x = ServiceExceptionChoice4_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[255]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ServiceExceptionChoice4_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ServiceExceptionChoice4_Option2) ProtoMessage() {}
-
-func (x *ServiceExceptionChoice4_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[255]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ServiceExceptionChoice4_Option2.ProtoReflect.Descriptor instead.
-func (*ServiceExceptionChoice4_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{92, 1}
-}
-
-func (x *ServiceExceptionChoice4_Option2) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type TrackReleaseVisibilityChoice4_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TrackReleaseVisibilityChoice4_Option1) Reset() {
-	*x = TrackReleaseVisibilityChoice4_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[256]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TrackReleaseVisibilityChoice4_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TrackReleaseVisibilityChoice4_Option1) ProtoMessage() {}
-
-func (x *TrackReleaseVisibilityChoice4_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[256]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TrackReleaseVisibilityChoice4_Option1.ProtoReflect.Descriptor instead.
-func (*TrackReleaseVisibilityChoice4_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{112, 0}
-}
-
-func (x *TrackReleaseVisibilityChoice4_Option1) GetTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.TerritoryCode
-	}
-	return nil
-}
-
-type TrackReleaseVisibilityChoice4_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-func (x *TrackReleaseVisibilityChoice4_Option2) Reset() {
-	*x = TrackReleaseVisibilityChoice4_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[257]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TrackReleaseVisibilityChoice4_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TrackReleaseVisibilityChoice4_Option2) ProtoMessage() {}
-
-func (x *TrackReleaseVisibilityChoice4_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[257]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TrackReleaseVisibilityChoice4_Option2.ProtoReflect.Descriptor instead.
-func (*TrackReleaseVisibilityChoice4_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{112, 1}
-}
-
-func (x *TrackReleaseVisibilityChoice4_Option2) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.ExcludedTerritoryCode
-	}
-	return nil
-}
-
-type VideoChoice44_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"VideoCueSheetReference"
-	VideoCueSheetReference []string `protobuf:"bytes,1,rep,name=video_cue_sheet_reference,json=videoCueSheetReference,proto3" json:"video_cue_sheet_reference,omitempty" xml:"VideoCueSheetReference"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *VideoChoice44_Option1) Reset() {
-	*x = VideoChoice44_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[258]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *VideoChoice44_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*VideoChoice44_Option1) ProtoMessage() {}
-
-func (x *VideoChoice44_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[258]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use VideoChoice44_Option1.ProtoReflect.Descriptor instead.
-func (*VideoChoice44_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{116, 0}
-}
-
-func (x *VideoChoice44_Option1) GetVideoCueSheetReference() []string {
-	if x != nil {
-		return x.VideoCueSheetReference
-	}
-	return nil
-}
-
-type AffiliationChoice6_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"TerritoryCode"
-	TerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=territory_code,json=territoryCode,proto3" json:"territory_code,omitempty" xml:"TerritoryCode"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AffiliationChoice6_Option1) Reset() {
-	*x = AffiliationChoice6_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[259]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AffiliationChoice6_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AffiliationChoice6_Option1) ProtoMessage() {}
-
-func (x *AffiliationChoice6_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[259]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AffiliationChoice6_Option1.ProtoReflect.Descriptor instead.
-func (*AffiliationChoice6_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{126, 0}
-}
-
-func (x *AffiliationChoice6_Option1) GetTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.TerritoryCode
-	}
-	return nil
-}
-
-type AffiliationChoice6_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"ExcludedTerritoryCode"
-	ExcludedTerritoryCode []*CurrentTerritoryCode `protobuf:"bytes,1,rep,name=excluded_territory_code,json=excludedTerritoryCode,proto3" json:"excluded_territory_code,omitempty" xml:"ExcludedTerritoryCode"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-func (x *AffiliationChoice6_Option2) Reset() {
-	*x = AffiliationChoice6_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[260]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AffiliationChoice6_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AffiliationChoice6_Option2) ProtoMessage() {}
-
-func (x *AffiliationChoice6_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[260]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AffiliationChoice6_Option2.ProtoReflect.Descriptor instead.
-func (*AffiliationChoice6_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{126, 1}
-}
-
-func (x *AffiliationChoice6_Option2) GetExcludedTerritoryCode() []*CurrentTerritoryCode {
-	if x != nil {
-		return x.ExcludedTerritoryCode
-	}
-	return nil
-}
-
-type DSPChoice3_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyName"
-	PartyName []*PartyName `protobuf:"bytes,1,rep,name=party_name,json=partyName,proto3" json:"party_name,omitempty" xml:"PartyName"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,2,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DSPChoice3_Option1) Reset() {
-	*x = DSPChoice3_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[261]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DSPChoice3_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DSPChoice3_Option1) ProtoMessage() {}
-
-func (x *DSPChoice3_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[261]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DSPChoice3_Option1.ProtoReflect.Descriptor instead.
-func (*DSPChoice3_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{150, 0}
-}
-
-func (x *DSPChoice3_Option1) GetPartyName() []*PartyName {
-	if x != nil {
-		return x.PartyName
-	}
-	return nil
-}
-
-func (x *DSPChoice3_Option1) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type DSPChoice3_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"PartyId"
-	PartyId       []*DetailedPartyId `protobuf:"bytes,1,rep,name=party_id,json=partyId,proto3" json:"party_id,omitempty" xml:"PartyId"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DSPChoice3_Option2) Reset() {
-	*x = DSPChoice3_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[262]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DSPChoice3_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DSPChoice3_Option2) ProtoMessage() {}
-
-func (x *DSPChoice3_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[262]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DSPChoice3_Option2.ProtoReflect.Descriptor instead.
-func (*DSPChoice3_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{150, 1}
-}
-
-func (x *DSPChoice3_Option2) GetPartyId() []*DetailedPartyId {
-	if x != nil {
-		return x.PartyId
-	}
-	return nil
-}
-
-type FingerprintChoice4_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"DataType"
-	DataType string `protobuf:"bytes,1,opt,name=data_type,json=dataType,proto3" json:"data_type,omitempty" xml:"DataType"`
-	// @gotags: xml:"FingerprintValue"
-	FingerprintValue string `protobuf:"bytes,2,opt,name=fingerprint_value,json=fingerprintValue,proto3" json:"fingerprint_value,omitempty" xml:"FingerprintValue"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *FingerprintChoice4_Option1) Reset() {
-	*x = FingerprintChoice4_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[263]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FingerprintChoice4_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FingerprintChoice4_Option1) ProtoMessage() {}
-
-func (x *FingerprintChoice4_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[263]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FingerprintChoice4_Option1.ProtoReflect.Descriptor instead.
-func (*FingerprintChoice4_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{164, 0}
-}
-
-func (x *FingerprintChoice4_Option1) GetDataType() string {
-	if x != nil {
-		return x.DataType
-	}
-	return ""
-}
-
-func (x *FingerprintChoice4_Option1) GetFingerprintValue() string {
-	if x != nil {
-		return x.FingerprintValue
-	}
-	return ""
-}
-
-type PeriodChoice_Option1 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDate"
-	StartDate *EventDate `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty" xml:"StartDate"`
-	// @gotags: xml:"EndDate"
-	EndDate       *EventDate `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty" xml:"EndDate"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodChoice_Option1) Reset() {
-	*x = PeriodChoice_Option1{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[264]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodChoice_Option1) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodChoice_Option1) ProtoMessage() {}
-
-func (x *PeriodChoice_Option1) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[264]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodChoice_Option1.ProtoReflect.Descriptor instead.
-func (*PeriodChoice_Option1) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{194, 0}
-}
-
-func (x *PeriodChoice_Option1) GetStartDate() *EventDate {
-	if x != nil {
-		return x.StartDate
-	}
-	return nil
-}
-
-func (x *PeriodChoice_Option1) GetEndDate() *EventDate {
-	if x != nil {
-		return x.EndDate
-	}
-	return nil
-}
-
-type PeriodChoice_Option2 struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// @gotags: xml:"StartDateTime"
-	StartDateTime *EventDateTime `protobuf:"bytes,1,opt,name=start_date_time,json=startDateTime,proto3" json:"start_date_time,omitempty" xml:"StartDateTime"`
-	// @gotags: xml:"EndDateTime"
-	EndDateTime   *EventDateTime `protobuf:"bytes,2,opt,name=end_date_time,json=endDateTime,proto3" json:"end_date_time,omitempty" xml:"EndDateTime"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PeriodChoice_Option2) Reset() {
-	*x = PeriodChoice_Option2{}
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[265]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PeriodChoice_Option2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PeriodChoice_Option2) ProtoMessage() {}
-
-func (x *PeriodChoice_Option2) ProtoReflect() protoreflect.Message {
-	mi := &file_ddex_ern_v432_v432_proto_msgTypes[265]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PeriodChoice_Option2.ProtoReflect.Descriptor instead.
-func (*PeriodChoice_Option2) Descriptor() ([]byte, []int) {
-	return file_ddex_ern_v432_v432_proto_rawDescGZIP(), []int{194, 1}
-}
-
-func (x *PeriodChoice_Option2) GetStartDateTime() *EventDateTime {
-	if x != nil {
-		return x.StartDateTime
-	}
-	return nil
-}
-
-func (x *PeriodChoice_Option2) GetEndDateTime() *EventDateTime {
-	if x != nil {
-		return x.EndDateTime
-	}
-	return nil
 }
 
 var File_ddex_ern_v432_v432_proto protoreflect.FileDescriptor
@@ -22155,21 +18488,12 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x06reason\x18\x03 \x01(\v2\x1b.ddex.ern.v432.RatingReasonR\x06reason\x12:\n" +
 	"\x19applicable_territory_code\x18\x04 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x05 \x01(\bR\tisDefault\"e\n" +
+	"is_default\x18\x05 \x01(\bR\tisDefault\"\xaf\x01\n" +
 	"\x05Brand\x12'\n" +
-	"\x0fbrand_reference\x18\x01 \x01(\tR\x0ebrandReference\x123\n" +
-	"\x06choice\x18\x02 \x01(\v2\x1b.ddex.ern.v432.BrandChoice2R\x06choice\"\xfc\x02\n" +
-	"\fBrandChoice2\x12M\n" +
-	"\x0fbrand_id_option\x18\x01 \x01(\v2#.ddex.ern.v432.BrandChoice2.Option2H\x00R\rbrandIdOption\x12D\n" +
+	"\x0fbrand_reference\x18\x01 \x01(\tR\x0ebrandReference\x127\n" +
+	"\bbrand_id\x18\x02 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\abrandId\x12D\n" +
 	"\n" +
-	"sequence_1\x18\x02 \x01(\v2#.ddex.ern.v432.BrandChoice2.Option1H\x00R\tsequence1\x1a\x88\x01\n" +
-	"\aOption1\x12D\n" +
-	"\n" +
-	"brand_name\x18\x01 \x03(\v2%.ddex.ern.v432.PartyNameWithTerritoryR\tbrandName\x127\n" +
-	"\bbrand_id\x18\x02 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\abrandId\x1aB\n" +
-	"\aOption2\x127\n" +
-	"\bbrand_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\abrandIdB\b\n" +
-	"\x06choice\"b\n" +
+	"brand_name\x18\x03 \x03(\v2%.ddex.ern.v432.PartyNameWithTerritoryR\tbrandName\"b\n" +
 	"\aChannel\x12C\n" +
 	"\x0eproprietary_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12\x12\n" +
 	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\"\xf8\x05\n" +
@@ -22230,7 +18554,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x11service_exception\x18\a \x03(\v2\x1f.ddex.ern.v432.ServiceExceptionR\x10serviceException\"b\n" +
 	"\bCoreArea\x12&\n" +
 	"\x0ftop_left_corner\x18\x01 \x01(\tR\rtopLeftCorner\x12.\n" +
-	"\x13bottom_right_corner\x18\x02 \x01(\tR\x11bottomRightCorner\"\xe8\a\n" +
+	"\x13bottom_right_corner\x18\x02 \x01(\tR\x11bottomRightCorner\"\xa7\b\n" +
 	"\x03Cue\x12;\n" +
 	"\fcue_use_type\x18\x01 \x01(\v2\x19.ddex.ern.v432.CueUseTypeR\n" +
 	"cueUseType\x12A\n" +
@@ -22252,13 +18576,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\n" +
 	"start_time\x18\x0f \x01(\tR\tstartTime\x12\x1a\n" +
 	"\bduration\x18\x10 \x01(\tR\bduration\x12\x19\n" +
-	"\bend_time\x18\x11 \x01(\tR\aendTime\x122\n" +
-	"\x06choice\x18\x12 \x01(\v2\x1a.ddex.ern.v432.CueChoice18R\x06choice\"\x8e\x01\n" +
-	"\vCueChoice18\x12<\n" +
-	"\vresource_id\x18\x01 \x01(\v2\x19.ddex.ern.v432.ResourceIdH\x00R\n" +
-	"resourceId\x127\n" +
-	"\awork_id\x18\x02 \x01(\v2\x1c.ddex.ern.v432.MusicalWorkIdH\x00R\x06workIdB\b\n" +
-	"\x06choice\"\xe3\x01\n" +
+	"\bend_time\x18\x11 \x01(\tR\aendTime\x12:\n" +
+	"\vresource_id\x18\x12 \x01(\v2\x19.ddex.ern.v432.ResourceIdR\n" +
+	"resourceId\x125\n" +
+	"\awork_id\x18\x13 \x01(\v2\x1c.ddex.ern.v432.MusicalWorkIdR\x06workId\"\xe3\x01\n" +
 	"\bCueSheet\x12>\n" +
 	"\fcue_sheet_id\x18\x01 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\n" +
 	"cueSheetId\x12.\n" +
@@ -22281,7 +18602,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x19DealResourceReferenceList\x126\n" +
 	"\x17deal_resource_reference\x18\x01 \x03(\tR\x15dealResourceReference\"\x85\x01\n" +
 	")DealTechnicalResourceDetailsReferenceList\x12X\n" +
-	")deal_technical_resource_details_reference\x18\x01 \x03(\tR%dealTechnicalResourceDetailsReference\"\x98\t\n" +
+	")deal_technical_resource_details_reference\x18\x01 \x03(\tR%dealTechnicalResourceDetailsReference\"\x9e\v\n" +
 	"\tDealTerms\x12K\n" +
 	"\x0fvalidity_period\x18\x01 \x03(\v2\".ddex.ern.v432.PeriodWithStartDateR\x0evalidityPeriod\x12V\n" +
 	"\x15commercial_model_type\x18\x02 \x03(\v2\".ddex.ern.v432.CommercialModelTypeR\x13commercialModelType\x12=\n" +
@@ -22296,30 +18617,13 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	" \x01(\bR\x0eisPreOrderDeal\x12w\n" +
 	"#instant_gratification_resource_list\x18\v \x01(\v2(.ddex.ern.v432.DealResourceReferenceListR instantGratificationResourceList\x12I\n" +
 	"\x10physical_returns\x18\f \x01(\v2\x1e.ddex.ern.v432.PhysicalReturnsR\x0fphysicalReturns\x12@\n" +
-	"\x1dnumber_of_products_per_carton\x18\r \x01(\x05R\x19numberOfProductsPerCarton\x128\n" +
-	"\x06choice\x18\x0e \x01(\v2 .ddex.ern.v432.DealTermsChoice14R\x06choice\x12;\n" +
-	"\bchoice_1\x18\x0f \x01(\v2 .ddex.ern.v432.DealTermsChoice15R\achoice1\x12;\n" +
-	"\bchoice_2\x18\x10 \x01(\v2 .ddex.ern.v432.DealTermsChoice16R\achoice2\"\xad\x03\n" +
-	"\x11DealTermsChoice14\x12^\n" +
-	"\x15territory_code_option\x18\x01 \x01(\v2(.ddex.ern.v432.DealTermsChoice14.Option1H\x00R\x13territoryCodeOption\x12o\n" +
-	"\x1eexcluded_territory_code_option\x18\x02 \x01(\v2(.ddex.ern.v432.DealTermsChoice14.Option2H\x00R\x1bexcludedTerritoryCodeOption\x1aU\n" +
-	"\aOption1\x12J\n" +
-	"\x0eterritory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x1af\n" +
-	"\aOption2\x12[\n" +
-	"\x17excluded_territory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCodeB\b\n" +
-	"\x06choice\"\xbb\x03\n" +
-	"\x11DealTermsChoice15\x12j\n" +
-	"\x1bdistribution_channel_option\x18\x01 \x01(\v2(.ddex.ern.v432.DealTermsChoice15.Option1H\x00R\x19distributionChannelOption\x12{\n" +
-	"$excluded_distribution_channel_option\x18\x02 \x01(\v2(.ddex.ern.v432.DealTermsChoice15.Option2H\x00R!excludedDistributionChannelOption\x1aP\n" +
-	"\aOption1\x12E\n" +
-	"\x14distribution_channel\x18\x01 \x03(\v2\x12.ddex.ern.v432.DSPR\x13distributionChannel\x1aa\n" +
-	"\aOption2\x12V\n" +
-	"\x1dexcluded_distribution_channel\x18\x01 \x03(\v2\x12.ddex.ern.v432.DSPR\x1bexcludedDistributionChannelB\b\n" +
-	"\x06choice\"\x93\x01\n" +
-	"\x11DealTermsChoice16\x12'\n" +
-	"\x0eis_promotional\x18\x01 \x01(\bH\x00R\risPromotional\x12K\n" +
-	"\x10promotional_code\x18\x02 \x01(\v2\x1e.ddex.ern.v432.PromotionalCodeH\x00R\x0fpromotionalCodeB\b\n" +
-	"\x06choice\"\xcd\x01\n" +
+	"\x1dnumber_of_products_per_carton\x18\r \x01(\x05R\x19numberOfProductsPerCarton\x12J\n" +
+	"\x0eterritory_code\x18\x0e \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x12[\n" +
+	"\x17excluded_territory_code\x18\x0f \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCode\x12E\n" +
+	"\x14distribution_channel\x18\x10 \x03(\v2\x12.ddex.ern.v432.DSPR\x13distributionChannel\x12V\n" +
+	"\x1dexcluded_distribution_channel\x18\x11 \x03(\v2\x12.ddex.ern.v432.DSPR\x1bexcludedDistributionChannel\x12%\n" +
+	"\x0eis_promotional\x18\x12 \x01(\bR\risPromotional\x12I\n" +
+	"\x10promotional_code\x18\x13 \x01(\v2\x1e.ddex.ern.v432.PromotionalCodeR\x0fpromotionalCode\"\xcd\x01\n" +
 	"\x1fDealTermsTechnicalInstantiation\x12V\n" +
 	"\x15video_definition_type\x18\x01 \x01(\v2\".ddex.ern.v432.VideoDefinitionTypeR\x13videoDefinitionType\x12\x1f\n" +
 	"\vcoding_type\x18\x02 \x01(\tR\n" +
@@ -22339,45 +18643,30 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
 	"\x19applicable_territory_code\x18\x03 \x01(\tR\x17applicableTerritoryCode\x12\x1d\n" +
 	"\n" +
-	"is_default\x18\x04 \x01(\bR\tisDefault\"\xe3\x03\n" +
+	"is_default\x18\x04 \x01(\bR\tisDefault\"\x8c\x04\n" +
 	"\x1bDetailedResourceContributor\x122\n" +
 	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12F\n" +
 	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\x12C\n" +
 	"\x1ehas_made_featured_contribution\x18\x03 \x01(\bR\x1bhasMadeFeaturedContribution\x12G\n" +
 	" has_made_contracted_contribution\x18\x04 \x01(\bR\x1dhasMadeContractedContribution\x12F\n" +
-	"\x0fdisplay_credits\x18\x05 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12I\n" +
-	"\x06choice\x18\x06 \x01(\v21.ddex.ern.v432.DetailedResourceContributorChoice6R\x06choice\x12'\n" +
-	"\x0fsequence_number\x18\a \x01(\x05R\x0esequenceNumber\"\xb4\x03\n" +
-	"\"DetailedResourceContributorChoice6\x12c\n" +
-	"\x0fparty_id_option\x18\x01 \x01(\v29.ddex.ern.v432.DetailedResourceContributorChoice6.Option2H\x00R\rpartyIdOption\x12Z\n" +
+	"\x0fdisplay_credits\x18\x05 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x129\n" +
+	"\bparty_id\x18\x06 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x127\n" +
 	"\n" +
-	"sequence_1\x18\x02 \x01(\v29.ddex.ern.v432.DetailedResourceContributorChoice6.Option1H\x00R\tsequence1\x1a}\n" +
-	"\aOption1\x127\n" +
-	"\n" +
-	"party_name\x18\x01 \x03(\v2\x18.ddex.ern.v432.PartyNameR\tpartyName\x129\n" +
-	"\bparty_id\x18\x02 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x1aD\n" +
-	"\aOption2\x129\n" +
-	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyIdB\b\n" +
-	"\x06choice\"\xa0\x01\n" +
+	"party_name\x18\a \x03(\v2\x18.ddex.ern.v432.PartyNameR\tpartyName\x12'\n" +
+	"\x0fsequence_number\x18\b \x01(\x05R\x0esequenceNumber\"\xa0\x01\n" +
 	"\x13DiscoverableUseType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12'\n" +
 	"\x0fis_discoverable\x18\x03 \x01(\bR\x0eisDiscoverable\x12,\n" +
-	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\xe6\x02\n" +
+	"\x12user_defined_value\x18\x04 \x01(\tR\x10userDefinedValue\"\x8e\x04\n" +
 	"\rDisplayArtist\x12C\n" +
 	"\rartistic_role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\fartisticRole\x12b\n" +
 	"\x19title_display_information\x18\x02 \x03(\v2&.ddex.ern.v432.TitleDisplayInformationR\x17titleDisplayInformation\x12F\n" +
-	"\x0fdisplay_credits\x18\x03 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12;\n" +
-	"\x06choice\x18\x04 \x01(\v2#.ddex.ern.v432.DisplayArtistChoice4R\x06choice\x12'\n" +
-	"\x0fsequence_number\x18\x05 \x01(\x05R\x0esequenceNumber\"\xe1\x02\n" +
-	"\x14DisplayArtistChoice4\x12]\n" +
-	"\x16special_display_artist\x18\x01 \x01(\v2%.ddex.ern.v432.SpecialContributorTypeH\x00R\x14specialDisplayArtist\x12L\n" +
-	"\n" +
-	"sequence_1\x18\x02 \x01(\v2+.ddex.ern.v432.DisplayArtistChoice4.Option1H\x00R\tsequence1\x1a\x91\x01\n" +
-	"\aOption1\x124\n" +
-	"\x16artist_party_reference\x18\x01 \x01(\tR\x14artistPartyReference\x12P\n" +
-	"\x13display_artist_role\x18\x02 \x01(\v2 .ddex.ern.v432.DisplayArtistRoleR\x11displayArtistRoleB\b\n" +
-	"\x06choice\"\xf3\x01\n" +
+	"\x0fdisplay_credits\x18\x03 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12[\n" +
+	"\x16special_display_artist\x18\x04 \x01(\v2%.ddex.ern.v432.SpecialContributorTypeR\x14specialDisplayArtist\x124\n" +
+	"\x16artist_party_reference\x18\x05 \x01(\tR\x14artistPartyReference\x12P\n" +
+	"\x13display_artist_role\x18\x06 \x01(\v2 .ddex.ern.v432.DisplayArtistRoleR\x11displayArtistRole\x12'\n" +
+	"\x0fsequence_number\x18\a \x01(\x05R\x0esequenceNumber\"\xf3\x01\n" +
 	"\x10DisplayTitleText\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\x12:\n" +
@@ -22389,7 +18678,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x120\n" +
 	"\tpage_name\x18\x02 \x01(\v2\x13.ddex.ern.v432.NameR\bpageName\x12\x12\n" +
 	"\x05u_r_l\x18\x03 \x01(\tR\x03uRL\x12\x1b\n" +
-	"\tuser_name\x18\x04 \x01(\tR\buserName\"\xee\x03\n" +
+	"\tuser_name\x18\x04 \x01(\tR\buserName\"\xc4\x04\n" +
 	"\x12EditionContributor\x122\n" +
 	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12'\n" +
 	"\x0fai_contribution\x18\x02 \x01(\tR\x0eaiContribution\x12C\n" +
@@ -22397,13 +18686,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	" has_made_contracted_contribution\x18\x04 \x01(\bR\x1dhasMadeContractedContribution\x12:\n" +
 	"\vis_credited\x18\x05 \x01(\v2\x19.ddex.ern.v432.IsCreditedR\n" +
 	"isCredited\x12F\n" +
-	"\x0fdisplay_credits\x18\x06 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12@\n" +
-	"\x06choice\x18\a \x01(\v2(.ddex.ern.v432.EditionContributorChoice7R\x06choice\x12'\n" +
-	"\x0fsequence_number\x18\b \x01(\x05R\x0esequenceNumber\"\xc1\x01\n" +
-	"\x19EditionContributorChoice7\x12@\n" +
-	"\x1bcontributor_party_reference\x18\x01 \x01(\tH\x00R\x19contributorPartyReference\x12X\n" +
-	"\x13special_contributor\x18\x02 \x01(\v2%.ddex.ern.v432.SpecialContributorTypeH\x00R\x12specialContributorB\b\n" +
-	"\x06choice\"\x80\x02\n" +
+	"\x0fdisplay_credits\x18\x06 \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12>\n" +
+	"\x1bcontributor_party_reference\x18\a \x01(\tR\x19contributorPartyReference\x12V\n" +
+	"\x13special_contributor\x18\b \x01(\v2%.ddex.ern.v432.SpecialContributorTypeR\x12specialContributor\x12'\n" +
+	"\x0fsequence_number\x18\t \x01(\x05R\x0esequenceNumber\"\x80\x02\n" +
 	"\x19EventDateTimeWithoutFlags\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12%\n" +
 	"\x0eis_approximate\x18\x02 \x01(\bR\risApproximate\x12:\n" +
@@ -22482,24 +18768,15 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x06period\x18\x02 \x01(\v2\x15.ddex.ern.v432.PeriodR\x06period\x12*\n" +
 	"\x05venue\x18\x03 \x03(\v2\x14.ddex.ern.v432.VenueR\x05venue\x127\n" +
 	"\acomment\x18\x04 \x01(\v2\x1d.ddex.ern.v432.TextWithFormatR\acomment\x12>\n" +
-	"\vcontributor\x18\x05 \x03(\v2\x1c.ddex.ern.v432.PartyWithRoleR\vcontributor\"\x95\x02\n" +
+	"\vcontributor\x18\x05 \x03(\v2\x1c.ddex.ern.v432.PartyWithRoleR\vcontributor\"\xe1\x02\n" +
 	"\x05Party\x12'\n" +
 	"\x0fparty_reference\x18\x01 \x01(\tR\x0epartyReference\x12<\n" +
 	"\vaffiliation\x18\x02 \x03(\v2\x1a.ddex.ern.v432.AffiliationR\vaffiliation\x12@\n" +
 	"\rrelated_party\x18\x03 \x03(\v2\x1b.ddex.ern.v432.RelatedPartyR\frelatedParty\x12.\n" +
-	"\x13artist_profile_page\x18\x04 \x03(\tR\x11artistProfilePage\x123\n" +
-	"\x06choice\x18\x05 \x01(\v2\x1b.ddex.ern.v432.PartyChoice5R\x06choice\"\x80\x03\n" +
-	"\fPartyChoice5\x12M\n" +
-	"\x0fparty_id_option\x18\x01 \x01(\v2#.ddex.ern.v432.PartyChoice5.Option2H\x00R\rpartyIdOption\x12D\n" +
+	"\x13artist_profile_page\x18\x04 \x03(\tR\x11artistProfilePage\x129\n" +
+	"\bparty_id\x18\x05 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x12D\n" +
 	"\n" +
-	"sequence_1\x18\x02 \x01(\v2#.ddex.ern.v432.PartyChoice5.Option1H\x00R\tsequence1\x1a\x8a\x01\n" +
-	"\aOption1\x12D\n" +
-	"\n" +
-	"party_name\x18\x01 \x03(\v2%.ddex.ern.v432.PartyNameWithTerritoryR\tpartyName\x129\n" +
-	"\bparty_id\x18\x02 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x1aD\n" +
-	"\aOption2\x129\n" +
-	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyIdB\b\n" +
-	"\x06choice\"c\n" +
+	"party_name\x18\x06 \x03(\v2%.ddex.ern.v432.PartyNameWithTerritoryR\tpartyName\"c\n" +
 	"\tPartyList\x12*\n" +
 	"\x05party\x18\x01 \x03(\v2\x14.ddex.ern.v432.PartyR\x05party\x12*\n" +
 	"\x05brand\x18\x02 \x03(\v2\x14.ddex.ern.v432.BrandR\x05brand\"\xfc\x05\n" +
@@ -22529,37 +18806,19 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x0eproprietary_id\x18\x05 \x03(\v2\x1c.ddex.ern.v432.ProprietaryIdR\rproprietaryId\x12D\n" +
 	"\n" +
 	"party_name\x18\x06 \x01(\v2%.ddex.ern.v432.PartyNameWithTerritoryR\tpartyName\x12:\n" +
-	"\x04role\x18\a \x01(\v2&.ddex.ern.v432.ResourceContributorRoleR\x04role\"W\n" +
-	"\x13PeriodWithStartDate\x12@\n" +
-	"\x06choice\x18\x01 \x01(\v2(.ddex.ern.v432.PeriodWithStartDateChoiceR\x06choice\"\x99\x04\n" +
-	"\x19PeriodWithStartDateChoice\x12Q\n" +
-	"\n" +
-	"sequence_1\x18\x01 \x01(\v20.ddex.ern.v432.PeriodWithStartDateChoice.Option1H\x00R\tsequence1\x12Q\n" +
-	"\n" +
-	"sequence_2\x18\x02 \x01(\v20.ddex.ern.v432.PeriodWithStartDateChoice.Option2H\x00R\tsequence2\x1a\x9f\x01\n" +
-	"\aOption1\x12K\n" +
+	"\x04role\x18\a \x01(\v2&.ddex.ern.v432.ResourceContributorRoleR\x04role\"\xcb\x02\n" +
+	"\x13PeriodWithStartDate\x12K\n" +
 	"\n" +
 	"start_date\x18\x01 \x01(\v2,.ddex.ern.v432.EventDateWithCurrentTerritoryR\tstartDate\x12G\n" +
-	"\bend_date\x18\x02 \x01(\v2,.ddex.ern.v432.EventDateWithCurrentTerritoryR\aendDate\x1a\xa9\x01\n" +
-	"\aOption2\x12P\n" +
-	"\x0fstart_date_time\x18\x01 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\rstartDateTime\x12L\n" +
-	"\rend_date_time\x18\x02 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\vendDateTimeB\b\n" +
-	"\x06choice\"U\n" +
-	"\x12PeriodWithoutFlags\x12?\n" +
-	"\x06choice\x18\x01 \x01(\v2'.ddex.ern.v432.PeriodWithoutFlagsChoiceR\x06choice\"\x96\x04\n" +
-	"\x18PeriodWithoutFlagsChoice\x12P\n" +
-	"\n" +
-	"sequence_1\x18\x01 \x01(\v2/.ddex.ern.v432.PeriodWithoutFlagsChoice.Option1H\x00R\tsequence1\x12P\n" +
-	"\n" +
-	"sequence_2\x18\x02 \x01(\v2/.ddex.ern.v432.PeriodWithoutFlagsChoice.Option2H\x00R\tsequence2\x1a\x9f\x01\n" +
-	"\aOption1\x12K\n" +
+	"\bend_date\x18\x02 \x01(\v2,.ddex.ern.v432.EventDateWithCurrentTerritoryR\aendDate\x12P\n" +
+	"\x0fstart_date_time\x18\x03 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\rstartDateTime\x12L\n" +
+	"\rend_date_time\x18\x04 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\vendDateTime\"\xca\x02\n" +
+	"\x12PeriodWithoutFlags\x12K\n" +
 	"\n" +
 	"start_date\x18\x01 \x01(\v2,.ddex.ern.v432.EventDateWithCurrentTerritoryR\tstartDate\x12G\n" +
-	"\bend_date\x18\x02 \x01(\v2,.ddex.ern.v432.EventDateWithCurrentTerritoryR\aendDate\x1a\xa9\x01\n" +
-	"\aOption2\x12P\n" +
-	"\x0fstart_date_time\x18\x01 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\rstartDateTime\x12L\n" +
-	"\rend_date_time\x18\x02 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\vendDateTimeB\b\n" +
-	"\x06choice\"\x93\x01\n" +
+	"\bend_date\x18\x02 \x01(\v2,.ddex.ern.v432.EventDateWithCurrentTerritoryR\aendDate\x12P\n" +
+	"\x0fstart_date_time\x18\x03 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\rstartDateTime\x12L\n" +
+	"\rend_date_time\x18\x04 \x01(\v2(.ddex.ern.v432.EventDateTimeWithoutFlagsR\vendDateTime\"\x93\x01\n" +
 	"\x0fPhysicalReturns\x128\n" +
 	"\x18physical_returns_allowed\x18\x01 \x01(\bR\x16physicalReturnsAllowed\x12F\n" +
 	" latest_date_for_physical_returns\x18\x02 \x01(\tR\x1clatestDateForPhysicalReturns\"\xb4\x03\n" +
@@ -22599,16 +18858,13 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x17release_label_reference\x18\b \x03(\v2$.ddex.ern.v432.ReleaseLabelReferenceR\x15releaseLabelReference\x12G\n" +
 	"\frelease_date\x18\t \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\vreleaseDate\x12X\n" +
 	"\x15original_release_date\x18\n" +
-	" \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\x13originalReleaseDate\"\xbd\x01\n" +
+	" \x01(\v2$.ddex.ern.v432.EventDateWithoutFlagsR\x13originalReleaseDate\"\x89\x02\n" +
 	"\x0fRelatedResource\x12<\n" +
 	"\x1aresource_relationship_type\x18\x01 \x01(\tR\x18resourceRelationshipType\x12-\n" +
-	"\x06timing\x18\x02 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\x12=\n" +
-	"\x06choice\x18\x03 \x01(\v2%.ddex.ern.v432.RelatedResourceChoice3R\x06choice\"\xb1\x01\n" +
-	"\x16RelatedResourceChoice3\x12O\n" +
-	"#resource_related_resource_reference\x18\x01 \x01(\tH\x00R resourceRelatedResourceReference\x12<\n" +
-	"\vresource_id\x18\x02 \x01(\v2\x19.ddex.ern.v432.ResourceIdH\x00R\n" +
-	"resourceIdB\b\n" +
-	"\x06choice\"\xd3\x13\n" +
+	"\x06timing\x18\x02 \x03(\v2\x15.ddex.ern.v432.TimingR\x06timing\x12M\n" +
+	"#resource_related_resource_reference\x18\x03 \x01(\tR resourceRelatedResourceReference\x12:\n" +
+	"\vresource_id\x18\x04 \x01(\v2\x19.ddex.ern.v432.ResourceIdR\n" +
+	"resourceId\"\x9b\x14\n" +
 	"\aRelease\x12+\n" +
 	"\x11release_reference\x18\x01 \x01(\tR\x10releaseReference\x12S\n" +
 	"\frelease_type\x18\x02 \x03(\v20.ddex.ern.v432.ReleaseTypeForReleaseNotificationR\vreleaseType\x127\n" +
@@ -22649,13 +18905,10 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"containsAI\x12#\n" +
 	"\ris_soundtrack\x18# \x01(\bR\fisSoundtrack\x12%\n" +
 	"\x0fis_hi_res_music\x18$ \x01(\bR\fisHiResMusic\x12L\n" +
-	"\x11marketing_comment\x18% \x03(\v2\x1f.ddex.ern.v432.MarketingCommentR\x10marketingComment\x126\n" +
-	"\x06choice\x18& \x01(\v2\x1e.ddex.ern.v432.ReleaseChoice38R\x06choice\x127\n" +
-	"\x18language_and_script_code\x18' \x01(\tR\x15languageAndScriptCode\"\x9f\x01\n" +
-	"\x0fReleaseChoice38\x12A\n" +
-	"\x1cis_single_artist_compilation\x18\x01 \x01(\bH\x00R\x19isSingleArtistCompilation\x12?\n" +
-	"\x1bis_multi_artist_compilation\x18\x02 \x01(\bH\x00R\x18isMultiArtistCompilationB\b\n" +
-	"\x06choice\"\x9c\x01\n" +
+	"\x11marketing_comment\x18% \x03(\v2\x1f.ddex.ern.v432.MarketingCommentR\x10marketingComment\x12?\n" +
+	"\x1cis_single_artist_compilation\x18& \x01(\bR\x19isSingleArtistCompilation\x12=\n" +
+	"\x1bis_multi_artist_compilation\x18' \x01(\bR\x18isMultiArtistCompilation\x127\n" +
+	"\x18language_and_script_code\x18( \x01(\tR\x15languageAndScriptCode\"\x9c\x01\n" +
 	"\fReleaseAdmin\x12(\n" +
 	"\x10release_admin_id\x18\x01 \x01(\tR\x0ereleaseAdminId\x123\n" +
 	"\x15personnel_description\x18\x02 \x01(\tR\x14personnelDescription\x12-\n" +
@@ -22692,23 +18945,16 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\vReleaseList\x120\n" +
 	"\arelease\x18\x01 \x01(\v2\x16.ddex.ern.v432.ReleaseR\arelease\x12@\n" +
 	"\rtrack_release\x18\x02 \x03(\v2\x1b.ddex.ern.v432.TrackReleaseR\ftrackRelease\x12=\n" +
-	"\fclip_release\x18\x03 \x03(\v2\x1a.ddex.ern.v432.ClipReleaseR\vclipRelease\"\xe1\x03\n" +
+	"\fclip_release\x18\x03 \x03(\v2\x1a.ddex.ern.v432.ClipReleaseR\vclipRelease\"\xc9\x04\n" +
 	"\x11ReleaseVisibility\x121\n" +
 	"\x14visibility_reference\x18\x01 \x01(\tR\x13visibilityReference\x12D\n" +
 	"\x1frelease_display_start_date_time\x18\x02 \x01(\tR\x1breleaseDisplayStartDateTime\x12G\n" +
 	"!cover_art_preview_start_date_time\x18\x03 \x01(\tR\x1ccoverArtPreviewStartDateTime\x12X\n" +
 	"*full_track_listing_preview_start_date_time\x18\x04 \x01(\tR$fullTrackListingPreviewStartDateTime\x12>\n" +
-	"\x1cclip_preview_start_date_time\x18\x05 \x01(\tR\x18clipPreviewStartDateTime\x12?\n" +
-	"\x06choice\x18\x06 \x01(\v2'.ddex.ern.v432.ReleaseVisibilityChoice6R\x06choice\x12/\n" +
-	"\x14do_not_display_dates\x18\a \x01(\bR\x11doNotDisplayDates\"\xc2\x03\n" +
-	"\x18ReleaseVisibilityChoice6\x12e\n" +
-	"\x15territory_code_option\x18\x01 \x01(\v2/.ddex.ern.v432.ReleaseVisibilityChoice6.Option1H\x00R\x13territoryCodeOption\x12v\n" +
-	"\x1eexcluded_territory_code_option\x18\x02 \x01(\v2/.ddex.ern.v432.ReleaseVisibilityChoice6.Option2H\x00R\x1bexcludedTerritoryCodeOption\x1aU\n" +
-	"\aOption1\x12J\n" +
-	"\x0eterritory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x1af\n" +
-	"\aOption2\x12[\n" +
-	"\x17excluded_territory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCodeB\b\n" +
-	"\x06choice\"\x96\a\n" +
+	"\x1cclip_preview_start_date_time\x18\x05 \x01(\tR\x18clipPreviewStartDateTime\x12J\n" +
+	"\x0eterritory_code\x18\x06 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x12[\n" +
+	"\x17excluded_territory_code\x18\a \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCode\x12/\n" +
+	"\x14do_not_display_dates\x18\b \x01(\bR\x11doNotDisplayDates\"\xf4\a\n" +
 	"\rResourceGroup\x12M\n" +
 	"\x12display_title_text\x18\x01 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
 	"\rdisplay_title\x18\x02 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
@@ -22721,30 +18967,21 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x0eresource_group\x18\t \x03(\v2\x1f.ddex.ern.v432.ResourceSubGroupR\rresourceGroup\x12f\n" +
 	"\x1bresource_group_content_item\x18\n" +
 	" \x03(\v2'.ddex.ern.v432.ResourceGroupContentItemR\x18resourceGroupContentItem\x12x\n" +
-	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12<\n" +
-	"\x06choice\x18\f \x01(\v2$.ddex.ern.v432.ResourceGroupChoice12R\x06choice\x12?\n" +
-	"\bchoice_1\x18\r \x01(\v2$.ddex.ern.v432.ResourceGroupChoice13R\achoice1\"\x80\x01\n" +
-	"\x15ResourceGroupChoice12\x120\n" +
-	"\x13no_display_sequence\x18\x01 \x01(\bH\x00R\x11noDisplaySequence\x12+\n" +
-	"\x10display_sequence\x18\x02 \x01(\tH\x00R\x0fdisplaySequenceB\b\n" +
-	"\x06choice\"\xa7\x01\n" +
-	"\x15ResourceGroupChoice13\x12I\n" +
-	" resource_group_release_reference\x18\x01 \x01(\tH\x00R\x1dresourceGroupReleaseReference\x129\n" +
+	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12.\n" +
+	"\x13no_display_sequence\x18\f \x01(\bR\x11noDisplaySequence\x12)\n" +
+	"\x10display_sequence\x18\r \x01(\tR\x0fdisplaySequence\x12G\n" +
+	" resource_group_release_reference\x18\x0e \x01(\tR\x1dresourceGroupReleaseReference\x127\n" +
 	"\n" +
-	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdH\x00R\treleaseIdB\b\n" +
-	"\x06choice\"\x80\x04\n" +
+	"release_id\x18\x0f \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\"\x93\x04\n" +
 	"\x18ResourceGroupContentItem\x12'\n" +
 	"\x0fsequence_number\x18\x01 \x01(\x05R\x0esequenceNumber\x12<\n" +
 	"\x1arelease_resource_reference\x18\x02 \x01(\tR\x18releaseResourceReference\x12x\n" +
 	"!linked_release_resource_reference\x18\x03 \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12*\n" +
 	"\x11is_bonus_resource\x18\x04 \x01(\bR\x0fisBonusResource\x12I\n" +
 	"!is_instant_gratification_resource\x18\x05 \x01(\bR\x1eisInstantGratificationResource\x12D\n" +
-	"\x1fis_pre_order_incentive_resource\x18\x06 \x01(\bR\x1bisPreOrderIncentiveResource\x12F\n" +
-	"\x06choice\x18\a \x01(\v2..ddex.ern.v432.ResourceGroupContentItemChoice7R\x06choice\"\x8a\x01\n" +
-	"\x1fResourceGroupContentItemChoice7\x120\n" +
-	"\x13no_display_sequence\x18\x01 \x01(\bH\x00R\x11noDisplaySequence\x12+\n" +
-	"\x10display_sequence\x18\x02 \x01(\tH\x00R\x0fdisplaySequenceB\b\n" +
-	"\x06choice\"\xc8\x02\n" +
+	"\x1fis_pre_order_incentive_resource\x18\x06 \x01(\bR\x1bisPreOrderIncentiveResource\x12.\n" +
+	"\x13no_display_sequence\x18\a \x01(\bR\x11noDisplaySequence\x12)\n" +
+	"\x10display_sequence\x18\b \x01(\tR\x0fdisplaySequence\"\xc8\x02\n" +
 	"\fResourceList\x12F\n" +
 	"\x0fsound_recording\x18\x01 \x03(\v2\x1d.ddex.ern.v432.SoundRecordingR\x0esoundRecording\x12*\n" +
 	"\x05video\x18\x02 \x03(\v2\x14.ddex.ern.v432.VideoR\x05video\x12*\n" +
@@ -22752,17 +18989,14 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04text\x18\x04 \x03(\v2\x13.ddex.ern.v432.TextR\x04text\x12:\n" +
 	"\vsheet_music\x18\x05 \x03(\v2\x19.ddex.ern.v432.SheetMusicR\n" +
 	"sheetMusic\x123\n" +
-	"\bsoftware\x18\x06 \x03(\v2\x17.ddex.ern.v432.SoftwareR\bsoftware\"\xe1\x02\n" +
+	"\bsoftware\x18\x06 \x03(\v2\x17.ddex.ern.v432.SoftwareR\bsoftware\"\x9a\x03\n" +
 	"\x18ResourceRightsController\x12I\n" +
 	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12.\n" +
 	"\x13rights_control_type\x18\x02 \x03(\tR\x11rightsControlType\x12Y\n" +
-	"\x16delegated_usage_rights\x18\x03 \x03(\v2#.ddex.ern.v432.DelegatedUsageRightsR\x14delegatedUsageRights\x12F\n" +
-	"\x06choice\x18\x04 \x01(\v2..ddex.ern.v432.ResourceRightsControllerChoice4R\x06choice\x12'\n" +
-	"\x0fsequence_number\x18\x05 \x01(\x05R\x0esequenceNumber\"\xb0\x01\n" +
-	"\x1fResourceRightsControllerChoice4\x120\n" +
-	"\x13right_share_unknown\x18\x01 \x01(\bH\x00R\x11rightShareUnknown\x12Q\n" +
-	"\x16right_share_percentage\x18\x02 \x01(\v2\x19.ddex.ern.v432.PercentageH\x00R\x14rightSharePercentageB\b\n" +
-	"\x06choice\"\xcf\a\n" +
+	"\x16delegated_usage_rights\x18\x03 \x03(\v2#.ddex.ern.v432.DelegatedUsageRightsR\x14delegatedUsageRights\x12.\n" +
+	"\x13right_share_unknown\x18\x04 \x01(\bR\x11rightShareUnknown\x12O\n" +
+	"\x16right_share_percentage\x18\x05 \x01(\v2\x19.ddex.ern.v432.PercentageR\x14rightSharePercentage\x12'\n" +
+	"\x0fsequence_number\x18\x06 \x01(\x05R\x0esequenceNumber\"\xa7\b\n" +
 	"\x10ResourceSubGroup\x12M\n" +
 	"\x12display_title_text\x18\x01 \x03(\v2\x1f.ddex.ern.v432.DisplayTitleTextR\x10displayTitleText\x12@\n" +
 	"\rdisplay_title\x18\x02 \x03(\v2\x1b.ddex.ern.v432.DisplayTitleR\fdisplayTitle\x12>\n" +
@@ -22775,47 +19009,29 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x0eresource_group\x18\t \x03(\v2\x1f.ddex.ern.v432.ResourceSubGroupR\rresourceGroup\x12f\n" +
 	"\x1bresource_group_content_item\x18\n" +
 	" \x03(\v2'.ddex.ern.v432.ResourceGroupContentItemR\x18resourceGroupContentItem\x12x\n" +
-	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12?\n" +
-	"\x06choice\x18\f \x01(\v2'.ddex.ern.v432.ResourceSubGroupChoice12R\x06choice\x12B\n" +
-	"\bchoice_1\x18\r \x01(\v2'.ddex.ern.v432.ResourceSubGroupChoice13R\achoice1\x12.\n" +
-	"\x13resource_group_type\x18\x0e \x01(\tR\x11resourceGroupType\"\x83\x01\n" +
-	"\x18ResourceSubGroupChoice12\x120\n" +
-	"\x13no_display_sequence\x18\x01 \x01(\bH\x00R\x11noDisplaySequence\x12+\n" +
-	"\x10display_sequence\x18\x02 \x01(\tH\x00R\x0fdisplaySequenceB\b\n" +
-	"\x06choice\"\xaa\x01\n" +
-	"\x18ResourceSubGroupChoice13\x12I\n" +
-	" resource_group_release_reference\x18\x01 \x01(\tH\x00R\x1dresourceGroupReleaseReference\x129\n" +
+	"!linked_release_resource_reference\x18\v \x03(\v2-.ddex.ern.v432.LinkedReleaseResourceReferenceR\x1elinkedReleaseResourceReference\x12.\n" +
+	"\x13no_display_sequence\x18\f \x01(\bR\x11noDisplaySequence\x12)\n" +
+	"\x10display_sequence\x18\r \x01(\tR\x0fdisplaySequence\x12G\n" +
+	" resource_group_release_reference\x18\x0e \x01(\tR\x1dresourceGroupReleaseReference\x127\n" +
 	"\n" +
-	"release_id\x18\x02 \x01(\v2\x18.ddex.ern.v432.ReleaseIdH\x00R\treleaseIdB\b\n" +
-	"\x06choice\"\xfd\x01\n" +
+	"release_id\x18\x0f \x01(\v2\x18.ddex.ern.v432.ReleaseIdR\treleaseId\x12.\n" +
+	"\x13resource_group_type\x18\x10 \x01(\tR\x11resourceGroupType\"\xfd\x01\n" +
 	"\x11RightsClaimPolicy\x12J\n" +
 	"\tcondition\x18\x01 \x03(\v2,.ddex.ern.v432.ConditionForRightsClaimPolicyR\tcondition\x127\n" +
 	"\x18rights_claim_policy_type\x18\x02 \x01(\tR\x15rightsClaimPolicyType\x12c\n" +
 	"\x1arights_claim_policy_reason\x18\x03 \x01(\v2&.ddex.ern.v432.RightsClaimPolicyReasonR\x17rightsClaimPolicyReason\"_\n" +
 	"\aSegment\x12\x1d\n" +
 	"\n" +
-	"start_time\x18\x01 \x01(\tR\tstartTime\x125\n" +
-	"\x06choice\x18\x02 \x01(\v2\x1d.ddex.ern.v432.SegmentChoice2R\x06choice\"U\n" +
-	"\x0eSegmentChoice2\x12\x1c\n" +
-	"\bduration\x18\x01 \x01(\tH\x00R\bduration\x12\x1b\n" +
-	"\bend_time\x18\x02 \x01(\tH\x00R\aendTimeB\b\n" +
-	"\x06choice\"\xd0\x01\n" +
+	"start_time\x18\x01 \x01(\tR\tstartTime\x12\x1a\n" +
+	"\bduration\x18\x02 \x01(\tR\bduration\x12\x19\n" +
+	"\bend_time\x18\x03 \x01(\tR\aendTime\"\x84\x02\n" +
 	"\x10ServiceException\x126\n" +
 	"\ftrading_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\vtradingName\x12\x12\n" +
 	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\x120\n" +
-	"\achannel\x18\x03 \x03(\v2\x16.ddex.ern.v432.ChannelR\achannel\x12>\n" +
-	"\x06choice\x18\x04 \x01(\v2&.ddex.ern.v432.ServiceExceptionChoice4R\x06choice\"\x93\x03\n" +
-	"\x17ServiceExceptionChoice4\x12X\n" +
-	"\x0fparty_id_option\x18\x01 \x01(\v2..ddex.ern.v432.ServiceExceptionChoice4.Option2H\x00R\rpartyIdOption\x12O\n" +
+	"\achannel\x18\x03 \x03(\v2\x16.ddex.ern.v432.ChannelR\achannel\x129\n" +
+	"\bparty_id\x18\x04 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x127\n" +
 	"\n" +
-	"sequence_1\x18\x02 \x01(\v2..ddex.ern.v432.ServiceExceptionChoice4.Option1H\x00R\tsequence1\x1a}\n" +
-	"\aOption1\x127\n" +
-	"\n" +
-	"party_name\x18\x01 \x03(\v2\x18.ddex.ern.v432.PartyNameR\tpartyName\x129\n" +
-	"\bparty_id\x18\x02 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x1aD\n" +
-	"\aOption2\x129\n" +
-	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyIdB\b\n" +
-	"\x06choice\"\x9d\x0f\n" +
+	"party_name\x18\x05 \x03(\v2\x18.ddex.ern.v432.PartyNameR\tpartyName\"\x9d\x0f\n" +
 	"\n" +
 	"SheetMusic\x12-\n" +
 	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x121\n" +
@@ -23101,21 +19317,14 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\bkeywords\x18\x0f \x03(\v2$.ddex.ern.v432.KeywordsWithTerritoryR\bkeywords\x12@\n" +
 	"\bsynopsis\x18\x10 \x03(\v2$.ddex.ern.v432.SynopsisWithTerritoryR\bsynopsis\x12L\n" +
 	"\x11marketing_comment\x18\x11 \x03(\v2\x1f.ddex.ern.v432.MarketingCommentR\x10marketingComment\x12&\n" +
-	"\x0fis_main_release\x18\x12 \x01(\bR\risMainRelease\"\xd3\x02\n" +
+	"\x0fis_main_release\x18\x12 \x01(\bR\risMainRelease\"\xb6\x03\n" +
 	"\x16TrackReleaseVisibility\x121\n" +
 	"\x14visibility_reference\x18\x01 \x01(\tR\x13visibilityReference\x12O\n" +
 	"%track_listing_preview_start_date_time\x18\x02 \x01(\tR trackListingPreviewStartDateTime\x12>\n" +
-	"\x1cclip_preview_start_date_time\x18\x03 \x01(\tR\x18clipPreviewStartDateTime\x12D\n" +
-	"\x06choice\x18\x04 \x01(\v2,.ddex.ern.v432.TrackReleaseVisibilityChoice4R\x06choice\x12/\n" +
-	"\x14do_not_display_dates\x18\x05 \x01(\bR\x11doNotDisplayDates\"\xd1\x03\n" +
-	"\x1dTrackReleaseVisibilityChoice4\x12j\n" +
-	"\x15territory_code_option\x18\x01 \x01(\v24.ddex.ern.v432.TrackReleaseVisibilityChoice4.Option1H\x00R\x13territoryCodeOption\x12{\n" +
-	"\x1eexcluded_territory_code_option\x18\x02 \x01(\v24.ddex.ern.v432.TrackReleaseVisibilityChoice4.Option2H\x00R\x1bexcludedTerritoryCodeOption\x1aU\n" +
-	"\aOption1\x12J\n" +
-	"\x0eterritory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x1af\n" +
-	"\aOption2\x12[\n" +
-	"\x17excluded_territory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCodeB\b\n" +
-	"\x06choice\"k\n" +
+	"\x1cclip_preview_start_date_time\x18\x03 \x01(\tR\x18clipPreviewStartDateTime\x12J\n" +
+	"\x0eterritory_code\x18\x04 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x12[\n" +
+	"\x17excluded_territory_code\x18\x05 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCode\x12/\n" +
+	"\x14do_not_display_dates\x18\x06 \x01(\bR\x11doNotDisplayDates\"k\n" +
 	"\aUseType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -23123,7 +19332,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x11UserInterfaceType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x84\x17\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xe0\x17\n" +
 	"\x05Video\x12-\n" +
 	"\x12resource_reference\x18\x01 \x01(\tR\x11resourceReference\x12,\n" +
 	"\x04type\x18\x02 \x01(\v2\x18.ddex.ern.v432.VideoTypeR\x04type\x12@\n" +
@@ -23169,17 +19378,12 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04raga\x18( \x03(\tR\x04raga\x12\x12\n" +
 	"\x04tala\x18) \x03(\tR\x04tala\x12\x14\n" +
 	"\x05deity\x18* \x03(\tR\x05deity\x126\n" +
-	"\x17video_chapter_reference\x18+ \x03(\tR\x15videoChapterReference\x124\n" +
-	"\x06choice\x18, \x01(\v2\x1c.ddex.ern.v432.VideoChoice44R\x06choice\x127\n" +
-	"\x18language_and_script_code\x18- \x01(\tR\x15languageAndScriptCode\x12'\n" +
-	"\x0fis_supplemental\x18. \x01(\bR\x0eisSupplemental\x12E\n" +
-	"\x1fapply_classical_profile_variant\x18/ \x01(\bR\x1capplyClassicalProfileVariant\"\xa8\x02\n" +
-	"\rVideoChoice44\x12n\n" +
-	" video_cue_sheet_reference_option\x18\x01 \x01(\v2$.ddex.ern.v432.VideoChoice44.Option1H\x00R\x1cvideoCueSheetReferenceOption\x12W\n" +
-	"\x1creason_for_cue_sheet_absence\x18\x02 \x01(\v2\x15.ddex.ern.v432.ReasonH\x00R\x18reasonForCueSheetAbsence\x1aD\n" +
-	"\aOption1\x129\n" +
-	"\x19video_cue_sheet_reference\x18\x01 \x03(\tR\x16videoCueSheetReferenceB\b\n" +
-	"\x06choice\"\x90\x03\n" +
+	"\x17video_chapter_reference\x18+ \x03(\tR\x15videoChapterReference\x129\n" +
+	"\x19video_cue_sheet_reference\x18, \x03(\tR\x16videoCueSheetReference\x12U\n" +
+	"\x1creason_for_cue_sheet_absence\x18- \x01(\v2\x15.ddex.ern.v432.ReasonR\x18reasonForCueSheetAbsence\x127\n" +
+	"\x18language_and_script_code\x18. \x01(\tR\x15languageAndScriptCode\x12'\n" +
+	"\x0fis_supplemental\x18/ \x01(\bR\x0eisSupplemental\x12E\n" +
+	"\x1fapply_classical_profile_variant\x180 \x01(\bR\x1capplyClassicalProfileVariant\"\x90\x03\n" +
 	"\x10VideoClipDetails\x12O\n" +
 	"$technical_resource_details_reference\x18\x01 \x01(\tR!technicalResourceDetailsReference\x124\n" +
 	"\tclip_type\x18\x02 \x01(\v2\x17.ddex.ern.v432.ClipTypeR\bclipType\x12-\n" +
@@ -23232,7 +19436,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\tVideoType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x84\x03\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xa6\x03\n" +
 	"\x14WorkRightsController\x12I\n" +
 	"!rights_controller_party_reference\x18\x01 \x01(\tR\x1erightsControllerPartyReference\x12.\n" +
 	"\x13rights_control_type\x18\x02 \x03(\tR\x11rightsControlType\x124\n" +
@@ -23240,36 +19444,23 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\tterritory\x18\x04 \x03(\v2\x1f.ddex.ern.v432.AllTerritoryCodeR\tterritory\x12\x1d\n" +
 	"\n" +
 	"start_date\x18\x05 \x01(\tR\tstartDate\x12\x19\n" +
-	"\bend_date\x18\x06 \x01(\tR\aendDate\x12B\n" +
-	"\x06choice\x18\a \x01(\v2*.ddex.ern.v432.WorkRightsControllerChoice7R\x06choice\"\x91\x01\n" +
-	"\x1bWorkRightsControllerChoice7\x120\n" +
-	"\x13right_share_unknown\x18\x01 \x01(\bH\x00R\x11rightShareUnknown\x126\n" +
-	"\x16right_share_percentage\x18\x02 \x01(\tH\x00R\x14rightSharePercentageB\b\n" +
-	"\x06choice\"\x83\x01\n" +
+	"\bend_date\x18\x06 \x01(\tR\aendDate\x12.\n" +
+	"\x13right_share_unknown\x18\a \x01(\bR\x11rightShareUnknown\x124\n" +
+	"\x16right_share_percentage\x18\b \x01(\tR\x14rightSharePercentage\"\x83\x01\n" +
 	"\x1fAdministratingRecordCompanyRole\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xe5\x02\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xf4\x03\n" +
 	"\vAffiliation\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12F\n" +
 	"\x0fvalidity_period\x18\x02 \x01(\v2\x1d.ddex.ern.v432.ValidityPeriodR\x0evalidityPeriod\x12:\n" +
 	"\vrights_type\x18\x03 \x03(\v2\x19.ddex.ern.v432.RightsTypeR\n" +
 	"rightsType\x12E\n" +
-	"\x1fpercentage_of_rights_assignment\x18\x04 \x01(\tR\x1cpercentageOfRightsAssignment\x129\n" +
-	"\x06choice\x18\x05 \x01(\v2!.ddex.ern.v432.AffiliationChoice5R\x06choice\x12<\n" +
-	"\bchoice_1\x18\x06 \x01(\v2!.ddex.ern.v432.AffiliationChoice6R\achoice1\"\x81\x01\n" +
-	"\x12AffiliationChoice5\x12#\n" +
-	"\fcompany_name\x18\x01 \x01(\tH\x00R\vcompanyName\x12<\n" +
-	"\x19party_affiliate_reference\x18\x02 \x01(\tH\x00R\x17partyAffiliateReferenceB\b\n" +
-	"\x06choice\"\xb0\x03\n" +
-	"\x12AffiliationChoice6\x12_\n" +
-	"\x15territory_code_option\x18\x01 \x01(\v2).ddex.ern.v432.AffiliationChoice6.Option1H\x00R\x13territoryCodeOption\x12p\n" +
-	"\x1eexcluded_territory_code_option\x18\x02 \x01(\v2).ddex.ern.v432.AffiliationChoice6.Option2H\x00R\x1bexcludedTerritoryCodeOption\x1aU\n" +
-	"\aOption1\x12J\n" +
-	"\x0eterritory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x1af\n" +
-	"\aOption2\x12[\n" +
-	"\x17excluded_territory_code\x18\x01 \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCodeB\b\n" +
-	"\x06choice\"Q\n" +
+	"\x1fpercentage_of_rights_assignment\x18\x04 \x01(\tR\x1cpercentageOfRightsAssignment\x12!\n" +
+	"\fcompany_name\x18\x05 \x01(\tR\vcompanyName\x12:\n" +
+	"\x19party_affiliate_reference\x18\x06 \x01(\tR\x17partyAffiliateReference\x12J\n" +
+	"\x0eterritory_code\x18\a \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\rterritoryCode\x12[\n" +
+	"\x17excluded_territory_code\x18\b \x03(\v2#.ddex.ern.v432.CurrentTerritoryCodeR\x15excludedTerritoryCode\"Q\n" +
 	"\x10AllTerritoryCode\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12'\n" +
 	"\x0fidentifier_type\x18\x02 \x01(\tR\x0eidentifierType\"\x8e\x01\n" +
@@ -23315,7 +19506,7 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x0fContainerFormat\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
-	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\xa8\x04\n" +
+	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"\x85\x05\n" +
 	"\vContributor\x122\n" +
 	"\x04role\x18\x01 \x03(\v2\x1e.ddex.ern.v432.ContributorRoleR\x04role\x12F\n" +
 	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\x12'\n" +
@@ -23324,13 +19515,11 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	" has_made_contracted_contribution\x18\x05 \x01(\bR\x1dhasMadeContractedContribution\x12:\n" +
 	"\vis_credited\x18\x06 \x01(\v2\x19.ddex.ern.v432.IsCreditedR\n" +
 	"isCredited\x12F\n" +
-	"\x0fdisplay_credits\x18\a \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x129\n" +
-	"\x06choice\x18\b \x01(\v2!.ddex.ern.v432.ContributorChoice8R\x06choice\x12'\n" +
-	"\x0fsequence_number\x18\t \x01(\x05R\x0esequenceNumber\"\xba\x01\n" +
-	"\x12ContributorChoice8\x12@\n" +
-	"\x1bcontributor_party_reference\x18\x01 \x01(\tH\x00R\x19contributorPartyReference\x12X\n" +
-	"\x13special_contributor\x18\x02 \x01(\v2%.ddex.ern.v432.SpecialContributorTypeH\x00R\x12specialContributorB\b\n" +
-	"\x06choice\"\x94\x01\n" +
+	"\x0fdisplay_credits\x18\a \x03(\v2\x1d.ddex.ern.v432.DisplayCreditsR\x0edisplayCredits\x12>\n" +
+	"\x1bcontributor_party_reference\x18\b \x01(\tR\x19contributorPartyReference\x12V\n" +
+	"\x13special_contributor\x18\t \x01(\v2%.ddex.ern.v432.SpecialContributorTypeR\x12specialContributor\x12'\n" +
+	"\x0fsequence_number\x18\n" +
+	" \x01(\x05R\x0esequenceNumber\"\x94\x01\n" +
 	"\x0fContributorRole\x129\n" +
 	"\x05value\x18\x01 \x01(\v2#.ddex.ern.v432.ContributorRoleValueR\x05value\x12F\n" +
 	"\x0finstrument_type\x18\x02 \x03(\v2\x1d.ddex.ern.v432.InstrumentTypeR\x0einstrumentType\"x\n" +
@@ -23371,23 +19560,13 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x12user_defined_value\x18\x03 \x01(\tR\x10userDefinedValue\"U\n" +
 	"\x14CurrentTerritoryCode\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12'\n" +
-	"\x0fidentifier_type\x18\x02 \x01(\tR\x0eidentifierType\"\x84\x01\n" +
+	"\x0fidentifier_type\x18\x02 \x01(\tR\x0eidentifierType\"\xc5\x01\n" +
 	"\x03DSP\x126\n" +
 	"\ftrading_name\x18\x01 \x01(\v2\x13.ddex.ern.v432.NameR\vtradingName\x12\x12\n" +
-	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\x121\n" +
-	"\x06choice\x18\x03 \x01(\v2\x19.ddex.ern.v432.DSPChoice3R\x06choice\"\xec\x02\n" +
+	"\x05u_r_l\x18\x02 \x03(\tR\x03uRL\x129\n" +
+	"\bparty_id\x18\x03 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x127\n" +
 	"\n" +
-	"DSPChoice3\x12K\n" +
-	"\x0fparty_id_option\x18\x01 \x01(\v2!.ddex.ern.v432.DSPChoice3.Option2H\x00R\rpartyIdOption\x12B\n" +
-	"\n" +
-	"sequence_1\x18\x02 \x01(\v2!.ddex.ern.v432.DSPChoice3.Option1H\x00R\tsequence1\x1a}\n" +
-	"\aOption1\x127\n" +
-	"\n" +
-	"party_name\x18\x01 \x03(\v2\x18.ddex.ern.v432.PartyNameR\tpartyName\x129\n" +
-	"\bparty_id\x18\x02 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyId\x1aD\n" +
-	"\aOption2\x129\n" +
-	"\bparty_id\x18\x01 \x03(\v2\x1e.ddex.ern.v432.DetailedPartyIdR\apartyIdB\b\n" +
-	"\x06choice\"\xcf\x01\n" +
+	"party_name\x18\x04 \x03(\v2\x18.ddex.ern.v432.PartyNameR\tpartyName\"\xcf\x01\n" +
 	"\x0fDetailedHashSum\x12A\n" +
 	"\talgorithm\x18\x01 \x01(\v2#.ddex.ern.v432.HashSumAlgorithmTypeR\talgorithm\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
@@ -23458,20 +19637,14 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\x04File\x12\x12\n" +
 	"\x05u_r_i\x18\x01 \x01(\tR\x03uRI\x129\n" +
 	"\bhash_sum\x18\x02 \x01(\v2\x1e.ddex.ern.v432.DetailedHashSumR\ahashSum\x12\x1b\n" +
-	"\tfile_size\x18\x03 \x01(\tR\bfileSize\"\xc7\x01\n" +
+	"\tfile_size\x18\x03 \x01(\tR\bfileSize\"\xff\x01\n" +
 	"\vFingerprint\x12E\n" +
 	"\talgorithm\x18\x01 \x01(\v2'.ddex.ern.v432.FingerprintAlgorithmTypeR\talgorithm\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1c\n" +
-	"\tparameter\x18\x03 \x01(\tR\tparameter\x129\n" +
-	"\x06choice\x18\x04 \x01(\v2!.ddex.ern.v432.FingerprintChoice4R\x06choice\"\xea\x01\n" +
-	"\x12FingerprintChoice4\x12)\n" +
-	"\x04file\x18\x01 \x01(\v2\x13.ddex.ern.v432.FileH\x00R\x04file\x12J\n" +
-	"\n" +
-	"sequence_1\x18\x02 \x01(\v2).ddex.ern.v432.FingerprintChoice4.Option1H\x00R\tsequence1\x1aS\n" +
-	"\aOption1\x12\x1b\n" +
-	"\tdata_type\x18\x01 \x01(\tR\bdataType\x12+\n" +
-	"\x11fingerprint_value\x18\x02 \x01(\tR\x10fingerprintValueB\b\n" +
-	"\x06choice\"|\n" +
+	"\tparameter\x18\x03 \x01(\tR\tparameter\x12'\n" +
+	"\x04file\x18\x04 \x01(\v2\x13.ddex.ern.v432.FileR\x04file\x12\x1b\n" +
+	"\tdata_type\x18\x05 \x01(\tR\bdataType\x12+\n" +
+	"\x11fingerprint_value\x18\x06 \x01(\tR\x10fingerprintValue\"|\n" +
 	"\x18FingerprintAlgorithmType\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12,\n" +
@@ -23627,22 +19800,13 @@ const file_ddex_ern_v432_v432_proto_rawDesc = "" +
 	"\n" +
 	"Percentage\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x12.\n" +
-	"\x14has_max_value_of_one\x18\x02 \x01(\bR\x10hasMaxValueOfOne\"=\n" +
-	"\x06Period\x123\n" +
-	"\x06choice\x18\x01 \x01(\v2\x1b.ddex.ern.v432.PeriodChoiceR\x06choice\"\xb1\x03\n" +
-	"\fPeriodChoice\x12D\n" +
-	"\n" +
-	"sequence_1\x18\x01 \x01(\v2#.ddex.ern.v432.PeriodChoice.Option1H\x00R\tsequence1\x12D\n" +
-	"\n" +
-	"sequence_2\x18\x02 \x01(\v2#.ddex.ern.v432.PeriodChoice.Option2H\x00R\tsequence2\x1aw\n" +
-	"\aOption1\x127\n" +
+	"\x14has_max_value_of_one\x18\x02 \x01(\bR\x10hasMaxValueOfOne\"\xfe\x01\n" +
+	"\x06Period\x127\n" +
 	"\n" +
 	"start_date\x18\x01 \x01(\v2\x18.ddex.ern.v432.EventDateR\tstartDate\x123\n" +
-	"\bend_date\x18\x02 \x01(\v2\x18.ddex.ern.v432.EventDateR\aendDate\x1a\x91\x01\n" +
-	"\aOption2\x12D\n" +
-	"\x0fstart_date_time\x18\x01 \x01(\v2\x1c.ddex.ern.v432.EventDateTimeR\rstartDateTime\x12@\n" +
-	"\rend_date_time\x18\x02 \x01(\v2\x1c.ddex.ern.v432.EventDateTimeR\vendDateTimeB\b\n" +
-	"\x06choice\"W\n" +
+	"\bend_date\x18\x02 \x01(\v2\x18.ddex.ern.v432.EventDateR\aendDate\x12D\n" +
+	"\x0fstart_date_time\x18\x03 \x01(\v2\x1c.ddex.ern.v432.EventDateTimeR\rstartDateTime\x12@\n" +
+	"\rend_date_time\x18\x04 \x01(\v2\x1c.ddex.ern.v432.EventDateTimeR\vendDateTime\"W\n" +
 	"\x06Prefix\x12\x14\n" +
 	"\x05value\x18\x01 \x01(\tR\x05value\x127\n" +
 	"\x18language_and_script_code\x18\x02 \x01(\tR\x15languageAndScriptCode\"B\n" +
@@ -23856,7 +20020,7 @@ func file_ddex_ern_v432_v432_proto_rawDescGZIP() []byte {
 	return file_ddex_ern_v432_v432_proto_rawDescData
 }
 
-var file_ddex_ern_v432_v432_proto_msgTypes = make([]protoimpl.MessageInfo, 266)
+var file_ddex_ern_v432_v432_proto_msgTypes = make([]protoimpl.MessageInfo, 206)
 var file_ddex_ern_v432_v432_proto_goTypes = []any{
 	(*NewReleaseMessage)(nil),             // 0: ddex.ern.v432.NewReleaseMessage
 	(*PurgeReleaseMessage)(nil),           // 1: ddex.ern.v432.PurgeReleaseMessage
@@ -23864,844 +20028,719 @@ var file_ddex_ern_v432_v432_proto_goTypes = []any{
 	(*AudioDeliveryFile)(nil),             // 3: ddex.ern.v432.AudioDeliveryFile
 	(*AvRating)(nil),                      // 4: ddex.ern.v432.AvRating
 	(*Brand)(nil),                         // 5: ddex.ern.v432.Brand
-	(*BrandChoice2)(nil),                  // 6: ddex.ern.v432.BrandChoice2
-	(*Channel)(nil),                       // 7: ddex.ern.v432.Channel
-	(*Chapter)(nil),                       // 8: ddex.ern.v432.Chapter
-	(*ChapterList)(nil),                   // 9: ddex.ern.v432.ChapterList
-	(*Character)(nil),                     // 10: ddex.ern.v432.Character
-	(*ClipDetails)(nil),                   // 11: ddex.ern.v432.ClipDetails
-	(*ClipRelease)(nil),                   // 12: ddex.ern.v432.ClipRelease
-	(*CommercialModelType)(nil),           // 13: ddex.ern.v432.CommercialModelType
-	(*ConditionForRightsClaimPolicy)(nil), // 14: ddex.ern.v432.ConditionForRightsClaimPolicy
-	(*CoreArea)(nil),                      // 15: ddex.ern.v432.CoreArea
-	(*Cue)(nil),                           // 16: ddex.ern.v432.Cue
-	(*CueChoice18)(nil),                   // 17: ddex.ern.v432.CueChoice18
-	(*CueSheet)(nil),                      // 18: ddex.ern.v432.CueSheet
-	(*CueSheetList)(nil),                  // 19: ddex.ern.v432.CueSheetList
-	(*Deal)(nil),                          // 20: ddex.ern.v432.Deal
-	(*DealList)(nil),                      // 21: ddex.ern.v432.DealList
-	(*DealResourceReferenceList)(nil),     // 22: ddex.ern.v432.DealResourceReferenceList
-	(*DealTechnicalResourceDetailsReferenceList)(nil), // 23: ddex.ern.v432.DealTechnicalResourceDetailsReferenceList
-	(*DealTerms)(nil),                                  // 24: ddex.ern.v432.DealTerms
-	(*DealTermsChoice14)(nil),                          // 25: ddex.ern.v432.DealTermsChoice14
-	(*DealTermsChoice15)(nil),                          // 26: ddex.ern.v432.DealTermsChoice15
-	(*DealTermsChoice16)(nil),                          // 27: ddex.ern.v432.DealTermsChoice16
-	(*DealTermsTechnicalInstantiation)(nil),            // 28: ddex.ern.v432.DealTermsTechnicalInstantiation
-	(*Deity)(nil),                                      // 29: ddex.ern.v432.Deity
-	(*DelegatedUsageRights)(nil),                       // 30: ddex.ern.v432.DelegatedUsageRights
-	(*DescriptionWithTerritory)(nil),                   // 31: ddex.ern.v432.DescriptionWithTerritory
-	(*DetailedResourceContributor)(nil),                // 32: ddex.ern.v432.DetailedResourceContributor
-	(*DetailedResourceContributorChoice6)(nil),         // 33: ddex.ern.v432.DetailedResourceContributorChoice6
-	(*DiscoverableUseType)(nil),                        // 34: ddex.ern.v432.DiscoverableUseType
-	(*DisplayArtist)(nil),                              // 35: ddex.ern.v432.DisplayArtist
-	(*DisplayArtistChoice4)(nil),                       // 36: ddex.ern.v432.DisplayArtistChoice4
-	(*DisplayTitleText)(nil),                           // 37: ddex.ern.v432.DisplayTitleText
-	(*DistributionChannelPage)(nil),                    // 38: ddex.ern.v432.DistributionChannelPage
-	(*EditionContributor)(nil),                         // 39: ddex.ern.v432.EditionContributor
-	(*EditionContributorChoice7)(nil),                  // 40: ddex.ern.v432.EditionContributorChoice7
-	(*EventDateTimeWithoutFlags)(nil),                  // 41: ddex.ern.v432.EventDateTimeWithoutFlags
-	(*EventDateWithCurrentTerritory)(nil),              // 42: ddex.ern.v432.EventDateWithCurrentTerritory
-	(*EventDateWithDefault)(nil),                       // 43: ddex.ern.v432.EventDateWithDefault
-	(*EventDateWithoutFlags)(nil),                      // 44: ddex.ern.v432.EventDateWithoutFlags
-	(*ExternalResourceLink)(nil),                       // 45: ddex.ern.v432.ExternalResourceLink
-	(*HdrVideoDynamicMetadataType)(nil),                // 46: ddex.ern.v432.HdrVideoDynamicMetadataType
-	(*Image)(nil),                                      // 47: ddex.ern.v432.Image
-	(*LinkedReleaseResourceReference)(nil),             // 48: ddex.ern.v432.LinkedReleaseResourceReference
-	(*LocationAndDateOfSession)(nil),                   // 49: ddex.ern.v432.LocationAndDateOfSession
-	(*Party)(nil),                                      // 50: ddex.ern.v432.Party
-	(*PartyChoice5)(nil),                               // 51: ddex.ern.v432.PartyChoice5
-	(*PartyList)(nil),                                  // 52: ddex.ern.v432.PartyList
-	(*PartyNameWithTerritory)(nil),                     // 53: ddex.ern.v432.PartyNameWithTerritory
-	(*PartyWithRole)(nil),                              // 54: ddex.ern.v432.PartyWithRole
-	(*PeriodWithStartDate)(nil),                        // 55: ddex.ern.v432.PeriodWithStartDate
-	(*PeriodWithStartDateChoice)(nil),                  // 56: ddex.ern.v432.PeriodWithStartDateChoice
-	(*PeriodWithoutFlags)(nil),                         // 57: ddex.ern.v432.PeriodWithoutFlags
-	(*PeriodWithoutFlagsChoice)(nil),                   // 58: ddex.ern.v432.PeriodWithoutFlagsChoice
-	(*PhysicalReturns)(nil),                            // 59: ddex.ern.v432.PhysicalReturns
-	(*PriceInformation)(nil),                           // 60: ddex.ern.v432.PriceInformation
-	(*PurgedRelease)(nil),                              // 61: ddex.ern.v432.PurgedRelease
-	(*Raga)(nil),                                       // 62: ddex.ern.v432.Raga
-	(*RecordingFormat)(nil),                            // 63: ddex.ern.v432.RecordingFormat
-	(*RelatedRelease)(nil),                             // 64: ddex.ern.v432.RelatedRelease
-	(*RelatedResource)(nil),                            // 65: ddex.ern.v432.RelatedResource
-	(*RelatedResourceChoice3)(nil),                     // 66: ddex.ern.v432.RelatedResourceChoice3
-	(*Release)(nil),                                    // 67: ddex.ern.v432.Release
-	(*ReleaseChoice38)(nil),                            // 68: ddex.ern.v432.ReleaseChoice38
-	(*ReleaseAdmin)(nil),                               // 69: ddex.ern.v432.ReleaseAdmin
-	(*ReleaseDeal)(nil),                                // 70: ddex.ern.v432.ReleaseDeal
-	(*ReleaseId)(nil),                                  // 71: ddex.ern.v432.ReleaseId
-	(*ReleaseLabelReference)(nil),                      // 72: ddex.ern.v432.ReleaseLabelReference
-	(*ReleaseLabelReferenceWithParty)(nil),             // 73: ddex.ern.v432.ReleaseLabelReferenceWithParty
-	(*ReleaseList)(nil),                                // 74: ddex.ern.v432.ReleaseList
-	(*ReleaseVisibility)(nil),                          // 75: ddex.ern.v432.ReleaseVisibility
-	(*ReleaseVisibilityChoice6)(nil),                   // 76: ddex.ern.v432.ReleaseVisibilityChoice6
-	(*ResourceGroup)(nil),                              // 77: ddex.ern.v432.ResourceGroup
-	(*ResourceGroupChoice12)(nil),                      // 78: ddex.ern.v432.ResourceGroupChoice12
-	(*ResourceGroupChoice13)(nil),                      // 79: ddex.ern.v432.ResourceGroupChoice13
-	(*ResourceGroupContentItem)(nil),                   // 80: ddex.ern.v432.ResourceGroupContentItem
-	(*ResourceGroupContentItemChoice7)(nil),            // 81: ddex.ern.v432.ResourceGroupContentItemChoice7
-	(*ResourceList)(nil),                               // 82: ddex.ern.v432.ResourceList
-	(*ResourceRightsController)(nil),                   // 83: ddex.ern.v432.ResourceRightsController
-	(*ResourceRightsControllerChoice4)(nil),            // 84: ddex.ern.v432.ResourceRightsControllerChoice4
-	(*ResourceSubGroup)(nil),                           // 85: ddex.ern.v432.ResourceSubGroup
-	(*ResourceSubGroupChoice12)(nil),                   // 86: ddex.ern.v432.ResourceSubGroupChoice12
-	(*ResourceSubGroupChoice13)(nil),                   // 87: ddex.ern.v432.ResourceSubGroupChoice13
-	(*RightsClaimPolicy)(nil),                          // 88: ddex.ern.v432.RightsClaimPolicy
-	(*Segment)(nil),                                    // 89: ddex.ern.v432.Segment
-	(*SegmentChoice2)(nil),                             // 90: ddex.ern.v432.SegmentChoice2
-	(*ServiceException)(nil),                           // 91: ddex.ern.v432.ServiceException
-	(*ServiceExceptionChoice4)(nil),                    // 92: ddex.ern.v432.ServiceExceptionChoice4
-	(*SheetMusic)(nil),                                 // 93: ddex.ern.v432.SheetMusic
-	(*Software)(nil),                                   // 94: ddex.ern.v432.Software
-	(*SoundRecording)(nil),                             // 95: ddex.ern.v432.SoundRecording
-	(*SoundRecordingClipDetails)(nil),                  // 96: ddex.ern.v432.SoundRecordingClipDetails
-	(*SoundRecordingEdition)(nil),                      // 97: ddex.ern.v432.SoundRecordingEdition
-	(*SupplementalDocumentList)(nil),                   // 98: ddex.ern.v432.SupplementalDocumentList
-	(*SynopsisWithTerritory)(nil),                      // 99: ddex.ern.v432.SynopsisWithTerritory
-	(*Tala)(nil),                                       // 100: ddex.ern.v432.Tala
-	(*TechnicalImageDetails)(nil),                      // 101: ddex.ern.v432.TechnicalImageDetails
-	(*TechnicalSheetMusicDetails)(nil),                 // 102: ddex.ern.v432.TechnicalSheetMusicDetails
-	(*TechnicalSoftwareDetails)(nil),                   // 103: ddex.ern.v432.TechnicalSoftwareDetails
-	(*TechnicalSoundRecordingDetails)(nil),             // 104: ddex.ern.v432.TechnicalSoundRecordingDetails
-	(*TechnicalTextDetails)(nil),                       // 105: ddex.ern.v432.TechnicalTextDetails
-	(*TechnicalVideoDetails)(nil),                      // 106: ddex.ern.v432.TechnicalVideoDetails
-	(*Text)(nil),                                       // 107: ddex.ern.v432.Text
-	(*Timing)(nil),                                     // 108: ddex.ern.v432.Timing
-	(*Title)(nil),                                      // 109: ddex.ern.v432.Title
-	(*TrackRelease)(nil),                               // 110: ddex.ern.v432.TrackRelease
-	(*TrackReleaseVisibility)(nil),                     // 111: ddex.ern.v432.TrackReleaseVisibility
-	(*TrackReleaseVisibilityChoice4)(nil),              // 112: ddex.ern.v432.TrackReleaseVisibilityChoice4
-	(*UseType)(nil),                                    // 113: ddex.ern.v432.UseType
-	(*UserInterfaceType)(nil),                          // 114: ddex.ern.v432.UserInterfaceType
-	(*Video)(nil),                                      // 115: ddex.ern.v432.Video
-	(*VideoChoice44)(nil),                              // 116: ddex.ern.v432.VideoChoice44
-	(*VideoClipDetails)(nil),                           // 117: ddex.ern.v432.VideoClipDetails
-	(*VideoDeliveryFile)(nil),                          // 118: ddex.ern.v432.VideoDeliveryFile
-	(*VideoEdition)(nil),                               // 119: ddex.ern.v432.VideoEdition
-	(*VideoType)(nil),                                  // 120: ddex.ern.v432.VideoType
-	(*WorkRightsController)(nil),                       // 121: ddex.ern.v432.WorkRightsController
-	(*WorkRightsControllerChoice7)(nil),                // 122: ddex.ern.v432.WorkRightsControllerChoice7
-	(*AdministratingRecordCompanyRole)(nil),            // 123: ddex.ern.v432.AdministratingRecordCompanyRole
-	(*Affiliation)(nil),                                // 124: ddex.ern.v432.Affiliation
-	(*AffiliationChoice5)(nil),                         // 125: ddex.ern.v432.AffiliationChoice5
-	(*AffiliationChoice6)(nil),                         // 126: ddex.ern.v432.AffiliationChoice6
-	(*AllTerritoryCode)(nil),                           // 127: ddex.ern.v432.AllTerritoryCode
-	(*AspectRatio)(nil),                                // 128: ddex.ern.v432.AspectRatio
-	(*AudioCodecType)(nil),                             // 129: ddex.ern.v432.AudioCodecType
-	(*BitRate)(nil),                                    // 130: ddex.ern.v432.BitRate
-	(*CLine)(nil),                                      // 131: ddex.ern.v432.CLine
-	(*CarrierType)(nil),                                // 132: ddex.ern.v432.CarrierType
-	(*CatalogNumber)(nil),                              // 133: ddex.ern.v432.CatalogNumber
-	(*ChapterId)(nil),                                  // 134: ddex.ern.v432.ChapterId
-	(*ClipType)(nil),                                   // 135: ddex.ern.v432.ClipType
-	(*ContainerFormat)(nil),                            // 136: ddex.ern.v432.ContainerFormat
-	(*Contributor)(nil),                                // 137: ddex.ern.v432.Contributor
-	(*ContributorChoice8)(nil),                         // 138: ddex.ern.v432.ContributorChoice8
-	(*ContributorRole)(nil),                            // 139: ddex.ern.v432.ContributorRole
-	(*ContributorRoleValue)(nil),                       // 140: ddex.ern.v432.ContributorRoleValue
-	(*CourtesyLine)(nil),                               // 141: ddex.ern.v432.CourtesyLine
-	(*CueOrigin)(nil),                                  // 142: ddex.ern.v432.CueOrigin
-	(*CueSheetType)(nil),                               // 143: ddex.ern.v432.CueSheetType
-	(*CueThemeType)(nil),                               // 144: ddex.ern.v432.CueThemeType
-	(*CueUseType)(nil),                                 // 145: ddex.ern.v432.CueUseType
-	(*CueVisualPerceptionType)(nil),                    // 146: ddex.ern.v432.CueVisualPerceptionType
-	(*CueVocalType)(nil),                               // 147: ddex.ern.v432.CueVocalType
-	(*CurrentTerritoryCode)(nil),                       // 148: ddex.ern.v432.CurrentTerritoryCode
-	(*DSP)(nil),                                        // 149: ddex.ern.v432.DSP
-	(*DSPChoice3)(nil),                                 // 150: ddex.ern.v432.DSPChoice3
-	(*DetailedHashSum)(nil),                            // 151: ddex.ern.v432.DetailedHashSum
-	(*DetailedPartyId)(nil),                            // 152: ddex.ern.v432.DetailedPartyId
-	(*DisplayArtistNameWithOriginalLanguage)(nil),      // 153: ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	(*DisplayArtistRole)(nil),                          // 154: ddex.ern.v432.DisplayArtistRole
-	(*DisplayCredits)(nil),                             // 155: ddex.ern.v432.DisplayCredits
-	(*DisplaySubTitle)(nil),                            // 156: ddex.ern.v432.DisplaySubTitle
-	(*DisplayTitle)(nil),                               // 157: ddex.ern.v432.DisplayTitle
-	(*EventDate)(nil),                                  // 158: ddex.ern.v432.EventDate
-	(*EventDateTime)(nil),                              // 159: ddex.ern.v432.EventDateTime
-	(*Extent)(nil),                                     // 160: ddex.ern.v432.Extent
-	(*ExternallyLinkedResourceType)(nil),               // 161: ddex.ern.v432.ExternallyLinkedResourceType
-	(*File)(nil),                                       // 162: ddex.ern.v432.File
-	(*Fingerprint)(nil),                                // 163: ddex.ern.v432.Fingerprint
-	(*FingerprintChoice4)(nil),                         // 164: ddex.ern.v432.FingerprintChoice4
-	(*FingerprintAlgorithmType)(nil),                   // 165: ddex.ern.v432.FingerprintAlgorithmType
-	(*FirstPublicationDate)(nil),                       // 166: ddex.ern.v432.FirstPublicationDate
-	(*FrameRate)(nil),                                  // 167: ddex.ern.v432.FrameRate
-	(*FulfillmentDate)(nil),                            // 168: ddex.ern.v432.FulfillmentDate
-	(*GenreCategory)(nil),                              // 169: ddex.ern.v432.GenreCategory
-	(*GenreCategoryValue)(nil),                         // 170: ddex.ern.v432.GenreCategoryValue
-	(*GenreWithTerritory)(nil),                         // 171: ddex.ern.v432.GenreWithTerritory
-	(*HashSumAlgorithmType)(nil),                       // 172: ddex.ern.v432.HashSumAlgorithmType
-	(*ImageCodecType)(nil),                             // 173: ddex.ern.v432.ImageCodecType
-	(*ImageType)(nil),                                  // 174: ddex.ern.v432.ImageType
-	(*InstrumentType)(nil),                             // 175: ddex.ern.v432.InstrumentType
-	(*IsCredited)(nil),                                 // 176: ddex.ern.v432.IsCredited
-	(*KeywordsWithTerritory)(nil),                      // 177: ddex.ern.v432.KeywordsWithTerritory
-	(*Language)(nil),                                   // 178: ddex.ern.v432.Language
-	(*MarketingComment)(nil),                           // 179: ddex.ern.v432.MarketingComment
-	(*MessageAuditTrail)(nil),                          // 180: ddex.ern.v432.MessageAuditTrail
-	(*MessageAuditTrailEvent)(nil),                     // 181: ddex.ern.v432.MessageAuditTrailEvent
-	(*MessageHeader)(nil),                              // 182: ddex.ern.v432.MessageHeader
-	(*MessagingPartyWithoutCode)(nil),                  // 183: ddex.ern.v432.MessagingPartyWithoutCode
-	(*MusicalWorkId)(nil),                              // 184: ddex.ern.v432.MusicalWorkId
-	(*Name)(nil),                                       // 185: ddex.ern.v432.Name
-	(*OperatingSystemType)(nil),                        // 186: ddex.ern.v432.OperatingSystemType
-	(*PLine)(nil),                                      // 187: ddex.ern.v432.PLine
-	(*ParentalWarningTypeWithStandard)(nil),            // 188: ddex.ern.v432.ParentalWarningTypeWithStandard
-	(*PartyName)(nil),                                  // 189: ddex.ern.v432.PartyName
-	(*PartyNameWithoutCode)(nil),                       // 190: ddex.ern.v432.PartyNameWithoutCode
-	(*PartyRelationshipType)(nil),                      // 191: ddex.ern.v432.PartyRelationshipType
-	(*Percentage)(nil),                                 // 192: ddex.ern.v432.Percentage
-	(*Period)(nil),                                     // 193: ddex.ern.v432.Period
-	(*PeriodChoice)(nil),                               // 194: ddex.ern.v432.PeriodChoice
-	(*Prefix)(nil),                                     // 195: ddex.ern.v432.Prefix
-	(*Price)(nil),                                      // 196: ddex.ern.v432.Price
-	(*PriceType)(nil),                                  // 197: ddex.ern.v432.PriceType
-	(*PromotionalCode)(nil),                            // 198: ddex.ern.v432.PromotionalCode
-	(*ProprietaryId)(nil),                              // 199: ddex.ern.v432.ProprietaryId
-	(*Purpose)(nil),                                    // 200: ddex.ern.v432.Purpose
-	(*RatingAgency)(nil),                               // 201: ddex.ern.v432.RatingAgency
-	(*RatingReason)(nil),                               // 202: ddex.ern.v432.RatingReason
-	(*Reason)(nil),                                     // 203: ddex.ern.v432.Reason
-	(*RelatedParty)(nil),                               // 204: ddex.ern.v432.RelatedParty
-	(*ReleaseRelationshipType)(nil),                    // 205: ddex.ern.v432.ReleaseRelationshipType
-	(*ReleaseTypeForReleaseNotification)(nil),          // 206: ddex.ern.v432.ReleaseTypeForReleaseNotification
-	(*ResourceContainedResourceReference)(nil),         // 207: ddex.ern.v432.ResourceContainedResourceReference
-	(*ResourceContainedResourceReferenceList)(nil),     // 208: ddex.ern.v432.ResourceContainedResourceReferenceList
-	(*ResourceContributorRole)(nil),                    // 209: ddex.ern.v432.ResourceContributorRole
-	(*ResourceId)(nil),                                 // 210: ddex.ern.v432.ResourceId
-	(*ResourceProprietaryId)(nil),                      // 211: ddex.ern.v432.ResourceProprietaryId
-	(*RightsClaimPolicyReason)(nil),                    // 212: ddex.ern.v432.RightsClaimPolicyReason
-	(*RightsType)(nil),                                 // 213: ddex.ern.v432.RightsType
-	(*SamplingRate)(nil),                               // 214: ddex.ern.v432.SamplingRate
-	(*SessionType)(nil),                                // 215: ddex.ern.v432.SessionType
-	(*SheetMusicCodecType)(nil),                        // 216: ddex.ern.v432.SheetMusicCodecType
-	(*SheetMusicId)(nil),                               // 217: ddex.ern.v432.SheetMusicId
-	(*SheetMusicType)(nil),                             // 218: ddex.ern.v432.SheetMusicType
-	(*SoftwareType)(nil),                               // 219: ddex.ern.v432.SoftwareType
-	(*SoundRecordingId)(nil),                           // 220: ddex.ern.v432.SoundRecordingId
-	(*SoundRecordingType)(nil),                         // 221: ddex.ern.v432.SoundRecordingType
-	(*SpecialContributorType)(nil),                     // 222: ddex.ern.v432.SpecialContributorType
-	(*SubGenreCategory)(nil),                           // 223: ddex.ern.v432.SubGenreCategory
-	(*SubGenreCategoryValue)(nil),                      // 224: ddex.ern.v432.SubGenreCategoryValue
-	(*TextCodecType)(nil),                              // 225: ddex.ern.v432.TextCodecType
-	(*TextId)(nil),                                     // 226: ddex.ern.v432.TextId
-	(*TextType)(nil),                                   // 227: ddex.ern.v432.TextType
-	(*TextWithFormat)(nil),                             // 228: ddex.ern.v432.TextWithFormat
-	(*TextWithoutTerritory)(nil),                       // 229: ddex.ern.v432.TextWithoutTerritory
-	(*TitleDisplayInformation)(nil),                    // 230: ddex.ern.v432.TitleDisplayInformation
-	(*ValidityPeriod)(nil),                             // 231: ddex.ern.v432.ValidityPeriod
-	(*Venue)(nil),                                      // 232: ddex.ern.v432.Venue
-	(*VersionType)(nil),                                // 233: ddex.ern.v432.VersionType
-	(*VideoCodecType)(nil),                             // 234: ddex.ern.v432.VideoCodecType
-	(*VideoDefinitionType)(nil),                        // 235: ddex.ern.v432.VideoDefinitionType
-	(*VideoId)(nil),                                    // 236: ddex.ern.v432.VideoId
-	(*BrandChoice2_Option1)(nil),                       // 237: ddex.ern.v432.BrandChoice2.Option1
-	(*BrandChoice2_Option2)(nil),                       // 238: ddex.ern.v432.BrandChoice2.Option2
-	(*DealTermsChoice14_Option1)(nil),                  // 239: ddex.ern.v432.DealTermsChoice14.Option1
-	(*DealTermsChoice14_Option2)(nil),                  // 240: ddex.ern.v432.DealTermsChoice14.Option2
-	(*DealTermsChoice15_Option1)(nil),                  // 241: ddex.ern.v432.DealTermsChoice15.Option1
-	(*DealTermsChoice15_Option2)(nil),                  // 242: ddex.ern.v432.DealTermsChoice15.Option2
-	(*DetailedResourceContributorChoice6_Option1)(nil), // 243: ddex.ern.v432.DetailedResourceContributorChoice6.Option1
-	(*DetailedResourceContributorChoice6_Option2)(nil), // 244: ddex.ern.v432.DetailedResourceContributorChoice6.Option2
-	(*DisplayArtistChoice4_Option1)(nil),               // 245: ddex.ern.v432.DisplayArtistChoice4.Option1
-	(*PartyChoice5_Option1)(nil),                       // 246: ddex.ern.v432.PartyChoice5.Option1
-	(*PartyChoice5_Option2)(nil),                       // 247: ddex.ern.v432.PartyChoice5.Option2
-	(*PeriodWithStartDateChoice_Option1)(nil),          // 248: ddex.ern.v432.PeriodWithStartDateChoice.Option1
-	(*PeriodWithStartDateChoice_Option2)(nil),          // 249: ddex.ern.v432.PeriodWithStartDateChoice.Option2
-	(*PeriodWithoutFlagsChoice_Option1)(nil),           // 250: ddex.ern.v432.PeriodWithoutFlagsChoice.Option1
-	(*PeriodWithoutFlagsChoice_Option2)(nil),           // 251: ddex.ern.v432.PeriodWithoutFlagsChoice.Option2
-	(*ReleaseVisibilityChoice6_Option1)(nil),           // 252: ddex.ern.v432.ReleaseVisibilityChoice6.Option1
-	(*ReleaseVisibilityChoice6_Option2)(nil),           // 253: ddex.ern.v432.ReleaseVisibilityChoice6.Option2
-	(*ServiceExceptionChoice4_Option1)(nil),            // 254: ddex.ern.v432.ServiceExceptionChoice4.Option1
-	(*ServiceExceptionChoice4_Option2)(nil),            // 255: ddex.ern.v432.ServiceExceptionChoice4.Option2
-	(*TrackReleaseVisibilityChoice4_Option1)(nil),      // 256: ddex.ern.v432.TrackReleaseVisibilityChoice4.Option1
-	(*TrackReleaseVisibilityChoice4_Option2)(nil),      // 257: ddex.ern.v432.TrackReleaseVisibilityChoice4.Option2
-	(*VideoChoice44_Option1)(nil),                      // 258: ddex.ern.v432.VideoChoice44.Option1
-	(*AffiliationChoice6_Option1)(nil),                 // 259: ddex.ern.v432.AffiliationChoice6.Option1
-	(*AffiliationChoice6_Option2)(nil),                 // 260: ddex.ern.v432.AffiliationChoice6.Option2
-	(*DSPChoice3_Option1)(nil),                         // 261: ddex.ern.v432.DSPChoice3.Option1
-	(*DSPChoice3_Option2)(nil),                         // 262: ddex.ern.v432.DSPChoice3.Option2
-	(*FingerprintChoice4_Option1)(nil),                 // 263: ddex.ern.v432.FingerprintChoice4.Option1
-	(*PeriodChoice_Option1)(nil),                       // 264: ddex.ern.v432.PeriodChoice.Option1
-	(*PeriodChoice_Option2)(nil),                       // 265: ddex.ern.v432.PeriodChoice.Option2
+	(*Channel)(nil),                       // 6: ddex.ern.v432.Channel
+	(*Chapter)(nil),                       // 7: ddex.ern.v432.Chapter
+	(*ChapterList)(nil),                   // 8: ddex.ern.v432.ChapterList
+	(*Character)(nil),                     // 9: ddex.ern.v432.Character
+	(*ClipDetails)(nil),                   // 10: ddex.ern.v432.ClipDetails
+	(*ClipRelease)(nil),                   // 11: ddex.ern.v432.ClipRelease
+	(*CommercialModelType)(nil),           // 12: ddex.ern.v432.CommercialModelType
+	(*ConditionForRightsClaimPolicy)(nil), // 13: ddex.ern.v432.ConditionForRightsClaimPolicy
+	(*CoreArea)(nil),                      // 14: ddex.ern.v432.CoreArea
+	(*Cue)(nil),                           // 15: ddex.ern.v432.Cue
+	(*CueSheet)(nil),                      // 16: ddex.ern.v432.CueSheet
+	(*CueSheetList)(nil),                  // 17: ddex.ern.v432.CueSheetList
+	(*Deal)(nil),                          // 18: ddex.ern.v432.Deal
+	(*DealList)(nil),                      // 19: ddex.ern.v432.DealList
+	(*DealResourceReferenceList)(nil),     // 20: ddex.ern.v432.DealResourceReferenceList
+	(*DealTechnicalResourceDetailsReferenceList)(nil), // 21: ddex.ern.v432.DealTechnicalResourceDetailsReferenceList
+	(*DealTerms)(nil),                              // 22: ddex.ern.v432.DealTerms
+	(*DealTermsTechnicalInstantiation)(nil),        // 23: ddex.ern.v432.DealTermsTechnicalInstantiation
+	(*Deity)(nil),                                  // 24: ddex.ern.v432.Deity
+	(*DelegatedUsageRights)(nil),                   // 25: ddex.ern.v432.DelegatedUsageRights
+	(*DescriptionWithTerritory)(nil),               // 26: ddex.ern.v432.DescriptionWithTerritory
+	(*DetailedResourceContributor)(nil),            // 27: ddex.ern.v432.DetailedResourceContributor
+	(*DiscoverableUseType)(nil),                    // 28: ddex.ern.v432.DiscoverableUseType
+	(*DisplayArtist)(nil),                          // 29: ddex.ern.v432.DisplayArtist
+	(*DisplayTitleText)(nil),                       // 30: ddex.ern.v432.DisplayTitleText
+	(*DistributionChannelPage)(nil),                // 31: ddex.ern.v432.DistributionChannelPage
+	(*EditionContributor)(nil),                     // 32: ddex.ern.v432.EditionContributor
+	(*EventDateTimeWithoutFlags)(nil),              // 33: ddex.ern.v432.EventDateTimeWithoutFlags
+	(*EventDateWithCurrentTerritory)(nil),          // 34: ddex.ern.v432.EventDateWithCurrentTerritory
+	(*EventDateWithDefault)(nil),                   // 35: ddex.ern.v432.EventDateWithDefault
+	(*EventDateWithoutFlags)(nil),                  // 36: ddex.ern.v432.EventDateWithoutFlags
+	(*ExternalResourceLink)(nil),                   // 37: ddex.ern.v432.ExternalResourceLink
+	(*HdrVideoDynamicMetadataType)(nil),            // 38: ddex.ern.v432.HdrVideoDynamicMetadataType
+	(*Image)(nil),                                  // 39: ddex.ern.v432.Image
+	(*LinkedReleaseResourceReference)(nil),         // 40: ddex.ern.v432.LinkedReleaseResourceReference
+	(*LocationAndDateOfSession)(nil),               // 41: ddex.ern.v432.LocationAndDateOfSession
+	(*Party)(nil),                                  // 42: ddex.ern.v432.Party
+	(*PartyList)(nil),                              // 43: ddex.ern.v432.PartyList
+	(*PartyNameWithTerritory)(nil),                 // 44: ddex.ern.v432.PartyNameWithTerritory
+	(*PartyWithRole)(nil),                          // 45: ddex.ern.v432.PartyWithRole
+	(*PeriodWithStartDate)(nil),                    // 46: ddex.ern.v432.PeriodWithStartDate
+	(*PeriodWithoutFlags)(nil),                     // 47: ddex.ern.v432.PeriodWithoutFlags
+	(*PhysicalReturns)(nil),                        // 48: ddex.ern.v432.PhysicalReturns
+	(*PriceInformation)(nil),                       // 49: ddex.ern.v432.PriceInformation
+	(*PurgedRelease)(nil),                          // 50: ddex.ern.v432.PurgedRelease
+	(*Raga)(nil),                                   // 51: ddex.ern.v432.Raga
+	(*RecordingFormat)(nil),                        // 52: ddex.ern.v432.RecordingFormat
+	(*RelatedRelease)(nil),                         // 53: ddex.ern.v432.RelatedRelease
+	(*RelatedResource)(nil),                        // 54: ddex.ern.v432.RelatedResource
+	(*Release)(nil),                                // 55: ddex.ern.v432.Release
+	(*ReleaseAdmin)(nil),                           // 56: ddex.ern.v432.ReleaseAdmin
+	(*ReleaseDeal)(nil),                            // 57: ddex.ern.v432.ReleaseDeal
+	(*ReleaseId)(nil),                              // 58: ddex.ern.v432.ReleaseId
+	(*ReleaseLabelReference)(nil),                  // 59: ddex.ern.v432.ReleaseLabelReference
+	(*ReleaseLabelReferenceWithParty)(nil),         // 60: ddex.ern.v432.ReleaseLabelReferenceWithParty
+	(*ReleaseList)(nil),                            // 61: ddex.ern.v432.ReleaseList
+	(*ReleaseVisibility)(nil),                      // 62: ddex.ern.v432.ReleaseVisibility
+	(*ResourceGroup)(nil),                          // 63: ddex.ern.v432.ResourceGroup
+	(*ResourceGroupContentItem)(nil),               // 64: ddex.ern.v432.ResourceGroupContentItem
+	(*ResourceList)(nil),                           // 65: ddex.ern.v432.ResourceList
+	(*ResourceRightsController)(nil),               // 66: ddex.ern.v432.ResourceRightsController
+	(*ResourceSubGroup)(nil),                       // 67: ddex.ern.v432.ResourceSubGroup
+	(*RightsClaimPolicy)(nil),                      // 68: ddex.ern.v432.RightsClaimPolicy
+	(*Segment)(nil),                                // 69: ddex.ern.v432.Segment
+	(*ServiceException)(nil),                       // 70: ddex.ern.v432.ServiceException
+	(*SheetMusic)(nil),                             // 71: ddex.ern.v432.SheetMusic
+	(*Software)(nil),                               // 72: ddex.ern.v432.Software
+	(*SoundRecording)(nil),                         // 73: ddex.ern.v432.SoundRecording
+	(*SoundRecordingClipDetails)(nil),              // 74: ddex.ern.v432.SoundRecordingClipDetails
+	(*SoundRecordingEdition)(nil),                  // 75: ddex.ern.v432.SoundRecordingEdition
+	(*SupplementalDocumentList)(nil),               // 76: ddex.ern.v432.SupplementalDocumentList
+	(*SynopsisWithTerritory)(nil),                  // 77: ddex.ern.v432.SynopsisWithTerritory
+	(*Tala)(nil),                                   // 78: ddex.ern.v432.Tala
+	(*TechnicalImageDetails)(nil),                  // 79: ddex.ern.v432.TechnicalImageDetails
+	(*TechnicalSheetMusicDetails)(nil),             // 80: ddex.ern.v432.TechnicalSheetMusicDetails
+	(*TechnicalSoftwareDetails)(nil),               // 81: ddex.ern.v432.TechnicalSoftwareDetails
+	(*TechnicalSoundRecordingDetails)(nil),         // 82: ddex.ern.v432.TechnicalSoundRecordingDetails
+	(*TechnicalTextDetails)(nil),                   // 83: ddex.ern.v432.TechnicalTextDetails
+	(*TechnicalVideoDetails)(nil),                  // 84: ddex.ern.v432.TechnicalVideoDetails
+	(*Text)(nil),                                   // 85: ddex.ern.v432.Text
+	(*Timing)(nil),                                 // 86: ddex.ern.v432.Timing
+	(*Title)(nil),                                  // 87: ddex.ern.v432.Title
+	(*TrackRelease)(nil),                           // 88: ddex.ern.v432.TrackRelease
+	(*TrackReleaseVisibility)(nil),                 // 89: ddex.ern.v432.TrackReleaseVisibility
+	(*UseType)(nil),                                // 90: ddex.ern.v432.UseType
+	(*UserInterfaceType)(nil),                      // 91: ddex.ern.v432.UserInterfaceType
+	(*Video)(nil),                                  // 92: ddex.ern.v432.Video
+	(*VideoClipDetails)(nil),                       // 93: ddex.ern.v432.VideoClipDetails
+	(*VideoDeliveryFile)(nil),                      // 94: ddex.ern.v432.VideoDeliveryFile
+	(*VideoEdition)(nil),                           // 95: ddex.ern.v432.VideoEdition
+	(*VideoType)(nil),                              // 96: ddex.ern.v432.VideoType
+	(*WorkRightsController)(nil),                   // 97: ddex.ern.v432.WorkRightsController
+	(*AdministratingRecordCompanyRole)(nil),        // 98: ddex.ern.v432.AdministratingRecordCompanyRole
+	(*Affiliation)(nil),                            // 99: ddex.ern.v432.Affiliation
+	(*AllTerritoryCode)(nil),                       // 100: ddex.ern.v432.AllTerritoryCode
+	(*AspectRatio)(nil),                            // 101: ddex.ern.v432.AspectRatio
+	(*AudioCodecType)(nil),                         // 102: ddex.ern.v432.AudioCodecType
+	(*BitRate)(nil),                                // 103: ddex.ern.v432.BitRate
+	(*CLine)(nil),                                  // 104: ddex.ern.v432.CLine
+	(*CarrierType)(nil),                            // 105: ddex.ern.v432.CarrierType
+	(*CatalogNumber)(nil),                          // 106: ddex.ern.v432.CatalogNumber
+	(*ChapterId)(nil),                              // 107: ddex.ern.v432.ChapterId
+	(*ClipType)(nil),                               // 108: ddex.ern.v432.ClipType
+	(*ContainerFormat)(nil),                        // 109: ddex.ern.v432.ContainerFormat
+	(*Contributor)(nil),                            // 110: ddex.ern.v432.Contributor
+	(*ContributorRole)(nil),                        // 111: ddex.ern.v432.ContributorRole
+	(*ContributorRoleValue)(nil),                   // 112: ddex.ern.v432.ContributorRoleValue
+	(*CourtesyLine)(nil),                           // 113: ddex.ern.v432.CourtesyLine
+	(*CueOrigin)(nil),                              // 114: ddex.ern.v432.CueOrigin
+	(*CueSheetType)(nil),                           // 115: ddex.ern.v432.CueSheetType
+	(*CueThemeType)(nil),                           // 116: ddex.ern.v432.CueThemeType
+	(*CueUseType)(nil),                             // 117: ddex.ern.v432.CueUseType
+	(*CueVisualPerceptionType)(nil),                // 118: ddex.ern.v432.CueVisualPerceptionType
+	(*CueVocalType)(nil),                           // 119: ddex.ern.v432.CueVocalType
+	(*CurrentTerritoryCode)(nil),                   // 120: ddex.ern.v432.CurrentTerritoryCode
+	(*DSP)(nil),                                    // 121: ddex.ern.v432.DSP
+	(*DetailedHashSum)(nil),                        // 122: ddex.ern.v432.DetailedHashSum
+	(*DetailedPartyId)(nil),                        // 123: ddex.ern.v432.DetailedPartyId
+	(*DisplayArtistNameWithOriginalLanguage)(nil),  // 124: ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	(*DisplayArtistRole)(nil),                      // 125: ddex.ern.v432.DisplayArtistRole
+	(*DisplayCredits)(nil),                         // 126: ddex.ern.v432.DisplayCredits
+	(*DisplaySubTitle)(nil),                        // 127: ddex.ern.v432.DisplaySubTitle
+	(*DisplayTitle)(nil),                           // 128: ddex.ern.v432.DisplayTitle
+	(*EventDate)(nil),                              // 129: ddex.ern.v432.EventDate
+	(*EventDateTime)(nil),                          // 130: ddex.ern.v432.EventDateTime
+	(*Extent)(nil),                                 // 131: ddex.ern.v432.Extent
+	(*ExternallyLinkedResourceType)(nil),           // 132: ddex.ern.v432.ExternallyLinkedResourceType
+	(*File)(nil),                                   // 133: ddex.ern.v432.File
+	(*Fingerprint)(nil),                            // 134: ddex.ern.v432.Fingerprint
+	(*FingerprintAlgorithmType)(nil),               // 135: ddex.ern.v432.FingerprintAlgorithmType
+	(*FirstPublicationDate)(nil),                   // 136: ddex.ern.v432.FirstPublicationDate
+	(*FrameRate)(nil),                              // 137: ddex.ern.v432.FrameRate
+	(*FulfillmentDate)(nil),                        // 138: ddex.ern.v432.FulfillmentDate
+	(*GenreCategory)(nil),                          // 139: ddex.ern.v432.GenreCategory
+	(*GenreCategoryValue)(nil),                     // 140: ddex.ern.v432.GenreCategoryValue
+	(*GenreWithTerritory)(nil),                     // 141: ddex.ern.v432.GenreWithTerritory
+	(*HashSumAlgorithmType)(nil),                   // 142: ddex.ern.v432.HashSumAlgorithmType
+	(*ImageCodecType)(nil),                         // 143: ddex.ern.v432.ImageCodecType
+	(*ImageType)(nil),                              // 144: ddex.ern.v432.ImageType
+	(*InstrumentType)(nil),                         // 145: ddex.ern.v432.InstrumentType
+	(*IsCredited)(nil),                             // 146: ddex.ern.v432.IsCredited
+	(*KeywordsWithTerritory)(nil),                  // 147: ddex.ern.v432.KeywordsWithTerritory
+	(*Language)(nil),                               // 148: ddex.ern.v432.Language
+	(*MarketingComment)(nil),                       // 149: ddex.ern.v432.MarketingComment
+	(*MessageAuditTrail)(nil),                      // 150: ddex.ern.v432.MessageAuditTrail
+	(*MessageAuditTrailEvent)(nil),                 // 151: ddex.ern.v432.MessageAuditTrailEvent
+	(*MessageHeader)(nil),                          // 152: ddex.ern.v432.MessageHeader
+	(*MessagingPartyWithoutCode)(nil),              // 153: ddex.ern.v432.MessagingPartyWithoutCode
+	(*MusicalWorkId)(nil),                          // 154: ddex.ern.v432.MusicalWorkId
+	(*Name)(nil),                                   // 155: ddex.ern.v432.Name
+	(*OperatingSystemType)(nil),                    // 156: ddex.ern.v432.OperatingSystemType
+	(*PLine)(nil),                                  // 157: ddex.ern.v432.PLine
+	(*ParentalWarningTypeWithStandard)(nil),        // 158: ddex.ern.v432.ParentalWarningTypeWithStandard
+	(*PartyName)(nil),                              // 159: ddex.ern.v432.PartyName
+	(*PartyNameWithoutCode)(nil),                   // 160: ddex.ern.v432.PartyNameWithoutCode
+	(*PartyRelationshipType)(nil),                  // 161: ddex.ern.v432.PartyRelationshipType
+	(*Percentage)(nil),                             // 162: ddex.ern.v432.Percentage
+	(*Period)(nil),                                 // 163: ddex.ern.v432.Period
+	(*Prefix)(nil),                                 // 164: ddex.ern.v432.Prefix
+	(*Price)(nil),                                  // 165: ddex.ern.v432.Price
+	(*PriceType)(nil),                              // 166: ddex.ern.v432.PriceType
+	(*PromotionalCode)(nil),                        // 167: ddex.ern.v432.PromotionalCode
+	(*ProprietaryId)(nil),                          // 168: ddex.ern.v432.ProprietaryId
+	(*Purpose)(nil),                                // 169: ddex.ern.v432.Purpose
+	(*RatingAgency)(nil),                           // 170: ddex.ern.v432.RatingAgency
+	(*RatingReason)(nil),                           // 171: ddex.ern.v432.RatingReason
+	(*Reason)(nil),                                 // 172: ddex.ern.v432.Reason
+	(*RelatedParty)(nil),                           // 173: ddex.ern.v432.RelatedParty
+	(*ReleaseRelationshipType)(nil),                // 174: ddex.ern.v432.ReleaseRelationshipType
+	(*ReleaseTypeForReleaseNotification)(nil),      // 175: ddex.ern.v432.ReleaseTypeForReleaseNotification
+	(*ResourceContainedResourceReference)(nil),     // 176: ddex.ern.v432.ResourceContainedResourceReference
+	(*ResourceContainedResourceReferenceList)(nil), // 177: ddex.ern.v432.ResourceContainedResourceReferenceList
+	(*ResourceContributorRole)(nil),                // 178: ddex.ern.v432.ResourceContributorRole
+	(*ResourceId)(nil),                             // 179: ddex.ern.v432.ResourceId
+	(*ResourceProprietaryId)(nil),                  // 180: ddex.ern.v432.ResourceProprietaryId
+	(*RightsClaimPolicyReason)(nil),                // 181: ddex.ern.v432.RightsClaimPolicyReason
+	(*RightsType)(nil),                             // 182: ddex.ern.v432.RightsType
+	(*SamplingRate)(nil),                           // 183: ddex.ern.v432.SamplingRate
+	(*SessionType)(nil),                            // 184: ddex.ern.v432.SessionType
+	(*SheetMusicCodecType)(nil),                    // 185: ddex.ern.v432.SheetMusicCodecType
+	(*SheetMusicId)(nil),                           // 186: ddex.ern.v432.SheetMusicId
+	(*SheetMusicType)(nil),                         // 187: ddex.ern.v432.SheetMusicType
+	(*SoftwareType)(nil),                           // 188: ddex.ern.v432.SoftwareType
+	(*SoundRecordingId)(nil),                       // 189: ddex.ern.v432.SoundRecordingId
+	(*SoundRecordingType)(nil),                     // 190: ddex.ern.v432.SoundRecordingType
+	(*SpecialContributorType)(nil),                 // 191: ddex.ern.v432.SpecialContributorType
+	(*SubGenreCategory)(nil),                       // 192: ddex.ern.v432.SubGenreCategory
+	(*SubGenreCategoryValue)(nil),                  // 193: ddex.ern.v432.SubGenreCategoryValue
+	(*TextCodecType)(nil),                          // 194: ddex.ern.v432.TextCodecType
+	(*TextId)(nil),                                 // 195: ddex.ern.v432.TextId
+	(*TextType)(nil),                               // 196: ddex.ern.v432.TextType
+	(*TextWithFormat)(nil),                         // 197: ddex.ern.v432.TextWithFormat
+	(*TextWithoutTerritory)(nil),                   // 198: ddex.ern.v432.TextWithoutTerritory
+	(*TitleDisplayInformation)(nil),                // 199: ddex.ern.v432.TitleDisplayInformation
+	(*ValidityPeriod)(nil),                         // 200: ddex.ern.v432.ValidityPeriod
+	(*Venue)(nil),                                  // 201: ddex.ern.v432.Venue
+	(*VersionType)(nil),                            // 202: ddex.ern.v432.VersionType
+	(*VideoCodecType)(nil),                         // 203: ddex.ern.v432.VideoCodecType
+	(*VideoDefinitionType)(nil),                    // 204: ddex.ern.v432.VideoDefinitionType
+	(*VideoId)(nil),                                // 205: ddex.ern.v432.VideoId
 }
 var file_ddex_ern_v432_v432_proto_depIdxs = []int32{
-	182, // 0: ddex.ern.v432.NewReleaseMessage.message_header:type_name -> ddex.ern.v432.MessageHeader
-	69,  // 1: ddex.ern.v432.NewReleaseMessage.release_admin:type_name -> ddex.ern.v432.ReleaseAdmin
-	52,  // 2: ddex.ern.v432.NewReleaseMessage.party_list:type_name -> ddex.ern.v432.PartyList
-	19,  // 3: ddex.ern.v432.NewReleaseMessage.cue_sheet_list:type_name -> ddex.ern.v432.CueSheetList
-	82,  // 4: ddex.ern.v432.NewReleaseMessage.resource_list:type_name -> ddex.ern.v432.ResourceList
-	9,   // 5: ddex.ern.v432.NewReleaseMessage.chapter_list:type_name -> ddex.ern.v432.ChapterList
-	74,  // 6: ddex.ern.v432.NewReleaseMessage.release_list:type_name -> ddex.ern.v432.ReleaseList
-	21,  // 7: ddex.ern.v432.NewReleaseMessage.deal_list:type_name -> ddex.ern.v432.DealList
-	98,  // 8: ddex.ern.v432.NewReleaseMessage.supplemental_document_list:type_name -> ddex.ern.v432.SupplementalDocumentList
-	182, // 9: ddex.ern.v432.PurgeReleaseMessage.message_header:type_name -> ddex.ern.v432.MessageHeader
-	61,  // 10: ddex.ern.v432.PurgeReleaseMessage.purged_release:type_name -> ddex.ern.v432.PurgedRelease
-	123, // 11: ddex.ern.v432.AdministratingRecordCompany.role:type_name -> ddex.ern.v432.AdministratingRecordCompanyRole
-	136, // 12: ddex.ern.v432.AudioDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
-	129, // 13: ddex.ern.v432.AudioDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
-	130, // 14: ddex.ern.v432.AudioDeliveryFile.bit_rate:type_name -> ddex.ern.v432.BitRate
-	130, // 15: ddex.ern.v432.AudioDeliveryFile.original_bit_rate:type_name -> ddex.ern.v432.BitRate
-	214, // 16: ddex.ern.v432.AudioDeliveryFile.sampling_rate:type_name -> ddex.ern.v432.SamplingRate
-	214, // 17: ddex.ern.v432.AudioDeliveryFile.original_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
-	162, // 18: ddex.ern.v432.AudioDeliveryFile.file:type_name -> ddex.ern.v432.File
-	163, // 19: ddex.ern.v432.AudioDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	201, // 20: ddex.ern.v432.AvRating.agency:type_name -> ddex.ern.v432.RatingAgency
-	202, // 21: ddex.ern.v432.AvRating.reason:type_name -> ddex.ern.v432.RatingReason
-	6,   // 22: ddex.ern.v432.Brand.choice:type_name -> ddex.ern.v432.BrandChoice2
-	238, // 23: ddex.ern.v432.BrandChoice2.brand_id_option:type_name -> ddex.ern.v432.BrandChoice2.Option2
-	237, // 24: ddex.ern.v432.BrandChoice2.sequence_1:type_name -> ddex.ern.v432.BrandChoice2.Option1
-	199, // 25: ddex.ern.v432.Channel.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	134, // 26: ddex.ern.v432.Chapter.chapter_id:type_name -> ddex.ern.v432.ChapterId
-	37,  // 27: ddex.ern.v432.Chapter.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 28: ddex.ern.v432.Chapter.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 29: ddex.ern.v432.Chapter.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 30: ddex.ern.v432.Chapter.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	137, // 31: ddex.ern.v432.Chapter.contributor:type_name -> ddex.ern.v432.Contributor
-	10,  // 32: ddex.ern.v432.Chapter.character:type_name -> ddex.ern.v432.Character
-	8,   // 33: ddex.ern.v432.ChapterList.chapter:type_name -> ddex.ern.v432.Chapter
-	137, // 34: ddex.ern.v432.Character.performer:type_name -> ddex.ern.v432.Contributor
-	135, // 35: ddex.ern.v432.ClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
-	71,  // 36: ddex.ern.v432.ClipRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	37,  // 37: ddex.ern.v432.ClipRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 38: ddex.ern.v432.ClipRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 39: ddex.ern.v432.ClipRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 40: ddex.ern.v432.ClipRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	73,  // 41: ddex.ern.v432.ClipRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
-	171, // 42: ddex.ern.v432.ClipRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
-	64,  // 43: ddex.ern.v432.ClipRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	89,  // 44: ddex.ern.v432.ConditionForRightsClaimPolicy.segment:type_name -> ddex.ern.v432.Segment
-	91,  // 45: ddex.ern.v432.ConditionForRightsClaimPolicy.service_exception:type_name -> ddex.ern.v432.ServiceException
-	145, // 46: ddex.ern.v432.Cue.cue_use_type:type_name -> ddex.ern.v432.CueUseType
-	144, // 47: ddex.ern.v432.Cue.cue_theme_type:type_name -> ddex.ern.v432.CueThemeType
-	147, // 48: ddex.ern.v432.Cue.cue_vocal_type:type_name -> ddex.ern.v432.CueVocalType
-	146, // 49: ddex.ern.v432.Cue.cue_visual_perception_type:type_name -> ddex.ern.v432.CueVisualPerceptionType
-	142, // 50: ddex.ern.v432.Cue.cue_origin:type_name -> ddex.ern.v432.CueOrigin
-	37,  // 51: ddex.ern.v432.Cue.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 52: ddex.ern.v432.Cue.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 53: ddex.ern.v432.Cue.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 54: ddex.ern.v432.Cue.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	137, // 55: ddex.ern.v432.Cue.contributor:type_name -> ddex.ern.v432.Contributor
-	187, // 56: ddex.ern.v432.Cue.p_line:type_name -> ddex.ern.v432.PLine
-	131, // 57: ddex.ern.v432.Cue.c_line:type_name -> ddex.ern.v432.CLine
-	17,  // 58: ddex.ern.v432.Cue.choice:type_name -> ddex.ern.v432.CueChoice18
-	210, // 59: ddex.ern.v432.CueChoice18.resource_id:type_name -> ddex.ern.v432.ResourceId
-	184, // 60: ddex.ern.v432.CueChoice18.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	199, // 61: ddex.ern.v432.CueSheet.cue_sheet_id:type_name -> ddex.ern.v432.ProprietaryId
-	143, // 62: ddex.ern.v432.CueSheet.cue_sheet_type:type_name -> ddex.ern.v432.CueSheetType
-	16,  // 63: ddex.ern.v432.CueSheet.cue:type_name -> ddex.ern.v432.Cue
-	18,  // 64: ddex.ern.v432.CueSheetList.cue_sheet:type_name -> ddex.ern.v432.CueSheet
-	24,  // 65: ddex.ern.v432.Deal.deal_terms:type_name -> ddex.ern.v432.DealTerms
-	23,  // 66: ddex.ern.v432.Deal.deal_technical_resource_details_reference_list:type_name -> ddex.ern.v432.DealTechnicalResourceDetailsReferenceList
-	38,  // 67: ddex.ern.v432.Deal.distribution_channel_page:type_name -> ddex.ern.v432.DistributionChannelPage
-	70,  // 68: ddex.ern.v432.DealList.release_deal:type_name -> ddex.ern.v432.ReleaseDeal
-	75,  // 69: ddex.ern.v432.DealList.release_visibility:type_name -> ddex.ern.v432.ReleaseVisibility
-	111, // 70: ddex.ern.v432.DealList.track_release_visibility:type_name -> ddex.ern.v432.TrackReleaseVisibility
-	55,  // 71: ddex.ern.v432.DealTerms.validity_period:type_name -> ddex.ern.v432.PeriodWithStartDate
-	13,  // 72: ddex.ern.v432.DealTerms.commercial_model_type:type_name -> ddex.ern.v432.CommercialModelType
-	34,  // 73: ddex.ern.v432.DealTerms.use_type:type_name -> ddex.ern.v432.DiscoverableUseType
-	114, // 74: ddex.ern.v432.DealTerms.user_interface_type:type_name -> ddex.ern.v432.UserInterfaceType
-	132, // 75: ddex.ern.v432.DealTerms.carrier_type:type_name -> ddex.ern.v432.CarrierType
-	28,  // 76: ddex.ern.v432.DealTerms.technical_instantiation:type_name -> ddex.ern.v432.DealTermsTechnicalInstantiation
-	88,  // 77: ddex.ern.v432.DealTerms.rights_claim_policy:type_name -> ddex.ern.v432.RightsClaimPolicy
-	60,  // 78: ddex.ern.v432.DealTerms.price_information:type_name -> ddex.ern.v432.PriceInformation
-	22,  // 79: ddex.ern.v432.DealTerms.instant_gratification_resource_list:type_name -> ddex.ern.v432.DealResourceReferenceList
-	59,  // 80: ddex.ern.v432.DealTerms.physical_returns:type_name -> ddex.ern.v432.PhysicalReturns
-	25,  // 81: ddex.ern.v432.DealTerms.choice:type_name -> ddex.ern.v432.DealTermsChoice14
-	26,  // 82: ddex.ern.v432.DealTerms.choice_1:type_name -> ddex.ern.v432.DealTermsChoice15
-	27,  // 83: ddex.ern.v432.DealTerms.choice_2:type_name -> ddex.ern.v432.DealTermsChoice16
-	239, // 84: ddex.ern.v432.DealTermsChoice14.territory_code_option:type_name -> ddex.ern.v432.DealTermsChoice14.Option1
-	240, // 85: ddex.ern.v432.DealTermsChoice14.excluded_territory_code_option:type_name -> ddex.ern.v432.DealTermsChoice14.Option2
-	241, // 86: ddex.ern.v432.DealTermsChoice15.distribution_channel_option:type_name -> ddex.ern.v432.DealTermsChoice15.Option1
-	242, // 87: ddex.ern.v432.DealTermsChoice15.excluded_distribution_channel_option:type_name -> ddex.ern.v432.DealTermsChoice15.Option2
-	198, // 88: ddex.ern.v432.DealTermsChoice16.promotional_code:type_name -> ddex.ern.v432.PromotionalCode
-	235, // 89: ddex.ern.v432.DealTermsTechnicalInstantiation.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
-	130, // 90: ddex.ern.v432.DealTermsTechnicalInstantiation.bit_rate:type_name -> ddex.ern.v432.BitRate
-	113, // 91: ddex.ern.v432.DelegatedUsageRights.use_type:type_name -> ddex.ern.v432.UseType
-	193, // 92: ddex.ern.v432.DelegatedUsageRights.period_of_rights_delegation:type_name -> ddex.ern.v432.Period
-	127, // 93: ddex.ern.v432.DelegatedUsageRights.territory_of_rights_delegation:type_name -> ddex.ern.v432.AllTerritoryCode
-	139, // 94: ddex.ern.v432.DetailedResourceContributor.role:type_name -> ddex.ern.v432.ContributorRole
-	175, // 95: ddex.ern.v432.DetailedResourceContributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
-	155, // 96: ddex.ern.v432.DetailedResourceContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	33,  // 97: ddex.ern.v432.DetailedResourceContributor.choice:type_name -> ddex.ern.v432.DetailedResourceContributorChoice6
-	244, // 98: ddex.ern.v432.DetailedResourceContributorChoice6.party_id_option:type_name -> ddex.ern.v432.DetailedResourceContributorChoice6.Option2
-	243, // 99: ddex.ern.v432.DetailedResourceContributorChoice6.sequence_1:type_name -> ddex.ern.v432.DetailedResourceContributorChoice6.Option1
-	139, // 100: ddex.ern.v432.DisplayArtist.artistic_role:type_name -> ddex.ern.v432.ContributorRole
-	230, // 101: ddex.ern.v432.DisplayArtist.title_display_information:type_name -> ddex.ern.v432.TitleDisplayInformation
-	155, // 102: ddex.ern.v432.DisplayArtist.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	36,  // 103: ddex.ern.v432.DisplayArtist.choice:type_name -> ddex.ern.v432.DisplayArtistChoice4
-	222, // 104: ddex.ern.v432.DisplayArtistChoice4.special_display_artist:type_name -> ddex.ern.v432.SpecialContributorType
-	245, // 105: ddex.ern.v432.DisplayArtistChoice4.sequence_1:type_name -> ddex.ern.v432.DisplayArtistChoice4.Option1
-	152, // 106: ddex.ern.v432.DistributionChannelPage.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	185, // 107: ddex.ern.v432.DistributionChannelPage.page_name:type_name -> ddex.ern.v432.Name
-	139, // 108: ddex.ern.v432.EditionContributor.role:type_name -> ddex.ern.v432.ContributorRole
-	176, // 109: ddex.ern.v432.EditionContributor.is_credited:type_name -> ddex.ern.v432.IsCredited
-	155, // 110: ddex.ern.v432.EditionContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	40,  // 111: ddex.ern.v432.EditionContributor.choice:type_name -> ddex.ern.v432.EditionContributorChoice7
-	222, // 112: ddex.ern.v432.EditionContributorChoice7.special_contributor:type_name -> ddex.ern.v432.SpecialContributorType
-	57,  // 113: ddex.ern.v432.ExternalResourceLink.validity_period:type_name -> ddex.ern.v432.PeriodWithoutFlags
-	161, // 114: ddex.ern.v432.ExternalResourceLink.externally_linked_resource_type:type_name -> ddex.ern.v432.ExternallyLinkedResourceType
-	174, // 115: ddex.ern.v432.Image.type:type_name -> ddex.ern.v432.ImageType
-	211, // 116: ddex.ern.v432.Image.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
-	37,  // 117: ddex.ern.v432.Image.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 118: ddex.ern.v432.Image.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 119: ddex.ern.v432.Image.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 120: ddex.ern.v432.Image.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	233, // 121: ddex.ern.v432.Image.version_type:type_name -> ddex.ern.v432.VersionType
-	153, // 122: ddex.ern.v432.Image.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	35,  // 123: ddex.ern.v432.Image.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	137, // 124: ddex.ern.v432.Image.contributor:type_name -> ddex.ern.v432.Contributor
-	83,  // 125: ddex.ern.v432.Image.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	121, // 126: ddex.ern.v432.Image.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	131, // 127: ddex.ern.v432.Image.c_line:type_name -> ddex.ern.v432.CLine
-	141, // 128: ddex.ern.v432.Image.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	44,  // 129: ddex.ern.v432.Image.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	168, // 130: ddex.ern.v432.Image.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	188, // 131: ddex.ern.v432.Image.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	64,  // 132: ddex.ern.v432.Image.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 133: ddex.ern.v432.Image.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	31,  // 134: ddex.ern.v432.Image.description:type_name -> ddex.ern.v432.DescriptionWithTerritory
-	101, // 135: ddex.ern.v432.Image.technical_details:type_name -> ddex.ern.v432.TechnicalImageDetails
-	215, // 136: ddex.ern.v432.LocationAndDateOfSession.session_type:type_name -> ddex.ern.v432.SessionType
-	193, // 137: ddex.ern.v432.LocationAndDateOfSession.period:type_name -> ddex.ern.v432.Period
-	232, // 138: ddex.ern.v432.LocationAndDateOfSession.venue:type_name -> ddex.ern.v432.Venue
-	228, // 139: ddex.ern.v432.LocationAndDateOfSession.comment:type_name -> ddex.ern.v432.TextWithFormat
-	54,  // 140: ddex.ern.v432.LocationAndDateOfSession.contributor:type_name -> ddex.ern.v432.PartyWithRole
-	124, // 141: ddex.ern.v432.Party.affiliation:type_name -> ddex.ern.v432.Affiliation
-	204, // 142: ddex.ern.v432.Party.related_party:type_name -> ddex.ern.v432.RelatedParty
-	51,  // 143: ddex.ern.v432.Party.choice:type_name -> ddex.ern.v432.PartyChoice5
-	247, // 144: ddex.ern.v432.PartyChoice5.party_id_option:type_name -> ddex.ern.v432.PartyChoice5.Option2
-	246, // 145: ddex.ern.v432.PartyChoice5.sequence_1:type_name -> ddex.ern.v432.PartyChoice5.Option1
-	50,  // 146: ddex.ern.v432.PartyList.party:type_name -> ddex.ern.v432.Party
-	5,   // 147: ddex.ern.v432.PartyList.brand:type_name -> ddex.ern.v432.Brand
-	185, // 148: ddex.ern.v432.PartyNameWithTerritory.full_name:type_name -> ddex.ern.v432.Name
-	185, // 149: ddex.ern.v432.PartyNameWithTerritory.full_name_indexed:type_name -> ddex.ern.v432.Name
-	185, // 150: ddex.ern.v432.PartyNameWithTerritory.names_before_key_name:type_name -> ddex.ern.v432.Name
-	185, // 151: ddex.ern.v432.PartyNameWithTerritory.key_name:type_name -> ddex.ern.v432.Name
-	185, // 152: ddex.ern.v432.PartyNameWithTerritory.names_after_key_name:type_name -> ddex.ern.v432.Name
-	185, // 153: ddex.ern.v432.PartyNameWithTerritory.abbreviated_name:type_name -> ddex.ern.v432.Name
-	199, // 154: ddex.ern.v432.PartyWithRole.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	53,  // 155: ddex.ern.v432.PartyWithRole.party_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
-	209, // 156: ddex.ern.v432.PartyWithRole.role:type_name -> ddex.ern.v432.ResourceContributorRole
-	56,  // 157: ddex.ern.v432.PeriodWithStartDate.choice:type_name -> ddex.ern.v432.PeriodWithStartDateChoice
-	248, // 158: ddex.ern.v432.PeriodWithStartDateChoice.sequence_1:type_name -> ddex.ern.v432.PeriodWithStartDateChoice.Option1
-	249, // 159: ddex.ern.v432.PeriodWithStartDateChoice.sequence_2:type_name -> ddex.ern.v432.PeriodWithStartDateChoice.Option2
-	58,  // 160: ddex.ern.v432.PeriodWithoutFlags.choice:type_name -> ddex.ern.v432.PeriodWithoutFlagsChoice
-	250, // 161: ddex.ern.v432.PeriodWithoutFlagsChoice.sequence_1:type_name -> ddex.ern.v432.PeriodWithoutFlagsChoice.Option1
-	251, // 162: ddex.ern.v432.PeriodWithoutFlagsChoice.sequence_2:type_name -> ddex.ern.v432.PeriodWithoutFlagsChoice.Option2
-	197, // 163: ddex.ern.v432.PriceInformation.price_code:type_name -> ddex.ern.v432.PriceType
-	196, // 164: ddex.ern.v432.PriceInformation.wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
-	196, // 165: ddex.ern.v432.PriceInformation.bulk_order_wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
-	196, // 166: ddex.ern.v432.PriceInformation.suggested_retail_price:type_name -> ddex.ern.v432.Price
-	71,  // 167: ddex.ern.v432.PurgedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	109, // 168: ddex.ern.v432.PurgedRelease.title:type_name -> ddex.ern.v432.Title
-	32,  // 169: ddex.ern.v432.PurgedRelease.contributor:type_name -> ddex.ern.v432.DetailedResourceContributor
-	205, // 170: ddex.ern.v432.RelatedRelease.release_relationship_type:type_name -> ddex.ern.v432.ReleaseRelationshipType
-	71,  // 171: ddex.ern.v432.RelatedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	37,  // 172: ddex.ern.v432.RelatedRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 173: ddex.ern.v432.RelatedRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 174: ddex.ern.v432.RelatedRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 175: ddex.ern.v432.RelatedRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	153, // 176: ddex.ern.v432.RelatedRelease.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	72,  // 177: ddex.ern.v432.RelatedRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReference
-	44,  // 178: ddex.ern.v432.RelatedRelease.release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	44,  // 179: ddex.ern.v432.RelatedRelease.original_release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	108, // 180: ddex.ern.v432.RelatedResource.timing:type_name -> ddex.ern.v432.Timing
-	66,  // 181: ddex.ern.v432.RelatedResource.choice:type_name -> ddex.ern.v432.RelatedResourceChoice3
-	210, // 182: ddex.ern.v432.RelatedResourceChoice3.resource_id:type_name -> ddex.ern.v432.ResourceId
-	206, // 183: ddex.ern.v432.Release.release_type:type_name -> ddex.ern.v432.ReleaseTypeForReleaseNotification
-	71,  // 184: ddex.ern.v432.Release.release_id:type_name -> ddex.ern.v432.ReleaseId
-	37,  // 185: ddex.ern.v432.Release.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 186: ddex.ern.v432.Release.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 187: ddex.ern.v432.Release.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 188: ddex.ern.v432.Release.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	233, // 189: ddex.ern.v432.Release.version_type:type_name -> ddex.ern.v432.VersionType
-	153, // 190: ddex.ern.v432.Release.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	35,  // 191: ddex.ern.v432.Release.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	73,  // 192: ddex.ern.v432.Release.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
-	2,   // 193: ddex.ern.v432.Release.administrating_record_company:type_name -> ddex.ern.v432.AdministratingRecordCompany
-	187, // 194: ddex.ern.v432.Release.p_line:type_name -> ddex.ern.v432.PLine
-	131, // 195: ddex.ern.v432.Release.c_line:type_name -> ddex.ern.v432.CLine
-	141, // 196: ddex.ern.v432.Release.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	171, // 197: ddex.ern.v432.Release.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
-	43,  // 198: ddex.ern.v432.Release.release_date:type_name -> ddex.ern.v432.EventDateWithDefault
-	43,  // 199: ddex.ern.v432.Release.original_release_date:type_name -> ddex.ern.v432.EventDateWithDefault
-	188, // 200: ddex.ern.v432.Release.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	4,   // 201: ddex.ern.v432.Release.av_rating:type_name -> ddex.ern.v432.AvRating
-	64,  // 202: ddex.ern.v432.Release.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 203: ddex.ern.v432.Release.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	77,  // 204: ddex.ern.v432.Release.resource_group:type_name -> ddex.ern.v432.ResourceGroup
-	45,  // 205: ddex.ern.v432.Release.external_resource_link:type_name -> ddex.ern.v432.ExternalResourceLink
-	177, // 206: ddex.ern.v432.Release.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
-	99,  // 207: ddex.ern.v432.Release.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
-	62,  // 208: ddex.ern.v432.Release.raga:type_name -> ddex.ern.v432.Raga
-	100, // 209: ddex.ern.v432.Release.tala:type_name -> ddex.ern.v432.Tala
-	29,  // 210: ddex.ern.v432.Release.deity:type_name -> ddex.ern.v432.Deity
-	179, // 211: ddex.ern.v432.Release.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
-	68,  // 212: ddex.ern.v432.Release.choice:type_name -> ddex.ern.v432.ReleaseChoice38
-	20,  // 213: ddex.ern.v432.ReleaseDeal.deal:type_name -> ddex.ern.v432.Deal
-	133, // 214: ddex.ern.v432.ReleaseId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	199, // 215: ddex.ern.v432.ReleaseId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	67,  // 216: ddex.ern.v432.ReleaseList.release:type_name -> ddex.ern.v432.Release
-	110, // 217: ddex.ern.v432.ReleaseList.track_release:type_name -> ddex.ern.v432.TrackRelease
-	12,  // 218: ddex.ern.v432.ReleaseList.clip_release:type_name -> ddex.ern.v432.ClipRelease
-	76,  // 219: ddex.ern.v432.ReleaseVisibility.choice:type_name -> ddex.ern.v432.ReleaseVisibilityChoice6
-	252, // 220: ddex.ern.v432.ReleaseVisibilityChoice6.territory_code_option:type_name -> ddex.ern.v432.ReleaseVisibilityChoice6.Option1
-	253, // 221: ddex.ern.v432.ReleaseVisibilityChoice6.excluded_territory_code_option:type_name -> ddex.ern.v432.ReleaseVisibilityChoice6.Option2
-	37,  // 222: ddex.ern.v432.ResourceGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 223: ddex.ern.v432.ResourceGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 224: ddex.ern.v432.ResourceGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 225: ddex.ern.v432.ResourceGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	35,  // 226: ddex.ern.v432.ResourceGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	132, // 227: ddex.ern.v432.ResourceGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
-	85,  // 228: ddex.ern.v432.ResourceGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
-	80,  // 229: ddex.ern.v432.ResourceGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
-	48,  // 230: ddex.ern.v432.ResourceGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	78,  // 231: ddex.ern.v432.ResourceGroup.choice:type_name -> ddex.ern.v432.ResourceGroupChoice12
-	79,  // 232: ddex.ern.v432.ResourceGroup.choice_1:type_name -> ddex.ern.v432.ResourceGroupChoice13
-	71,  // 233: ddex.ern.v432.ResourceGroupChoice13.release_id:type_name -> ddex.ern.v432.ReleaseId
-	48,  // 234: ddex.ern.v432.ResourceGroupContentItem.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	81,  // 235: ddex.ern.v432.ResourceGroupContentItem.choice:type_name -> ddex.ern.v432.ResourceGroupContentItemChoice7
-	95,  // 236: ddex.ern.v432.ResourceList.sound_recording:type_name -> ddex.ern.v432.SoundRecording
-	115, // 237: ddex.ern.v432.ResourceList.video:type_name -> ddex.ern.v432.Video
-	47,  // 238: ddex.ern.v432.ResourceList.image:type_name -> ddex.ern.v432.Image
-	107, // 239: ddex.ern.v432.ResourceList.text:type_name -> ddex.ern.v432.Text
-	93,  // 240: ddex.ern.v432.ResourceList.sheet_music:type_name -> ddex.ern.v432.SheetMusic
-	94,  // 241: ddex.ern.v432.ResourceList.software:type_name -> ddex.ern.v432.Software
-	30,  // 242: ddex.ern.v432.ResourceRightsController.delegated_usage_rights:type_name -> ddex.ern.v432.DelegatedUsageRights
-	84,  // 243: ddex.ern.v432.ResourceRightsController.choice:type_name -> ddex.ern.v432.ResourceRightsControllerChoice4
-	192, // 244: ddex.ern.v432.ResourceRightsControllerChoice4.right_share_percentage:type_name -> ddex.ern.v432.Percentage
-	37,  // 245: ddex.ern.v432.ResourceSubGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 246: ddex.ern.v432.ResourceSubGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 247: ddex.ern.v432.ResourceSubGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 248: ddex.ern.v432.ResourceSubGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	35,  // 249: ddex.ern.v432.ResourceSubGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	132, // 250: ddex.ern.v432.ResourceSubGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
-	85,  // 251: ddex.ern.v432.ResourceSubGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
-	80,  // 252: ddex.ern.v432.ResourceSubGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
-	48,  // 253: ddex.ern.v432.ResourceSubGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	86,  // 254: ddex.ern.v432.ResourceSubGroup.choice:type_name -> ddex.ern.v432.ResourceSubGroupChoice12
-	87,  // 255: ddex.ern.v432.ResourceSubGroup.choice_1:type_name -> ddex.ern.v432.ResourceSubGroupChoice13
-	71,  // 256: ddex.ern.v432.ResourceSubGroupChoice13.release_id:type_name -> ddex.ern.v432.ReleaseId
-	14,  // 257: ddex.ern.v432.RightsClaimPolicy.condition:type_name -> ddex.ern.v432.ConditionForRightsClaimPolicy
-	212, // 258: ddex.ern.v432.RightsClaimPolicy.rights_claim_policy_reason:type_name -> ddex.ern.v432.RightsClaimPolicyReason
-	90,  // 259: ddex.ern.v432.Segment.choice:type_name -> ddex.ern.v432.SegmentChoice2
-	185, // 260: ddex.ern.v432.ServiceException.trading_name:type_name -> ddex.ern.v432.Name
-	7,   // 261: ddex.ern.v432.ServiceException.channel:type_name -> ddex.ern.v432.Channel
-	92,  // 262: ddex.ern.v432.ServiceException.choice:type_name -> ddex.ern.v432.ServiceExceptionChoice4
-	255, // 263: ddex.ern.v432.ServiceExceptionChoice4.party_id_option:type_name -> ddex.ern.v432.ServiceExceptionChoice4.Option2
-	254, // 264: ddex.ern.v432.ServiceExceptionChoice4.sequence_1:type_name -> ddex.ern.v432.ServiceExceptionChoice4.Option1
-	218, // 265: ddex.ern.v432.SheetMusic.type:type_name -> ddex.ern.v432.SheetMusicType
-	217, // 266: ddex.ern.v432.SheetMusic.resource_id:type_name -> ddex.ern.v432.SheetMusicId
-	184, // 267: ddex.ern.v432.SheetMusic.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	37,  // 268: ddex.ern.v432.SheetMusic.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 269: ddex.ern.v432.SheetMusic.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 270: ddex.ern.v432.SheetMusic.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 271: ddex.ern.v432.SheetMusic.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	233, // 272: ddex.ern.v432.SheetMusic.version_type:type_name -> ddex.ern.v432.VersionType
-	153, // 273: ddex.ern.v432.SheetMusic.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	35,  // 274: ddex.ern.v432.SheetMusic.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	137, // 275: ddex.ern.v432.SheetMusic.contributor:type_name -> ddex.ern.v432.Contributor
-	83,  // 276: ddex.ern.v432.SheetMusic.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	121, // 277: ddex.ern.v432.SheetMusic.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	131, // 278: ddex.ern.v432.SheetMusic.c_line:type_name -> ddex.ern.v432.CLine
-	141, // 279: ddex.ern.v432.SheetMusic.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	44,  // 280: ddex.ern.v432.SheetMusic.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	168, // 281: ddex.ern.v432.SheetMusic.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	188, // 282: ddex.ern.v432.SheetMusic.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	64,  // 283: ddex.ern.v432.SheetMusic.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 284: ddex.ern.v432.SheetMusic.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	208, // 285: ddex.ern.v432.SheetMusic.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	102, // 286: ddex.ern.v432.SheetMusic.technical_details:type_name -> ddex.ern.v432.TechnicalSheetMusicDetails
-	219, // 287: ddex.ern.v432.Software.type:type_name -> ddex.ern.v432.SoftwareType
-	211, // 288: ddex.ern.v432.Software.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
-	184, // 289: ddex.ern.v432.Software.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	37,  // 290: ddex.ern.v432.Software.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 291: ddex.ern.v432.Software.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 292: ddex.ern.v432.Software.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 293: ddex.ern.v432.Software.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	233, // 294: ddex.ern.v432.Software.version_type:type_name -> ddex.ern.v432.VersionType
-	153, // 295: ddex.ern.v432.Software.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	35,  // 296: ddex.ern.v432.Software.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	137, // 297: ddex.ern.v432.Software.contributor:type_name -> ddex.ern.v432.Contributor
-	83,  // 298: ddex.ern.v432.Software.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	121, // 299: ddex.ern.v432.Software.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	187, // 300: ddex.ern.v432.Software.p_line:type_name -> ddex.ern.v432.PLine
-	131, // 301: ddex.ern.v432.Software.c_line:type_name -> ddex.ern.v432.CLine
-	141, // 302: ddex.ern.v432.Software.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	44,  // 303: ddex.ern.v432.Software.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	168, // 304: ddex.ern.v432.Software.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	188, // 305: ddex.ern.v432.Software.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	64,  // 306: ddex.ern.v432.Software.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 307: ddex.ern.v432.Software.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	208, // 308: ddex.ern.v432.Software.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	103, // 309: ddex.ern.v432.Software.technical_details:type_name -> ddex.ern.v432.TechnicalSoftwareDetails
-	221, // 310: ddex.ern.v432.SoundRecording.type:type_name -> ddex.ern.v432.SoundRecordingType
-	97,  // 311: ddex.ern.v432.SoundRecording.sound_recording_edition:type_name -> ddex.ern.v432.SoundRecordingEdition
-	63,  // 312: ddex.ern.v432.SoundRecording.recording_format:type_name -> ddex.ern.v432.RecordingFormat
-	184, // 313: ddex.ern.v432.SoundRecording.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	37,  // 314: ddex.ern.v432.SoundRecording.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 315: ddex.ern.v432.SoundRecording.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 316: ddex.ern.v432.SoundRecording.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 317: ddex.ern.v432.SoundRecording.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	233, // 318: ddex.ern.v432.SoundRecording.version_type:type_name -> ddex.ern.v432.VersionType
-	153, // 319: ddex.ern.v432.SoundRecording.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	35,  // 320: ddex.ern.v432.SoundRecording.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	137, // 321: ddex.ern.v432.SoundRecording.contributor:type_name -> ddex.ern.v432.Contributor
-	10,  // 322: ddex.ern.v432.SoundRecording.character:type_name -> ddex.ern.v432.Character
-	83,  // 323: ddex.ern.v432.SoundRecording.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	121, // 324: ddex.ern.v432.SoundRecording.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	141, // 325: ddex.ern.v432.SoundRecording.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	44,  // 326: ddex.ern.v432.SoundRecording.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	44,  // 327: ddex.ern.v432.SoundRecording.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	44,  // 328: ddex.ern.v432.SoundRecording.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	166, // 329: ddex.ern.v432.SoundRecording.first_publication_date:type_name -> ddex.ern.v432.FirstPublicationDate
-	49,  // 330: ddex.ern.v432.SoundRecording.location_and_date_of_session:type_name -> ddex.ern.v432.LocationAndDateOfSession
-	188, // 331: ddex.ern.v432.SoundRecording.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	64,  // 332: ddex.ern.v432.SoundRecording.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 333: ddex.ern.v432.SoundRecording.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	155, // 334: ddex.ern.v432.SoundRecording.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	178, // 335: ddex.ern.v432.SoundRecording.language_of_performance:type_name -> ddex.ern.v432.Language
-	62,  // 336: ddex.ern.v432.SoundRecording.raga:type_name -> ddex.ern.v432.Raga
-	100, // 337: ddex.ern.v432.SoundRecording.tala:type_name -> ddex.ern.v432.Tala
-	29,  // 338: ddex.ern.v432.SoundRecording.deity:type_name -> ddex.ern.v432.Deity
-	135, // 339: ddex.ern.v432.SoundRecordingClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
-	108, // 340: ddex.ern.v432.SoundRecordingClipDetails.timing:type_name -> ddex.ern.v432.Timing
-	3,   // 341: ddex.ern.v432.SoundRecordingClipDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
-	220, // 342: ddex.ern.v432.SoundRecordingEdition.resource_id:type_name -> ddex.ern.v432.SoundRecordingId
-	39,  // 343: ddex.ern.v432.SoundRecordingEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
-	187, // 344: ddex.ern.v432.SoundRecordingEdition.p_line:type_name -> ddex.ern.v432.PLine
-	104, // 345: ddex.ern.v432.SoundRecordingEdition.technical_details:type_name -> ddex.ern.v432.TechnicalSoundRecordingDetails
-	162, // 346: ddex.ern.v432.SupplementalDocumentList.supplemental_document:type_name -> ddex.ern.v432.File
-	173, // 347: ddex.ern.v432.TechnicalImageDetails.image_codec_type:type_name -> ddex.ern.v432.ImageCodecType
-	160, // 348: ddex.ern.v432.TechnicalImageDetails.image_height:type_name -> ddex.ern.v432.Extent
-	160, // 349: ddex.ern.v432.TechnicalImageDetails.image_width:type_name -> ddex.ern.v432.Extent
-	128, // 350: ddex.ern.v432.TechnicalImageDetails.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
-	11,  // 351: ddex.ern.v432.TechnicalImageDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	162, // 352: ddex.ern.v432.TechnicalImageDetails.file:type_name -> ddex.ern.v432.File
-	163, // 353: ddex.ern.v432.TechnicalImageDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	216, // 354: ddex.ern.v432.TechnicalSheetMusicDetails.sheet_music_codec_type:type_name -> ddex.ern.v432.SheetMusicCodecType
-	11,  // 355: ddex.ern.v432.TechnicalSheetMusicDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	162, // 356: ddex.ern.v432.TechnicalSheetMusicDetails.file:type_name -> ddex.ern.v432.File
-	163, // 357: ddex.ern.v432.TechnicalSheetMusicDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	186, // 358: ddex.ern.v432.TechnicalSoftwareDetails.operating_system_type:type_name -> ddex.ern.v432.OperatingSystemType
-	11,  // 359: ddex.ern.v432.TechnicalSoftwareDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	162, // 360: ddex.ern.v432.TechnicalSoftwareDetails.file:type_name -> ddex.ern.v432.File
-	163, // 361: ddex.ern.v432.TechnicalSoftwareDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	3,   // 362: ddex.ern.v432.TechnicalSoundRecordingDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
-	96,  // 363: ddex.ern.v432.TechnicalSoundRecordingDetails.clip_details:type_name -> ddex.ern.v432.SoundRecordingClipDetails
-	225, // 364: ddex.ern.v432.TechnicalTextDetails.text_codec_type:type_name -> ddex.ern.v432.TextCodecType
-	11,  // 365: ddex.ern.v432.TechnicalTextDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
-	162, // 366: ddex.ern.v432.TechnicalTextDetails.file:type_name -> ddex.ern.v432.File
-	163, // 367: ddex.ern.v432.TechnicalTextDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	130, // 368: ddex.ern.v432.TechnicalVideoDetails.overall_bit_rate:type_name -> ddex.ern.v432.BitRate
-	118, // 369: ddex.ern.v432.TechnicalVideoDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
-	117, // 370: ddex.ern.v432.TechnicalVideoDetails.clip_details:type_name -> ddex.ern.v432.VideoClipDetails
-	227, // 371: ddex.ern.v432.Text.type:type_name -> ddex.ern.v432.TextType
-	226, // 372: ddex.ern.v432.Text.resource_id:type_name -> ddex.ern.v432.TextId
-	184, // 373: ddex.ern.v432.Text.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	37,  // 374: ddex.ern.v432.Text.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 375: ddex.ern.v432.Text.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 376: ddex.ern.v432.Text.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 377: ddex.ern.v432.Text.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	233, // 378: ddex.ern.v432.Text.version_type:type_name -> ddex.ern.v432.VersionType
-	153, // 379: ddex.ern.v432.Text.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	35,  // 380: ddex.ern.v432.Text.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	137, // 381: ddex.ern.v432.Text.contributor:type_name -> ddex.ern.v432.Contributor
-	83,  // 382: ddex.ern.v432.Text.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	121, // 383: ddex.ern.v432.Text.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	131, // 384: ddex.ern.v432.Text.c_line:type_name -> ddex.ern.v432.CLine
-	141, // 385: ddex.ern.v432.Text.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	44,  // 386: ddex.ern.v432.Text.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	168, // 387: ddex.ern.v432.Text.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	188, // 388: ddex.ern.v432.Text.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	64,  // 389: ddex.ern.v432.Text.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 390: ddex.ern.v432.Text.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	208, // 391: ddex.ern.v432.Text.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	105, // 392: ddex.ern.v432.Text.technical_details:type_name -> ddex.ern.v432.TechnicalTextDetails
-	178, // 393: ddex.ern.v432.Text.language_of_text:type_name -> ddex.ern.v432.Language
-	71,  // 394: ddex.ern.v432.TrackRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
-	37,  // 395: ddex.ern.v432.TrackRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 396: ddex.ern.v432.TrackRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 397: ddex.ern.v432.TrackRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 398: ddex.ern.v432.TrackRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	48,  // 399: ddex.ern.v432.TrackRelease.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
-	73,  // 400: ddex.ern.v432.TrackRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
-	171, // 401: ddex.ern.v432.TrackRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
-	64,  // 402: ddex.ern.v432.TrackRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 403: ddex.ern.v432.TrackRelease.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	177, // 404: ddex.ern.v432.TrackRelease.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
-	99,  // 405: ddex.ern.v432.TrackRelease.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
-	179, // 406: ddex.ern.v432.TrackRelease.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
-	112, // 407: ddex.ern.v432.TrackReleaseVisibility.choice:type_name -> ddex.ern.v432.TrackReleaseVisibilityChoice4
-	256, // 408: ddex.ern.v432.TrackReleaseVisibilityChoice4.territory_code_option:type_name -> ddex.ern.v432.TrackReleaseVisibilityChoice4.Option1
-	257, // 409: ddex.ern.v432.TrackReleaseVisibilityChoice4.excluded_territory_code_option:type_name -> ddex.ern.v432.TrackReleaseVisibilityChoice4.Option2
-	120, // 410: ddex.ern.v432.Video.type:type_name -> ddex.ern.v432.VideoType
-	119, // 411: ddex.ern.v432.Video.video_edition:type_name -> ddex.ern.v432.VideoEdition
-	63,  // 412: ddex.ern.v432.Video.recording_format:type_name -> ddex.ern.v432.RecordingFormat
-	184, // 413: ddex.ern.v432.Video.work_id:type_name -> ddex.ern.v432.MusicalWorkId
-	37,  // 414: ddex.ern.v432.Video.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
-	157, // 415: ddex.ern.v432.Video.display_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 416: ddex.ern.v432.Video.formal_title:type_name -> ddex.ern.v432.DisplayTitle
-	157, // 417: ddex.ern.v432.Video.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
-	233, // 418: ddex.ern.v432.Video.version_type:type_name -> ddex.ern.v432.VersionType
-	153, // 419: ddex.ern.v432.Video.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
-	35,  // 420: ddex.ern.v432.Video.display_artist:type_name -> ddex.ern.v432.DisplayArtist
-	137, // 421: ddex.ern.v432.Video.contributor:type_name -> ddex.ern.v432.Contributor
-	10,  // 422: ddex.ern.v432.Video.character:type_name -> ddex.ern.v432.Character
-	83,  // 423: ddex.ern.v432.Video.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
-	121, // 424: ddex.ern.v432.Video.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
-	141, // 425: ddex.ern.v432.Video.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
-	44,  // 426: ddex.ern.v432.Video.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	44,  // 427: ddex.ern.v432.Video.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	44,  // 428: ddex.ern.v432.Video.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
-	168, // 429: ddex.ern.v432.Video.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
-	188, // 430: ddex.ern.v432.Video.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
-	4,   // 431: ddex.ern.v432.Video.av_rating:type_name -> ddex.ern.v432.AvRating
-	64,  // 432: ddex.ern.v432.Video.related_release:type_name -> ddex.ern.v432.RelatedRelease
-	65,  // 433: ddex.ern.v432.Video.related_resource:type_name -> ddex.ern.v432.RelatedResource
-	155, // 434: ddex.ern.v432.Video.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	178, // 435: ddex.ern.v432.Video.language_of_performance:type_name -> ddex.ern.v432.Language
-	208, // 436: ddex.ern.v432.Video.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
-	116, // 437: ddex.ern.v432.Video.choice:type_name -> ddex.ern.v432.VideoChoice44
-	258, // 438: ddex.ern.v432.VideoChoice44.video_cue_sheet_reference_option:type_name -> ddex.ern.v432.VideoChoice44.Option1
-	203, // 439: ddex.ern.v432.VideoChoice44.reason_for_cue_sheet_absence:type_name -> ddex.ern.v432.Reason
-	135, // 440: ddex.ern.v432.VideoClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
-	108, // 441: ddex.ern.v432.VideoClipDetails.timing:type_name -> ddex.ern.v432.Timing
-	118, // 442: ddex.ern.v432.VideoClipDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
-	136, // 443: ddex.ern.v432.VideoDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
-	234, // 444: ddex.ern.v432.VideoDeliveryFile.video_codec_type:type_name -> ddex.ern.v432.VideoCodecType
-	130, // 445: ddex.ern.v432.VideoDeliveryFile.video_bit_rate:type_name -> ddex.ern.v432.BitRate
-	167, // 446: ddex.ern.v432.VideoDeliveryFile.frame_rate:type_name -> ddex.ern.v432.FrameRate
-	160, // 447: ddex.ern.v432.VideoDeliveryFile.image_height:type_name -> ddex.ern.v432.Extent
-	160, // 448: ddex.ern.v432.VideoDeliveryFile.image_width:type_name -> ddex.ern.v432.Extent
-	128, // 449: ddex.ern.v432.VideoDeliveryFile.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
-	15,  // 450: ddex.ern.v432.VideoDeliveryFile.core_area:type_name -> ddex.ern.v432.CoreArea
-	235, // 451: ddex.ern.v432.VideoDeliveryFile.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
-	129, // 452: ddex.ern.v432.VideoDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
-	46,  // 453: ddex.ern.v432.VideoDeliveryFile.hdr_video_dynamic_metadata_type:type_name -> ddex.ern.v432.HdrVideoDynamicMetadataType
-	130, // 454: ddex.ern.v432.VideoDeliveryFile.audio_bit_rate:type_name -> ddex.ern.v432.BitRate
-	214, // 455: ddex.ern.v432.VideoDeliveryFile.audio_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
-	162, // 456: ddex.ern.v432.VideoDeliveryFile.file:type_name -> ddex.ern.v432.File
-	163, // 457: ddex.ern.v432.VideoDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
-	236, // 458: ddex.ern.v432.VideoEdition.resource_id:type_name -> ddex.ern.v432.VideoId
-	39,  // 459: ddex.ern.v432.VideoEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
-	187, // 460: ddex.ern.v432.VideoEdition.p_line:type_name -> ddex.ern.v432.PLine
-	131, // 461: ddex.ern.v432.VideoEdition.c_line:type_name -> ddex.ern.v432.CLine
-	106, // 462: ddex.ern.v432.VideoEdition.technical_details:type_name -> ddex.ern.v432.TechnicalVideoDetails
-	127, // 463: ddex.ern.v432.WorkRightsController.territory:type_name -> ddex.ern.v432.AllTerritoryCode
-	122, // 464: ddex.ern.v432.WorkRightsController.choice:type_name -> ddex.ern.v432.WorkRightsControllerChoice7
-	231, // 465: ddex.ern.v432.Affiliation.validity_period:type_name -> ddex.ern.v432.ValidityPeriod
-	213, // 466: ddex.ern.v432.Affiliation.rights_type:type_name -> ddex.ern.v432.RightsType
-	125, // 467: ddex.ern.v432.Affiliation.choice:type_name -> ddex.ern.v432.AffiliationChoice5
-	126, // 468: ddex.ern.v432.Affiliation.choice_1:type_name -> ddex.ern.v432.AffiliationChoice6
-	259, // 469: ddex.ern.v432.AffiliationChoice6.territory_code_option:type_name -> ddex.ern.v432.AffiliationChoice6.Option1
-	260, // 470: ddex.ern.v432.AffiliationChoice6.excluded_territory_code_option:type_name -> ddex.ern.v432.AffiliationChoice6.Option2
-	133, // 471: ddex.ern.v432.ChapterId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	199, // 472: ddex.ern.v432.ChapterId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	139, // 473: ddex.ern.v432.Contributor.role:type_name -> ddex.ern.v432.ContributorRole
-	175, // 474: ddex.ern.v432.Contributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
-	176, // 475: ddex.ern.v432.Contributor.is_credited:type_name -> ddex.ern.v432.IsCredited
-	155, // 476: ddex.ern.v432.Contributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
-	138, // 477: ddex.ern.v432.Contributor.choice:type_name -> ddex.ern.v432.ContributorChoice8
-	222, // 478: ddex.ern.v432.ContributorChoice8.special_contributor:type_name -> ddex.ern.v432.SpecialContributorType
-	140, // 479: ddex.ern.v432.ContributorRole.value:type_name -> ddex.ern.v432.ContributorRoleValue
-	175, // 480: ddex.ern.v432.ContributorRole.instrument_type:type_name -> ddex.ern.v432.InstrumentType
-	185, // 481: ddex.ern.v432.DSP.trading_name:type_name -> ddex.ern.v432.Name
-	150, // 482: ddex.ern.v432.DSP.choice:type_name -> ddex.ern.v432.DSPChoice3
-	262, // 483: ddex.ern.v432.DSPChoice3.party_id_option:type_name -> ddex.ern.v432.DSPChoice3.Option2
-	261, // 484: ddex.ern.v432.DSPChoice3.sequence_1:type_name -> ddex.ern.v432.DSPChoice3.Option1
-	172, // 485: ddex.ern.v432.DetailedHashSum.algorithm:type_name -> ddex.ern.v432.HashSumAlgorithmType
-	199, // 486: ddex.ern.v432.DetailedPartyId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	156, // 487: ddex.ern.v432.DisplayTitle.sub_title:type_name -> ddex.ern.v432.DisplaySubTitle
-	151, // 488: ddex.ern.v432.File.hash_sum:type_name -> ddex.ern.v432.DetailedHashSum
-	165, // 489: ddex.ern.v432.Fingerprint.algorithm:type_name -> ddex.ern.v432.FingerprintAlgorithmType
-	164, // 490: ddex.ern.v432.Fingerprint.choice:type_name -> ddex.ern.v432.FingerprintChoice4
-	162, // 491: ddex.ern.v432.FingerprintChoice4.file:type_name -> ddex.ern.v432.File
-	263, // 492: ddex.ern.v432.FingerprintChoice4.sequence_1:type_name -> ddex.ern.v432.FingerprintChoice4.Option1
-	170, // 493: ddex.ern.v432.GenreCategory.value:type_name -> ddex.ern.v432.GenreCategoryValue
-	229, // 494: ddex.ern.v432.GenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
-	169, // 495: ddex.ern.v432.GenreWithTerritory.genre_category:type_name -> ddex.ern.v432.GenreCategory
-	223, // 496: ddex.ern.v432.GenreWithTerritory.sub_genre_category:type_name -> ddex.ern.v432.SubGenreCategory
-	181, // 497: ddex.ern.v432.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.ern.v432.MessageAuditTrailEvent
-	183, // 498: ddex.ern.v432.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	183, // 499: ddex.ern.v432.MessageHeader.message_sender:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	183, // 500: ddex.ern.v432.MessageHeader.sent_on_behalf_of:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	183, // 501: ddex.ern.v432.MessageHeader.message_recipient:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	183, // 502: ddex.ern.v432.MessageHeader.sent_as_requested_by:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
-	180, // 503: ddex.ern.v432.MessageHeader.message_audit_trail:type_name -> ddex.ern.v432.MessageAuditTrail
-	190, // 504: ddex.ern.v432.MessagingPartyWithoutCode.party_name:type_name -> ddex.ern.v432.PartyNameWithoutCode
-	199, // 505: ddex.ern.v432.MusicalWorkId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	185, // 506: ddex.ern.v432.PartyName.full_name:type_name -> ddex.ern.v432.Name
-	185, // 507: ddex.ern.v432.PartyName.full_name_indexed:type_name -> ddex.ern.v432.Name
-	185, // 508: ddex.ern.v432.PartyName.names_before_key_name:type_name -> ddex.ern.v432.Name
-	185, // 509: ddex.ern.v432.PartyName.key_name:type_name -> ddex.ern.v432.Name
-	185, // 510: ddex.ern.v432.PartyName.names_after_key_name:type_name -> ddex.ern.v432.Name
-	185, // 511: ddex.ern.v432.PartyName.abbreviated_name:type_name -> ddex.ern.v432.Name
-	194, // 512: ddex.ern.v432.Period.choice:type_name -> ddex.ern.v432.PeriodChoice
-	264, // 513: ddex.ern.v432.PeriodChoice.sequence_1:type_name -> ddex.ern.v432.PeriodChoice.Option1
-	265, // 514: ddex.ern.v432.PeriodChoice.sequence_2:type_name -> ddex.ern.v432.PeriodChoice.Option2
-	191, // 515: ddex.ern.v432.RelatedParty.party_relationship_type:type_name -> ddex.ern.v432.PartyRelationshipType
-	200, // 516: ddex.ern.v432.ResourceContainedResourceReference.purpose:type_name -> ddex.ern.v432.Purpose
-	207, // 517: ddex.ern.v432.ResourceContainedResourceReferenceList.resource_contained_resource_reference:type_name -> ddex.ern.v432.ResourceContainedResourceReference
-	133, // 518: ddex.ern.v432.ResourceId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	199, // 519: ddex.ern.v432.ResourceId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	199, // 520: ddex.ern.v432.ResourceProprietaryId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	199, // 521: ddex.ern.v432.SheetMusicId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	133, // 522: ddex.ern.v432.SoundRecordingId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	199, // 523: ddex.ern.v432.SoundRecordingId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	224, // 524: ddex.ern.v432.SubGenreCategory.value:type_name -> ddex.ern.v432.SubGenreCategoryValue
-	229, // 525: ddex.ern.v432.SubGenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
-	199, // 526: ddex.ern.v432.TextId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	195, // 527: ddex.ern.v432.TitleDisplayInformation.prefix:type_name -> ddex.ern.v432.Prefix
-	158, // 528: ddex.ern.v432.ValidityPeriod.start_date:type_name -> ddex.ern.v432.EventDate
-	158, // 529: ddex.ern.v432.ValidityPeriod.end_date:type_name -> ddex.ern.v432.EventDate
-	127, // 530: ddex.ern.v432.Venue.territory_code:type_name -> ddex.ern.v432.AllTerritoryCode
-	133, // 531: ddex.ern.v432.VideoId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
-	199, // 532: ddex.ern.v432.VideoId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
-	53,  // 533: ddex.ern.v432.BrandChoice2.Option1.brand_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
-	199, // 534: ddex.ern.v432.BrandChoice2.Option1.brand_id:type_name -> ddex.ern.v432.ProprietaryId
-	199, // 535: ddex.ern.v432.BrandChoice2.Option2.brand_id:type_name -> ddex.ern.v432.ProprietaryId
-	148, // 536: ddex.ern.v432.DealTermsChoice14.Option1.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	148, // 537: ddex.ern.v432.DealTermsChoice14.Option2.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	149, // 538: ddex.ern.v432.DealTermsChoice15.Option1.distribution_channel:type_name -> ddex.ern.v432.DSP
-	149, // 539: ddex.ern.v432.DealTermsChoice15.Option2.excluded_distribution_channel:type_name -> ddex.ern.v432.DSP
-	189, // 540: ddex.ern.v432.DetailedResourceContributorChoice6.Option1.party_name:type_name -> ddex.ern.v432.PartyName
-	152, // 541: ddex.ern.v432.DetailedResourceContributorChoice6.Option1.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	152, // 542: ddex.ern.v432.DetailedResourceContributorChoice6.Option2.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	154, // 543: ddex.ern.v432.DisplayArtistChoice4.Option1.display_artist_role:type_name -> ddex.ern.v432.DisplayArtistRole
-	53,  // 544: ddex.ern.v432.PartyChoice5.Option1.party_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
-	152, // 545: ddex.ern.v432.PartyChoice5.Option1.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	152, // 546: ddex.ern.v432.PartyChoice5.Option2.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	42,  // 547: ddex.ern.v432.PeriodWithStartDateChoice.Option1.start_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
-	42,  // 548: ddex.ern.v432.PeriodWithStartDateChoice.Option1.end_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
-	41,  // 549: ddex.ern.v432.PeriodWithStartDateChoice.Option2.start_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
-	41,  // 550: ddex.ern.v432.PeriodWithStartDateChoice.Option2.end_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
-	42,  // 551: ddex.ern.v432.PeriodWithoutFlagsChoice.Option1.start_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
-	42,  // 552: ddex.ern.v432.PeriodWithoutFlagsChoice.Option1.end_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
-	41,  // 553: ddex.ern.v432.PeriodWithoutFlagsChoice.Option2.start_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
-	41,  // 554: ddex.ern.v432.PeriodWithoutFlagsChoice.Option2.end_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
-	148, // 555: ddex.ern.v432.ReleaseVisibilityChoice6.Option1.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	148, // 556: ddex.ern.v432.ReleaseVisibilityChoice6.Option2.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	189, // 557: ddex.ern.v432.ServiceExceptionChoice4.Option1.party_name:type_name -> ddex.ern.v432.PartyName
-	152, // 558: ddex.ern.v432.ServiceExceptionChoice4.Option1.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	152, // 559: ddex.ern.v432.ServiceExceptionChoice4.Option2.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	148, // 560: ddex.ern.v432.TrackReleaseVisibilityChoice4.Option1.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	148, // 561: ddex.ern.v432.TrackReleaseVisibilityChoice4.Option2.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	148, // 562: ddex.ern.v432.AffiliationChoice6.Option1.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	148, // 563: ddex.ern.v432.AffiliationChoice6.Option2.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
-	189, // 564: ddex.ern.v432.DSPChoice3.Option1.party_name:type_name -> ddex.ern.v432.PartyName
-	152, // 565: ddex.ern.v432.DSPChoice3.Option1.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	152, // 566: ddex.ern.v432.DSPChoice3.Option2.party_id:type_name -> ddex.ern.v432.DetailedPartyId
-	158, // 567: ddex.ern.v432.PeriodChoice.Option1.start_date:type_name -> ddex.ern.v432.EventDate
-	158, // 568: ddex.ern.v432.PeriodChoice.Option1.end_date:type_name -> ddex.ern.v432.EventDate
-	159, // 569: ddex.ern.v432.PeriodChoice.Option2.start_date_time:type_name -> ddex.ern.v432.EventDateTime
-	159, // 570: ddex.ern.v432.PeriodChoice.Option2.end_date_time:type_name -> ddex.ern.v432.EventDateTime
-	571, // [571:571] is the sub-list for method output_type
-	571, // [571:571] is the sub-list for method input_type
-	571, // [571:571] is the sub-list for extension type_name
-	571, // [571:571] is the sub-list for extension extendee
-	0,   // [0:571] is the sub-list for field type_name
+	152, // 0: ddex.ern.v432.NewReleaseMessage.message_header:type_name -> ddex.ern.v432.MessageHeader
+	56,  // 1: ddex.ern.v432.NewReleaseMessage.release_admin:type_name -> ddex.ern.v432.ReleaseAdmin
+	43,  // 2: ddex.ern.v432.NewReleaseMessage.party_list:type_name -> ddex.ern.v432.PartyList
+	17,  // 3: ddex.ern.v432.NewReleaseMessage.cue_sheet_list:type_name -> ddex.ern.v432.CueSheetList
+	65,  // 4: ddex.ern.v432.NewReleaseMessage.resource_list:type_name -> ddex.ern.v432.ResourceList
+	8,   // 5: ddex.ern.v432.NewReleaseMessage.chapter_list:type_name -> ddex.ern.v432.ChapterList
+	61,  // 6: ddex.ern.v432.NewReleaseMessage.release_list:type_name -> ddex.ern.v432.ReleaseList
+	19,  // 7: ddex.ern.v432.NewReleaseMessage.deal_list:type_name -> ddex.ern.v432.DealList
+	76,  // 8: ddex.ern.v432.NewReleaseMessage.supplemental_document_list:type_name -> ddex.ern.v432.SupplementalDocumentList
+	152, // 9: ddex.ern.v432.PurgeReleaseMessage.message_header:type_name -> ddex.ern.v432.MessageHeader
+	50,  // 10: ddex.ern.v432.PurgeReleaseMessage.purged_release:type_name -> ddex.ern.v432.PurgedRelease
+	98,  // 11: ddex.ern.v432.AdministratingRecordCompany.role:type_name -> ddex.ern.v432.AdministratingRecordCompanyRole
+	109, // 12: ddex.ern.v432.AudioDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
+	102, // 13: ddex.ern.v432.AudioDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
+	103, // 14: ddex.ern.v432.AudioDeliveryFile.bit_rate:type_name -> ddex.ern.v432.BitRate
+	103, // 15: ddex.ern.v432.AudioDeliveryFile.original_bit_rate:type_name -> ddex.ern.v432.BitRate
+	183, // 16: ddex.ern.v432.AudioDeliveryFile.sampling_rate:type_name -> ddex.ern.v432.SamplingRate
+	183, // 17: ddex.ern.v432.AudioDeliveryFile.original_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
+	133, // 18: ddex.ern.v432.AudioDeliveryFile.file:type_name -> ddex.ern.v432.File
+	134, // 19: ddex.ern.v432.AudioDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	170, // 20: ddex.ern.v432.AvRating.agency:type_name -> ddex.ern.v432.RatingAgency
+	171, // 21: ddex.ern.v432.AvRating.reason:type_name -> ddex.ern.v432.RatingReason
+	168, // 22: ddex.ern.v432.Brand.brand_id:type_name -> ddex.ern.v432.ProprietaryId
+	44,  // 23: ddex.ern.v432.Brand.brand_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
+	168, // 24: ddex.ern.v432.Channel.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	107, // 25: ddex.ern.v432.Chapter.chapter_id:type_name -> ddex.ern.v432.ChapterId
+	30,  // 26: ddex.ern.v432.Chapter.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 27: ddex.ern.v432.Chapter.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 28: ddex.ern.v432.Chapter.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 29: ddex.ern.v432.Chapter.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	110, // 30: ddex.ern.v432.Chapter.contributor:type_name -> ddex.ern.v432.Contributor
+	9,   // 31: ddex.ern.v432.Chapter.character:type_name -> ddex.ern.v432.Character
+	7,   // 32: ddex.ern.v432.ChapterList.chapter:type_name -> ddex.ern.v432.Chapter
+	110, // 33: ddex.ern.v432.Character.performer:type_name -> ddex.ern.v432.Contributor
+	108, // 34: ddex.ern.v432.ClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
+	58,  // 35: ddex.ern.v432.ClipRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 36: ddex.ern.v432.ClipRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 37: ddex.ern.v432.ClipRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 38: ddex.ern.v432.ClipRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 39: ddex.ern.v432.ClipRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	60,  // 40: ddex.ern.v432.ClipRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
+	141, // 41: ddex.ern.v432.ClipRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
+	53,  // 42: ddex.ern.v432.ClipRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	69,  // 43: ddex.ern.v432.ConditionForRightsClaimPolicy.segment:type_name -> ddex.ern.v432.Segment
+	70,  // 44: ddex.ern.v432.ConditionForRightsClaimPolicy.service_exception:type_name -> ddex.ern.v432.ServiceException
+	117, // 45: ddex.ern.v432.Cue.cue_use_type:type_name -> ddex.ern.v432.CueUseType
+	116, // 46: ddex.ern.v432.Cue.cue_theme_type:type_name -> ddex.ern.v432.CueThemeType
+	119, // 47: ddex.ern.v432.Cue.cue_vocal_type:type_name -> ddex.ern.v432.CueVocalType
+	118, // 48: ddex.ern.v432.Cue.cue_visual_perception_type:type_name -> ddex.ern.v432.CueVisualPerceptionType
+	114, // 49: ddex.ern.v432.Cue.cue_origin:type_name -> ddex.ern.v432.CueOrigin
+	30,  // 50: ddex.ern.v432.Cue.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 51: ddex.ern.v432.Cue.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 52: ddex.ern.v432.Cue.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 53: ddex.ern.v432.Cue.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	110, // 54: ddex.ern.v432.Cue.contributor:type_name -> ddex.ern.v432.Contributor
+	157, // 55: ddex.ern.v432.Cue.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 56: ddex.ern.v432.Cue.c_line:type_name -> ddex.ern.v432.CLine
+	179, // 57: ddex.ern.v432.Cue.resource_id:type_name -> ddex.ern.v432.ResourceId
+	154, // 58: ddex.ern.v432.Cue.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	168, // 59: ddex.ern.v432.CueSheet.cue_sheet_id:type_name -> ddex.ern.v432.ProprietaryId
+	115, // 60: ddex.ern.v432.CueSheet.cue_sheet_type:type_name -> ddex.ern.v432.CueSheetType
+	15,  // 61: ddex.ern.v432.CueSheet.cue:type_name -> ddex.ern.v432.Cue
+	16,  // 62: ddex.ern.v432.CueSheetList.cue_sheet:type_name -> ddex.ern.v432.CueSheet
+	22,  // 63: ddex.ern.v432.Deal.deal_terms:type_name -> ddex.ern.v432.DealTerms
+	21,  // 64: ddex.ern.v432.Deal.deal_technical_resource_details_reference_list:type_name -> ddex.ern.v432.DealTechnicalResourceDetailsReferenceList
+	31,  // 65: ddex.ern.v432.Deal.distribution_channel_page:type_name -> ddex.ern.v432.DistributionChannelPage
+	57,  // 66: ddex.ern.v432.DealList.release_deal:type_name -> ddex.ern.v432.ReleaseDeal
+	62,  // 67: ddex.ern.v432.DealList.release_visibility:type_name -> ddex.ern.v432.ReleaseVisibility
+	89,  // 68: ddex.ern.v432.DealList.track_release_visibility:type_name -> ddex.ern.v432.TrackReleaseVisibility
+	46,  // 69: ddex.ern.v432.DealTerms.validity_period:type_name -> ddex.ern.v432.PeriodWithStartDate
+	12,  // 70: ddex.ern.v432.DealTerms.commercial_model_type:type_name -> ddex.ern.v432.CommercialModelType
+	28,  // 71: ddex.ern.v432.DealTerms.use_type:type_name -> ddex.ern.v432.DiscoverableUseType
+	91,  // 72: ddex.ern.v432.DealTerms.user_interface_type:type_name -> ddex.ern.v432.UserInterfaceType
+	105, // 73: ddex.ern.v432.DealTerms.carrier_type:type_name -> ddex.ern.v432.CarrierType
+	23,  // 74: ddex.ern.v432.DealTerms.technical_instantiation:type_name -> ddex.ern.v432.DealTermsTechnicalInstantiation
+	68,  // 75: ddex.ern.v432.DealTerms.rights_claim_policy:type_name -> ddex.ern.v432.RightsClaimPolicy
+	49,  // 76: ddex.ern.v432.DealTerms.price_information:type_name -> ddex.ern.v432.PriceInformation
+	20,  // 77: ddex.ern.v432.DealTerms.instant_gratification_resource_list:type_name -> ddex.ern.v432.DealResourceReferenceList
+	48,  // 78: ddex.ern.v432.DealTerms.physical_returns:type_name -> ddex.ern.v432.PhysicalReturns
+	120, // 79: ddex.ern.v432.DealTerms.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	120, // 80: ddex.ern.v432.DealTerms.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	121, // 81: ddex.ern.v432.DealTerms.distribution_channel:type_name -> ddex.ern.v432.DSP
+	121, // 82: ddex.ern.v432.DealTerms.excluded_distribution_channel:type_name -> ddex.ern.v432.DSP
+	167, // 83: ddex.ern.v432.DealTerms.promotional_code:type_name -> ddex.ern.v432.PromotionalCode
+	204, // 84: ddex.ern.v432.DealTermsTechnicalInstantiation.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
+	103, // 85: ddex.ern.v432.DealTermsTechnicalInstantiation.bit_rate:type_name -> ddex.ern.v432.BitRate
+	90,  // 86: ddex.ern.v432.DelegatedUsageRights.use_type:type_name -> ddex.ern.v432.UseType
+	163, // 87: ddex.ern.v432.DelegatedUsageRights.period_of_rights_delegation:type_name -> ddex.ern.v432.Period
+	100, // 88: ddex.ern.v432.DelegatedUsageRights.territory_of_rights_delegation:type_name -> ddex.ern.v432.AllTerritoryCode
+	111, // 89: ddex.ern.v432.DetailedResourceContributor.role:type_name -> ddex.ern.v432.ContributorRole
+	145, // 90: ddex.ern.v432.DetailedResourceContributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
+	126, // 91: ddex.ern.v432.DetailedResourceContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	123, // 92: ddex.ern.v432.DetailedResourceContributor.party_id:type_name -> ddex.ern.v432.DetailedPartyId
+	159, // 93: ddex.ern.v432.DetailedResourceContributor.party_name:type_name -> ddex.ern.v432.PartyName
+	111, // 94: ddex.ern.v432.DisplayArtist.artistic_role:type_name -> ddex.ern.v432.ContributorRole
+	199, // 95: ddex.ern.v432.DisplayArtist.title_display_information:type_name -> ddex.ern.v432.TitleDisplayInformation
+	126, // 96: ddex.ern.v432.DisplayArtist.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	191, // 97: ddex.ern.v432.DisplayArtist.special_display_artist:type_name -> ddex.ern.v432.SpecialContributorType
+	125, // 98: ddex.ern.v432.DisplayArtist.display_artist_role:type_name -> ddex.ern.v432.DisplayArtistRole
+	123, // 99: ddex.ern.v432.DistributionChannelPage.party_id:type_name -> ddex.ern.v432.DetailedPartyId
+	155, // 100: ddex.ern.v432.DistributionChannelPage.page_name:type_name -> ddex.ern.v432.Name
+	111, // 101: ddex.ern.v432.EditionContributor.role:type_name -> ddex.ern.v432.ContributorRole
+	146, // 102: ddex.ern.v432.EditionContributor.is_credited:type_name -> ddex.ern.v432.IsCredited
+	126, // 103: ddex.ern.v432.EditionContributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	191, // 104: ddex.ern.v432.EditionContributor.special_contributor:type_name -> ddex.ern.v432.SpecialContributorType
+	47,  // 105: ddex.ern.v432.ExternalResourceLink.validity_period:type_name -> ddex.ern.v432.PeriodWithoutFlags
+	132, // 106: ddex.ern.v432.ExternalResourceLink.externally_linked_resource_type:type_name -> ddex.ern.v432.ExternallyLinkedResourceType
+	144, // 107: ddex.ern.v432.Image.type:type_name -> ddex.ern.v432.ImageType
+	180, // 108: ddex.ern.v432.Image.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
+	30,  // 109: ddex.ern.v432.Image.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 110: ddex.ern.v432.Image.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 111: ddex.ern.v432.Image.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 112: ddex.ern.v432.Image.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 113: ddex.ern.v432.Image.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 114: ddex.ern.v432.Image.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 115: ddex.ern.v432.Image.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 116: ddex.ern.v432.Image.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 117: ddex.ern.v432.Image.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 118: ddex.ern.v432.Image.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	104, // 119: ddex.ern.v432.Image.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 120: ddex.ern.v432.Image.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 121: ddex.ern.v432.Image.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 122: ddex.ern.v432.Image.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 123: ddex.ern.v432.Image.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 124: ddex.ern.v432.Image.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 125: ddex.ern.v432.Image.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	26,  // 126: ddex.ern.v432.Image.description:type_name -> ddex.ern.v432.DescriptionWithTerritory
+	79,  // 127: ddex.ern.v432.Image.technical_details:type_name -> ddex.ern.v432.TechnicalImageDetails
+	184, // 128: ddex.ern.v432.LocationAndDateOfSession.session_type:type_name -> ddex.ern.v432.SessionType
+	163, // 129: ddex.ern.v432.LocationAndDateOfSession.period:type_name -> ddex.ern.v432.Period
+	201, // 130: ddex.ern.v432.LocationAndDateOfSession.venue:type_name -> ddex.ern.v432.Venue
+	197, // 131: ddex.ern.v432.LocationAndDateOfSession.comment:type_name -> ddex.ern.v432.TextWithFormat
+	45,  // 132: ddex.ern.v432.LocationAndDateOfSession.contributor:type_name -> ddex.ern.v432.PartyWithRole
+	99,  // 133: ddex.ern.v432.Party.affiliation:type_name -> ddex.ern.v432.Affiliation
+	173, // 134: ddex.ern.v432.Party.related_party:type_name -> ddex.ern.v432.RelatedParty
+	123, // 135: ddex.ern.v432.Party.party_id:type_name -> ddex.ern.v432.DetailedPartyId
+	44,  // 136: ddex.ern.v432.Party.party_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
+	42,  // 137: ddex.ern.v432.PartyList.party:type_name -> ddex.ern.v432.Party
+	5,   // 138: ddex.ern.v432.PartyList.brand:type_name -> ddex.ern.v432.Brand
+	155, // 139: ddex.ern.v432.PartyNameWithTerritory.full_name:type_name -> ddex.ern.v432.Name
+	155, // 140: ddex.ern.v432.PartyNameWithTerritory.full_name_indexed:type_name -> ddex.ern.v432.Name
+	155, // 141: ddex.ern.v432.PartyNameWithTerritory.names_before_key_name:type_name -> ddex.ern.v432.Name
+	155, // 142: ddex.ern.v432.PartyNameWithTerritory.key_name:type_name -> ddex.ern.v432.Name
+	155, // 143: ddex.ern.v432.PartyNameWithTerritory.names_after_key_name:type_name -> ddex.ern.v432.Name
+	155, // 144: ddex.ern.v432.PartyNameWithTerritory.abbreviated_name:type_name -> ddex.ern.v432.Name
+	168, // 145: ddex.ern.v432.PartyWithRole.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	44,  // 146: ddex.ern.v432.PartyWithRole.party_name:type_name -> ddex.ern.v432.PartyNameWithTerritory
+	178, // 147: ddex.ern.v432.PartyWithRole.role:type_name -> ddex.ern.v432.ResourceContributorRole
+	34,  // 148: ddex.ern.v432.PeriodWithStartDate.start_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
+	34,  // 149: ddex.ern.v432.PeriodWithStartDate.end_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
+	33,  // 150: ddex.ern.v432.PeriodWithStartDate.start_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
+	33,  // 151: ddex.ern.v432.PeriodWithStartDate.end_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
+	34,  // 152: ddex.ern.v432.PeriodWithoutFlags.start_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
+	34,  // 153: ddex.ern.v432.PeriodWithoutFlags.end_date:type_name -> ddex.ern.v432.EventDateWithCurrentTerritory
+	33,  // 154: ddex.ern.v432.PeriodWithoutFlags.start_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
+	33,  // 155: ddex.ern.v432.PeriodWithoutFlags.end_date_time:type_name -> ddex.ern.v432.EventDateTimeWithoutFlags
+	166, // 156: ddex.ern.v432.PriceInformation.price_code:type_name -> ddex.ern.v432.PriceType
+	165, // 157: ddex.ern.v432.PriceInformation.wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
+	165, // 158: ddex.ern.v432.PriceInformation.bulk_order_wholesale_price_per_unit:type_name -> ddex.ern.v432.Price
+	165, // 159: ddex.ern.v432.PriceInformation.suggested_retail_price:type_name -> ddex.ern.v432.Price
+	58,  // 160: ddex.ern.v432.PurgedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	87,  // 161: ddex.ern.v432.PurgedRelease.title:type_name -> ddex.ern.v432.Title
+	27,  // 162: ddex.ern.v432.PurgedRelease.contributor:type_name -> ddex.ern.v432.DetailedResourceContributor
+	174, // 163: ddex.ern.v432.RelatedRelease.release_relationship_type:type_name -> ddex.ern.v432.ReleaseRelationshipType
+	58,  // 164: ddex.ern.v432.RelatedRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 165: ddex.ern.v432.RelatedRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 166: ddex.ern.v432.RelatedRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 167: ddex.ern.v432.RelatedRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 168: ddex.ern.v432.RelatedRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	124, // 169: ddex.ern.v432.RelatedRelease.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	59,  // 170: ddex.ern.v432.RelatedRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReference
+	36,  // 171: ddex.ern.v432.RelatedRelease.release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 172: ddex.ern.v432.RelatedRelease.original_release_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	86,  // 173: ddex.ern.v432.RelatedResource.timing:type_name -> ddex.ern.v432.Timing
+	179, // 174: ddex.ern.v432.RelatedResource.resource_id:type_name -> ddex.ern.v432.ResourceId
+	175, // 175: ddex.ern.v432.Release.release_type:type_name -> ddex.ern.v432.ReleaseTypeForReleaseNotification
+	58,  // 176: ddex.ern.v432.Release.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 177: ddex.ern.v432.Release.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 178: ddex.ern.v432.Release.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 179: ddex.ern.v432.Release.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 180: ddex.ern.v432.Release.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 181: ddex.ern.v432.Release.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 182: ddex.ern.v432.Release.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 183: ddex.ern.v432.Release.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	60,  // 184: ddex.ern.v432.Release.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
+	2,   // 185: ddex.ern.v432.Release.administrating_record_company:type_name -> ddex.ern.v432.AdministratingRecordCompany
+	157, // 186: ddex.ern.v432.Release.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 187: ddex.ern.v432.Release.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 188: ddex.ern.v432.Release.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	141, // 189: ddex.ern.v432.Release.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
+	35,  // 190: ddex.ern.v432.Release.release_date:type_name -> ddex.ern.v432.EventDateWithDefault
+	35,  // 191: ddex.ern.v432.Release.original_release_date:type_name -> ddex.ern.v432.EventDateWithDefault
+	158, // 192: ddex.ern.v432.Release.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	4,   // 193: ddex.ern.v432.Release.av_rating:type_name -> ddex.ern.v432.AvRating
+	53,  // 194: ddex.ern.v432.Release.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 195: ddex.ern.v432.Release.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	63,  // 196: ddex.ern.v432.Release.resource_group:type_name -> ddex.ern.v432.ResourceGroup
+	37,  // 197: ddex.ern.v432.Release.external_resource_link:type_name -> ddex.ern.v432.ExternalResourceLink
+	147, // 198: ddex.ern.v432.Release.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
+	77,  // 199: ddex.ern.v432.Release.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
+	51,  // 200: ddex.ern.v432.Release.raga:type_name -> ddex.ern.v432.Raga
+	78,  // 201: ddex.ern.v432.Release.tala:type_name -> ddex.ern.v432.Tala
+	24,  // 202: ddex.ern.v432.Release.deity:type_name -> ddex.ern.v432.Deity
+	149, // 203: ddex.ern.v432.Release.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
+	18,  // 204: ddex.ern.v432.ReleaseDeal.deal:type_name -> ddex.ern.v432.Deal
+	106, // 205: ddex.ern.v432.ReleaseId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 206: ddex.ern.v432.ReleaseId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	55,  // 207: ddex.ern.v432.ReleaseList.release:type_name -> ddex.ern.v432.Release
+	88,  // 208: ddex.ern.v432.ReleaseList.track_release:type_name -> ddex.ern.v432.TrackRelease
+	11,  // 209: ddex.ern.v432.ReleaseList.clip_release:type_name -> ddex.ern.v432.ClipRelease
+	120, // 210: ddex.ern.v432.ReleaseVisibility.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	120, // 211: ddex.ern.v432.ReleaseVisibility.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	30,  // 212: ddex.ern.v432.ResourceGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 213: ddex.ern.v432.ResourceGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 214: ddex.ern.v432.ResourceGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 215: ddex.ern.v432.ResourceGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	29,  // 216: ddex.ern.v432.ResourceGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	105, // 217: ddex.ern.v432.ResourceGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
+	67,  // 218: ddex.ern.v432.ResourceGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
+	64,  // 219: ddex.ern.v432.ResourceGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
+	40,  // 220: ddex.ern.v432.ResourceGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	58,  // 221: ddex.ern.v432.ResourceGroup.release_id:type_name -> ddex.ern.v432.ReleaseId
+	40,  // 222: ddex.ern.v432.ResourceGroupContentItem.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	73,  // 223: ddex.ern.v432.ResourceList.sound_recording:type_name -> ddex.ern.v432.SoundRecording
+	92,  // 224: ddex.ern.v432.ResourceList.video:type_name -> ddex.ern.v432.Video
+	39,  // 225: ddex.ern.v432.ResourceList.image:type_name -> ddex.ern.v432.Image
+	85,  // 226: ddex.ern.v432.ResourceList.text:type_name -> ddex.ern.v432.Text
+	71,  // 227: ddex.ern.v432.ResourceList.sheet_music:type_name -> ddex.ern.v432.SheetMusic
+	72,  // 228: ddex.ern.v432.ResourceList.software:type_name -> ddex.ern.v432.Software
+	25,  // 229: ddex.ern.v432.ResourceRightsController.delegated_usage_rights:type_name -> ddex.ern.v432.DelegatedUsageRights
+	162, // 230: ddex.ern.v432.ResourceRightsController.right_share_percentage:type_name -> ddex.ern.v432.Percentage
+	30,  // 231: ddex.ern.v432.ResourceSubGroup.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 232: ddex.ern.v432.ResourceSubGroup.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 233: ddex.ern.v432.ResourceSubGroup.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 234: ddex.ern.v432.ResourceSubGroup.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	29,  // 235: ddex.ern.v432.ResourceSubGroup.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	105, // 236: ddex.ern.v432.ResourceSubGroup.carrier_type:type_name -> ddex.ern.v432.CarrierType
+	67,  // 237: ddex.ern.v432.ResourceSubGroup.resource_group:type_name -> ddex.ern.v432.ResourceSubGroup
+	64,  // 238: ddex.ern.v432.ResourceSubGroup.resource_group_content_item:type_name -> ddex.ern.v432.ResourceGroupContentItem
+	40,  // 239: ddex.ern.v432.ResourceSubGroup.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	58,  // 240: ddex.ern.v432.ResourceSubGroup.release_id:type_name -> ddex.ern.v432.ReleaseId
+	13,  // 241: ddex.ern.v432.RightsClaimPolicy.condition:type_name -> ddex.ern.v432.ConditionForRightsClaimPolicy
+	181, // 242: ddex.ern.v432.RightsClaimPolicy.rights_claim_policy_reason:type_name -> ddex.ern.v432.RightsClaimPolicyReason
+	155, // 243: ddex.ern.v432.ServiceException.trading_name:type_name -> ddex.ern.v432.Name
+	6,   // 244: ddex.ern.v432.ServiceException.channel:type_name -> ddex.ern.v432.Channel
+	123, // 245: ddex.ern.v432.ServiceException.party_id:type_name -> ddex.ern.v432.DetailedPartyId
+	159, // 246: ddex.ern.v432.ServiceException.party_name:type_name -> ddex.ern.v432.PartyName
+	187, // 247: ddex.ern.v432.SheetMusic.type:type_name -> ddex.ern.v432.SheetMusicType
+	186, // 248: ddex.ern.v432.SheetMusic.resource_id:type_name -> ddex.ern.v432.SheetMusicId
+	154, // 249: ddex.ern.v432.SheetMusic.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 250: ddex.ern.v432.SheetMusic.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 251: ddex.ern.v432.SheetMusic.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 252: ddex.ern.v432.SheetMusic.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 253: ddex.ern.v432.SheetMusic.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 254: ddex.ern.v432.SheetMusic.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 255: ddex.ern.v432.SheetMusic.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 256: ddex.ern.v432.SheetMusic.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 257: ddex.ern.v432.SheetMusic.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 258: ddex.ern.v432.SheetMusic.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 259: ddex.ern.v432.SheetMusic.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	104, // 260: ddex.ern.v432.SheetMusic.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 261: ddex.ern.v432.SheetMusic.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 262: ddex.ern.v432.SheetMusic.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 263: ddex.ern.v432.SheetMusic.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 264: ddex.ern.v432.SheetMusic.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 265: ddex.ern.v432.SheetMusic.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 266: ddex.ern.v432.SheetMusic.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	177, // 267: ddex.ern.v432.SheetMusic.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	80,  // 268: ddex.ern.v432.SheetMusic.technical_details:type_name -> ddex.ern.v432.TechnicalSheetMusicDetails
+	188, // 269: ddex.ern.v432.Software.type:type_name -> ddex.ern.v432.SoftwareType
+	180, // 270: ddex.ern.v432.Software.resource_id:type_name -> ddex.ern.v432.ResourceProprietaryId
+	154, // 271: ddex.ern.v432.Software.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 272: ddex.ern.v432.Software.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 273: ddex.ern.v432.Software.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 274: ddex.ern.v432.Software.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 275: ddex.ern.v432.Software.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 276: ddex.ern.v432.Software.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 277: ddex.ern.v432.Software.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 278: ddex.ern.v432.Software.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 279: ddex.ern.v432.Software.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 280: ddex.ern.v432.Software.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 281: ddex.ern.v432.Software.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	157, // 282: ddex.ern.v432.Software.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 283: ddex.ern.v432.Software.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 284: ddex.ern.v432.Software.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 285: ddex.ern.v432.Software.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 286: ddex.ern.v432.Software.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 287: ddex.ern.v432.Software.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 288: ddex.ern.v432.Software.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 289: ddex.ern.v432.Software.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	177, // 290: ddex.ern.v432.Software.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	81,  // 291: ddex.ern.v432.Software.technical_details:type_name -> ddex.ern.v432.TechnicalSoftwareDetails
+	190, // 292: ddex.ern.v432.SoundRecording.type:type_name -> ddex.ern.v432.SoundRecordingType
+	75,  // 293: ddex.ern.v432.SoundRecording.sound_recording_edition:type_name -> ddex.ern.v432.SoundRecordingEdition
+	52,  // 294: ddex.ern.v432.SoundRecording.recording_format:type_name -> ddex.ern.v432.RecordingFormat
+	154, // 295: ddex.ern.v432.SoundRecording.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 296: ddex.ern.v432.SoundRecording.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 297: ddex.ern.v432.SoundRecording.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 298: ddex.ern.v432.SoundRecording.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 299: ddex.ern.v432.SoundRecording.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 300: ddex.ern.v432.SoundRecording.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 301: ddex.ern.v432.SoundRecording.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 302: ddex.ern.v432.SoundRecording.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 303: ddex.ern.v432.SoundRecording.contributor:type_name -> ddex.ern.v432.Contributor
+	9,   // 304: ddex.ern.v432.SoundRecording.character:type_name -> ddex.ern.v432.Character
+	66,  // 305: ddex.ern.v432.SoundRecording.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 306: ddex.ern.v432.SoundRecording.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	113, // 307: ddex.ern.v432.SoundRecording.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 308: ddex.ern.v432.SoundRecording.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 309: ddex.ern.v432.SoundRecording.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 310: ddex.ern.v432.SoundRecording.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	136, // 311: ddex.ern.v432.SoundRecording.first_publication_date:type_name -> ddex.ern.v432.FirstPublicationDate
+	41,  // 312: ddex.ern.v432.SoundRecording.location_and_date_of_session:type_name -> ddex.ern.v432.LocationAndDateOfSession
+	158, // 313: ddex.ern.v432.SoundRecording.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 314: ddex.ern.v432.SoundRecording.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 315: ddex.ern.v432.SoundRecording.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	126, // 316: ddex.ern.v432.SoundRecording.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	148, // 317: ddex.ern.v432.SoundRecording.language_of_performance:type_name -> ddex.ern.v432.Language
+	51,  // 318: ddex.ern.v432.SoundRecording.raga:type_name -> ddex.ern.v432.Raga
+	78,  // 319: ddex.ern.v432.SoundRecording.tala:type_name -> ddex.ern.v432.Tala
+	24,  // 320: ddex.ern.v432.SoundRecording.deity:type_name -> ddex.ern.v432.Deity
+	108, // 321: ddex.ern.v432.SoundRecordingClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
+	86,  // 322: ddex.ern.v432.SoundRecordingClipDetails.timing:type_name -> ddex.ern.v432.Timing
+	3,   // 323: ddex.ern.v432.SoundRecordingClipDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
+	189, // 324: ddex.ern.v432.SoundRecordingEdition.resource_id:type_name -> ddex.ern.v432.SoundRecordingId
+	32,  // 325: ddex.ern.v432.SoundRecordingEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
+	157, // 326: ddex.ern.v432.SoundRecordingEdition.p_line:type_name -> ddex.ern.v432.PLine
+	82,  // 327: ddex.ern.v432.SoundRecordingEdition.technical_details:type_name -> ddex.ern.v432.TechnicalSoundRecordingDetails
+	133, // 328: ddex.ern.v432.SupplementalDocumentList.supplemental_document:type_name -> ddex.ern.v432.File
+	143, // 329: ddex.ern.v432.TechnicalImageDetails.image_codec_type:type_name -> ddex.ern.v432.ImageCodecType
+	131, // 330: ddex.ern.v432.TechnicalImageDetails.image_height:type_name -> ddex.ern.v432.Extent
+	131, // 331: ddex.ern.v432.TechnicalImageDetails.image_width:type_name -> ddex.ern.v432.Extent
+	101, // 332: ddex.ern.v432.TechnicalImageDetails.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
+	10,  // 333: ddex.ern.v432.TechnicalImageDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 334: ddex.ern.v432.TechnicalImageDetails.file:type_name -> ddex.ern.v432.File
+	134, // 335: ddex.ern.v432.TechnicalImageDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	185, // 336: ddex.ern.v432.TechnicalSheetMusicDetails.sheet_music_codec_type:type_name -> ddex.ern.v432.SheetMusicCodecType
+	10,  // 337: ddex.ern.v432.TechnicalSheetMusicDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 338: ddex.ern.v432.TechnicalSheetMusicDetails.file:type_name -> ddex.ern.v432.File
+	134, // 339: ddex.ern.v432.TechnicalSheetMusicDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	156, // 340: ddex.ern.v432.TechnicalSoftwareDetails.operating_system_type:type_name -> ddex.ern.v432.OperatingSystemType
+	10,  // 341: ddex.ern.v432.TechnicalSoftwareDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 342: ddex.ern.v432.TechnicalSoftwareDetails.file:type_name -> ddex.ern.v432.File
+	134, // 343: ddex.ern.v432.TechnicalSoftwareDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	3,   // 344: ddex.ern.v432.TechnicalSoundRecordingDetails.delivery_file:type_name -> ddex.ern.v432.AudioDeliveryFile
+	74,  // 345: ddex.ern.v432.TechnicalSoundRecordingDetails.clip_details:type_name -> ddex.ern.v432.SoundRecordingClipDetails
+	194, // 346: ddex.ern.v432.TechnicalTextDetails.text_codec_type:type_name -> ddex.ern.v432.TextCodecType
+	10,  // 347: ddex.ern.v432.TechnicalTextDetails.clip_details:type_name -> ddex.ern.v432.ClipDetails
+	133, // 348: ddex.ern.v432.TechnicalTextDetails.file:type_name -> ddex.ern.v432.File
+	134, // 349: ddex.ern.v432.TechnicalTextDetails.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	103, // 350: ddex.ern.v432.TechnicalVideoDetails.overall_bit_rate:type_name -> ddex.ern.v432.BitRate
+	94,  // 351: ddex.ern.v432.TechnicalVideoDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
+	93,  // 352: ddex.ern.v432.TechnicalVideoDetails.clip_details:type_name -> ddex.ern.v432.VideoClipDetails
+	196, // 353: ddex.ern.v432.Text.type:type_name -> ddex.ern.v432.TextType
+	195, // 354: ddex.ern.v432.Text.resource_id:type_name -> ddex.ern.v432.TextId
+	154, // 355: ddex.ern.v432.Text.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 356: ddex.ern.v432.Text.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 357: ddex.ern.v432.Text.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 358: ddex.ern.v432.Text.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 359: ddex.ern.v432.Text.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 360: ddex.ern.v432.Text.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 361: ddex.ern.v432.Text.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 362: ddex.ern.v432.Text.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 363: ddex.ern.v432.Text.contributor:type_name -> ddex.ern.v432.Contributor
+	66,  // 364: ddex.ern.v432.Text.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 365: ddex.ern.v432.Text.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	104, // 366: ddex.ern.v432.Text.c_line:type_name -> ddex.ern.v432.CLine
+	113, // 367: ddex.ern.v432.Text.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 368: ddex.ern.v432.Text.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 369: ddex.ern.v432.Text.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 370: ddex.ern.v432.Text.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	53,  // 371: ddex.ern.v432.Text.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 372: ddex.ern.v432.Text.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	177, // 373: ddex.ern.v432.Text.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	83,  // 374: ddex.ern.v432.Text.technical_details:type_name -> ddex.ern.v432.TechnicalTextDetails
+	148, // 375: ddex.ern.v432.Text.language_of_text:type_name -> ddex.ern.v432.Language
+	58,  // 376: ddex.ern.v432.TrackRelease.release_id:type_name -> ddex.ern.v432.ReleaseId
+	30,  // 377: ddex.ern.v432.TrackRelease.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 378: ddex.ern.v432.TrackRelease.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 379: ddex.ern.v432.TrackRelease.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 380: ddex.ern.v432.TrackRelease.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	40,  // 381: ddex.ern.v432.TrackRelease.linked_release_resource_reference:type_name -> ddex.ern.v432.LinkedReleaseResourceReference
+	60,  // 382: ddex.ern.v432.TrackRelease.release_label_reference:type_name -> ddex.ern.v432.ReleaseLabelReferenceWithParty
+	141, // 383: ddex.ern.v432.TrackRelease.display_genre:type_name -> ddex.ern.v432.GenreWithTerritory
+	53,  // 384: ddex.ern.v432.TrackRelease.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 385: ddex.ern.v432.TrackRelease.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	147, // 386: ddex.ern.v432.TrackRelease.keywords:type_name -> ddex.ern.v432.KeywordsWithTerritory
+	77,  // 387: ddex.ern.v432.TrackRelease.synopsis:type_name -> ddex.ern.v432.SynopsisWithTerritory
+	149, // 388: ddex.ern.v432.TrackRelease.marketing_comment:type_name -> ddex.ern.v432.MarketingComment
+	120, // 389: ddex.ern.v432.TrackReleaseVisibility.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	120, // 390: ddex.ern.v432.TrackReleaseVisibility.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	96,  // 391: ddex.ern.v432.Video.type:type_name -> ddex.ern.v432.VideoType
+	95,  // 392: ddex.ern.v432.Video.video_edition:type_name -> ddex.ern.v432.VideoEdition
+	52,  // 393: ddex.ern.v432.Video.recording_format:type_name -> ddex.ern.v432.RecordingFormat
+	154, // 394: ddex.ern.v432.Video.work_id:type_name -> ddex.ern.v432.MusicalWorkId
+	30,  // 395: ddex.ern.v432.Video.display_title_text:type_name -> ddex.ern.v432.DisplayTitleText
+	128, // 396: ddex.ern.v432.Video.display_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 397: ddex.ern.v432.Video.formal_title:type_name -> ddex.ern.v432.DisplayTitle
+	128, // 398: ddex.ern.v432.Video.grouping_title:type_name -> ddex.ern.v432.DisplayTitle
+	202, // 399: ddex.ern.v432.Video.version_type:type_name -> ddex.ern.v432.VersionType
+	124, // 400: ddex.ern.v432.Video.display_artist_name:type_name -> ddex.ern.v432.DisplayArtistNameWithOriginalLanguage
+	29,  // 401: ddex.ern.v432.Video.display_artist:type_name -> ddex.ern.v432.DisplayArtist
+	110, // 402: ddex.ern.v432.Video.contributor:type_name -> ddex.ern.v432.Contributor
+	9,   // 403: ddex.ern.v432.Video.character:type_name -> ddex.ern.v432.Character
+	66,  // 404: ddex.ern.v432.Video.resource_rights_controller:type_name -> ddex.ern.v432.ResourceRightsController
+	97,  // 405: ddex.ern.v432.Video.work_rights_controller:type_name -> ddex.ern.v432.WorkRightsController
+	113, // 406: ddex.ern.v432.Video.courtesy_line:type_name -> ddex.ern.v432.CourtesyLine
+	36,  // 407: ddex.ern.v432.Video.creation_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 408: ddex.ern.v432.Video.mastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	36,  // 409: ddex.ern.v432.Video.remastered_date:type_name -> ddex.ern.v432.EventDateWithoutFlags
+	138, // 410: ddex.ern.v432.Video.first_publication_date:type_name -> ddex.ern.v432.FulfillmentDate
+	158, // 411: ddex.ern.v432.Video.parental_warning_type:type_name -> ddex.ern.v432.ParentalWarningTypeWithStandard
+	4,   // 412: ddex.ern.v432.Video.av_rating:type_name -> ddex.ern.v432.AvRating
+	53,  // 413: ddex.ern.v432.Video.related_release:type_name -> ddex.ern.v432.RelatedRelease
+	54,  // 414: ddex.ern.v432.Video.related_resource:type_name -> ddex.ern.v432.RelatedResource
+	126, // 415: ddex.ern.v432.Video.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	148, // 416: ddex.ern.v432.Video.language_of_performance:type_name -> ddex.ern.v432.Language
+	177, // 417: ddex.ern.v432.Video.resource_contained_resource_reference_list:type_name -> ddex.ern.v432.ResourceContainedResourceReferenceList
+	172, // 418: ddex.ern.v432.Video.reason_for_cue_sheet_absence:type_name -> ddex.ern.v432.Reason
+	108, // 419: ddex.ern.v432.VideoClipDetails.clip_type:type_name -> ddex.ern.v432.ClipType
+	86,  // 420: ddex.ern.v432.VideoClipDetails.timing:type_name -> ddex.ern.v432.Timing
+	94,  // 421: ddex.ern.v432.VideoClipDetails.delivery_file:type_name -> ddex.ern.v432.VideoDeliveryFile
+	109, // 422: ddex.ern.v432.VideoDeliveryFile.container_format:type_name -> ddex.ern.v432.ContainerFormat
+	203, // 423: ddex.ern.v432.VideoDeliveryFile.video_codec_type:type_name -> ddex.ern.v432.VideoCodecType
+	103, // 424: ddex.ern.v432.VideoDeliveryFile.video_bit_rate:type_name -> ddex.ern.v432.BitRate
+	137, // 425: ddex.ern.v432.VideoDeliveryFile.frame_rate:type_name -> ddex.ern.v432.FrameRate
+	131, // 426: ddex.ern.v432.VideoDeliveryFile.image_height:type_name -> ddex.ern.v432.Extent
+	131, // 427: ddex.ern.v432.VideoDeliveryFile.image_width:type_name -> ddex.ern.v432.Extent
+	101, // 428: ddex.ern.v432.VideoDeliveryFile.aspect_ratio:type_name -> ddex.ern.v432.AspectRatio
+	14,  // 429: ddex.ern.v432.VideoDeliveryFile.core_area:type_name -> ddex.ern.v432.CoreArea
+	204, // 430: ddex.ern.v432.VideoDeliveryFile.video_definition_type:type_name -> ddex.ern.v432.VideoDefinitionType
+	102, // 431: ddex.ern.v432.VideoDeliveryFile.audio_codec_type:type_name -> ddex.ern.v432.AudioCodecType
+	38,  // 432: ddex.ern.v432.VideoDeliveryFile.hdr_video_dynamic_metadata_type:type_name -> ddex.ern.v432.HdrVideoDynamicMetadataType
+	103, // 433: ddex.ern.v432.VideoDeliveryFile.audio_bit_rate:type_name -> ddex.ern.v432.BitRate
+	183, // 434: ddex.ern.v432.VideoDeliveryFile.audio_sampling_rate:type_name -> ddex.ern.v432.SamplingRate
+	133, // 435: ddex.ern.v432.VideoDeliveryFile.file:type_name -> ddex.ern.v432.File
+	134, // 436: ddex.ern.v432.VideoDeliveryFile.fingerprint:type_name -> ddex.ern.v432.Fingerprint
+	205, // 437: ddex.ern.v432.VideoEdition.resource_id:type_name -> ddex.ern.v432.VideoId
+	32,  // 438: ddex.ern.v432.VideoEdition.edition_contributor:type_name -> ddex.ern.v432.EditionContributor
+	157, // 439: ddex.ern.v432.VideoEdition.p_line:type_name -> ddex.ern.v432.PLine
+	104, // 440: ddex.ern.v432.VideoEdition.c_line:type_name -> ddex.ern.v432.CLine
+	84,  // 441: ddex.ern.v432.VideoEdition.technical_details:type_name -> ddex.ern.v432.TechnicalVideoDetails
+	100, // 442: ddex.ern.v432.WorkRightsController.territory:type_name -> ddex.ern.v432.AllTerritoryCode
+	200, // 443: ddex.ern.v432.Affiliation.validity_period:type_name -> ddex.ern.v432.ValidityPeriod
+	182, // 444: ddex.ern.v432.Affiliation.rights_type:type_name -> ddex.ern.v432.RightsType
+	120, // 445: ddex.ern.v432.Affiliation.territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	120, // 446: ddex.ern.v432.Affiliation.excluded_territory_code:type_name -> ddex.ern.v432.CurrentTerritoryCode
+	106, // 447: ddex.ern.v432.ChapterId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 448: ddex.ern.v432.ChapterId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	111, // 449: ddex.ern.v432.Contributor.role:type_name -> ddex.ern.v432.ContributorRole
+	145, // 450: ddex.ern.v432.Contributor.instrument_type:type_name -> ddex.ern.v432.InstrumentType
+	146, // 451: ddex.ern.v432.Contributor.is_credited:type_name -> ddex.ern.v432.IsCredited
+	126, // 452: ddex.ern.v432.Contributor.display_credits:type_name -> ddex.ern.v432.DisplayCredits
+	191, // 453: ddex.ern.v432.Contributor.special_contributor:type_name -> ddex.ern.v432.SpecialContributorType
+	112, // 454: ddex.ern.v432.ContributorRole.value:type_name -> ddex.ern.v432.ContributorRoleValue
+	145, // 455: ddex.ern.v432.ContributorRole.instrument_type:type_name -> ddex.ern.v432.InstrumentType
+	155, // 456: ddex.ern.v432.DSP.trading_name:type_name -> ddex.ern.v432.Name
+	123, // 457: ddex.ern.v432.DSP.party_id:type_name -> ddex.ern.v432.DetailedPartyId
+	159, // 458: ddex.ern.v432.DSP.party_name:type_name -> ddex.ern.v432.PartyName
+	142, // 459: ddex.ern.v432.DetailedHashSum.algorithm:type_name -> ddex.ern.v432.HashSumAlgorithmType
+	168, // 460: ddex.ern.v432.DetailedPartyId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	127, // 461: ddex.ern.v432.DisplayTitle.sub_title:type_name -> ddex.ern.v432.DisplaySubTitle
+	122, // 462: ddex.ern.v432.File.hash_sum:type_name -> ddex.ern.v432.DetailedHashSum
+	135, // 463: ddex.ern.v432.Fingerprint.algorithm:type_name -> ddex.ern.v432.FingerprintAlgorithmType
+	133, // 464: ddex.ern.v432.Fingerprint.file:type_name -> ddex.ern.v432.File
+	140, // 465: ddex.ern.v432.GenreCategory.value:type_name -> ddex.ern.v432.GenreCategoryValue
+	198, // 466: ddex.ern.v432.GenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
+	139, // 467: ddex.ern.v432.GenreWithTerritory.genre_category:type_name -> ddex.ern.v432.GenreCategory
+	192, // 468: ddex.ern.v432.GenreWithTerritory.sub_genre_category:type_name -> ddex.ern.v432.SubGenreCategory
+	151, // 469: ddex.ern.v432.MessageAuditTrail.message_audit_trail_event:type_name -> ddex.ern.v432.MessageAuditTrailEvent
+	153, // 470: ddex.ern.v432.MessageAuditTrailEvent.messaging_party_descriptor:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 471: ddex.ern.v432.MessageHeader.message_sender:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 472: ddex.ern.v432.MessageHeader.sent_on_behalf_of:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 473: ddex.ern.v432.MessageHeader.message_recipient:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	153, // 474: ddex.ern.v432.MessageHeader.sent_as_requested_by:type_name -> ddex.ern.v432.MessagingPartyWithoutCode
+	150, // 475: ddex.ern.v432.MessageHeader.message_audit_trail:type_name -> ddex.ern.v432.MessageAuditTrail
+	160, // 476: ddex.ern.v432.MessagingPartyWithoutCode.party_name:type_name -> ddex.ern.v432.PartyNameWithoutCode
+	168, // 477: ddex.ern.v432.MusicalWorkId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	155, // 478: ddex.ern.v432.PartyName.full_name:type_name -> ddex.ern.v432.Name
+	155, // 479: ddex.ern.v432.PartyName.full_name_indexed:type_name -> ddex.ern.v432.Name
+	155, // 480: ddex.ern.v432.PartyName.names_before_key_name:type_name -> ddex.ern.v432.Name
+	155, // 481: ddex.ern.v432.PartyName.key_name:type_name -> ddex.ern.v432.Name
+	155, // 482: ddex.ern.v432.PartyName.names_after_key_name:type_name -> ddex.ern.v432.Name
+	155, // 483: ddex.ern.v432.PartyName.abbreviated_name:type_name -> ddex.ern.v432.Name
+	129, // 484: ddex.ern.v432.Period.start_date:type_name -> ddex.ern.v432.EventDate
+	129, // 485: ddex.ern.v432.Period.end_date:type_name -> ddex.ern.v432.EventDate
+	130, // 486: ddex.ern.v432.Period.start_date_time:type_name -> ddex.ern.v432.EventDateTime
+	130, // 487: ddex.ern.v432.Period.end_date_time:type_name -> ddex.ern.v432.EventDateTime
+	161, // 488: ddex.ern.v432.RelatedParty.party_relationship_type:type_name -> ddex.ern.v432.PartyRelationshipType
+	169, // 489: ddex.ern.v432.ResourceContainedResourceReference.purpose:type_name -> ddex.ern.v432.Purpose
+	176, // 490: ddex.ern.v432.ResourceContainedResourceReferenceList.resource_contained_resource_reference:type_name -> ddex.ern.v432.ResourceContainedResourceReference
+	106, // 491: ddex.ern.v432.ResourceId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 492: ddex.ern.v432.ResourceId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	168, // 493: ddex.ern.v432.ResourceProprietaryId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	168, // 494: ddex.ern.v432.SheetMusicId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	106, // 495: ddex.ern.v432.SoundRecordingId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 496: ddex.ern.v432.SoundRecordingId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	193, // 497: ddex.ern.v432.SubGenreCategory.value:type_name -> ddex.ern.v432.SubGenreCategoryValue
+	198, // 498: ddex.ern.v432.SubGenreCategory.description:type_name -> ddex.ern.v432.TextWithoutTerritory
+	168, // 499: ddex.ern.v432.TextId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	164, // 500: ddex.ern.v432.TitleDisplayInformation.prefix:type_name -> ddex.ern.v432.Prefix
+	129, // 501: ddex.ern.v432.ValidityPeriod.start_date:type_name -> ddex.ern.v432.EventDate
+	129, // 502: ddex.ern.v432.ValidityPeriod.end_date:type_name -> ddex.ern.v432.EventDate
+	100, // 503: ddex.ern.v432.Venue.territory_code:type_name -> ddex.ern.v432.AllTerritoryCode
+	106, // 504: ddex.ern.v432.VideoId.catalog_number:type_name -> ddex.ern.v432.CatalogNumber
+	168, // 505: ddex.ern.v432.VideoId.proprietary_id:type_name -> ddex.ern.v432.ProprietaryId
+	506, // [506:506] is the sub-list for method output_type
+	506, // [506:506] is the sub-list for method input_type
+	506, // [506:506] is the sub-list for extension type_name
+	506, // [506:506] is the sub-list for extension extendee
+	0,   // [0:506] is the sub-list for field type_name
 }
 
 func init() { file_ddex_ern_v432_v432_proto_init() }
@@ -24709,137 +20748,13 @@ func file_ddex_ern_v432_v432_proto_init() {
 	if File_ddex_ern_v432_v432_proto != nil {
 		return
 	}
-	file_ddex_ern_v432_v432_proto_msgTypes[6].OneofWrappers = []any{
-		(*BrandChoice2_BrandIdOption)(nil),
-		(*BrandChoice2_Sequence_1)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[17].OneofWrappers = []any{
-		(*CueChoice18_ResourceId)(nil),
-		(*CueChoice18_WorkId)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[25].OneofWrappers = []any{
-		(*DealTermsChoice14_TerritoryCodeOption)(nil),
-		(*DealTermsChoice14_ExcludedTerritoryCodeOption)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[26].OneofWrappers = []any{
-		(*DealTermsChoice15_DistributionChannelOption)(nil),
-		(*DealTermsChoice15_ExcludedDistributionChannelOption)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[27].OneofWrappers = []any{
-		(*DealTermsChoice16_IsPromotional)(nil),
-		(*DealTermsChoice16_PromotionalCode)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[33].OneofWrappers = []any{
-		(*DetailedResourceContributorChoice6_PartyIdOption)(nil),
-		(*DetailedResourceContributorChoice6_Sequence_1)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[36].OneofWrappers = []any{
-		(*DisplayArtistChoice4_SpecialDisplayArtist)(nil),
-		(*DisplayArtistChoice4_Sequence_1)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[40].OneofWrappers = []any{
-		(*EditionContributorChoice7_ContributorPartyReference)(nil),
-		(*EditionContributorChoice7_SpecialContributor)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[51].OneofWrappers = []any{
-		(*PartyChoice5_PartyIdOption)(nil),
-		(*PartyChoice5_Sequence_1)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[56].OneofWrappers = []any{
-		(*PeriodWithStartDateChoice_Sequence_1)(nil),
-		(*PeriodWithStartDateChoice_Sequence_2)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[58].OneofWrappers = []any{
-		(*PeriodWithoutFlagsChoice_Sequence_1)(nil),
-		(*PeriodWithoutFlagsChoice_Sequence_2)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[66].OneofWrappers = []any{
-		(*RelatedResourceChoice3_ResourceRelatedResourceReference)(nil),
-		(*RelatedResourceChoice3_ResourceId)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[68].OneofWrappers = []any{
-		(*ReleaseChoice38_IsSingleArtistCompilation)(nil),
-		(*ReleaseChoice38_IsMultiArtistCompilation)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[76].OneofWrappers = []any{
-		(*ReleaseVisibilityChoice6_TerritoryCodeOption)(nil),
-		(*ReleaseVisibilityChoice6_ExcludedTerritoryCodeOption)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[78].OneofWrappers = []any{
-		(*ResourceGroupChoice12_NoDisplaySequence)(nil),
-		(*ResourceGroupChoice12_DisplaySequence)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[79].OneofWrappers = []any{
-		(*ResourceGroupChoice13_ResourceGroupReleaseReference)(nil),
-		(*ResourceGroupChoice13_ReleaseId)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[81].OneofWrappers = []any{
-		(*ResourceGroupContentItemChoice7_NoDisplaySequence)(nil),
-		(*ResourceGroupContentItemChoice7_DisplaySequence)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[84].OneofWrappers = []any{
-		(*ResourceRightsControllerChoice4_RightShareUnknown)(nil),
-		(*ResourceRightsControllerChoice4_RightSharePercentage)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[86].OneofWrappers = []any{
-		(*ResourceSubGroupChoice12_NoDisplaySequence)(nil),
-		(*ResourceSubGroupChoice12_DisplaySequence)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[87].OneofWrappers = []any{
-		(*ResourceSubGroupChoice13_ResourceGroupReleaseReference)(nil),
-		(*ResourceSubGroupChoice13_ReleaseId)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[90].OneofWrappers = []any{
-		(*SegmentChoice2_Duration)(nil),
-		(*SegmentChoice2_EndTime)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[92].OneofWrappers = []any{
-		(*ServiceExceptionChoice4_PartyIdOption)(nil),
-		(*ServiceExceptionChoice4_Sequence_1)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[112].OneofWrappers = []any{
-		(*TrackReleaseVisibilityChoice4_TerritoryCodeOption)(nil),
-		(*TrackReleaseVisibilityChoice4_ExcludedTerritoryCodeOption)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[116].OneofWrappers = []any{
-		(*VideoChoice44_VideoCueSheetReferenceOption)(nil),
-		(*VideoChoice44_ReasonForCueSheetAbsence)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[122].OneofWrappers = []any{
-		(*WorkRightsControllerChoice7_RightShareUnknown)(nil),
-		(*WorkRightsControllerChoice7_RightSharePercentage)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[125].OneofWrappers = []any{
-		(*AffiliationChoice5_CompanyName)(nil),
-		(*AffiliationChoice5_PartyAffiliateReference)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[126].OneofWrappers = []any{
-		(*AffiliationChoice6_TerritoryCodeOption)(nil),
-		(*AffiliationChoice6_ExcludedTerritoryCodeOption)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[138].OneofWrappers = []any{
-		(*ContributorChoice8_ContributorPartyReference)(nil),
-		(*ContributorChoice8_SpecialContributor)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[150].OneofWrappers = []any{
-		(*DSPChoice3_PartyIdOption)(nil),
-		(*DSPChoice3_Sequence_1)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[164].OneofWrappers = []any{
-		(*FingerprintChoice4_File)(nil),
-		(*FingerprintChoice4_Sequence_1)(nil),
-	}
-	file_ddex_ern_v432_v432_proto_msgTypes[194].OneofWrappers = []any{
-		(*PeriodChoice_Sequence_1)(nil),
-		(*PeriodChoice_Sequence_2)(nil),
-	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ddex_ern_v432_v432_proto_rawDesc), len(file_ddex_ern_v432_v432_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   266,
+			NumMessages:   206,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

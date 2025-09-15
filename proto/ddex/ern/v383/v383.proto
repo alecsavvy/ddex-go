@@ -108,27 +108,10 @@ message CatalogTransfer {
   ddex.ern.v383.PartyDescriptor transferring_from = 4;
   // @gotags: xml:"TransferringTo"
   ddex.ern.v383.PartyDescriptor transferring_to = 5;
-  // Choice wrapper for XSD choice within sequence
-  CatalogTransferChoice choice = 6;
-}
-
-message CatalogTransferChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.AllTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.AllTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.AllTerritoryCode territory_code = 6;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.AllTerritoryCode excluded_territory_code = 7;
 }
 
 message Collection {
@@ -189,27 +172,10 @@ message CollectionDetailsByTerritory {
   bool is_complete = 3;
   // @gotags: xml:"Character"
   repeated ddex.ern.v383.Character character = 4;
-  // Choice wrapper for XSD choice within sequence
-  CollectionDetailsByTerritoryChoice choice = 5;
-}
-
-message CollectionDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 5;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 6;
 }
 
 message CollectionList {
@@ -258,36 +224,20 @@ message Cue {
   repeated ddex.ern.v383.PLine p_line = 11;
   // @gotags: xml:"CLine"
   repeated ddex.ern.v383.CLine c_line = 12;
-  // Choice wrapper for XSD choice within sequence
-  CueChoice choice = 13;
-}
-
-message CueChoice {
-  message Option1 {
-    // @gotags: xml:"ReferencedCreationType"
-  string referenced_creation_type = 1;
-    // @gotags: xml:"ReferencedCreationId"
-  ddex.ern.v383.CreationId referenced_creation_id = 2;
-    // @gotags: xml:"ReferencedCreationTitle"
-  repeated ddex.ern.v383.Title referenced_creation_title = 3;
-    // @gotags: xml:"ReferencedCreationContributor"
-  repeated ddex.ern.v383.DetailedResourceContributor referenced_creation_contributor = 4;
-    // @gotags: xml:"ReferencedIndirectCreationContributor"
-  repeated ddex.ern.v383.MusicalWorkContributor referenced_indirect_creation_contributor = 5;
-    // @gotags: xml:"ReferencedCreationCharacter"
-  repeated ddex.ern.v383.Character referenced_creation_character = 6;
-  }
-
-  message Option2 {
-    // @gotags: xml:"CueCreationReference"
-    repeated ddex.ern.v383.CueCreationReference cue_creation_reference = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"CueCreationReference"
-    Option2 cue_creation_reference_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"CueCreationReference"
+  repeated ddex.ern.v383.CueCreationReference cue_creation_reference = 13;
+  // @gotags: xml:"ReferencedCreationType"
+  string referenced_creation_type = 14;
+  // @gotags: xml:"ReferencedCreationId"
+  ddex.ern.v383.CreationId referenced_creation_id = 15;
+  // @gotags: xml:"ReferencedCreationTitle"
+  repeated ddex.ern.v383.Title referenced_creation_title = 16;
+  // @gotags: xml:"ReferencedCreationContributor"
+  repeated ddex.ern.v383.DetailedResourceContributor referenced_creation_contributor = 17;
+  // @gotags: xml:"ReferencedIndirectCreationContributor"
+  repeated ddex.ern.v383.MusicalWorkContributor referenced_indirect_creation_contributor = 18;
+  // @gotags: xml:"ReferencedCreationCharacter"
+  repeated ddex.ern.v383.Character referenced_creation_character = 19;
 }
 
 message CueSheet {
@@ -369,114 +319,46 @@ message DealTerms {
   repeated ddex.ern.v383.RightsClaimPolicy rights_claim_policy = 13;
   // @gotags: xml:"WebPolicy"
   repeated ddex.ern.v383.WebPolicy web_policy = 14;
-  // Choice wrapper for XSD choice within sequence
-  DealTermsChoice1 choice = 15;
-  // Choice wrapper for XSD choice within sequence
-  DealTermsChoice2 choice_1 = 16;
-  // Choice wrapper for XSD choice within sequence
-  DealTermsChoice3 choice_2 = 17;
-  // Choice wrapper for XSD choice within sequence
-  DealTermsChoice4 choice_3 = 18;
-  // Choice wrapper for XSD choice within sequence
-  DealTermsChoice5 choice_4 = 19;
+  // @gotags: xml:"Usage"
+  repeated ddex.ern.v383.Usage usage = 15;
+  // @gotags: xml:"AllDealsCancelled"
+  bool all_deals_cancelled = 16;
+  // @gotags: xml:"TakeDown"
+  bool take_down = 17;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 18;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 19;
+  // @gotags: xml:"DistributionChannel"
+  repeated ddex.ern.v383.DSP distribution_channel = 20;
+  // @gotags: xml:"ExcludedDistributionChannel"
+  repeated ddex.ern.v383.DSP excluded_distribution_channel = 21;
+  // @gotags: xml:"IsPromotional"
+  bool is_promotional = 22;
+  // @gotags: xml:"PromotionalCode"
+  ddex.ern.v383.PromotionalCode promotional_code = 23;
+  // @gotags: xml:"PreOrderPreviewDate"
+  ddex.ern.v383.EventDate pre_order_preview_date = 24;
+  // @gotags: xml:"PreOrderPreviewDateTime"
+  string pre_order_preview_date_time = 25;
+  // @gotags: xml:"ReleaseDisplayStartDate"
+  string release_display_start_date = 26;
+  // @gotags: xml:"TrackListingPreviewStartDate"
+  string track_listing_preview_start_date = 27;
+  // @gotags: xml:"CoverArtPreviewStartDate"
+  string cover_art_preview_start_date = 28;
+  // @gotags: xml:"ClipPreviewStartDate"
+  string clip_preview_start_date = 29;
+  // @gotags: xml:"ReleaseDisplayStartDateTime"
+  string release_display_start_date_time = 30;
+  // @gotags: xml:"TrackListingPreviewStartDateTime"
+  string track_listing_preview_start_date_time = 31;
+  // @gotags: xml:"CoverArtPreviewStartDateTime"
+  string cover_art_preview_start_date_time = 32;
+  // @gotags: xml:"ClipPreviewStartDateTime"
+  string clip_preview_start_date_time = 33;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 20;
-}
-
-message DealTermsChoice1 {
-  message Option1 {
-    // @gotags: xml:"Usage"
-    repeated ddex.ern.v383.Usage usage = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"Usage"
-    Option1 usage_option = 1;
-    // @gotags: xml:"AllDealsCancelled"
-    bool all_deals_cancelled = 2;
-    // @gotags: xml:"TakeDown"
-    bool take_down = 3;
-  }
-}
-
-message DealTermsChoice2 {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
-}
-
-message DealTermsChoice3 {
-  message Option1 {
-    // @gotags: xml:"DistributionChannel"
-    repeated ddex.ern.v383.DSP distribution_channel = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedDistributionChannel"
-    repeated ddex.ern.v383.DSP excluded_distribution_channel = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"DistributionChannel"
-    Option1 distribution_channel_option = 1;
-    // @gotags: xml:"ExcludedDistributionChannel"
-    Option2 excluded_distribution_channel_option = 2;
-  }
-}
-
-message DealTermsChoice4 {
-  oneof choice {
-    // @gotags: xml:"IsPromotional"
-    bool is_promotional = 1;
-    // @gotags: xml:"PromotionalCode"
-    ddex.ern.v383.PromotionalCode promotional_code = 2;
-  }
-}
-
-message DealTermsChoice5 {
-  message Option1 {
-    // @gotags: xml:"ReleaseDisplayStartDate"
-  string release_display_start_date = 1;
-    // @gotags: xml:"TrackListingPreviewStartDate"
-  string track_listing_preview_start_date = 2;
-    // @gotags: xml:"CoverArtPreviewStartDate"
-  string cover_art_preview_start_date = 3;
-    // @gotags: xml:"ClipPreviewStartDate"
-  string clip_preview_start_date = 4;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ReleaseDisplayStartDateTime"
-  string release_display_start_date_time = 1;
-    // @gotags: xml:"TrackListingPreviewStartDateTime"
-  string track_listing_preview_start_date_time = 2;
-    // @gotags: xml:"CoverArtPreviewStartDateTime"
-  string cover_art_preview_start_date_time = 3;
-    // @gotags: xml:"ClipPreviewStartDateTime"
-  string clip_preview_start_date_time = 4;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PreOrderPreviewDate"
-    ddex.ern.v383.EventDate pre_order_preview_date = 1;
-    // @gotags: xml:"PreOrderPreviewDateTime"
-    string pre_order_preview_date_time = 2;
-    Option1 sequence_1 = 3;
-    Option2 sequence_2 = 4;
-  }
+  string language_and_script_code = 34;
 }
 
 message Fingerprint {
@@ -544,29 +426,12 @@ message ImageDetailsByTerritory {
   repeated ddex.ern.v383.ParentalWarningType parental_warning_type = 14;
   // @gotags: xml:"TechnicalImageDetails"
   repeated ddex.ern.v383.TechnicalImageDetails technical_image_details = 15;
-  // Choice wrapper for XSD choice within sequence
-  ImageDetailsByTerritoryChoice choice = 16;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 16;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 17;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 17;
-}
-
-message ImageDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 18;
 }
 
 message MIDI {
@@ -673,29 +538,12 @@ message MidiDetailsByTerritory {
   ddex.ern.v383.Synopsis synopsis = 21;
   // @gotags: xml:"TechnicalMidiDetails"
   repeated ddex.ern.v383.TechnicalMidiDetails technical_midi_details = 22;
-  // Choice wrapper for XSD choice within sequence
-  MidiDetailsByTerritoryChoice choice = 23;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 23;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 24;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 24;
-}
-
-message MidiDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 25;
 }
 
 message PhysicalReturns {
@@ -745,24 +593,12 @@ message PurgedRelease {
 message RelatedReleaseOfferSet {
   // @gotags: xml:"Deal"
   repeated ddex.ern.v383.Deal deal = 1;
-  // Choice wrapper for XSD choice within sequence
-  RelatedReleaseOfferSetChoice choice = 2;
+  // @gotags: xml:"ReleaseId"
+  repeated ddex.ern.v383.ReleaseId release_id = 2;
+  // @gotags: xml:"ReleaseDescription"
+  ddex.ern.v383.Description release_description = 3;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 3;
-}
-
-message RelatedReleaseOfferSetChoice {
-  message Option1 {
-    // @gotags: xml:"ReleaseId"
-    repeated ddex.ern.v383.ReleaseId release_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"ReleaseId"
-    Option1 release_id_option = 1;
-    // @gotags: xml:"ReleaseDescription"
-    ddex.ern.v383.Description release_description = 2;
-  }
+  string language_and_script_code = 4;
 }
 
 message Release {
@@ -802,21 +638,14 @@ message Release {
   ddex.ern.v383.EventDate global_release_date = 17;
   // @gotags: xml:"GlobalOriginalReleaseDate"
   ddex.ern.v383.EventDate global_original_release_date = 18;
-  // Choice wrapper for XSD choice within sequence
-  ReleaseChoice choice = 19;
+  // @gotags: xml:"ReleaseResourceReferenceList"
+  ddex.ern.v383.ReleaseResourceReferenceList release_resource_reference_list = 19;
+  // @gotags: xml:"ResourceOmissionReason"
+  ddex.ern.v383.ResourceOmissionReason resource_omission_reason = 20;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 20;
+  string language_and_script_code = 21;
   // @gotags: xml:"IsMainRelease,attr"
-  bool is_main_release = 21;
-}
-
-message ReleaseChoice {
-  oneof choice {
-    // @gotags: xml:"ReleaseResourceReferenceList"
-    ddex.ern.v383.ReleaseResourceReferenceList release_resource_reference_list = 1;
-    // @gotags: xml:"ResourceOmissionReason"
-    ddex.ern.v383.ResourceOmissionReason resource_omission_reason = 2;
-  }
+  bool is_main_release = 22;
 }
 
 message ReleaseDeal {
@@ -879,50 +708,16 @@ message ReleaseDetailsByTerritory {
   int32 number_of_units_per_physical_release = 23;
   // @gotags: xml:"DisplayConductor"
   repeated ddex.ern.v383.Artist display_conductor = 24;
-  // Choice wrapper for XSD choice within sequence
-  ReleaseDetailsByTerritoryChoice1 choice = 25;
-  // Choice wrapper for XSD choice within sequence
-  ReleaseDetailsByTerritoryChoice2 choice_1 = 26;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 25;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 26;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 27;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 28;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 27;
-}
-
-message ReleaseDetailsByTerritoryChoice1 {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
-}
-
-message ReleaseDetailsByTerritoryChoice2 {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 29;
 }
 
 message ReleaseList {
@@ -951,35 +746,16 @@ message ResourceGroup {
   repeated ddex.ern.v383.CarrierType carrier_type = 8;
   // @gotags: xml:"ResourceGroup"
   repeated ddex.ern.v383.ResourceGroup resource_group = 9;
-  // Choice wrapper for XSD choice within sequence
-  ResourceGroupChoice1 choice = 10;
-  // Choice wrapper for XSD choice within sequence
-  ResourceGroupChoice2 choice_1 = 11;
+  // @gotags: xml:"ResourceGroupContentItem"
+  repeated ddex.ern.v383.ExtendedResourceGroupContentItem resource_group_content_item = 10;
+  // @gotags: xml:"ResourceGroupResourceReferenceList"
+  ddex.ern.v383.ResourceGroupResourceReferenceList resource_group_resource_reference_list = 11;
+  // @gotags: xml:"ResourceGroupReleaseReference"
+  string resource_group_release_reference = 12;
+  // @gotags: xml:"ReleaseId"
+  ddex.ern.v383.ReleaseId release_id = 13;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 12;
-}
-
-message ResourceGroupChoice1 {
-  message Option1 {
-    // @gotags: xml:"ResourceGroupContentItem"
-    repeated ddex.ern.v383.ExtendedResourceGroupContentItem resource_group_content_item = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"ResourceGroupContentItem"
-    Option1 resource_group_content_item_option = 1;
-    // @gotags: xml:"ResourceGroupResourceReferenceList"
-    ddex.ern.v383.ResourceGroupResourceReferenceList resource_group_resource_reference_list = 2;
-  }
-}
-
-message ResourceGroupChoice2 {
-  oneof choice {
-    // @gotags: xml:"ResourceGroupReleaseReference"
-    string resource_group_release_reference = 1;
-    // @gotags: xml:"ReleaseId"
-    ddex.ern.v383.ReleaseId release_id = 2;
-  }
+  string language_and_script_code = 14;
 }
 
 message ResourceList {
@@ -1066,29 +842,12 @@ message SheetMusicDetailsByTerritory {
   repeated ddex.ern.v383.ParentalWarningType parental_warning_type = 11;
   // @gotags: xml:"TechnicalSheetMusicDetails"
   repeated ddex.ern.v383.TechnicalSheetMusicDetails technical_sheet_music_details = 12;
-  // Choice wrapper for XSD choice within sequence
-  SheetMusicDetailsByTerritoryChoice choice = 13;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 13;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 14;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 14;
-}
-
-message SheetMusicDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 15;
 }
 
 message Software {
@@ -1149,29 +908,12 @@ message SoftwareDetailsByTerritory {
   repeated ddex.ern.v383.ParentalWarningType parental_warning_type = 14;
   // @gotags: xml:"TechnicalSoftwareDetails"
   repeated ddex.ern.v383.TechnicalSoftwareDetails technical_software_details = 15;
-  // Choice wrapper for XSD choice within sequence
-  SoftwareDetailsByTerritoryChoice choice = 16;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 16;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 17;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 17;
-}
-
-message SoftwareDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 18;
 }
 
 message SoundRecording {
@@ -1298,29 +1040,12 @@ message SoundRecordingDetailsByTerritory {
   repeated ddex.ern.v383.Keywords keywords = 23;
   // @gotags: xml:"Synopsis"
   ddex.ern.v383.Synopsis synopsis = 24;
-  // Choice wrapper for XSD choice within sequence
-  SoundRecordingDetailsByTerritoryChoice choice = 25;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 25;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 26;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 26;
-}
-
-message SoundRecordingDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 27;
 }
 
 message SoundRecordingPreviewDetails {
@@ -1369,29 +1094,12 @@ message TechnicalImageDetails {
   ddex.ern.v383.FulfillmentDate consumer_fulfillment_date = 13;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 14;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalImageDetailsChoice choice = 15;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 15;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 16;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 16;
-}
-
-message TechnicalImageDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 17;
 }
 
 message TechnicalMidiDetails {
@@ -1417,29 +1125,12 @@ message TechnicalMidiDetails {
   ddex.ern.v383.SoundProcessorType sound_processor_type = 10;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 11;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalMidiDetailsChoice choice = 12;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 12;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 13;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 13;
-}
-
-message TechnicalMidiDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 14;
 }
 
 message TechnicalSheetMusicDetails {
@@ -1461,29 +1152,12 @@ message TechnicalSheetMusicDetails {
   ddex.ern.v383.FulfillmentDate consumer_fulfillment_date = 8;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 9;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalSheetMusicDetailsChoice choice = 10;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 10;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 11;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 11;
-}
-
-message TechnicalSheetMusicDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 12;
 }
 
 message TechnicalSoftwareDetails {
@@ -1503,29 +1177,12 @@ message TechnicalSoftwareDetails {
   ddex.ern.v383.FulfillmentDate consumer_fulfillment_date = 7;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 8;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalSoftwareDetailsChoice choice = 9;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 9;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 10;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 10;
-}
-
-message TechnicalSoftwareDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 11;
 }
 
 message TechnicalSoundRecordingDetails {
@@ -1561,29 +1218,12 @@ message TechnicalSoundRecordingDetails {
   ddex.ern.v383.FulfillmentDate consumer_fulfillment_date = 15;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 16;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalSoundRecordingDetailsChoice choice = 17;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 17;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 18;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 18;
-}
-
-message TechnicalSoundRecordingDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 19;
 }
 
 message TechnicalTextDetails {
@@ -1605,29 +1245,12 @@ message TechnicalTextDetails {
   ddex.ern.v383.FulfillmentDate consumer_fulfillment_date = 8;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 9;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalTextDetailsChoice choice = 10;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 10;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 11;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 11;
-}
-
-message TechnicalTextDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 12;
 }
 
 message TechnicalUserDefinedResourceDetails {
@@ -1645,29 +1268,12 @@ message TechnicalUserDefinedResourceDetails {
   ddex.ern.v383.FulfillmentDate consumer_fulfillment_date = 6;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 7;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalUserDefinedResourceDetailsChoice choice = 8;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 8;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 9;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 9;
-}
-
-message TechnicalUserDefinedResourceDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 10;
 }
 
 message TechnicalVideoDetails {
@@ -1721,29 +1327,12 @@ message TechnicalVideoDetails {
   ddex.ern.v383.FulfillmentDate consumer_fulfillment_date = 24;
   // @gotags: xml:"Fingerprint"
   repeated ddex.ern.v383.Fingerprint fingerprint = 25;
-  // Choice wrapper for XSD choice within sequence
-  TechnicalVideoDetailsChoice choice = 26;
+  // @gotags: xml:"FileAvailabilityDescription"
+  repeated ddex.ern.v383.Description file_availability_description = 26;
+  // @gotags: xml:"File"
+  repeated ddex.ern.v383.File file = 27;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 27;
-}
-
-message TechnicalVideoDetailsChoice {
-  message Option1 {
-    // @gotags: xml:"FileAvailabilityDescription"
-    repeated ddex.ern.v383.Description file_availability_description = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"File"
-    repeated ddex.ern.v383.File file = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"FileAvailabilityDescription"
-    Option1 file_availability_description_option = 1;
-    // @gotags: xml:"File"
-    Option2 file_option = 2;
-  }
+  string language_and_script_code = 28;
 }
 
 message Text {
@@ -1802,29 +1391,12 @@ message TextDetailsByTerritory {
   repeated ddex.ern.v383.ParentalWarningType parental_warning_type = 13;
   // @gotags: xml:"TechnicalTextDetails"
   repeated ddex.ern.v383.TechnicalTextDetails technical_text_details = 14;
-  // Choice wrapper for XSD choice within sequence
-  TextDetailsByTerritoryChoice choice = 15;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 15;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 16;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 16;
-}
-
-message TextDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 17;
 }
 
 message TypedRightsController {
@@ -1838,41 +1410,16 @@ message TypedRightsController {
   string start_date = 4;
   // @gotags: xml:"EndDate"
   string end_date = 5;
-  // Choice wrapper for XSD choice within sequence
-  TypedRightsControllerChoice1 choice = 6;
-  // Choice wrapper for XSD choice within sequence
-  TypedRightsControllerChoice2 choice_1 = 7;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 6;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 7;
+  // @gotags: xml:"RightShareUnknown"
+  bool right_share_unknown = 8;
+  // @gotags: xml:"RightSharePercentage"
+  ddex.ern.v383.Percentage right_share_percentage = 9;
   // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 8;
-}
-
-message TypedRightsControllerChoice1 {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
-}
-
-message TypedRightsControllerChoice2 {
-  oneof choice {
-    // @gotags: xml:"RightShareUnknown"
-    bool right_share_unknown = 1;
-    // @gotags: xml:"RightSharePercentage"
-    ddex.ern.v383.Percentage right_share_percentage = 2;
-  }
+  int32 sequence_number = 10;
 }
 
 message UserDefinedResource {
@@ -1935,29 +1482,12 @@ message UserDefinedResourceDetailsByTerritory {
   repeated ddex.ern.v383.ParentalWarningType parental_warning_type = 14;
   // @gotags: xml:"TechnicalUserDefinedResourceDetails"
   repeated ddex.ern.v383.TechnicalUserDefinedResourceDetails technical_user_defined_resource_details = 15;
-  // Choice wrapper for XSD choice within sequence
-  UserDefinedResourceDetailsByTerritoryChoice choice = 16;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 16;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 17;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 17;
-}
-
-message UserDefinedResourceDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 18;
 }
 
 message Video {
@@ -2033,26 +1563,14 @@ message Video {
   int32 number_of_contracted_artists = 35;
   // @gotags: xml:"NumberOfNonContractedArtists"
   int32 number_of_non_contracted_artists = 36;
-  // Choice wrapper for XSD choice within sequence
-  VideoChoice choice = 37;
+  // @gotags: xml:"VideoCueSheetReference"
+  repeated ddex.ern.v383.VideoCueSheetReference video_cue_sheet_reference = 37;
+  // @gotags: xml:"ReasonForCueSheetAbsence"
+  ddex.ern.v383.Reason reason_for_cue_sheet_absence = 38;
   // @gotags: xml:"IsUpdated,attr"
-  bool is_updated = 38;
+  bool is_updated = 39;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 39;
-}
-
-message VideoChoice {
-  message Option1 {
-    // @gotags: xml:"VideoCueSheetReference"
-    repeated ddex.ern.v383.VideoCueSheetReference video_cue_sheet_reference = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"VideoCueSheetReference"
-    Option1 video_cue_sheet_reference_option = 1;
-    // @gotags: xml:"ReasonForCueSheetAbsence"
-    ddex.ern.v383.Reason reason_for_cue_sheet_absence = 2;
-  }
+  string language_and_script_code = 40;
 }
 
 message VideoDetailsByTerritory {
@@ -2108,90 +1626,44 @@ message VideoDetailsByTerritory {
   repeated ddex.ern.v383.TechnicalVideoDetails technical_video_details = 25;
   // @gotags: xml:"Character"
   repeated ddex.ern.v383.Character character = 26;
-  // Choice wrapper for XSD choice within sequence
-  VideoDetailsByTerritoryChoice choice = 27;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 27;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 28;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 28;
-}
-
-message VideoDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 29;
 }
 
 message WebPolicy {
   // @gotags: xml:"Condition"
   ddex.ern.v383.Condition condition = 1;
-  // Choice wrapper for XSD choice within sequence
-  WebPolicyChoice choice = 2;
-}
-
-message WebPolicyChoice {
-  message Option1 {
-    // @gotags: xml:"AccessLimitation"
-  string access_limitation = 1;
-    // @gotags: xml:"EmbeddingAllowed"
-  bool embedding_allowed = 2;
-    // @gotags: xml:"UserRatingAllowed"
-  bool user_rating_allowed = 3;
-    // @gotags: xml:"UserCommentAllowed"
-  bool user_comment_allowed = 4;
-    // @gotags: xml:"UserResponsesAllowed"
-  bool user_responses_allowed = 5;
-    // @gotags: xml:"SyndicationAllowed"
-  bool syndication_allowed = 6;
-  }
-
-  oneof choice {
-    // @gotags: xml:"AccessBlockingRequested"
-    bool access_blocking_requested = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"AccessBlockingRequested"
+  bool access_blocking_requested = 2;
+  // @gotags: xml:"AccessLimitation"
+  string access_limitation = 3;
+  // @gotags: xml:"EmbeddingAllowed"
+  bool embedding_allowed = 4;
+  // @gotags: xml:"UserRatingAllowed"
+  bool user_rating_allowed = 5;
+  // @gotags: xml:"UserCommentAllowed"
+  bool user_comment_allowed = 6;
+  // @gotags: xml:"UserResponsesAllowed"
+  bool user_responses_allowed = 7;
+  // @gotags: xml:"SyndicationAllowed"
+  bool syndication_allowed = 8;
 }
 
 message AdministratingRecordCompany {
-  // Choice wrapper for XSD choice
-  AdministratingRecordCompanyChoice choice = 1;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 1;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 2;
   // @gotags: xml:"Namespace,attr"
-  string namespace = 2;
+  string namespace = 3;
   // @gotags: xml:"UserDefinedValue,attr"
-  string user_defined_value = 3;
+  string user_defined_value = 4;
   // @gotags: xml:"Role,attr"
-  string role = 4;
-}
-
-message AdministratingRecordCompanyChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  string role = 5;
 }
 
 message AllTerritoryCode {
@@ -2206,30 +1678,12 @@ message Artist {
   repeated ddex.ern.v383.ArtistRole artist_role = 1;
   // @gotags: xml:"Nationality"
   repeated ddex.ern.v383.AllTerritoryCode nationality = 2;
-  // Choice wrapper for XSD choice within sequence
-  ArtistChoice choice = 3;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 3;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 4;
   // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 4;
-}
-
-message ArtistChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  int32 sequence_number = 5;
 }
 
 message ArtistDelegatedUsageRights {
@@ -2318,30 +1772,12 @@ message CatalogNumber {
 message Character {
   // @gotags: xml:"ResourceContributor"
   ddex.ern.v383.DetailedResourceContributor resource_contributor = 1;
-  // Choice wrapper for XSD choice within sequence
-  CharacterChoice choice = 2;
-  // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 3;
-}
-
-message CharacterChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
+  // @gotags: xml:"PartyId"
   repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 3;
+  // @gotags: xml:"SequenceNumber,attr"
+  int32 sequence_number = 4;
 }
 
 message CollectionCollectionReference {
@@ -2493,17 +1929,10 @@ message CreationId {
 }
 
 message CueCreationReference {
-  // Choice wrapper for XSD choice within sequence
-  CueCreationReferenceChoice choice = 1;
-}
-
-message CueCreationReferenceChoice {
-  oneof choice {
-    // @gotags: xml:"CueWorkReference"
-    string cue_work_reference = 1;
-    // @gotags: xml:"CueResourceReference"
-    string cue_resource_reference = 2;
-  }
+  // @gotags: xml:"CueWorkReference"
+  string cue_work_reference = 1;
+  // @gotags: xml:"CueResourceReference"
+  string cue_resource_reference = 2;
 }
 
 message CueOrigin {
@@ -2574,30 +2003,12 @@ message DSP {
   repeated string u_r_l = 2;
   // @gotags: xml:"TerritoryCode"
   ddex.ern.v383.CurrentTerritoryCode territory_code = 3;
-  // Choice wrapper for XSD choice within sequence
-  DSPChoice choice = 4;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 4;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 5;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 5;
-}
-
-message DSPChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  string language_and_script_code = 6;
 }
 
 message DealReference {
@@ -2653,30 +2064,12 @@ message DetailedResourceContributor {
   repeated ddex.ern.v383.Genre genre = 18;
   // @gotags: xml:"Membership"
   repeated ddex.ern.v383.Membership membership = 19;
-  // Choice wrapper for XSD choice within sequence
-  DetailedResourceContributorChoice choice = 20;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 20;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 21;
   // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 21;
-}
-
-message DetailedResourceContributorChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  int32 sequence_number = 22;
 }
 
 message DistributionChannelType {
@@ -2754,17 +2147,10 @@ message ExtendedResourceGroupContentItem {
   bool is_instant_gratification_resource = 9;
   // @gotags: xml:"IsPreOrderIncentiveResource"
   bool is_pre_order_incentive_resource = 10;
-  // Choice wrapper for XSD choice within sequence
-  ExtendedResourceGroupContentItemChoice choice = 11;
-}
-
-message ExtendedResourceGroupContentItemChoice {
-  oneof choice {
-    // @gotags: xml:"ResourceGroupContentItemReleaseReference"
-    string resource_group_content_item_release_reference = 1;
-    // @gotags: xml:"ReleaseId"
-    ddex.ern.v383.ReleaseId release_id = 2;
-  }
+  // @gotags: xml:"ResourceGroupContentItemReleaseReference"
+  string resource_group_content_item_release_reference = 11;
+  // @gotags: xml:"ReleaseId"
+  ddex.ern.v383.ReleaseId release_id = 12;
 }
 
 message Extent {
@@ -2799,23 +2185,12 @@ message ExternallyLinkedResourceType {
 message File {
   // @gotags: xml:"HashSum"
   ddex.ern.v383.HashSum hash_sum = 1;
-  // Choice wrapper for XSD choice within sequence
-  FileChoice choice = 2;
-}
-
-message FileChoice {
-  message Option1 {
-    // @gotags: xml:"FileName"
-  string file_name = 1;
-    // @gotags: xml:"FilePath"
-  string file_path = 2;
-  }
-
-  oneof choice {
-    // @gotags: xml:"URL"
-    string u_r_l = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"URL"
+  string u_r_l = 2;
+  // @gotags: xml:"FileName"
+  string file_name = 3;
+  // @gotags: xml:"FilePath"
+  string file_path = 4;
 }
 
 message FingerprintAlgorithmType {
@@ -2926,30 +2301,12 @@ message IndirectResourceContributor {
   repeated ddex.ern.v383.MusicalWorkContributorRole indirect_resource_contributor_role = 1;
   // @gotags: xml:"Nationality"
   repeated ddex.ern.v383.DdexCCurrentTerritoryCode nationality = 2;
-  // Choice wrapper for XSD choice within sequence
-  IndirectResourceContributorChoice choice = 3;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 3;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 4;
   // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 4;
-}
-
-message IndirectResourceContributorChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  int32 sequence_number = 5;
 }
 
 message Keywords {
@@ -3079,30 +2436,12 @@ message MusicalWorkContributor {
   repeated ddex.ern.v383.MusicalWorkContributorRole musical_work_contributor_role = 1;
   // @gotags: xml:"SocietyAffiliation"
   repeated ddex.ern.v383.SocietyAffiliation society_affiliation = 2;
-  // Choice wrapper for XSD choice within sequence
-  MusicalWorkContributorChoice choice = 3;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 3;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 4;
   // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 4;
-}
-
-message MusicalWorkContributorChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  int32 sequence_number = 5;
 }
 
 message MusicalWorkContributorRole {
@@ -3119,29 +2458,12 @@ message MusicalWorkDetailsByTerritory {
   repeated ddex.ern.v383.MusicalWorkContributor musical_work_contributor = 1;
   // @gotags: xml:"DisplayArtistName"
   repeated ddex.ern.v383.Name display_artist_name = 2;
-  // Choice wrapper for XSD choice within sequence
-  MusicalWorkDetailsByTerritoryChoice choice = 3;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 3;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 4;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 4;
-}
-
-message MusicalWorkDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 5;
 }
 
 message MusicalWorkId {
@@ -3207,28 +2529,10 @@ message ParentalWarningType {
 }
 
 message PartyDescriptor {
-  // Choice wrapper for XSD choice
-  PartyDescriptorChoice choice = 1;
-}
-
-message PartyDescriptorChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 1;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 2;
 }
 
 message PartyId {
@@ -3276,29 +2580,14 @@ message Performance {
 }
 
 message Period {
-  // Choice wrapper for XSD choice
-  PeriodChoice choice = 1;
-}
-
-message PeriodChoice {
-  message Option1 {
-    // @gotags: xml:"StartDate"
+  // @gotags: xml:"StartDate"
   ddex.ern.v383.EventDate start_date = 1;
-    // @gotags: xml:"EndDate"
+  // @gotags: xml:"EndDate"
   ddex.ern.v383.EventDate end_date = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"StartDateTime"
-  ddex.ern.v383.EventDateTime start_date_time = 1;
-    // @gotags: xml:"EndDateTime"
-  ddex.ern.v383.EventDateTime end_date_time = 2;
-  }
-
-  oneof choice {
-    Option1 sequence_1 = 1;
-    Option2 sequence_2 = 2;
-  }
+  // @gotags: xml:"StartDateTime"
+  ddex.ern.v383.EventDateTime start_date_time = 3;
+  // @gotags: xml:"EndDateTime"
+  ddex.ern.v383.EventDateTime end_date_time = 4;
 }
 
 message Price {
@@ -3455,29 +2744,12 @@ message ReleaseSummaryDetailsByTerritory {
   repeated ddex.ern.v383.LabelName label_name = 2;
   // @gotags: xml:"RightsAgreementId"
   ddex.ern.v383.RightsAgreementId rights_agreement_id = 3;
-  // Choice wrapper for XSD choice within sequence
-  ReleaseSummaryDetailsByTerritoryChoice choice = 4;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 4;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 5;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 5;
-}
-
-message ReleaseSummaryDetailsByTerritoryChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.CurrentTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  string language_and_script_code = 6;
 }
 
 message ReleaseType {
@@ -3508,30 +2780,12 @@ message ResourceContainedResourceReferenceList {
 message ResourceContributor {
   // @gotags: xml:"ResourceContributorRole"
   repeated ddex.ern.v383.ResourceContributorRole resource_contributor_role = 1;
-  // Choice wrapper for XSD choice within sequence
-  ResourceContributorChoice choice = 2;
-  // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 3;
-}
-
-message ResourceContributorChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
+  // @gotags: xml:"PartyId"
   repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 3;
+  // @gotags: xml:"SequenceNumber,attr"
+  int32 sequence_number = 4;
 }
 
 message ResourceContributorRole {
@@ -3620,40 +2874,16 @@ message RightShare {
   string license_status = 14;
   // @gotags: xml:"HasFirstLicenseRefusal"
   bool has_first_license_refusal = 15;
-  // Choice wrapper for XSD choice within sequence
-  RightShareChoice1 choice = 16;
-  // Choice wrapper for XSD choice within sequence
-  RightShareChoice2 choice_1 = 17;
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.AllTerritoryCode territory_code = 16;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.AllTerritoryCode excluded_territory_code = 17;
+  // @gotags: xml:"RightShareUnknown"
+  bool right_share_unknown = 18;
+  // @gotags: xml:"RightSharePercentage"
+  ddex.ern.v383.Percentage right_share_percentage = 19;
   // @gotags: xml:"LanguageAndScriptCode,attr"
-  string language_and_script_code = 18;
-}
-
-message RightShareChoice1 {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.AllTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.AllTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
-}
-
-message RightShareChoice2 {
-  oneof choice {
-    // @gotags: xml:"RightShareUnknown"
-    bool right_share_unknown = 1;
-    // @gotags: xml:"RightSharePercentage"
-    ddex.ern.v383.Percentage right_share_percentage = 2;
-  }
+  string language_and_script_code = 20;
 }
 
 message RightShareCreationReferenceList {
@@ -3684,41 +2914,16 @@ message RightsController {
   repeated string rights_controller_role = 1;
   // @gotags: xml:"RightsControllerType"
   string rights_controller_type = 2;
-  // Choice wrapper for XSD choice within sequence
-  RightsControllerChoice1 choice = 3;
-  // Choice wrapper for XSD choice within sequence
-  RightsControllerChoice2 choice_1 = 4;
+  // @gotags: xml:"PartyId"
+  repeated ddex.ern.v383.PartyId party_id = 3;
+  // @gotags: xml:"PartyName"
+  repeated ddex.ern.v383.PartyName party_name = 4;
+  // @gotags: xml:"RightShareUnknown"
+  bool right_share_unknown = 5;
+  // @gotags: xml:"RightSharePercentage"
+  ddex.ern.v383.Percentage right_share_percentage = 6;
   // @gotags: xml:"SequenceNumber,attr"
-  int32 sequence_number = 5;
-}
-
-message RightsControllerChoice1 {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.ern.v383.PartyName party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.ern.v383.PartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.ern.v383.PartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
-}
-
-message RightsControllerChoice2 {
-  oneof choice {
-    // @gotags: xml:"RightShareUnknown"
-    bool right_share_unknown = 1;
-    // @gotags: xml:"RightSharePercentage"
-    ddex.ern.v383.Percentage right_share_percentage = 2;
-  }
+  int32 sequence_number = 7;
 }
 
 message RightsType {
@@ -3780,27 +2985,10 @@ message SheetMusicType {
 message SocietyAffiliation {
   // @gotags: xml:"MusicRightsSociety"
   ddex.ern.v383.PartyDescriptor music_rights_society = 1;
-  // Choice wrapper for XSD choice within sequence
-  SocietyAffiliationChoice choice = 2;
-}
-
-message SocietyAffiliationChoice {
-  message Option1 {
-    // @gotags: xml:"TerritoryCode"
-    repeated ddex.ern.v383.AllTerritoryCode territory_code = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"ExcludedTerritoryCode"
-    repeated ddex.ern.v383.AllTerritoryCode excluded_territory_code = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"TerritoryCode"
-    Option1 territory_code_option = 1;
-    // @gotags: xml:"ExcludedTerritoryCode"
-    Option2 excluded_territory_code_option = 2;
-  }
+  // @gotags: xml:"TerritoryCode"
+  repeated ddex.ern.v383.AllTerritoryCode territory_code = 2;
+  // @gotags: xml:"ExcludedTerritoryCode"
+  repeated ddex.ern.v383.AllTerritoryCode excluded_territory_code = 3;
 }
 
 message SoftwareType {

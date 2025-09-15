@@ -33,64 +33,32 @@ message PieRequestMessage {
 }
 
 message Feed {
-  // Choice wrapper for XSD choice
-  repeated FeedChoice choice = 1;
-}
-
-message FeedChoice {
-  message Option1 {
-    // @gotags: xml:"author"
-    repeated ddex.pie.v10.Person author = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"category"
-    repeated ddex.pie.v10.Category category = 1;
-  }
-
-  message Option3 {
-    // @gotags: xml:"contributor"
-    repeated ddex.pie.v10.Person contributor = 1;
-  }
-
-  message Option4 {
-    // @gotags: xml:"link"
-    repeated ddex.pie.v10.Link link = 1;
-  }
-
-  message Option5 {
-    // @gotags: xml:"entry"
-    repeated ddex.pie.v10.Entry entry = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"author"
-    Option1 author_option = 1;
-    // @gotags: xml:"category"
-    Option2 category_option = 2;
-    // @gotags: xml:"contributor"
-    Option3 contributor_option = 3;
-    // @gotags: xml:"generator"
-    ddex.pie.v10.Generator generator = 4;
-    // @gotags: xml:"icon"
-    ddex.pie.v10.Icon icon = 5;
-    // @gotags: xml:"id"
-    ddex.pie.v10.Id id = 6;
-    // @gotags: xml:"link"
-    Option4 link_option = 7;
-    // @gotags: xml:"logo"
-    ddex.pie.v10.Logo logo = 8;
-    // @gotags: xml:"rights"
-    ddex.pie.v10.Text rights = 9;
-    // @gotags: xml:"subtitle"
-    ddex.pie.v10.Text subtitle = 10;
-    // @gotags: xml:"title"
-    ddex.pie.v10.Text title = 11;
-    // @gotags: xml:"updated"
-    ddex.pie.v10.DateTime updated = 12;
-    // @gotags: xml:"entry"
-    Option5 entry_option = 13;
-  }
+  // @gotags: xml:"author"
+  repeated ddex.pie.v10.Person author = 1;
+  // @gotags: xml:"category"
+  repeated ddex.pie.v10.Category category = 2;
+  // @gotags: xml:"contributor"
+  repeated ddex.pie.v10.Person contributor = 3;
+  // @gotags: xml:"generator"
+  ddex.pie.v10.Generator generator = 4;
+  // @gotags: xml:"icon"
+  ddex.pie.v10.Icon icon = 5;
+  // @gotags: xml:"id"
+  ddex.pie.v10.Id id = 6;
+  // @gotags: xml:"link"
+  repeated ddex.pie.v10.Link link = 7;
+  // @gotags: xml:"logo"
+  ddex.pie.v10.Logo logo = 8;
+  // @gotags: xml:"rights"
+  ddex.pie.v10.Text rights = 9;
+  // @gotags: xml:"subtitle"
+  ddex.pie.v10.Text subtitle = 10;
+  // @gotags: xml:"title"
+  ddex.pie.v10.Text title = 11;
+  // @gotags: xml:"updated"
+  ddex.pie.v10.DateTime updated = 12;
+  // @gotags: xml:"entry"
+  repeated ddex.pie.v10.Entry entry = 13;
 }
 
 message Contribution {
@@ -133,63 +101,36 @@ message DetailedPartyIdForParty {
 }
 
 message Entry {
-  // Choice wrapper for XSD choice
-  repeated EntryChoice choice = 1;
+  // @gotags: xml:"author"
+  repeated ddex.pie.v10.Person author = 1;
+  // @gotags: xml:"category"
+  repeated ddex.pie.v10.Category category = 2;
+  // @gotags: xml:"content"
+  ddex.pie.v10.Content content = 3;
+  // @gotags: xml:"contributor"
+  repeated ddex.pie.v10.Person contributor = 4;
+  // @gotags: xml:"id"
+  ddex.pie.v10.Id id = 5;
+  // @gotags: xml:"link"
+  repeated ddex.pie.v10.Link link = 6;
+  // @gotags: xml:"published"
+  ddex.pie.v10.DateTime published = 7;
+  // @gotags: xml:"rights"
+  ddex.pie.v10.Text rights = 8;
+  // @gotags: xml:"source"
+  ddex.pie.v10.Source source = 9;
+  // @gotags: xml:"summary"
+  ddex.pie.v10.Text summary = 10;
+  // @gotags: xml:"title"
+  ddex.pie.v10.Text title = 11;
+  // @gotags: xml:"updated"
+  ddex.pie.v10.DateTime updated = 12;
+  // @gotags: xml:"SubscriptionId"
+  string subscription_id = 13;
+  // @gotags: xml:"Party"
+  ddex.pie.v10.PartyDescriptorForEntry party = 14;
   // @gotags: xml:"AvsVersionId,attr"
-  string avs_version_id = 2;
-}
-
-message EntryChoice {
-  message Option1 {
-    // @gotags: xml:"author"
-    repeated ddex.pie.v10.Person author = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"category"
-    repeated ddex.pie.v10.Category category = 1;
-  }
-
-  message Option3 {
-    // @gotags: xml:"contributor"
-    repeated ddex.pie.v10.Person contributor = 1;
-  }
-
-  message Option4 {
-    // @gotags: xml:"link"
-    repeated ddex.pie.v10.Link link = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"author"
-    Option1 author_option = 1;
-    // @gotags: xml:"category"
-    Option2 category_option = 2;
-    // @gotags: xml:"content"
-    ddex.pie.v10.Content content = 3;
-    // @gotags: xml:"contributor"
-    Option3 contributor_option = 4;
-    // @gotags: xml:"id"
-    ddex.pie.v10.Id id = 5;
-    // @gotags: xml:"link"
-    Option4 link_option = 6;
-    // @gotags: xml:"published"
-    ddex.pie.v10.DateTime published = 7;
-    // @gotags: xml:"rights"
-    ddex.pie.v10.Text rights = 8;
-    // @gotags: xml:"source"
-    ddex.pie.v10.Source source = 9;
-    // @gotags: xml:"summary"
-    ddex.pie.v10.Text summary = 10;
-    // @gotags: xml:"title"
-    ddex.pie.v10.Text title = 11;
-    // @gotags: xml:"updated"
-    ddex.pie.v10.DateTime updated = 12;
-    // @gotags: xml:"SubscriptionId"
-    string subscription_id = 13;
-    // @gotags: xml:"Party"
-    ddex.pie.v10.PartyDescriptorForEntry party = 14;
-  }
+  string avs_version_id = 15;
 }
 
 message Event {
@@ -199,23 +140,12 @@ message Event {
   ddex.pie.v10.EventType event_type = 2;
   // @gotags: xml:"EventDescription"
   repeated ddex.pie.v10.Description event_description = 3;
-  // Choice wrapper for XSD choice within sequence
-  EventChoice choice = 4;
-}
-
-message EventChoice {
-  message Option1 {
-    // @gotags: xml:"StartDate"
-  ddex.pie.v10.EventDate start_date = 1;
-    // @gotags: xml:"EndDate"
-  ddex.pie.v10.EventDate end_date = 2;
-  }
-
-  oneof choice {
-    // @gotags: xml:"Date"
-    ddex.pie.v10.EventDate date = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"Date"
+  ddex.pie.v10.EventDate date = 4;
+  // @gotags: xml:"StartDate"
+  ddex.pie.v10.EventDate start_date = 5;
+  // @gotags: xml:"EndDate"
+  ddex.pie.v10.EventDate end_date = 6;
 }
 
 message EventType {
@@ -514,29 +444,22 @@ message RelatedCreationForParty {
   repeated ddex.pie.v10.Description relationship_description = 4;
   // @gotags: xml:"Contract"
   string contract = 5;
-  // Choice wrapper for XSD choice within sequence
-  RelatedCreationForPartyChoice choice = 6;
+  // @gotags: xml:"ReleaseId"
+  ddex.pie.v10.ReleaseId release_id = 6;
+  // @gotags: xml:"ResourceId"
+  ddex.pie.v10.ResourceIdWithoutFlag resource_id = 7;
+  // @gotags: xml:"MusicalWorkId"
+  ddex.pie.v10.MusicalWorkIdWithoutFlag musical_work_id = 8;
+  // @gotags: xml:"CreationDescription"
+  ddex.pie.v10.CreationDescription creation_description = 9;
   // @gotags: xml:"IsFalse,attr"
-  bool is_false = 7;
+  bool is_false = 10;
   // @gotags: xml:"IsConfidential,attr"
-  bool is_confidential = 8;
+  bool is_confidential = 11;
   // @gotags: xml:"IsFirstCreation,attr"
-  bool is_first_creation = 9;
+  bool is_first_creation = 12;
   // @gotags: xml:"IsLastCreation,attr"
-  bool is_last_creation = 10;
-}
-
-message RelatedCreationForPartyChoice {
-  oneof choice {
-    // @gotags: xml:"ReleaseId"
-    ddex.pie.v10.ReleaseId release_id = 1;
-    // @gotags: xml:"ResourceId"
-    ddex.pie.v10.ResourceIdWithoutFlag resource_id = 2;
-    // @gotags: xml:"MusicalWorkId"
-    ddex.pie.v10.MusicalWorkIdWithoutFlag musical_work_id = 3;
-    // @gotags: xml:"CreationDescription"
-    ddex.pie.v10.CreationDescription creation_description = 4;
-  }
+  bool is_last_creation = 13;
 }
 
 message RelatedParty {
@@ -554,27 +477,16 @@ message RelatedParty {
   repeated ddex.pie.v10.ValidityPeriod validity_period = 6;
   // @gotags: xml:"RelatedCreation"
   repeated ddex.pie.v10.RelatedCreationForParty related_creation = 7;
-  // Choice wrapper for XSD choice within sequence
-  RelatedPartyChoice choice = 8;
+  // @gotags: xml:"PartyRelatedPartyReference"
+  string party_related_party_reference = 8;
+  // @gotags: xml:"PartyId"
+  ddex.pie.v10.DetailedPartyIdForParty party_id = 9;
+  // @gotags: xml:"PartyName"
+  ddex.pie.v10.PartyName party_name = 10;
   // @gotags: xml:"IsFalse,attr"
-  bool is_false = 9;
+  bool is_false = 11;
   // @gotags: xml:"IsConfidential,attr"
-  bool is_confidential = 10;
-}
-
-message RelatedPartyChoice {
-  message Option1 {
-    // @gotags: xml:"PartyId"
-  ddex.pie.v10.DetailedPartyIdForParty party_id = 1;
-    // @gotags: xml:"PartyName"
-  ddex.pie.v10.PartyName party_name = 2;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyRelatedPartyReference"
-    string party_related_party_reference = 1;
-    Option1 sequence_1 = 2;
-  }
+  bool is_confidential = 12;
 }
 
 message ReleaseForRequest {
@@ -593,17 +505,10 @@ message RequestedParty {
   repeated ddex.pie.v10.ResourceForRequest resource = 3;
   // @gotags: xml:"Work"
   repeated ddex.pie.v10.WorkForRequest work = 4;
-  // Choice wrapper for XSD choice within sequence
-  RequestedPartyChoice choice = 5;
-}
-
-message RequestedPartyChoice {
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    ddex.pie.v10.DetailedPartyId party_id = 1;
-    // @gotags: xml:"PartyName"
-    ddex.pie.v10.PartyNameForRequest party_name = 2;
-  }
+  // @gotags: xml:"PartyId"
+  ddex.pie.v10.DetailedPartyId party_id = 5;
+  // @gotags: xml:"PartyName"
+  ddex.pie.v10.PartyNameForRequest party_name = 6;
 }
 
 message ResourceForRequest {
@@ -692,73 +597,39 @@ message Logo {
 }
 
 message Person {
-  // Choice wrapper for XSD choice
-  repeated PersonChoice choice = 1;
-}
-
-message PersonChoice {
-  oneof choice {
-    // @gotags: xml:"name"
-    string name = 1;
-    // @gotags: xml:"uri"
-    ddex.pie.v10.URI uri = 2;
-    // @gotags: xml:"email"
-    string email = 3;
-  }
+  // @gotags: xml:"name"
+  string name = 1;
+  // @gotags: xml:"uri"
+  ddex.pie.v10.URI uri = 2;
+  // @gotags: xml:"email"
+  string email = 3;
 }
 
 message Source {
-  // Choice wrapper for XSD choice
-  repeated SourceChoice choice = 1;
-}
-
-message SourceChoice {
-  message Option1 {
-    // @gotags: xml:"author"
-    repeated ddex.pie.v10.Person author = 1;
-  }
-
-  message Option2 {
-    // @gotags: xml:"category"
-    repeated ddex.pie.v10.Category category = 1;
-  }
-
-  message Option3 {
-    // @gotags: xml:"contributor"
-    repeated ddex.pie.v10.Person contributor = 1;
-  }
-
-  message Option4 {
-    // @gotags: xml:"link"
-    repeated ddex.pie.v10.Link link = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"author"
-    Option1 author_option = 1;
-    // @gotags: xml:"category"
-    Option2 category_option = 2;
-    // @gotags: xml:"contributor"
-    Option3 contributor_option = 3;
-    // @gotags: xml:"generator"
-    ddex.pie.v10.Generator generator = 4;
-    // @gotags: xml:"icon"
-    ddex.pie.v10.Icon icon = 5;
-    // @gotags: xml:"id"
-    ddex.pie.v10.Id id = 6;
-    // @gotags: xml:"link"
-    Option4 link_option = 7;
-    // @gotags: xml:"logo"
-    ddex.pie.v10.Logo logo = 8;
-    // @gotags: xml:"rights"
-    ddex.pie.v10.Text rights = 9;
-    // @gotags: xml:"subtitle"
-    ddex.pie.v10.Text subtitle = 10;
-    // @gotags: xml:"title"
-    ddex.pie.v10.Text title = 11;
-    // @gotags: xml:"updated"
-    ddex.pie.v10.DateTime updated = 12;
-  }
+  // @gotags: xml:"author"
+  repeated ddex.pie.v10.Person author = 1;
+  // @gotags: xml:"category"
+  repeated ddex.pie.v10.Category category = 2;
+  // @gotags: xml:"contributor"
+  repeated ddex.pie.v10.Person contributor = 3;
+  // @gotags: xml:"generator"
+  ddex.pie.v10.Generator generator = 4;
+  // @gotags: xml:"icon"
+  ddex.pie.v10.Icon icon = 5;
+  // @gotags: xml:"id"
+  ddex.pie.v10.Id id = 6;
+  // @gotags: xml:"link"
+  repeated ddex.pie.v10.Link link = 7;
+  // @gotags: xml:"logo"
+  ddex.pie.v10.Logo logo = 8;
+  // @gotags: xml:"rights"
+  ddex.pie.v10.Text rights = 9;
+  // @gotags: xml:"subtitle"
+  ddex.pie.v10.Text subtitle = 10;
+  // @gotags: xml:"title"
+  ddex.pie.v10.Text title = 11;
+  // @gotags: xml:"updated"
+  ddex.pie.v10.DateTime updated = 12;
 }
 
 message Text {
@@ -1125,28 +996,10 @@ message MetadataSource {
   string source_reference = 1;
   // @gotags: xml:"MetadataSourceType"
   ddex.pie.v10.MetadataSourceType metadata_source_type = 2;
-  // Choice wrapper for XSD choice within sequence
-  MetadataSourceChoice choice = 3;
-}
-
-message MetadataSourceChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.pie.v10.PartyNameWithPronunciation party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.pie.v10.DetailedPartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.pie.v10.DetailedPartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"PartyId"
+  repeated ddex.pie.v10.DetailedPartyId party_id = 3;
+  // @gotags: xml:"PartyName"
+  repeated ddex.pie.v10.PartyNameWithPronunciation party_name = 4;
 }
 
 message MetadataSourceList {
@@ -1213,28 +1066,10 @@ message NameWithPronunciationAndScriptCode {
 }
 
 message PartyDescriptorWithPronunciation {
-  // Choice wrapper for XSD choice
-  PartyDescriptorWithPronunciationChoice choice = 1;
-}
-
-message PartyDescriptorWithPronunciationChoice {
-  message Option1 {
-    // @gotags: xml:"PartyName"
-  repeated ddex.pie.v10.PartyNameWithPronunciation party_name = 1;
-    // @gotags: xml:"PartyId"
-  repeated ddex.pie.v10.DetailedPartyId party_id = 2;
-  }
-
-  message Option2 {
-    // @gotags: xml:"PartyId"
-    repeated ddex.pie.v10.DetailedPartyId party_id = 1;
-  }
-
-  oneof choice {
-    // @gotags: xml:"PartyId"
-    Option2 party_id_option = 1;
-    Option1 sequence_1 = 2;
-  }
+  // @gotags: xml:"PartyId"
+  repeated ddex.pie.v10.DetailedPartyId party_id = 1;
+  // @gotags: xml:"PartyName"
+  repeated ddex.pie.v10.PartyNameWithPronunciation party_name = 2;
 }
 
 message PartyNameWithPronunciation {
@@ -1316,19 +1151,12 @@ message ProprietaryId {
 message RelatedCreation {
   // @gotags: xml:"Title"
   ddex.pie.v10.TitleWithPronunciation title = 1;
-  // Choice wrapper for XSD choice within sequence
-  RelatedCreationChoice choice = 2;
-}
-
-message RelatedCreationChoice {
-  oneof choice {
-    // @gotags: xml:"ReleaseId"
-    ddex.pie.v10.ReleaseId release_id = 1;
-    // @gotags: xml:"ResourceId"
-    ddex.pie.v10.ResourceIdWithoutFlag resource_id = 2;
-    // @gotags: xml:"MusicalWorkId"
-    ddex.pie.v10.MusicalWorkIdWithoutFlag musical_work_id = 3;
-  }
+  // @gotags: xml:"ReleaseId"
+  ddex.pie.v10.ReleaseId release_id = 2;
+  // @gotags: xml:"ResourceId"
+  ddex.pie.v10.ResourceIdWithoutFlag resource_id = 3;
+  // @gotags: xml:"MusicalWorkId"
+  ddex.pie.v10.MusicalWorkIdWithoutFlag musical_work_id = 4;
 }
 
 message Release {

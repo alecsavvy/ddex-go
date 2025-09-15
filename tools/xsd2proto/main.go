@@ -595,66 +595,21 @@ func generateComplexTypeMessage(name string, complexType *XSDComplexType, allPkg
 			}
 		}
 
-		// Process choice elements within sequence - create choice wrappers
-		choiceCounter := 1
+		// Process choice elements within sequence - flatten them directly into the parent message
 		for _, choice := range complexType.Sequence.Choices {
-			// Create a choice wrapper message for choices within sequences
-			var choiceName string
-			if len(complexType.Sequence.Choices) == 1 {
-				choiceName = fmt.Sprintf("%sChoice", messageName)
-			} else {
-				choiceName = fmt.Sprintf("%sChoice%d", messageName, choiceCounter)
+			err := generateChoiceFields(&choice, &fieldNum, allPkgs, usedFieldNames, &builder)
+			if err != nil {
+				return "", nil, fmt.Errorf("failed to generate choice fields: %v", err)
 			}
-			choiceCounter++
-
-			// Determine if this choice should be repeated
-			repeated := ""
-			if choice.MaxOccurs == "unbounded" {
-				repeated = "repeated "
-			}
-
-			// Generate the choice field
-			fieldName := getUniqueFieldName("choice", usedFieldNames)
-			injectComment := "  // Choice wrapper for XSD choice within sequence"
-			field := fmt.Sprintf("%s\n  %s%s %s = %d;", injectComment, repeated, choiceName, fieldName, fieldNum)
-			builder.WriteString(field + "\n")
-			fieldNum++
-
-			// Track this choice wrapper for generation
-			choiceWrapper := WrapperType{
-				Name:     choiceName,
-				Choice:   &choice,
-				IsChoice: true,
-			}
-			wrapperTypes = append(wrapperTypes, choiceWrapper)
 		}
 	}
 
-	// choice → generate choice wrapper message with oneof (only for top-level choices, not nested in sequences)
+	// choice → flatten choice elements directly into the parent message (for top-level choices)
 	if complexType.Choice != nil && complexType.Sequence == nil && (len(complexType.Choice.Elements) > 0 || len(complexType.Choice.Sequences) > 0) {
-		// Create a choice wrapper message for top-level choices only
-		choiceName := fmt.Sprintf("%sChoice", messageName)
-
-		// Determine if this choice should be repeated
-		repeated := ""
-		if complexType.Choice.MaxOccurs == "unbounded" {
-			repeated = "repeated "
+		err := generateChoiceFields(complexType.Choice, &fieldNum, allPkgs, usedFieldNames, &builder)
+		if err != nil {
+			return "", nil, fmt.Errorf("failed to generate top-level choice fields: %v", err)
 		}
-
-		// Generate the choice field
-		fieldName := getUniqueFieldName("choice", usedFieldNames)
-		injectComment := "  // Choice wrapper for XSD choice"
-		field := fmt.Sprintf("%s\n  %s%s %s = %d;", injectComment, repeated, choiceName, fieldName, fieldNum)
-		builder.WriteString(field + "\n")
-		fieldNum++
-
-		// Track this choice wrapper for generation
-		choiceWrapper := WrapperType{
-			Name:     choiceName,
-			Choice:   complexType.Choice,
-			IsChoice: true,
-		}
-		wrapperTypes = append(wrapperTypes, choiceWrapper)
 	}
 
 	// simpleContent extension → value + attributes
@@ -842,25 +797,87 @@ func generateEnum(simpleType XSDSimpleType) string {
 	return builder.String()
 }
 
+// generateChoiceFields flattens choice elements directly into the parent message
+func generateChoiceFields(choice *XSDChoice, fieldNum *int, allPkgs map[string]protoPkgInfo, usedFieldNames map[string]int, builder *strings.Builder) error {
+	// Handle direct elements in choice - flatten them into the parent message
+	for _, element := range choice.Elements {
+		field, err := generateFieldWithDedup(element, *fieldNum, allPkgs, usedFieldNames)
+		if err != nil {
+			return fmt.Errorf("failed to generate choice element field for %s: %v", element.Name, err)
+		}
+		if field != "" {
+			builder.WriteString(field + "\n")
+			*fieldNum++
+		}
+	}
+
+	// Handle sequences within choice - flatten their elements into the parent message
+	for _, sequence := range choice.Sequences {
+		for _, element := range sequence.Elements {
+			field, err := generateFieldWithDedup(element, *fieldNum, allPkgs, usedFieldNames)
+			if err != nil {
+				return fmt.Errorf("failed to generate choice sequence element field for %s: %v", element.Name, err)
+			}
+			if field != "" {
+				builder.WriteString(field + "\n")
+				*fieldNum++
+			}
+		}
+	}
+
+	return nil
+}
+
 // generateChoiceWrapper generates a wrapper message type for a choice
 func generateChoiceWrapper(wrapperName string, choice *XSDChoice, allPkgs map[string]protoPkgInfo) (string, error) {
 	var builder strings.Builder
-	var nestedMessages []string
 
 	builder.WriteString(fmt.Sprintf("message %s {\n", wrapperName))
 
-	// Generate nested messages for options that need them (sequences or repeated elements)
-	messageNum := 1
+	// Generate the oneof with proper XML tags for direct marshalling
+	builder.WriteString("  oneof choice {\n")
+	oneofFieldNum := 1
 
-	// Handle sequences in choice - each becomes a nested message
-	sequenceMessages := make(map[int]string)
-	for i, sequence := range choice.Sequences {
-		optionName := fmt.Sprintf("Option%d", messageNum)
-		sequenceMessages[i] = optionName
-		messageNum++
+	// Handle direct elements in choice
+	for _, element := range choice.Elements {
+		fieldType := "string"
+		if element.Type != "" {
+			fieldType = xsdTypeToProto(element.Type, allPkgs)
+		}
 
-		var seqBuilder strings.Builder
-		seqBuilder.WriteString(fmt.Sprintf("  message %s {\n", optionName))
+		fieldName := toProtoFieldName(element.Name)
+
+		if element.MaxOccurs == "unbounded" {
+			// For repeated elements, create a separate message type
+			optionName := fmt.Sprintf("%sOption", toProtoMessageName(element.Name))
+
+			// Generate a nested message for the repeated element
+			builder.WriteString(fmt.Sprintf("  message %s {\n", optionName))
+			injectComment := fmt.Sprintf("    // @gotags: xml:\"%s\"", element.Name)
+			field := fmt.Sprintf("%s\n    repeated %s %s = 1;", injectComment, fieldType, fieldName)
+			builder.WriteString(field + "\n")
+			builder.WriteString("  }\n\n")
+
+			// Add the message option to the oneof with inline XML
+			injectComment = "    // @gotags: xml:\",inline\""
+			field = fmt.Sprintf("%s\n    %s %s = %d;", injectComment, optionName, fieldName+"_option", oneofFieldNum)
+			builder.WriteString(field + "\n")
+		} else {
+			// Add XML tag to make choice fields marshal directly as the element name
+			injectComment := fmt.Sprintf("    // @gotags: xml:\"%s\"", element.Name)
+			field := fmt.Sprintf("%s\n    %s %s = %d;", injectComment, fieldType, fieldName, oneofFieldNum)
+			builder.WriteString(field + "\n")
+		}
+		oneofFieldNum++
+	}
+
+	// Handle sequences in choice by creating inline fields for each sequence element
+	for seqIdx, sequence := range choice.Sequences {
+		// Create a message type for this sequence
+		optionName := fmt.Sprintf("Sequence%d", seqIdx+1)
+
+		// Generate a nested message for the sequence
+		builder.WriteString(fmt.Sprintf("  message %s {\n", optionName))
 
 		fieldNum := 1
 		usedFieldNames := make(map[string]int)
@@ -871,78 +888,18 @@ func generateChoiceWrapper(wrapperName string, choice *XSDChoice, allPkgs map[st
 				return "", fmt.Errorf("failed to generate sequence field for element %s: %v", element.Name, err)
 			}
 			if field != "" {
-				seqBuilder.WriteString("  " + field + "\n")
+				builder.WriteString("  " + field + "\n")
 				fieldNum++
 			}
 		}
 
-		seqBuilder.WriteString("  }\n")
-		nestedMessages = append(nestedMessages, seqBuilder.String())
-	}
+		builder.WriteString("  }\n\n")
 
-	// Handle direct elements - if they're repeated, create nested messages for them too
-	elementMessages := make(map[int]string)
-	for i, element := range choice.Elements {
-		if element.MaxOccurs == "unbounded" {
-			optionName := fmt.Sprintf("Option%d", messageNum)
-			elementMessages[i] = optionName
-			messageNum++
-
-			var elemBuilder strings.Builder
-			elemBuilder.WriteString(fmt.Sprintf("  message %s {\n", optionName))
-
-			// Generate the repeated field
-			fieldType := "string"
-			if element.Type != "" {
-				fieldType = xsdTypeToProto(element.Type, allPkgs)
-			}
-
-			fieldName := toProtoFieldName(element.Name)
-			injectComment := fmt.Sprintf("    // @gotags: xml:\"%s\"", element.Name)
-			field := fmt.Sprintf("%s\n    repeated %s %s = 1;", injectComment, fieldType, fieldName)
-			elemBuilder.WriteString(field + "\n")
-
-			elemBuilder.WriteString("  }\n")
-			nestedMessages = append(nestedMessages, elemBuilder.String())
-		}
-	}
-
-	// Add all nested messages
-	for _, msg := range nestedMessages {
-		builder.WriteString(msg + "\n")
-	}
-
-	// Generate the oneof
-	builder.WriteString("  oneof choice {\n")
-	oneofFieldNum := 1
-
-	// Add direct elements (non-repeated ones)
-	for i, element := range choice.Elements {
-		if element.MaxOccurs != "unbounded" {
-			fieldType := "string"
-			if element.Type != "" {
-				fieldType = xsdTypeToProto(element.Type, allPkgs)
-			}
-
-			fieldName := toProtoFieldName(element.Name)
-			injectComment := fmt.Sprintf("    // @gotags: xml:\"%s\"", element.Name)
-			builder.WriteString(fmt.Sprintf("%s\n    %s %s = %d;\n", injectComment, fieldType, fieldName, oneofFieldNum))
-			oneofFieldNum++
-		} else {
-			// Use the nested message for repeated elements
-			optionName := elementMessages[i]
-			fieldName := toProtoFieldName(element.Name + "_option")
-			injectComment := fmt.Sprintf("    // @gotags: xml:\"%s\"", element.Name)
-			builder.WriteString(fmt.Sprintf("%s\n    %s %s = %d;\n", injectComment, optionName, fieldName, oneofFieldNum))
-			oneofFieldNum++
-		}
-	}
-
-	// Add sequence options
-	for i, _ := range choice.Sequences {
-		optionName := sequenceMessages[i]
-		fieldName := toProtoFieldName(fmt.Sprintf("sequence_%d", i+1))
-		builder.WriteString(fmt.Sprintf("    %s %s = %d;\n", optionName, fieldName, oneofFieldNum))
+		// Add the sequence option to the oneof with inline XML
+		fieldName := toProtoFieldName(fmt.Sprintf("sequence_%d", seqIdx+1))
+		injectComment := "    // @gotags: xml:\",inline\""
+		field := fmt.Sprintf("%s\n    %s %s = %d;", injectComment, optionName, fieldName, oneofFieldNum)
+		builder.WriteString(field + "\n")
 		oneofFieldNum++
 	}
 
