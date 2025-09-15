@@ -1,6 +1,6 @@
 # DDEX Go
 
-A comprehensive Go implementation of DDEX (Digital Data Exchange) standards with full Protocol Buffer, JSON, and XML serialization support.
+A comprehensive Go implementation of DDEX (Digital Data Exchange) standards with native XML support and Protocol Buffer/JSON serialization.
 
 ## What is DDEX?
 
@@ -16,12 +16,12 @@ This library provides Go structs with Protocol Buffer, JSON, and XML serializati
 
 ### Key Capabilities
 
-- **Triple serialization**: Full support for Protocol Buffer binary, JSON, and XML formats
-- **XML compliance**: Generated structs maintain complete DDEX XSD compliance
+- **Native XML support**: Full XML marshal/unmarshal with complete DDEX XSD compliance
+- **Protocol Buffer serialization**: Efficient binary format for high-performance applications
+- **JSON serialization**: Standard Go JSON support for REST APIs and web services
 - **gRPC/ConnectRPC ready**: Protocol Buffer definitions work seamlessly with RPC frameworks
-- **Bidirectional conversion**: Convert between protobuf, JSON, and XML without data loss
-- **Performance optimized**: Efficient binary serialization for high-throughput applications
-- **Type safety**: Strong typing with comprehensive test coverage
+- **Bidirectional conversion**: Convert between XML, JSON, and protobuf without data loss
+- **Type safety**: Strong typing with comprehensive test coverage and validation
 
 ## Installation
 
@@ -85,6 +85,7 @@ package main
 
 import (
     "encoding/json"
+    "encoding/xml"
     "fmt"
     ernv432 "github.com/alecsavvy/ddex-go/gen/ddex/ern/v432"
     "google.golang.org/protobuf/proto"
@@ -110,8 +111,15 @@ func main() {
         panic(err)
     }
 
+    // Serialize to XML with proper DDEX formatting
+    xmlData, err := xml.MarshalIndent(release, "", "  ")
+    if err != nil {
+        panic(err)
+    }
+
     fmt.Printf("Proto size: %d bytes\n", len(protoData))
     fmt.Printf("JSON: %s\n", string(jsonData))
+    fmt.Printf("XML:\n%s%s\n", xml.Header, string(xmlData))
 
     // Deserialize from binary format
     var decoded ernv432.NewReleaseMessage
@@ -226,8 +234,8 @@ make help
 
 1. **XSD → Proto**: `tools/xsd2proto/` converts DDEX XSD schemas to protobuf with XML annotations
 2. **Proto → Go**: `buf generate` creates Go structs with protobuf support
-3. **XML Tag Injection**: `protoc-go-inject-tag` adds XML struct tags for compatibility
-4. **Enum Strings**: `tools/generate-enum-strings/` generates human-readable enum methods
+3. **XML Tag Injection**: `protoc-go-inject-tag` adds XML struct tags for DDEX compatibility
+4. **Go Extensions**: `tools/generate-go-extensions/` generates enum strings and XML methods
 
 ### Manual Commands
 
@@ -283,22 +291,23 @@ ddex-go/
 └── ddex.go                 # Main package with type aliases
 ```
 
-## Protocol Buffer Implementation
+## Architecture and Serialization
 
-This library implements a sophisticated triple-serialization approach:
+This library implements native XML support with Protocol Buffer and JSON serialization:
 
 ### Core Architecture
-- **Protocol Buffer definitions** with XML tag annotations via `[(tagger.tags)]`
-- **Generated Go structs** support `proto.Marshal/Unmarshal`, `json.Marshal/Unmarshal`, and `xml.Marshal/Unmarshal`
+- **Native XML support**: Direct XML marshal/unmarshal with full DDEX XSD compliance
+- **Protocol Buffer definitions**: High-performance binary serialization for microservices
+- **JSON serialization**: Standard Go JSON support for REST APIs and web services
 - **Shared enum types** in `ddex/avs/` package used across all DDEX specifications
 - **Namespace-aware imports** ensure proper XSD compliance and proto organization
 
 ### Benefits
+- **DDEX Compliance**: Native XML support ensures perfect DDEX standard compliance
 - **Performance**: Binary protobuf serialization for high-throughput applications
-- **Compatibility**: Full XML compliance for DDEX standard requirements
 - **Interoperability**: Native gRPC/ConnectRPC support for microservices
-- **Type Safety**: Strong typing with comprehensive validation
-- **Bidirectional**: Perfect XML ↔ JSON ↔ protobuf conversion without data loss
+- **Type Safety**: Strong typing with comprehensive validation and test coverage
+- **Flexibility**: Convert seamlessly between XML, JSON, and protobuf formats
 
 ### Usage Patterns
 - Use **XML** for DDEX standard compliance and external integrations

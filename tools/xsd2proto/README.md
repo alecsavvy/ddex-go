@@ -1,6 +1,8 @@
 # XSD to Proto Converter
 
-Converts DDEX XSD schemas to Protocol Buffer definitions with XML tag annotations.
+A sophisticated tool that converts DDEX XSD schemas to Protocol Buffer definitions with `@gotags:` XML annotations for native XML support.
+
+This tool is the core of the DDEX Go generation pipeline, enabling native XML marshal/unmarshal while maintaining high-performance Protocol Buffer serialization. It handles complex XSD features including namespace-aware imports, schema dependencies, and DDEX-specific patterns.
 
 ## XSD Primitive to Proto Mappings
 
@@ -33,8 +35,10 @@ Based on analysis of all DDEX schemas in `xsd/`, here are the XSD patterns we ne
 **→ Proto:**
 ```protobuf
 message MessageHeader {
-  string message_id = 1 [(tagger.tags) = "xml:\"MessageId\""];
-  string message_created_date_time = 2 [(tagger.tags) = "xml:\"MessageCreatedDateTime\""];
+  // @gotags: xml:"MessageId"
+  string message_id = 1;
+  // @gotags: xml:"MessageCreatedDateTime"
+  string message_created_date_time = 2;
 }
 ```
 
@@ -49,9 +53,12 @@ message MessageHeader {
 **→ Proto:**
 ```protobuf
 oneof identifier {
-  string isrc = 1 [(tagger.tags) = "xml:\"ISRC\""];
-  string iswc = 2 [(tagger.tags) = "xml:\"ISWC\""];
-  ProprietaryId proprietary_id = 3 [(tagger.tags) = "xml:\"ProprietaryId\""];
+  // @gotags: xml:"ISRC"
+  string isrc = 1;
+  // @gotags: xml:"ISWC"
+  string iswc = 2;
+  // @gotags: xml:"ProprietaryId"
+  ProprietaryId proprietary_id = 3;
 }
 ```
 
@@ -62,7 +69,8 @@ oneof identifier {
 ```
 **→ Proto:**
 ```protobuf
-repeated ReleaseAdmin release_admin = 1 [(tagger.tags) = "xml:\"ReleaseAdmin\""];
+// @gotags: xml:"ReleaseAdmin"
+repeated ReleaseAdmin release_admin = 1;
 ```
 
 #### D. Attributes → Fields with attr tag
@@ -78,8 +86,10 @@ repeated ReleaseAdmin release_admin = 1 [(tagger.tags) = "xml:\"ReleaseAdmin\""]
 **→ Proto:**
 ```protobuf
 message SomeType {
-  string value = 1 [(tagger.tags) = "xml:\",chardata\""];
-  bool is_default = 2 [(tagger.tags) = "xml:\"IsDefault,attr\""];
+  // @gotags: xml:",chardata"
+  string value = 1;
+  // @gotags: xml:"IsDefault,attr"
+  bool is_default = 2;
 }
 ```
 
@@ -89,7 +99,8 @@ message SomeType {
 ```
 **→ Proto:**
 ```protobuf
-repeated string url = 1 [(tagger.tags) = "xml:\"URL\""];
+// @gotags: xml:"URL"
+repeated string url = 1;
 ```
 
 ### 3. Cardinality Rules
@@ -109,7 +120,8 @@ repeated string url = 1 [(tagger.tags) = "xml:\"URL\""];
 ```
 **→ Proto:**
 ```protobuf
-MessageHeader message_header = 1 [(tagger.tags) = "xml:\"MessageHeader\""];
+// @gotags: xml:"MessageHeader"
+MessageHeader message_header = 1;
 ```
 
 The namespace prefix (`ern:`) is stripped and the type becomes a message reference.
@@ -129,4 +141,105 @@ The namespace prefix (`ern:`) is stripped and the type becomes a message referen
 5. **Choice** - Handle oneof patterns
 6. **Custom types** - Reference other messages
 
-The goal: Generate `.proto` files that produce Go structs with identical XML marshaling to the current `ddex/` packages.
+## Architecture
+
+### Supported DDEX Specifications
+
+The tool processes these DDEX specifications (defined in `specs` array):
+
+- **AVS (Allowed Value Sets)**
+  - `latest` - Current AVS version (`allowed-value-sets.xsd`)
+  - `20200108` - Specific AVS version (`avs_20200108.xsd`)
+- **ERN (Electronic Release Notification)**
+  - `v4.3` - ERN v4.3 (`release-notification.xsd`)
+  - `v4.3.2` - ERN v4.3.2 (`release-notification.xsd`)
+  - `v3.8.3` - ERN v3.8.3 (`release-notification.xsd`)
+- **MEAD (Media Enrichment and Description)**
+  - `v1.1` - MEAD v1.1 (`media-enrichment-and-description.xsd`)
+- **PIE (Party Identification and Enrichment)**
+  - `v1.0` - PIE v1.0 (`party-identification-and-enrichment.xsd`)
+
+### Processing Pipeline
+
+1. **Schema Graph Loading**: Recursively loads XSD schemas following `xs:import` and `xs:include` dependencies
+2. **Namespace Bundling**: Groups schema components by target namespace for proper proto package organization
+3. **AVS Version Detection**: Automatically detects which AVS version each schema imports
+4. **Proto Generation**: Generates one `.proto` file per namespace with proper imports and `@gotags:` annotations
+
+### Key Features
+
+- **Namespace-aware imports**: Properly handles cross-namespace references between DDEX specifications
+- **AVS version context**: Tracks which AVS version each schema uses and generates appropriate imports
+- **Deduplication**: Handles repeated field names and prevents duplicate type generation
+- **XML compliance**: Generates `@gotags:` comments for `protoc-go-inject-tag` processing
+- **Root element handling**: Adds namespace attributes (`xmlns:`, `xsi:`, `schemaLocation`) to root elements
+
+## Output Structure
+
+Generated `.proto` files are organized by namespace:
+
+```
+proto/
+├── ddex/avs/vlatest/vlatest.proto       # Current AVS enums
+├── ddex/avs/v20200108/v20200108.proto   # Versioned AVS enums
+├── ddex/ern/v43/v43.proto               # ERN v4.3 messages
+├── ddex/ern/v432/v432.proto             # ERN v4.3.2 messages
+├── ddex/ern/v383/v383.proto             # ERN v3.8.3 messages
+├── ddex/mead/v11/v11.proto              # MEAD v1.1 messages
+└── ddex/pie/v10/v10.proto               # PIE v1.0 messages
+```
+
+Each `.proto` file includes:
+- Package declaration with versioned namespace
+- Go package option pointing to `gen/` directory
+- Proper imports for cross-namespace dependencies
+- Message definitions with `@gotags:` XML annotations
+- Enum definitions for simple types with restrictions
+
+## Usage
+
+The tool runs automatically as part of the build process:
+
+```bash
+# Generate all proto files from XSD schemas
+make generate-proto
+
+# Or run directly
+go run tools/xsd2proto/main.go
+```
+
+## Implementation Details
+
+### XSD Feature Support
+
+- **Complex Types**: Converted to proto messages with proper field numbering
+- **Simple Types with Enumerations**: Converted to proto enums with UNSPECIFIED default
+- **Sequences**: Elements become message fields with appropriate cardinality
+- **Choices**: Flattened into parent message fields (not oneof for XML compatibility)
+- **Attributes**: Become message fields with `xml:",attr"` tags
+- **Simple Content**: Base type becomes `value` field with `xml:",chardata"` tag
+- **Cardinality**: `maxOccurs="unbounded"` becomes `repeated` fields
+
+### Namespace Handling
+
+- **Target Namespace Detection**: Each XSD schema's `targetNamespace` determines proto package
+- **Import Resolution**: Follows `xs:import` declarations to load dependencies
+- **Include Resolution**: Follows `xs:include` declarations for same-namespace components
+- **AVS Version Mapping**: Detects AVS imports and maps to appropriate versioned packages
+
+### Field Generation
+
+- **Deduplication**: Prevents field name conflicts within messages
+- **Repeated Field Optimization**: Merges multiple same-name elements into single repeated field
+- **XML Tag Preservation**: Maintains original XML element/attribute names in `@gotags:`
+- **Type Mapping**: Maps XSD types to appropriate proto types (see mapping table above)
+
+## Goal
+
+Generate `.proto` files that produce Go structs with native XML marshaling support, providing:
+- Complete DDEX XSD compliance for XML serialization
+- High-performance Protocol Buffer binary serialization
+- Standard JSON serialization support
+- Full bidirectional conversion between all three formats
+
+The generated Go structs maintain perfect compatibility with DDEX XML standards while enabling modern microservice architectures through Protocol Buffer support.
